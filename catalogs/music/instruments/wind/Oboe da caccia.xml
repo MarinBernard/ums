@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:instrument
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="en" default="true">
+			<fullLabel>Oboe da caccia</fullLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Oboe de caza</fullLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Hautbois de chasse</fullLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Jachthobo</fullLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Oboe_da_caccia"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Oboe_da_caccia"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Oboe_de_caza"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Hautbois_de_chasse"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Oboe_da_caccia"/>
+		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Jachthobo"/>
+	</links>
+</umsm:instrument>

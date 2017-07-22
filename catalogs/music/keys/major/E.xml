@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:key
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>E-Dur</fullLabel>
+			<shortLabel>E</shortLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>E major</fullLabel>
+			<shortLabel>E</shortLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>mi mayor</fullLabel>
+			<shortLabel>MiM</shortLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>mi majeur</fullLabel>
+			<shortLabel>MiM</shortLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>mi maggiore</fullLabel>
+			<shortLabel>MiM</shortLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>E-majeur</fullLabel>
+			<shortLabel>E</shortLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>ми мажор</fullLabel>
+			<shortLabel>E</shortLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/E-Dur"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/E_major"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Mi_mayor"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Mi_majeur"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Mi_maggiore"/>
+		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/E-majeur"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Ми_мажор"/>
+	</links>
+</umsm:key>

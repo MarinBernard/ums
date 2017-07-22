@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	ns="http://schemas.olivarim.com/ums/1.0/music"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<!-- External schemas -->
+	<include href="common/include.rng" ns="http://schemas.olivarim.com/ums/1.0/common"/>
+	<!-- Dependencies -->
+	<include href="music/include.rng"/>
+	<!-- Legal root elements -->
+	<start>
+		<choice>
+			<ref name="CT_Album"/>
+			<ref name="CT_Catalog"/>
+			<ref name="CT_Character"/>
+			<ref name="CT_Composer"/>
+			<ref name="CT_Conductor"/>
+			<ref name="CT_Ensemble"/>
+			<ref name="CT_Fileset"/>
+			<ref name="CT_Form"/>
+			<ref name="CT_Instrument"/>
+			<ref name="CT_Instrumentalist"/>
+			<ref name="CT_Key"/>
+			<ref name="CT_Label"/>
+			<ref name="CT_Lyricist"/>
+			<ref name="CT_Lyrics"/>
+			<ref name="CT_Movement"/>
+			<ref name="CT_Performance"/>
+			<ref name="CT_Style"/>
+			<ref name="CT_Venue"/>
+			<ref name="CT_Work"/>
+		</choice>
+	</start>
+</grammar>

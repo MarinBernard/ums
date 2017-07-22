@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<!-- Abstract types -->
+	<include href="abstract/MusicalEvent.rng"/>
+	<!-- Concrete types -->
+	<include href="concrete/Album.rng"/>
+	<include href="concrete/Catalog.rng"/>
+	<include href="concrete/CatalogId.rng"/>
+	<include href="concrete/Composer.rng"/>
+	<include href="concrete/Conductor.rng"/>
+	<include href="concrete/Ensemble.rng"/>
+	<include href="concrete/File.rng"/>
+	<include href="concrete/Fileset.rng"/>
+	<include href="concrete/Form.rng"/>
+	<include href="concrete/Instrument.rng"/>
+	<include href="concrete/Instrumentalist.rng"/>
+	<include href="concrete/Key.rng"/>
+	<include href="concrete/Label.rng"/>
+	<include href="concrete/Lyricist.rng"/>
+	<include href="concrete/Lyrics.rng"/>
+	<include href="concrete/Medium.rng"/>
+	<include href="concrete/Movement.rng"/>
+	<include href="concrete/Performance.rng"/>
+	<include href="concrete/Performer.rng"/>
+	<include href="concrete/Section.rng"/>
+	<include href="concrete/Style.rng"/>
+	<include href="concrete/Track.rng"/>
+	<include href="concrete/Venue.rng"/>
+	<include href="concrete/Work.rng"/>
+	<!-- List types -->
+	<include href="list/Albums.rng"/>
+	<include href="list/CatalogIds.rng"/>
+	<include href="list/Composers.rng"/>
+	<include href="list/Conductors.rng"/>
+	<include href="list/Files.rng"/>
+	<include href="list/Forms.rng"/>
+	<include href="list/Instruments.rng"/>
+	<include href="list/Labels.rng"/>
+	<include href="list/Lyricists.rng"/>
+	<include href="list/Media.rng"/>
+	<include href="list/Movements.rng"/>
+	<include href="list/Performances.rng"/>
+	<include href="list/Performers.rng"/>
+	<include href="list/Sections.rng"/>
+	<include href="list/Tracks.rng"/>
+	<!-- Reference types -->
+	<include href="reference/Album.rng"/>
+	<include href="reference/Catalog.rng"/>
+	<include href="reference/Composer.rng"/>
+	<include href="reference/Conductor.rng"/>
+	<include href="reference/Ensemble.rng"/>
+	<include href="reference/Key.rng"/>
+	<include href="reference/Form.rng"/>
+	<include href="reference/Instrument.rng"/>
+	<include href="reference/Instrumentalist.rng"/>
+	<include href="reference/Label.rng"/>
+	<include href="reference/Lyricist.rng"/>
+	<include href="reference/Lyrics.rng"/>
+	<include href="reference/Movement.rng"/>
+	<include href="reference/Performance.rng"/>
+	<include href="reference/Style.rng"/>
+	<include href="reference/Venue.rng"/>
+	<include href="reference/Work.rng"/>
+</grammar>

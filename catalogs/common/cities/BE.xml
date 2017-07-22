@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/common.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<country xmlns="http://schemas.olivarim.com/ums/1.0/common">
+	<labelVariants>
+		<labelVariant lang="de" original="true">
+			<fullLabel>Königreich Belgien</fullLabel>
+			<sortLabel>Belgien, Königreich</sortLabel>
+			<commonLabel>Belgien</commonLabel>
+			<shortLabel>BE</shortLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>Kingdom of Belgium</fullLabel>
+			<sortLabel>Belgium, Kingdom of</sortLabel>
+			<commonLabel>Belgium</commonLabel>
+			<shortLabel>BE</shortLabel>
+		</labelVariant>
+		<labelVariant lang="fr" original="true">
+			<fullLabel>Royaume de Belgique</fullLabel>
+			<sortLabel>Belgique, Royaume de</sortLabel>
+			<commonLabel>Belgique</commonLabel>
+			<shortLabel>BE</shortLabel>
+		</labelVariant>
+		<labelVariant lang="nl" original="true">
+			<fullLabel>Koninkrijk België</fullLabel>
+			<sortLabel>België, Koninkrijk</sortLabel>
+			<commonLabel>België</commonLabel>
+			<shortLabel>BE</shortLabel>
+		</labelVariant>		
+		<labelVariant lang="ru">
+			<fullLabel>Королевство Бельгия</fullLabel>
+			<sortLabel>Бельгия, Королевство</sortLabel>
+			<commonLabel>Бельгия</commonLabel>
+			<shortLabel>БК</shortLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/France"/>
+		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Belgium"/>
+		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Belgique"/>
+		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/België"/>
+		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Бельгия"/>
+	</links>
+	<standardIds>
+		<standardId standard="ISO 3166-1">BE</standardId>
+	</standardIds>
+</country>

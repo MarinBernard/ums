@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/common.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<country xmlns="http://schemas.olivarim.com/ums/1.0/common">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Republik Korea</fullLabel>
+			<sortLabel>Korea, Republik</sortLabel>
+			<commonLabel>Südkorea</commonLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>Republic of Korea</fullLabel>
+			<sortLabel>Korea, Republic of</sortLabel>
+			<commonLabel>South_Korea</commonLabel>
+			<shortLabel>ROK</shortLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>República de Corea</fullLabel>
+			<sortLabel>Corea, República de</sortLabel>
+			<commonLabel>Corea del Sur</commonLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>République de Corée</fullLabel>
+			<sortLabel>Corée, République de</sortLabel>
+			<commonLabel>Corée du Sud</commonLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Repubblica di Corea</fullLabel>
+			<sortLabel>Corea, Repubblica di</sortLabel>
+			<commonLabel>Corea del Sud</commonLabel>
+		</labelVariant>
+		<labelVariant lang="ko" original="true">
+			<fullLabel>大韓民國</fullLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Республика Корея</fullLabel>
+			<sortLabel>Корея, Республика</sortLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Südkorea"/>
+		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/South_Korea"/>
+		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Corea_del_Sur"/>
+		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Corée_du_Sud"/>
+		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Corea_del_Sud"/>
+		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Франция"/>
+	</links>
+	<standardIds>
+		<standardId standard="ISO 3166-1">KR</standardId>
+	</standardIds>
+</country>

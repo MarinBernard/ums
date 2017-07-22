@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="LT_Files">
+		<element name="files">
+			<oneOrMore>
+				<ref name="CT_File"/>				
+			</oneOrMore>
+		</element>
+	</define>
+</grammar>

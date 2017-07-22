@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:work
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<titleVariants>
+		<titleVariant lang="de" original="true" default="false">
+			<fullTitle>Matthäus-Passion</fullTitle>
+			<subtitle>Passion unseres Herrn Jesus Christus nach dem Evangelisten Matthäus</subtitle>
+		</titleVariant>
+		<titleVariant lang="en" original="false" default="true">
+			<fullTitle>St Matthew Passion</fullTitle>
+			<subtitle>The Passion of our Lord Jesus Christ according to the Evangelist Matthew</subtitle>
+		</titleVariant>
+		<titleVariant lang="fr" original="false" default="false">
+			<fullTitle>Passion selon saint Matthieu</fullTitle>
+			<subtitle>Passion de notre Seigneur Jésus-Christ selon l'Évangéliste Matthieu</subtitle>
+		</titleVariant>
+		<titleVariant lang="la" original="false" default="false">
+			<fullTitle>Passio Domini nostri</fullTitle>
+			<subtitle>Passio Domini nostri Jesu Christi secundum Evangelistam Matthaeum</subtitle>
+		</titleVariant>
+	</titleVariants>
+	<umsm:catalogIds>
+		<umsm:catalogId>
+			<umsm:catalog uid="Bach-Werke-Verzeichnis"/>
+			<umsm:id level="1">244</umsm:id>
+		</umsm:catalogId>
+		<umsm:catalogId>
+			<umsm:catalog uid="Bach-Compendium"/>
+			<umsm:id level="1">D3b</umsm:id>
+		</umsm:catalogId>
+	</umsm:catalogIds>
+	<umsm:composers>
+		<umsm:composer uid="Bach, Johann Sebastian"/>
+	</umsm:composers>
+	<umsm:form uid="Oratorio"/>
+	<umsm:style uid="Baroque/Late"/>
+	<umsm:instruments>
+		<umsm:instrument uid="wind/Bassoon"/>
+		<umsm:instrument uid="wind/Oboe"/>
+		<umsm:instrument uid="wind/Oboe d'amore"/>
+		<umsm:instrument uid="wind/Oboe da caccia"/>
+		<umsm:instrument uid="wind/Recorder"/>
+		<umsm:instrument uid="wind/Traverso"/>
+		<umsm:instrument uid="voice/Alto"/>
+		<umsm:instrument uid="voice/Bass"/>
+		<umsm:instrument uid="voice/Choir"/>
+		<umsm:instrument uid="voice/Soprano"/>
+		<umsm:instrument uid="voice/Tenor"/>
+		<umsm:instrument uid="string/Violin"/>
+		<umsm:instrument uid="string/Viola"/>
+		<umsm:instrument uid="string/Viola da gamba"/>
+		<umsm:instrument uid="Continuo"/>
+	</umsm:instruments>
+	<umsm:key uid="minor/E"/>
+	<umsm:completion>
+		<year>1736</year>
+	</umsm:completion>
+	<umsm:premiere>
+		<date>1736-03-30</date>
+	</umsm:premiere>
+	<umsm:sections>
+		<umsm:section id="I" numbering="I">
+			<titleVariants>
+				<titleVariant lang="de" original="true">
+					<fullTitle>Erster Teil</fullTitle>
+				</titleVariant>
+				<titleVariant lang="en" original="false" default="true">
+					<fullTitle>First Part</fullTitle>
+				</titleVariant>
+				<titleVariant lang="fr">
+					<fullTitle>Première partie</fullTitle>
+				</titleVariant>
+			</titleVariants>
+			<umsm:sections>
+				<umsm:section id="1" numbering="1">
+					<umsm:movements>
+						<umsm:movement uid="244/I-01"/>
+					</umsm:movements>
+				</umsm:section>
+				<umsm:section id="2" numbering="2">
+					<umsm:movements>
+						<umsm:movement uid="244/I-02"/>
+					</umsm:movements>
+				</umsm:section>
+				<umsm:section id="3" numbering="3">
+					<umsm:movements>
+						<umsm:movement uid="244/I-03"/>
+					</umsm:movements>
+				</umsm:section>
+			</umsm:sections>
+		</umsm:section>
+		<umsm:section id="II" numbering="II">
+			<titleVariants>
+				<titleVariant lang="de" original="true">
+					<fullTitle>Zweiter Teil</fullTitle>
+				</titleVariant>
+				<titleVariant lang="en" original="false" default="true">
+					<fullTitle>Second Part</fullTitle>
+				</titleVariant>
+				<titleVariant lang="fr">
+					<fullTitle>Deuxième partie</fullTitle>
+				</titleVariant>
+			</titleVariants>
+			<umsm:sections>
+				<umsm:section id="30" numbering="30">
+					<umsm:movements>
+						<umsm:movement uid="244/II-30"/>
+					</umsm:movements>
+				</umsm:section>
+			</umsm:sections>
+		</umsm:section>
+	</umsm:sections>
+</umsm:work>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:lyrics
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<umsm:stanza>
+		<umsm:singer character="characters/Chor I">
+			<umsm:singer character="characters/Chor II">
+				<umsm:verse>Herzliebster Jesu, was hast du verbrochen,</umsm:verse>
+				<umsm:verse>daß man ein solch scharf Urteil hat gesprochen,</umsm:verse>
+				<umsm:verse>was ist die Schuld, in was für Missetaten</umsm:verse>
+				<umsm:verse>bist du geraten.</umsm:verse>
+			</umsm:singer>
+		</umsm:singer>
+	</umsm:stanza>
+</umsm:lyrics>

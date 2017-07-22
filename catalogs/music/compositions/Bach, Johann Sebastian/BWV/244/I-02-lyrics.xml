@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:lyrics
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<umsm:stanza>
+		<umsm:singer character="characters/Evangelist">
+			<umsm:verse>Da Jesus diese Rede vollendet hatte, sprach er zu seinen Jüngern:</umsm:verse>
+		</umsm:singer>
+		<umsm:singer character="characters/Jesus">
+			<umsm:verse>Ihr wisset, daß nach zween Tagen Ostern wird, und des Menschen Sohn wird überantwortet werden, daß er gekreuziget werde.</umsm:verse>
+		</umsm:singer>
+	</umsm:stanza>
+</umsm:lyrics>

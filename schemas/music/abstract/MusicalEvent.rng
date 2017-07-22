@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<define name="AT_MusicalEvent">
+		<!-- Full or partial date -->
+		<choice>
+			<element name="date">
+				<data type="date"/>
+			</element>
+			<element name="year">
+				<data type="gYear"/>
+			</element>
+			<group>
+				<element name="year">
+					<data type="gYear"/>
+				</element>
+				<element name="month">
+					<data type="gMonth"/>
+				</element>
+			</group>
+		</choice>
+		<!-- Full or partial place -->
+		<optional>
+			<choice>
+				<ref name="CT_Venue"/>
+				<ref name="RT_Venue"/>
+				<ref name="CT_City"/>
+				<ref name="RT_City"/>
+				<ref name="CT_Country"/>
+				<ref name="RT_Country"/>
+			</choice>
+		</optional>
+	</define>
+</grammar>

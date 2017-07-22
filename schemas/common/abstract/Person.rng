@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="AT_Person">
+		<!-- Variants of the person's name -->
+		<ref name="LT_NameVariants"/>
+		<!-- Biography of the person -->
+		<optional>
+			<ref name="LT_Biographies"/>
+		</optional>
+		<!-- Birth event data -->
+		<optional>
+			<element name="birth">
+				<ref name="AT_Event"/>
+			</element>
+		</optional>
+		<!-- Death event data -->
+		<optional>
+			<element name="death">
+				<ref name="AT_Event"/>
+			</element>
+		</optional>
+		<!-- Common links -->
+		<optional>
+			<ref name="LT_Links"/>
+		</optional>
+	</define>
+</grammar>

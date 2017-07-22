@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:fileset
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<umsm:albums>
+		<umsm:album uid="album"/>
+	</umsm:albums>
+	<umsm:files>
+		<umsm:file album="album" medium="1" track="1" path="01-01.flac"/>
+		<umsm:file album="album" medium="1" track="2" path="01-02.flac"/>
+		<umsm:file album="album" medium="1" track="3" path="01-03.flac"/>
+	</umsm:files>
+</umsm:fileset>

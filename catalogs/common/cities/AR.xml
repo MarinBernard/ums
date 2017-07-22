@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/common.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<country xmlns="http://schemas.olivarim.com/ums/1.0/common">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Argentinische Republik</fullLabel>
+			<commonLabel>Argentinien</commonLabel>
+			<shortLabel>AR</shortLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>Argentine Republic</fullLabel>
+			<commonLabel>Argentina</commonLabel>
+			<shortLabel>AR</shortLabel>
+		</labelVariant>
+		<labelVariant lang="es" original="true">
+			<fullLabel>República Argentina</fullLabel>
+			<commonLabel>Argentina</commonLabel>
+			<shortLabel>AR</shortLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>République argentine</fullLabel>
+			<commonLabel>Argentine</commonLabel>
+			<shortLabel>AR</shortLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Argentijnse Republiek</fullLabel>
+			<commonLabel>Argentinië</commonLabel>
+			<shortLabel>AR</shortLabel>
+		</labelVariant>		
+		<labelVariant lang="ru">
+			<fullLabel>Аргентинская Республика</fullLabel>
+			<commonLabel>Аргентина</commonLabel>
+			<shortLabel>АР</shortLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Argentinien"/>
+		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Argentina"/>
+		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Argentina"/>
+		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Argentine"/>
+		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Argentinië"/>
+		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Аргентина"/>
+	</links>
+	<standardIds>
+		<standardId standard="ISO 3166-1">AR</standardId>
+	</standardIds>
+</country>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="LT_Forms">
+		<element name="forms">
+			<oneOrMore>
+				<choice>
+					<ref name="CT_Form"/>
+					<ref name="RT_Form"/>
+				</choice>
+			</oneOrMore>
+		</element>
+	</define>
+</grammar>

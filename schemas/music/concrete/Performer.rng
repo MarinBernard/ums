@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<define name="CT_Performer">
+		<element name="performer">
+			<!-- Whether the performer is a soloist -->
+			<optional>
+				<attribute name="soloist">
+					<data type="boolean"/>
+				</attribute>
+			</optional>
+			<choice>
+				<!-- Ensemble -->
+				<group>
+					<choice>
+						<ref name="CT_Ensemble"/>
+						<ref name="RT_Ensemble"/>
+					</choice>
+					<zeroOrMore>
+						<choice>
+							<ref name="CT_Instrument"/>
+							<ref name="RT_Instrument"/>
+						</choice>
+					</zeroOrMore>
+				</group>
+				<!-- Instrumentalist -->
+				<group>
+					<choice>
+						<ref name="CT_Instrumentalist"/>
+						<ref name="RT_Instrumentalist"/>
+					</choice>
+					<oneOrMore>
+						<choice>
+							<ref name="CT_Instrument"/>
+							<ref name="RT_Instrument"/>
+						</choice>
+					</oneOrMore>
+				</group>
+			</choice>
+		</element>
+	</define>
+</grammar>

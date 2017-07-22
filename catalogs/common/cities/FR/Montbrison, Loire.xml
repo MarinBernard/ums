@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/common.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<city xmlns="http://schemas.olivarim.com/ums/1.0/common">
+	<labelVariants>
+		<labelVariant lang="fr" original="true">
+			<fullLabel>Montbrison (Loire)</fullLabel>
+			<commonLabel>Montbrison</commonLabel>
+		</labelVariant>	
+		<labelVariant lang="en" default="true">
+			<fullLabel>Montbrison, Loire</fullLabel>
+			<commonLabel>Montbrison</commonLabel>
+		</labelVariant>	
+		<labelVariant lang="ru">
+			<fullLabel>Монбризон (Луара)</fullLabel>
+			<commonLabel>Монбризон</commonLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Montbrison (Loire)"/>
+		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Montbrison, Loire"/>
+		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Montbrison"/>
+		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Montbrison (Loire)"/>
+		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Montbrison"/>
+		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Montbrison"/>
+		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Монбризон_(Луара)"/>
+	</links>
+	<country uid="FR"/>
+</city>

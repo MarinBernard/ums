@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/common.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<country xmlns="http://schemas.olivarim.com/ums/1.0/common">
+	<labelVariants>
+		<labelVariant lang="de" original="true">
+			<fullLabel>Bundesrepublik Deutschland</fullLabel>
+			<sortLabel>Deutschland, Bundesrepublik</sortLabel>
+			<commonLabel>Deutschland</commonLabel>
+			<shortLabel>BRD</shortLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>Federal Republic of Germany</fullLabel>
+			<sortLabel>Germany, Federal Republic of</sortLabel>
+			<commonLabel>Germany</commonLabel>
+			<shortLabel>FRG</shortLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>République fédérale d'Allemagne</fullLabel>
+			<sortLabel>Allemagne, République fédérale d'</sortLabel>
+			<commonLabel>Allemagne</commonLabel>
+			<shortLabel>RFA</shortLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Федеративная Республика Германия</fullLabel>
+			<sortLabel>Германия, Федеративная Республика</sortLabel>
+			<commonLabel>Германия</commonLabel>
+			<shortLabel>ФРГ</shortLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Deutschland"/>
+		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Germany"/>
+		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Allemagne"/>
+		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Германия"/>
+	</links>
+	<standardIds>
+		<standardId standard="ISO 3166-1">DE</standardId>
+	</standardIds>
+</country>

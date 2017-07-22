@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:movement
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<umsm:forms>
+		<umsm:form uid="Aria"/>
+	</umsm:forms>
+	<umsm:instruments>
+		<umsm:instrument uid="wind/Traverso"/>
+		<umsm:instrument uid="wind/Oboe d'amore"/>
+		<umsm:instrument uid="voice/Alto"/>
+		<umsm:instrument uid="voice/Choir"/>
+		<umsm:instrument uid="string/Violin"/>
+		<umsm:instrument uid="string/Viola"/>
+		<umsm:instrument uid="Continuo"/>
+	</umsm:instruments>
+	<umsm:key uid="minor/B"/>
+	<umsm:lyricists>
+		<umsm:lyricist uid="Picander"/>
+	</umsm:lyricists>
+	<umsm:incipit>Ach! nun ist mein Jesus hin!</umsm:incipit>
+	<umsm:lyrics uid="II-30-lyrics"/>
+	<characters>
+		<character uid="characters/Choir II"/>
+	</characters>
+</umsm:movement>

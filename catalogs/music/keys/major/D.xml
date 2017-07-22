@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:key
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>D-Dur</fullLabel>
+			<shortLabel>D</shortLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>D major</fullLabel>
+			<shortLabel>D</shortLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>re mayor</fullLabel>
+			<shortLabel>ReM</shortLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>ré majeur</fullLabel>
+			<shortLabel>RéM</shortLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>re maggiore</fullLabel>
+			<shortLabel>ReM</shortLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>D-majeur</fullLabel>
+			<shortLabel>D</shortLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>ре мажор</fullLabel>
+			<shortLabel>D</shortLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/D-Dur"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/D_major"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Re_mayor"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Ré_majeur"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Re_maggiore"/>
+		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/D-majeur"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Ре_мажор"/>
+	</links>
+</umsm:key>

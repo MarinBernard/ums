@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="LT_Conductors">
+		<element name="conductors">
+			<oneOrMore>
+				<choice>
+					<ref name="CT_Conductor"/>
+					<ref name="RT_Conductor"/>
+				</choice>
+			</oneOrMore>
+		</element>
+	</define>
+</grammar>

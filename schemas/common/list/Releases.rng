@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="LT_Releases">
+		<element name="releases">
+			<oneOrMore>
+				<ref name="CT_Release"/>				
+			</oneOrMore>
+		</element>
+	</define>
+</grammar>

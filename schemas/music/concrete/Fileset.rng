@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="CT_Fileset">
+		<element name="fileset">
+			<!-- List of albums -->
+			<ref name="LT_Albums"/>
+			<!-- List of files -->
+			<ref name="LT_Files"/>
+		</element>
+	</define>
+</grammar>

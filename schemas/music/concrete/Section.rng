@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<define name="CT_Section">
+		<element name="section">
+			<!-- Inherited elements common to all products -->
+			<optional>
+				<ref name="AT_Product"/>
+			</optional>
+			<!-- Unique ID identifying the section -->
+			<attribute name="id">
+				<data type="string"/>
+			</attribute>
+			<!-- Numbering information -->
+			<attribute name="numbering">
+				<data type="string"/>
+			</attribute>
+			<!-- Subdivisions or movements included into the section -->
+			<choice>
+				<oneOrMore>
+					<ref name="LT_Sections"/>
+				</oneOrMore>
+				<oneOrMore>
+					<ref name="LT_Movements"/>
+				</oneOrMore>
+			</choice>
+		</element>
+	</define>
+</grammar>

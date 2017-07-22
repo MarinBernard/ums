@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/common.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<country xmlns="http://schemas.olivarim.com/ums/1.0/common">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Vereinigte Königreich Großbritannien und Nordirland</fullLabel>
+			<commonLabel>Vereinigtes Königreich</commonLabel>
+		</labelVariant>
+		<labelVariant lang="en" original="true" default="true">
+			<fullLabel>United Kingdom of Great Britain and Northern Ireland</fullLabel>
+			<commonLabel>United Kingdom</commonLabel>
+			<shortLabel>GB</shortLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Reino Unido de Gran Bretaña e Irlanda del Norte</fullLabel>
+			<commonLabel>Reino Unido</commonLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Royaume-Uni de Grande-Bretagne et d'Irlande du Nord</fullLabel>
+			<commonLabel>Royaume-Uni</commonLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Regno Unito di Gran Bretagna e Irlanda del Nord</fullLabel>
+			<commonLabel>Regno_Unito</commonLabel>
+		</labelVariant>				
+		<labelVariant lang="nl">
+			<fullLabel>Verenigd Koninkrijk van Groot-Brittannië en Noord-Ierland</fullLabel>
+			<commonLabel>Verenigd Koninkrijk</commonLabel>
+			<shortLabel>VK</shortLabel>
+		</labelVariant>		
+		<labelVariant lang="ru">
+			<fullLabel>Соединённое Королевство Великобритании и Северной Ирландии</fullLabel>
+			<commonLabel>Великобритания</commonLabel>
+			<shortLabel>США</shortLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Vereinigtes_Königreich"/>
+		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/United_Kingdom"/>
+		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Estados_Unidos"/>
+		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Royaume-Uni"/>
+		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Regno_Unito"/>
+		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Verenigd_Koninkrijk"/>
+		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Великобритания"/>
+	</links>
+	<standardIds>
+		<standardId standard="ISO 3166-1">GB</standardId>
+	</standardIds>
+</country>

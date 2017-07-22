@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:lyrics
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<umsm:stanza>
+		<umsm:singer character="characters/Choir I">
+			<umsm:verse>Kommt, ihr Töchter, helft mir klagen,</umsm:verse>
+			<umsm:verse>sehet</umsm:verse>
+		</umsm:singer>
+		<umsm:singer character="characters/Choir II">
+			<umsm:verse>wen?</umsm:verse>
+		</umsm:singer>
+		<umsm:singer character="characters/Choir I">
+			<umsm:verse>den Bräutigam,</umsm:verse>
+			<umsm:verse>seht ihn</umsm:verse>
+		</umsm:singer>
+		<umsm:singer character="characters/Choir II">
+			<umsm:verse>wie?</umsm:verse>
+		</umsm:singer>
+		<umsm:singer character="characters/Choir I">
+			<umsm:verse>den Bräutigam,</umsm:verse>
+			<umsm:verse>als wie ein Lamm.</umsm:verse>
+		</umsm:singer>
+	</umsm:stanza>
+	<umsm:stanza>
+		<umsm:singer character="characters/Choir III">
+			<umsm:verse>O Lamm Gottes unschuldig</umsm:verse>
+			<umsm:verse>am Stamm des Kreuzes geschlachtet</umsm:verse>
+		</umsm:singer>
+	</umsm:stanza>
+	<umsm:stanza>
+		<umsm:singer character="characters/Choir I">
+			<umsm:verse>Sehet</umsm:verse>
+		</umsm:singer>
+		<umsm:singer character="characters/Choir II">
+			<umsm:verse>was?</umsm:verse>
+		</umsm:singer>
+		<umsm:singer character="characters/Choir I">
+			<umsm:verse>seht die Geduld,</umsm:verse>
+		</umsm:singer>
+	</umsm:stanza>
+	<umsm:stanza>
+		<umsm:singer character="characters/Choir III">
+			<umsm:verse>allzeit erfund'n geduldig</umsm:verse>
+			<umsm:verse>wiewohl du warest verachtet.</umsm:verse>
+		</umsm:singer>
+	</umsm:stanza>
+	<umsm:stanza>
+		<umsm:singer character="characters/Choir I">
+			<umsm:verse>seht</umsm:verse>
+		</umsm:singer>
+	</umsm:stanza>
+	<umsm:stanza>
+		<umsm:singer character="characters/Choir II">
+			<umsm:verse>wohin?</umsm:verse>
+		</umsm:singer>
+	</umsm:stanza>
+	<umsm:stanza>
+		<umsm:singer character="characters/Choir I">
+			<umsm:verse>auf unsre Schuld,</umsm:verse>
+		</umsm:singer>
+	</umsm:stanza>
+	<umsm:stanza>
+		<umsm:singer character="characters/Choir III">
+			<umsm:verse>all Sünd hast du getragen,</umsm:verse>
+			<umsm:verse>sonst müßten wir verzagen,</umsm:verse>
+		</umsm:singer>
+	</umsm:stanza>
+	<umsm:stanza>
+		<umsm:singer character="characters/Choir I">
+			<umsm:verse>sehet ihn aus Lieb und Huld</umsm:verse>
+			<umsm:verse>Holz zum Kreuze selber tragen.</umsm:verse>
+		</umsm:singer>
+	</umsm:stanza>
+	<umsm:stanza>
+		<umsm:singer character="characters/Choir III">
+			<umsm:verse>erbarm dich unser o Jesu.</umsm:verse>
+		</umsm:singer>
+	</umsm:stanza>
+</umsm:lyrics>

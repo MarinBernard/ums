@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:instrumentalist
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<nameVariants>
+		<nameVariant lang="en" original="true" default="true">
+			<firstName>James</firstName>
+			<lastName>Gilchrist</lastName>
+		</nameVariant>
+	</nameVariants>
+	<birth>
+		<year>1966</year>
+		<countryState uid="GB/EN"/>
+	</birth>
+	<links>
+		<website lang="en" href="http://www.jamesgilchrist.co.uk"/>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/James_Gilchrist"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/James_Gilchrist_(tenor)"/>
+	</links>
+	<umsm:instrument uid="voice/Tenor"/>
+</umsm:instrumentalist>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="CT_StandardId">
+		<element name="standardId">
+			<!-- Name of the standard -->
+			<attribute name="standard">
+				<data type="string"/>
+			</attribute>
+			<!-- Id of the record within the standard -->
+			<data type="string"/>
+		</element>
+	</define>
+</grammar>

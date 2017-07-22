@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="LT_Instruments">
+		<element name="instruments">
+			<oneOrMore>
+				<choice>
+					<ref name="CT_Instrument"/>
+					<ref name="RT_Instrument"/>
+				</choice>
+			</oneOrMore>
+		</element>
+	</define>
+</grammar>

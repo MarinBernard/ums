@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/common.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<language
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Französisch</fullLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>French</fullLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Francés</fullLabel>
+		</labelVariant>
+		<labelVariant lang="fr" original="true">
+			<fullLabel>Français</fullLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Francese</fullLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Французский</fullLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Französische_Sprache"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/French_language"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Idioma_francés"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Français"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Lingua_francese"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Французский_язык"/>
+	</links>
+	<idioms>
+		<idiom id="musical-key-introducer">en</idiom>
+	</idioms>
+	<typography>
+		<typographicSign id="numero" spacing="after">n°</typographicSign>
+		<typographicSign id="opening-quotation-mark" spacing="after">«</typographicSign>
+		<typographicSign id="closing-quotation-mark" spacing="before">»</typographicSign>
+	</typography>
+</language>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:style
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Romantik</fullLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>Romanticism</fullLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Romanticismo</fullLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Romantisme</fullLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Romanticismo</fullLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Романтизм</fullLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Musik_der_Romantik"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Romantic_music"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Música_del_Romanticismo"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Musique_romantique"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Musica_romantica"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Музыка_периода_романтизма"/>
+	</links>
+</umsm:style>

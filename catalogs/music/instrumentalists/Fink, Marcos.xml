@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:instrumentalist
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<nameVariants>
+		<nameVariant lang="sl" original="true" default="true">
+			<firstName>Marcos</firstName>
+			<lastName>Fink</lastName>
+		</nameVariant>
+	</nameVariants>
+	<birth>
+		<date>1950-11-29</date>
+		<city uid="AR/Buenos Aires"/>
+	</birth>
+	<links>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Marcos_Fink"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Marcos_Fink"/>
+	</links>
+	<umsm:instrument uid="voice/Bass"/>
+</umsm:instrumentalist>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:movement
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<umsm:forms>
+		<umsm:form uid="Recitative"/>
+	</umsm:forms>
+	<umsm:instruments>
+		<umsm:instrument uid="string/Violin"/>
+		<umsm:instrument uid="string/Viola"/>
+		<umsm:instrument uid="voice/Tenor"/>
+		<umsm:instrument uid="voice/Bass"/>
+		<umsm:instrument uid="Continuo"/>
+	</umsm:instruments>
+	<umsm:key uid="major/G"/>
+	<umsm:incipit>Da Jesus diese Rede vollendet hatte</umsm:incipit>
+	<umsm:lyrics uid="I-02-lyrics"/>
+	<characters>
+		<character uid="characters/Evangelist"/>
+		<character uid="characters/Jesus"/>
+	</characters>
+</umsm:movement>

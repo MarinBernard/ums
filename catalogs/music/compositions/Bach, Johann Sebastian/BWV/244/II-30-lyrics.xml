@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:lyrics
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<umsm:stanza>
+		<umsm:singer instrument="voice/Alto">
+			<umsm:verse>Ach, nun ist mein Jesus hin.</umsm:verse>
+		</umsm:singer>
+		<umsm:singer character="characters/Choir II">
+			<umsm:verse>Wo ist denn dein Freund hingegangen,</umsm:verse>
+			<umsm:verse>o du Schönste unter den Weibern?</umsm:verse>
+		</umsm:singer>
+		<umsm:singer instrument="voice/Alto">
+			<umsm:verse>Ist es möglich, kann ich schauen?</umsm:verse>
+		</umsm:singer>
+		<umsm:singer character="characters/Choir II">
+			<umsm:verse>Wo hat sich dein Freund hingewandt?</umsm:verse>
+		</umsm:singer>
+		<umsm:singer instrument="voice/Alto">
+			<umsm:verse>Ach, mein Lamm in Tigerklauen,</umsm:verse>
+			<umsm:verse>ach, wo ist mein Jesus hin?</umsm:verse>
+		</umsm:singer>
+		<umsm:singer character="characters/Choir II">
+			<umsm:verse>So wollen wir mit dir ihn suchen. </umsm:verse>
+		</umsm:singer>
+		<umsm:singer instrument="voice/Alto">
+			<umsm:verse>Ach, was soll ich der Seele sagen,</umsm:verse>
+			<umsm:verse>wenn sie mich wird ängstlich fragen,</umsm:verse>
+			<umsm:verse>ach, wo ist mein Jesus hin?</umsm:verse>
+		</umsm:singer>
+	</umsm:stanza>
+</umsm:lyrics>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:instrumentalist
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<nameVariants>
+		<nameVariant lang="ko-KR-Kore" original="true">
+			<firstName>선혜</firstName>
+			<lastName>임</lastName>
+		</nameVariant>
+		<nameVariant lang="ko-KR-Latn" default="true">
+			<firstName>Sun-hae</firstName>
+			<lastName>Im</lastName>
+			<commonName>Sunhae Im</commonName>
+		</nameVariant>
+	</nameVariants>
+	<birth>
+		<date>1976-01-15</date>
+		<country uid="KR"/>
+	</birth>
+	<links>
+		<website href="http://www.sunhaeim.com/en" lang="en"/>
+		<website href="http://www.sunhaeim.com/de" lang="de"/>
+	</links>
+	<umsm:instrument uid="voice/Soprano"/>
+</umsm:instrumentalist>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:key
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>d-Moll</fullLabel>
+			<shortLabel>Dm</shortLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>D minor</fullLabel>
+			<shortLabel>Dm</shortLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>re menor</fullLabel>
+			<shortLabel>Rem</shortLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>ré mineur</fullLabel>
+			<shortLabel>Rém</shortLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>re minore</fullLabel>
+			<shortLabel>Rem</shortLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>d-mineur</fullLabel>
+			<shortLabel>Dm</shortLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>ре минор</fullLabel>
+			<shortLabel>Dm</shortLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/D-Moll"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/D_minor"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Re_menor"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Re_mineur"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Re_minore"/>
+		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/D-mineur"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Ре_минор"/>
+	</links>
+</umsm:key>

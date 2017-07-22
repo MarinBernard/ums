@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:form
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Chor</fullLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>Chorus</fullLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Coro</fullLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Chœur</fullLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Coro</fullLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Koor</fullLabel>
+		</labelVariant>		
+		<labelVariant lang="ru">
+			<fullLabel>Хор</fullLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Chœur_(musique)#Partie_musicale"/>
+	</links>
+</umsm:form>

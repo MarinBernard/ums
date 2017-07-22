@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:movement
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<umsm:forms>
+		<umsm:form uid="Chorus"/>
+	</umsm:forms>
+	<umsm:instruments>
+		<umsm:instrument uid="wind/Traverso"/>
+		<umsm:instrument uid="wind/Oboe"/>
+		<umsm:instrument uid="voice/Choir"/>
+		<umsm:instrument uid="voice/Soprano"/>
+		<umsm:instrument uid="string/Violin"/>
+		<umsm:instrument uid="string/Viola"/>
+		<umsm:instrument uid="Continuo"/>
+	</umsm:instruments>
+	<umsm:key uid="minor/E"/>
+	<umsm:lyricists>
+		<umsm:lyricist uid="Picander"/>
+		<umsm:lyricist uid="Decius, Nikolaus"/>
+	</umsm:lyricists>
+	<umsm:incipit>Kommt, ihr Töchter, helft mir klagen</umsm:incipit>
+	<umsm:lyrics uid="I-01-lyrics"/>
+	<characters>
+		<character uid="characters/Choir I"/>
+		<character uid="characters/Choir II"/>
+		<character uid="characters/Choir III"/>
+	</characters>
+</umsm:movement>

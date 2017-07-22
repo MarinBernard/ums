@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="CT_Instrumentalist">
+		<element name="instrumentalist">
+			<!-- This element might be used by reference -->
+			<ref name="AT_Referenceable"/>
+			<!-- Inherited elements common to all persons -->
+			<ref name="AT_Person"/>
+			<!-- The instrument played by the instrumentalist -->
+			<choice>
+				<ref name="CT_Instrument"/>
+				<ref name="RT_Instrument"/>
+			</choice>
+		</element>
+	</define>
+</grammar>

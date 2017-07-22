@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:instrument
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Alt (Stimmlage)</fullLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>Alto (voice)</fullLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Alto (voz)</fullLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Alto (voix)</fullLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Alto (voce)</fullLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Alt (zangstem)</fullLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Альт (голос)</fullLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Alt_(Stimmlage)"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Alto"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Alto"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Alto_(voix)"/>
+		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/Alt_(zangstem)"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Альт_(голос)"/>
+	</links>
+</umsm:instrument>

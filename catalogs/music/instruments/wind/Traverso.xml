@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:instrument
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Querflöte</fullLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>Concert flute</fullLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Flauta_travesera</fullLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Flûte traversière</fullLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Flauto traverso</fullLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Dwarsfluit</fullLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Поперечная флейта</fullLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Querflöte"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Western_concert_flute"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Flauta_travesera"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Flûte_traversière"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Flauto_traverso"/>
+		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Dwarsfluit"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Поперечная_флейта"/>
+	</links>
+</umsm:instrument>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:label
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="en" original="true" default="true">
+			<fullLabel>Sony Music Masterworks</fullLabel>
+			<shortLabel>SMM</shortLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<website lang="en" href="http://www.sonymusicmasterworks.com"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Sony_Masterworks"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Sony_Music_Masterworks"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Sony_Masterworks"/>
+	</links>
+</umsm:label>

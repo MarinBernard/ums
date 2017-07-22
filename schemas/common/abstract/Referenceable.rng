@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="AT_Referenceable">
+		<optional>
+			<attribute name="uid">
+				<data type="string"/>
+			</attribute>
+		</optional>
+	</define>
+</grammar>

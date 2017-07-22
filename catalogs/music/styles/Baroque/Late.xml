@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:style
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Spätbarock</fullLabel>
+			<sortLabel>Barock (Spät)</sortLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>Late Baroque</fullLabel>
+			<sortLabel>Baroque (Late)</sortLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Barroco tardío</fullLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Baroque tardif</fullLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Tardo barocco</fullLabel>
+			<sortLabel>Barocco (Tardo)</sortLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Поздний барокко</fullLabel>
+			<sortLabel>Барокко (Поздний)</sortLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Barockmusik"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Baroque_music#Late_baroque_music_.281680.E2.80.931730.29"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Música_del_Barroco"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Musique_baroque"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Musica_barocca"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Музыка_эпохи_барокко"/>
+	</links>
+</umsm:style>

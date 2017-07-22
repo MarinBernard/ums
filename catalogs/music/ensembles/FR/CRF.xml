@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:ensemble
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="fr" original="true" default="true">
+			<fullLabel>Chœur de Radio France</fullLabel>
+			<sortLabel>Radio France, Chœur de</sortLabel>
+			<shortLabel>CRF</shortLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Молодёжный Хор Радио Франции</fullLabel>
+			<sortLabel>Радио Франции, Молодёжный Хор</sortLabel>
+			<shortLabel>МХРФ</shortLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Chœur_de_Radio_France"/>
+	</links>
+	<creation>
+		<year>1947</year>
+		<city uid="FR/Paris"/>
+	</creation>
+</umsm:ensemble>

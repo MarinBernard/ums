@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:ensemble
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="fr" original="true" default="true">
+			<fullLabel>Orchestre philharmonique de Radio France</fullLabel>
+			<sortLabel>Radio France, Orchestre philharmonique de</sortLabel>
+			<shortLabel>OPRF</shortLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Филармонический оркестр Радио Франции</fullLabel>
+			<sortLabel>Радио Франции, Филармонический оркестр</sortLabel>
+			<shortLabel>ФОРФ</shortLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Orchestre_Philharmonique_de_Radio_France"/>
+		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Orchestre_philharmonique_de_Radio_France"/>
+		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Orchestre_philharmonique_de_Radio_France"/>
+		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Orchestre_Philharmonique_de_Radio_France"/>
+		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Филармонический_оркестр_Радио_Франции"/>
+	</links>
+</umsm:ensemble>

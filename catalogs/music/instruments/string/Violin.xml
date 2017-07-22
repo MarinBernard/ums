@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:instrument
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Violine</fullLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>Violin</fullLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Violín</fullLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Violon</fullLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Violino</fullLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Скрипка</fullLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Violine"/>
+		<wikipedia lang="en" href="https://de.wikipedia.org/wiki/Violin"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Violín"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Violon"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Violino"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Скрипка"/>
+	</links>
+</umsm:instrument>

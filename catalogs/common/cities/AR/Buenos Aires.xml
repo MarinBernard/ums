@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/common.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<city xmlns="http://schemas.olivarim.com/ums/1.0/common">
+	<labelVariants>
+		<labelVariant lang="es" default="true" original="true">
+			<fullLabel>Buenos Aires</fullLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Буэнос-Айрес</fullLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Buenos_Aires"/>
+		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Buenos_Aires"/>
+		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Buenos_Aires"/>
+		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Buenos_Aires"/>
+		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Buenos_Aires"/>
+		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Buenos_Aires_(stad)"/>
+		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Буэнос-Айрес"/>
+	</links>
+	<country uid="AR"/>
+</city>

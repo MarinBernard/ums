@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="CT_CountryState">
+		<element name="countryState">
+			<!-- This element might be used by reference -->
+			<ref name="AT_Referenceable"/>
+			<!-- Abstract properties common to all items -->
+			<ref name="AT_Item"/>
+			<choice>
+				<ref name="CT_Country"/>
+				<ref name="RT_Country"/>
+			</choice>
+		</element>
+	</define>
+</grammar>

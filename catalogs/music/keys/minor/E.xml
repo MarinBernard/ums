@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:key
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>e-Moll</fullLabel>
+			<shortLabel>Em</shortLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>E minor</fullLabel>
+			<shortLabel>Em</shortLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>mi menor</fullLabel>
+			<shortLabel>Mim</shortLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>mi mineur</fullLabel>
+			<shortLabel>Mim</shortLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>mi minore</fullLabel>
+			<shortLabel>Mim</shortLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>e-mineur</fullLabel>
+			<shortLabel>Em</shortLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>ми минор</fullLabel>
+			<shortLabel>Em</shortLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/E-Moll"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/E_minor"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Mi_menor"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Mi_mineur"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Mi_minore"/>
+		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/E-mineur"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Ми_минор"/>
+	</links>
+</umsm:key>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:key
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>b-Moll</fullLabel>
+			<shortLabel>Bm</shortLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>B-flat minor</fullLabel>
+			<shortLabel>B♭m</shortLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>si bemol menor</fullLabel>
+			<shortLabel>Si♭m</shortLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>si bémol mineur</fullLabel>
+			<shortLabel>Si♭m</shortLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>si bemolle minore</fullLabel>
+			<shortLabel>Si♭m</shortLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>bes-mineur</fullLabel>
+			<shortLabel>B♭m</shortLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>си-бемоль минор</fullLabel>
+			<shortLabel>Bm</shortLabel>
+		</labelVariant>
+	</labelVariants>
+	<links>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/B-Moll"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/B-flat_minor"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Si_bemol_menor"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Si_bémol_mineur"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Si_bemolle_minore"/>
+		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/Bes-mineur"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Си-бемоль_минор"/>
+	</links>
+</umsm:key>

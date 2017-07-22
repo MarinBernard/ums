@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<character
+	xmlns="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<nameVariants>
+		<nameVariant lang="de" original="true">
+			<firstName>Evangelist</firstName>
+			<shortName>Ev.</shortName>
+		</nameVariant>
+		<nameVariant lang="en" default="true">
+			<firstName>Evangelist</firstName>
+			<shortName>Ev.</shortName>
+		</nameVariant>
+		<nameVariant lang="fr">
+			<firstName>Évangéliste</firstName>
+			<shortName>Év.</shortName>
+		</nameVariant>		
+	</nameVariants>
+</character>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<define name="CT_Track">
+		<element name="track">
+			<!-- Abstract properties common to all items -->
+			<ref name="AT_Track"/>
+			<!-- Related performance -->
+			<attribute name="performance">
+				<data type="string"/>
+			</attribute>
+			<!-- Related section -->
+			<attribute name="section">
+				<data type="string"/>
+			</attribute>
+		</element>
+	</define>
+</grammar>
