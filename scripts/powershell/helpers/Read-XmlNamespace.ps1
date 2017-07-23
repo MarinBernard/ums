@@ -1,4 +1,4 @@
-function Read-XmlNamespaceURI
+function Read-XmlNamespace
 {
     Param(
         [Parameter(Mandatory=$true)]

@@ -11,7 +11,7 @@
 	================================================================================================================================
 	
 	Path to the language catalog. -->
-	<xsl:variable name="config.catalogs.languages" select="'file:///C:/Users/marin/Desktop/Universal%20Metadata%20System/1.0/catalogs/common/languages'"/>
+	<xsl:variable name="config.catalogs.languages" select="'file:///C:/Users/marin/Code/ums/catalogs/common/languages'"/>
 	<!--
 	
 	================================================================================================================================

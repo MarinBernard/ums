@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+	<system systemId="http://schemas.olivarim.com/ums/1.0/common"
+		uri="file:///C:/Users/marin/Code/ums/schemas/common.rng"/>
+	<system systemId="http://schemas.olivarim.com/ums/1.0/common.rng"
+		uri="file:///C:/Users/marin/Code/ums/schemas/common.rng"/>
+	<system systemId="http://schemas.olivarim.com/ums/1.0/music"
+		uri="file:///C:/Users/marin/Code/ums/schemas/music.rng"/>
+	<system systemId="http://schemas.olivarim.com/ums/1.0/music.rng"
+		uri="file:///C:/Users/marin/Code/ums/schemas/music.rng"/>
+</catalog>

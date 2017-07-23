@@ -54,7 +54,7 @@ function Enable-UmsMetadata
     }
 
     # Hide the folder if hidden folders are enabled
-    if ($ModuleConfig.UMS.MetadataStorage.HiddenFolders)
+    if (Get-UmsConfigurationItem -ShortName "UmsHiddenFolders")
     {
         try
         {

@@ -31,7 +31,8 @@ function Get-UmsItem
     $_umsFolderPath = Get-UmsMetadataFolderPath -Path $Path
     
     # Build record list
-    $_filter = $("*" + $ModuleConfig.UMS.MetadataFiles.Extension)
+    $_umsFileExtension = Get-UmsConfigurationItem -ShortName "UmsFileExtension"
+    $_filter = $("*" + $_umsFileExtension)
     $_files = Get-ChildItem -Path $_umsFolderPath -Filter $_filter
     foreach( $_file in $_files )
     {
@@ -41,13 +42,13 @@ function Get-UmsItem
         {
             "Main"
             {
-                $_mainFileName = $($ModuleConfig.UMS.MetadataFiles.MainFileName + $ModuleConfig.UMS.MetadataFiles.Extension)
+                $_mainFileName = Get-UmsConfigurationItem -ShortName "UmsMainFileName"
                 if ($_file.Name -ne $_mainFileName){ $_proceed = $false }
             }
 
             "Static"
             {
-                $_staticFileName = $($ModuleConfig.UMS.MetadataFiles.StaticFileName + $ModuleConfig.UMS.MetadataFiles.Extension)
+                $_staticFileName = Get-UmsConfigurationItem -ShortName "UmsStaticFileName"
                 if ($_file.Name -ne $_staticFileName){ $_proceed = $false }
             }
         }
@@ -62,12 +63,12 @@ function Get-UmsItem
         }
 
         # Add namespace info
-        $_properties += @{ Namespace = (Read-XmlNamespaceURI -Path $_file.FullName) }
+        $_properties += @{ Namespace = (Read-XmlNamespace -Path $_file.FullName) }
 
         # Add validation info
         if ($Validate.IsPresent)
         {
-            if (Run-UmsXmlValidation -Path $_file.FullName)
+            if (Test-UmsXmlValidation -Path $_file.FullName)
             {
                 $_properties += @{ State = "Invalid" }
             }

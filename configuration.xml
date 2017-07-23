@@ -1,0 +1,50 @@
+<configuration>
+	<catalogs>
+		<catalog id="common"
+			namespace="http://schema.olivarim.com/ums/1.0/common"
+			uri="file:///C:/Users/marin/Code/ums/catalogs/music/">
+			<mapping subpath="cities" element="city"/>
+			<mapping subpath="cities" element="country"/>
+			<mapping subpath="cities" element="countryState"/>
+		</catalog>
+		<catalog id="music"
+			namespace="http://schema.olivarim.com/ums/1.0/music"
+			uri="file:///C:/Users/marin/Code/ums/catalogs/music/">
+			<mapping subpath="catalogs" element="catalog"/>
+			<mapping subpath="composers" element="composer"/>
+			<mapping subpath="compositions" element="lyrics"/>
+			<mapping subpath="compositions" element="movement"/>
+			<mapping subpath="compositions" element="work"/>
+			<mapping subpath="conductors" element="conductor"/>
+			<mapping subpath="ensembles" element="ensemble"/>
+			<mapping subpath="forms" element="form"/>
+			<mapping subpath="instrumentalists" element="instrumentalist"/>
+			<mapping subpath="instruments" element="instrument"/>
+			<mapping subpath="keys" element="key"/>
+			<mapping subpath="labels" element="label"/>
+			<mapping subpath="lyricists" element="lyricist"/>
+			<mapping subpath="styles" element="style"/>
+			<mapping subpath="venues" element="venue"/>
+		</catalog>
+	</catalogs>
+	<schemas>
+		<schema id="common" namespace="http://schemas.olivarim.com/ums/1.0/common" uri="file:///C:/Users/marin/Code/ums/schemas/common.rng"/>
+		<schema id="music"  namespace="http://schemas.olivarim.com/ums/1.0/music"  uri="file:///C:/Users/marin/Code/ums/schemas/music.rng"/>			
+	</schemas>
+	<stylesheets>
+		<stylesheet id="expander" uri="file:///C:/Users/marin/Code/ums/stylesheets/music/expander/expander.xsl"/>
+		<stylesheet id="music2vc" uri="file:///C:/Users/marin/Code/ums/stylesheets/music/music2vc/music2vc.xsl"/>
+	</stylesheets>
+	<tools>
+		<tool id="jre-bin" path="C:\Program Files\Java\jre1.8.0_131\bin\java.exe"/>
+		<tool id="jing-jar" path="C:\Program Files\XMLBlueprint 13\JavaLib\jing-trang-20151127\bin\jing.jar"/>
+		<tool id="saxon-jar" path="C:\Program Files\XMLBlueprint 13\JavaLib\SaxonPE9-7-0-18J\saxon9pe.jar"/>
+	</tools>
+	<umsOptions>
+		<umsOption id="ums-file-extension">.xml</umsOption>
+		<umsOption id="ums-folder-name">ums</umsOption>
+		<umsOption id="ums-hidden-folders">True</umsOption>
+		<umsOption id="ums-main-file-name">metadata</umsOption>
+		<umsOption id="ums-static-file-name">metadata.static</umsOption>
+	</umsOptions>
+</configuration>

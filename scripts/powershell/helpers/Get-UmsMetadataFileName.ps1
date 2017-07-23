@@ -16,12 +16,12 @@ function Get-UmsMetadataFileName
     {
         "Main"
         {
-            $_fileName = $($ModuleConfig.UMS.MetadataFiles.MainFileName + $ModuleConfig.UMS.MetadataFiles.Extension)
+            $_fileName = Get-UmsConfigurationItem -ShortName "UmsMainFileName"
         }
 
         "Static"
         {
-            $_fileName = $($ModuleConfig.UMS.MetadataFiles.StaticFileName + $ModuleConfig.UMS.MetadataFiles.Extension)
+            $_fileName = Get-UmsConfigurationItem -ShortName "UmsStaticFileName"
         }        
     }
 

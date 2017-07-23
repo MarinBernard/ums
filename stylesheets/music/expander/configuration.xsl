@@ -7,9 +7,9 @@
 	<!-- Extension of UMS files -->
 	<xsl:variable name="CFG_UMSFileExtension" select="'.xml'"/>
 	<!-- Paths to catalogs -->	
-	<xsl:variable name="CAT_Root" 	select="'file:///C:/Users/marin/Desktop/Universal%20Metadata%20System/1.0/catalogs'"/>
-	<xsl:variable name="CAT_Common" select="'file:///C:/Users/marin/Desktop/Universal%20Metadata%20System/1.0/catalogs/common'"/>
-	<xsl:variable name="CAT_Music" 	select="'file:///C:/Users/marin/Desktop/Universal%20Metadata%20System/1.0/catalogs/music'"/>
+	<xsl:variable name="CAT_Root" 	select="'file:///C:/Users/marin/Code/ums/catalogs'"/>
+	<xsl:variable name="CAT_Common" select="concat($CAT_Root, '/common')"/>
+	<xsl:variable name="CAT_Music" 	select="concat($CAT_Root, '/music')"/>
 	<xsl:variable name="CAT_Common_Cities" 				select="concat($CAT_Common, '/', 'cities')"/>
 	<xsl:variable name="CAT_Common_Countries" 			select="concat($CAT_Common, '/', 'cities')"/>
 	<xsl:variable name="CAT_Common_CountryStates" 		select="concat($CAT_Common, '/', 'cities')"/>

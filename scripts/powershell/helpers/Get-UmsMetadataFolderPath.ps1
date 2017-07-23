@@ -7,13 +7,14 @@ function Get-UmsMetadataFolderPath
     )
 
     # Build metadata folder path
-    if ($ModuleConfig.UMS.MetadataStorage.HiddenFolders)
+    $_umsFolderName = Get-UmsConfigurationItem -ShortName "UmsFolderName"
+    if (Get-UmsConfigurationItem -ShortName "UmsHiddenFolders")
     {
-        $_folderPath = Join-Path -Path $Path -ChildPath $('.' + $ModuleConfig.UMS.MetadataStorage.FolderName)
+        $_folderPath = Join-Path -Path $Path -ChildPath $('.' + $_umsFolderName)
     }
     else
     {
-        $_folderPath = Join-Path -Path $Path -ChildPath $ModuleConfig.UMS.MetadataStorage.FolderName
+        $_folderPath = Join-Path -Path $Path -ChildPath $_umsFolderName
     }
 
     return $_folderPath

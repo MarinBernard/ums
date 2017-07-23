@@ -39,7 +39,7 @@
         SaxonNotFound = "Le processeur XSLT Saxon PE n'est pas disponible. Veuillez vérifier votre fichier de configuration."
         SourceFileNotFound = "Le fichier source XML {0} n'existe pas ou n'est pas accessible."
         StylesheetNotFound = "La feuille de style {0} n'existe pas ou n'est pas accessible."
-        TransformFailure = "Une erreur s'est produite lors de la transformation XSLT. Utilisez le commutateur -Verbose pour afficher la sortie du processeur XSLT."
+        TransformFailure = "Une erreur s'est produite lors de la transformation XSLT."
     }
     UpdateUmsCache = @{
         MissingTarget = "Le fichier cible n'existe pas ou n'est pas accessible."

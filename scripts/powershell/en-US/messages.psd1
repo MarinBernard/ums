@@ -39,7 +39,7 @@
         SaxonNotFound = "The Saxon PE XSLT processor is not available. Please, update your config file."
         SourceFileNotFound = "XML source file {0} does not exist or access is denied."
         StylesheetNotFound = "XSLT stylesheet {0} does not exist or access is denied."
-        TransformFailure = "An error occured while running the XSLT transform. Use the -Verbose switch to show the output of the XSLT processor."
+        TransformFailure = "An error occured while running the XSLT transform."
     }
     UpdateUmsCache = @{
         MissingTarget = "The target file does not exist or access is denied."

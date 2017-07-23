@@ -1,4 +1,4 @@
-function Run-XmlValidation
+function Invoke-XmlValidator
 {
     Param(
         [Parameter(Mandatory=$true)]
@@ -11,37 +11,41 @@ function Run-XmlValidation
     )
 
     # Check source file existence
-    if (-not(Test-Path -LiteralPath $Source))
+    $_sourcePath = (New-object -Type System.Uri -ArgumentList $Source).LocalPath
+    if (-not(Test-Path -LiteralPath $_sourcePath))
     {
         throw ($ModuleStrings.RunXmlValidation.SourceFileNotFound -f $Source)
     }
 
     # Check schema file existence
-    if (-not(Test-Path -LiteralPath $Schema))
+    $_schemaPath = (New-object -Type System.Uri -ArgumentList $Schema).LocalPath
+    if (-not(Test-Path -LiteralPath $_schemaPath))
     {
         throw ($ModuleStrings.RunXmlValidation.SchemaNotFound -f $Schema)
     }
 
     # Check whether the JRE is available
-    if (-not (Test-Path -Path $ModuleConfig.Tools.Java))
+    $_jreBinPath = Get-UmsConfigurationItem -ShortName "JreBinPath"
+    if (-not (Test-Path -Path $_jreBinPath))
     {
         throw $ModuleStrings.RunXmlValidation.JreNotFound
     }
 
     # Check whether the Jing Jar archive is available
-    if (-not (Test-Path -Path $ModuleConfig.Tools.Jing))
+    $_jingJarPath = Get-UmsConfigurationItem -ShortName "JingJarPath"
+    if (-not (Test-Path -Path $_jingJarPath))
     {
         throw $ModuleStrings.RunXmlValidation.JingNotFound
     }
 
     # Build Jing argument list
     $_arguments = @(
-        "-jar", $ModuleConfig.Tools.Jing,
-        $('"' + $Schema + '"'),
-        $('"' + $Source + '"')
+        "-jar", $_jingJarPath,
+        $Schema,
+        $Source
     )
 
     # Invoke Jing validator and return the result
-    & $ModuleConfig.Tools.Java $_arguments    
+    & $_jreBinPath $_arguments    
     return $LASTEXITCODE
 }

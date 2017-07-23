@@ -29,7 +29,7 @@ function ConvertTo-ForeignMetadata
     $_staticItem = Get-UmsItem -Type "Static" -Path $Path
 
     # If no static item is available, we halt here
-    if ($_staticItem -eq @())
+    if (-not $_staticItem)
     {
         Write-Warning -Message $ModuleStrings.Common.MissingUmsCache
         return
@@ -39,11 +39,11 @@ function ConvertTo-ForeignMetadata
     {
         "VorbisComment"
         {
-            # Source namespace must be the music UMS Schema
-            $_requiredNamespace = $ModuleConfig.UMS.Schemas.Music.URI
+            # Source metadata must use the UMS Music Schema
+            $_requiredNamespace = Get-UmsConfigurationItem -ShortName "MusicSchemaNamespace"
 
             # Select the music2vc stylesheet
-            $_stylesheet = $ModuleConfig.UMS.Stylesheets.Music2VC
+            $_stylesheet = Get-UmsConfigurationItem -ShortName "Music2vcStylesheetUri"
 
             # Build transform arguments
             $_targetDirectory = (Get-Item -LiteralPath $Path).FullName
@@ -57,10 +57,10 @@ function ConvertTo-ForeignMetadata
         "RawLyrics"
         {
             # Source namespace must be the music UMS Schema
-            $_requiredNamespace = $ModuleConfig.UMS.Schemas.Music.URI
+            $_requiredNamespace = Get-UmsConfigurationItem -ShortName "MusicSchemaNamespace"
 
             # Select the music2vc stylesheet
-            $_stylesheet = $ModuleConfig.UMS.Stylesheets.Music2VC
+            $_stylesheet = Get-UmsConfigurationItem -ShortName "Music2vcStylesheetUri"
 
             # Build transform arguments
             $_targetDirectory = (Get-Item -LiteralPath $Path).FullName
@@ -82,7 +82,7 @@ function ConvertTo-ForeignMetadata
     # Run the transform
     try 
     {
-        Run-XslTransform -Source $_staticItem.FullName -Stylesheet $_stylesheet -Arguments $_arguments
+        Invoke-XslTransformer -Source $_staticItem.FullName -Stylesheet $_stylesheet -Arguments $_arguments
     }
     catch
     {

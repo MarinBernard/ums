@@ -27,7 +27,7 @@ function Update-UmsCache
     # Check whether UMS metadata are enabled
     try
     {  
-        if (Test-UmsMetadata -Boolean -Path $Path)
+        if (-not(Test-UmsMetadata -Boolean -Path $Path))
         {
             Write-Warning -Message $ModuleStrings.EnableUmsMetadata.UmsNotEnabled
             return
@@ -38,12 +38,13 @@ function Update-UmsCache
         Write-Host $_.Exception.Message
         return
     }
-
+    
     ### From now on, we assume UMS is enabled and UMS items are available ###
 
     # Get the path to the main metadata file
     $_mainFileObject = Get-UmsItem -Type "Main" -Path $Path
     $_mainFileName = $_mainFileObject.FullName
+    $_mainFileUri = (New-Object -Type System.Uri -ArgumentList $_mainFileName).AbsoluteUri
 
     # Check whether the main metadata file exists
     if (-not $_mainFileObject)
@@ -52,31 +53,30 @@ function Update-UmsCache
     }
 
     # Get the path to the static metadata file
-    $_staticFileObject = Get-UmsItem -Type "Static" -Path $Path
-    $_staticFileName = $_staticFileObject.FullName
+    $_staticUmsItem = Get-UmsItem -Type "Static" -Path $Path
 
     # Check whether the update is needed by comparing last write times
-    if (($_staticFileObject) -and (-not ($Force.IsPresent)))
+    if (($_staticUmsItem) -and (-not ($Force.IsPresent)))
     {
-        if ($_staticFileObject.LastWriteTime -gt $_mainFileObject.LastWriteTime)
+        if ($_staticUmsItem.LastWriteTime -gt $_mainFileObject.LastWriteTime)
         {
             Write-Host $ModuleStrings.UpdateUmsCache.NoUpdateNeeded
             return
         }
     }
     
-    # Select the expander stylesheet
-    $_stylesheet = $ModuleConfig.UMS.Stylesheets.Expander
+    # Get the expander stylesheet URI
+    $_stylesheetUri = Get-UmsConfigurationItem -ShortName "ExpanderStylesheetUri"
 
-    # Build the name of the temporary file
-    $_temporaryFile = $($_mainFileName + ".tmp")
+    # Build the name of the temporary destination file
+    $_temporaryFileName = $($_mainFileName + ".tmp")
 
     # Remove previous temporary file, if needed
-    if (Test-Path -LiteralPath $_temporaryFile)
+    if (Test-Path -LiteralPath $_temporaryFileName)
     {
         try
         {
-            Remove-Item -LiteralPath $_temporaryFile -Force -ErrorAction "Stop"
+            Remove-Item -LiteralPath $_temporaryFileName -Force -ErrorAction "Stop"
         }
         catch
         {
@@ -87,27 +87,34 @@ function Update-UmsCache
     # Run the transform
     try 
     {
-        Run-XslTransform -Source $_mainFileName -Stylesheet $_stylesheet -Destination $_temporaryFile    
+        Invoke-XslTransformer -Source $_mainFileUri -Stylesheet $_stylesheetUri -Destination $_temporaryFileName
     }
     catch
     {
         # Temporary file should be removed if transform has failed
-        Remove-Item -Force -LiteralPath $_temporaryFile
+        Remove-Item -Force -LiteralPath $_temporaryFileName -ErrorAction SilentlyContinue
         Write-Error -Message $_.Exception.Message
+        return
     }
 
     # Validate the temporary file
-    $invalid = Run-UmsXmlValidation -Path $_temporaryFile
+    $invalid = Test-UmsXmlValidation -Path $_temporaryFileName
 
     # Check validation result
     if ($invalid)
     {
         # Temporary file should be removed if validation has failed
-        Remove-Item -Force -LiteralPath $_temporaryFile
+        Remove-Item -Force -LiteralPath $_temporaryFileName
         throw $ModuleStrings.UpdateUmsCache.ValidationFailure
     }
 
-    # Promote temporary file to final file
-    Remove-Item -Force -LiteralPath $_staticFileName -ErrorAction "SilentlyContinue"
-    Move-Item -Path $_temporaryFile -Destination $_staticFileName
+    # Remove existing static item, if it exists
+    if ($_staticUmsItem)
+    {
+        Remove-Item -Force -LiteralPath $_staticUmsItem.FullName
+    }
+
+    # Promote temporary file to static item
+    $_staticFileName = Get-UmsMetadataFileName -Path $Path -Type "Static"
+    Move-Item -Path $_temporaryFileName -Destination $_staticFileName
 }
