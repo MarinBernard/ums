@@ -3,13 +3,35 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
-	<!-- Common helper templates -->
-	<xsl:include href="../common/helper/Paths.xsl"/>
-	<!-- Includes -->
-	<xsl:include href="configuration.xsl"/>
-	<xsl:include href="Common.xsl"/>
-	<xsl:include href="Music.xsl"/>
-	<xsl:include href="Transcluder.xsl"/>
+	<!--
+	==============================================================================
+	!
+	!	Parameters
+	!
+	==============================================================================
+	-->
+	<xsl:param name="ConfigFile" select="'file:///C:/Users/marin/Code/ums/configuration.xml'"/>
+	<!--
+	==============================================================================
+	!
+	!	Inclusions
+	!
+	==============================================================================
+	-->
+	<xsl:include href="../common/helpers/Configuration.xsl"/>
+	<xsl:include href="../common/helpers/Paths.xsl"/>
+	<xsl:include href="helpers/ConfigurationMappings.xsl"/>
+	<xsl:include href="helpers/Transcluder.xsl"/>
+	<xsl:include href="rules/Common.xsl"/>
+	<xsl:include href="rules/Music.xsl"/>
+	<!--
+	==============================================================================
+	!
+	!	Base templates
+	!
+	==============================================================================
+	-->
+	<xsl:output method="xml" indent="yes"/>
 	<!-- This base template duplicates source XML by default -->
 	<xsl:template match="text()|*|@*">
 		<xsl:copy>

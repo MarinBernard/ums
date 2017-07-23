@@ -3,14 +3,19 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
-	
+	<!--
+	==============================================================================
+	!
+	!	Transclusion rules for elements from the music namespace
+	!
+	==============================================================================
+	-->
 	<!-- Transclusion of <album> references -->
 	<xsl:template match="umsm:album[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
 			<xsl:with-param name="TargetElement" select="'album'"/>
 		</xsl:call-template>
 	</xsl:template>
-	
 	<!-- Transclusion of <catalog> references -->
 	<xsl:template match="umsm:catalog[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
@@ -18,14 +23,12 @@
 			<xsl:with-param name="TargetElement" select="'catalog'"/>
 		</xsl:call-template>
 	</xsl:template>
-	
 	<!-- Transclusion of references to <character> elements -->
 	<xsl:template match="umsc:character[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
 			<xsl:with-param name="TargetElement" select="'character'"/>
 		</xsl:call-template>
-	</xsl:template>	
-	
+	</xsl:template>
 	<!-- Transclusion of <composer> references -->
 	<xsl:template match="umsm:composer[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
@@ -33,7 +36,6 @@
 			<xsl:with-param name="TargetElement" select="'composer'"/>
 		</xsl:call-template>
 	</xsl:template>
-	
 	<!-- Transclusion of <conductor> references -->
 	<xsl:template match="umsm:conductor[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
@@ -41,7 +43,6 @@
 			<xsl:with-param name="TargetElement" select="'conductor'"/>
 		</xsl:call-template>
 	</xsl:template>
-	
 	<!-- Transclusion of <ensemble> references -->
 	<xsl:template match="umsm:ensemble[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
@@ -49,7 +50,6 @@
 			<xsl:with-param name="TargetElement" select="'ensemble'"/>
 		</xsl:call-template>
 	</xsl:template>
-	
 	<!-- Transclusion of <form> references -->
 	<xsl:template match="umsm:form[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
@@ -57,7 +57,6 @@
 			<xsl:with-param name="TargetElement" select="'form'"/>
 		</xsl:call-template>
 	</xsl:template>
-	
 	<!-- Transclusion of <instrument> references -->
 	<xsl:template match="umsm:instrument[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
@@ -65,7 +64,6 @@
 			<xsl:with-param name="TargetElement" select="'instrument'"/>
 		</xsl:call-template>
 	</xsl:template>
-	
 	<!-- Transclusion of <instrumentalist> references -->
 	<xsl:template match="umsm:instrumentalist[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
@@ -73,7 +71,6 @@
 			<xsl:with-param name="TargetElement" select="'instrumentalist'"/>
 		</xsl:call-template>
 	</xsl:template>
-	
 	<!-- Transclusion of <key> references -->
 	<xsl:template match="umsm:key[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
@@ -81,7 +78,6 @@
 			<xsl:with-param name="TargetElement" select="'key'"/>
 		</xsl:call-template>
 	</xsl:template>
-	
 	<!-- Transclusion of <label> references -->
 	<xsl:template match="umsm:label[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
@@ -89,7 +85,6 @@
 			<xsl:with-param name="TargetElement" select="'label'"/>
 		</xsl:call-template>
 	</xsl:template>
-	
 	<!-- Transclusion of <lyricist> references -->
 	<xsl:template match="umsm:lyricist[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
@@ -97,7 +92,6 @@
 			<xsl:with-param name="TargetElement" select="'lyricist'"/>
 		</xsl:call-template>
 	</xsl:template>
-	
 	<!-- Transclusion of <lyrics> references -->
 	<xsl:template match="umsm:lyrics[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
@@ -105,7 +99,6 @@
 			<xsl:with-param name="TargetElement" select="'lyrics'"/>
 		</xsl:call-template>
 	</xsl:template>
-	
 	<!-- Transclusion of <movement> references -->
 	<xsl:template match="umsm:movement[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
@@ -113,14 +106,12 @@
 			<xsl:with-param name="TargetElement" select="'movement'"/>
 		</xsl:call-template>
 	</xsl:template>
-	
 	<!-- Transclusion of <performance> references -->
 	<xsl:template match="umsm:performance[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
 			<xsl:with-param name="TargetElement" select="'performance'"/>
 		</xsl:call-template>
 	</xsl:template>
-	
 	<!-- Transclusion of <style> references -->
 	<xsl:template match="umsm:style[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
@@ -128,7 +119,6 @@
 			<xsl:with-param name="TargetElement" select="'style'"/>
 		</xsl:call-template>
 	</xsl:template>
-	
 	<!-- Transclusion of <venue> references -->
 	<xsl:template match="umsm:venue[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
@@ -136,7 +126,6 @@
 			<xsl:with-param name="TargetElement" select="'venue'"/>
 		</xsl:call-template>
 	</xsl:template>
-	
 	<!-- Transclusion of <work> references -->
 	<xsl:template match="umsm:work[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
@@ -144,5 +133,4 @@
 			<xsl:with-param name="TargetElement" select="'work'"/>
 		</xsl:call-template>
 	</xsl:template>
-
 </xsl:stylesheet>

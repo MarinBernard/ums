@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsl:stylesheet version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<!--
+	==============================================================================
+	!
+	!	Catalogs
+	!
+	==============================================================================
+	-->
+	<!-- Returns the base URI of a catalog from its namespace -->
+	<xsl:template name="getCatalogUriByNamespace">
+		<xsl:param name="Namespace"/>
+		<xsl:value-of select="$ConfigData/catalogs/catalog[@namespace = $Namespace]/@uri"/>
+	</xsl:template>
+	<!-- Returns the relative URI of a catalog mapping from a catalog namespace and an element name -->
+	<xsl:template name="getCatalogMappingSubpath">
+		<xsl:param name="Namespace"/>
+		<xsl:param name="ElementName"/>
+		<xsl:value-of select="$ConfigData/catalogs/catalog[@namespace = $Namespace]/mapping[@element = $ElementName]/@subpath"/>
+	</xsl:template>
+	<!-- Returns the full URI of a catalog mapping hosting element with the specified name -->
+	<xsl:template name="getCatalogUriForElement">
+		<xsl:param name="Namespace"/>
+		<xsl:param name="ElementName"/>
+		<!-- Get the base URI of the catalog -->
+		<xsl:variable name="_catalogUri">
+			<xsl:call-template name="getCatalogUriByNamespace">
+				<xsl:with-param name="Namespace" select="$Namespace"/>
+			</xsl:call-template>
+		</xsl:variable>
+		<!-- Validate base URI -->
+		<xsl:if test="normalize-space($_catalogUri) = ''">
+			<xsl:message terminate="yes" select="concat('No catalog URI found for namespace ', $Namespace)"/>
+		</xsl:if>
+		<!-- Get the relative URI for a specific mapping -->
+		<xsl:variable name="_subpath">
+			<xsl:call-template name="getCatalogMappingSubpath">
+				<xsl:with-param name="Namespace" select="$Namespace"/>
+				<xsl:with-param name="ElementName" select="$ElementName"/>
+			</xsl:call-template>
+		</xsl:variable>
+		<!-- Validate subpath -->
+		<xsl:if test="normalize-space($_subpath) = ''">
+			<xsl:message terminate="yes" select="concat('No sub-path found for element ', $ElementName)"/>
+		</xsl:if>
+		<!-- Final value -->
+		<xsl:value-of select="$_catalogUri"/>
+		<xsl:value-of select="'/'"/>
+		<xsl:value-of select="$_subpath"/>
+	</xsl:template>
+	<!--
+	==============================================================================
+	!
+	!	UMS options
+	!
+	==============================================================================
+	-->
+	<xsl:template name="getUmsOptionValue">
+		<xsl:param name="OptionName"/>
+		<!-- Get option value -->
+		<xsl:variable name="_value">
+			<xsl:value-of select="$ConfigData/umsOptions/umsOption[@id = $OptionName]"/>
+		</xsl:variable>
+		<!-- Validate option value -->
+		<xsl:if test="normalize-space($_value) = ''">
+			<xsl:message terminate="yes" select="concat('No UMS option found with name ', $OptionName)"/>
+		</xsl:if>
+		<!-- Final value -->
+		<xsl:value-of select="$_value"/>
+	</xsl:template>
+</xsl:stylesheet>

@@ -2,14 +2,14 @@
 	<catalogs>
 		<catalog id="common"
 			namespace="http://schema.olivarim.com/ums/1.0/common"
-			uri="file:///C:/Users/marin/Code/ums/catalogs/music/">
+			uri="file:///C:/Users/marin/Code/ums/catalogs/common">
 			<mapping subpath="cities" element="city"/>
 			<mapping subpath="cities" element="country"/>
 			<mapping subpath="cities" element="countryState"/>
-		</catalog>
+		</catalog>	
 		<catalog id="music"
 			namespace="http://schema.olivarim.com/ums/1.0/music"
-			uri="file:///C:/Users/marin/Code/ums/catalogs/music/">
+			uri="file:///C:/Users/marin/Code/ums/catalogs/music">
 			<mapping subpath="catalogs" element="catalog"/>
 			<mapping subpath="composers" element="composer"/>
 			<mapping subpath="compositions" element="lyrics"/>
