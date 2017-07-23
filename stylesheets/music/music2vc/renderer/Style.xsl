@@ -55,18 +55,18 @@
 				</xsl:call-template>
 			</xsl:if>
 			<!-- VC: Style's name as GENRE comment -->
-			<xsl:if test="$config.vorbis.genres.styleAsGenre.enabled = true()">
+			<xsl:if test="$config.vorbis.genres.includeStyles = true()">
 				<xsl:choose>
-					<xsl:when test="$config.vorbis.genres.styleAsGenre.preferSortVariant = true()">
+					<xsl:when test="$config.vorbis.genres.preferStyleSortLabels = true()">
 						<xsl:call-template name="createVorbisComment">
 							<xsl:with-param name="Label" select="$config.vorbis.labels.Genre"/>
-							<xsl:with-param name="Value" select="concat($config.vorbis.genres.styleAsGenre.prefix, $_labelSort)"/>
+							<xsl:with-param name="Value" select="concat($config.vorbis.genres.stylePrefix, $_labelSort)"/>
 						</xsl:call-template>
 					</xsl:when>
 					<xsl:otherwise>
 						<xsl:call-template name="createVorbisComment">
 							<xsl:with-param name="Label" select="$config.vorbis.labels.Genre"/>
-							<xsl:with-param name="Value" select="concat($config.vorbis.genres.styleAsGenre.prefix, $_labelFull)"/>
+							<xsl:with-param name="Value" select="concat($config.vorbis.genres.stylePrefix, $_labelFull)"/>
 						</xsl:call-template>
 					</xsl:otherwise>
 				</xsl:choose>

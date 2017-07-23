@@ -71,18 +71,18 @@
 					<xsl:with-param name="Value" select="$_formLabelFull"/>
 				</xsl:call-template>
 				<!-- VC: Musical form as GENRE comment -->
-				<xsl:if test="$config.vorbis.genres.formAsGenre.enabled = true()">
+				<xsl:if test="$config.vorbis.genres.includeForms = true()">
 					<xsl:choose>
-						<xsl:when test="$config.vorbis.genres.formAsGenre.preferSortVariant = true()">
+						<xsl:when test="$config.vorbis.genres.preferFormSortLabels = true()">
 							<xsl:call-template name="createVorbisComment">
 								<xsl:with-param name="Label" select="$config.vorbis.labels.Genre"/>
-								<xsl:with-param name="Value" select="concat($config.vorbis.genres.formAsGenre.prefix, $_formLabelSort)"/>
+								<xsl:with-param name="Value" select="concat($config.vorbis.genres.formPrefix, $_formLabelSort)"/>
 							</xsl:call-template>
 						</xsl:when>
 						<xsl:otherwise>
 							<xsl:call-template name="createVorbisComment">
 								<xsl:with-param name="Label" select="$config.vorbis.labels.Genre"/>
-								<xsl:with-param name="Value" select="concat($config.vorbis.genres.formAsGenre.prefix, $_formLabelFull)"/>
+								<xsl:with-param name="Value" select="concat($config.vorbis.genres.formPrefix, $_formLabelFull)"/>
 							</xsl:call-template>
 						</xsl:otherwise>
 					</xsl:choose>

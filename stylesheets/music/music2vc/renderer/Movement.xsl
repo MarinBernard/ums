@@ -43,7 +43,7 @@
 		<xsl:variable name="_musicalKey">
 			<xsl:for-each select="umsm:key">
 				<xsl:choose>
-					<xsl:when test="$config.musicalKeys.preferShortLabels = true()">
+					<xsl:when test="$config.keys.preferShortLabels = true()">
 						<xsl:call-template name="RT_Key">
 							<xsl:with-param name="Mode" select="'RAWSHORTLABEL'"/>
 						</xsl:call-template>
@@ -76,28 +76,28 @@
 		<!-- Track title prefix -->
 		<xsl:variable name="_trackTitlePrefix">
 			<!-- Work title prefix. Only shown if dynamic albums are disabled. -->
-			<xsl:if test="$config.vorbis.trackTitles.parentWorkTitle.enabled = true()">
+			<xsl:if test="$config.vorbis.titles.showParentWork = true()">
 				<xsl:value-of select="$WorkTitle"/>
 				<xsl:value-of select="' '"/>
-				<xsl:if test="normalize-space($config.vorbis.trackTitles.parentWorkTitle.delimiterChar) != ''">
-					<xsl:value-of select="$config.vorbis.trackTitles.parentWorkTitle.delimiterChar"/>
+				<xsl:if test="normalize-space($config.vorbis.titles.parentWorkDelimiter) != ''">
+					<xsl:value-of select="$config.vorbis.titles.parentWorkDelimiter"/>
 					<xsl:value-of select="' '"/>
 				</xsl:if>
 			</xsl:if>
 			<!-- Section numbering prefix -->
-			<xsl:if test="$config.vorbis.trackTitles.sectionNumbering.enabled = true()">
+			<xsl:if test="$config.vorbis.titles.showSectionNumbers = true()">
 				<xsl:value-of select="$ParentSectionNumbering"/>
 				<xsl:value-of select="$config.constants.nonBreakableSpace"/>
 			</xsl:if>
 			<!-- Musical form -->
-			<xsl:if test="$config.vorbis.trackTitles.musicalForm.enabled = true() and normalize-space($_musicalForms) != ''">
-				<xsl:value-of select="$config.vorbis.trackTitles.musicalForm.openingChar"/>
+			<xsl:if test="$config.vorbis.titles.showFormList = true() and normalize-space($_musicalForms) != ''">
+				<xsl:value-of select="$config.musicalForms.listPrefix"/>
 				<xsl:value-of select="$_musicalForms"/>
-				<xsl:value-of select="$config.vorbis.trackTitles.musicalForm.closingChar"/>
+				<xsl:value-of select="$config.musicalForms.listSuffix"/>
 				<xsl:value-of select="$config.constants.nonBreakableSpace"/>
 			</xsl:if>
 			<!-- Musical key -->
-			<xsl:if test="$config.vorbis.trackTitles.musicalKey.enabled = true() and normalize-space($_musicalKey) != ''">
+			<xsl:if test="$config.vorbis.titles.showKey = true() and normalize-space($_musicalKey) != ''">
 				<xsl:variable name="_introducer">
 					<xsl:call-template name="getIdiom">
 						<xsl:with-param name="Language" select="$config.variants.preferredLanguage"/>
@@ -112,10 +112,10 @@
 				<xsl:value-of select="$config.constants.nonBreakableSpace"/>
 			</xsl:if>
 			<!-- Character list prefix -->
-			<xsl:if test="$config.vorbis.trackTitles.characterList.enabled = true() and normalize-space($_characters) != ''">
-				<xsl:value-of select="$config.vorbis.trackTitles.characterList.openingChar"/>
+			<xsl:if test="$config.vorbis.titles.showCharacterList = true() and normalize-space($_characters) != ''">
+				<xsl:value-of select="$config.characters.listPrefix"/>
 				<xsl:value-of select="$_characters"/>
-				<xsl:value-of select="$config.vorbis.trackTitles.characterList.closingChar"/>
+				<xsl:value-of select="$config.characters.listSuffix"/>
 				<xsl:value-of select="$config.constants.nonBreakableSpace"/>
 			</xsl:if>
 		</xsl:variable>
@@ -129,14 +129,14 @@
 				<xsl:value-of select="$config.constants.nonBreakableSpace"/>
 			</xsl:if>
 			<!-- Tempo marking, if enabled and available -->
-			<xsl:if test="$config.vorbis.trackTitles.tempoMarkings.enabled = true()">
+			<xsl:if test="$config.vorbis.titles.showTempoMarkings = true()">
 				<xsl:if test="normalize-space($_tempoMarking) != ''">
 					<xsl:value-of select="$_tempoMarking"/>
 					<xsl:value-of select="$config.constants.nonBreakableSpace"/>
 				</xsl:if>
 			</xsl:if>
 			<!-- Movement incipit, if enabled and available -->
-			<xsl:if test="$config.vorbis.trackTitles.incipit.enabled = true()">
+			<xsl:if test="$config.vorbis.titles.showIncipit = true()">
 				<xsl:if test="normalize-space($_movementIncipit) != ''">
 					<xsl:call-template name="getTypographicSign">
 						<xsl:with-param name="SignName" select="'opening-quotation-mark'"/>

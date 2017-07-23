@@ -90,40 +90,40 @@
 				<!-- Building the list of music ensembles with short names -->
 				<xsl:variable name="_performerListTmp">
 					<!-- Music ensembles -->
-					<xsl:if test="$config.vorbis.dynamicAlbums.performerList.includeEnsembles = true()">
+					<xsl:if test="$config.albumTitles.includeEnsembles = true()">
 						<xsl:for-each select="umsm:performers/umsm:performer/umsm:ensemble">
 							<xsl:call-template name="GT_Label_Short"/>
-							<xsl:value-of select="$config.vorbis.dynamicAlbums.performerList.delimiterChar"/>
+							<xsl:value-of select="$config.performers.delimiter"/>
 						</xsl:for-each>
 					</xsl:if>
 					<!-- Soloists -->
-					<xsl:if test="$config.vorbis.dynamicAlbums.performerList.includeSoloists = true()">
+					<xsl:if test="$config.albumTitles.includeSoloists = true()">
 						<xsl:for-each select="umsm:performers/umsm:performer[@soloist = true()]/umsm:instrumentalist">
 							<xsl:call-template name="GT_Name_Short"/>
-							<xsl:value-of select="$config.vorbis.dynamicAlbums.performerList.delimiterChar"/>
+							<xsl:value-of select="$config.performers.delimiter"/>
 						</xsl:for-each>
 					</xsl:if>					
 					<!-- Non-soloist instrumentalists -->
-					<xsl:if test="$config.vorbis.dynamicAlbums.performerList.includeInstrumentalists = true()">
+					<xsl:if test="$config.albumTitles.includeInstrumentalists = true()">
 						<xsl:for-each select="umsm:performers/umsm:performer[@soloist = false() or @soloist = '']/umsm:instrumentalist">
 							<xsl:call-template name="GT_Name_Short"/>
-							<xsl:value-of select="$config.vorbis.dynamicAlbums.performerList.delimiterChar"/>
+							<xsl:value-of select="$config.performers.delimiter"/>
 						</xsl:for-each>
 					</xsl:if>
 					<!-- Conductors -->
-					<xsl:if test="$config.vorbis.dynamicAlbums.performerList.includeConductors = true()">
+					<xsl:if test="$config.albumTitles.includeConductors = true()">
 						<xsl:for-each select="umsm:conductors/umsm:conductor">
 							<xsl:call-template name="GT_Name_Short"/>
-							<xsl:value-of select="$config.vorbis.dynamicAlbums.performerList.delimiterChar"/>
+							<xsl:value-of select="$config.performers.delimiter"/>
 						</xsl:for-each>
 					</xsl:if>
 				</xsl:variable>
 				<!-- Remove last delimiter char from the list of ensembles -->
 				<xsl:variable name="_performerList">
 					<!-- Remove last delimiter char from the list of ensembles -->
-					<xsl:value-of select="substring($_performerListTmp, 1, string-length($_performerListTmp) - string-length($config.vorbis.dynamicAlbums.performerList.delimiterChar))"/>
+					<xsl:value-of select="substring($_performerListTmp, 1, string-length($_performerListTmp) - string-length($config.performers.delimiter))"/>
 					<!-- Add optional year of performance -->
-					<xsl:if test="$config.vorbis.dynamicAlbums.performerList.includePerformanceYear = true()">
+					<xsl:if test="$config.albumTitles.includePerformanceYear = true()">
 						<xsl:if test="umsm:date or umsm:year">
 							<xsl:value-of select="concat(',', $config.constants.nonBreakableSpace)"/>
 							<xsl:choose>

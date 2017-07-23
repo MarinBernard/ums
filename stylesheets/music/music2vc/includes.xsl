@@ -4,14 +4,16 @@
 	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
 	<!-- Common helper templates -->
-	<xsl:include href="../common/helper/Paths.xsl"/>
+	<xsl:include href="../common/helpers/Paths.xsl"/>
+	<xsl:include href="../common/helpers/Configuration.xsl"/>
 	<!-- Helper templates -->
-	<xsl:include href="helper/Debug.xsl"/>
-	<xsl:include href="helper/Delimiters.xsl"/>
-	<xsl:include href="helper/Language.xsl"/>
-	<xsl:include href="helper/Stdout.xsl"/>
-	<xsl:include href="helper/Variants.xsl"/>
-	<xsl:include href="helper/VorbisComments.xsl"/>
+	<xsl:include href="helpers/ConfigurationMappings.xsl"/>
+	<xsl:include href="helpers/Debug.xsl"/>
+	<xsl:include href="helpers/Delimiters.xsl"/>
+	<xsl:include href="helpers/Language.xsl"/>
+	<xsl:include href="helpers/Stdout.xsl"/>
+	<xsl:include href="helpers/Variants.xsl"/>
+	<xsl:include href="helpers/VorbisComments.xsl"/>
 	<!-- Raw value getters -->
 	<xsl:include href="getter/Label.xsl"/>
 	<xsl:include href="getter/Name.xsl"/>

@@ -15,7 +15,7 @@
 		<xsl:if test="$Label and normalize-space(string($Label)) != ''">
 			<xsl:if test="$Value and normalize-space(string($Value)) != ''">
 				<xsl:value-of select="$Label"/>
-				<xsl:value-of select="$config.constants.assignementChar"/>
+				<xsl:value-of select="$config.constants.vorbisAssignmentChar"/>
 				<xsl:value-of select="$Value"/>
 				<xsl:value-of select="$config.constants.newLineChar"/>
 			</xsl:if>

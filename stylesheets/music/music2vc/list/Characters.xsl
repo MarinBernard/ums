@@ -27,10 +27,10 @@
 						<xsl:call-template name="RT_Character">
 							<xsl:with-param name="Mode" select="'RAWSHORTNAME'"/>
 						</xsl:call-template>
-						<xsl:value-of select="$config.vorbis.trackTitles.characterList.delimiterChar"/>
+						<xsl:value-of select="$config.characters.delimiter"/>
 					</xsl:for-each>
 				</xsl:variable>
-				<xsl:variable name="_characters" select="substring($_charactersTmp, 1, string-length($_charactersTmp) - string-length($config.vorbis.trackTitles.characterList.delimiterChar) )"/>
+				<xsl:variable name="_characters" select="substring($_charactersTmp, 1, string-length($_charactersTmp) - string-length($config.characters.delimiter) )"/>
 				<xsl:call-template name="showDebugMessage">
 					<xsl:with-param name="Template" select="'LT_Characters'"/>
 					<xsl:with-param name="Message" select="concat('Characters in single string is: ', $_characters)"/>

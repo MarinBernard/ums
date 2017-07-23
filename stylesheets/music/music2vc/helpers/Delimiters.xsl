@@ -9,13 +9,13 @@
 	</xsl:template>
 	<!-- Inserts a delimiter string between movement titles -->
 	<xsl:template name="insertMovementTitleDelimiter">
-		<xsl:if test="upper-case($config.vorbis.trackTitles.movementList.mode) = 'SINGLE'">
+		<xsl:if test="$config.vorbis.movementTitles.concatenate = false()">
 			<xsl:variable name="_delimiter">
 				<xsl:call-template name="getMovementTitleDelimiter"/>
 			</xsl:variable>
 			<xsl:value-of select="$_delimiter"/>
 		</xsl:if>
-		<xsl:value-of select="$config.vorbis.trackTitles.movementList.delimiterChar"/>
+		<xsl:value-of select="$config.movementTitles.delimiter"/>
 	</xsl:template>
 	<!-- Returns an horizontal delimiter surrounding the title of a movement in a lyrics file -->
 	<xsl:template name="getLyricsTitleDelimiter">

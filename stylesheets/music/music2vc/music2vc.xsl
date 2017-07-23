@@ -3,14 +3,34 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
-	<!-- Parameters -->
-	<!-- Default value redirects the output to the console -->
+	<!--
+	==============================================================================
+	!
+	!	Parameters
+	!
+	==============================================================================
+	-->
+	<!-- Path to the common configuration file -->
+	<xsl:param name="ConfigFile" select="'file:///C:/Users/marin/Code/ums/configuration.xml'"/>
+	<!-- Output directory. A blank value would redirect output to the console -->
 	<xsl:param name="OutputDirectory" select="''"/>
 	<!-- Output mode. Possible values are 'VORBIS' and 'RAWLYRICS'. -->
 	<xsl:param name="OutputMode" select="'VORBIS'"/>
-	<!-- Dependencies -->
-	<xsl:include href="configuration.xsl"/>
+	<!--
+	==============================================================================
+	!
+	!	Inclusions
+	!
+	==============================================================================
+	-->
 	<xsl:include href="includes.xsl"/>
+	<!--
+	==============================================================================
+	!
+	!	Base templates
+	!
+	==============================================================================
+	-->
 	<!-- Output method is text since we're producing Vorbis Comments -->
 	<xsl:output method="text" indent="no"/>
 	<!-- Disable all text output by default -->

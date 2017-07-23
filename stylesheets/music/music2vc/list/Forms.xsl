@@ -27,10 +27,10 @@
 						<xsl:call-template name="RT_Form">
 							<xsl:with-param name="Mode" select="'RAWFULLLABEL'"/>
 						</xsl:call-template>
-						<xsl:value-of select="$config.vorbis.trackTitles.musicalForm.delimiterChar"/>
+						<xsl:value-of select="$config.musicalForms.delimiter"/>
 					</xsl:for-each>
 				</xsl:variable>
-				<xsl:variable name="_forms" select="substring($_formsTmp, 1, string-length($_formsTmp) - string-length($config.vorbis.trackTitles.musicalForm.delimiterChar) )"/>
+				<xsl:variable name="_forms" select="substring($_formsTmp, 1, string-length($_formsTmp) - string-length($config.musicalForms.delimiter) )"/>
 				<xsl:call-template name="showDebugMessage">
 					<xsl:with-param name="Template" select="'LT_Forms'"/>
 					<xsl:with-param name="Message" select="concat('Single string of musical forms is: ', $_forms)"/>

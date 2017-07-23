@@ -102,7 +102,7 @@
 		<xsl:variable name="_musicalKey">
 			<xsl:for-each select="umsm:key">
 				<xsl:choose>
-					<xsl:when test="$config.musicalKeys.preferShortLabels = true()">
+					<xsl:when test="$config.keys.preferShortLabels = true()">
 						<xsl:call-template name="RT_Key">
 							<xsl:with-param name="Mode" select="'RAWSHORTLABEL'"/>
 						</xsl:call-template>
@@ -120,7 +120,7 @@
 		 =========================================================================-->
 		<xsl:variable name="_workTitleSuffix">
 			<!-- Musical key suffix -->
-			<xsl:if test="$config.workTitles.musicalKey.enabled = true() and normalize-space($_musicalKey) != ''">
+			<xsl:if test="$config.workTitles.showKey = true() and normalize-space($_musicalKey) != ''">
 				<xsl:value-of select="$config.constants.nonBreakableSpace"/>
 				<xsl:variable name="_introducer">
 					<xsl:call-template name="getIdiom">
@@ -135,32 +135,32 @@
 				<xsl:value-of select="$_musicalKey"/>
 			</xsl:if>
 			<!-- Catalog ID suffix -->
-			<xsl:if test="$config.workTitles.catalogId.enabled = true()">
+			<xsl:if test="$config.workTitles.showCatalogIds = true()">
 				<xsl:value-of select="$config.constants.nonBreakableSpace"/>
-				<xsl:value-of select="$config.workTitles.catalogId.openingChar"/>
+				<xsl:value-of select="$config.catalogIds.listPrefix"/>
 				<xsl:value-of select="$_catalogIds"/>
-				<xsl:value-of select="$config.workTitles.catalogId.closingChar"/>
+				<xsl:value-of select="$config.catalogIds.listSuffix"/>
 			</xsl:if>
 			<!-- Year suffix -->
-			<xsl:if test="$config.workTitles.year.enabled = true()">
+			<xsl:if test="$config.workTitles.showYear = true()">
 				<xsl:choose>
-					<xsl:when test="upper-case($config.workTitles.year.mode) = 'INCEPTION' and normalize-space($_inceptionYear) != ''">
+					<xsl:when test="upper-case($config.workTitles.yearType) = 'INCEPTION' and normalize-space($_inceptionYear) != ''">
 						<xsl:value-of select="$config.constants.nonBreakableSpace"/>
-						<xsl:value-of select="$config.workTitles.year.openingChar"/>
+						<xsl:value-of select="$config.workTitles.yearPrefix"/>
 						<xsl:value-of select="$_inceptionYear"/>
-						<xsl:value-of select="$config.workTitles.year.closingChar"/>
+						<xsl:value-of select="$config.workTitles.yearSuffix"/>
 					</xsl:when>
-					<xsl:when test="upper-case($config.workTitles.year.mode) = 'COMPLETION' and normalize-space($_completionYear) != ''">
+					<xsl:when test="upper-case($config.workTitles.yearType) = 'COMPLETION' and normalize-space($_completionYear) != ''">
 						<xsl:value-of select="$config.constants.nonBreakableSpace"/>
-						<xsl:value-of select="$config.workTitles.year.openingChar"/>
+						<xsl:value-of select="$config.workTitles.yearPrefix"/>
 						<xsl:value-of select="$_completionYear"/>
-						<xsl:value-of select="$config.workTitles.year.closingChar"/>
+						<xsl:value-of select="$config.workTitles.yearSuffix"/>
 					</xsl:when>
-					<xsl:when test="upper-case($config.workTitles.year.mode) = 'PREMIERE' and normalize-space($_premiereYear) != ''">
+					<xsl:when test="upper-case($config.workTitles.yearType) = 'PREMIERE' and normalize-space($_premiereYear) != ''">
 						<xsl:value-of select="$config.constants.nonBreakableSpace"/>
-						<xsl:value-of select="$config.workTitles.year.openingChar"/>
+						<xsl:value-of select="$config.workTitles.yearPrefix"/>
 						<xsl:value-of select="$_premiereYear"/>
-						<xsl:value-of select="$config.workTitles.year.closingChar"/>
+						<xsl:value-of select="$config.workTitles.yearSuffix"/>
 					</xsl:when>
 				</xsl:choose>
 			</xsl:if>
@@ -184,7 +184,7 @@
 				<xsl:variable name="_trackTitle">
 					<xsl:choose>
 						<!-- If single mode is on, we only keep the first movement title -->
-						<xsl:when test="upper-case($config.vorbis.trackTitles.movementList.mode) = 'SINGLE'">
+						<xsl:when test="$config.vorbis.movementTitles.concatenate = false()">
 							<xsl:variable name="_delimiter">
 								<xsl:call-template name="getMovementTitleDelimiter"/>
 							</xsl:variable>
@@ -192,7 +192,7 @@
 						</xsl:when>
 						<!-- Else, we only remove the last delimiter -->
 						<xsl:otherwise>
-							<xsl:value-of select="substring($_trackTitleTmp, 1, string-length($_trackTitleTmp) - string-length($config.vorbis.trackTitles.movementList.delimiterChar))"/>
+							<xsl:value-of select="substring($_trackTitleTmp, 1, string-length($_trackTitleTmp) - string-length($config.movementTitles.delimiter))"/>
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:variable>

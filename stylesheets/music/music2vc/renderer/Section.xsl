@@ -30,7 +30,7 @@
 		<!-- Numbering info for the current section -->
 		<xsl:variable name="_numbering" select="@numbering"/>
 		<!-- Full numbering info for the current section -->
-		<xsl:variable name="_numberingFull" select="concat($ParentSectionNumbering, $_numbering, $config.vorbis.trackTitles.sectionNumbering.delimiterChar)"/>		
+		<xsl:variable name="_numberingFull" select="concat($ParentSectionNumbering, $_numbering, $config.vorbis.titles.sectionNumberDelimiter)"/>		
 		<!--======================================================================
 		 !	Variable dumps for debugging
 		 =========================================================================-->

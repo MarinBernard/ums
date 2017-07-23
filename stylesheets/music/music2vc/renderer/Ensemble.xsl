@@ -20,7 +20,7 @@
 					<xsl:with-param name="Label_Short" select="$config.vorbis.labels.Ensemble_Short"/>
 				</xsl:call-template>
 				<!-- Registering the ensemble as an artist, if enabled -->
-				<xsl:if test="$config.vorbis.artists.ensembleAsArtist = true()">
+				<xsl:if test="$config.vorbis.artists.includeEnsembles = true()">
 					<xsl:call-template name="LT_LabelVariants">
 						<xsl:with-param name="Label_Full" select="$config.vorbis.labels.Artist_Full"/>
 						<xsl:with-param name="Label_Sort" select="$config.vorbis.labels.Artist_Sort"/>

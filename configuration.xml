@@ -6,7 +6,8 @@
 			<mapping subpath="cities" element="city"/>
 			<mapping subpath="cities" element="country"/>
 			<mapping subpath="cities" element="countryState"/>
-		</catalog>	
+			<mapping subpath="languages" element="language"/>
+		</catalog>
 		<catalog id="music"
 			namespace="http://schema.olivarim.com/ums/1.0/music"
 			uri="file:///C:/Users/marin/Code/ums/catalogs/music">
@@ -29,11 +30,118 @@
 	</catalogs>
 	<schemas>
 		<schema id="common" namespace="http://schemas.olivarim.com/ums/1.0/common" uri="file:///C:/Users/marin/Code/ums/schemas/common.rng"/>
-		<schema id="music"  namespace="http://schemas.olivarim.com/ums/1.0/music"  uri="file:///C:/Users/marin/Code/ums/schemas/music.rng"/>			
+		<schema id="music" namespace="http://schemas.olivarim.com/ums/1.0/music" uri="file:///C:/Users/marin/Code/ums/schemas/music.rng"/>
 	</schemas>
 	<stylesheets>
 		<stylesheet id="expander" uri="file:///C:/Users/marin/Code/ums/stylesheets/music/expander/expander.xsl"/>
-		<stylesheet id="music2vc" uri="file:///C:/Users/marin/Code/ums/stylesheets/music/music2vc/music2vc.xsl"/>
+		<stylesheet id="music2vc" uri="file:///C:/Users/marin/Code/ums/stylesheets/music/music2vc/music2vc.xsl">
+			<option id="catalog-ids-delimiter">, </option>
+			<option id="catalog-ids-list-prefix">[</option>
+			<option id="catalog-ids-list-suffix">]</option>
+			<option id="constant-new-line">&#xa;</option>
+			<option id="constant-non-breakable-space">&#160;</option>
+			<option id="constant-vorbis-assignment">=</option>
+			<option id="composers-delimiter">/</option>
+			<option id="composers-list-prefix"></option>
+			<option id="composers-list-suffix"> -</option>
+			<option id="instruments-list-prefix">[</option>
+			<option id="instruments-list-suffix">]</option>
+			<option id="characters-delimiter">/</option>
+			<option id="characters-list-prefix">(</option>
+			<option id="characters-list-suffix">)</option>
+			<option id="movement-titles-concatenate">False</option>
+			<option id="movement-titles-delimiter"> / </option>
+			<option id="musical-forms-delimiter">/</option>
+			<option id="musical-forms-list-prefix"></option>
+			<option id="musical-forms-list-suffix"></option>
+			<option id="performers-delimiter">/</option>
+			<option id="performers-list-prefix">(</option>
+			<option id="performers-list-suffix">)</option>
+			<option id="keys-prefer-short-labels">True</option>
+			<option id="variants-fallback-language">en</option>
+			<option id="variants-preferred-language">fr</option>
+			<option id="variants-prefer-common-names">True</option>
+			<option id="variants-prefer-common-labels">True</option>
+			<option id="variants-pseudonym-prefix">('</option>
+			<option id="variants-pseudonym-suffix">')</option>
+			<option id="variants-show-pseudonyms">True</option>
+			<option id="variants-sort-name-delimiter">,</option>
+			<option id="variants-use-default-variants">True</option>
+			<option id="variants-use-fake-sort-variants">True</option>
+			<option id="variants-use-original-variants">False</option>
+			<option id="vorbis-album-titles-include-conductors">True</option>
+			<option id="vorbis-album-titles-include-composers">True</option>
+			<option id="vorbis-album-titles-include-ensembles">True</option>
+			<option id="vorbis-album-titles-include-instrumentalists">False</option>
+			<option id="vorbis-album-titles-include-performance-year">True</option>
+			<option id="vorbis-album-titles-include-performers">True</option>
+			<option id="vorbis-album-titles-include-soloists">True</option>
+			<option id="vorbis-album-titles-use-dynamic-title">True</option>
+			<option id="vorbis-artists-include-composers">True</option>
+			<option id="vorbis-artists-include-conductors">True</option>
+			<option id="vorbis-artists-include-ensembles">True</option>
+			<option id="vorbis-artists-include-instrumentalists">True</option>
+			<option id="vorbis-genres-form-prefix">~</option>
+			<option id="vorbis-genres-include-forms">True</option>
+			<option id="vorbis-genres-include-styles">True</option>
+			<option id="vorbis-genres-prefer-form-sort-labels">True</option>
+			<option id="vorbis-genres-prefer-style-sort-labels">True</option>
+			<option id="vorbis-genres-style-prefix">#</option>
+			<option id="vorbis-labels-album-title-full">ALBUM</option>
+			<option id="vorbis-labels-album-title-sort">ALBUMSORT</option>
+			<option id="vorbis-labels-album-subtitle">ALBUMSUBTITLE</option>
+			<option id="vorbis-labels-artist-name-full">ARTIST</option>
+			<option id="vorbis-labels-artist-name-short">ARTISTSHORT</option>
+			<option id="vorbis-labels-artist-name-sort">ARTISTSORT</option>
+			<option id="vorbis-labels-character-name">CHARACTER</option>
+			<option id="vorbis-labels-composer-name-full">COMPOSER</option>
+			<option id="vorbis-labels-composer-name-short">COMPOSERSHORT</option>
+			<option id="vorbis-labels-composer-name-sort">COMPOSERSORT</option>
+			<option id="vorbis-labels-conductor-name-full">CONDUCTOR</option>
+			<option id="vorbis-labels-conductor-name-short">CONDUCTORSHORT</option>
+			<option id="vorbis-labels-conductor-name-sort">CONDUCTORSORT</option>
+			<option id="vorbis-labels-disc-number">DISCNUMBER</option>
+			<option id="vorbis-labels-disc-total">DISCTOTAL</option>
+			<option id="vorbis-labels-ensemble-label-full">ENSEMBLE</option>
+			<option id="vorbis-labels-ensemble-label-short">ENSEMBLESHORT</option>
+			<option id="vorbis-labels-ensemble-label-sort">ENSEMBLESORT</option>
+			<option id="vorbis-labels-genre">GENRE</option>
+			<option id="vorbis-labels-instrument">INSTRUMENT</option>
+			<option id="vorbis-labels-instrumentalist-name-full">PERFORMER</option>
+			<option id="vorbis-labels-instrumentalist-name-short">PERFORMERSHORT</option>
+			<option id="vorbis-labels-instrumentalist-name-sort">PERFORMERSORT</option>
+			<option id="vorbis-labels-musical-form">MUSICALFORM</option>
+			<option id="vorbis-labels-musical-key">INITIALKEY</option>
+			<option id="vorbis-labels-original-album-title-full">ORIGINALALBUM</option>
+			<option id="vorbis-labels-original-album-title-sort">ORIGINALALBUMSORT</option>
+			<option id="vorbis-labels-original-album-subtitle">ORIGINALALBUMSUBTITLE</option>
+			<option id="vorbis-labels-style-label-full">STYLE</option>
+			<option id="vorbis-labels-style-label-short">STYLESHORT</option>
+			<option id="vorbis-labels-style-label-sort">STYLESORT</option>
+			<option id="vorbis-labels-track-number">TRACKNUMBER</option>
+			<option id="vorbis-labels-track-total">TRACKTOTAL</option>
+			<option id="vorbis-labels-title">TITLE</option>
+			<option id="vorbis-labels-work-catalog-id">CATALOGID</option>
+			<option id="vorbis-labels-work-title-full">WORK</option>
+			<option id="vorbis-labels-work-title-sort">WORKSORT</option>
+			<option id="vorbis-labels-work-subtitle">WORKSUBTITLE</option>
+			<option id="vorbis-performers-show-instrument">True</option>
+			<option id="vorbis-titles-parent-work-delimiter">-</option>
+			<option id="vorbis-titles-section-number-delimiter">.</option>
+			<option id="vorbis-titles-show-character-list">True</option>
+			<option id="vorbis-titles-show-incipit">True</option>
+			<option id="vorbis-titles-show-key">True</option>
+			<option id="vorbis-titles-show-musical-form-list">True</option>
+			<option id="vorbis-titles-show-parent-work">False</option>
+			<option id="vorbis-titles-show-section-numbers">True</option>
+			<option id="vorbis-titles-show-tempo-markings">True</option>
+			<option id="work-titles-show-catalog-ids">True</option>
+			<option id="work-titles-show-key">True</option>
+			<option id="work-titles-show-year">True</option>
+			<option id="work-titles-year-prefix">(</option>
+			<option id="work-titles-year-suffix">)</option>
+			<option id="work-titles-year-type">completion</option>
+		</stylesheet>
 	</stylesheets>
 	<tools>
 		<tool id="jre-bin" path="C:\Program Files\Java\jre1.8.0_131\bin\java.exe"/>

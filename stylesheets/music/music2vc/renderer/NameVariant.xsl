@@ -46,11 +46,11 @@
 						<xsl:value-of select="umsc:lastName"/>
 					</xsl:if>
 					<xsl:if test="umsc:pseudonym">
-						<xsl:if test="$config.variants.pseudonymSuffix.enabled = true()">
+						<xsl:if test="$config.variants.showPseudonyms = true()">
 							<xsl:text> </xsl:text>
-							<xsl:value-of select="$config.variants.pseudonymSuffix.openingChar"/>
+							<xsl:value-of select="$config.variants.pseudonymPrefix"/>
 							<xsl:value-of select="umsc:pseudonym"/>
-							<xsl:value-of select="$config.variants.pseudonymSuffix.closingChar"/>
+							<xsl:value-of select="$config.variants.pseudonymSuffix"/>
 						</xsl:if>
 					</xsl:if>
 				</xsl:otherwise>
@@ -61,7 +61,7 @@
 			<xsl:choose>
 				<xsl:when test="umsc:lastName">
 					<xsl:value-of select="umsc:lastName"/>
-					<xsl:value-of select="$config.variants.sort.nameDelimiterChar"/>
+					<xsl:value-of select="$config.variants.sortNameDelimiter"/>
 					<xsl:if test="umsc:firstName">
 						<xsl:text> </xsl:text>
 						<xsl:value-of select="umsc:firstName"/>
@@ -75,11 +75,11 @@
 						<xsl:value-of select="umsc:thirdName"/>
 					</xsl:if>
 					<xsl:if test="umsc:pseudonym">
-						<xsl:if test="$config.variants.pseudonymSuffix.enabled = true()">
+						<xsl:if test="$config.variants.showPseudonyms = true()">
 							<xsl:text> </xsl:text>
-							<xsl:value-of select="$config.variants.pseudonymSuffix.openingChar"/>
+							<xsl:value-of select="$config.variants.pseudonymPrefix"/>
 							<xsl:value-of select="umsc:pseudonym"/>
-							<xsl:value-of select="$config.variants.pseudonymSuffix.closingChar"/>
+							<xsl:value-of select="$config.variants.pseudonymSuffix"/>
 						</xsl:if>
 					</xsl:if>
 				</xsl:when>

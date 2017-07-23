@@ -81,22 +81,22 @@
 		<xsl:variable name="_albumTitle">
 			<xsl:choose>
 				<!-- If dynamic album titles are disabled, we just use the title of the current album -->
-				<xsl:when test="$config.vorbis.dynamicAlbums.enabled = false()">
+				<xsl:when test="$config.albumTitles.useDynamicTitle = false()">
 					<xsl:value-of select="$ParentAlbumTitle"/>
 				</xsl:when>
 				<!-- If dynamic album titles are enabled, we begin to build album title -->
-				<xsl:when test="$config.vorbis.dynamicAlbums.enabled = true()">
+				<xsl:when test="$config.albumTitles.useDynamicTitle = true()">
 					<!-- Getting composer list -->
 					<xsl:variable name="_composerList">
-						<xsl:if test="$config.vorbis.dynamicAlbums.composerList.enabled = true()">
-							<xsl:value-of select="$config.vorbis.dynamicAlbums.composerList.openingChar"/>
+						<xsl:if test="$config.albumTitles.includeComposers = true()">
+							<xsl:value-of select="$config.composers.listPrefix"/>
 							<xsl:for-each select="$_targetPerformance">
 								<xsl:call-template name="RT_Performance">
 									<xsl:with-param name="TargetSection" select="$_section"/>
 									<xsl:with-param name="Mode" select="'RAWCOMPOSERLIST'"/>
 								</xsl:call-template>
 							</xsl:for-each>
-							<xsl:value-of select="$config.vorbis.dynamicAlbums.composerList.closingChar"/>
+							<xsl:value-of select="$config.composers.listSuffix"/>
 							<xsl:value-of select="$config.constants.nonBreakableSpace"/>
 						</xsl:if>
 					</xsl:variable>
@@ -112,15 +112,15 @@
 					</xsl:variable>
 					<!-- Getting the list of performers -->
 					<xsl:variable name="_performerList">
-						<xsl:if test="$config.vorbis.dynamicAlbums.performerList.enabled = true()">
-							<xsl:value-of select="$config.vorbis.dynamicAlbums.performerList.openingChar"/>
+						<xsl:if test="$config.albumTitles.includePerformers = true()">
+							<xsl:value-of select="$config.performers.listPrefix"/>
 							<xsl:for-each select="$_targetPerformance">
 								<xsl:call-template name="RT_Performance">
 									<xsl:with-param name="TargetSection" select="$_section"/>
 									<xsl:with-param name="Mode" select="'RAWPERFORMERLIST'"/>
 								</xsl:call-template>
 							</xsl:for-each>
-							<xsl:value-of select="$config.vorbis.dynamicAlbums.performerList.closingChar"/>
+							<xsl:value-of select="$config.performers.listSuffix"/>
 							<xsl:value-of select="$config.constants.nonBreakableSpace"/>
 						</xsl:if>
 					</xsl:variable>
@@ -170,7 +170,7 @@
 		<!-- VC: Original album title -->
 		<xsl:variable name="_VC_OriginalAlbumTitle">
 			<!-- Only when dynamic album titles are enabled -->
-			<xsl:if test="$config.vorbis.dynamicAlbums.enabled = true()">
+			<xsl:if test="$config.albumTitles.useDynamicTitle = true()">
 				<xsl:call-template name="createVorbisComment">
 					<xsl:with-param name="Label" select="$config.vorbis.labels.OriginalAlbum_Title_Full"/>
 					<xsl:with-param name="Value" select="$ParentAlbumTitle"/>

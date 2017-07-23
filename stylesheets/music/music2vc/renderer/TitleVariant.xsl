@@ -31,7 +31,7 @@
 					<xsl:value-of select="umsc:sortTitle"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:if test="$config.variants.sort.fakeVariants = true()">
+					<xsl:if test="$config.variants.useFakeSortVariants = true()">
 						<xsl:value-of select="$_fullTitle"/>
 					</xsl:if>
 				</xsl:otherwise>

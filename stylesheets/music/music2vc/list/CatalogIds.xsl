@@ -37,10 +37,10 @@
 				<xsl:call-template name="RT_CatalogId">
 					<xsl:with-param name="Raw" select="true()"/>
 				</xsl:call-template>
-				<xsl:value-of select="$config.workTitles.catalogId.delimiterChar"/>
+				<xsl:value-of select="$config.catalogIds.Delimiter"/>
 			</xsl:for-each>
 		</xsl:variable>
-		<xsl:variable name="_catalogIds" select="substring($_catalogIdsTmp, 1, string-length($_catalogIdsTmp) - string-length($config.workTitles.catalogId.delimiterChar) )"/>
+		<xsl:variable name="_catalogIds" select="substring($_catalogIdsTmp, 1, string-length($_catalogIdsTmp) - string-length($config.catalogIds.Delimiter) )"/>
 		<xsl:call-template name="showDebugMessage">
 			<xsl:with-param name="Template" select="'LT_CatalogIds'"/>
 			<xsl:with-param name="Message" select="concat('Catalog id single string is: ', $_catalogIds)"/>

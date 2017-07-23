@@ -68,4 +68,45 @@
 		<!-- Final value -->
 		<xsl:value-of select="$_value"/>
 	</xsl:template>
+	<!--
+	==============================================================================
+	!
+	!	Stylesheet options
+	!
+	==============================================================================
+	-->
+	<!-- Returns the value of a stylesheet option -->
+	<xsl:template name="getStylesheetOptionValue">
+		<xsl:param name="Stylesheet"/>
+		<xsl:param name="OptionName"/>
+		<xsl:param name="AllowEmptyValue" select="false()"/>
+		<xsl:param name="Boolean" select="false()"/>
+		<!-- Get option value -->
+		<xsl:variable name="_value">
+			<xsl:value-of select="$ConfigData/stylesheets/stylesheet[@id = $Stylesheet]/option[@id = $OptionName]"/>
+		</xsl:variable>
+		<!-- Validate option value -->
+		<xsl:if test="$AllowEmptyValue = false() and normalize-space($_value) = ''">
+			<xsl:message terminate="yes" select="concat('No non-empty stylesheet option was found with the name ', $OptionName)"/>
+		</xsl:if>
+		<!-- Final value -->
+		<xsl:choose>
+			<xsl:when test="$Boolean = false()">
+				<xsl:value-of select="$_value"/>
+			</xsl:when>
+			<xsl:when test="$Boolean = true()">
+				<xsl:choose>
+					<xsl:when test="lower-case($_value) = 'false'">
+						<xsl:value-of select="false()"/>
+					</xsl:when>	
+					<xsl:when test="lower-case($_value) = 'true'">
+						<xsl:value-of select="true()"/>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:message terminate="yes" select="concat('Invalid value for stylesheet option ', $OptionName, '. Expected a boolean value.')"/>
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:when>
+		</xsl:choose>
+	</xsl:template>
 </xsl:stylesheet>

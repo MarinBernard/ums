@@ -21,9 +21,9 @@
 				</xsl:call-template>
 				<xsl:choose>
 					<!-- If the performed instrument must be added as a suffix -->
-					<xsl:when test="$config.vorbis.performers.instrumentSuffix.enabled = true()">
+					<xsl:when test="$config.vorbis.performers.showInstrument = true()">
 						<!-- Building instrument suffix -->
-						<xsl:variable name="_instrumentSuffix" select="concat(' ', $config.vorbis.performers.instrumentSuffix.openingChar, $Instrument, $config.vorbis.performers.instrumentSuffix.closingChar)"/>
+						<xsl:variable name="_instrumentSuffix" select="concat(' ', $config.instruments.listPrefix, $Instrument, $config.instruments.listSuffix)"/>
 						<xsl:call-template name="showDebugMessage">
 							<xsl:with-param name="Template" select="'RT_Instrumentalist'"/>
 							<xsl:with-param name="Message" select="concat('Instrument suffix is: ', $_instrumentSuffix)"/>
@@ -48,7 +48,7 @@
 					</xsl:otherwise>
 				</xsl:choose>
 				<!-- Registering the instrumentalist as an artist, if enabled -->
-				<xsl:if test="$config.vorbis.artists.instrumentalistAsArtist = true()">
+				<xsl:if test="$config.vorbis.artists.includeInstrumentalists = true()">
 					<xsl:call-template name="LT_NameVariants">
 						<xsl:with-param name="Label_Full" select="$config.vorbis.labels.Artist_Full"/>
 						<xsl:with-param name="Label_Sort" select="$config.vorbis.labels.Artist_Sort"/>

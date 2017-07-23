@@ -24,11 +24,11 @@
 							<xsl:with-param name="Message" select="concat('Processing composer with uid: ', @uid)"/>
 						</xsl:call-template>
 						<xsl:call-template name="GT_Name_Short"/>
-						<xsl:value-of select="$config.vorbis.dynamicAlbums.composerList.delimiterChar"/>
+						<xsl:value-of select="$config.composers.delimiter"/>
 					</xsl:for-each>
 				</xsl:variable>
 				<!-- Remove last delimiter char from the list of composers -->
-				<xsl:variable name="_composerList" select="substring($_composerListTmp, 1, string-length($_composerListTmp) - string-length($config.vorbis.dynamicAlbums.composerList.delimiterChar))"/>
+				<xsl:variable name="_composerList" select="substring($_composerListTmp, 1, string-length($_composerListTmp) - string-length($config.composers.delimiter))"/>
 				<!-- Returning the list -->
 				<xsl:value-of select="$_composerList"/>
 			</xsl:when>
