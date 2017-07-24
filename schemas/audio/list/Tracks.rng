@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="MLT_Tracks">
+	<define name="ALT_Tracks">
 		<element name="tracks">
 			<oneOrMore>
-				<ref name="MCT_Track"/>
+				<ref name="ACT_Track"/>
 			</oneOrMore>
 		</element>
 	</define>

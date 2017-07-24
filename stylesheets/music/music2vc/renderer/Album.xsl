@@ -27,9 +27,17 @@
 		<xsl:variable name="_albumTitle">
 			<xsl:call-template name="GT_Title_Full"/>
 		</xsl:variable>
+		<xsl:call-template name="showDebugMessage">
+			<xsl:with-param name="Template" select="'RT_Album'"/>
+			<xsl:with-param name="Message" select="concat('Album title is: ', $_albumTitle)"/>
+		</xsl:call-template>
 		<!--======================================================================
 		 !	Call sub templates for album media
 		 =========================================================================-->
+		<xsl:call-template name="showDebugMessage">
+			<xsl:with-param name="Template" select="'RT_Album'"/>
+			<xsl:with-param name="Message" select="'Beginning album media enumeration'"/>
+		</xsl:call-template>
 		<xsl:for-each select="umsa:media">
 			<xsl:call-template name="LT_Media">
 				<xsl:with-param name="TargetMediumNumber" select="$TargetMediumNumber"/>
@@ -39,5 +47,9 @@
 				<xsl:with-param name="ParentAlbumTitle" select="$_albumTitle"/>
 			</xsl:call-template>
 		</xsl:for-each>
+		<xsl:call-template name="showDebugMessage">
+			<xsl:with-param name="Template" select="'RT_Album'"/>
+			<xsl:with-param name="Message" select="'Finished album media enumeration'"/>
+		</xsl:call-template>		
 	</xsl:template>
 </xsl:stylesheet>

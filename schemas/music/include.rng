@@ -15,13 +15,11 @@
 	<include href="concrete/Key.rng"/>
 	<include href="concrete/Lyricist.rng"/>
 	<include href="concrete/Lyrics.rng"/>
-	<include href="concrete/Medium.rng"/>
 	<include href="concrete/Movement.rng"/>
 	<include href="concrete/Performance.rng"/>
 	<include href="concrete/Performer.rng"/>
 	<include href="concrete/Section.rng"/>
 	<include href="concrete/Style.rng"/>
-	<include href="concrete/Track.rng"/>
 	<include href="concrete/Venue.rng"/>
 	<include href="concrete/Work.rng"/>
 	<!-- List types -->
@@ -35,7 +33,6 @@
 	<include href="list/Performances.rng"/>
 	<include href="list/Performers.rng"/>
 	<include href="list/Sections.rng"/>
-	<include href="list/Tracks.rng"/>
 	<!-- Reference types -->
 	<include href="reference/Catalog.rng"/>
 	<include href="reference/Composer.rng"/>

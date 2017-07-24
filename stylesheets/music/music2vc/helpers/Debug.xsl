@@ -13,7 +13,7 @@
 		<!--======================================================================
 		 ! Output
 		 =========================================================================-->
-		<xsl:if test="$config.debug.enabled = true()">
+		<xsl:if test="$Debug = true()">
 			<xsl:if test="$Message and normalize-space(string($Message)) != ''">
 				<xsl:message select="concat('[DEBUG] (', $Template, ') ', $Message)"/>
 			</xsl:if>

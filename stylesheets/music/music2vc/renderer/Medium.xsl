@@ -34,7 +34,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
-		<xsl:variable name="_realMediumNumber" select="count(current()/preceding::umsm:medium) + 1"/>
+		<xsl:variable name="_realMediumNumber" select="count(current()/preceding::umsa:medium) + 1"/>
 		<!--======================================================================
 		 !	Store common medium information
 		 =========================================================================-->
@@ -55,7 +55,7 @@
 		<!--======================================================================
 		 !	Calling sub template to process track list
 		 =========================================================================-->
-		<xsl:for-each select="umsm:tracks">
+		<xsl:for-each select="umsa:tracks">
 			<xsl:call-template name="LT_Tracks">
 				<xsl:with-param name="TargetTrackNumber" select="$TargetTrackNumber"/>
 				<xsl:with-param name="Mode" select="$Mode"/>

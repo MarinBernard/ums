@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="MCT_Medium">
+	<define name="ACT_Medium">
 		<element name="medium">
 			<!-- Inherited elements -->
 			<ref name="BAT_Medium"/>
 			<!-- List of tracks -->
-			<ref name="MLT_Tracks"/>
+			<ref name="ALT_Tracks"/>
 		</element>
 	</define>
 </grammar>

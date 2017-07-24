@@ -10,12 +10,19 @@
 	!	Parameters
 	!
 	==============================================================================
-	-->
-	<!-- Path to the common configuration file -->
+
+	Path to the common configuration file -->
 	<xsl:param name="ConfigFile" select="'file:///C:/Users/marin/Code/ums/configuration.xml'"/>
-	<!-- Output mode. Possible values are 'VORBIS' and 'RAWLYRICS'. -->
+	<!--
+	
+	Output mode. Possible values are 'VORBIS' and 'RAWLYRICS'. -->
 	<xsl:param name="OutputMode" select="'VORBIS'"/>
 	<!--
+	
+	If set to true(), debug info will be sent to the stderr. -->
+	<xsl:variable name="Debug" select="false()" />
+	<!--
+	
 	==============================================================================
 	!
 	!	Inclusions
@@ -24,17 +31,22 @@
 	-->
 	<xsl:include href="includes.xsl"/>
 	<!--
+	
 	==============================================================================
 	!
 	!	Base templates
 	!
 	==============================================================================
-	-->
-	<!-- Output method is text since we're producing Vorbis Comments -->
+	
+	Output method is text since we're producing Vorbis Comments -->
 	<xsl:output method="text" indent="no"/>
-	<!-- Disable all text output by default -->
+	<!--
+	
+	Disable all text output by default -->
 	<xsl:template match="text()"/>
-	<!-- Processing starts at the files element -->
+	<!--
+	
+	Processing starts at the files element -->
 	<xsl:template match="umsb:file/umsa:contentBinding">
 		<xsl:call-template name="BT_AudioContentBinding"/>
 	</xsl:template>

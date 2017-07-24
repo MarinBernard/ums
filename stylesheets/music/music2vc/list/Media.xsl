@@ -25,11 +25,11 @@
 		<!--======================================================================
 		 !	Common to all modes: getting media count
 		 =========================================================================-->
-		<xsl:variable name="_totalMedia" select="count(umsm:medium)"/>		
+		<xsl:variable name="_totalMedia" select="count(umsa:medium)"/>		
 		<!--======================================================================
 		 !	Calling sub template for the targeted media
 		 =========================================================================-->
-		<xsl:for-each select="umsm:medium">
+		<xsl:for-each select="umsa:medium">
 			<!-- Test medium number -->
 			<xsl:if test="@number = $TargetMediumNumber">
 				<!-- Test medium side, if present -->

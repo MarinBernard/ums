@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
 	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
-	<define name="MCT_Track">
+	<define name="ACT_Track">
 		<element name="track">
 			<!-- Abstract properties common to all items -->
 			<ref name="BAT_Track"/>

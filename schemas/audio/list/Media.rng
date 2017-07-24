@@ -3,7 +3,7 @@
 	<define name="ALT_Media">
 		<element name="media">
 			<oneOrMore>
-				<ref name="MCT_Medium"/>				
+				<ref name="ACT_Medium"/>				
 			</oneOrMore>
 		</element>
 	</define>

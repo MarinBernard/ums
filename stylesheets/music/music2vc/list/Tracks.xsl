@@ -26,11 +26,11 @@
 		 !	Processing
 		 =========================================================================-->
 		<!-- Computing total number of tracks -->
-		<xsl:variable name="_totalTracks" select="count(umsm:track)"/>
+		<xsl:variable name="_totalTracks" select="count(umsa:track)"/>
 		<!--======================================================================
 		 !	General output
 		 =========================================================================-->
-		<xsl:for-each select="umsm:track">
+		<xsl:for-each select="umsa:track">
 			<!-- Test target track number -->
 			<xsl:if test="@number = $TargetTrackNumber">
 				<!-- Get particular data of this single track -->
