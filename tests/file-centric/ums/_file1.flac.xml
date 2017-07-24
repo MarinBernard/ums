@@ -8,7 +8,7 @@
 	<umsb:name>file1.flac</umsb:name>
 	<umsa:contentBinding>
 		<umsa:albumTrackBinding medium="1" track="1">
-			<umsm:album uid="_album"/>
+			<umsm:album uid="album"/>
 		</umsa:albumTrackBinding>
 	</umsa:contentBinding>
 </umsb:file>

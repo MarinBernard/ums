@@ -1,8 +1,8 @@
 <configuration>
 	<catalogs>
-		<catalog id="common"
+		<catalog id="base"
 			namespace="http://schema.olivarim.com/ums/1.0/base"
-			uri="file:///C:/Users/marin/Code/ums/catalogs/common">
+			uri="file:///C:/Users/marin/Code/ums/catalogs/base">
 			<mapping subpath="cities" element="city"/>
 			<mapping subpath="cities" element="country"/>
 			<mapping subpath="cities" element="countryState"/>

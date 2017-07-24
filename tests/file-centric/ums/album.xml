@@ -26,19 +26,19 @@
 		</release>
 	</releases>
 	<umsm:performances>
-		<umsm:performance uid="_performance"/>
+		<umsm:performance uid="performance"/>
 	</umsm:performances>
 	<umsm:media>
 		<umsm:medium number="1" type="CDDA">
 			<umsm:tracks>
-				<umsm:track number="1" performance="_performance" section="I/1"/>
-				<umsm:track number="2" performance="_performance" section="I/2"/>
-				<umsm:track number="3" performance="_performance" section="I/3"/>
+				<umsm:track number="1" performance="performance" section="I/1"/>
+				<umsm:track number="2" performance="performance" section="I/2"/>
+				<umsm:track number="3" performance="performance" section="I/3"/>
 			</umsm:tracks>
 		</umsm:medium>
 		<umsm:medium number="2" type="CDDA">
 			<umsm:tracks>
-				<umsm:track number="12" performance="_performance" section="II/30"/>
+				<umsm:track number="12" performance="performance" section="II/30"/>
 			</umsm:tracks>
 		</umsm:medium>
 	</umsm:media>
