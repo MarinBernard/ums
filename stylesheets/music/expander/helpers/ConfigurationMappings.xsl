@@ -34,29 +34,43 @@
 	<!--
 	==============================================================================
 	!
-	!	Common catalog URIs
+	!	Base catalog URIs
 	!
 	==============================================================================
 	-->
-	<!-- URI to the catalog of city common elements -->
-	<xsl:variable name="CAT_Common_Cities">
+	<!-- URI to the catalog of base city elements -->
+	<xsl:variable name="CAT_Base_Cities">
 		<xsl:call-template name="getCatalogUriForElement">
 			<xsl:with-param name="Namespace" select="'http://schema.olivarim.com/ums/1.0/base'"/>
 			<xsl:with-param name="ElementName" select="'city'"/>
 		</xsl:call-template>
 	</xsl:variable>
-	<!-- URI to the catalog of country common elements -->
-	<xsl:variable name="CAT_Common_Countries">
+	<!-- URI to the catalog of base country elements -->
+	<xsl:variable name="CAT_Base_Countries">
 		<xsl:call-template name="getCatalogUriForElement">
 			<xsl:with-param name="Namespace" select="'http://schema.olivarim.com/ums/1.0/base'"/>
 			<xsl:with-param name="ElementName" select="'country'"/>
 		</xsl:call-template>
 	</xsl:variable>
-	<!-- URI to the catalog of countryState common elements -->
-	<xsl:variable name="CAT_Common_CountryStates">
+	<!-- URI to the catalog of base countryState elements -->
+	<xsl:variable name="CAT_Base_CountryStates">
 		<xsl:call-template name="getCatalogUriForElement">
 			<xsl:with-param name="Namespace" select="'http://schema.olivarim.com/ums/1.0/base'"/>
 			<xsl:with-param name="ElementName" select="'countryState'"/>
+		</xsl:call-template>
+	</xsl:variable>
+	<!--
+	==============================================================================
+	!
+	!	Audio catalog URIs
+	!
+	==============================================================================
+	-->
+	<!-- URI to the catalog of audio label elements -->
+	<xsl:variable name="CAT_Audio_Labels">
+		<xsl:call-template name="getCatalogUriForElement">
+			<xsl:with-param name="Namespace" select="'http://schema.olivarim.com/ums/1.0/audio'"/>
+			<xsl:with-param name="ElementName" select="'label'"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<!--
@@ -120,13 +134,6 @@
 		<xsl:call-template name="getCatalogUriForElement">
 			<xsl:with-param name="Namespace" select="'http://schema.olivarim.com/ums/1.0/music'"/>
 			<xsl:with-param name="ElementName" select="'key'"/>
-		</xsl:call-template>
-	</xsl:variable>
-	<!-- URI to the catalog of label music elements -->
-	<xsl:variable name="CAT_Music_Labels">
-		<xsl:call-template name="getCatalogUriForElement">
-			<xsl:with-param name="Namespace" select="'http://schema.olivarim.com/ums/1.0/music'"/>
-			<xsl:with-param name="ElementName" select="'label'"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<!-- URI to the catalog of lyricist music elements -->

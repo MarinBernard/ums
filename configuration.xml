@@ -8,6 +8,11 @@
 			<mapping subpath="cities" element="countryState"/>
 			<mapping subpath="languages" element="language"/>
 		</catalog>
+		<catalog id="audio"
+			namespace="http://schema.olivarim.com/ums/1.0/audio"
+			uri="file:///C:/Users/marin/Code/ums/catalogs/audio">
+			<mapping subpath="labels" element="label"/>
+		</catalog>
 		<catalog id="music"
 			namespace="http://schema.olivarim.com/ums/1.0/music"
 			uri="file:///C:/Users/marin/Code/ums/catalogs/music">
@@ -22,7 +27,6 @@
 			<mapping subpath="instrumentalists" element="instrumentalist"/>
 			<mapping subpath="instruments" element="instrument"/>
 			<mapping subpath="keys" element="key"/>
-			<mapping subpath="labels" element="label"/>
 			<mapping subpath="lyricists" element="lyricist"/>
 			<mapping subpath="styles" element="style"/>
 			<mapping subpath="venues" element="venue"/>

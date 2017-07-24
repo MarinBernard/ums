@@ -19,7 +19,6 @@
 			<ref name="MCT_Instrument"/>
 			<ref name="MCT_Instrumentalist"/>
 			<ref name="MCT_Key"/>
-			<ref name="MCT_Label"/>
 			<ref name="MCT_Lyricist"/>
 			<ref name="MCT_Lyrics"/>
 			<ref name="MCT_Movement"/>

@@ -3,4 +3,10 @@
 	<!-- Binding types -->
 	<include href="binding/AlbumTrackBinding.rng"/>
 	<include href="binding/ContentBinding.rng"/>
+	<!-- Concrete types -->
+	<include href="concrete/Label.rng"/>
+	<!-- List types -->
+	<include href="list/Labels.rng"/>
+	<!-- Reference types -->
+	<include href="reference/Label.rng"/>
 </grammar>

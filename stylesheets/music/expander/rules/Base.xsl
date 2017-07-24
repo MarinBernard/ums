@@ -7,7 +7,7 @@
 	<!--
 	==============================================================================
 	!
-	!	Transclusion rules for elements from the common namespace
+	!	Transclusion rules for elements from the base namespace
 	!
 	==============================================================================
 	-->
@@ -20,21 +20,21 @@
 	<!-- Transclusion of references to <city> elements -->
 	<xsl:template match="umsb:city[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
-			<xsl:with-param name="CatalogRoot" select="$CAT_Common_Cities"/>
+			<xsl:with-param name="CatalogRoot" select="$CAT_Base_Cities"/>
 			<xsl:with-param name="TargetElement" select="'city'"/>
 		</xsl:call-template>
 	</xsl:template>
 	<!-- Transclusion of references to <country> elements -->
 	<xsl:template match="umsb:country[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
-			<xsl:with-param name="CatalogRoot" select="$CAT_Common_Countries"/>
+			<xsl:with-param name="CatalogRoot" select="$CAT_Base_Countries"/>
 			<xsl:with-param name="TargetElement" select="'country'"/>
 		</xsl:call-template>
 	</xsl:template>
 	<!-- Transclusion of references to <countryState> elements -->
 	<xsl:template match="umsb:countryState[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
-			<xsl:with-param name="CatalogRoot" select="$CAT_Common_CountryStates"/>
+			<xsl:with-param name="CatalogRoot" select="$CAT_Base_CountryStates"/>
 			<xsl:with-param name="TargetElement" select="'countryState'"/>
 		</xsl:call-template>
 	</xsl:template>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<umsm:label
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/audio.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsa:label
 	xmlns="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
-	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio">
 	<labelVariants>
 		<labelVariant lang="de" original="true" default="true">
 			<fullLabel>Deutsche Harmonia Mundi</fullLabel>
@@ -14,4 +14,4 @@
 		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Deutsche_Harmonia_Mundi"/>
 		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Deutsche_Harmonia_Mundi"/>
 	</links>
-</umsm:label>
+</umsa:label>

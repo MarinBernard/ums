@@ -73,13 +73,6 @@
 			<xsl:with-param name="TargetElement" select="'key'"/>
 		</xsl:call-template>
 	</xsl:template>
-	<!-- Transclusion of <label> references -->
-	<xsl:template match="umsm:label[@uid][not(*)]">
-		<xsl:call-template name="Transcluder">
-			<xsl:with-param name="CatalogRoot" select="$CAT_Music_Labels"/>
-			<xsl:with-param name="TargetElement" select="'label'"/>
-		</xsl:call-template>
-	</xsl:template>
 	<!-- Transclusion of <lyricist> references -->
 	<xsl:template match="umsm:lyricist[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">

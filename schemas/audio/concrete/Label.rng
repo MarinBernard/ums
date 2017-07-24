@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="MCT_Label">
+	<define name="ACT_Label">
 		<element name="label">
 			<!-- This element might be used by reference -->
 			<ref name="BAT_Referenceable"/>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<umsm:label
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/audio.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsa:label
 	xmlns="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
-	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio">
 	<labelVariants>
 		<labelVariant lang="en" original="true" default="true">
 			<fullLabel>Sony Music Masterworks</fullLabel>
@@ -16,4 +16,4 @@
 		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Sony_Music_Masterworks"/>
 		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Sony_Masterworks"/>
 	</links>
-</umsm:label>
+</umsa:label>

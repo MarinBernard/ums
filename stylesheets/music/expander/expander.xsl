@@ -24,7 +24,7 @@
 	<xsl:include href="helpers/ConfigurationMappings.xsl"/>
 	<xsl:include href="helpers/Transcluder.xsl"/>
 	<xsl:include href="rules/Audio.xsl"/>
-	<xsl:include href="rules/Common.xsl"/>
+	<xsl:include href="rules/Base.xsl"/>
 	<xsl:include href="rules/Music.xsl"/>
 	<!--
 	==============================================================================

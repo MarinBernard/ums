@@ -10,6 +10,7 @@
 	<start>
 		<choice>
 			<ref name="ABT_ContentBinding"/>
+			<ref name="ACT_Label"/>
 		</choice>
 	</start>
 </grammar>

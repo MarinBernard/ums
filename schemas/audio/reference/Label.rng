@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="MRT_Label">
+	<define name="ART_Label">
 		<element name="label">
 			<ref name="BAT_Reference"/>
 		</element>

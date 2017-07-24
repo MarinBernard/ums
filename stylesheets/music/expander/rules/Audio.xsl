@@ -11,4 +11,11 @@
 	!
 	==============================================================================
 	-->
+	<!-- Transclusion of <label> references -->
+	<xsl:template match="umsa:label[@uid][not(*)]">
+		<xsl:call-template name="Transcluder">
+			<xsl:with-param name="CatalogRoot" select="$CAT_Audio_Labels"/>
+			<xsl:with-param name="TargetElement" select="'label'"/>
+		</xsl:call-template>
+	</xsl:template>	
 </xsl:stylesheet>

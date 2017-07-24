@@ -3,6 +3,7 @@
 <umsm:album
 	xmlns="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
 	<titleVariants>
 		<titleVariant lang="de" original="true">
@@ -15,10 +16,10 @@
 			<fullTitle>Passion selon St. Matthieu</fullTitle>
 		</titleVariant>
 	</titleVariants>
-	<umsm:labels>
-		<umsm:label uid="BMG"/>
-		<umsm:label uid="Deutsche Harmonia Mundi"/>
-	</umsm:labels>
+	<umsa:labels>
+		<umsa:label uid="BMG"/>
+		<umsa:label uid="Deutsche Harmonia Mundi"/>
+	</umsa:labels>
 	<releases>
 		<release>
 			<year>1990</year>

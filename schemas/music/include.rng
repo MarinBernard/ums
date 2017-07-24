@@ -14,7 +14,6 @@
 	<include href="concrete/Instrument.rng"/>
 	<include href="concrete/Instrumentalist.rng"/>
 	<include href="concrete/Key.rng"/>
-	<include href="concrete/Label.rng"/>
 	<include href="concrete/Lyricist.rng"/>
 	<include href="concrete/Lyrics.rng"/>
 	<include href="concrete/Medium.rng"/>
@@ -33,7 +32,6 @@
 	<include href="list/Conductors.rng"/>
 	<include href="list/Forms.rng"/>
 	<include href="list/Instruments.rng"/>
-	<include href="list/Labels.rng"/>
 	<include href="list/Lyricists.rng"/>
 	<include href="list/Media.rng"/>
 	<include href="list/Movements.rng"/>
@@ -51,7 +49,6 @@
 	<include href="reference/Form.rng"/>
 	<include href="reference/Instrument.rng"/>
 	<include href="reference/Instrumentalist.rng"/>
-	<include href="reference/Label.rng"/>
 	<include href="reference/Lyricist.rng"/>
 	<include href="reference/Lyrics.rng"/>
 	<include href="reference/Movement.rng"/>
