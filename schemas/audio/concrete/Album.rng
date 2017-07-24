@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="ACT_Album">
+		<element name="album">
+			<!-- This element might be used by reference -->
+			<ref name="BAT_Referenceable"/>
+			<!-- Inheritance from the Product abstract type -->
+			<ref name="BAT_Product"/>
+			<!-- Labels which produced the album -->
+			<ref name="ALT_Labels"/>
+			<!-- Releases of the album -->
+			<ref name="BLT_Releases"/>
+			<!-- Media included in the album -->
+			<ref name="MLT_Media"/>
+			<!-- Performances in the album -->
+			<ref name="MLT_Performances"/>
+		</element>
+	</define>
+</grammar>
