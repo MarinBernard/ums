@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xsl:stylesheet version="3.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
 	<!--
 	==============================================================================
@@ -12,8 +13,6 @@
 	-->
 	<!-- Path to the common configuration file -->
 	<xsl:param name="ConfigFile" select="'file:///C:/Users/marin/Code/ums/configuration.xml'"/>
-	<!-- Output directory. A blank value would redirect output to the console -->
-	<xsl:param name="OutputDirectory" select="''"/>
 	<!-- Output mode. Possible values are 'VORBIS' and 'RAWLYRICS'. -->
 	<xsl:param name="OutputMode" select="'VORBIS'"/>
 	<!--
@@ -36,7 +35,7 @@
 	<!-- Disable all text output by default -->
 	<xsl:template match="text()"/>
 	<!-- Processing starts at the files element -->
-	<xsl:template match="umsm:fileset/umsm:files">
-		<xsl:call-template name="LT_Files"/>
+	<xsl:template match="umsb:file/umsa:contentBinding">
+		<xsl:call-template name="BT_AudioContentBinding"/>
 	</xsl:template>
 </xsl:stylesheet>

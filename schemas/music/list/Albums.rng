@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="LT_Albums">
+	<define name="MLT_Albums">
 		<element name="albums">
 			<oneOrMore>
 				<choice>
-					<ref name="CT_Album"/>
-					<ref name="RT_Album"/>
+					<ref name="MCT_Album"/>
+					<ref name="MRT_Album"/>
 				</choice>
 			</oneOrMore>
 		</element>

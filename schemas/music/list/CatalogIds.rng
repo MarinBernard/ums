@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="LT_CatalogIds">
+	<define name="MLT_CatalogIds">
 		<element name="catalogIds">
 			<oneOrMore>
-				<ref name="CT_CatalogId"/>
+				<ref name="MCT_CatalogId"/>
 			</oneOrMore>
 		</element>
 	</define>

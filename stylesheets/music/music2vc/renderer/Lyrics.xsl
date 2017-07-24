@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="3.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
 	<!--======================================================================
 	 !	Main template
@@ -48,7 +49,7 @@
 				<xsl:variable name="_targetCharacter" select="@character"/>
 				<!-- Get localized character name-->
 				<xsl:variable name="_characterName">
-					<xsl:for-each select="ancestor::umsm:movement/umsc:characters/umsc:character[@uid = $_targetCharacter]">
+					<xsl:for-each select="ancestor::umsm:movement/umsb:characters/umsb:character[@uid = $_targetCharacter]">
 						<xsl:call-template name="RT_Character">
 							<xsl:with-param name="Mode" select="'RAWFULLNAME'"/>
 						</xsl:call-template>

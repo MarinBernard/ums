@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="3.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
 	<xsl:template name="RT_TitleVariant">
 		<!--======================================================================
@@ -22,13 +23,13 @@
 		 =========================================================================-->
 		<!-- Full title -->
 		<xsl:variable name="_fullTitle">
-			<xsl:value-of select="umsc:fullTitle"/>
+			<xsl:value-of select="umsb:fullTitle"/>
 		</xsl:variable>
 		<!-- Sort-friendly variant of the title -->
 		<xsl:variable name="_sortTitle">
 			<xsl:choose>
-				<xsl:when test="umsc:sortTitle">
-					<xsl:value-of select="umsc:sortTitle"/>
+				<xsl:when test="umsb:sortTitle">
+					<xsl:value-of select="umsb:sortTitle"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:if test="$config.variants.useFakeSortVariants = true()">
@@ -39,7 +40,7 @@
 		</xsl:variable>
 		<!-- Subtitle -->
 		<xsl:variable name="_subtitle">
-			<xsl:value-of select="umsc:subtitle"/>
+			<xsl:value-of select="umsb:subtitle"/>
 		</xsl:variable>
 		<!--======================================================================
 		 !	Output builders

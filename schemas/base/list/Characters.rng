@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="BLT_Characters">
+		<element name="characters">
+			<oneOrMore>
+				<choice>
+					<ref name="BCT_Character"/>
+					<ref name="BRT_Character"/>
+				</choice>
+			</oneOrMore>
+		</element>
+	</define>
+</grammar>

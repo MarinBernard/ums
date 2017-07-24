@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="LT_Lyricists">
+	<define name="MLT_Lyricists">
 		<element name="lyricists">
 			<oneOrMore>
 				<choice>
-					<ref name="CT_Lyricist"/>
-					<ref name="RT_Lyricist"/>
+					<ref name="MCT_Lyricist"/>
+					<ref name="MRT_Lyricist"/>
 				</choice>
 			</oneOrMore>
 		</element>

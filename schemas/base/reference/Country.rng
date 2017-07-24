@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="BRT_Country">
+		<element name="country">
+			<ref name="BAT_Reference"/>
+		</element>
+	</define>
+</grammar>

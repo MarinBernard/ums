@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
 	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
-	<define name="CT_Section">
+	<define name="MCT_Section">
 		<element name="section">
 			<!-- Inherited elements common to all products -->
 			<optional>
-				<ref name="AT_Product"/>
+				<ref name="BAT_Product"/>
 			</optional>
 			<!-- Unique ID identifying the section -->
 			<attribute name="id">
@@ -18,10 +18,10 @@
 			<!-- Subdivisions or movements included into the section -->
 			<choice>
 				<oneOrMore>
-					<ref name="LT_Sections"/>
+					<ref name="MLT_Sections"/>
 				</oneOrMore>
 				<oneOrMore>
-					<ref name="LT_Movements"/>
+					<ref name="MLT_Movements"/>
 				</oneOrMore>
 			</choice>
 		</element>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <umsm:catalog
-	xmlns="http://schemas.olivarim.com/ums/1.0/common"
-	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
 	<labelVariants>
 		<labelVariant lang="de" original="true">

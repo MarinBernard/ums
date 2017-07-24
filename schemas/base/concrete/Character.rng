@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="BCT_Character">
+		<element name="character">
+			<!-- This element might be used by reference -->
+			<ref name="BAT_Referenceable"/>
+			<!-- Abstract properties common to all persons -->
+			<ref name="BAT_Person"/>
+		</element>
+	</define>
+</grammar>

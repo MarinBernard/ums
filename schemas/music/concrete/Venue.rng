@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="CT_Venue">
+	<define name="MCT_Venue">
 		<element name="venue">
 			<!-- This element might be used by reference -->
-			<ref name="AT_Referenceable"/>
+			<ref name="BAT_Referenceable"/>
 			<!-- Inheritance from the Item abstract type for labelVariants -->
 			<optional>
-				<ref name="AT_Item"/>
+				<ref name="BAT_Item"/>
 			</optional>
 			<!-- Home city or country -->
 			<choice>
-				<ref name="CT_City"/>
-				<ref name="RT_City"/>
-				<ref name="CT_Country"/>
-				<ref name="RT_Country"/>
+				<ref name="BCT_City"/>
+				<ref name="BRT_City"/>
+				<ref name="BCT_Country"/>
+				<ref name="BRT_Country"/>
 			</choice>
 		</element>
 	</define>

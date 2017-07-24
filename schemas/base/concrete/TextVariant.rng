@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<define name="BCT_TextVariant">
+		<element name="textVariant">
+			<attribute name="lang">
+				<text/>
+			</attribute>
+			<optional>
+				<attribute name="original">
+					<data type="boolean"/>
+				</attribute>
+			</optional>
+			<optional>
+				<attribute name="default">
+					<data type="boolean"/>
+				</attribute>
+			</optional>
+			<choice>
+				<element name="drama">
+					<oneOrMore>
+						<choice>
+							<element name="direction">
+								<data type="string"/>
+							</element>
+							<group>
+								<element name="character">
+									<data type="string"/>
+								</element>
+								<oneOrMore>
+									<element name="stanza">
+										<oneOrMore>
+											<element name="verse">
+												<text/>
+											</element>
+										</oneOrMore>
+									</element>
+								</oneOrMore>
+							</group>
+						</choice>
+					</oneOrMore>
+				</element>
+				<element name="poem">
+					<oneOrMore>
+						<element name="stanza">
+							<oneOrMore>
+								<element name="verse">
+									<text/>
+								</element>
+							</oneOrMore>
+						</element>
+					</oneOrMore>
+				</element>
+				<element name="prose">
+					<oneOrMore>
+						<element name="paragraph">
+							<text/>
+						</element>
+					</oneOrMore>
+				</element>
+			</choice>
+		</element>
+	</define>
+</grammar>

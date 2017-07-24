@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="3.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
 	<!-- Renders performance data for a specific track -->
 	<xsl:template name="RT_Performance">

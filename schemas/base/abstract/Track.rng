@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<define name="BAT_Track">
+		<!-- Order of appearance of the track on the medium -->
+		<attribute name="number">
+			<data type="integer"/>
+		</attribute>
+		<!-- Optional title variants -->
+		<optional>
+			<ref name="BLT_TitleVariants"/>
+		</optional>
+	</define>
+</grammar>

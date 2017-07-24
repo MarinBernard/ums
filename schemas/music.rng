@@ -3,31 +3,30 @@
 	ns="http://schemas.olivarim.com/ums/1.0/music"
 	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
 	<!-- External schemas -->
-	<include href="common/include.rng" ns="http://schemas.olivarim.com/ums/1.0/common"/>
+	<include href="base/include.rng" ns="http://schemas.olivarim.com/ums/1.0/base"/>
+	<include href="audio/include.rng" ns="http://schemas.olivarim.com/ums/1.0/audio"/>
 	<!-- Dependencies -->
 	<include href="music/include.rng"/>
 	<!-- Legal root elements -->
 	<start>
 		<choice>
-			<ref name="CT_Album"/>
-			<ref name="CT_Catalog"/>
-			<ref name="CT_Character"/>
-			<ref name="CT_Composer"/>
-			<ref name="CT_Conductor"/>
-			<ref name="CT_Ensemble"/>
-			<ref name="CT_Fileset"/>
-			<ref name="CT_Form"/>
-			<ref name="CT_Instrument"/>
-			<ref name="CT_Instrumentalist"/>
-			<ref name="CT_Key"/>
-			<ref name="CT_Label"/>
-			<ref name="CT_Lyricist"/>
-			<ref name="CT_Lyrics"/>
-			<ref name="CT_Movement"/>
-			<ref name="CT_Performance"/>
-			<ref name="CT_Style"/>
-			<ref name="CT_Venue"/>
-			<ref name="CT_Work"/>
+			<ref name="MCT_Album"/>
+			<ref name="MCT_Catalog"/>
+			<ref name="MCT_Composer"/>
+			<ref name="MCT_Conductor"/>
+			<ref name="MCT_Ensemble"/>
+			<ref name="MCT_Form"/>
+			<ref name="MCT_Instrument"/>
+			<ref name="MCT_Instrumentalist"/>
+			<ref name="MCT_Key"/>
+			<ref name="MCT_Label"/>
+			<ref name="MCT_Lyricist"/>
+			<ref name="MCT_Lyrics"/>
+			<ref name="MCT_Movement"/>
+			<ref name="MCT_Performance"/>
+			<ref name="MCT_Style"/>
+			<ref name="MCT_Venue"/>
+			<ref name="MCT_Work"/>
 		</choice>
 	</start>
 </grammar>

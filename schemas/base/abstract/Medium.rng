@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<define name="BAT_Medium">
+		<!-- Order of appearance of the medium in the publication -->
+		<attribute name="number">
+			<data type="integer"/>
+		</attribute>
+		<!-- Side, for dual-sided media -->
+		<optional>
+			<attribute name="side">
+				<choice>
+					<!-- Side is an integer to ease further processing -->
+					<value type="integer">1</value>
+					<value type="integer">2</value>
+				</choice>
+			</attribute>
+		</optional>
+		<!-- Type of the medium -->
+		<attribute name="type">
+			<choice>
+				<!-- Compact Disc for Digital Audio -->
+				<value type="string">CDDA</value>
+			</choice>
+		</attribute>
+		<!-- Optional title variants -->
+		<optional>
+			<ref name="BLT_TitleVariants"/>
+		</optional>
+	</define>
+</grammar>

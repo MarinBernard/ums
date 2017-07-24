@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<define name="BAT_Event">
+		<!-- Full or partial date -->
+		<choice>
+			<element name="date">
+				<data type="date"/>
+			</element>
+			<element name="year">
+				<data type="gYear"/>
+			</element>
+			<group>
+				<element name="year">
+					<data type="gYear"/>
+				</element>
+				<element name="month">
+					<data type="gMonth"/>
+				</element>
+			</group>
+		</choice>
+		<!-- Full or partial place -->
+		<optional>
+			<choice>
+				<ref name="BCT_City"/>
+				<ref name="BRT_City"/>
+				<ref name="BCT_Country"/>
+				<ref name="BRT_Country"/>
+				<ref name="BCT_CountryState"/>
+				<ref name="BRT_CountryState"/>
+			</choice>
+		</optional>
+	</define>
+</grammar>

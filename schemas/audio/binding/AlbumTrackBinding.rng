@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<define name="ABT_AlbumTrackBinding">
+		<element name="albumTrackBinding">
+			<!-- Medium number -->
+			<attribute name="medium">
+				<data type="integer"/>
+			</attribute>
+			<!-- Medium side number, if supported -->
+			<optional>
+				<attribute name="side">
+					<choice>
+						<value>0</value>
+						<value>1</value>
+					</choice>
+				</attribute>
+			</optional>
+			<!-- Track number -->
+			<attribute name="track">
+				<data type="integer"/>
+			</attribute>
+			<!-- Album (concrete or reference) -->
+			<choice>
+				<ref name="MCT_Album"/>
+				<ref name="MRT_Album"/>
+			</choice>
+		</element>
+	</define>
+</grammar>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<define name="BCT_Language">
+		<element name="language">
+			<!-- This element might be used by reference -->
+			<ref name="BAT_Referenceable"/>
+			<!-- Abstract properties common to all items -->
+			<ref name="BAT_Item"/>
+			<!-- Idioms -->
+			<element name="idioms">
+				<oneOrMore>
+					<element name="idiom">
+						<attribute name="id">
+							<choice>
+								<value>musical-key-introducer</value>
+							</choice>
+						</attribute>
+						<data type="string"/>
+					</element>
+				</oneOrMore>
+			</element>
+			<!-- Typography rules -->
+			<element name="typography">
+				<oneOrMore>
+					<element name="typographicSign">
+						<attribute name="id">
+							<choice>
+								<value>numero</value>
+								<value>opening-quotation-mark</value>
+								<value>closing-quotation-mark</value>
+							</choice>
+						</attribute>
+						<attribute name="spacing">
+							<choice>
+								<value>after</value>
+								<value>before</value>
+								<value>both</value>
+								<value>none</value>
+							</choice>
+						</attribute>
+						<data type="string"/>
+					</element>
+				</oneOrMore>
+			</element>
+		</element>
+	</define>
+</grammar>

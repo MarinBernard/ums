@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="RT_Conductor">
+	<define name="MRT_Conductor">
 		<element name="conductor">
-			<ref name="AT_Reference"/>
+			<ref name="BAT_Reference"/>
 		</element>
 	</define>
 </grammar>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="AT_Product">
-		<ref name="LT_TitleVariants"/>
-		<optional>
-			<ref name="LT_Links"/>
-		</optional>
-	</define>
-</grammar>

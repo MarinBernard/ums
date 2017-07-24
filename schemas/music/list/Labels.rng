@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="LT_Labels">
+	<define name="MLT_Labels">
 		<element name="labels">
 			<oneOrMore>
 				<choice>
-					<ref name="CT_Label"/>
-					<ref name="RT_Label"/>
+					<ref name="MCT_Label"/>
+					<ref name="MRT_Label"/>
 				</choice>
 			</oneOrMore>
 		</element>

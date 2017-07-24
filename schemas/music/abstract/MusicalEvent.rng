@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
 	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
-	<define name="AT_MusicalEvent">
+	<define name="MAT_MusicalEvent">
 		<!-- Full or partial date -->
 		<choice>
 			<element name="date">
@@ -22,12 +22,12 @@
 		<!-- Full or partial place -->
 		<optional>
 			<choice>
-				<ref name="CT_Venue"/>
-				<ref name="RT_Venue"/>
-				<ref name="CT_City"/>
-				<ref name="RT_City"/>
-				<ref name="CT_Country"/>
-				<ref name="RT_Country"/>
+				<ref name="MCT_Venue"/>
+				<ref name="MRT_Venue"/>
+				<ref name="BCT_City"/>
+				<ref name="BRT_City"/>
+				<ref name="BCT_Country"/>
+				<ref name="BRT_Country"/>
 			</choice>
 		</optional>
 	</define>

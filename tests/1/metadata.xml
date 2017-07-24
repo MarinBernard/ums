@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<umsm:fileset xmlns="http://schemas.olivarim.com/ums/1.0/common"
-	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+<umsm:fileset xmlns="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
 	<umsm:albums>
 		<umsm:album uid="album">

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<!-- Abtract types -->
+	<include href="abstract/Event.rng"/>
+	<include href="abstract/Item.rng"/>
+	<include href="abstract/Link.rng"/>
+	<include href="abstract/Medium.rng"/>
+	<include href="abstract/Person.rng"/>
+	<include href="abstract/Product.rng"/>
+	<include href="abstract/Reference.rng"/>
+	<include href="abstract/Referenceable.rng"/>
+	<include href="abstract/Symbol.rng"/>
+	<include href="abstract/Track.rng"/>
+	<!-- Concrete types -->
+	<include href="concrete/Biography.rng"/>
+	<include href="concrete/Character.rng"/>
+	<include href="concrete/City.rng"/>
+	<include href="concrete/Country.rng"/>
+	<include href="concrete/CountryState.rng"/>
+	<include href="concrete/Creation.rng"/>
+	<include href="concrete/Dissolution.rng"/>
+	<include href="concrete/File.rng"/>
+	<include href="concrete/Language.rng"/>
+	<include href="concrete/LabelVariant.rng"/>
+	<include href="concrete/NameVariant.rng"/>
+	<include href="concrete/Release.rng"/>
+	<include href="concrete/SymbolVariant.rng"/>
+	<include href="concrete/TextVariant.rng"/>
+	<include href="concrete/TitleVariant.rng"/>
+	<include href="concrete/StandardId.rng"/>
+	<!-- List types -->
+	<include href="list/Biographies.rng"/>
+	<include href="list/Characters.rng"/>
+	<include href="list/LabelVariants.rng"/>
+	<include href="list/Links.rng"/>
+	<include href="list/NameVariants.rng"/>
+	<include href="list/Releases.rng"/>
+	<include href="list/StandardIds.rng"/>
+	<include href="list/SymbolVariants.rng"/>
+	<include href="list/TextVariants.rng"/>
+	<include href="list/TitleVariants.rng"/>
+	<!-- Reference types -->
+	<include href="reference/Character.rng"/>
+	<include href="reference/City.rng"/>
+	<include href="reference/Country.rng"/>
+	<include href="reference/CountryState.rng"/>
+</grammar>

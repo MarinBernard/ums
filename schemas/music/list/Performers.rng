@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="LT_Performers">
+	<define name="MLT_Performers">
 		<element name="performers">
 			<oneOrMore>
-				<ref name="CT_Performer"/>
+				<ref name="MCT_Performer"/>
 			</oneOrMore>
 		</element>
 	</define>

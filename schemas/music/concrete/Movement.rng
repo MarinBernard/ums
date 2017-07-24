@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="CT_Movement">
+	<define name="MCT_Movement">
 		<element name="movement">
 			<!-- This element might be used by reference -->
-			<ref name="AT_Referenceable"/>
+			<ref name="BAT_Referenceable"/>
 			<!-- Inheritance from the Product abstract type.
 				 Title variants are made optional in movements. -->
 			<optional>
-				<ref name="AT_Product"/>
+				<ref name="BAT_Product"/>
 			</optional>
 			<!-- Forms included in the movement -->
-			<ref name="LT_Forms"/>
+			<ref name="MLT_Forms"/>
 			<!-- Catalog Ids associated to the movement -->
 			<optional>
-				<ref name="LT_CatalogIds"/>
+				<ref name="MLT_CatalogIds"/>
 			</optional>
 			<!-- Instruments of the movement -->
 			<optional>
-				<ref name="LT_Instruments"/>
+				<ref name="MLT_Instruments"/>
 			</optional>
 			<!-- Initial key of the movement -->
 			<optional>
 				<choice>
-					<ref name="CT_Key"/>
-					<ref name="RT_Key"/>
+					<ref name="MCT_Key"/>
+					<ref name="MRT_Key"/>
 				</choice>
 			</optional>
 			<!-- Optional tempo marking -->
@@ -32,7 +32,7 @@
 			</optional>			
 			<!-- Lyricists of the movement -->
 			<optional>
-				<ref name="LT_Lyricists"/>
+				<ref name="MLT_Lyricists"/>
 			</optional>
 			<!-- Incipit of the movement -->
 			<optional>
@@ -43,13 +43,13 @@
 			<!-- Lyrics of the movement -->
 			<optional>
 				<choice>
-					<ref name="CT_Lyrics"/>
-					<ref name="RT_Lyrics"/>
+					<ref name="MCT_Lyrics"/>
+					<ref name="MRT_Lyrics"/>
 				</choice>
 			</optional>			
 			<!-- Characters present in the movement -->
 			<optional>
-				<ref name="LT_Characters"/>
+				<ref name="BLT_Characters"/>
 			</optional>
 		</element>
 	</define>

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xsl:stylesheet version="3.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
 	<!-- Common helper templates -->
 	<xsl:include href="../common/helpers/Paths.xsl"/>
@@ -11,9 +12,10 @@
 	<xsl:include href="helpers/Debug.xsl"/>
 	<xsl:include href="helpers/Delimiters.xsl"/>
 	<xsl:include href="helpers/Language.xsl"/>
-	<xsl:include href="helpers/Stdout.xsl"/>
 	<xsl:include href="helpers/Variants.xsl"/>
-	<xsl:include href="helpers/VorbisComments.xsl"/>
+	<xsl:include href="helpers/VorbisComment.xsl"/>
+	<!-- Binding templates -->
+	<xsl:include href="bindings/AudioContentBinding.xsl"/>
 	<!-- Raw value getters -->
 	<xsl:include href="getter/Label.xsl"/>
 	<xsl:include href="getter/Name.xsl"/>
@@ -23,7 +25,6 @@
 	<xsl:include href="list/Characters.xsl"/>
 	<xsl:include href="list/Composers.xsl"/>
 	<xsl:include href="list/Conductors.xsl"/>
-	<xsl:include href="list/Files.xsl"/>
 	<xsl:include href="list/Forms.xsl"/>
 	<xsl:include href="list/Instruments.xsl"/>
 	<xsl:include href="list/LabelVariants.xsl"/>

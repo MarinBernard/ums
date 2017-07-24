@@ -2,6 +2,7 @@
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
 	<!-- Abstract types -->
 	<include href="abstract/MusicalEvent.rng"/>
+	<!-- Binding types -->
 	<!-- Concrete types -->
 	<include href="concrete/Album.rng"/>
 	<include href="concrete/Catalog.rng"/>
@@ -9,8 +10,6 @@
 	<include href="concrete/Composer.rng"/>
 	<include href="concrete/Conductor.rng"/>
 	<include href="concrete/Ensemble.rng"/>
-	<include href="concrete/File.rng"/>
-	<include href="concrete/Fileset.rng"/>
 	<include href="concrete/Form.rng"/>
 	<include href="concrete/Instrument.rng"/>
 	<include href="concrete/Instrumentalist.rng"/>
@@ -32,7 +31,6 @@
 	<include href="list/CatalogIds.rng"/>
 	<include href="list/Composers.rng"/>
 	<include href="list/Conductors.rng"/>
-	<include href="list/Files.rng"/>
 	<include href="list/Forms.rng"/>
 	<include href="list/Instruments.rng"/>
 	<include href="list/Labels.rng"/>

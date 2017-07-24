@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
 	<!-- Actual lyrics element -->
-	<define name="CT_Lyrics">
+	<define name="MCT_Lyrics">
 		<element name="lyrics">
 			<!-- This element might be used by reference -->
-			<ref name="AT_Referenceable"/>
+			<ref name="BAT_Referenceable"/>
 			<!-- Entry point is the stanza -->
 			<oneOrMore>
-				<ref name="CT_Stanza"/>
+				<ref name="MCT_Stanza"/>
 			</oneOrMore>
 		</element>
 	</define>
@@ -15,21 +15,21 @@
 	 !	Sub elements which are only used in this context
 	 =========================================================================-->
 	<!-- A verse in a lyrics context -->
-	<define name="CT_Verse">
+	<define name="MCT_Verse">
 		<element name="verse">
 			<text/>
 		</element>
 	</define>
 	<!-- A stanza in a lyrics context -->
-	<define name="CT_Stanza">
+	<define name="MCT_Stanza">
 		<element name="stanza">
 			<oneOrMore>
-				<ref name="CT_Singer"/>
+				<ref name="MCT_Singer"/>
 			</oneOrMore>
 		</element>
 	</define>
 	<!-- A singer voice in a lyrics context -->
-	<define name="CT_Singer">
+	<define name="MCT_Singer">
 		<element name="singer">
 			<optional>
 				<choice>
@@ -46,9 +46,9 @@
 			<oneOrMore>
 				<choice>
 					<!-- Other singers in unison -->
-					<ref name="CT_Singer"/>
+					<ref name="MCT_Singer"/>
 					<!-- Actual sung text -->
-					<ref name="CT_Verse"/>
+					<ref name="MCT_Verse"/>
 				</choice>
 			</oneOrMore>
 		</element>

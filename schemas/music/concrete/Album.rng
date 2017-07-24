@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="CT_Album">
+	<define name="MCT_Album">
 		<element name="album">
 			<!-- This element might be used by reference -->
-			<ref name="AT_Referenceable"/>
+			<ref name="BAT_Referenceable"/>
 			<!-- Inheritance from the Product abstract type -->
-			<ref name="AT_Product"/>
+			<ref name="BAT_Product"/>
 			<!-- Labels which produced the album -->
-			<ref name="LT_Labels"/>
+			<ref name="MLT_Labels"/>
 			<!-- Releases of the album -->
-			<ref name="LT_Releases"/>
+			<ref name="BLT_Releases"/>
 			<!-- Performances in the album -->
-			<ref name="LT_Performances"/>
+			<ref name="MLT_Performances"/>
 			<!-- Media included in the album -->
-			<ref name="LT_Media"/>
+			<ref name="MLT_Media"/>
 		</element>
 	</define>
 </grammar>

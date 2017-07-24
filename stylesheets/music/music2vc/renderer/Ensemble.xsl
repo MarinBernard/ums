@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="3.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
 	<!-- Renders VC describing an instrumentalist -->
 	<xsl:template name="RT_Ensemble">
@@ -9,7 +10,7 @@
 		 !	Building the name of the ensemble
 		 =========================================================================-->
 		<xsl:variable name="_VC_Name">
-			<xsl:for-each select="umsc:labelVariants">
+			<xsl:for-each select="umsb:labelVariants">
 				<xsl:call-template name="showDebugMessage">
 					<xsl:with-param name="Template" select="'RT_Ensemble'"/>
 					<xsl:with-param name="Message" select="'Processing labelVariants.'"/>

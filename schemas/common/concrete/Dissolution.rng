@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="CT_Dissolution">
-		<element name="dissolution">
-			<ref name="AT_Event"/>
-		</element>
-	</define>
-</grammar>

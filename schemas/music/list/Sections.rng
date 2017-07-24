@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="LT_Sections">
+	<define name="MLT_Sections">
 		<element name="sections">
 			<oneOrMore>
-				<ref name="CT_Section"/>
+				<ref name="MCT_Section"/>
 			</oneOrMore>
 		</element>
 	</define>

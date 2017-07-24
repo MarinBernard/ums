@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="BAT_Person">
+		<!-- Variants of the person's name -->
+		<ref name="BLT_NameVariants"/>
+		<!-- Biography of the person -->
+		<optional>
+			<ref name="BLT_Biographies"/>
+		</optional>
+		<!-- Birth event data -->
+		<optional>
+			<element name="birth">
+				<ref name="BAT_Event"/>
+			</element>
+		</optional>
+		<!-- Death event data -->
+		<optional>
+			<element name="death">
+				<ref name="BAT_Event"/>
+			</element>
+		</optional>
+		<!-- Common links -->
+		<optional>
+			<ref name="BLT_Links"/>
+		</optional>
+	</define>
+</grammar>

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="CT_Performance">
+	<define name="MCT_Performance">
 		<element name="performance">
 			<!-- This element might be used by reference -->
-			<ref name="AT_Referenceable"/>
+			<ref name="BAT_Referenceable"/>
 			<!-- Elements common to all musical events -->
-			<ref name="AT_MusicalEvent"/>
+			<ref name="MAT_MusicalEvent"/>
 			<!-- List of conductors -->
-			<ref name="LT_Conductors"/>
+			<ref name="MLT_Conductors"/>
 			<!-- List of performers -->
-			<ref name="LT_Performers"/>
+			<ref name="MLT_Performers"/>
 			<!-- Performed work -->
 			<choice>
-				<ref name="CT_Work"/>
-				<ref name="RT_Work"/>
+				<ref name="MCT_Work"/>
+				<ref name="MRT_Work"/>
 			</choice>
 		</element>
 	</define>

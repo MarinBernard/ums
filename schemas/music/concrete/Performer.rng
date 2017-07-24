@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
 	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
-	<define name="CT_Performer">
+	<define name="MCT_Performer">
 		<element name="performer">
 			<!-- Whether the performer is a soloist -->
 			<optional>
@@ -13,26 +13,26 @@
 				<!-- Ensemble -->
 				<group>
 					<choice>
-						<ref name="CT_Ensemble"/>
-						<ref name="RT_Ensemble"/>
+						<ref name="MCT_Ensemble"/>
+						<ref name="MRT_Ensemble"/>
 					</choice>
 					<zeroOrMore>
 						<choice>
-							<ref name="CT_Instrument"/>
-							<ref name="RT_Instrument"/>
+							<ref name="MCT_Instrument"/>
+							<ref name="MRT_Instrument"/>
 						</choice>
 					</zeroOrMore>
 				</group>
 				<!-- Instrumentalist -->
 				<group>
 					<choice>
-						<ref name="CT_Instrumentalist"/>
-						<ref name="RT_Instrumentalist"/>
+						<ref name="MCT_Instrumentalist"/>
+						<ref name="MRT_Instrumentalist"/>
 					</choice>
 					<oneOrMore>
 						<choice>
-							<ref name="CT_Instrument"/>
-							<ref name="RT_Instrument"/>
+							<ref name="MCT_Instrument"/>
+							<ref name="MRT_Instrument"/>
 						</choice>
 					</oneOrMore>
 				</group>

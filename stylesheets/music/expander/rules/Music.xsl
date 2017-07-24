@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xsl:stylesheet version="3.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
 	<!--
 	==============================================================================
@@ -21,12 +22,6 @@
 		<xsl:call-template name="Transcluder">
 			<xsl:with-param name="CatalogRoot" select="$CAT_Music_Catalogs"/>
 			<xsl:with-param name="TargetElement" select="'catalog'"/>
-		</xsl:call-template>
-	</xsl:template>
-	<!-- Transclusion of references to <character> elements -->
-	<xsl:template match="umsc:character[@uid][not(*)]">
-		<xsl:call-template name="Transcluder">
-			<xsl:with-param name="TargetElement" select="'character'"/>
 		</xsl:call-template>
 	</xsl:template>
 	<!-- Transclusion of <composer> references -->

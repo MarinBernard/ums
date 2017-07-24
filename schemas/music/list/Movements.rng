@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="LT_Movements">
+	<define name="MLT_Movements">
 		<element name="movements">
 			<oneOrMore>
 				<choice>
-					<ref name="CT_Movement"/>
-					<ref name="RT_Movement"/>
+					<ref name="MCT_Movement"/>
+					<ref name="MRT_Movement"/>
 				</choice>
 			</oneOrMore>
 		</element>

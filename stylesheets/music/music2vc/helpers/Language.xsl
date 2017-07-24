@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="3.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music"><!--
 	================================================================================================================================
 	!
@@ -28,7 +29,7 @@
 		<xsl:variable name="_targetDocumentName" select="concat($Language, $config.fileExtensions.umsFile)"/>
 		<xsl:variable name="_documentFullPath" select="concat($config.catalogs.languages, '/', $_targetDocumentName)"/>
 		<!-- Trying to acquire the target document -->
-		<xsl:variable name="_document" select="document($_documentFullPath)/umsc:language"/>
+		<xsl:variable name="_document" select="document($_documentFullPath)/umsb:language"/>
 		<!-- Check document existence-->
 		<xsl:if test="$_document = ''">
 			<xsl:message terminate="yes" select="'Language document not found or invalid: ', $_documentFullPath"/>
@@ -74,7 +75,7 @@
 		=========================================================================
 		-->
 		<xsl:variable name="_typographicSign">
-			<xsl:for-each select="document($_document)/umsc:language/umsc:typography/umsc:typographicSign">
+			<xsl:for-each select="document($_document)/umsb:language/umsb:typography/umsb:typographicSign">
 				<xsl:if test="lower-case(@id) = lower-case($SignName)">
 					<!-- Insert non-breakable space if needed -->
 					<xsl:if test="@spacing = 'before' or @spacing = 'both'">
@@ -136,7 +137,7 @@
 		=========================================================================
 		-->
 		<xsl:variable name="_idiomValue">
-			<xsl:for-each select="document($_document)/umsc:language/umsc:idioms/umsc:idiom">
+			<xsl:for-each select="document($_document)/umsb:language/umsb:idioms/umsb:idiom">
 				<xsl:if test="lower-case(@id) = lower-case($Idiom)">
 					<!-- Insert idiom -->
 					<xsl:value-of select="text()"/>

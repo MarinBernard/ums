@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="3.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
 	<xsl:template name="RT_LabelVariant">
 		<!--======================================================================
@@ -25,20 +26,20 @@
 			<xsl:choose>
 				<!-- If the variant includes a common label and the configuration is
 					 set to prefer them to full labels, we use it. -->
-				<xsl:when test="umsc:commonLabel and $config.variants.preferCommonLabels = true()">
-					<xsl:value-of select="umsc:commonLabel"/>
+				<xsl:when test="umsb:commonLabel and $config.variants.preferCommonLabels = true()">
+					<xsl:value-of select="umsb:commonLabel"/>
 				</xsl:when>
 				<!-- Else, we just use the full label. -->
 				<xsl:otherwise>
-					<xsl:value-of select="umsc:fullLabel"/>
+					<xsl:value-of select="umsb:fullLabel"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
 		<!-- Sort-friendly variant of the label -->
 		<xsl:variable name="_sortLabel">
 			<xsl:choose>
-				<xsl:when test="umsc:sortLabel">
-					<xsl:value-of select="umsc:sortLabel"/>
+				<xsl:when test="umsb:sortLabel">
+					<xsl:value-of select="umsb:sortLabel"/>
 				</xsl:when>
 				<xsl:otherwise>
 				<xsl:if test="$config.variants.useFakeSortVariants = true()">
@@ -50,8 +51,8 @@
 		<!-- Short variant of the label -->
 		<xsl:variable name="_shortLabel">
 			<xsl:choose>
-				<xsl:when test="umsc:shortLabel">
-					<xsl:value-of select="umsc:shortLabel"/>
+				<xsl:when test="umsb:shortLabel">
+					<xsl:value-of select="umsb:shortLabel"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<xsl:value-of select="$_fullLabel"/>

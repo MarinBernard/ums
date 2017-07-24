@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="CT_Ensemble">
+	<define name="MCT_Ensemble">
 		<element name="ensemble">
 			<!-- This element might be used by reference -->
-			<ref name="AT_Referenceable"/>
+			<ref name="BAT_Referenceable"/>
 			<!-- Abstract properties common to all items -->
-			<ref name="AT_Item"/>
+			<ref name="BAT_Item"/>
 			<!-- Creation event -->
 			<optional>
-				<ref name="CT_Creation"/>
+				<ref name="BCT_Creation"/>
 			</optional>
 			<!-- Dissolution event -->
 			<optional>
-				<ref name="CT_Dissolution"/>
+				<ref name="BCT_Dissolution"/>
 			</optional>
 		</element>
 	</define>

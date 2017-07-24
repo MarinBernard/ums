@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	ns="http://schemas.olivarim.com/ums/1.0/base"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<!-- External schemas -->
+	<include href="audio/include.rng" ns="http://schemas.olivarim.com/ums/1.0/audio"/>
+	<include href="music/include.rng" ns="http://schemas.olivarim.com/ums/1.0/music"/>
+	<!-- Dependencies -->
+	<include href="base/include.rng"/>
+	<start>
+		<choice>
+			<ref name="BCT_Character"/>
+			<ref name="BCT_City"/>
+			<ref name="BCT_Country"/>
+			<ref name="BCT_CountryState"/>
+			<ref name="BCT_File"/>
+			<ref name="BCT_Language"/>
+		</choice>
+	</start>
+</grammar>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="CT_Key">
+	<define name="MCT_Key">
 		<element name="key">
 			<!-- This element might be used by reference -->
-			<ref name="AT_Referenceable"/>
+			<ref name="BAT_Referenceable"/>
 			<!-- Abstract properties common to all items -->
-			<ref name="AT_Item"/>
+			<ref name="BAT_Item"/>
 		</element>
 	</define>
 </grammar>

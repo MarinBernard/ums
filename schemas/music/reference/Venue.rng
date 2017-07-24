@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="RT_Venue">
+	<define name="MRT_Venue">
 		<element name="venue">
-			<ref name="AT_Reference"/>
+			<ref name="BAT_Reference"/>
 		</element>
 	</define>
 </grammar>

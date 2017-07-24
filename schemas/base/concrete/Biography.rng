@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<define name="BCT_Biography">
+		<element name="biography">
+			<attribute name="lang">
+				<data type="string"/>
+			</attribute>
+			<optional>
+				<attribute name="default">
+					<data type="boolean"/>
+				</attribute>
+			</optional>
+			<text/>
+		</element>
+	</define>
+</grammar>

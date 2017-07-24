@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="3.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
 	<xsl:template name="LT_TitleVariants">
 		<!--======================================================================
@@ -53,7 +54,7 @@
 		 =========================================================================-->
 		<!-- Rendering variants in prefered language -->
 		<xsl:variable name="_preferedLanguageVariant">
-			<xsl:for-each select="umsc:titleVariant[@lang = $config.variants.preferredLanguage]">
+			<xsl:for-each select="umsb:titleVariant[@lang = $config.variants.preferredLanguage]">
 				<xsl:call-template name="RT_TitleVariant">
 					<xsl:with-param name="Label_Full" select="$Label_Full"/>
 					<xsl:with-param name="Label_Sort" select="$Label_Sort"/>
@@ -67,7 +68,7 @@
 		</xsl:variable>
 		<!-- Rendering variants in fallback language -->
 		<xsl:variable name="_fallbackLanguageVariant">
-			<xsl:for-each select="umsc:titleVariant[@lang = $config.variants.fallbackLanguage]">
+			<xsl:for-each select="umsb:titleVariant[@lang = $config.variants.fallbackLanguage]">
 				<xsl:call-template name="RT_TitleVariant">
 					<xsl:with-param name="Label_Full" select="$Label_Full"/>
 					<xsl:with-param name="Label_Sort" select="$Label_Sort"/>
@@ -81,7 +82,7 @@
 		</xsl:variable>
 		<!-- Rendering default variants -->
 		<xsl:variable name="_defaultVariant">
-			<xsl:for-each select="umsc:titleVariant[@default = true()]">
+			<xsl:for-each select="umsb:titleVariant[@default = true()]">
 				<xsl:call-template name="RT_TitleVariant">
 					<xsl:with-param name="Label_Full" select="$Label_Full"/>
 					<xsl:with-param name="Label_Sort" select="$Label_Sort"/>
@@ -95,7 +96,7 @@
 		</xsl:variable>
 		<!-- Rendering original variants -->
 		<xsl:variable name="_originalVariant">
-			<xsl:for-each select="umsc:titleVariant[@original = true()]">
+			<xsl:for-each select="umsb:titleVariant[@original = true()]">
 				<xsl:call-template name="RT_TitleVariant">
 					<xsl:with-param name="Label_Full" select="$Label_Full"/>
 					<xsl:with-param name="Label_Sort" select="$Label_Sort"/>

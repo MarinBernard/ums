@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="3.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
 	<!--
 	==============================================================================
@@ -27,7 +28,7 @@
 	<!-- URI to the catalog hosting common language elements -->
 	<xsl:variable name="config.catalogs.languages">
 		<xsl:call-template name="getCatalogUriForElement">
-			<xsl:with-param name="Namespace" select="'http://schema.olivarim.com/ums/1.0/common'"/>
+			<xsl:with-param name="Namespace" select="'http://schema.olivarim.com/ums/1.0/base'"/>
 			<xsl:with-param name="ElementName" select="'language'"/>
 		</xsl:call-template>
 	</xsl:variable>

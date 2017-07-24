@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="3.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
 	<xsl:template name="RT_Movement">
 		<!--======================================================================
@@ -33,7 +34,7 @@
 		</xsl:variable>
 		<!-- List of character names -->
 		<xsl:variable name="_characters">
-			<xsl:for-each select="umsc:characters">
+			<xsl:for-each select="umsb:characters">
 				<xsl:call-template name="LT_Characters">
 					<xsl:with-param name="Mode" select="'RAWCHARACTERLIST'"/>
 				</xsl:call-template>
@@ -168,7 +169,7 @@
 		 =========================================================================-->
 		<!-- VC: Character -->
 		<xsl:variable name="_VC_Characters">
-			<xsl:for-each select="umsc:characters">
+			<xsl:for-each select="umsb:characters">
 				<xsl:call-template name="LT_Characters">
 					<xsl:with-param name="Label" select="$config.vorbis.labels.Character"/>
 				</xsl:call-template>

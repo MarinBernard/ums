@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	ns="http://schemas.olivarim.com/ums/1.0/audio"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<!-- External schemas -->
+	<include href="base/include.rng" ns="http://schemas.olivarim.com/ums/1.0/base"/>
+	<include href="music/include.rng" ns="http://schemas.olivarim.com/ums/1.0/music"/>	
+	<!-- Dependencies -->
+	<include href="audio/include.rng"/>
+	<start>
+		<choice>
+			<ref name="ABT_ContentBinding"/>
+		</choice>
+	</start>
+</grammar>

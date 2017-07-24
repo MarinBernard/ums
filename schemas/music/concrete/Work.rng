@@ -1,60 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="CT_Work">
+	<define name="MCT_Work">
 		<element name="work">
 			<!-- This element might be used by reference -->
-			<ref name="AT_Referenceable"/>
+			<ref name="BAT_Referenceable"/>
 			<!-- Inheritance from the Product abstract type -->
-			<ref name="AT_Product"/>
+			<ref name="BAT_Product"/>
 			<!-- Catalog IDs associated to the composition -->
 			<optional>
-				<ref name="LT_CatalogIds"/>
+				<ref name="MLT_CatalogIds"/>
 			</optional>
 			<!-- Composers of the music work -->
-			<ref name="LT_Composers"/>
+			<ref name="MLT_Composers"/>
 			<!-- Lyricists of the music work -->
 			<optional>
-				<ref name="LT_Lyricists"/>
+				<ref name="MLT_Lyricists"/>
 			</optional>
 			<!-- Form of the music work -->
 			<choice>
-				<ref name="CT_Form"/>
-				<ref name="RT_Form"/>
+				<ref name="MCT_Form"/>
+				<ref name="MRT_Form"/>
 			</choice>
 			<!-- Style of the music work -->
 			<choice>
-				<ref name="CT_Style"/>
-				<ref name="RT_Style"/>
+				<ref name="MCT_Style"/>
+				<ref name="MRT_Style"/>
 			</choice>
 			<!-- Instruments of the music work -->
-			<ref name="LT_Instruments"/>
+			<ref name="MLT_Instruments"/>
 			<!-- Main key of the work -->
 			<optional>
 				<choice>
-					<ref name="CT_Key"/>
-					<ref name="RT_Key"/>
+					<ref name="MCT_Key"/>
+					<ref name="MRT_Key"/>
 				</choice>
 			</optional>
 			<!-- Inception event of the music work -->
 			<optional>
 				<element name="inception">
-					<ref name="AT_Event"/>
+					<ref name="BAT_Event"/>
 				</element>
 			</optional>	
 			<!-- Completion event of the music work -->
 			<optional>
 				<element name="completion">
-					<ref name="AT_Event"/>
+					<ref name="BAT_Event"/>
 				</element>
 			</optional>			
 			<!-- Première event of the music work -->
 			<optional>
 				<element name="premiere">
-					<ref name="AT_Event"/>
+					<ref name="BAT_Event"/>
 				</element>
 			</optional>
 			<!-- Layout of the work divided in movement sections -->
-			<ref name="LT_Sections"/>
+			<ref name="MLT_Sections"/>
 		</element>
 	</define>
 </grammar>

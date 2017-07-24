@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="3.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
 	<!-- Renders performance data for a specific track -->
 	<xsl:template name="RT_Composer">
@@ -10,7 +11,7 @@
 		 =========================================================================-->
 		<xsl:variable name="_VC_Name">
 			<!-- Composer name -->
-			<xsl:for-each select="umsc:nameVariants">
+			<xsl:for-each select="umsb:nameVariants">
 				<xsl:call-template name="LT_NameVariants">
 					<xsl:with-param name="Label_Full" select="$config.vorbis.labels.Composer_Full"/>
 					<xsl:with-param name="Label_Sort" select="$config.vorbis.labels.Composer_Sort"/>

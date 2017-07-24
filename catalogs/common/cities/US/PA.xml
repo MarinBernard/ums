@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://schemas.olivarim.com/ums/1.0/common.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<countryState xmlns="http://schemas.olivarim.com/ums/1.0/common">
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<countryState xmlns="http://schemas.olivarim.com/ums/1.0/base">
 	<labelVariants>
 		<labelVariant lang="de">
 			<fullLabel>Gemeinwesen Pennsylvaniens</fullLabel>

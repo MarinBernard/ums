@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="3.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:umsc="http://schemas.olivarim.com/ums/1.0/common"
+	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
 	<!-- Renders performance data for a specific track -->
 	<xsl:template name="RT_Work">
@@ -47,11 +48,11 @@
 		<xsl:variable name="_inceptionYear">
 			<xsl:for-each select="umsm:inception">
 				<xsl:choose>
-					<xsl:when test="umsc:year">
-						<xsl:value-of select="umsc:year"/>
+					<xsl:when test="umsb:year">
+						<xsl:value-of select="umsb:year"/>
 					</xsl:when>
-					<xsl:when test="umsc:date">
-						<xsl:value-of select="substring(umsc:date, 1, 4)"/>
+					<xsl:when test="umsb:date">
+						<xsl:value-of select="substring(umsb:date, 1, 4)"/>
 					</xsl:when>
 				</xsl:choose>
 			</xsl:for-each>
@@ -60,11 +61,11 @@
 		<xsl:variable name="_completionYear">
 			<xsl:for-each select="umsm:completion">
 				<xsl:choose>
-					<xsl:when test="umsc:year">
-						<xsl:value-of select="umsc:year"/>
+					<xsl:when test="umsb:year">
+						<xsl:value-of select="umsb:year"/>
 					</xsl:when>
-					<xsl:when test="umsc:date">
-						<xsl:value-of select="substring(umsc:date, 1, 4)"/>
+					<xsl:when test="umsb:date">
+						<xsl:value-of select="substring(umsb:date, 1, 4)"/>
 					</xsl:when>
 				</xsl:choose>
 			</xsl:for-each>
@@ -73,11 +74,11 @@
 		<xsl:variable name="_premiereYear">
 			<xsl:for-each select="umsm:premiere">
 				<xsl:choose>
-					<xsl:when test="umsc:year">
-						<xsl:value-of select="umsc:year"/>
+					<xsl:when test="umsb:year">
+						<xsl:value-of select="umsb:year"/>
 					</xsl:when>
-					<xsl:when test="umsc:date">
-						<xsl:value-of select="substring(umsc:date, 1, 4)"/>
+					<xsl:when test="umsb:date">
+						<xsl:value-of select="substring(umsb:date, 1, 4)"/>
 					</xsl:when>
 				</xsl:choose>
 			</xsl:for-each>
