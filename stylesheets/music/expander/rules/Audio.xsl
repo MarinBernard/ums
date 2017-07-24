@@ -11,6 +11,12 @@
 	!
 	==============================================================================
 	-->
+	<!-- Transclusion of <album> references -->
+	<xsl:template match="umsa:album[@uid][not(*)]">
+		<xsl:call-template name="Transcluder">
+			<xsl:with-param name="TargetElement" select="'album'"/>
+		</xsl:call-template>
+	</xsl:template>
 	<!-- Transclusion of <label> references -->
 	<xsl:template match="umsa:label[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">

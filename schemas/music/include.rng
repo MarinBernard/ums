@@ -4,7 +4,6 @@
 	<include href="abstract/MusicalEvent.rng"/>
 	<!-- Binding types -->
 	<!-- Concrete types -->
-	<include href="concrete/Album.rng"/>
 	<include href="concrete/Catalog.rng"/>
 	<include href="concrete/CatalogId.rng"/>
 	<include href="concrete/Composer.rng"/>
@@ -26,7 +25,6 @@
 	<include href="concrete/Venue.rng"/>
 	<include href="concrete/Work.rng"/>
 	<!-- List types -->
-	<include href="list/Albums.rng"/>
 	<include href="list/CatalogIds.rng"/>
 	<include href="list/Composers.rng"/>
 	<include href="list/Conductors.rng"/>
@@ -40,7 +38,6 @@
 	<include href="list/Sections.rng"/>
 	<include href="list/Tracks.rng"/>
 	<!-- Reference types -->
-	<include href="reference/Album.rng"/>
 	<include href="reference/Catalog.rng"/>
 	<include href="reference/Composer.rng"/>
 	<include href="reference/Conductor.rng"/>

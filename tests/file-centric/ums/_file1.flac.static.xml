@@ -7,7 +7,7 @@
 	<umsb:name>file1.flac</umsb:name>
 	<umsa:contentBinding>
 		<umsa:albumTrackBinding medium="1" track="1">
-			<umsm:album uid="album">
+			<umsa:album uid="album">
 				<titleVariants>
 					<titleVariant lang="de" original="true">
 						<fullTitle>Matthäuspassion</fullTitle>
@@ -85,6 +85,20 @@
 						</country>
 					</release>
 				</releases>
+				<umsm:media>
+					<umsm:medium number="1" type="CDDA">
+						<umsm:tracks>
+							<umsm:track number="1" performance="performance" section="I/1"/>
+							<umsm:track number="2" performance="performance" section="I/2"/>
+							<umsm:track number="3" performance="performance" section="I/3"/>
+						</umsm:tracks>
+					</umsm:medium>
+					<umsm:medium number="2" type="CDDA">
+						<umsm:tracks>
+							<umsm:track number="12" performance="performance" section="II/30"/>
+						</umsm:tracks>
+					</umsm:medium>
+				</umsm:media>
 				<umsm:performances>
 					<umsm:performance uid="performance">
 						<umsm:date>2006-09-23</umsm:date>
@@ -3808,21 +3822,7 @@
 						</umsm:work>
 					</umsm:performance>
 				</umsm:performances>
-				<umsm:media>
-					<umsm:medium number="1" type="CDDA">
-						<umsm:tracks>
-							<umsm:track number="1" performance="performance" section="I/1"/>
-							<umsm:track number="2" performance="performance" section="I/2"/>
-							<umsm:track number="3" performance="performance" section="I/3"/>
-						</umsm:tracks>
-					</umsm:medium>
-					<umsm:medium number="2" type="CDDA">
-						<umsm:tracks>
-							<umsm:track number="12" performance="performance" section="II/30"/>
-						</umsm:tracks>
-					</umsm:medium>
-				</umsm:media>
-			</umsm:album>
+			</umsa:album>
 		</umsa:albumTrackBinding>
 	</umsa:contentBinding>
 </umsb:file>

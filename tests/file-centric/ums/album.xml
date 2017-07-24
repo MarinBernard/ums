@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<umsm:album
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/audio.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsa:album
 	xmlns="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio"
@@ -26,9 +26,6 @@
 			<country uid="FR"/>
 		</release>
 	</releases>
-	<umsm:performances>
-		<umsm:performance uid="performance"/>
-	</umsm:performances>
 	<umsm:media>
 		<umsm:medium number="1" type="CDDA">
 			<umsm:tracks>
@@ -43,4 +40,7 @@
 			</umsm:tracks>
 		</umsm:medium>
 	</umsm:media>
-</umsm:album>
+	<umsm:performances>
+		<umsm:performance uid="performance"/>
+	</umsm:performances>
+</umsa:album>

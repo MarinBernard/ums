@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="MRT_Album">
-		<element name="album">
-			<ref name="BAT_Reference"/>
-		</element>
-	</define>
-</grammar>

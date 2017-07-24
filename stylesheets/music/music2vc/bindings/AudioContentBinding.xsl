@@ -13,13 +13,13 @@
 			<xsl:variable name="_targetMediumSide" select="@side"/>
 			<xsl:variable name="_targetTrackNumber" select="@track"/>
 			<!-- Checking whether an album element is available -->
-			<xsl:if test="not(umsm:album)">
+			<xsl:if test="not(umsa:album)">
 				<xsl:message terminate="yes" select="'ERROR: The album track binding requires an album element!'"/>
 			</xsl:if>
 			<!--======================================================================
 			 !	Generation Vorbis Comments and lyrics
 			 =========================================================================-->
-			<xsl:for-each select="umsm:album">
+			<xsl:for-each select="umsa:album">
 				<!-- Generating Vorbis Comments or Lyrics-->
 				<xsl:call-template name="RT_Album">
 					<xsl:with-param name="TargetMediumNumber" select="$_targetMediumNumber"/>

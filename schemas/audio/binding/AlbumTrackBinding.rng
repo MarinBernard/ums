@@ -22,8 +22,8 @@
 			</attribute>
 			<!-- Album (concrete or reference) -->
 			<choice>
-				<ref name="MCT_Album"/>
-				<ref name="MRT_Album"/>
+				<ref name="ACT_Album"/>
+				<ref name="ART_Album"/>
 			</choice>
 		</element>
 	</define>

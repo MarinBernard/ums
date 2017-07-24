@@ -30,7 +30,7 @@
 		<!--======================================================================
 		 !	Retrieving target performance
 		 =========================================================================-->		
-		<xsl:variable name="_targetPerformance" select="ancestor::umsm:album/umsm:performances/umsm:performance[@uid = $_performance]"/>
+		<xsl:variable name="_targetPerformance" select="ancestor::umsa:album/umsm:performances/umsm:performance[@uid = $_performance]"/>
 		<xsl:if test="not($_targetPerformance)">
 			<xsl:message terminate="yes" select="concat('Performance with id ', $_performance, ' was not found.')"/>
 		</xsl:if>
