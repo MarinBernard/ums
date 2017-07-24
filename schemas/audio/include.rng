@@ -8,6 +8,7 @@
 	<include href="concrete/Label.rng"/>
 	<!-- List types -->
 	<include href="list/Labels.rng"/>
+	<include href="list/Media.rng"/>
 	<!-- Reference types -->
 	<include href="reference/Album.rng"/>
 	<include href="reference/Label.rng"/>

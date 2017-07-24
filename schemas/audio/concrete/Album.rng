@@ -8,11 +8,11 @@
 			<ref name="BAT_Product"/>
 			<!-- Labels which produced the album -->
 			<ref name="ALT_Labels"/>
-			<!-- Releases of the album -->
+			<!-- Release events of the album -->
 			<ref name="BLT_Releases"/>
 			<!-- Media included in the album -->
-			<ref name="MLT_Media"/>
-			<!-- Performances in the album -->
+			<ref name="ALT_Media"/>
+			<!-- Music performances included in the album -->
 			<ref name="MLT_Performances"/>
 		</element>
 	</define>

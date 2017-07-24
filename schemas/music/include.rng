@@ -31,7 +31,6 @@
 	<include href="list/Forms.rng"/>
 	<include href="list/Instruments.rng"/>
 	<include href="list/Lyricists.rng"/>
-	<include href="list/Media.rng"/>
 	<include href="list/Movements.rng"/>
 	<include href="list/Performances.rng"/>
 	<include href="list/Performers.rng"/>

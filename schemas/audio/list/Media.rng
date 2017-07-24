@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="MLT_Media">
+	<define name="ALT_Media">
 		<element name="media">
 			<oneOrMore>
 				<ref name="MCT_Medium"/>				

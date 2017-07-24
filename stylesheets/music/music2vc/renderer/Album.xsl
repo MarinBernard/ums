@@ -30,7 +30,7 @@
 		<!--======================================================================
 		 !	Call sub templates for album media
 		 =========================================================================-->
-		<xsl:for-each select="umsm:media">
+		<xsl:for-each select="umsa:media">
 			<xsl:call-template name="LT_Media">
 				<xsl:with-param name="TargetMediumNumber" select="$TargetMediumNumber"/>
 				<xsl:with-param name="TargetMediumSide" select="$TargetMediumSide"/>

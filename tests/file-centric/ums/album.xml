@@ -26,7 +26,7 @@
 			<country uid="FR"/>
 		</release>
 	</releases>
-	<umsm:media>
+	<umsa:media>
 		<umsm:medium number="1" type="CDDA">
 			<umsm:tracks>
 				<umsm:track number="1" performance="performance" section="I/1"/>
@@ -39,7 +39,7 @@
 				<umsm:track number="12" performance="performance" section="II/30"/>
 			</umsm:tracks>
 		</umsm:medium>
-	</umsm:media>
+	</umsa:media>
 	<umsm:performances>
 		<umsm:performance uid="performance"/>
 	</umsm:performances>
