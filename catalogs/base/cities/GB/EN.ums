@@ -22,13 +22,13 @@
 		</labelVariant>
 	</labelVariants>
 	<links>
-		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/England"/>
-		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/England"/>
-		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Inglaterra"/>
-		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Angleterre"/>
-		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Inghilterra"/>
-		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Engeland"/>
-		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Англия"/>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/England"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/England"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Inglaterra"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Angleterre"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Inghilterra"/>
+		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Engeland"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Англия"/>
 	</links>
 	<standardIds>
 		<standardId standard="ISO 3166-1">GB-EN</standardId>

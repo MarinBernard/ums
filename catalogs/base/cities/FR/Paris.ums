@@ -19,13 +19,13 @@
 		</labelVariant>
 	</labelVariants>
 	<links>
-		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Paris"/>
-		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Paris"/>
-		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/París"/>
-		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Paris"/>
-		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Parigi"/>
-		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Parijs"/>
-		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Париж"/>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Paris"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Paris"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/París"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Paris"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Parigi"/>
+		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Parijs"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Париж"/>
 	</links>
 	<country uid="FR"/>
 </city>

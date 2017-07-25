@@ -16,13 +16,13 @@
 		</labelVariant>
 	</labelVariants>
 	<links>
-		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Montbrison (Loire)"/>
-		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Montbrison, Loire"/>
-		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Montbrison"/>
-		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Montbrison (Loire)"/>
-		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Montbrison"/>
-		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Montbrison"/>
-		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Монбризон_(Луара)"/>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Montbrison (Loire)"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Montbrison, Loire"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Montbrison"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Montbrison (Loire)"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Montbrison"/>
+		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Montbrison"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Монбризон_(Луара)"/>
 	</links>
 	<country uid="FR"/>
 </city>

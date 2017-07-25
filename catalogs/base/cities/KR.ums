@@ -37,12 +37,12 @@
 		</labelVariant>
 	</labelVariants>
 	<links>
-		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Südkorea"/>
-		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/South_Korea"/>
-		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Corea_del_Sur"/>
-		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Corée_du_Sud"/>
-		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Corea_del_Sud"/>
-		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Франция"/>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Südkorea"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/South_Korea"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Corea_del_Sur"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Corée_du_Sud"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Corea_del_Sud"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Франция"/>
 	</links>
 	<standardIds>
 		<standardId standard="ISO 3166-1">KR</standardId>

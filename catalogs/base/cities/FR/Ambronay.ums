@@ -11,13 +11,13 @@
 	</labelVariants>
 	<links>
 		<website lang="fr" href="http://www.ambronay.org"/>
-		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Ambronay"/>
-		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Ambronay"/>
-		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Ambronay"/>
-		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Ambronay"/>
-		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Ambronay"/>
-		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Ambronay"/>
-		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Амброне"/>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Ambronay"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Ambronay"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Ambronay"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Ambronay"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Ambronay"/>
+		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Ambronay"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Амброне"/>
 	</links>
 	<country uid="FR"/>
 </city>

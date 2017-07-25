@@ -7,7 +7,7 @@
 	<umsb:name>file1.flac</umsb:name>
 	<umsa:contentBinding>
 		<umsa:albumTrackBinding medium="1" track="1">
-			<umsa:album uid="album">
+			<umsa:album uid="_album">
 				<titleVariants>
 					<titleVariant lang="de" original="true">
 						<fullTitle>Matthäuspassion</fullTitle>
@@ -74,10 +74,10 @@
 								</labelVariant>
 							</labelVariants>
 							<links>
-								<wikipedia href="de" lang="https://de.wikipedia.org/wiki/France"/>
-								<wikipedia href="en" lang="https://en.wikipedia.org/wiki/France"/>
-								<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/France"/>
-								<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Франция"/>
+								<wikipedia lang="de" href="https://de.wikipedia.org/wiki/France"/>
+								<wikipedia lang="en" href="https://en.wikipedia.org/wiki/France"/>
+								<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/France"/>
+								<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Франция"/>
 							</links>
 							<standardIds>
 								<standardId standard="ISO 3166-1">FR</standardId>
@@ -88,19 +88,19 @@
 				<umsa:media>
 					<umsa:medium number="1" type="CDDA">
 						<umsa:tracks>
-							<umsa:track number="1" performance="performance" section="I/1"/>
-							<umsa:track number="2" performance="performance" section="I/2"/>
-							<umsa:track number="3" performance="performance" section="I/3"/>
+							<umsa:track number="1" performance="_performance" section="I/1"/>
+							<umsa:track number="2" performance="_performance" section="I/2"/>
+							<umsa:track number="3" performance="_performance" section="I/3"/>
 						</umsa:tracks>
 					</umsa:medium>
 					<umsa:medium number="2" type="CDDA">
 						<umsa:tracks>
-							<umsa:track number="12" performance="performance" section="II/30"/>
+							<umsa:track number="12" performance="_performance" section="II/30"/>
 						</umsa:tracks>
 					</umsa:medium>
 				</umsa:media>
 				<umsm:performances>
-					<umsm:performance uid="performance">
+					<umsm:performance uid="_performance">
 						<umsm:date>2006-09-23</umsm:date>
 						<umsm:venue uid="FR/Ambronay Abbey">
 							<labelVariants>
@@ -119,11 +119,11 @@
 							</labelVariants>
 							<links>
 								<website lang="fr" href="http://www.ambronay.org"/>
-								<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Notre-Dame_(Ambronay)"/>
-								<wikipedia href="fr"
-									lang="https://fr.wikipedia.org/wiki/Abbaye_Notre-Dame_d'Ambronay"/>
-								<wikipedia href="nl"
-									lang="https://nl.wikipedia.org/wiki/Onze-Lieve-Vrouwe_van_Ambronay"/>
+								<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Notre-Dame_(Ambronay)"/>
+								<wikipedia lang="fr"
+									href="https://fr.wikipedia.org/wiki/Abbaye_Notre-Dame_d'Ambronay"/>
+								<wikipedia lang="nl"
+									href="https://nl.wikipedia.org/wiki/Onze-Lieve-Vrouwe_van_Ambronay"/>
 							</links>
 							<city uid="FR/Ambronay">
 								<labelVariants>
@@ -136,13 +136,13 @@
 								</labelVariants>
 								<links>
 									<website lang="fr" href="http://www.ambronay.org"/>
-									<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Ambronay"/>
-									<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Ambronay"/>
-									<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Ambronay"/>
-									<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Ambronay"/>
-									<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Ambronay"/>
-									<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Ambronay"/>
-									<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Амброне"/>
+									<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Ambronay"/>
+									<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Ambronay"/>
+									<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Ambronay"/>
+									<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Ambronay"/>
+									<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Ambronay"/>
+									<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Ambronay"/>
+									<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Амброне"/>
 								</links>
 								<country uid="FR">
 									<labelVariants>
@@ -168,10 +168,10 @@
 										</labelVariant>
 									</labelVariants>
 									<links>
-										<wikipedia href="de" lang="https://de.wikipedia.org/wiki/France"/>
-										<wikipedia href="en" lang="https://en.wikipedia.org/wiki/France"/>
-										<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/France"/>
-										<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Франция"/>
+										<wikipedia lang="de" href="https://de.wikipedia.org/wiki/France"/>
+										<wikipedia lang="en" href="https://en.wikipedia.org/wiki/France"/>
+										<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/France"/>
+										<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Франция"/>
 									</links>
 									<standardIds>
 										<standardId standard="ISO 3166-1">FR</standardId>
@@ -218,13 +218,13 @@
 											</labelVariant>
 										</labelVariants>
 										<links>
-											<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Gent"/>
-											<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Ghent"/>
-											<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Gante"/>
-											<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Gand"/>
-											<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Gand"/>
-											<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Gent"/>
-											<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Гент"/>
+											<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Gent"/>
+											<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Ghent"/>
+											<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Gante"/>
+											<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Gand"/>
+											<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Gand"/>
+											<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Gent"/>
+											<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Гент"/>
 										</links>
 										<country uid="BE">
 											<labelVariants>
@@ -260,11 +260,11 @@
 												</labelVariant>
 											</labelVariants>
 											<links>
-												<wikipedia href="de" lang="https://de.wikipedia.org/wiki/France"/>
-												<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Belgium"/>
-												<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Belgique"/>
-												<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/België"/>
-												<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Бельгия"/>
+												<wikipedia lang="de" href="https://de.wikipedia.org/wiki/France"/>
+												<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Belgium"/>
+												<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Belgique"/>
+												<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/België"/>
+												<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Бельгия"/>
 											</links>
 											<standardIds>
 												<standardId standard="ISO 3166-1">BE</standardId>
@@ -273,12 +273,12 @@
 									</city>
 								</birth>
 								<links>
-									<wikipedia href="de" lang="https://de.wikipedia.org/wiki/René_Jacobs"/>
-									<wikipedia href="en" lang="https://en.wikipedia.org/wiki/René_Jacobs"/>
-									<wikipedia href="es" lang="https://es.wikipedia.org/wiki/René_Jacobs"/>
-									<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/René_Jacobs"/>
-									<wikipedia href="it" lang="https://it.wikipedia.org/wiki/René_Jacobs"/>
-									<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Якобс,_Рене"/>
+									<wikipedia lang="de" href="https://de.wikipedia.org/wiki/René_Jacobs"/>
+									<wikipedia lang="en" href="https://en.wikipedia.org/wiki/René_Jacobs"/>
+									<wikipedia lang="es" href="https://es.wikipedia.org/wiki/René_Jacobs"/>
+									<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/René_Jacobs"/>
+									<wikipedia lang="it" href="https://it.wikipedia.org/wiki/René_Jacobs"/>
+									<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Якобс,_Рене"/>
 								</links>
 							</umsm:conductor>
 						</umsm:conductors>
@@ -298,14 +298,14 @@
 									<links>
 										<website lang="de" href="https://akamus.de/de"/>
 										<website lang="en" href="https://akamus.de/en"/>
-										<wikipedia href="de"
-											lang="https://de.wikipedia.org/wiki/Akademie_für_Alte_Musik_Berlin"/>
-										<wikipedia href="en"
-											lang="https://en.wikipedia.org/wiki/Akademie_für_Alte_Musik_Berlin"/>
-										<wikipedia href="es"
-											lang="https://es.wikipedia.org/wiki/Akademie_für_Alte_Musik_de_Berlín"/>
-										<wikipedia href="fr"
-											lang="https://fr.wikipedia.org/wiki/Ch%C5%93ur_de_Radio_France"/>
+										<wikipedia lang="de"
+											href="https://de.wikipedia.org/wiki/Akademie_für_Alte_Musik_Berlin"/>
+										<wikipedia lang="en"
+											href="https://en.wikipedia.org/wiki/Akademie_für_Alte_Musik_Berlin"/>
+										<wikipedia lang="es"
+											href="https://es.wikipedia.org/wiki/Akademie_für_Alte_Musik_de_Berlín"/>
+										<wikipedia lang="fr"
+											href="https://fr.wikipedia.org/wiki/Ch%C5%93ur_de_Radio_France"/>
 									</links>
 									<creation>
 										<year>1982</year>
@@ -328,13 +328,13 @@
 												</labelVariant>
 											</labelVariants>
 											<links>
-												<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Berlin"/>
-												<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Berlin"/>
-												<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Berlín"/>
-												<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Berlin"/>
-												<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Berlino"/>
-												<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Berlijn"/>
-												<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Берлин"/>
+												<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Berlin"/>
+												<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Berlin"/>
+												<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Berlín"/>
+												<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Berlin"/>
+												<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Berlino"/>
+												<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Berlijn"/>
+												<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Берлин"/>
 											</links>
 											<country uid="DE">
 												<labelVariants>
@@ -364,10 +364,10 @@
 													</labelVariant>
 												</labelVariants>
 												<links>
-													<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Deutschland"/>
-													<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Germany"/>
-													<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Allemagne"/>
-													<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Германия"/>
+													<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Deutschland"/>
+													<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Germany"/>
+													<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Allemagne"/>
+													<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Германия"/>
 												</links>
 												<standardIds>
 													<standardId standard="ISO 3166-1">DE</standardId>
@@ -401,11 +401,11 @@
 									</labelVariants>
 									<links>
 										<website lang="de" href="https://www.rias-kammerchor.de/"/>
-										<wikipedia href="de" lang="https://de.wikipedia.org/wiki/RIAS_Kammerchor"/>
-										<wikipedia href="en" lang="https://en.wikipedia.org/wiki/RIAS_Kammerchor"/>
-										<wikipedia href="es"
-											lang="https://es.wikipedia.org/wiki/Coro_de_cámara_de_la_RIAS"/>
-										<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/RIAS_Kammerchor"/>
+										<wikipedia lang="de" href="https://de.wikipedia.org/wiki/RIAS_Kammerchor"/>
+										<wikipedia lang="en" href="https://en.wikipedia.org/wiki/RIAS_Kammerchor"/>
+										<wikipedia lang="es"
+											href="https://es.wikipedia.org/wiki/Coro_de_cámara_de_la_RIAS"/>
+										<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/RIAS_Kammerchor"/>
 									</links>
 									<creation>
 										<year>1948</year>
@@ -428,13 +428,13 @@
 												</labelVariant>
 											</labelVariants>
 											<links>
-												<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Berlin"/>
-												<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Berlin"/>
-												<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Berlín"/>
-												<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Berlin"/>
-												<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Berlino"/>
-												<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Berlijn"/>
-												<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Берлин"/>
+												<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Berlin"/>
+												<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Berlin"/>
+												<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Berlín"/>
+												<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Berlin"/>
+												<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Berlino"/>
+												<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Berlijn"/>
+												<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Берлин"/>
 											</links>
 											<country uid="DE">
 												<labelVariants>
@@ -464,10 +464,10 @@
 													</labelVariant>
 												</labelVariants>
 												<links>
-													<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Deutschland"/>
-													<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Germany"/>
-													<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Allemagne"/>
-													<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Германия"/>
+													<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Deutschland"/>
+													<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Germany"/>
+													<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Allemagne"/>
+													<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Германия"/>
 												</links>
 												<standardIds>
 													<standardId standard="ISO 3166-1">DE</standardId>
@@ -557,13 +557,13 @@
 												</labelVariant>
 											</labelVariants>
 											<links>
-												<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Buenos_Aires"/>
-												<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Buenos_Aires"/>
-												<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Buenos_Aires"/>
-												<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Buenos_Aires"/>
-												<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Buenos_Aires"/>
-												<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Buenos_Aires_(stad)"/>
-												<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Буэнос-Айрес"/>
+												<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Buenos_Aires"/>
+												<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Buenos_Aires"/>
+												<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Buenos_Aires"/>
+												<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Buenos_Aires"/>
+												<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Buenos_Aires"/>
+												<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Buenos_Aires_(stad)"/>
+												<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Буэнос-Айрес"/>
 											</links>
 											<country uid="AR">
 												<labelVariants>
@@ -599,12 +599,12 @@
 													</labelVariant>
 												</labelVariants>
 												<links>
-													<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Argentinien"/>
-													<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Argentina"/>
-													<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Argentina"/>
-													<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Argentine"/>
-													<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Argentinië"/>
-													<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Аргентина"/>
+													<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Argentinien"/>
+													<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Argentina"/>
+													<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Argentina"/>
+													<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Argentine"/>
+													<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Argentinië"/>
+													<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Аргентина"/>
 												</links>
 												<standardIds>
 													<standardId standard="ISO 3166-1">AR</standardId>
@@ -738,12 +738,12 @@
 												</labelVariant>
 											</labelVariants>
 											<links>
-												<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Südkorea"/>
-												<wikipedia href="en" lang="https://en.wikipedia.org/wiki/South_Korea"/>
-												<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Corea_del_Sur"/>
-												<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Corée_du_Sud"/>
-												<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Corea_del_Sud"/>
-												<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Франция"/>
+												<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Südkorea"/>
+												<wikipedia lang="en" href="https://en.wikipedia.org/wiki/South_Korea"/>
+												<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Corea_del_Sur"/>
+												<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Corée_du_Sud"/>
+												<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Corea_del_Sud"/>
+												<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Франция"/>
 											</links>
 											<standardIds>
 												<standardId standard="ISO 3166-1">KR</standardId>
@@ -836,14 +836,14 @@
 											</labelVariants>
 											<links>
 												<website lang="fr" href="http://www.ambronay.org"/>
-												<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Philadelphia"/>
-												<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Philadelphia"/>
-												<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Filadelfia"/>
-												<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Philadelphie"/>
-												<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Filadelfia"/>
-												<wikipedia href="nl"
-													lang="https://nl.wikipedia.org/wiki/Philadelphia_(Pennsylvania)"/>
-												<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Филадельфия"/>
+												<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Philadelphia"/>
+												<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Philadelphia"/>
+												<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Filadelfia"/>
+												<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Philadelphie"/>
+												<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Filadelfia"/>
+												<wikipedia lang="nl"
+													href="https://nl.wikipedia.org/wiki/Philadelphia_(Pennsylvania)"/>
+												<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Филадельфия"/>
 											</links>
 											<countryState uid="US/PA">
 												<labelVariants>
@@ -877,13 +877,13 @@
 													</labelVariant>
 												</labelVariants>
 												<links>
-													<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Pennsylvania"/>
-													<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Pennsylvania"/>
-													<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Pensilvania"/>
-													<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Pennsylvanie"/>
-													<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Pennsylvania"/>
-													<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Pennsylvania"/>
-													<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Пенсильвания"/>
+													<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Pennsylvania"/>
+													<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Pennsylvania"/>
+													<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Pensilvania"/>
+													<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Pennsylvanie"/>
+													<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Pennsylvania"/>
+													<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Pennsylvania"/>
+													<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Пенсильвания"/>
 												</links>
 												<standardIds>
 													<standardId standard="ISO 3166-1">US-PA</standardId>
@@ -925,13 +925,13 @@
 														</labelVariant>
 													</labelVariants>
 													<links>
-														<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Vereinigte_Staaten"/>
-														<wikipedia href="en" lang="https://en.wikipedia.org/wiki/United_States"/>
-														<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Estados_Unidos"/>
-														<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/États-Unis"/>
-														<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Stati_Uniti_d'America"/>
-														<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Verenigde_Staten"/>
-														<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Аргентина"/>
+														<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Vereinigte_Staaten"/>
+														<wikipedia lang="en" href="https://en.wikipedia.org/wiki/United_States"/>
+														<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Estados_Unidos"/>
+														<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/États-Unis"/>
+														<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Stati_Uniti_d'America"/>
+														<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Verenigde_Staten"/>
+														<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Аргентина"/>
 													</links>
 													<standardIds>
 														<standardId standard="ISO 3166-1">US</standardId>
@@ -1043,13 +1043,13 @@
 												</labelVariant>
 											</labelVariants>
 											<links>
-												<wikipedia href="de" lang="https://de.wikipedia.org/wiki/England"/>
-												<wikipedia href="en" lang="https://en.wikipedia.org/wiki/England"/>
-												<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Inglaterra"/>
-												<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Angleterre"/>
-												<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Inghilterra"/>
-												<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Engeland"/>
-												<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Англия"/>
+												<wikipedia lang="de" href="https://de.wikipedia.org/wiki/England"/>
+												<wikipedia lang="en" href="https://en.wikipedia.org/wiki/England"/>
+												<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Inglaterra"/>
+												<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Angleterre"/>
+												<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Inghilterra"/>
+												<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Engeland"/>
+												<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Англия"/>
 											</links>
 											<standardIds>
 												<standardId standard="ISO 3166-1">GB-EN</standardId>
@@ -1089,13 +1089,13 @@
 													</labelVariant>
 												</labelVariants>
 												<links>
-													<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Vereinigtes_Königreich"/>
-													<wikipedia href="en" lang="https://en.wikipedia.org/wiki/United_Kingdom"/>
-													<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Estados_Unidos"/>
-													<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Royaume-Uni"/>
-													<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Regno_Unito"/>
-													<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Verenigd_Koninkrijk"/>
-													<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Великобритания"/>
+													<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Vereinigtes_Königreich"/>
+													<wikipedia lang="en" href="https://en.wikipedia.org/wiki/United_Kingdom"/>
+													<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Estados_Unidos"/>
+													<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Royaume-Uni"/>
+													<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Regno_Unito"/>
+													<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Verenigd_Koninkrijk"/>
+													<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Великобритания"/>
 												</links>
 												<standardIds>
 													<standardId standard="ISO 3166-1">GB</standardId>
@@ -1262,13 +1262,13 @@
 												</labelVariant>
 											</labelVariants>
 											<links>
-												<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Eisenach"/>
-												<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Eisenach"/>
-												<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Eisenach"/>
-												<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Eisenach"/>
-												<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Eisenach"/>
-												<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Eisenach"/>
-												<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Айзенах"/>
+												<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Eisenach"/>
+												<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Eisenach"/>
+												<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Eisenach"/>
+												<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Eisenach"/>
+												<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Eisenach"/>
+												<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Eisenach"/>
+												<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Айзенах"/>
 											</links>
 											<country uid="DE">
 												<labelVariants>
@@ -1298,10 +1298,10 @@
 													</labelVariant>
 												</labelVariants>
 												<links>
-													<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Deutschland"/>
-													<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Germany"/>
-													<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Allemagne"/>
-													<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Германия"/>
+													<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Deutschland"/>
+													<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Germany"/>
+													<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Allemagne"/>
+													<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Германия"/>
 												</links>
 												<standardIds>
 													<standardId standard="ISO 3166-1">DE</standardId>
@@ -1324,13 +1324,13 @@
 												</labelVariant>
 											</labelVariants>
 											<links>
-												<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Leipzig"/>
-												<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Leipzig"/>
-												<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Leipzig"/>
-												<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Leipzig"/>
-												<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Lipsia"/>
-												<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Leipzig"/>
-												<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Лейпциг"/>
+												<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Leipzig"/>
+												<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Leipzig"/>
+												<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Leipzig"/>
+												<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Leipzig"/>
+												<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Lipsia"/>
+												<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Leipzig"/>
+												<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Лейпциг"/>
 											</links>
 											<country uid="DE">
 												<labelVariants>
@@ -1360,10 +1360,10 @@
 													</labelVariant>
 												</labelVariants>
 												<links>
-													<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Deutschland"/>
-													<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Germany"/>
-													<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Allemagne"/>
-													<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Германия"/>
+													<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Deutschland"/>
+													<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Germany"/>
+													<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Allemagne"/>
+													<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Германия"/>
 												</links>
 												<standardIds>
 													<standardId standard="ISO 3166-1">DE</standardId>
@@ -1372,12 +1372,12 @@
 										</city>
 									</death>
 									<links>
-										<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Johann_Sebastian_Bach"/>
-										<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Johann_Sebastian_Bach"/>
-										<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Johann_Sebastian_Bach"/>
-										<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Jean-Sébastien_Bach"/>
-										<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Johann_Sebastian_Bach"/>
-										<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Бах,_Иоганн_Себастьян"/>
+										<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Johann_Sebastian_Bach"/>
+										<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Johann_Sebastian_Bach"/>
+										<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Johann_Sebastian_Bach"/>
+										<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Jean-Sébastien_Bach"/>
+										<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Johann_Sebastian_Bach"/>
+										<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Бах,_Иоганн_Себастьян"/>
 									</links>
 								</umsm:composer>
 							</umsm:composers>
@@ -2278,13 +2278,13 @@
 																		</labelVariant>
 																	</labelVariants>
 																	<links>
-																		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Stolpen"/>
-																		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Stolpen"/>
-																		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Stolpen"/>
-																		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Stolpen"/>
-																		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Stolpen"/>
-																		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Stolpen"/>
-																		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Штольпен"/>
+																		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Stolpen"/>
+																		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Stolpen"/>
+																		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Stolpen"/>
+																		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Stolpen"/>
+																		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Stolpen"/>
+																		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Stolpen"/>
+																		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Штольпен"/>
 																	</links>
 																	<country uid="DE">
 																		<labelVariants>
@@ -2314,10 +2314,10 @@
 																			</labelVariant>
 																		</labelVariants>
 																		<links>
-																			<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Deutschland"/>
-																			<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Germany"/>
-																			<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Allemagne"/>
-																			<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Германия"/>
+																			<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Deutschland"/>
+																			<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Germany"/>
+																			<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Allemagne"/>
+																			<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Германия"/>
 																		</links>
 																		<standardIds>
 																			<standardId standard="ISO 3166-1">DE</standardId>
@@ -2340,13 +2340,13 @@
 																		</labelVariant>
 																	</labelVariants>
 																	<links>
-																		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Leipzig"/>
-																		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Leipzig"/>
-																		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Leipzig"/>
-																		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Leipzig"/>
-																		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Lipsia"/>
-																		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Leipzig"/>
-																		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Лейпциг"/>
+																		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Leipzig"/>
+																		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Leipzig"/>
+																		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Leipzig"/>
+																		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Leipzig"/>
+																		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Lipsia"/>
+																		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Leipzig"/>
+																		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Лейпциг"/>
 																	</links>
 																	<country uid="DE">
 																		<labelVariants>
@@ -2376,10 +2376,10 @@
 																			</labelVariant>
 																		</labelVariants>
 																		<links>
-																			<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Deutschland"/>
-																			<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Germany"/>
-																			<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Allemagne"/>
-																			<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Германия"/>
+																			<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Deutschland"/>
+																			<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Germany"/>
+																			<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Allemagne"/>
+																			<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Германия"/>
 																		</links>
 																		<standardIds>
 																			<standardId standard="ISO 3166-1">DE</standardId>
@@ -2388,16 +2388,16 @@
 																</city>
 															</death>
 															<links>
-																<wikipedia href="de"
-																	lang="https://de.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
-																<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Picander"/>
-																<wikipedia href="es"
-																	lang="https://es.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
-																<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Picander"/>
-																<wikipedia href="it"
-																	lang="https://it.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
-																<wikipedia href="ru"
-																	lang="https://ru.wikipedia.org/wiki/Хенрици,_Кристиан_Фридрих"/>
+																<wikipedia lang="de"
+																	href="https://de.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
+																<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Picander"/>
+																<wikipedia lang="es"
+																	href="https://es.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
+																<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Picander"/>
+																<wikipedia lang="it"
+																	href="https://it.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
+																<wikipedia lang="ru"
+																	href="https://ru.wikipedia.org/wiki/Хенрици,_Кристиан_Фридрих"/>
 															</links>
 														</umsm:lyricist>
 														<umsm:lyricist uid="Decius, Nikolaus">
@@ -2438,13 +2438,13 @@
 																		</labelVariant>
 																	</labelVariants>
 																	<links>
-																		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Hof_(Saale)"/>
-																		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Hof,_Bavaria"/>
-																		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Hof_(Baviera)"/>
-																		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Hof_(Bavière)"/>
-																		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Hof_(Baviera)"/>
-																		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Hof_(Beieren)"/>
-																		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Хоф_(Зале)"/>
+																		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Hof_(Saale)"/>
+																		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Hof,_Bavaria"/>
+																		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Hof_(Baviera)"/>
+																		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Hof_(Bavière)"/>
+																		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Hof_(Baviera)"/>
+																		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Hof_(Beieren)"/>
+																		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Хоф_(Зале)"/>
 																	</links>
 																	<country uid="DE">
 																		<labelVariants>
@@ -2474,10 +2474,10 @@
 																			</labelVariant>
 																		</labelVariants>
 																		<links>
-																			<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Deutschland"/>
-																			<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Germany"/>
-																			<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Allemagne"/>
-																			<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Германия"/>
+																			<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Deutschland"/>
+																			<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Germany"/>
+																			<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Allemagne"/>
+																			<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Германия"/>
 																		</links>
 																		<standardIds>
 																			<standardId standard="ISO 3166-1">DE</standardId>
@@ -2512,13 +2512,13 @@
 																		</labelVariant>
 																	</labelVariants>
 																	<links>
-																		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Hof_(Saale)"/>
-																		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Hof,_Bavaria"/>
-																		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Hof_(Baviera)"/>
-																		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Hof_(Bavière)"/>
-																		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Hof_(Baviera)"/>
-																		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Hof_(Beieren)"/>
-																		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Хоф_(Зале)"/>
+																		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Hof_(Saale)"/>
+																		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Hof,_Bavaria"/>
+																		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Hof_(Baviera)"/>
+																		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Hof_(Bavière)"/>
+																		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Hof_(Baviera)"/>
+																		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Hof_(Beieren)"/>
+																		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Хоф_(Зале)"/>
 																	</links>
 																	<country uid="DE">
 																		<labelVariants>
@@ -2548,10 +2548,10 @@
 																			</labelVariant>
 																		</labelVariants>
 																		<links>
-																			<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Deutschland"/>
-																			<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Germany"/>
-																			<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Allemagne"/>
-																			<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Германия"/>
+																			<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Deutschland"/>
+																			<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Germany"/>
+																			<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Allemagne"/>
+																			<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Германия"/>
 																		</links>
 																		<standardIds>
 																			<standardId standard="ISO 3166-1">DE</standardId>
@@ -2560,9 +2560,9 @@
 																</city>
 															</death>
 															<links>
-																<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Nikolaus_Decius"/>
-																<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Nikolaus_Decius"/>
-																<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Дециус,_Николаус"/>
+																<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Nikolaus_Decius"/>
+																<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Nikolaus_Decius"/>
+																<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Дециус,_Николаус"/>
 															</links>
 														</umsm:lyricist>
 													</umsm:lyricists>
@@ -3642,13 +3642,13 @@
 																		</labelVariant>
 																	</labelVariants>
 																	<links>
-																		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Stolpen"/>
-																		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Stolpen"/>
-																		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Stolpen"/>
-																		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Stolpen"/>
-																		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Stolpen"/>
-																		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Stolpen"/>
-																		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Штольпен"/>
+																		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Stolpen"/>
+																		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Stolpen"/>
+																		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Stolpen"/>
+																		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Stolpen"/>
+																		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Stolpen"/>
+																		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Stolpen"/>
+																		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Штольпен"/>
 																	</links>
 																	<country uid="DE">
 																		<labelVariants>
@@ -3678,10 +3678,10 @@
 																			</labelVariant>
 																		</labelVariants>
 																		<links>
-																			<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Deutschland"/>
-																			<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Germany"/>
-																			<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Allemagne"/>
-																			<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Германия"/>
+																			<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Deutschland"/>
+																			<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Germany"/>
+																			<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Allemagne"/>
+																			<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Германия"/>
 																		</links>
 																		<standardIds>
 																			<standardId standard="ISO 3166-1">DE</standardId>
@@ -3704,13 +3704,13 @@
 																		</labelVariant>
 																	</labelVariants>
 																	<links>
-																		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Leipzig"/>
-																		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Leipzig"/>
-																		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Leipzig"/>
-																		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Leipzig"/>
-																		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Lipsia"/>
-																		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Leipzig"/>
-																		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Лейпциг"/>
+																		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Leipzig"/>
+																		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Leipzig"/>
+																		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Leipzig"/>
+																		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Leipzig"/>
+																		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Lipsia"/>
+																		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Leipzig"/>
+																		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Лейпциг"/>
 																	</links>
 																	<country uid="DE">
 																		<labelVariants>
@@ -3740,10 +3740,10 @@
 																			</labelVariant>
 																		</labelVariants>
 																		<links>
-																			<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Deutschland"/>
-																			<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Germany"/>
-																			<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Allemagne"/>
-																			<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Германия"/>
+																			<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Deutschland"/>
+																			<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Germany"/>
+																			<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Allemagne"/>
+																			<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Германия"/>
 																		</links>
 																		<standardIds>
 																			<standardId standard="ISO 3166-1">DE</standardId>
@@ -3752,16 +3752,16 @@
 																</city>
 															</death>
 															<links>
-																<wikipedia href="de"
-																	lang="https://de.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
-																<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Picander"/>
-																<wikipedia href="es"
-																	lang="https://es.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
-																<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Picander"/>
-																<wikipedia href="it"
-																	lang="https://it.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
-																<wikipedia href="ru"
-																	lang="https://ru.wikipedia.org/wiki/Хенрици,_Кристиан_Фридрих"/>
+																<wikipedia lang="de"
+																	href="https://de.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
+																<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Picander"/>
+																<wikipedia lang="es"
+																	href="https://es.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
+																<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Picander"/>
+																<wikipedia lang="it"
+																	href="https://it.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
+																<wikipedia lang="ru"
+																	href="https://ru.wikipedia.org/wiki/Хенрици,_Кристиан_Фридрих"/>
 															</links>
 														</umsm:lyricist>
 													</umsm:lyricists>

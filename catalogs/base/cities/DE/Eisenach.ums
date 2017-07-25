@@ -10,13 +10,13 @@
 		</labelVariant>
 	</labelVariants>
 	<links>
-		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Eisenach"/>
-		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Eisenach"/>
-		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Eisenach"/>
-		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Eisenach"/>
-		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Eisenach"/>
-		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Eisenach"/>
-		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Айзенах"/>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Eisenach"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Eisenach"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Eisenach"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Eisenach"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Eisenach"/>
+		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Eisenach"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Айзенах"/>
 	</links>
 	<country uid="DE"/>
 </city>

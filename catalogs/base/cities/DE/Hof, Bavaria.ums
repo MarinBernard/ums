@@ -25,13 +25,13 @@
 		</labelVariant>
 	</labelVariants>
 	<links>
-		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Hof_(Saale)"/>
-		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Hof,_Bavaria"/>
-		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Hof_(Baviera)"/>
-		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Hof_(Bavière)"/>
-		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Hof_(Baviera)"/>
-		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Hof_(Beieren)"/>
-		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Хоф_(Зале)"/>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Hof_(Saale)"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Hof,_Bavaria"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Hof_(Baviera)"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Hof_(Bavière)"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Hof_(Baviera)"/>
+		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Hof_(Beieren)"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Хоф_(Зале)"/>
 	</links>
 	<country uid="DE"/>
 </city>

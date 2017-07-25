@@ -10,13 +10,13 @@
 		</labelVariant>
 	</labelVariants>
 	<links>
-		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Buenos_Aires"/>
-		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Buenos_Aires"/>
-		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Buenos_Aires"/>
-		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Buenos_Aires"/>
-		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Buenos_Aires"/>
-		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Buenos_Aires_(stad)"/>
-		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Буэнос-Айрес"/>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Buenos_Aires"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Buenos_Aires"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Buenos_Aires"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Buenos_Aires"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Buenos_Aires"/>
+		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Buenos_Aires_(stad)"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Буэнос-Айрес"/>
 	</links>
 	<country uid="AR"/>
 </city>

@@ -24,10 +24,10 @@
 		</labelVariant>
 	</labelVariants>
 	<links>
-		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/France"/>
-		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/France"/>
-		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/France"/>
-		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Франция"/>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/France"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/France"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/France"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Франция"/>
 	</links>
 	<standardIds>
 		<standardId standard="ISO 3166-1">FR</standardId>

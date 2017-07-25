@@ -34,11 +34,11 @@
 		</labelVariant>
 	</labelVariants>
 	<links>
-		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/France"/>
-		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Belgium"/>
-		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Belgique"/>
-		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/België"/>
-		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Бельгия"/>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/France"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Belgium"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Belgique"/>
+		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/België"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Бельгия"/>
 	</links>
 	<standardIds>
 		<standardId standard="ISO 3166-1">BE</standardId>

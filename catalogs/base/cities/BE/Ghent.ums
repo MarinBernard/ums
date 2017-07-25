@@ -25,13 +25,13 @@
 		</labelVariant>
 	</labelVariants>
 	<links>
-		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Gent"/>
-		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Ghent"/>
-		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Gante"/>
-		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Gand"/>
-		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Gand"/>
-		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Gent"/>
-		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Гент"/>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Gent"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Ghent"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Gante"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Gand"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Gand"/>
+		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Gent"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Гент"/>
 	</links>
 	<country uid="BE"/>
 </city>

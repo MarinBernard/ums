@@ -10,13 +10,13 @@
 		</labelVariant>
 	</labelVariants>
 	<links>
-		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Baden-Baden"/>
-		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Baden-Baden"/>
-		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Baden-Baden"/>
-		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Baden-Baden"/>
-		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Baden-Baden"/>
-		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Baden-Baden"/>
-		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Баден-Баден"/>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Baden-Baden"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Baden-Baden"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Baden-Baden"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Baden-Baden"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Baden-Baden"/>
+		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Baden-Baden"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Баден-Баден"/>
 	</links>
 	<country uid="DE"/>
 </city>
