@@ -1,4 +1,4 @@
-function Get-UmsSpecialFolderPath
+function Get-UmsManagementFolderPath
 {
     Param(
         [Parameter(Mandatory=$true)]
@@ -15,7 +15,7 @@ function Get-UmsSpecialFolderPath
         "Cache"
         {
             $_folderName = Get-UmsConfigurationItem -ShortName "UmsCacheFolderName"
-            $_folderFullName = Join-Path (Get-UmsSpecialFolderPath -Path $Path) -ChildPath $_folderName
+            $_folderFullName = Join-Path (Get-UmsManagementFolderPath -Path $Path) -ChildPath $_folderName
         } 
 
         # Path to the main metadata folder

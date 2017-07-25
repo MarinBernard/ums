@@ -39,7 +39,7 @@ function Enable-UmsManagement
     # Attempt folder creation
     try
     {
-        $_umsFolderPath = Get-UmsSpecialFolderPath -Path $Path
+        $_umsFolderPath = Get-UmsManagementFolderPath -Path $Path
         $_folder = New-Item -Type Directory -Path $_umsFolderPath
     }
 
@@ -67,7 +67,7 @@ function Enable-UmsManagement
     # Create the cache subfolder
     try
     {
-        $_umsCacheFolderPath = Get-UmsSpecialFolderPath -Path $Path -Type "Cache"
+        $_umsCacheFolderPath = Get-UmsManagementFolderPath -Path $Path -Type "Cache"
         $_folder = New-Item -Type Directory -Path $_umsCacheFolderPath
     }
 

@@ -78,7 +78,7 @@ class UmsItem
     [void] constructCachingInformation([System.IO.FileInfo] $FileInfo)
     {
         # Cache properties
-        $this.CachePath = Get-UmsSpecialFolderPath -Type "Cache" -Path $this.ManagedPath
+        $this.CachePath = Get-UmsManagementFolderPath -Type "Cache" -Path $this.ManagedPath
         $this.CachePathUri = (New-Object -Type System.Uri -ArgumentList $this.CachePath).AbsoluteUri
         $this.CacheFileFullName = Join-Path -Path $this.CachePath -ChildPath $this.RealName
         $this.CacheFileUri = (New-Object -Type System.Uri -ArgumentList $this.CacheFileFullName).AbsoluteUri

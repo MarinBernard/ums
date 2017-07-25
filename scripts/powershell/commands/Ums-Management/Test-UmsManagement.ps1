@@ -31,7 +31,7 @@ function Test-UmsManagement
     }
 
     # Get path to the UMS folder
-    $_umsFolderPath = Get-UmsSpecialFolderPath -Path $Path
+    $_umsFolderPath = Get-UmsManagementFolderPath -Path $Path
 
     # Default status is valid
     $_valid = $true
@@ -46,7 +46,7 @@ function Test-UmsManagement
     else
     {
         # Check whether the cache folder exists
-        $_umsCacheFolder = Get-UmsSpecialFolderPath -Type "Cache" -Path $Path
+        $_umsCacheFolder = Get-UmsManagementFolderPath -Type "Cache" -Path $Path
         if (-not (Test-Path -LiteralPath $_umsCacheFolder))
         {
             $_valid = $false

@@ -6,7 +6,7 @@ $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1"
 
 # Include dependencies
 . "$PSScriptRoot\classes\UmsItem.ps1"
-. "$PSScriptRoot\helpers\Get-UmsSpecialFolderPath.ps1"
+. "$PSScriptRoot\helpers\Get-UmsManagementFolderPath.ps1"
 . "$PSScriptRoot\helpers\Invoke-XmlValidator.ps1"
 . "$PSScriptRoot\helpers\Invoke-XslTransformer.ps1"
 . "$PSScriptRoot\helpers\Wait-UserConfirmation.ps1"

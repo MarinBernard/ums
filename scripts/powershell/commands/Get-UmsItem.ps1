@@ -68,7 +68,7 @@ function Get-UmsItem
     ### From now on, we assume UMS is enabled and UMS items are available ###
 
     # Get path to the UMS folder
-    $_umsFolderPath = Get-UmsSpecialFolderPath -Path $Path
+    $_umsFolderPath = Get-UmsManagementFolderPath -Path $Path
    
     # Build item list
     $_umsLocalFileExtension = Get-UmsConfigurationItem -ShortName "UmsLocalFileExtension"

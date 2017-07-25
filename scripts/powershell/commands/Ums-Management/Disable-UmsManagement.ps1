@@ -43,7 +43,7 @@ function Disable-UmsManagement
     ### From now on, we assume UMS management is enabled and UMS items are available ###
 
     # Get path to the UMS folder
-    $_umsFolderPath = Get-UmsSpecialFolderPath -Path $Path
+    $_umsFolderPath = Get-UmsManagementFolderPath -Path $Path
     Write-Verbose -Message $( "Main UMS directory found at " + $_umsFolderPath)
 
     # Ask confirmation, if needed
