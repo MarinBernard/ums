@@ -20,7 +20,7 @@ function Get-UmsItem
     Filters UMS items according to the result of the XML validation. This parameter requires the presence of the -Validate switch.
     
     .EXAMPLE
-    Update-UmsCache -Path "D:\MyMusic"
+    Get-UmsItem -Path "D:\MyMusic"
     #>
 
     [CmdletBinding(DefaultParametersetName='None')]

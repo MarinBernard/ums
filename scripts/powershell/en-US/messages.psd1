@@ -1,12 +1,12 @@
 @{
     Common = @{
         AccessDenied = "Target folder does not exist or access is denied."
-        IncompatibleCardinality = "The cardinality of the target item is not compatible with this command. Valid cardinality: {0}"
         ConfirmPrompt = "Are you sure you want to continue?"
-        ExpiredItemCache = "Cached metadata of the target item are expired."
+        IncompatibleCardinality = "The cardinality of the target item is not compatible with this command. Valid cardinality: {0}"
+        ExpiredStaticVersion = "The static copy of the target item are expired."
         InvalidState = "Invalid"
         MissingSidecarFile = "Skipping this file as it lacks a UMS sidecar file."
-        MissingUmsItemCache = "The metadata cache of the target file is empty. Run Update-UmsItemCache then try again."
+        MissingUmsItemStaticVersion = "No static metadata copy is available for the target item. Run Update-UmsItemCache then try again."
         OrphanCardinalityWarning = "You are about to run a command on an orphaned item."
         UmsNotEnabled = "UMS metadata are not enabled with this folder."
         UnknownState = "Unknown"
@@ -25,6 +25,7 @@
     EnableUmsManagement = @{
         AlreadyEnabled = "UMS metadata are already enabled with this folder."
         CacheFolderCreationError = "The cache subfolder could not be created."
+        StaticFolderCreationError = "The static data subfolder could not be created."
         FolderCreationError = "The metadata storage folder could not be created."
         FolderHideoutError = "The metadata folder was created but not hidden."
     }
@@ -53,12 +54,13 @@
     TestUmsManagement = @{
         Enabled = "UMS metadata are enabled."
         Disabled = "UMS metadata are disabled."
-        CacheFolderNotFound = "The UMS cache subfolder is missing."
+        CacheFolderNotFound = "The data cache subfolder is missing."
+        StaticFolderNotFound = "The static data subfolder is missing."
     }
     UpdateUmsItemCache = @{
         MissingTarget = "The target file does not exist or access is denied."
         NoUpdateNeeded = "UMS cache is up-to-date. No update needed."
-        PromotionFailure = "Failed to promote the newly generated file to the new cache file."
+        PromotionFailure = "Failed to promote the newly generated file to be the new cache file."
         TempFileRemovalFailure = "A temporary file could not be removed."
         ValidationFailure = "The cache file did not pass XML validation."     
     }

@@ -14,14 +14,14 @@ class UmsItem
     hidden [string] $ManagedPath        # Fully qualified path of the folder
                                         # containing linked files
 
-    # Properties related to the UMS cache
-    hidden [string] $CachePath                  # Full qualified path to the
-                                                # UMS caching folder
-    hidden [string] $CachePathUri               # Absolute URI to $CachePath
-    hidden [string] $CacheFileFullName          # Fully qualified name of the
-                                                # cache file of this instance
-    hidden [string] $CacheFileUri               # Absolute URI to $CacheFileFullName
-    hidden [string] $CacheFileLastWriteTime     # Last write time of the cached file
+    # Properties related to the static version of the item
+    hidden [string] $StaticPath                 # Fully qualified path to the
+                                                # UMS static folder
+    hidden [string] $StaticPathUri              # Absolute URI to $StaticPath
+    hidden [string] $StaticFileFullName         # Fully qualified name of the
+                                                # static file of this instance
+    hidden [string] $StaticFileUri              # Absolute URI to $StaticFileFullName
+    hidden [string] $StaticFileLastWriteTime    # Last write time of the static file
 
     # Properties describing the linked file
     hidden [string] $LinkedFileName
@@ -45,7 +45,7 @@ class UmsItem
     [string] $Schema
     [string] $BindingElement = "None"
     [UmsItemCardinality] $Cardinality = [UmsItemCardinality]::Unknown
-    [UmsItemCachingStatus] $CachingStatus = [UmsItemCachingStatus]::Unknown
+    [UmsItemStaticVersionStatus] $StaticVersion = [UmsItemStaticVersionStatus]::Unknown
     [UmsItemValidity] $Validity = [UmsItemValidity]::Unknown
 
     ###########################################################################
@@ -64,8 +64,8 @@ class UmsItem
         $this.LastWriteTime = $FileInfo.LastWriteTime
         $this.Name = $FileInfo.BaseName
         
-        # Calling sub-constructor for caching information
-        $this.constructCachingInformation($FileInfo)
+        # Calling sub-constructor for static information
+        $this.constructStaticInformation($FileInfo)
 
         # Calling sub-constructor for cardinality information
         $this.constructCardinalityInformation($FileInfo)
@@ -74,26 +74,28 @@ class UmsItem
         $this.constructContentInformation($FileInfo)
     }
 
-    # Sub-constructor for caching information
-    [void] constructCachingInformation([System.IO.FileInfo] $FileInfo)
+    # Sub-constructor for static information
+    [void] constructStaticInformation([System.IO.FileInfo] $FileInfo)
     {
-        # Cache properties
-        $this.CachePath = Get-UmsManagementFolderPath -Type "Cache" -Path $this.ManagedPath
-        $this.CachePathUri = (New-Object -Type System.Uri -ArgumentList $this.CachePath).AbsoluteUri
-        $this.CacheFileFullName = Join-Path -Path $this.CachePath -ChildPath $this.RealName
-        $this.CacheFileUri = (New-Object -Type System.Uri -ArgumentList $this.CacheFileFullName).AbsoluteUri
+        # Static file properties
+        $this.StaticPath = Get-UmsManagementFolderPath -Type "Static" -Path $this.ManagedPath
+        $this.StaticPathUri = (New-Object -Type System.Uri -ArgumentList $this.StaticPath).AbsoluteUri
+        $this.StaticFileFullName = Join-Path -Path $this.StaticPath -ChildPath $this.RealName
+        $this.StaticFileUri = (New-Object -Type System.Uri -ArgumentList $this.StaticFileFullName).AbsoluteUri
 
-        # Caching status
-        if (Test-Path -Path $this.CacheFileFullName)
+        # Static version status
+        if (Test-Path -Path $this.StaticFileFullName)
         {
-            $this.CacheFileLastWriteTime = (Get-Item -LiteralPath $this.CacheFileFullName).LastWriteTime
-            if ($this.LastWriteTime -gt $this.CacheFileLastWriteTime)
-                {  $this.CachingStatus = [UmsItemCachingStatus]::Expired }
+            $this.StaticFileLastWriteTime = (Get-Item -LiteralPath $this.StaticFileFullName).LastWriteTime
+            
+            # Init static version status
+            if ($this.LastWriteTime -gt $this.StaticFileLastWriteTime)
+                {  $this.StaticVersion = [UmsItemStaticVersionStatus]::Expired }
             else
-                {  $this.CachingStatus = [UmsItemCachingStatus]::Current }
+                {  $this.StaticVersion = [UmsItemStaticVersionStatus]::Current }
         }
         else
-            { $this.CachingStatus = [UmsItemCachingStatus]::Uncached }
+            { $this.StaticVersion = [UmsItemStaticVersionStatus]::Absent }
     }
 
     # Sub-constructor for cardinality information
@@ -162,12 +164,12 @@ class UmsItem
     } 
 }
 
-Enum UmsItemCachingStatus
+Enum UmsItemStaticVersionStatus
 {
     Unknown
+    Absent
     Current
     Expired
-    Uncached
 }
 
 Enum UmsItemCardinality

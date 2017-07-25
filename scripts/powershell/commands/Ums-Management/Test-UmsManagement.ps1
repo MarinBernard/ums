@@ -17,6 +17,7 @@ function Test-UmsManagement
     Test-UmsManagement -Path "D:\MyMusic"
     #>
 
+    [CmdletBinding()]
     Param(
         [ValidateNotNull()]
         [string] $Path = ".",
@@ -51,8 +52,18 @@ function Test-UmsManagement
         {
             $_valid = $false
             if (-not ($Boolean.IsPresent))
-                { Write-Host $ModuleStrings.TestUmsManagement.CacheFolderNotFound }
+                { Write-Warning -Message $ModuleStrings.TestUmsManagement.CacheFolderNotFound }
         }
+        
+        # Check whether the static folder exists
+        $_umsStaticFolder = Get-UmsManagementFolderPath -Type "Static" -Path $Path
+        if (-not (Test-Path -LiteralPath $_umsStaticFolder))
+        {
+            $_valid = $false
+            if (-not ($Boolean.IsPresent))
+                { Write-Warning -Message $ModuleStrings.TestUmsManagement.StaticFolderNotFound }
+        }
+        
         # All checks passed!
         else
         {

@@ -3,10 +3,10 @@
         AccessDenied = "Le dossier spécifié n'existe pas ou l'accès a été refusé."
         ConfirmPrompt = "Êtes-vous sûr de vouloir continuer ?"
         IncompatibleCardinality = "La cardinalité de l'élément cible est incompatible avec cette commande. Cardinalité attendue: {0}"
-        ExpiredItemCache = "Le cache de métadonneés de l'élément cible est périmé."
+        ExpiredStaticVersion = "La copie statique de l'élément cible est périmée."
         InvalidState = "Invalide"
         MissingSidecarFile = "Le fichier sera ignoré car il ne possède pas de fichier UMS compagnon."
-        MissingUmsItemCache = "Le cache de métadonnées du fichier cible est vide. Exécutez Update-UmsItemCache puis réessayez."
+        MissingUmsItemStaticVersion = "L'élément cible ne dispose pas d'une copie statique. Exécutez Update-UmsItemCache puis réessayez."
         OrphanCardinalityWarning = "Vous êtes sur le point d'exécuter une tâche impliquant un élément orphelin."
         UmsNotEnabled = "Les métadonnées UMS ne sont pas activées pour ce dossier."
         UnknownState = "Inconnu"
@@ -25,6 +25,7 @@
     EnableUmsManagement = @{
         AlreadyEnabled = "Les métadonnées UMS sont déjà activées pour ce dossier."
         CacheFolderCreationError = "Le sous-dossier de cache n'a pas pu être créé."
+        StaticFolderCreationError = "Le sous-dossier des données statiques n'a pas pu être créé."
         FolderCreationError = "Le dossier de stockage des métadonnées n'a pas pu être créé."
         FolderHideoutError = "Le dossier de stockage des métadonnées a bien été créé mais n'a pas pu être caché."
     }
@@ -53,7 +54,8 @@
     TestUmsManagement = @{
         Enabled = "Les métadonnées UMS sont activées."
         Disabled = "Les métadonnées UMS sont désactivées."
-        CacheFolderNotFound = "Le sous-dossier de cache UMS n'est pas présent."
+        CacheFolderNotFound = "Le sous-dossier du cache de données n'est pas présent."
+        StaticFolderNotFound = "Le sous-dossier des données statiques n'est pas présent."
     }
     UpdateUmsItemCache = @{
         MissingTarget = "Le fichier cible n'existe pas ou n'est pas accessible."

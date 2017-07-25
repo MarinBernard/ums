@@ -14,6 +14,7 @@ function Enable-UmsManagement
     Enable-UmsMetadata -Path "D:\MyMusic"
     #>
 
+    [CmdletBinding()]
     Param(
         [ValidateNotNull()]
         [string] $Path = "."
@@ -76,6 +77,21 @@ function Enable-UmsManagement
     {
         Write-Error $_.Exception.Message
         Write-Error -Message $ModuleStrings.EnableUmsManagement.CacheFolderCreationError
+        return
+    }
+
+    # Create the static subfolder
+    try
+    {
+        $_umsStaticFolderPath = Get-UmsManagementFolderPath -Path $Path -Type "Static"
+        $_folder = New-Item -Type Directory -Path $_umsStaticFolderPath
+    }
+
+    # If folder creation fails, we stop here
+    catch
+    {
+        Write-Error $_.Exception.Message
+        Write-Error -Message $ModuleStrings.EnableUmsManagement.StaticFolderCreationError
         return
     }
 

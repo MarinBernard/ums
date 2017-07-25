@@ -54,15 +54,15 @@ function ConvertTo-ForeignMetadata
                 if( (Wait-UserConfirmation) -eq $false ){ return }
             }
 
-            # Validate caching status
-            $_allowedCachingStatus = @([UmsItemCachingStatus]::Current, [UmsItemCachingStatus]::Expired)
+            # Validate static copy status
+            $_allowedStaticVersionStatus = @([UmsItemStaticVersionStatus]::Current, [UmsItemStaticVersionStatus]::Expired)
 
-            if ($_allowedCachingStatus -notcontains($Item.CachingStatus))
-                { throw $ModuleStrings.Common.MissingUmsItemCache }
+            if ($_allowedStaticVersionStatus -notcontains($Item.StaticVersion))
+                { throw $ModuleStrings.Common.MissingUmsItemStaticVersion }
 
-            if ($Item.CachingStatus -eq [UmsItemCardinality]::Expired)
+            if ($Item.StaticVersion -eq [UmsItemStaticVersionStatus]::Expired)
             {
-                Write-Warning -Message $ModuleStrings.Common.ExpiredItemCache
+                Write-Warning -Message $ModuleStrings.Common.ExpiredStaticVersion
                 if( (Wait-UserConfirmation) -eq $false ){ return }
             }
 
@@ -107,7 +107,7 @@ function ConvertTo-ForeignMetadata
         # Run the transform
         try 
         {
-            Invoke-XslTransformer -Source $Item.CacheFileUri -Stylesheet $_stylesheet.Uri -Destination $_outputFileFullName -Arguments $_arguments
+            Invoke-XslTransformer -Source $Item.StaticFileUri -Stylesheet $_stylesheet.Uri -Destination $_outputFileFullName -Arguments $_arguments
         }
         catch
         {

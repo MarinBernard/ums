@@ -56,17 +56,17 @@ function Update-UmsItemCache
         }
 
         # Check whether the update is needed
-        if (($Item.CachingStatus -eq [UmsItemCachingStatus]::Current) -and (-not $Force.IsPresent))
+        if (($Item.StaticVersion -eq [UmsItemStaticVersionStatus]::Current) -and (-not $Force.IsPresent))
         {
             Write-Host $($Item.Name + ": " + $ModuleStrings.UpdateUmsItemCache.NoUpdateNeeded)
             return
         }
         
-        # Build the full name of the cache file
-        $_cacheFileFullName = $Item.CacheFileFullName
+        # Get the full name of the static file
+        $_staticFileFullName = $Item.StaticFileFullName
 
         # Build the name of the temporary destination file
-        $_tempFileFullName = $($_cacheFileFullName + ".tmp")
+        $_tempFileFullName = $($_staticFileFullName + ".tmp")
 
         # Remove previous temporary file, if needed
         if (Test-Path -LiteralPath $_tempFileFullName)
@@ -105,15 +105,15 @@ function Update-UmsItemCache
             throw $ModuleStrings.UpdateUmsItemCache.ValidationFailure
         }
 
-        # Promote temporary file to the new cache file
+        # Promote temporary file to be the new static file
         try
         {
-            # Remove pre-existing cache file, if it exists
-            if (Test-Path -LiteralPath $_cacheFileFullName)
-                { Remove-Item -Force -LiteralPath $_cacheFileFullName }
+            # Remove pre-existing static file, if it exists
+            if (Test-Path -LiteralPath $_staticFileFullName)
+                { Remove-Item -Force -LiteralPath $_staticFileFullName }
             
             # Promote temporary file to static item
-            Move-Item -Path $_tempFileFullName -Destination $_cacheFileFullName
+            Move-Item -Path $_tempFileFullName -Destination $_staticFileFullName
         }
 
         # Catch promotion failure
