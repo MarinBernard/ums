@@ -27,11 +27,11 @@
 		<city uid="DE/Leipzig"/>
 	</death>
 	<links>
-		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
-		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Picander"/>
-		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
-		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Picander"/>
-		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
-		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Хенрици,_Кристиан_Фридрих"/>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Picander"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Picander"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Хенрици,_Кристиан_Фридрих"/>
 	</links>
 </umsm:lyricist>

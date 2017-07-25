@@ -26,10 +26,10 @@
 	</labelVariants>
 	<links>
 		<website lang="de" href="https://www.rias-kammerchor.de/"/>
-		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/RIAS_Kammerchor"/>
-		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/RIAS_Kammerchor"/>
-		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Coro_de_cámara_de_la_RIAS"/>
-		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/RIAS_Kammerchor"/>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/RIAS_Kammerchor"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/RIAS_Kammerchor"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Coro_de_cámara_de_la_RIAS"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/RIAS_Kammerchor"/>
 	</links>
 	<creation>
 		<year>1948</year>

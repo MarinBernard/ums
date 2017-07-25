@@ -19,11 +19,11 @@
 		<city uid="BE/Ghent"/>
 	</birth>
 	<links>
-		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/René_Jacobs"/>
-		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/René_Jacobs"/>
-		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/René_Jacobs"/>
-		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/René_Jacobs"/>
-		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/René_Jacobs"/>
-		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Якобс,_Рене"/>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/René_Jacobs"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/René_Jacobs"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/René_Jacobs"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/René_Jacobs"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/René_Jacobs"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Якобс,_Рене"/>
 	</links>
 </umsm:conductor>

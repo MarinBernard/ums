@@ -27,11 +27,11 @@
 		<city uid="DE/Baden-Baden"/>
 	</death>
 	<links>
-		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Pierre_Boulez"/>
-		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Pierre_Boulez"/>
-		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Pierre_Boulez"/>
-		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Pierre_Boulez"/>
-		<wikipedia href="it" lang="https://it.wikipedia.org/wiki/Pierre_Boulez"/>
-		<wikipedia href="ru" lang="https://ru.wikipedia.org/wiki/Булез,_Пьер"/>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Pierre_Boulez"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Pierre_Boulez"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Pierre_Boulez"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Pierre_Boulez"/>
+		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Pierre_Boulez"/>
+		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Булез,_Пьер"/>
 	</links>
 </umsm:conductor>

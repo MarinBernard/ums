@@ -20,9 +20,9 @@
 	</labelVariants>
 	<links>
 		<website lang="fr" href="http://www.ambronay.org"/>
-		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Notre-Dame_(Ambronay)"/>
-		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Abbaye_Notre-Dame_d'Ambronay"/>
-		<wikipedia href="nl" lang="https://nl.wikipedia.org/wiki/Onze-Lieve-Vrouwe_van_Ambronay"/>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Notre-Dame_(Ambronay)"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Abbaye_Notre-Dame_d'Ambronay"/>
+		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Onze-Lieve-Vrouwe_van_Ambronay"/>
 	</links>
 	<city uid="FR/Ambronay"/>
 </umsm:venue>

@@ -17,10 +17,10 @@
 	<links>
 		<website lang="de" href="https://akamus.de/de"/>
 		<website lang="en" href="https://akamus.de/en"/>
-		<wikipedia href="de" lang="https://de.wikipedia.org/wiki/Akademie_für_Alte_Musik_Berlin"/>
-		<wikipedia href="en" lang="https://en.wikipedia.org/wiki/Akademie_für_Alte_Musik_Berlin"/>
-		<wikipedia href="es" lang="https://es.wikipedia.org/wiki/Akademie_für_Alte_Musik_de_Berlín"/>
-		<wikipedia href="fr" lang="https://fr.wikipedia.org/wiki/Ch%C5%93ur_de_Radio_France"/>
+		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Akademie_für_Alte_Musik_Berlin"/>
+		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Akademie_für_Alte_Musik_Berlin"/>
+		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Akademie_für_Alte_Musik_de_Berlín"/>
+		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Ch%C5%93ur_de_Radio_France"/>
 	</links>
 	<creation>
 		<year>1982</year>
