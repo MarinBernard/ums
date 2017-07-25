@@ -35,7 +35,7 @@ function Get-UmsConfigurationItem
             "JingJarPath", "JreBinPath", "SaxonJarPath",
 
             # UMS options
-            "UmsFileExtension", "UmsCacheFolderName", "UmsFolderName", "UmsHiddenFolders")]
+            "UmsFileExtension", "UmsCacheFolderName", "UmsStaticFolderName", "UmsFolderName", "UmsHiddenFolders")]
         [string] $ShortName
     )
 
@@ -59,6 +59,7 @@ function Get-UmsConfigurationItem
         # UMS Options
         "UmsFileExtension"      { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-file-extension" }).Value }
         "UmsCacheFolderName"    { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-folder-name-cache" }).Value }
+        "UmsStaticFolderName"   { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-folder-name-static" }).Value }
         "UmsFolderName"         { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-folder-name" }).Value }
         "UmsHiddenFolders"      { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-hidden-folders" }).Value }
     }

@@ -153,6 +153,7 @@
 		<umsOption id="ums-file-extension">.ums</umsOption>
 		<umsOption id="ums-folder-name">ums</umsOption>
 		<umsOption id="ums-folder-name-cache">cache</umsOption>
+		<umsOption id="ums-folder-name-static">static</umsOption>
 		<umsOption id="ums-hidden-folders">True</umsOption>
 		<umsOption id="ums-variants-fallback-language">en</umsOption>
 		<umsOption id="ums-variants-prefer-common-labels">True</umsOption>

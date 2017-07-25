@@ -5,7 +5,7 @@ function Get-UmsManagementFolderPath
         [ValidateNotNull()]
         [string] $Path,
 
-        [ValidateSet("Cache", "Main")]
+        [ValidateSet("Cache", "Main", "Static")]
         [string] $Type = "Main"
     )
 
@@ -16,13 +16,20 @@ function Get-UmsManagementFolderPath
         {
             $_folderName = Get-UmsConfigurationItem -ShortName "UmsCacheFolderName"
             $_folderFullName = Join-Path (Get-UmsManagementFolderPath -Path $Path) -ChildPath $_folderName
-        } 
+        }
 
         # Path to the main metadata folder
         "Main"
         {
             $_folderName = Get-UmsConfigurationItem -ShortName "UmsFolderName"
             $_folderFullName = Join-Path -Path $Path -ChildPath $_folderName
+        }
+
+        # Path to the static metadata folder
+        "Static"
+        {
+            $_folderName = Get-UmsConfigurationItem -ShortName "UmsStaticFolderName"
+            $_folderFullName = Join-Path (Get-UmsManagementFolderPath -Path $Path) -ChildPath $_folderName
         }
     }
 
