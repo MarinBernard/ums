@@ -150,10 +150,9 @@
 		<tool id="saxon-jar" path="C:\Program Files\XMLBlueprint 13\JavaLib\SaxonPE9-7-0-18J\saxon9pe.jar"/>
 	</tools>
 	<umsOptions>
-		<umsOption id="ums-cache-folder-name">cache</umsOption>
-		<umsOption id="ums-local-file-extension">.ums</umsOption>
-		<umsOption id="ums-remote-file-extension">.ums</umsOption>
+		<umsOption id="ums-file-extension">.ums</umsOption>
 		<umsOption id="ums-folder-name">ums</umsOption>
+		<umsOption id="ums-folder-name-cache">cache</umsOption>
 		<umsOption id="ums-hidden-folders">True</umsOption>
 		<umsOption id="ums-variants-fallback-language">en</umsOption>
 		<umsOption id="ums-variants-prefer-common-labels">True</umsOption>

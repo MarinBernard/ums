@@ -71,8 +71,8 @@ function Get-UmsItem
     $_umsFolderPath = Get-UmsManagementFolderPath -Path $Path
    
     # Build item list
-    $_umsLocalFileExtension = Get-UmsConfigurationItem -ShortName "UmsLocalFileExtension"
-    $_filter = $("*" + $_umsLocalFileExtension)
+    $_UmsFileExtension = Get-UmsConfigurationItem -ShortName "UmsFileExtension"
+    $_filter = $("*" + $_UmsFileExtension)
 
     # Enumerate files from the local folder
     foreach ($_file in (Get-ChildItem -Path $_umsFolderPath -File -Filter $_filter))

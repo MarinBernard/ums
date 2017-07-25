@@ -35,7 +35,7 @@ function Get-UmsConfigurationItem
             "JingJarPath", "JreBinPath", "SaxonJarPath",
 
             # UMS options
-            "UmsLocalFileExtension", "UmsRemoteFileExtension", "UmsCacheFolderName", "UmsFolderName", "UmsHiddenFolders")]
+            "UmsFileExtension", "UmsCacheFolderName", "UmsFolderName", "UmsHiddenFolders")]
         [string] $ShortName
     )
 
@@ -57,9 +57,8 @@ function Get-UmsConfigurationItem
         "SaxonJarPath"          { return (Get-UmsConfigurationItem -Type Tool | Where-Object { $_.Id -eq "saxon-jar" }).Path }        
 
         # UMS Options
-        "UmsLocalFileExtension" { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-local-file-extension" }).Value }
-        "UmsRemoteFileExtension"{ return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-remote-file-extension" }).Value }
-        "UmsCacheFolderName"    { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-cache-folder-name" }).Value }
+        "UmsFileExtension"      { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-file-extension" }).Value }
+        "UmsCacheFolderName"    { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-folder-name-cache" }).Value }
         "UmsFolderName"         { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-folder-name" }).Value }
         "UmsHiddenFolders"      { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-hidden-folders" }).Value }
     }

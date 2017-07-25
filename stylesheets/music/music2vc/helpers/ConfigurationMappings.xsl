@@ -1270,7 +1270,7 @@
 	File extension of UMS files (needed for lookups to external catalogs) -->
 	<xsl:variable name="config.fileExtensions.umsFile">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'ums-remote-file-extension'"/>
+			<xsl:with-param name="OptionName" select="'ums-file-extension'"/>
 		</xsl:call-template>
 	</xsl:variable>
 </xsl:stylesheet>
