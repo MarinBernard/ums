@@ -42,36 +42,28 @@ function ConvertTo-ForeignMetadata
         # Execute preliminary checks
         try
         {
-            # We only allow conversions on sidecar or orphan files
-            switch ($Item.Cardinality)
+            # Validate cardinality
+            $_allowedCardinality = @([UmsItemCardinality]::Sidecar, [UmsItemCardinality]::Orphan)
+
+            if ($_allowedCardinality -notcontains($Item.Cardinality))
+                { throw $($ModuleStrings.Common.IncompatibleCardinality -f ($_allowedCardinality -join(","))) }
+
+            if ($Item.Cardinality -eq [UmsItemCardinality]::Orphan)
             {
-                "Unknown"
-                    { throw $($ModuleStrings.Common.IncompatibleCardinality -f "Sidecar, Orphan") }
-
-                "Independent"
-                    { throw $($ModuleStrings.Common.IncompatibleCardinality -f "Sidecar, Orphan") }
-
-                "Orphan"
-                {
-                    Write-Warning -Message $ModuleStrings.Common.OrphanCardinalityWarning
-                    if( Wait-UserConfirmation -eq $false ){ return }
-                }        
+                Write-Warning -Message $ModuleStrings.Common.OrphanCardinalityWarning
+                if( Wait-UserConfirmation -eq $false ){ return }
             }
 
-            # Check caching status
-            switch ($Item.CachingStatus)
+            # Validate caching status
+            $_allowedCachingStatus = @([UmsItemCachingStatus]::Current, [UmsItemCachingStatus]::Expired)
+
+            if ($_allowedCachingStatus -notcontains($Item.CachingStatus))
+                { throw $ModuleStrings.Common.MissingUmsItemCache }
+
+            if ($Item.CachingStatus -eq [UmsItemCardinality]::Expired)
             {
-                "Unknown"
-                    { throw $ModuleStrings.Common.MissingUmsItemCache }
-
-                "Absent"
-                    { throw $ModuleStrings.Common.MissingUmsItemCache }
-
-                "Expired"
-                {
-                    Write-Warning -Message $ModuleStrings.Common.ExpiredItemCache
-                    if( Wait-UserConfirmation -eq $false ){ return }
-                }
+                Write-Warning -Message $ModuleStrings.Common.ExpiredItemCache
+                if( Wait-UserConfirmation -eq $false ){ return }
             }
 
             # Validate stylesheet constraints
