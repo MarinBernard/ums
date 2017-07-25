@@ -69,17 +69,6 @@
 				<option id="performers-list-prefix">(</option>
 				<option id="performers-list-suffix">)</option>
 				<option id="keys-prefer-short-labels">True</option>
-				<option id="variants-fallback-language">en</option>
-				<option id="variants-preferred-language">fr</option>
-				<option id="variants-prefer-common-names">True</option>
-				<option id="variants-prefer-common-labels">True</option>
-				<option id="variants-pseudonym-prefix">('</option>
-				<option id="variants-pseudonym-suffix">')</option>
-				<option id="variants-show-pseudonyms">True</option>
-				<option id="variants-sort-name-delimiter">,</option>
-				<option id="variants-use-default-variants">True</option>
-				<option id="variants-use-fake-sort-variants">True</option>
-				<option id="variants-use-original-variants">False</option>
 				<option id="vorbis-album-titles-include-conductors">True</option>
 				<option id="vorbis-album-titles-include-composers">True</option>
 				<option id="vorbis-album-titles-include-ensembles">True</option>
@@ -166,5 +155,16 @@
 		<umsOption id="ums-remote-file-extension">.ums</umsOption>
 		<umsOption id="ums-folder-name">ums</umsOption>
 		<umsOption id="ums-hidden-folders">True</umsOption>
+		<umsOption id="ums-variants-fallback-language">en</umsOption>
+		<umsOption id="ums-variants-prefer-common-labels">True</umsOption>
+		<umsOption id="ums-variants-prefer-common-names">True</umsOption>
+		<umsOption id="ums-variants-preferred-language">fr</umsOption>
+		<umsOption id="ums-variants-pseudonym-prefix">('</umsOption>
+		<umsOption id="ums-variants-pseudonym-suffix">')</umsOption>
+		<umsOption id="ums-variants-show-pseudonyms">True</umsOption>
+		<umsOption id="ums-variants-sort-name-delimiter">,</umsOption>
+		<umsOption id="ums-variants-use-default-variants">True</umsOption>
+		<umsOption id="ums-variants-use-fake-sort-variants">True</umsOption>
+		<umsOption id="ums-variants-use-original-variants">False</umsOption>
 	</umsOptions>
 </configuration>
