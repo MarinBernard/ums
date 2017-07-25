@@ -83,7 +83,7 @@
 		<xsl:param name="Boolean" select="false()"/>
 		<!-- Get option value -->
 		<xsl:variable name="_value">
-			<xsl:value-of select="$ConfigData/stylesheets/stylesheet[@id = $Stylesheet]/option[@id = $OptionName]"/>
+			<xsl:value-of select="$ConfigData/stylesheets/stylesheet[@id = $Stylesheet]/options/option[@id = $OptionName]"/>
 		</xsl:variable>
 		<!-- Validate option value -->
 		<xsl:if test="$AllowEmptyValue = false() and normalize-space($_value) = ''">

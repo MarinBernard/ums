@@ -31,29 +31,37 @@ function Test-UmsMetadata
     }
 
     # Get path to the UMS folder
-    $_umsFolderPath = Get-UmsMetadataFolderPath -Path $Path
+    $_umsFolderPath = Get-UmsSpecialFolderPath -Path $Path
+
+    # Default status is valid
+    $_valid = $true
 
     # Check whether the UMS folder exists
-    if ( Test-Path -LiteralPath $_umsFolderPath -ErrorAction SilentlyContinue )
+    if (-not (Test-Path -LiteralPath $_umsFolderPath))
     {
-        if ($Boolean.IsPresent)
-        {
-            return $true
-        }
-        else
-        {
-            Write-Host $ModuleStrings.TestUmsMetadata.Enabled
-        }
+        $_valid = $false
+        if (-not ($Boolean.IsPresent))
+            { Write-Host $ModuleStrings.TestUmsMetadata.Disabled }
     }
     else
     {
-        if ($Boolean.IsPresent)
+        # Check whether the cache folder exists
+        $_umsCacheFolder = Get-UmsSpecialFolderPath -Type "Cache" -Path $Path
+        if (-not (Test-Path -LiteralPath $_umsCacheFolder))
         {
-            return $false
+            $_valid = $false
+            if (-not ($Boolean.IsPresent))
+                { Write-Host $ModuleStrings.TestUmsMetadata.CacheFolderNotFound }
         }
+        # All checks passed!
         else
         {
-            Write-Host $ModuleStrings.TestUmsMetadata.Disabled
+            if (-not ($Boolean.IsPresent))
+                { Write-Host $ModuleStrings.TestUmsMetadata.Enabled }
         }
     }
+    
+    # Result output
+    if ($Boolean.IsPresent)
+    { return $_valid }
 }

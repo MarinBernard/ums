@@ -27,9 +27,9 @@ function Disable-UmsMetadata
     # Check whether UMS metadata are enabled
     try
     {  
-        if (Test-UmsMetadata -Boolean -Path $Path)
+        if (-not (Test-UmsMetadata -Boolean -Path $Path))
         {
-            Write-Warning -Message $ModuleStrings.Common.UmsNotEnabled
+            Write-Warning -Message $ModulelStrings.Common.UmsNotEnabled
             return
         }
     }
@@ -42,7 +42,7 @@ function Disable-UmsMetadata
     ### From now on, we assume UMS is enabled and UMS items are available ###
 
     # Get path to the UMS folder
-    $_umsFolderPath = Get-UmsMetadataFolderPath -Path $Path
+    $_umsFolderPath = Get-UmsSpecialFolderPath -Path $Path
 
     # Remove the UMS directory
     if ($Confirm -eq $true)

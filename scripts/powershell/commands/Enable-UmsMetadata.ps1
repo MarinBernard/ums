@@ -36,12 +36,10 @@ function Enable-UmsMetadata
 
     ### From now on, we assume UMS is enabled and UMS items are available ###
 
-    # Get path to the UMS folder
-    $_umsFolderPath = Get-UmsMetadataFolderPath -Path $Path
-    
     # Attempt folder creation
     try
     {
+        $_umsFolderPath = Get-UmsSpecialFolderPath -Path $Path
         $_folder = New-Item -Type Directory -Path $_umsFolderPath
     }
 
@@ -64,6 +62,21 @@ function Enable-UmsMetadata
         {
             Write-Warning -Message $ModuleStrings.EnableUmsMetadata.FolderHideoutError
         }
+    }
+
+    # Create the cache subfolder
+    try
+    {
+        $_umsCacheFolderPath = Get-UmsSpecialFolderPath -Path $Path -Type "Cache"
+        $_folder = New-Item -Type Directory -Path $_umsCacheFolderPath
+    }
+
+    # If folder creation fails, we stop here
+    catch
+    {
+        Write-Error $_.Exception.Message
+        Write-Error -Message $ModuleStrings.EnableUmsMetadata.CacheFolderCreationError
+        return
     }
 
 }

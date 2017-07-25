@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/audio.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsa:album
+	xmlns="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<titleVariants>
+		<titleVariant lang="de" original="true">
+			<fullTitle>Matthäuspassion</fullTitle>
+		</titleVariant>
+		<titleVariant lang="en">
+			<fullTitle>St. Matthew Passion</fullTitle>
+		</titleVariant>
+		<titleVariant lang="fr">
+			<fullTitle>Passion selon St. Matthieu</fullTitle>
+		</titleVariant>
+	</titleVariants>
+	<umsa:labels>
+		<umsa:label uid="BMG"/>
+		<umsa:label uid="Deutsche Harmonia Mundi"/>
+	</umsa:labels>
+	<releases>
+		<release>
+			<year>1990</year>
+			<country uid="FR"/>
+		</release>
+	</releases>
+	<umsa:media>
+		<umsa:medium number="1" type="CDDA">
+			<umsa:tracks>
+				<umsa:track number="1" performance="_performance" section="I/1"/>
+				<umsa:track number="2" performance="_performance" section="I/2"/>
+				<umsa:track number="3" performance="_performance" section="I/3"/>
+			</umsa:tracks>
+		</umsa:medium>
+		<umsa:medium number="2" type="CDDA">
+			<umsa:tracks>
+				<umsa:track number="12" performance="_performance" section="II/30"/>
+			</umsa:tracks>
+		</umsa:medium>
+	</umsa:media>
+	<umsm:performances>
+		<umsm:performance uid="_performance"/>
+	</umsm:performances>
+</umsa:album>

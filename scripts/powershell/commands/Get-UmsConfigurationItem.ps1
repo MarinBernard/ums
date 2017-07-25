@@ -17,15 +17,16 @@ function Get-UmsConfigurationItem
     Get-UmsConfigurationItem -Type "Schema"
     #>
 
+    [CmdletBinding(DefaultParametersetName='ByType')]
     Param(
         [Parameter(ParameterSetName="ByType")]
-        [ValidateSet("All", "Catalog", "Schema", "Stylesheet", "Tool", "UmsOption")]
+        [ValidateSet("All", "Catalog", "Schema", "Stylesheet", "StylesheetConstraint", "StylesheetOption", "Tool", "UmsOption")]
         [string[]] $Type = "All",
 
         [Parameter(ParameterSetName="ByShortName")]
         [ValidateSet(
             # Schema namespaces
-            "MusicSchemaNamespace",
+            "AudioSchemaNamespace", "BaseSchemaNamespace", "MusicSchemaNamespace",
 
             # Stylesheet paths
             "ExpanderStylesheetUri", "Music2vcStylesheetUri",
@@ -34,8 +35,7 @@ function Get-UmsConfigurationItem
             "JingJarPath", "JreBinPath", "SaxonJarPath",
 
             # UMS options
-            "UmsFileExtension", "UmsFolderName", "UmsHiddenFolders", "UmsMainFileBaseName", "UmsMainFileName", "UmsStaticFileBaseName",
-            "UmsStaticFileName")]
+            "UmsLocalFileExtension", "UmsRemoteFileExtension", "UmsCacheFolderName", "UmsFolderName", "UmsHiddenFolders")]
         [string] $ShortName
     )
 
@@ -43,6 +43,8 @@ function Get-UmsConfigurationItem
     switch ($ShortName)
     {
         # Schema namespaces
+        "AudioSchemaNamespace" { return (Get-UmsConfigurationItem -Type Schema | Where-Object { $_.Id -eq "audio" }).Namespace }
+        "BaseSchemaNamespace"  { return (Get-UmsConfigurationItem -Type Schema | Where-Object { $_.Id -eq "base" }).Namespace }
         "MusicSchemaNamespace" { return (Get-UmsConfigurationItem -Type Schema | Where-Object { $_.Id -eq "music" }).Namespace }
 
         # Stylesheet paths
@@ -55,13 +57,11 @@ function Get-UmsConfigurationItem
         "SaxonJarPath"          { return (Get-UmsConfigurationItem -Type Tool | Where-Object { $_.Id -eq "saxon-jar" }).Path }        
 
         # UMS Options
-        "UmsFileExtension"      { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-file-extension" }).Value }
+        "UmsLocalFileExtension" { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-local-file-extension" }).Value }
+        "UmsRemoteFileExtension"{ return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-remote-file-extension" }).Value }
+        "UmsCacheFolderName"    { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-cache-folder-name" }).Value }
         "UmsFolderName"         { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-folder-name" }).Value }
         "UmsHiddenFolders"      { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-hidden-folders" }).Value }
-        "UmsMainFileBaseName"   { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-main-file-name" }).Value }
-        "UmsMainFileName"       { return (Get-UmsConfigurationItem -ShortName "UmsMainFileBaseName") + (Get-UmsConfigurationItem -ShortName "UmsFileExtension") }
-        "UmsStaticFileBaseName" { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-static-file-name" }).Value }
-        "UmsStaticFileName"     { return (Get-UmsConfigurationItem -ShortName "UmsStaticFileBaseName") + (Get-UmsConfigurationItem -ShortName "UmsFileExtension") }
     }
 
     # Normal evaluation
@@ -114,8 +114,52 @@ function Get-UmsConfigurationItem
             New-Object -Type PSCustomObject -Property @{
                 Type = "Stylesheet";
                 Id = $_stylesheet.Node.id;
-                Uri = $_stylesheet.Node.uri;
+                Uri = $_stylesheet.Node.uri;               
             }   
+        }
+    }
+
+    if (($Type -eq "all") -or ($Type -contains "stylesheetConstraint"))
+    {
+        $_stylesheets = $ConfigurationDocument | Select-Xml -XPath "/configuration/stylesheets/*"
+        foreach ($_stylesheet in $_stylesheets)
+        {
+            # Returning stylesheet constraints
+            $_documentElementConstraints = $_stylesheet.Node | Select-Xml -XPath "constraints/documentElement"
+            foreach ($_documentElementConstraint in $_documentElementConstraints)
+            {
+                $_contentBindingElementSubConstraint = $_documentElementConstraint.Node | Select-Xml -Xpath "contentBindingElement"
+                New-Object -Type PSCustomObject -Property @{
+                    Type = "StylesheetConstraint";
+                    SubType = "DocumentElementConstraint"
+                    StylesheetId = $_stylesheet.Node.id;
+                    StylesheetUri = $_stylesheet.Node.uri;
+                    DocumentNamespace = $_documentElementConstraint.Node.namespace;
+                    DocumentElement = $_documentElementConstraint.Node.element;
+                    BindingNamespace = $_contentBindingElementSubConstraint.Node.Namespace;
+                    BindingElement = $_contentBindingElementSubConstraint.Node.Element;
+                }
+            }
+        }
+    }
+
+    if (($Type -eq "all") -or ($Type -contains "stylesheetOption"))
+    {
+        $_stylesheets = $ConfigurationDocument | Select-Xml -XPath "/configuration/stylesheets/*"
+        foreach ($_stylesheet in $_stylesheets)
+        {
+            # Returning stylesheet options
+            $_options = $_stylesheet.Node | Select-Xml -XPath "options/option"
+            foreach ($_option in $_options)
+            {
+                New-Object -Type PSCustomObject -Property @{
+                    Type = "StylesheetOption";
+                    StylesheetId = $_stylesheet.Node.id;
+                    StylesheetUri = $_stylesheet.Node.uri;
+                    Id = $_option.Node.id;
+                    Value = $_option.Node.'#Text'
+                }
+            }
         }
     }
 

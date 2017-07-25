@@ -46,6 +46,7 @@ function Invoke-XmlValidator
     )
 
     # Invoke Jing validator and return the result
+    Write-Verbose -Message $("Jing invocation string: " + $_jreBinPath + " " + $_arguments)
     & $_jreBinPath $_arguments    
     return $LASTEXITCODE
 }

@@ -1,21 +1,30 @@
 @{
     Common = @{
         AccessDenied = "Target folder does not exist or access is denied."
+        IncompatibleCardinality = "The cardinality of the target item is not compatible with this command. Valid cardinality: {0}"
+        ConfirmPrompt = "Are you sure you want to continue?"
+        ExpiredItemCache = "Cached metadata of the target item are expired."
         InvalidState = "Invalid"
-        MissingUmsCache = "No cached metadata are available for the target folder. Run Update-UmsCache then try again."
+        MissingSidecarFile = "Skipping this file as it lacks a UMS sidecar file."
+        MissingUmsItemCache = "The metadata cache of the target file is empty. Run Update-UmsItemCache then try again."
+        OrphanCardinalityWarning = "You are about to run a command on an orphaned item."
         UmsNotEnabled = "UMS metadata are not enabled with this folder."
         UnknownState = "Unknown"
         ValidState = "Valid"
         VoidUmsMetadata = "No UMS metadata were ever defined for this folder."
     }
     ConvertToForeignMetadata = @{
-        BadSourceNamespace = "UMS metadata belong to an incompatible namespace. The source namespace is {0}, whereas the parameters you specified require metadata from the {1} namespace."
+        BadBindingNamespace = "The binding namespace of the source UMS item does not allow this operation. The binding element is {0}, whereas the parameters you specified require namespace {1}."
+        BadBindingElement = "The binding element of the source UMS item does not allow this operation. The binding namespace is {0}, whereas the parameters you specified require element {1}."
+        BadDocumentNamespace = "The document namespace of the source UMS item does not allow this operation. The document namespace is {0}, whereas the parameters you specified require namespace {1}."
+        BadDocumentElement = "The document element of the source UMS item does not allow this operation. The document element is {0}, whereas the parameters you specified require element {1}."
     }
     DisableUmsMetadata = @{
         ConfirmDeletion = "This will destroy all UMS metadata for any file within in this folder. Please confirm to continue."
     }
     EnableUmsMetadata = @{
         AlreadyEnabled = "UMS metadata are already enabled with this folder."
+        CacheFolderCreationError = "The cache subfolder could not be created."
         FolderCreationError = "The metadata storage folder could not be created."
         FolderHideoutError = "The metadata folder was created but not hidden."
     }
@@ -41,14 +50,16 @@
         StylesheetNotFound = "XSLT stylesheet {0} does not exist or access is denied."
         TransformFailure = "An error occured while running the XSLT transform."
     }
-    UpdateUmsCache = @{
+    UpdateUmsItemCache = @{
         MissingTarget = "The target file does not exist or access is denied."
         NoUpdateNeeded = "UMS cache is up-to-date. No update needed."
+        PromotionFailure = "Failed to promote the newly generated file to the new cache file."
         TempFileRemovalFailure = "A temporary file could not be removed."
         ValidationFailure = "The cache file did not pass XML validation."     
     }
     TestUmsMetadata = @{
         Enabled = "UMS metadata are enabled."
         Disabled = "UMS metadata are disabled."
+        CacheFolderNotFound = "The UMS cache subfolder is missing."
     }
 }

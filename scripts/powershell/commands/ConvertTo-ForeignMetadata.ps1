@@ -1,92 +1,125 @@
 function ConvertTo-ForeignMetadata
 {
     Param(
+        [Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
-        [string] $Path = ".",
+        [UmsItem[]] $Item,
 
         [ValidateSet("VorbisComment", "RawLyrics")]
         [string] $Format = "VorbisComment"
     )
 
-    # Check whether UMS metadata are enabled
-    try
-    {  
-        if (-not (Test-UmsMetadata -Boolean -Path $Path))
+    Process
+    {
+        # Build transform arguments
+        switch ($Format)
         {
-            Write-Warning -Message $ModuleStrings.Common.UmsNotEnabled
+            "VorbisComment"
+            {
+                # Select the music2vc stylesheet
+                $_stylesheet = Get-UmsConfigurationItem -Type "Stylesheet" | Where-Object { $_.Id -eq "music2vc" }
+
+                # Build transform arguments
+                $_outputFileFullName = $($Item.LinkedFileBaseName + ".tags")
+                $_arguments = @{
+                    OutputMode = "VORBIS";
+                }
+            }
+
+            "RawLyrics"
+            {
+                # Select the music2vc stylesheet
+                $_stylesheet = Get-UmsConfigurationItem -Type "Stylesheet" | Where-Object { $_.Id -eq "music2vc" }
+
+                # Build transform arguments
+                $_outputFileFullName = $($Item.LinkedFileBaseName + ".txt")
+                $_arguments = @{
+                    OutputMode = "RAWLYRICS";
+                }
+            }
+        }
+
+        # Execute preliminary checks
+        try
+        {
+            # We only allow conversions on sidecar or orphan files
+            switch ($Item.Cardinality)
+            {
+                "Unknown"
+                    { throw $($ModuleStrings.Common.IncompatibleCardinality -f "Sidecar, Orphan") }
+
+                "Independent"
+                    { throw $($ModuleStrings.Common.IncompatibleCardinality -f "Sidecar, Orphan") }
+
+                "Orphan"
+                {
+                    Write-Warning -Message $ModuleStrings.Common.OrphanCardinalityWarning
+                    if( Wait-UserConfirmation -eq $false ){ return }
+                }        
+            }
+
+            # Check caching status
+            switch ($Item.CachingStatus)
+            {
+                "Unknown"
+                    { throw $ModuleStrings.Common.MissingUmsItemCache }
+
+                "Absent"
+                    { throw $ModuleStrings.Common.MissingUmsItemCache }
+
+                "Expired"
+                {
+                    Write-Warning -Message $ModuleStrings.Common.ExpiredItemCache
+                    if( Wait-UserConfirmation -eq $false ){ return }
+                }
+            }
+
+            # Validate stylesheet constraints
+            $_constraints = Get-UmsConfigurationItem -Type "StylesheetConstraint" | Where-Object { $_.Id -eq $_stylesheet.Id }
+            foreach ($_constraint in $_constraints)
+            {
+                # Constraint on document element
+                if ($_constraint.SubType -eq "DocumentElementConstraint")
+                {
+                    # Validate document namespace
+                    if ($Item.XmlNamespace -ne $_constraint.DocumentNamespace)
+                        { throw ($ModuleStrings.ConvertToForeignMetadata.BadDocumentNamespace -f $Item.XmlNamespace,$_constraint.DocumentNamespace) }
+
+                    # Validate document element
+                    if ($Item.XmlElementName -ne $_constraint.DocumentElement)
+                        { throw ($ModuleStrings.ConvertToForeignMetadata.BadDocumentElement -f $Item.XmlElementName,$_constraint.DocumentElement) }
+
+                    # Validate content binding, if specified
+                    if ($_constraint.BindingNamespace)
+                    {
+                        # Validate binding namespace
+                        if ($Item.BindingNamespace -ne $_constraint.BindingNamespace)
+                            { throw ($ModuleStrings.ConvertToForeignMetadata.BadBindingNamespace -f $Item.BindingNamespace,$_constraint.BindingNamespace) }
+
+                        # Validate binding element
+                        if ($Item.BindingElementName -ne $_constraint.BindingElement)
+                            { throw ($ModuleStrings.ConvertToForeignMetadata.BadBindingElement -f $Item.BindingElementName,$_constraint.BindingElement) }
+                    }
+                }
+            }            
+        }
+
+        # Escape here on validation failure
+        catch
+        {
+            Write-Error -Message $_.Exception.Message
             return
         }
-    }
-    catch
-    {
-        Write-Host $_.Exception.Message
-        return
-    }
 
-    ### From now on, we assume UMS is enabled and UMS items are available ###
-
-    # Get the static metadata item
-    $_staticItem = Get-UmsItem -Type "Static" -Path $Path
-
-    # If no static item is available, we halt here
-    if (-not $_staticItem)
-    {
-        Write-Warning -Message $ModuleStrings.Common.MissingUmsCache
-        return
-    }
-
-    switch ($Format)
-    {
-        "VorbisComment"
+        # Run the transform
+        try 
         {
-            # Source metadata must use the UMS Music Schema
-            $_requiredNamespace = Get-UmsConfigurationItem -ShortName "MusicSchemaNamespace"
-
-            # Select the music2vc stylesheet
-            $_stylesheet = Get-UmsConfigurationItem -ShortName "Music2vcStylesheetUri"
-
-            # Build transform arguments
-            $_targetDirectory = (Get-Item -LiteralPath $Path).FullName
-            $_targetDirectoryUri = (New-Object -Type System.Uri -ArgumentList $_targetDirectory).AbsoluteUri
-            $_arguments = @{
-                OutputDirectory = $_targetDirectoryUri;
-                OutputMode = "VORBIS";
-            }
+            Invoke-XslTransformer -Source $Item.CacheFileUri -Stylesheet $_stylesheet.Uri -Destination $_outputFileFullName -Arguments $_arguments
         }
-
-        "RawLyrics"
+        catch
         {
-            # Source namespace must be the music UMS Schema
-            $_requiredNamespace = Get-UmsConfigurationItem -ShortName "MusicSchemaNamespace"
-
-            # Select the music2vc stylesheet
-            $_stylesheet = Get-UmsConfigurationItem -ShortName "Music2vcStylesheetUri"
-
-            # Build transform arguments
-            $_targetDirectory = (Get-Item -LiteralPath $Path).FullName
-            $_targetDirectoryUri = (New-Object -Type System.Uri -ArgumentList $_targetDirectory).AbsoluteUri
-            $_arguments = @{
-                OutputDirectory = $_targetDirectoryUri;
-                OutputMode = "RAWLYRICS";
-            }
+            Write-Error -Message $_.Exception.Message
+            return
         }
-    }
-
-    # Source metadata must use the required UMS namespace
-    if ($_staticItem.Namespace -ne $_requiredNamespace)
-    {
-        Write-Error -Message ($ModuleStrings.ConvertToForeignMetadata.BadSourceNamespace -f $_staticItem.Namespace,$_requiredNamespace )
-        return
-    }
-
-    # Run the transform
-    try 
-    {
-        Invoke-XslTransformer -Source $_staticItem.FullName -Stylesheet $_stylesheet -Arguments $_arguments
-    }
-    catch
-    {
-        Write-Error -Message $_.Exception.Message
-        return
     }
 }

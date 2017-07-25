@@ -28,7 +28,7 @@
 	<!-- Extension of UMS files -->
 	<xsl:variable name="CFG_UMSFileExtension">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'ums-file-extension'"/>
+			<xsl:with-param name="OptionName" select="'ums-remote-file-extension'"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<!--

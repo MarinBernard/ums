@@ -1,21 +1,30 @@
 @{
     Common = @{
         AccessDenied = "Le dossier spécifié n'existe pas ou l'accès a été refusé."
+        ConfirmPrompt = "Êtes-vous sûr de vouloir continuer ?"
+        IncompatibleCardinality = "La cardinalité de l'élément cible est incompatible avec cette commande. Cardinalité attendue: {0}"
+        ExpiredItemCache = "Le cache de métadonneés de l'élément cible est périmé."
         InvalidState = "Invalide"
-        MissingUmsCache = "Le dossier cible ne contient pas de métadonnées mises en cache. Exécutez Update-UmsCache puis réessayez."
+        MissingSidecarFile = "Le fichier sera ignoré car il ne possède pas de fichier UMS compagnon."
+        MissingUmsItemCache = "Le cache de métadonnées du fichier cible est vide. Exécutez Update-UmsItemCache puis réessayez."
+        OrphanCardinalityWarning = "Vous êtes sur le point d'exécuter une tâche impliquant un élément orphelin."
         UmsNotEnabled = "Les métadonnées UMS ne sont pas activées pour ce dossier."
         UnknownState = "Inconnu"
         ValidState = "Valide"
         VoidUmsMetadata = "Aucune métadonnée UMS n'a jamais été définie pour ce dossier."
     }
     ConvertToForeignMetadata = @{
-        BadSourceNamespace = "Les métadonnées UMS appartiennent à un espace de noms incompatible. L'espace de noms source est {0}, mais les paramètres que vous avez spécifiés exigent l'espace de noms {1}."
+        BadBindingNamespace = "L'espace de noms de liaison de l'élement UMS est incompatible avec cette opération. L'espace de noms de liaison est {0}, mais les paramètres que vous avez spécifiés exigent l'espace de noms {1}."
+        BadBindingElement = "L'élement de liaison de l'élement UMS est incompatible avec cette opération. L'élement de liaison est {0}, mais les paramètres que vous avez spécifiés exigent une balise {1}."
+        BadDocumentNamespace = "L'espace de noms du document de l'élement UMS est incompatible avec cette opération. L'espace de noms est {0}, mais les paramètres que vous avez spécifiés exigent l'espace de noms {1}."
+        BadDocumentElement = "L'élement racine du document de l'élement UMS est incompatible avec cette opération. L'élement racine est {0}, mais les paramètres que vous avez spécifiés exigent une balise {1}."
     }
     DisableUmsMetadata = @{
         ConfirmDeletion = "Vous vous apprêtez à détruire la totalité des métadonnées UMS pour chacun des fichiers présents dans ce dossier. Confirmez pour continuer."
     }
     EnableUmsMetadata = @{
         AlreadyEnabled = "Les métadonnées UMS sont déjà activées pour ce dossier."
+        CacheFolderCreationError = "Le sous-dossier de cache n'a pas pu être créé."
         FolderCreationError = "Le dossier de stockage des métadonnées n'a pas pu être créé."
         FolderHideoutError = "Le dossier de stockage des métadonnées a bien été créé mais n'a pas pu être caché."
     }
@@ -41,14 +50,16 @@
         StylesheetNotFound = "La feuille de style {0} n'existe pas ou n'est pas accessible."
         TransformFailure = "Une erreur s'est produite lors de la transformation XSLT."
     }
-    UpdateUmsCache = @{
+    UpdateUmsItemCache = @{
         MissingTarget = "Le fichier cible n'existe pas ou n'est pas accessible."
         NoUpdateNeeded = "Le cache UMS est à jour. Aucune mise à jour n'est nécessaire."
+        PromotionFailure = "Echec de la promotion du fichier nouvellement généré en fichier de cache."
         TempFileRemovalFailure = "Un fichier temporaire n'a pas pu être supprimé."
         ValidationFailure = "Le fichier de cache n'a pas réussi la validation XML."
     }
     TestUmsMetadata = @{
         Enabled = "Les métadonnées UMS sont activées."
         Disabled = "Les métadonnées UMS sont désactivées."
+        CacheFolderNotFound = "Le sous-dossier de cache UMS n'est pas présent."
     }
 }

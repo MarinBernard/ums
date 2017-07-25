@@ -45,7 +45,7 @@
 						</xsl:when>
 						<!-- We halt here if no file was found -->
 						<xsl:otherwise>
-							<xsl:message terminate="yes">File not found: $_targetDocumentName</xsl:message>
+							<xsl:message terminate="yes" select="concat('ERROR: A reference to a *', $TargetElement, '* element was unresolved: ', $_targetDocumentName)"/>
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:otherwise>
@@ -54,7 +54,8 @@
 		
 		<!-- Checking whether target element is valid -->
 		<xsl:if test="not(document($_documentFullPath)/*[local-name()=$TargetElement])">
-			<xsl:message terminate="yes" select="concat('ERROR: Transclusion failure: root element of file ', $_documentFullPath, ' did not match our expectations. Expected element: ', $TargetElement)"/>
+			<xsl:message terminate="yes" select="concat('ERROR: Transclusion failure: root element of file ',
+			$_documentFullPath, ' did not match our expectations. Expected element: ', $TargetElement)"/>
 		</xsl:if>
 		
 		<!-- Performing transclusion -->
