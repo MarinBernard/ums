@@ -68,6 +68,7 @@ function ConvertTo-ForeignMetadata
 
             # Validate stylesheet constraints
             $_constraints = Get-UmsConfigurationItem -Type "StylesheetConstraint" | Where-Object { $_.Id -eq $_stylesheet.Id }
+            
             foreach ($_constraint in $_constraints)
             {
                 # Constraint on document element
