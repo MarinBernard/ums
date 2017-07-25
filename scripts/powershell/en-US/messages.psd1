@@ -19,10 +19,10 @@
         BadDocumentNamespace = "The document namespace of the source UMS item does not allow this operation. The document namespace is {0}, whereas the parameters you specified require namespace {1}."
         BadDocumentElement = "The document element of the source UMS item does not allow this operation. The document element is {0}, whereas the parameters you specified require element {1}."
     }
-    DisableUmsMetadata = @{
+    DisableUmsManagement = @{
         ConfirmDeletion = "This will destroy all UMS metadata for any file within in this folder. Please confirm to continue."
     }
-    EnableUmsMetadata = @{
+    EnableUmsManagement = @{
         AlreadyEnabled = "UMS metadata are already enabled with this folder."
         CacheFolderCreationError = "The cache subfolder could not be created."
         FolderCreationError = "The metadata storage folder could not be created."
@@ -50,16 +50,16 @@
         StylesheetNotFound = "XSLT stylesheet {0} does not exist or access is denied."
         TransformFailure = "An error occured while running the XSLT transform."
     }
+    TestUmsManagement = @{
+        Enabled = "UMS metadata are enabled."
+        Disabled = "UMS metadata are disabled."
+        CacheFolderNotFound = "The UMS cache subfolder is missing."
+    }
     UpdateUmsItemCache = @{
         MissingTarget = "The target file does not exist or access is denied."
         NoUpdateNeeded = "UMS cache is up-to-date. No update needed."
         PromotionFailure = "Failed to promote the newly generated file to the new cache file."
         TempFileRemovalFailure = "A temporary file could not be removed."
         ValidationFailure = "The cache file did not pass XML validation."     
-    }
-    TestUmsMetadata = @{
-        Enabled = "UMS metadata are enabled."
-        Disabled = "UMS metadata are disabled."
-        CacheFolderNotFound = "The UMS cache subfolder is missing."
     }
 }

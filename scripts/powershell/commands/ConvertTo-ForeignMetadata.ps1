@@ -51,7 +51,7 @@ function ConvertTo-ForeignMetadata
             if ($Item.Cardinality -eq [UmsItemCardinality]::Orphan)
             {
                 Write-Warning -Message $ModuleStrings.Common.OrphanCardinalityWarning
-                if( Wait-UserConfirmation -eq $false ){ return }
+                if( (Wait-UserConfirmation) -eq $false ){ return }
             }
 
             # Validate caching status
@@ -63,7 +63,7 @@ function ConvertTo-ForeignMetadata
             if ($Item.CachingStatus -eq [UmsItemCardinality]::Expired)
             {
                 Write-Warning -Message $ModuleStrings.Common.ExpiredItemCache
-                if( Wait-UserConfirmation -eq $false ){ return }
+                if( (Wait-UserConfirmation) -eq $false ){ return }
             }
 
             # Validate stylesheet constraints

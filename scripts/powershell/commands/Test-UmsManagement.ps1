@@ -1,11 +1,11 @@
-function Test-UmsMetadata
+function Test-UmsManagement
 {
     <#
     .SYNOPSIS
-    Checks whether UMS metadata are enabled with the specified folder.
+    Checks whether UMS metadata management is enabled for the specified folder.
     
     .DESCRIPTION
-    Checks whether UMS metadata are enabled with the specified folder.
+    Checks whether UMS metadata management is enabled for the specified folder.
     
     .PARAMETER Path
     A path to a valid folder. Default is the current folder.
@@ -14,7 +14,7 @@ function Test-UmsMetadata
     If enabled, the command wll run in mute mode and return $true if UMS metadata are enabled, $false otherwise.
     
     .EXAMPLE
-    Test-UmsMetadata -Path "D:\MyMusic"
+    Test-UmsManagement -Path "D:\MyMusic"
     #>
 
     Param(
@@ -41,7 +41,7 @@ function Test-UmsMetadata
     {
         $_valid = $false
         if (-not ($Boolean.IsPresent))
-            { Write-Host $ModuleStrings.TestUmsMetadata.Disabled }
+            { Write-Host $ModuleStrings.TestUmsManagement.Disabled }
     }
     else
     {
@@ -51,13 +51,13 @@ function Test-UmsMetadata
         {
             $_valid = $false
             if (-not ($Boolean.IsPresent))
-                { Write-Host $ModuleStrings.TestUmsMetadata.CacheFolderNotFound }
+                { Write-Host $ModuleStrings.TestUmsManagement.CacheFolderNotFound }
         }
         # All checks passed!
         else
         {
             if (-not ($Boolean.IsPresent))
-                { Write-Host $ModuleStrings.TestUmsMetadata.Enabled }
+                { Write-Host $ModuleStrings.TestUmsManagement.Enabled }
         }
     }
     

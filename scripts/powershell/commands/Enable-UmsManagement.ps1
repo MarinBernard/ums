@@ -1,11 +1,11 @@
-function Enable-UmsMetadata
+function Enable-UmsManagement
 {
     <#
     .SYNOPSIS
-    Enables Universal Metadata System management for the specified folder.
+    Enables UMS metadata management for the specified folder.
     
     .DESCRIPTION
-    This function creates the .ums hidden folder which is needed to store UMS metadata.
+    This function creates the ums folder which is needed to store UMS metadata.
     
     .PARAMETER Path
     A path to a valid folder. Default is the current folder.
@@ -19,12 +19,12 @@ function Enable-UmsMetadata
         [string] $Path = "."
     )
 
-    # Check whether UMS metadata are enabled
+    # Check whether UMS management is enabled
     try
     {  
-        if (Test-UmsMetadata -Boolean -Path $Path)
+        if (Test-UmsManagement -Boolean -Path $Path)
         {
-            Write-Warning -Message $ModuleStrings.EnableUmsMetadata.AlreadyEnabled
+            Write-Warning -Message $ModuleStrings.EnableUmsManagement.AlreadyEnabled
             return
         }
     }
@@ -34,7 +34,7 @@ function Enable-UmsMetadata
         return
     }
 
-    ### From now on, we assume UMS is enabled and UMS items are available ###
+    ### From now on, we assume UMS management is enabled and UMS items are available ###
 
     # Attempt folder creation
     try
@@ -47,7 +47,7 @@ function Enable-UmsMetadata
     catch
     {
         Write-Error $_.Exception.Message
-        Write-Error -Message $ModuleStrings.EnableUmsMetadata.FolderCreationError
+        Write-Error -Message $ModuleStrings.EnableUmsManagement.FolderCreationError
         return
     }
 
@@ -60,7 +60,7 @@ function Enable-UmsMetadata
         }
         catch
         {
-            Write-Warning -Message $ModuleStrings.EnableUmsMetadata.FolderHideoutError
+            Write-Warning -Message $ModuleStrings.EnableUmsManagement.FolderHideoutError
         }
     }
 
@@ -75,7 +75,7 @@ function Enable-UmsMetadata
     catch
     {
         Write-Error $_.Exception.Message
-        Write-Error -Message $ModuleStrings.EnableUmsMetadata.CacheFolderCreationError
+        Write-Error -Message $ModuleStrings.EnableUmsManagement.CacheFolderCreationError
         return
     }
 

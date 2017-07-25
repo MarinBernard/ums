@@ -19,10 +19,10 @@
         BadDocumentNamespace = "L'espace de noms du document de l'élement UMS est incompatible avec cette opération. L'espace de noms est {0}, mais les paramètres que vous avez spécifiés exigent l'espace de noms {1}."
         BadDocumentElement = "L'élement racine du document de l'élement UMS est incompatible avec cette opération. L'élement racine est {0}, mais les paramètres que vous avez spécifiés exigent une balise {1}."
     }
-    DisableUmsMetadata = @{
+    DisableUmsManagement = @{
         ConfirmDeletion = "Vous vous apprêtez à détruire la totalité des métadonnées UMS pour chacun des fichiers présents dans ce dossier. Confirmez pour continuer."
     }
-    EnableUmsMetadata = @{
+    EnableUmsManagement = @{
         AlreadyEnabled = "Les métadonnées UMS sont déjà activées pour ce dossier."
         CacheFolderCreationError = "Le sous-dossier de cache n'a pas pu être créé."
         FolderCreationError = "Le dossier de stockage des métadonnées n'a pas pu être créé."
@@ -50,16 +50,16 @@
         StylesheetNotFound = "La feuille de style {0} n'existe pas ou n'est pas accessible."
         TransformFailure = "Une erreur s'est produite lors de la transformation XSLT."
     }
+    TestUmsManagement = @{
+        Enabled = "Les métadonnées UMS sont activées."
+        Disabled = "Les métadonnées UMS sont désactivées."
+        CacheFolderNotFound = "Le sous-dossier de cache UMS n'est pas présent."
+    }
     UpdateUmsItemCache = @{
         MissingTarget = "Le fichier cible n'existe pas ou n'est pas accessible."
         NoUpdateNeeded = "Le cache UMS est à jour. Aucune mise à jour n'est nécessaire."
         PromotionFailure = "Echec de la promotion du fichier nouvellement généré en fichier de cache."
         TempFileRemovalFailure = "Un fichier temporaire n'a pas pu être supprimé."
         ValidationFailure = "Le fichier de cache n'a pas réussi la validation XML."
-    }
-    TestUmsMetadata = @{
-        Enabled = "Les métadonnées UMS sont activées."
-        Disabled = "Les métadonnées UMS sont désactivées."
-        CacheFolderNotFound = "Le sous-dossier de cache UMS n'est pas présent."
     }
 }

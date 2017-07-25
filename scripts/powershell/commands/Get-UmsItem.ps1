@@ -53,7 +53,7 @@ function Get-UmsItem
     # Check whether UMS metadata are enabled
     try
     {  
-        if (-not (Test-UmsMetadata -Boolean -Path $Path))
+        if (-not (Test-UmsManagement -Boolean -Path $Path))
         {
             Write-Warning -Message $ModuleStrings.Common.UmsNotEnabled
             return
