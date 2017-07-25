@@ -4,17 +4,8 @@
 		<element name="venue">
 			<!-- This element might be used by reference -->
 			<ref name="BAT_Referenceable"/>
-			<!-- Inheritance from the Item abstract type for labelVariants -->
-			<optional>
-				<ref name="BAT_Item"/>
-			</optional>
-			<!-- Home city or country -->
-			<choice>
-				<ref name="BCT_City"/>
-				<ref name="BRT_City"/>
-				<ref name="BCT_Country"/>
-				<ref name="BRT_Country"/>
-			</choice>
+			<!-- Inheritance from the Place abstract type -->
+			<ref name="BAT_Place"/>
 		</element>
 	</define>
 </grammar>

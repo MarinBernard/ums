@@ -6,6 +6,7 @@
 	<include href="abstract/Link.rng"/>
 	<include href="abstract/Medium.rng"/>
 	<include href="abstract/Person.rng"/>
+	<include href="abstract/Place.rng"/>
 	<include href="abstract/Product.rng"/>
 	<include href="abstract/Reference.rng"/>
 	<include href="abstract/Referenceable.rng"/>
