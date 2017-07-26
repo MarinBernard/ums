@@ -1,12 +1,13 @@
 class UmsItem
 {
     ###########################################################################
-    # Attributes and properties
+    # Hidden attributes and properties
     ###########################################################################
+
     # Properties describing the item itself
     hidden [string] $Extension          # Extension of the UMS file
     hidden [string] $FullName           # Fully qualified name of the UMS file
-    hidden [string] $RealName           # Local name of the UMS file
+    hidden [string] $RealName           # Real name of the UMS file on the FS
     hidden [string] $Path               # Fully qualified path of the UMS file
     hidden [string] $Uri                # Absolute URI to $FullName
     hidden [string] $PathUri            # Absolute URI to $Path
@@ -15,42 +16,69 @@ class UmsItem
                                         # containing linked files
 
     # Properties related to the static version of the item
-    hidden [string] $StaticPath                 # Fully qualified path to the
-                                                # UMS static folder
+    hidden [string] $StaticPath                 # FQN of the static folder
     hidden [string] $StaticPathUri              # Absolute URI to $StaticPath
-    hidden [string] $StaticFileFullName         # Fully qualified name of the
-                                                # static file of this instance
-    hidden [string] $StaticFileUri              # Absolute URI to $StaticFileFullName
-    hidden [string] $StaticFileLastWriteTime    # Last write time of the static file
+    hidden [string] $StaticFileFullName         # FQN of the static file linked
+                                                # to this instance
+    hidden [string] $StaticFileUri              # URI to $StaticFileFullName
+    hidden [string] $StaticFileLastWriteTime    # Last write of the static file
 
-    # Properties describing the linked file
-    hidden [string] $LinkedFileName
-    hidden [string] $LinkedFileExtension
-    hidden [string] $LinkedFileBaseName
-    hidden [string] $LinkedFileFullName
-    hidden [string] $LinkedFilePath
-    hidden [string] $LinkedFileUri
-    hidden [string] $LinkedFilePathUri
-    hidden [string] $LinkedFileLastWriteTime
+    # Properties related to the linked file (for sidecar items)
+    hidden [string] $LinkedFileName             # Local name of the linked file
+    hidden [string] $LinkedFileExtension        # Extension of the linked file
+    hidden [string] $LinkedFileBaseName         # Base name of the linked file
+    hidden [string] $LinkedFileFullName         # FQN of the linked file
+    hidden [string] $LinkedFilePath             # FQN of the linked file path
+    hidden [string] $LinkedFileUri              # URI to $LinkedFileFullName
+    hidden [string] $LinkedFilePathUri          # URI to $LinkedFilePath
+    hidden [string] $LinkedFileLastWriteTime    # Last write of the linked file
 
-    # Properties describing document content
-    hidden [string] $XmlNamespace
-    hidden [string] $XmlElementName
-    hidden [string] $BindingNamespace
-    hidden [string] $BindingSchema
-    hidden [string] $BindingElementName
+    # Properties describing the XML content of the UMS item
+    hidden [string] $XmlNamespace       # Namespace of the document element
+    hidden [string] $XmlElementName     # Local name of the document element
+    hidden [string] $BindingNamespace   # Namespace of binding element, if any
+    hidden [string] $BindingSchema      # Schema name of binding elmnt, if any
+    hidden [string] $BindingElementName # Local name of binding elmnt, if any
 
+    ###########################################################################
     # Visible properties
+    ###########################################################################
+
+    # Name of the UMS item. This name is virtual. Real name is stored in the
+    # $RealName hidden property. For sidecar items, the $Name property is
+    # the same as the name of the linked file. For independent items, the $Name
+    # property is the same as $RealName, minus the UMS extension and the single
+    # char prefix, which are removed from the real file name.
     [string] $Name
+
+    # Friendly-name of the XML schema linked to the XML namespace of the
+    # document element. The value of this property is extracted from the
+    # configuration file. It is the 'id' of the schema whose namespace is
+    # identical to $XmlNamespace.
     [string] $Schema
+
+    # The name of the binding element in the XML document, if present. This
+    # name includes the namespace prefix.
     [string] $BindingElement = "None"
-    [UmsItemCardinality] $Cardinality = [UmsItemCardinality]::Unknown
-    [UmsItemStaticVersionStatus] $StaticVersion = [UmsItemStaticVersionStatus]::Unknown
-    [UmsItemValidity] $Validity = [UmsItemValidity]::Unknown
+
+    # Cardinality of the UMS item: whether it is an independent, sidecar or
+    # orphaned item. Value Unknown is set by default but should never make it
+    # through the construction process.
+    [UICardinality] $Cardinality = [UICardinality]::Unknown
+
+    # Status of the static version of the UMS item. This property is set to
+    # Unknown by default but should always be updated by the constructor.
+    [UIStaticVersionStatus] $StaticVersion = [UIStaticVersionStatus]::Unknown
+
+    # Validation status of the UMS item. Validation is CPU intensive, and does
+    # not occur automatically. This property is set to Unknown by default, and
+    # will show this value until validation eventually happens at a later time.
+    [UIValidity] $Validity = [UIValidity]::Unknown
 
     ###########################################################################
-    # Constructor
+    # Constructors
     ###########################################################################
+
     UmsItem([System.IO.FileInfo] $FileInfo)
     {
         # Main properties
@@ -90,12 +118,12 @@ class UmsItem
             
             # Init static version status
             if ($this.LastWriteTime -gt $this.StaticFileLastWriteTime)
-                {  $this.StaticVersion = [UmsItemStaticVersionStatus]::Expired }
+                {  $this.StaticVersion = [UIStaticVersionStatus]::Expired }
             else
-                {  $this.StaticVersion = [UmsItemStaticVersionStatus]::Current }
+                {  $this.StaticVersion = [UIStaticVersionStatus]::Current }
         }
         else
-            { $this.StaticVersion = [UmsItemStaticVersionStatus]::Absent }
+            { $this.StaticVersion = [UIStaticVersionStatus]::Absent }
     }
 
     # Sub-constructor for cardinality information
@@ -104,7 +132,7 @@ class UmsItem
         # If the item is independent
         if ($this.Name[0] -eq "_")
         {
-            [UmsItemCardinality] $this.Cardinality = [UmsItemCardinality]::Independent
+            [UICardinality] $this.Cardinality = [UICardinality]::Independent
             # Remove prefix from item name
             $this.Name = $this.Name.Substring(1)
         }
@@ -125,11 +153,11 @@ class UmsItem
             if (Test-Path -Path $this.LinkedFileFullName)
             {
                 $this.LinkedFileLastWriteTime = (Get-Item -LiteralPath $this.LinkedFileFullName).LastWriteTime
-                $this.Cardinality = [UmsItemCardinality]::Sidecar
+                $this.Cardinality = [UICardinality]::Sidecar
             }
             else
             {
-                $this.Cardinality = [UmsItemCardinality]::Orphan
+                $this.Cardinality = [UICardinality]::Orphan
             }
         }
     }
@@ -148,7 +176,7 @@ class UmsItem
         $this.Schema = (Get-UmsConfigurationItem -Type "Schema" | Where-Object { $_.Namespace -eq $this.XmlNamespace }).Id
 
         # Get and store content binding information (only for sidecar files)
-        if ($this.Cardinality -eq [UmsItemCardinality]::Sidecar)
+        if ($this.Cardinality -eq [UICardinality]::Sidecar)
         {
             $this.BindingNamespace = $_xmlDocument.DocumentElement.contentBinding.FirstChild.NamespaceURI
             $this.BindingElementName = $_xmlDocument.DocumentElement.contentBinding.FirstChild.LocalName
@@ -157,6 +185,10 @@ class UmsItem
         }
     }
 
+    ###########################################################################
+    # Helpers
+    ###########################################################################
+
     # String representation
     [string] ToString()
     {
@@ -164,7 +196,7 @@ class UmsItem
     } 
 }
 
-Enum UmsItemStaticVersionStatus
+Enum UIStaticVersionStatus
 {
     Unknown
     Absent
@@ -172,7 +204,7 @@ Enum UmsItemStaticVersionStatus
     Expired
 }
 
-Enum UmsItemCardinality
+Enum UICardinality
 {
     Unknown
     Independent
@@ -180,7 +212,7 @@ Enum UmsItemCardinality
     Orphan
 }
 
-Enum UmsItemValidity
+Enum UIValidity
 {
     Unknown
     Valid

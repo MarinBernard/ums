@@ -98,11 +98,11 @@ function Get-UmsItem
 
             if ($_isInvalid)
             {
-                 $_item.Validity = [UmsItemValidity]::Invalid
+                 $_item.Validity = [UIValidity]::Invalid
             }
             else
             {
-                $_item.Validity = [UmsItemValidity]::Valid
+                $_item.Validity = [UIValidity]::Valid
             }
         }
 

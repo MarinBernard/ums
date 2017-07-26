@@ -56,7 +56,7 @@ function Update-UmsItemCache
         }
 
         # Check whether the update is needed
-        if (($Item.StaticVersion -eq [UmsItemStaticVersionStatus]::Current) -and (-not $Force.IsPresent))
+        if (($Item.StaticVersion -eq [UIStaticVersionStatus]::Current) -and (-not $Force.IsPresent))
         {
             Write-Host $($Item.Name + ": " + $ModuleStrings.UpdateUmsItemCache.NoUpdateNeeded)
             return

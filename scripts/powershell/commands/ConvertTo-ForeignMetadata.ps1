@@ -43,24 +43,24 @@ function ConvertTo-ForeignMetadata
         try
         {
             # Validate cardinality
-            $_allowedCardinality = @([UmsItemCardinality]::Sidecar, [UmsItemCardinality]::Orphan)
+            $_allowedCardinality = @([UICardinality]::Sidecar, [UICardinality]::Orphan)
 
             if ($_allowedCardinality -notcontains($Item.Cardinality))
                 { throw $($ModuleStrings.Common.IncompatibleCardinality -f ($_allowedCardinality -join(","))) }
 
-            if ($Item.Cardinality -eq [UmsItemCardinality]::Orphan)
+            if ($Item.Cardinality -eq [UICardinality]::Orphan)
             {
                 Write-Warning -Message $ModuleStrings.Common.OrphanCardinalityWarning
                 if( (Wait-UserConfirmation) -eq $false ){ return }
             }
 
             # Validate static copy status
-            $_allowedStaticVersionStatus = @([UmsItemStaticVersionStatus]::Current, [UmsItemStaticVersionStatus]::Expired)
+            $_allowedUIStaticVersionStatus = @([UIStaticVersionStatus]::Current, [UIStaticVersionStatus]::Expired)
 
-            if ($_allowedStaticVersionStatus -notcontains($Item.StaticVersion))
+            if ($_allowedUIStaticVersionStatus -notcontains($Item.StaticVersion))
                 { throw $ModuleStrings.Common.MissingUmsItemStaticVersion }
 
-            if ($Item.StaticVersion -eq [UmsItemStaticVersionStatus]::Expired)
+            if ($Item.StaticVersion -eq [UIStaticVersionStatus]::Expired)
             {
                 Write-Warning -Message $ModuleStrings.Common.ExpiredStaticVersion
                 if( (Wait-UserConfirmation) -eq $false ){ return }
