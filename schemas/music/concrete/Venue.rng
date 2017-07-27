@@ -5,7 +5,7 @@
 			<!-- This element might be used by reference -->
 			<ref name="BAT_Referenceable"/>		
 			<!-- Inheritance from the Place music abstract type -->
-			<ref name="MAT_Place"/>
+			<ref name="BAT_Place"/>
 		</element>
 	</define>
 </grammar>
