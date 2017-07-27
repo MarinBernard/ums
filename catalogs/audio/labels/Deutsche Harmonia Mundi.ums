@@ -10,8 +10,8 @@
 			<shortLabel>DHM</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Deutsche_Harmonia_Mundi"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Deutsche_Harmonia_Mundi"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Deutsche_Harmonia_Mundi"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Deutsche_Harmonia_Mundi"/>
+	</linkVariants>
 </umsa:label>

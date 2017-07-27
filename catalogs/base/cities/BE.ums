@@ -33,13 +33,13 @@
 			<shortLabel>БК</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/France"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Belgium"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Belgique"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/België"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Бельгия"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/France"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Belgium"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Belgique"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/België"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бельгия"/>
+	</linkVariants>
 	<standardIds>
 		<standardId standard="ISO 3166-1">BE</standardId>
 	</standardIds>

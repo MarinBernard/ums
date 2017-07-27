@@ -14,9 +14,9 @@
 		<date>1950-11-29</date>
 		<city uid="AR/Buenos Aires"/>
 	</birth>
-	<links>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Marcos_Fink"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Marcos_Fink"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Marcos_Fink"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Marcos_Fink"/>
+	</linkVariants>
 	<umsm:instrument uid="voice/Bass"/>
 </umsm:instrumentalist>

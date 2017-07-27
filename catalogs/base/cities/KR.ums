@@ -36,14 +36,14 @@
 			<sortLabel>Корея, Республика</sortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Südkorea"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/South_Korea"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Corea_del_Sur"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Corée_du_Sud"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Corea_del_Sud"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Франция"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Südkorea"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/South_Korea"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Corea_del_Sur"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Corée_du_Sud"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Corea_del_Sud"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Франция"/>
+	</linkVariants>
 	<standardIds>
 		<standardId standard="ISO 3166-1">KR</standardId>
 	</standardIds>

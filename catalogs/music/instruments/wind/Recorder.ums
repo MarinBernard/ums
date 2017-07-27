@@ -27,13 +27,13 @@
 			<fullLabel>Блокфлейта</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Blockflöte"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Recorder_(musical_instrument)"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Flauta_dulce"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Flûte_à_bec"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Flauto_dolce"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Blokfluit"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Блокфлейта"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Blockflöte"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Recorder_(musical_instrument)"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Flauta_dulce"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Flûte_à_bec"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Flauto_dolce"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Blokfluit"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Блокфлейта"/>
+	</linkVariants>
 </umsm:instrument>

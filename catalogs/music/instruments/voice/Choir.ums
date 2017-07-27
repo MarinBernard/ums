@@ -27,13 +27,13 @@
 			<fullLabel>Хор</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Chor_(Musik)"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Choir"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Coro"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Chorale"/>
-		<wikipedia lang="it" href="https://fr.wikipedia.org/wiki/Coro (musica)"/>
-		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/Koor_(zang)"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Хор"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Chor_(Musik)"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Choir"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Coro"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Chorale"/>
+		<linkVariant type="wikipedia" lang="it" href="https://fr.wikipedia.org/wiki/Coro (musica)"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://la.wikipedia.org/wiki/Koor_(zang)"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Хор"/>
+	</linkVariants>
 </umsm:instrument>

@@ -34,13 +34,13 @@
 			<shortLabel>D</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/D-Dur"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/D_major"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Re_mayor"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Ré_majeur"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Re_maggiore"/>
-		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/D-majeur"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Ре_мажор"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/D-Dur"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/D_major"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Re_mayor"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Ré_majeur"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Re_maggiore"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://la.wikipedia.org/wiki/D-majeur"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Ре_мажор"/>
+	</linkVariants>
 </umsm:key>

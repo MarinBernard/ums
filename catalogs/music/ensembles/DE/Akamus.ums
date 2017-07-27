@@ -14,14 +14,14 @@
 			<shortLabel>БАСМ</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<website lang="de" href="https://akamus.de/de"/>
-		<website lang="en" href="https://akamus.de/en"/>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Akademie_für_Alte_Musik_Berlin"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Akademie_für_Alte_Musik_Berlin"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Akademie_für_Alte_Musik_de_Berlín"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Ch%C5%93ur_de_Radio_France"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="website" lang="de" href="https://akamus.de/de"/>
+		<linkVariant type="website" lang="en" href="https://akamus.de/en"/>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Akademie_für_Alte_Musik_Berlin"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Akademie_für_Alte_Musik_Berlin"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Akademie_für_Alte_Musik_de_Berlín"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Ch%C5%93ur_de_Radio_France"/>
+	</linkVariants>
 	<creation>
 		<year>1982</year>
 		<city uid="DE/Berlin"/>

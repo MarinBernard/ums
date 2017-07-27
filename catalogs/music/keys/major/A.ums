@@ -34,13 +34,13 @@
 			<shortLabel>A</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/A-Dur"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/A_major"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/La_mayor"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/La_majeur"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/La_maggiore"/>
-		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/A-majeur"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Ля_мажор"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/A-Dur"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/A_major"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/La_mayor"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/La_majeur"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/La_maggiore"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://la.wikipedia.org/wiki/A-majeur"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Ля_мажор"/>
+	</linkVariants>
 </umsm:key>

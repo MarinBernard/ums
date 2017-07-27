@@ -36,15 +36,15 @@
 			<shortLabel>США</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Vereinigte_Staaten"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/United_States"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Estados_Unidos"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/États-Unis"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Stati_Uniti_d'America"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Verenigde_Staten"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Аргентина"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Vereinigte_Staaten"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/United_States"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Estados_Unidos"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/États-Unis"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Stati_Uniti_d'America"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Verenigde_Staten"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Аргентина"/>
+	</linkVariants>
 	<standardIds>
 		<standardId standard="ISO 3166-1">US</standardId>
 	</standardIds>

@@ -18,13 +18,13 @@
 			<fullLabel>Тенор</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Tenor"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Tenor"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Tenor"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Ténor"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Tenore"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Tenor_(zangstem)"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Тенор"/>		
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Tenor"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Tenor"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Tenor"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Ténor"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Tenore"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Tenor_(zangstem)"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Тенор"/>		
+	</linkVariants>
 </umsm:instrument>

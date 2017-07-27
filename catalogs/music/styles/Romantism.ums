@@ -24,12 +24,12 @@
 			<fullLabel>Романтизм</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Musik_der_Romantik"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Romantic_music"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Música_del_Romanticismo"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Musique_romantique"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Musica_romantica"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Музыка_периода_романтизма"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Musik_der_Romantik"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Romantic_music"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Música_del_Romanticismo"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Musique_romantique"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Musica_romantica"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Музыка_периода_романтизма"/>
+	</linkVariants>
 </umsm:style>

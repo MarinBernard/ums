@@ -24,12 +24,12 @@
 			<fullLabel>Скрипка</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Violine"/>
-		<wikipedia lang="en" href="https://de.wikipedia.org/wiki/Violin"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Violín"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Violon"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Violino"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Скрипка"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Violine"/>
+		<linkVariant type="wikipedia" lang="en" href="https://de.wikipedia.org/wiki/Violin"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Violín"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Violon"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Violino"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Скрипка"/>
+	</linkVariants>
 </umsm:instrument>

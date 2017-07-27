@@ -24,12 +24,12 @@
 			<fullLabel>Фортепиано</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Klavier"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Piano"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Piano"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Piano"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Pianoforte"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Фортепиано"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Klavier"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Piano"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Piano"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Piano"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Pianoforte"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Фортепиано"/>
+	</linkVariants>
 </umsm:instrument>

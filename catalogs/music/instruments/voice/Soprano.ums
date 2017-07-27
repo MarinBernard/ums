@@ -18,13 +18,13 @@
 			<fullLabel>Сопрано</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Sopran"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Soprano"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Soprano"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Soprano"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Soprano"/>
-		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/Sopraan (zangstem)"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Сопрано"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Sopran"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Soprano"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Soprano"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Soprano"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Soprano"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://la.wikipedia.org/wiki/Sopraan (zangstem)"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Сопрано"/>
+	</linkVariants>
 </umsm:instrument>

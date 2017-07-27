@@ -34,15 +34,15 @@
 			<shortLabel>США</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Vereinigtes_Königreich"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/United_Kingdom"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Estados_Unidos"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Royaume-Uni"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Regno_Unito"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Verenigd_Koninkrijk"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Великобритания"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Vereinigtes_Königreich"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/United_Kingdom"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Estados_Unidos"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Royaume-Uni"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Regno_Unito"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Verenigd_Koninkrijk"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Великобритания"/>
+	</linkVariants>
 	<standardIds>
 		<standardId standard="ISO 3166-1">GB</standardId>
 	</standardIds>

@@ -15,13 +15,13 @@
 			<fullLabel>Ария</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Arie"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Aria"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Aria"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Aria"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Aria_(musica)"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Aria_(compositie)"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Ария"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Arie"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Aria"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Aria"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Aria"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Aria_(musica)"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Aria_(compositie)"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Ария"/>
+	</linkVariants>
 </umsm:form>

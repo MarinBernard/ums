@@ -27,13 +27,13 @@
 			<fullLabel>Фагот</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Fagott"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Bassoon"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Fagot"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Basson"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Fagotto"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Fagot"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Фагот"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Fagott"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Bassoon"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Fagot"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Basson"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Fagotto"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Fagot"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Фагот"/>
+	</linkVariants>
 </umsm:instrument>

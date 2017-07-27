@@ -30,12 +30,12 @@
 			<shortLabel>BWV</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Bach-Werke-Verzeichnis"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Bach-Werke-Verzeichnis"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Bach-Werke-Verzeichnis"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Bach-Werke-Verzeichnis"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Bach-Werke-Verzeichnis"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/BWV"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Bach-Werke-Verzeichnis"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Bach-Werke-Verzeichnis"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Bach-Werke-Verzeichnis"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Bach-Werke-Verzeichnis"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Bach-Werke-Verzeichnis"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/BWV"/>
+	</linkVariants>
 </umsm:catalog>

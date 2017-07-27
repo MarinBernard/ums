@@ -18,14 +18,14 @@
 			<fullLabel>Берлин</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Berlin"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Berlin"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Berlín"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Berlin"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Berlino"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Berlijn"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Берлин"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Berlin"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Berlin"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Berlín"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Berlin"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Berlino"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Berlijn"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Берлин"/>
+	</linkVariants>
 	<country uid="DE"/>
 </city>

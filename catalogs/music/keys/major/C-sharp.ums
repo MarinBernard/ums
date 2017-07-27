@@ -34,13 +34,13 @@
 			<shortLabel>C♯</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Cis-Dur"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/C-sharp_major"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Do_sostenido_mayor"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Do_dièse_majeur"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Do_diesis_maggiore"/>
-		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/Cis-majeur"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/До-диез_мажор"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Cis-Dur"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/C-sharp_major"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Do_sostenido_mayor"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Do_dièse_majeur"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Do_diesis_maggiore"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://la.wikipedia.org/wiki/Cis-majeur"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/До-диез_мажор"/>
+	</linkVariants>
 </umsm:key>

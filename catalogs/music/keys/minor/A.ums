@@ -34,13 +34,13 @@
 			<shortLabel>Am</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/A-Moll"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/A_minor"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/La_menor"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/La_mineur"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/La_minore"/>
-		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/A-mineur"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Ля_минор"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/A-Moll"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/A_minor"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/La_menor"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/La_mineur"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/La_minore"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://la.wikipedia.org/wiki/A-mineur"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Ля_минор"/>
+	</linkVariants>
 </umsm:key>

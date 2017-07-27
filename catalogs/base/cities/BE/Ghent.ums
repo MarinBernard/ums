@@ -24,14 +24,14 @@
 			<fullLabel>Гент</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Gent"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Ghent"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Gante"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Gand"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Gand"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Gent"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Гент"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Gent"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Ghent"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Gante"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Gand"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Gand"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Gent"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Гент"/>
+	</linkVariants>
 	<country uid="BE"/>
 </city>

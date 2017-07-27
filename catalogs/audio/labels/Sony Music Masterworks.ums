@@ -10,10 +10,10 @@
 			<shortLabel>SMM</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<website lang="en" href="http://www.sonymusicmasterworks.com"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Sony_Masterworks"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Sony_Music_Masterworks"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Sony_Masterworks"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="website" lang="en" href="http://www.sonymusicmasterworks.com"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Sony_Masterworks"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Sony_Music_Masterworks"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Sony_Masterworks"/>
+	</linkVariants>
 </umsa:label>

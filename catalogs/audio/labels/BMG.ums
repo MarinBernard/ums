@@ -10,10 +10,10 @@
 			<shortLabel>BMG</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/BMG_Music_Publishing"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Bertelsmann_Music_Group"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/BMG_Entertainment"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/BMG_Entertainment"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/BMG_Music_Publishing"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Bertelsmann_Music_Group"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/BMG_Entertainment"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/BMG_Entertainment"/>
+	</linkVariants>
 </umsa:label>

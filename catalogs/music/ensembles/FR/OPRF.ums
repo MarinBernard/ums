@@ -16,11 +16,11 @@
 			<shortLabel>ФОРФ</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Orchestre_Philharmonique_de_Radio_France"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Orchestre_philharmonique_de_Radio_France"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Orchestre_philharmonique_de_Radio_France"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Orchestre_Philharmonique_de_Radio_France"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Филармонический_оркестр_Радио_Франции"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Orchestre_Philharmonique_de_Radio_France"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Orchestre_philharmonique_de_Radio_France"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Orchestre_philharmonique_de_Radio_France"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Orchestre_Philharmonique_de_Radio_France"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Филармонический_оркестр_Радио_Франции"/>
+	</linkVariants>
 </umsm:ensemble>

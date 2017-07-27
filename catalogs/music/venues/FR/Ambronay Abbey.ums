@@ -18,11 +18,11 @@
 			<fullLabel>Onze-Lieve-Vrouwe van Ambronay</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<website lang="fr" href="http://www.ambronay.org"/>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Notre-Dame_(Ambronay)"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Abbaye_Notre-Dame_d'Ambronay"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Onze-Lieve-Vrouwe_van_Ambronay"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="website" lang="fr" href="http://www.ambronay.org"/>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Notre-Dame_(Ambronay)"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Abbaye_Notre-Dame_d'Ambronay"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Onze-Lieve-Vrouwe_van_Ambronay"/>
+	</linkVariants>
 	<city uid="FR/Ambronay"/>
 </umsm:venue>

@@ -14,10 +14,10 @@
 		<year>1966</year>
 		<countryState uid="GB/EN"/>
 	</birth>
-	<links>
-		<website lang="en" href="http://www.jamesgilchrist.co.uk"/>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/James_Gilchrist"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/James_Gilchrist_(tenor)"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="website" lang="en" href="http://www.jamesgilchrist.co.uk"/>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/James_Gilchrist"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/James_Gilchrist_(tenor)"/>
+	</linkVariants>
 	<umsm:instrument uid="voice/Tenor"/>
 </umsm:instrumentalist>

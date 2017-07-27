@@ -9,14 +9,14 @@
 			<fullLabel>Буэнос-Айрес</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Buenos_Aires"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Buenos_Aires"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Buenos_Aires"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Buenos_Aires"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Buenos_Aires"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Buenos_Aires_(stad)"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Буэнос-Айрес"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Buenos_Aires"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Buenos_Aires"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Buenos_Aires"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Buenos_Aires"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Buenos_Aires"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Buenos_Aires_(stad)"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Буэнос-Айрес"/>
+	</linkVariants>
 	<country uid="AR"/>
 </city>

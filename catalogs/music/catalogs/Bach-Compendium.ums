@@ -10,8 +10,8 @@
 			<shortLabel>BC</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Bach-Compendium"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Bach_Compendium"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Bach-Compendium"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Bach_Compendium"/>
+	</linkVariants>
 </umsm:catalog>

@@ -34,13 +34,13 @@
 			<shortLabel>Hm</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/H-Moll"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/B_minor"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Si_menor"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Si_mineur"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Si_minore"/>
-		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/B-mineur"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Си_минор"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/H-Moll"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/B_minor"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Si_menor"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Si_mineur"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Si_minore"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://la.wikipedia.org/wiki/B-mineur"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Си_минор"/>
+	</linkVariants>
 </umsm:key>

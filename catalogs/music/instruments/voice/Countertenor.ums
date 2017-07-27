@@ -24,13 +24,13 @@
 			<fullLabel>Контратенор</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Countertenor"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Countertenor"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Contratenor"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Contreténor"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Contraltista"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Contratenor"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Контратенор"/>		
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Countertenor"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Countertenor"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Contratenor"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Contreténor"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Contraltista"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Contratenor"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Контратенор"/>		
+	</linkVariants>
 </umsm:instrument>

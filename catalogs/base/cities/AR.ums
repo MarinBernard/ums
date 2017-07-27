@@ -33,14 +33,14 @@
 			<shortLabel>АР</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Argentinien"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Argentina"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Argentina"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Argentine"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Argentinië"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Аргентина"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Argentinien"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Argentina"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Argentina"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Argentine"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Argentinië"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Аргентина"/>
+	</linkVariants>
 	<standardIds>
 		<standardId standard="ISO 3166-1">AR</standardId>
 	</standardIds>

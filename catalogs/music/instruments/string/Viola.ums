@@ -24,12 +24,12 @@
 			<fullLabel>Альт</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Bratsche"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Viola"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Viola"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Alto_(instrument_à_cordes)"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Viola_(strumento_musicale)"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Альт"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Bratsche"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Viola"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Viola"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Alto_(instrument_à_cordes)"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Viola_(strumento_musicale)"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Альт"/>
+	</linkVariants>
 </umsm:instrument>

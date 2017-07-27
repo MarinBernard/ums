@@ -27,7 +27,7 @@
 			<fullLabel>Хор</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Chœur_(musique)#Partie_musicale"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Chœur_(musique)#Partie_musicale"/>
+	</linkVariants>
 </umsm:form>

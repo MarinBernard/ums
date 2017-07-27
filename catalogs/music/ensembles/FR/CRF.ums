@@ -16,9 +16,9 @@
 			<shortLabel>МХРФ</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Chœur_de_Radio_France"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Chœur_de_Radio_France"/>
+	</linkVariants>
 	<creation>
 		<year>1947</year>
 		<city uid="FR/Paris"/>

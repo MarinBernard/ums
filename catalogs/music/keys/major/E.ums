@@ -34,13 +34,13 @@
 			<shortLabel>E</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/E-Dur"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/E_major"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Mi_mayor"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Mi_majeur"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Mi_maggiore"/>
-		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/E-majeur"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Ми_мажор"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/E-Dur"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/E_major"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Mi_mayor"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Mi_majeur"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Mi_maggiore"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://la.wikipedia.org/wiki/E-majeur"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Ми_мажор"/>
+	</linkVariants>
 </umsm:key>

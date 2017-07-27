@@ -18,12 +18,12 @@
 			<fullLabel>Jachthobo</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Oboe_da_caccia"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Oboe_da_caccia"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Oboe_de_caza"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Hautbois_de_chasse"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Oboe_da_caccia"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Jachthobo"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Oboe_da_caccia"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Oboe_da_caccia"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Oboe_de_caza"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Hautbois_de_chasse"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Oboe_da_caccia"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Jachthobo"/>
+	</linkVariants>
 </umsm:instrument>

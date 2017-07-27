@@ -21,7 +21,7 @@
 		</optional>
 		<!-- Common links -->
 		<optional>
-			<ref name="BLT_Links"/>
+			<ref name="BLT_LinkVariants"/>
 		</optional>
 	</define>
 </grammar>

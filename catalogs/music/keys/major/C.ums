@@ -34,13 +34,13 @@
 			<shortLabel>C</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/C-Dur"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/C_major"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Do_mayor"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Do_majeur"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Do_maggiore"/>
-		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/C-majeur"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/До_мажор"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/C-Dur"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/C_major"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Do_mayor"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Do_majeur"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Do_maggiore"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://la.wikipedia.org/wiki/C-majeur"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/До_мажор"/>
+	</linkVariants>
 </umsm:key>

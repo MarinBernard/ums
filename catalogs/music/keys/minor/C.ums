@@ -34,13 +34,13 @@
 			<shortLabel>Cm</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/C-Moll"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/C_minor"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Do_menor"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Do_mineur"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Do_minore"/>
-		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/C-mineur"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/До_минор"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/C-Moll"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/C_minor"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Do_menor"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Do_mineur"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Do_minore"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://la.wikipedia.org/wiki/C-mineur"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/До_минор"/>
+	</linkVariants>
 </umsm:key>

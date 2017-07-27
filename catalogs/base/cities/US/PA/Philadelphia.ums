@@ -18,15 +18,15 @@
 			<fullLabel>Филадельфия</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<website lang="fr" href="http://www.ambronay.org"/>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Philadelphia"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Philadelphia"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Filadelfia"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Philadelphie"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Filadelfia"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Philadelphia_(Pennsylvania)"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Филадельфия"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="website" lang="fr" href="http://www.ambronay.org"/>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Philadelphia"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Philadelphia"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Filadelfia"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Philadelphie"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Filadelfia"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Philadelphia_(Pennsylvania)"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Филадельфия"/>
+	</linkVariants>
 	<countryState uid="US/PA"/>
 </city>

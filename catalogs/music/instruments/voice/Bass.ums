@@ -27,13 +27,13 @@
 			<fullLabel>Бас</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Bass_(Stimmlage)"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Bass_(voice_type)"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Bajo_(voz)"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Basse_(voix)"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Basso_(voce)"/>
-		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/Bas_(zangstem)"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Бас"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Bass_(Stimmlage)"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Bass_(voice_type)"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Bajo_(voz)"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Basse_(voix)"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Basso_(voce)"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://la.wikipedia.org/wiki/Bas_(zangstem)"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бас"/>
+	</linkVariants>
 </umsm:instrument>

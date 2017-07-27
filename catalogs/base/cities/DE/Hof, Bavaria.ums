@@ -24,14 +24,14 @@
 			<fullLabel>Хоф (Зале)</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Hof_(Saale)"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Hof,_Bavaria"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Hof_(Baviera)"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Hof_(Bavière)"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Hof_(Baviera)"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Hof_(Beieren)"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Хоф_(Зале)"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Hof_(Saale)"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Hof,_Bavaria"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Hof_(Baviera)"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Hof_(Bavière)"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Hof_(Baviera)"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Hof_(Beieren)"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Хоф_(Зале)"/>
+	</linkVariants>
 	<country uid="DE"/>
 </city>

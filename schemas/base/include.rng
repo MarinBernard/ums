@@ -3,7 +3,6 @@
 	<!-- Abtract types -->
 	<include href="abstract/Event.rng"/>
 	<include href="abstract/Item.rng"/>
-	<include href="abstract/Link.rng"/>
 	<include href="abstract/Medium.rng"/>
 	<include href="abstract/Person.rng"/>
 	<include href="abstract/Place.rng"/>
@@ -23,6 +22,7 @@
 	<include href="concrete/File.rng"/>
 	<include href="concrete/Language.rng"/>
 	<include href="concrete/LabelVariant.rng"/>
+	<include href="concrete/LinkVariant.rng"/>
 	<include href="concrete/NameVariant.rng"/>
 	<include href="concrete/Release.rng"/>
 	<include href="concrete/SymbolVariant.rng"/>
@@ -33,7 +33,7 @@
 	<include href="list/Biographies.rng"/>
 	<include href="list/Characters.rng"/>
 	<include href="list/LabelVariants.rng"/>
-	<include href="list/Links.rng"/>
+	<include href="list/LinkVariants.rng"/>
 	<include href="list/NameVariants.rng"/>
 	<include href="list/Releases.rng"/>
 	<include href="list/StandardIds.rng"/>

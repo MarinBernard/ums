@@ -26,12 +26,12 @@
 		<date>1764-05-10</date>
 		<city uid="DE/Leipzig"/>
 	</death>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Picander"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Picander"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Хенрици,_Кристиан_Фридрих"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Picander"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Picander"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Хенрици,_Кристиан_Фридрих"/>
+	</linkVariants>
 </umsm:lyricist>

@@ -24,13 +24,13 @@
 			<shortLabel>RKC</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<website lang="de" href="https://www.rias-kammerchor.de/"/>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/RIAS_Kammerchor"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/RIAS_Kammerchor"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Coro_de_cámara_de_la_RIAS"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/RIAS_Kammerchor"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="website" lang="de" href="https://www.rias-kammerchor.de/"/>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/RIAS_Kammerchor"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/RIAS_Kammerchor"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Coro_de_cámara_de_la_RIAS"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/RIAS_Kammerchor"/>
+	</linkVariants>
 	<creation>
 		<year>1948</year>
 		<city uid="DE/Berlin"/>

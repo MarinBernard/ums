@@ -9,15 +9,15 @@
 			<fullLabel>Амброне</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<website lang="fr" href="http://www.ambronay.org"/>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Ambronay"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Ambronay"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Ambronay"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Ambronay"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Ambronay"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Ambronay"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Амброне"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="website" lang="fr" href="http://www.ambronay.org"/>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Ambronay"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Ambronay"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Ambronay"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Ambronay"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Ambronay"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Ambronay"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Амброне"/>
+	</linkVariants>
 	<country uid="FR"/>
 </city>

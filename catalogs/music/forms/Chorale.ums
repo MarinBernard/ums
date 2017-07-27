@@ -27,13 +27,13 @@
 			<fullLabel>Хорал</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://fr.wikipedia.org/wiki/Choral"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Chorale"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Coral_(música)"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Choral"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Corale"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Koraal_(muziek)"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Хорал"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://fr.wikipedia.org/wiki/Choral"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Chorale"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Coral_(música)"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Choral"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Corale"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Koraal_(muziek)"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Хорал"/>
+	</linkVariants>
 </umsm:form>

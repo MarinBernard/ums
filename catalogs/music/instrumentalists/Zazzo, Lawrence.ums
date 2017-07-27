@@ -14,10 +14,10 @@
 		<date>1970-12-15</date>
 		<city uid="US/PA/Philadelphia"/>
 	</birth>
-	<links>
-		<website lang="en" href="http://www.lawrencezazzo.com"/>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Lawrence_Zazzo"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Lawrence_Zazzo"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="website" lang="en" href="http://www.lawrencezazzo.com"/>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Lawrence_Zazzo"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Lawrence_Zazzo"/>
+	</linkVariants>
 	<umsm:instrument uid="voice/Countertenor"/>
 </umsm:instrumentalist>

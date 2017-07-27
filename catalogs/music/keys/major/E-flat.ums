@@ -34,13 +34,13 @@
 			<shortLabel>E♭</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Es-Dur"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/E-flat_major"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Mi_bemol_mayor"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Mi_bémol_majeur"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Mi_bemolle_maggiore"/>
-		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/Es-majeur"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Ми-бемоль_мажор"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Es-Dur"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/E-flat_major"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Mi_bemol_mayor"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Mi_bémol_majeur"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Mi_bemolle_maggiore"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://la.wikipedia.org/wiki/Es-majeur"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Ми-бемоль_мажор"/>
+	</linkVariants>
 </umsm:key>

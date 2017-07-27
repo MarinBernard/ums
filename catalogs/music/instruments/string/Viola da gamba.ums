@@ -15,13 +15,13 @@
 			<fullLabel>Виола да гамба</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Viola_da_gamba"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Viol"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Viola da gamba"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Viole_de_gambe"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Viola da gamba"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Viola da gamba"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Виола_да_гамба"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Viola_da_gamba"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Viol"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Viola da gamba"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Viole_de_gambe"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Viola da gamba"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Viola da gamba"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Виола_да_гамба"/>
+	</linkVariants>
 </umsm:instrument>

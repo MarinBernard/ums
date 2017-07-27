@@ -12,14 +12,14 @@
 			<fullLabel>Лейпциг</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Leipzig"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Leipzig"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Leipzig"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Leipzig"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Lipsia"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Leipzig"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Лейпциг"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Leipzig"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Leipzig"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Leipzig"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Leipzig"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Lipsia"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Leipzig"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Лейпциг"/>
+	</linkVariants>
 	<country uid="DE"/>
 </city>

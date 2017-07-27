@@ -18,13 +18,13 @@
 			<fullLabel>Оратория</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Oratorium"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Oratorio"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Oratorio_(música)"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Oratorio"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Oratorio_(musica)"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Oratorium"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Оратория"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Oratorium"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Oratorio"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Oratorio_(música)"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Oratorio"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Oratorio_(musica)"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Oratorium"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Оратория"/>
+	</linkVariants>
 </umsm:form>

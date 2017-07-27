@@ -27,13 +27,13 @@
 			<fullLabel>Барокко</fullLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Barockmusik"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Baroque_music"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Música_del_Barroco"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Musique_baroque"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Musica_barocca"/>
-		<wikipedia lang="nl" href="https://nl.wikipedia.org/wiki/Barokmuziek"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Музыка_эпохи_барокко"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Barockmusik"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Baroque_music"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Música_del_Barroco"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Musique_baroque"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Musica_barocca"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Barokmuziek"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Музыка_эпохи_барокко"/>
+	</linkVariants>
 </umsm:style>

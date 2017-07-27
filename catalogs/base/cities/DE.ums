@@ -27,12 +27,12 @@
 			<shortLabel>ФРГ</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/Deutschland"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/Germany"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Allemagne"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Германия"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Deutschland"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Germany"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Allemagne"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Германия"/>
+	</linkVariants>
 	<standardIds>
 		<standardId standard="ISO 3166-1">DE</standardId>
 	</standardIds>

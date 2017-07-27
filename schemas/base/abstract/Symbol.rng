@@ -3,7 +3,7 @@
 	<define name="BAT_Symbol">
 		<ref name="BLT_SymbolVariants"/>
 		<optional>
-			<ref name="BLT_Links"/>
+			<ref name="BLT_LinkVariants"/>
 		</optional>
 		<optional>
 			<ref name="BLT_StandardIds"/>

@@ -34,13 +34,13 @@
 			<shortLabel>Dm</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/D-Moll"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/D_minor"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Re_menor"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Re_mineur"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Re_minore"/>
-		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/D-mineur"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Ре_минор"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/D-Moll"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/D_minor"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Re_menor"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Re_mineur"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Re_minore"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://la.wikipedia.org/wiki/D-mineur"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Ре_минор"/>
+	</linkVariants>
 </umsm:key>

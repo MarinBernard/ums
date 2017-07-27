@@ -34,13 +34,13 @@
 			<shortLabel>Gm</shortLabel>
 		</labelVariant>
 	</labelVariants>
-	<links>
-		<wikipedia lang="de" href="https://de.wikipedia.org/wiki/G-Moll"/>
-		<wikipedia lang="en" href="https://en.wikipedia.org/wiki/G_minor"/>
-		<wikipedia lang="es" href="https://es.wikipedia.org/wiki/Sol_menor"/>
-		<wikipedia lang="fr" href="https://fr.wikipedia.org/wiki/Sol_mineur"/>
-		<wikipedia lang="it" href="https://it.wikipedia.org/wiki/Sol_minore"/>
-		<wikipedia lang="nl" href="https://la.wikipedia.org/wiki/G-mineur"/>
-		<wikipedia lang="ru" href="https://ru.wikipedia.org/wiki/Соль_минор"/>
-	</links>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/G-Moll"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/G_minor"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Sol_menor"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Sol_mineur"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Sol_minore"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://la.wikipedia.org/wiki/G-mineur"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Соль_минор"/>
+	</linkVariants>
 </umsm:key>
