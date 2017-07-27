@@ -20,11 +20,15 @@
 	</nameVariants>
 	<birth>
 		<date>1700-01-14</date>
-		<city uid="DE/Stolpen"/>
+		<place>
+			<city uid="DE/Stolpen"/>
+		</place>
 	</birth>
 	<death>
 		<date>1764-05-10</date>
-		<city uid="DE/Leipzig"/>
+		<place>
+			<city uid="DE/Leipzig"/>
+		</place>
 	</death>
 	<linkVariants>
 		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Christian_Friedrich_Henrici"/>

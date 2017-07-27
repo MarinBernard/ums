@@ -17,7 +17,9 @@
 	</nameVariants>
 	<birth>
 		<date>1976-01-15</date>
-		<country uid="KR"/>
+		<place>
+			<country uid="KR"/>
+		</place>
 	</birth>
 	<linkVariants>
 		<linkVariant type="website" href="http://www.sunhaeim.com/en" lang="en"/>

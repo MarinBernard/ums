@@ -24,6 +24,8 @@
 	</linkVariants>
 	<creation>
 		<year>1982</year>
-		<city uid="DE/Berlin"/>
+		<place>
+			<city uid="DE/Berlin"/>
+		</place>
 	</creation>
 </umsm:ensemble>

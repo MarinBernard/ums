@@ -125,14 +125,14 @@
 					<xsl:value-of select="substring($_performerListTmp, 1, string-length($_performerListTmp) - string-length($config.performers.delimiter))"/>
 					<!-- Add optional year of performance -->
 					<xsl:if test="$config.albumTitles.includePerformanceYear = true()">
-						<xsl:if test="umsm:date or umsm:year">
+						<xsl:if test="umsb:date or umsb:year">
 							<xsl:value-of select="concat(',', $config.constants.nonBreakableSpace)"/>
 							<xsl:choose>
-								<xsl:when test="umsm:year">
-									<xsl:value-of select="umsm:year"/>
+								<xsl:when test="umsb:year">
+									<xsl:value-of select="umsb:year"/>
 								</xsl:when>
-								<xsl:when test="umsm:date">
-									<xsl:value-of select="substring(umsm:date, 1, 4)"/>
+								<xsl:when test="umsb:date">
+									<xsl:value-of select="substring(umsb:date, 1, 4)"/>
 								</xsl:when>
 							</xsl:choose>
 						</xsl:if>

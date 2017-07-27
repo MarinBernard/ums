@@ -4,31 +4,16 @@
 	<define name="MAT_MusicalEvent">
 		<!-- Full or partial date -->
 		<choice>
-			<element name="date">
-				<data type="date"/>
-			</element>
-			<element name="year">
-				<data type="gYear"/>
-			</element>
+			<ref name="BCT_Date"/>
+			<ref name="BCT_Year"/>
 			<group>
-				<element name="year">
-					<data type="gYear"/>
-				</element>
-				<element name="month">
-					<data type="gMonth"/>
-				</element>
+				<ref name="BCT_Year"/>
+				<ref name="BCT_Month"/>
 			</group>
 		</choice>
 		<!-- Full or partial place -->
 		<optional>
-			<choice>
-				<ref name="MCT_Venue"/>
-				<ref name="MRT_Venue"/>
-				<ref name="BCT_City"/>
-				<ref name="BRT_City"/>
-				<ref name="BCT_Country"/>
-				<ref name="BRT_Country"/>
-			</choice>
+			<ref name="MCT_Place"/>
 		</optional>
 	</define>
 </grammar>

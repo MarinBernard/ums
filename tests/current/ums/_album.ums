@@ -23,7 +23,9 @@
 	<releases>
 		<release>
 			<year>1990</year>
-			<country uid="FR"/>
+			<place>
+				<country uid="FR"/>
+			</place>
 		</release>
 	</releases>
 	<umsa:media>

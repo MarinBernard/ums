@@ -4,31 +4,18 @@
 	<define name="BAT_Event">
 		<!-- Full or partial date -->
 		<choice>
-			<element name="date">
-				<data type="date"/>
-			</element>
-			<element name="year">
-				<data type="gYear"/>
-			</element>
+			<ref name="BCT_Date"/>
+			<ref name="BCT_Year"/>
 			<group>
-				<element name="year">
-					<data type="gYear"/>
-				</element>
-				<element name="month">
-					<data type="gMonth"/>
-				</element>
+				<ref name="BCT_Year"/>
+				<ref name="BCT_Month"/>
 			</group>
 		</choice>
 		<!-- Full or partial place -->
 		<optional>
-			<choice>
-				<ref name="BCT_City"/>
-				<ref name="BRT_City"/>
-				<ref name="BCT_Country"/>
-				<ref name="BRT_Country"/>
-				<ref name="BCT_CountryState"/>
-				<ref name="BRT_CountryState"/>
-			</choice>
+			<element name="place">
+				<ref name="BAT_Place"/>
+			</element>
 		</optional>
 	</define>
 </grammar>

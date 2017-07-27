@@ -12,7 +12,9 @@
 	</nameVariants>
 	<birth>
 		<date>1970-12-15</date>
-		<city uid="US/PA/Philadelphia"/>
+		<place>
+			<city uid="US/PA/Philadelphia"/>
+		</place>
 	</birth>
 	<linkVariants>
 		<linkVariant type="website" lang="en" href="http://www.lawrencezazzo.com"/>

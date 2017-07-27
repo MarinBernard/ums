@@ -3,9 +3,9 @@
 	<define name="MCT_Venue">
 		<element name="venue">
 			<!-- This element might be used by reference -->
-			<ref name="BAT_Referenceable"/>
-			<!-- Inheritance from the Place abstract type -->
-			<ref name="BAT_Place"/>
+			<ref name="BAT_Referenceable"/>		
+			<!-- Inheritance from the Place music abstract type -->
+			<ref name="MAT_Place"/>
 		</element>
 	</define>
 </grammar>

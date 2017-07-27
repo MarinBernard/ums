@@ -12,7 +12,9 @@
 	</nameVariants>
 	<birth>
 		<date>1950-11-29</date>
-		<city uid="AR/Buenos Aires"/>
+		<place>
+			<city uid="AR/Buenos Aires"/>
+		</place>
 	</birth>
 	<linkVariants>
 		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Marcos_Fink"/>

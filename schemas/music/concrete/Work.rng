@@ -50,7 +50,7 @@
 			<!-- Première event of the music work -->
 			<optional>
 				<element name="premiere">
-					<ref name="BAT_Event"/>
+					<ref name="MAT_MusicalEvent"/>
 				</element>
 			</optional>
 			<!-- Layout of the work divided in movement sections -->

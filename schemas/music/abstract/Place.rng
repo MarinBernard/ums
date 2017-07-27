@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="BAT_Place">
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<define name="MAT_Place">
 		<!-- Inheritance from the Item abstract type for labelVariants -->
 		<optional>
 			<ref name="BAT_Item"/>
 		</optional>
-		<!-- Home city or country -->
+		<!-- Same elements as BAT_Place, plus music venues -->
 		<choice>
+			<ref name="MCT_Venue"/>
+			<ref name="MRT_Venue"/>
 			<ref name="BCT_City"/>
 			<ref name="BRT_City"/>
 			<ref name="BCT_CountryState"/>

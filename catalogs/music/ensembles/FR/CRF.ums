@@ -21,6 +21,8 @@
 	</linkVariants>
 	<creation>
 		<year>1947</year>
-		<city uid="FR/Paris"/>
+		<place>
+			<city uid="FR/Paris"/>
+		</place>
 	</creation>
 </umsm:ensemble>

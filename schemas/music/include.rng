@@ -2,6 +2,7 @@
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
 	<!-- Abstract types -->
 	<include href="abstract/MusicalEvent.rng"/>
+	<include href="abstract/Place.rng"/>
 	<!-- Binding types -->
 	<!-- Concrete types -->
 	<include href="concrete/Catalog.rng"/>
@@ -18,6 +19,7 @@
 	<include href="concrete/Movement.rng"/>
 	<include href="concrete/Performance.rng"/>
 	<include href="concrete/Performer.rng"/>
+	<include href="concrete/Place.rng"/>
 	<include href="concrete/Section.rng"/>
 	<include href="concrete/Style.rng"/>
 	<include href="concrete/Venue.rng"/>
