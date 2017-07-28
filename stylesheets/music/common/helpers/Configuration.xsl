@@ -57,11 +57,19 @@
 	-->
 	<xsl:template name="getUmsOptionValue">
 		<xsl:param name="OptionName"/>
+		<xsl:param name="OptionDomain" select="'rendering'"/>
 		<xsl:param name="AllowEmptyValue" select="false()"/>
 		<xsl:param name="Boolean" select="false()"/>
 		<!-- Get option value -->
 		<xsl:variable name="_value">
-			<xsl:value-of select="$ConfigData/umsOptions/umsOption[@id = $OptionName]"/>
+			<xsl:choose>
+				<xsl:when test="$OptionDomain = 'rendering'">
+					<xsl:value-of select="$ConfigData/rendering/option[@id = $OptionName]"/>
+				</xsl:when>
+				<xsl:when test="$OptionDomain = 'system'">
+					<xsl:value-of select="$ConfigData/system/option[@id = $OptionName]"/>
+				</xsl:when>				
+			</xsl:choose>
 		</xsl:variable>
 		<!-- Validate option value -->
 		<xsl:if test="$AllowEmptyValue = false() and normalize-space($_value) = ''">

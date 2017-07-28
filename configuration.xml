@@ -62,9 +62,6 @@
 				<option id="characters-list-suffix">)</option>
 				<option id="movement-titles-concatenate">False</option>
 				<option id="movement-titles-delimiter"> / </option>
-				<option id="musical-forms-delimiter">/</option>
-				<option id="musical-forms-list-prefix"></option>
-				<option id="musical-forms-list-suffix"></option>
 				<option id="performers-delimiter">/</option>
 				<option id="performers-list-prefix">(</option>
 				<option id="performers-list-suffix">)</option>
@@ -149,22 +146,33 @@
 		<tool id="jing-jar" path="C:\Program Files\XMLBlueprint 13\JavaLib\jing-trang-20151127\bin\jing.jar"/>
 		<tool id="saxon-jar" path="C:\Program Files\XMLBlueprint 13\JavaLib\SaxonPE9-7-0-18J\saxon9pe.jar"/>
 	</tools>
-	<umsOptions>
-		<umsOption id="ums-file-extension">.ums</umsOption>
-		<umsOption id="ums-folder-name">ums</umsOption>
-		<umsOption id="ums-folder-name-cache">cache</umsOption>
-		<umsOption id="ums-folder-name-static">static</umsOption>
-		<umsOption id="ums-hidden-folders">True</umsOption>
-		<umsOption id="ums-variants-fallback-language">en</umsOption>
-		<umsOption id="ums-variants-prefer-common-labels">True</umsOption>
-		<umsOption id="ums-variants-prefer-common-names">True</umsOption>
-		<umsOption id="ums-variants-preferred-language">fr</umsOption>
-		<umsOption id="ums-variants-pseudonym-prefix">('</umsOption>
-		<umsOption id="ums-variants-pseudonym-suffix">')</umsOption>
-		<umsOption id="ums-variants-show-pseudonyms">True</umsOption>
-		<umsOption id="ums-variants-sort-name-delimiter">,</umsOption>
-		<umsOption id="ums-variants-use-default-variants">True</umsOption>
-		<umsOption id="ums-variants-use-fake-sort-variants">True</umsOption>
-		<umsOption id="ums-variants-use-original-variants">False</umsOption>
-	</umsOptions>
+	<rendering>
+		<option id="date-format-full">dd-MM-yyyy</option>
+		<option id="date-format-year">yyyy</option>
+		<option id="date-format-year-month">MMMM yyyy</option>
+		<option id="form-delimiter">/</option>
+		<option id="form-list-prefix"></option>
+		<option id="form-list-suffix"></option>
+		<option id="event-date-place-delimiter"> - </option>
+		<option id="place-delimiter">, </option>
+		<option id="fallback-language">en</option>
+		<option id="prefer-common-labels">True</option>
+		<option id="prefer-common-names">True</option>
+		<option id="preferred-language">fr</option>
+		<option id="pseudonym-prefix">('</option>
+		<option id="pseudonym-suffix">')</option>
+		<option id="show-pseudonyms">True</option>
+		<option id="sort-name-delimiter">,</option>
+		<option id="use-default-variants">True</option>
+		<option id="use-fake-sort-variants">True</option>
+		<option id="use-original-variants">False</option>
+	</rendering>
+	<system>
+		<option id="ums-file-extension">.ums</option>
+		<option id="ums-folder-name">ums</option>
+		<option id="ums-folder-name-cache">cache</option>
+		<option id="ums-folder-name-static">static</option>
+		<option id="ums-hidden-folders">True</option>
+	</system>
+	
 </configuration>

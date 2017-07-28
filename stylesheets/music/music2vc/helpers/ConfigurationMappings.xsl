@@ -43,7 +43,7 @@
 	All localized data will be rendered in this language, if available. -->
 	<xsl:variable name="config.variants.preferredLanguage">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'ums-variants-preferred-language'"/>
+			<xsl:with-param name="OptionName" select="'preferred-language'"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<!--
@@ -53,7 +53,7 @@
 	in the prefered language. -->
 	<xsl:variable name="config.variants.fallbackLanguage">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'ums-variants-fallback-language'"/>
+			<xsl:with-param name="OptionName" select="'fallback-language'"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<!--
@@ -62,7 +62,7 @@
 	in prefered or fallback language. -->
 	<xsl:variable name="config.variants.useDefaultVariants">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'ums-variants-use-default-variants'"/>
+			<xsl:with-param name="OptionName" select="'use-default-variants'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -73,7 +73,7 @@
 	and no default variant was available either. -->
 	<xsl:variable name="config.variants.useOriginalVariants">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'ums-variants-use-original-variants'"/>
+			<xsl:with-param name="OptionName" select="'use-original-variants'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -83,7 +83,7 @@
 	when no sort variant is explicitely available. -->
 	<xsl:variable name="config.variants.useFakeSortVariants">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'ums-variants-use-fake-sort-variants'"/>
+			<xsl:with-param name="OptionName" select="'use-fake-sort-variants'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -93,7 +93,7 @@
 	of a sort-friendly name. -->
 	<xsl:variable name="config.variants.sortNameDelimiter">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'ums-variants-sort-name-delimiter'"/>
+			<xsl:with-param name="OptionName" select="'sort-name-delimiter'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -103,7 +103,7 @@
 	and sort-friendly variants of persons' names. -->
 	<xsl:variable name="config.variants.showPseudonyms">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'ums-variants-show-pseudonyms'"/>
+			<xsl:with-param name="OptionName" select="'show-pseudonyms'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -112,13 +112,13 @@
 	Opening and closing characters surrounding pseudonym suffices. -->
 	<xsl:variable name="config.variants.pseudonymPrefix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'ums-variants-pseudonym-prefix'"/>
+			<xsl:with-param name="OptionName" select="'pseudonym-prefix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<xsl:variable name="config.variants.pseudonymSuffix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'ums-variants-pseudonym-suffix'"/>
+			<xsl:with-param name="OptionName" select="'pseudonym-suffix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -127,7 +127,7 @@
 	If set to true(), common names will take precedence over full names. -->
 	<xsl:variable name="config.variants.preferCommonNames">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'ums-variants-prefer-common-names'"/>
+			<xsl:with-param name="OptionName" select="'prefer-common-names'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -136,7 +136,7 @@
 	If set to true(), common labels will take precedence over full labels. -->
 	<xsl:variable name="config.variants.preferCommonLabels">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'ums-variants-prefer-common-labels'"/>
+			<xsl:with-param name="OptionName" select="'prefer-common-labels'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -260,9 +260,8 @@
 	One or several characters which will be inserted between each musical form
 	label in the title of a track. -->
 	<xsl:variable name="config.musicalForms.delimiter">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'musical-forms-delimiter'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'form-delimiter'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -271,16 +270,14 @@
 	Opening and closing characters surrounding musical forms when embedded
 	in the title of track. -->
 	<xsl:variable name="config.musicalForms.listPrefix">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'musical-forms-list-prefix'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'form-list-prefix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<xsl:variable name="config.musicalForms.listSuffix">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'musical-forms-list-suffix'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'form-list-suffix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -1270,6 +1267,7 @@
 	File extension of UMS files (needed for lookups to external catalogs) -->
 	<xsl:variable name="config.fileExtensions.umsFile">
 		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionDomain" select="'system'"/>
 			<xsl:with-param name="OptionName" select="'ums-file-extension'"/>
 		</xsl:call-template>
 	</xsl:variable>
