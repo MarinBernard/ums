@@ -16,9 +16,7 @@
 				<ref name="MLT_CatalogIds"/>
 			</optional>
 			<!-- Instruments of the movement -->
-			<optional>
-				<ref name="MLT_Instruments"/>
-			</optional>
+			<ref name="MLT_Instruments"/>
 			<!-- Initial key of the movement -->
 			<optional>
 				<choice>
