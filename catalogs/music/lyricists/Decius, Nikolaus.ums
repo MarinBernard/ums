@@ -7,11 +7,11 @@
 	<nameVariants>
 		<nameVariant lang="de" original="true" default="true">
 			<firstName>Nikolaus</firstName>
-			<pseudonym>Decius</pseudonym>
+			<lastName>Decius</lastName>
 		</nameVariant>
 		<nameVariant lang="ru">
 			<firstName>Николаус</firstName>
-			<pseudonym>Дециус</pseudonym>
+			<lastName>Дециус</lastName>
 		</nameVariant>
 	</nameVariants>
 	<birth>
