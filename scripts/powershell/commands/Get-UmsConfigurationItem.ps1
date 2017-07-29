@@ -20,7 +20,7 @@ function Get-UmsConfigurationItem
     [CmdletBinding(DefaultParametersetName='ByType')]
     Param(
         [Parameter(ParameterSetName="ByType")]
-        [ValidateSet("All", "Catalog", "Schema", "Stylesheet", "StylesheetConstraint", "StylesheetOption", "Tool", "UmsOption")]
+        [ValidateSet("All", "Catalog", "Schema", "Stylesheet", "StylesheetConstraint", "StylesheetOption", "Tool", "Rendering", "System")]
         [string[]] $Type = "All",
 
         [Parameter(ParameterSetName="ByShortName")]
@@ -32,36 +32,127 @@ function Get-UmsConfigurationItem
             "ExpanderStylesheetUri", "Music2vcStylesheetUri",
 
             # Tool paths
-            "JingJarPath", "JreBinPath", "SaxonJarPath",
+            "JingJarPath", "JreBinPath", "SaxonJarPath",          
 
-            # UMS options
-            "UmsFileExtension", "UmsCacheFolderName", "UmsStaticFolderName", "UmsFolderName", "UmsHiddenFolders")]
+            # Rendering options
+            "CatalogIdDelimiter",
+            "CatalogIdListPrefix",
+            "CatalogIdListSuffix",
+            "CharacterDelimiter",
+            "CharacterListPrefix",
+            "CharacterListSuffix",
+            "ComposerDelimiter",
+            "ComposerListPrefix",
+            "ComposerListSuffix",
+            "EventDatePlaceDelimiter",
+            "FallbackLanguage",
+            "FormDelimiter",
+            "FormListPrefix",
+            "FormListSuffix",
+            "FullDateFormat",
+            "IncipitPrefix",
+            "IncipitSuffix",
+            "KeyListPrefix",
+            "KeyListSuffix",
+            "MovementTitlePrefix",
+            "PlaceDelimiter",
+            "PerformanceYearPrefix",
+            "PerformerDelimiter",
+            "PerformerListPrefix",
+            "PerformerListSuffix",
+            "PreferCommonNames",
+            "PreferCommonLabels",
+            "PreferShortKeys",
+            "PseudonymPrefix",
+            "PseudonymSuffix",
+            "ShowPseudonyms",
+            "SortNameDelimiter",
+            "TempoMarkingListPrefix",
+            "TempoMarkingListSuffix",
+            "UseDefaultVariants",
+            "UseFakeSortVariants",
+            "UseOriginalVariants",
+            "YearDateFormat",
+            "YearMonthDateFormat",
+
+            # System options
+            "UmsCacheFolderName",
+            "UmsFileExtension",
+            "UmsFolderName",
+            "UmsHiddenFolders",
+            "UmsStaticFolderName")]
         [string] $ShortName
     )
 
     # Returning item from short name, if specified
-    switch ($ShortName)
+    if ($ShortName)
     {
-        # Schema namespaces
-        "AudioSchemaNamespace" { return (Get-UmsConfigurationItem -Type Schema | Where-Object { $_.Id -eq "audio" }).Namespace }
-        "BaseSchemaNamespace"  { return (Get-UmsConfigurationItem -Type Schema | Where-Object { $_.Id -eq "base" }).Namespace }
-        "MusicSchemaNamespace" { return (Get-UmsConfigurationItem -Type Schema | Where-Object { $_.Id -eq "music" }).Namespace }
+        switch ($ShortName)
+        {
+            # Schema namespaces
+            "AudioSchemaNamespace" { return (Get-UmsConfigurationItem -Type Schema | Where-Object { $_.Id -eq "audio" }).Namespace }
+            "BaseSchemaNamespace"  { return (Get-UmsConfigurationItem -Type Schema | Where-Object { $_.Id -eq "base" }).Namespace }
+            "MusicSchemaNamespace" { return (Get-UmsConfigurationItem -Type Schema | Where-Object { $_.Id -eq "music" }).Namespace }
 
-        # Stylesheet paths
-        "ExpanderStylesheetUri" { return (Get-UmsConfigurationItem -Type Stylesheet | Where-Object { $_.Id -eq "expander" }).Uri }
-        "Music2vcStylesheetUri" { return (Get-UmsConfigurationItem -Type Stylesheet | Where-Object { $_.Id -eq "music2vc" }).Uri }
+            # Stylesheet paths
+            "ExpanderStylesheetUri" { return (Get-UmsConfigurationItem -Type Stylesheet | Where-Object { $_.Id -eq "expander" }).Uri }
+            "Music2vcStylesheetUri" { return (Get-UmsConfigurationItem -Type Stylesheet | Where-Object { $_.Id -eq "music2vc" }).Uri }
 
-        # Tools paths
-        "JingJarPath"           { return (Get-UmsConfigurationItem -Type Tool | Where-Object { $_.Id -eq "jing-jar" }).Path }
-        "JreBinPath"            { return (Get-UmsConfigurationItem -Type Tool | Where-Object { $_.Id -eq "jre-bin" }).Path }
-        "SaxonJarPath"          { return (Get-UmsConfigurationItem -Type Tool | Where-Object { $_.Id -eq "saxon-jar" }).Path }        
+            # Tools paths
+            "JingJarPath"           { return (Get-UmsConfigurationItem -Type Tool | Where-Object { $_.Id -eq "jing-jar" }).Path }
+            "JreBinPath"            { return (Get-UmsConfigurationItem -Type Tool | Where-Object { $_.Id -eq "jre-bin" }).Path }
+            "SaxonJarPath"          { return (Get-UmsConfigurationItem -Type Tool | Where-Object { $_.Id -eq "saxon-jar" }).Path }        
 
-        # UMS Options
-        "UmsFileExtension"      { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-file-extension" }).Value }
-        "UmsCacheFolderName"    { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-folder-name-cache" }).Value }
-        "UmsStaticFolderName"   { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-folder-name-static" }).Value }
-        "UmsFolderName"         { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-folder-name" }).Value }
-        "UmsHiddenFolders"      { return (Get-UmsConfigurationItem -Type UmsOption | Where-Object { $_.Id -eq "ums-hidden-folders" }).Value }
+            # System Options
+            "UmsCacheFolderName"    { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-folder-name-cache" }).Value }
+            "UmsFileExtension"      { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-file-extension" }).Value }
+            "UmsFolderName"         { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-folder-name" }).Value }
+            "UmsHiddenFolders"      { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-hidden-folders" }).Value }
+            "UmsStaticFolderName"   { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-folder-name-static" }).Value }
+
+            # UMS rendering options
+            "CatalogIdDelimiter"        { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "catalog-id-delimiter" }).Value }
+            "CatalogIdListPrefix"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "catalog-id-list-prefix" }).Value }
+            "CatalogIdListSuffix"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "catalog-id-list-suffix" }).Value }
+            "CharacterDelimiter"        { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "character-delimiter" }).Value }
+            "CharacterListPrefix"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "character-list-prefix" }).Value }
+            "CharacterListSuffix"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "character-list-suffix" }).Value }
+            "ComposerDelimiter"         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "composer-delimiter" }).Value }
+            "ComposerListPrefix"        { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "composer-list-prefix" }).Value }
+            "ComposerListSuffix"        { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "composer-list-suffix" }).Value }
+            "EventDatePlaceDelimiter"   { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "event-date-place-delimiter" }).Value }
+            "FallbackLanguage"          { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "fallback-language" }).Value }
+            "FormDelimiter"             { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "form-delimiter" }).Value }
+            "FormListPrefix"            { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "form-list-prefix" }).Value }
+            "FormListSuffix"            { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "form-list-suffix" }).Value }
+            "FullDateFormat"            { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "date-format-full" }).Value }
+            "IncipitPrefix"             { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "incipit-prefix" }).Value }
+            "IncipitSuffix"             { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "incipit-suffix" }).Value }
+            "KeyListPrefix"             { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "key-list-prefix" }).Value }
+            "KeyListSuffix"             { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "key-list-suffix" }).Value }
+            "MovementTitlePrefix"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "movement-title-prefix" }).Value }
+            "PlaceDelimiter"            { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "place-delimiter" }).Value }
+            "PerformanceYearPrefix"     { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "performance-year-prefix" }).Value }
+            "PerformerDelimiter"        { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "performer-delimiter" }).Value }
+            "PerformerListPrefix"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "performer-list-prefix" }).Value }
+            "PerformerListSuffix"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "performer-list-suffix" }).Value }
+            "PreferCommonLabels"        { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "prefer-common-labels" }).Value }
+            "PreferCommonNames"         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "prefer-common-names" }).Value }
+            "PreferShortKeys  "         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "prefer-short-keys" }).Value }
+            "PseudonymPrefix"           { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "pseudonym-prefix" }).Value }
+            "PseudonymSuffix"           { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "pseudonym-suffix" }).Value }
+            "ShowPseudonyms"            { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-pseudonyms" }).Value }
+            "SortNameDelimiter"         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "sort-name-delimiter" }).Value }
+            "TempoMarkingListPrefix"    { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "tempo-marking-list-prefix" }).Value }
+            "TempoMarkingListSuffix"    { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "tempo-marking-list-suffix" }).Value }
+            "UseDefaultVariants"        { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "use-default-variants" }).Value }
+            "UseFakeSortVariants"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "use-fake-sort-variants" }).Value }
+            "UseOriginalVariants"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "use-original-variants" }).Value }
+            "YearDateFormat"            { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "date-format-year" }).Value }
+            "YearMonthDateFormat"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "date-format-year-month" }).Value }            
+
+            default { return }
+        }
     }
 
     # Normal evaluation
@@ -175,19 +266,33 @@ function Get-UmsConfigurationItem
                 Path = $_tool.Node.path;
             }   
         }
-    }
+    }  
 
-    if (($Type -eq "all") -or ($Type -contains "umsoption"))
+    if (($Type -eq "all") -or ($Type -contains "rendering"))
     {
-        $_umsOptions = $ConfigurationDocument | Select-Xml -XPath "/configuration/umsOptions/*"
-        foreach ($_umsOption in $_umsOptions)
+        $_options = $ConfigurationDocument | Select-Xml -XPath "/configuration/rendering/*"
+        foreach ($_option in $_options)
         {
-            # Returning umsOption object
+            # Returning rendering option object
             New-Object -Type PSCustomObject -Property @{
-                Type = "UmsOption";
-                Id = $_umsOption.Node.id;
-                Value = $_umsOption.Node.'#text';
+                Type = "Rendering";
+                Id = $_option.Node.id;
+                Value = $_option.Node.'#text';
             }   
         }
     }
+
+    if (($Type -eq "all") -or ($Type -contains "system"))
+    {
+        $_options = $ConfigurationDocument | Select-Xml -XPath "/configuration/system/*"
+        foreach ($_option in $_options)
+        {
+            # Returning UmsSystem object
+            New-Object -Type PSCustomObject -Property @{
+                Type = "System";
+                Id = $_option.Node.id;
+                Value = $_option.Node.'#text';
+            }   
+        }
+    }  
 }

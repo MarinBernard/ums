@@ -13,6 +13,39 @@
         ValidState = "Valid"
         VoidUmsMetadata = "No UMS metadata were ever defined for this folder."
     }
+    Exceptions = @{
+        AbstractClassInstantiation = @{
+            MainMessage = "Unable to create an instance of pseudo-abstract class {0}. Instantiation of abstract classes is forbidden."
+        }
+        ClassLookupFailure = @{
+            MainMessage = "The entity factory was unable to find a matching entity class for the XML element {0} in namespace {1}."
+        }
+        IllegalXmlAttributeValue = @{
+            MainMessage = "The value of the {0} attribute of the {1} XML element from the {2} namespace is illegal."
+            ActualValue = "Attribute value: {0}"
+            AllowedValues = "Allowed values: {0}"
+        }
+        IllegalXmlElementCount = @{
+            MainMessage = "The number of {0} XML elements from the {1} namespace is illegal in this context."
+            Context = "Context is XML element {0} in namespace {1}."
+            ActualCount = "Number of elements: {0}"
+            MinExpectedCount =  "Minimum expected number: {0}"
+            MaxExpectedCount =  "Maximum expected number: {0}"
+        }
+        IncompatibleXmlElement = @{
+            MainMessage = "Unable to create an instance of class {0} because the XML element passed to the constructor was rejected."
+            ElementNamespace = "Element namespace is: {0}"
+            ExpectedNamespace = "Expected namespace is: {0}"
+            ElementName = "Element name is: {0}"
+            ExpectedName = "Expected name is: {0}"
+        }
+        MissingXmlElementAttributeException = @{
+            MainMessage = "The attribute {0} is missing but is mandatory in this context."
+            Context = "Context is XML element {0} in namespace {1}."
+        }
+        UnhandlableUmsReferenceException = @{
+            MainMessage = "The entity factory found a UMS reference to element {0} in namespace {1}, with uid {2}. UMS reference handling is not yet implemented."
+        }
     ConvertToForeignMetadata = @{
         BadBindingNamespace = "The binding namespace of the source UMS item does not allow this operation. The binding element is {0}, whereas the parameters you specified require namespace {1}."
         BadBindingElement = "The binding element of the source UMS item does not allow this operation. The binding namespace is {0}, whereas the parameters you specified require element {1}."

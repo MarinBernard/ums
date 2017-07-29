@@ -13,6 +13,40 @@
         ValidState = "Valide"
         VoidUmsMetadata = "Aucune métadonnée UMS n'a jamais été définie pour ce dossier."
     }
+    Exceptions = @{
+        AbstractClassInstantiation = @{
+            MainMessage = "Impossible de créer une instance de la classe pseudo-abstraite {0}. L'instantiation de classes abstraites est interdite.."
+        }
+        ClassLookupFailure = @{
+            MainMessage = "La fabrique d'entités a échoué à trouver une classe d'entité adaptée à l'élément XML {0} issu de l'espace de noms {1}."
+        }
+        IllegalXmlAttributeValue = @{
+            MainMessage = "La valeur de l'attribut {0} de l'élément XML {1} issu de l'espace noms {2} est illégale."
+            ActualValue = "Valeur de l'attribut: {0}"
+            AllowedValues = "Valeurs autorisées: {0}"
+        }
+        IllegalXmlElementCount = @{
+            MainMessage = "Le nombre d'éléments XML {0} issus de l'espace de noms {1} est illégal dans ce contexte."
+            Context = "Le contexte est celui d'un élément {0} issue de l'espace de noms {1}."
+            ActualCount = "Nombre d'éléments: {0}"
+            MinExpectedCount =  "Nombre minimal attendu: {0}"
+            MaxExpectedCount =  "Nombre maximal attendu: {0}"
+        }
+        IncompatibleXmlElement = @{
+            MainMessage = "Impossible de créer une instance de la classe {0} car l'élément XML fourni au constructeur a été rejeté."
+            ElementNamespace = "L'espace de noms de l'élément est: {0}"
+            ExpectedNamespace = "L'espace de noms attendu est: {0}"
+            ElementName = "Le nom de l'élement est: {0}"
+            ExpectedName = "Le nom attendu est: {0}"
+        }
+        MissingXmlElementAttributeException = @{
+            MainMessage = "L'attribut {0} est manquant mais est obligatoire dans ce contexte."
+            Context = "Le contexte est celui d'un élément {0} issue de l'espace de noms {1}."
+        }
+        UnhandlableUmsReferenceException = @{
+            MainMessage = "La fabrique d'entitiés a détecté une référence UMS à un élément {0} de l'espace de noms {1}, possédant l'uid {2}. La gestion des références UMS n'est pas encore implémentée."
+        }
+    }
     ConvertToForeignMetadata = @{
         BadBindingNamespace = "L'espace de noms de liaison de l'élement UMS est incompatible avec cette opération. L'espace de noms de liaison est {0}, mais les paramètres que vous avez spécifiés exigent l'espace de noms {1}."
         BadBindingElement = "L'élement de liaison de l'élement UMS est incompatible avec cette opération. L'élement de liaison est {0}, mais les paramètres que vous avez spécifiés exigent une balise {1}."

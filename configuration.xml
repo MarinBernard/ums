@@ -1,4 +1,4 @@
-<configuration>
+﻿<configuration>
 	<catalogs>
 		<catalog id="base"
 			namespace="http://schema.olivarim.com/ums/1.0/base"
@@ -46,25 +46,13 @@
 				</documentElement>
 			</constraints>
 			<options>
-				<option id="catalog-ids-delimiter">, </option>
-				<option id="catalog-ids-list-prefix">[</option>
-				<option id="catalog-ids-list-suffix">]</option>
 				<option id="constant-new-line">&#xa;</option>
 				<option id="constant-non-breakable-space">&#160;</option>
 				<option id="constant-vorbis-assignment">=</option>
-				<option id="composers-delimiter">/</option>
-				<option id="composers-list-prefix"></option>
-				<option id="composers-list-suffix"> -</option>
 				<option id="instruments-list-prefix">[</option>
 				<option id="instruments-list-suffix">]</option>
-				<option id="characters-delimiter">/</option>
-				<option id="characters-list-prefix">(</option>
-				<option id="characters-list-suffix">)</option>
 				<option id="movement-titles-concatenate">False</option>
 				<option id="movement-titles-delimiter"> / </option>
-				<option id="performers-delimiter">/</option>
-				<option id="performers-list-prefix">(</option>
-				<option id="performers-list-suffix">)</option>
 				<option id="keys-prefer-short-labels">True</option>
 				<option id="vorbis-album-titles-include-conductors">True</option>
 				<option id="vorbis-album-titles-include-composers">True</option>
@@ -147,22 +135,43 @@
 		<tool id="saxon-jar" path="C:\Program Files\XMLBlueprint 13\JavaLib\SaxonPE9-7-0-18J\saxon9pe.jar"/>
 	</tools>
 	<rendering>
+		<option id="catalog-id-delimiter">, </option>
+		<option id="catalog-id-list-prefix">[</option>
+		<option id="catalog-id-list-suffix">]</option>
+		<option id="character-delimiter">/</option>
+		<option id="character-list-prefix">(</option>
+		<option id="character-list-suffix">)</option>
+		<option id="composer-delimiter">/</option>
+		<option id="composer-list-prefix"></option>
+		<option id="composer-list-suffix"> -</option>
 		<option id="date-format-full">dd-MM-yyyy</option>
 		<option id="date-format-year">yyyy</option>
 		<option id="date-format-year-month">MMMM yyyy</option>
+		<option id="event-date-place-delimiter"> - </option>
+		<option id="fallback-language">en</option>
 		<option id="form-delimiter">/</option>
 		<option id="form-list-prefix"></option>
 		<option id="form-list-suffix"></option>
-		<option id="event-date-place-delimiter"> - </option>
+		<option id="incipit-prefix">« </option>
+		<option id="incipit-suffix"> »</option>
+		<option id="key-list-prefix">(</option>
+		<option id="key-list-suffix">)</option>
+		<option id="movement-title-prefix">:</option>
+		<option id="performance-year-prefix">, </option>
+		<option id="performer-delimiter">/</option>
+		<option id="performer-list-prefix">(</option>
+		<option id="performer-list-suffix">)</option>
 		<option id="place-delimiter">, </option>
-		<option id="fallback-language">en</option>
 		<option id="prefer-common-labels">True</option>
 		<option id="prefer-common-names">True</option>
+		<option id="prefer-short-keys">True</option>
 		<option id="preferred-language">fr</option>
 		<option id="pseudonym-prefix">('</option>
 		<option id="pseudonym-suffix">')</option>
 		<option id="show-pseudonyms">True</option>
 		<option id="sort-name-delimiter">,</option>
+		<option id="tempo-marking-list-prefix"></option>
+		<option id="tempo-marking-list-suffix"></option>
 		<option id="use-default-variants">True</option>
 		<option id="use-fake-sort-variants">True</option>
 		<option id="use-original-variants">False</option>

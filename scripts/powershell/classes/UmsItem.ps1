@@ -1,7 +1,7 @@
 class UmsItem
 {
     ###########################################################################
-    # Hidden attributes and properties
+    # Hidden properties
     ###########################################################################
 
     # Properties describing the item itself

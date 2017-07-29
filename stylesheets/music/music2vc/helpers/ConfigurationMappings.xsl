@@ -150,9 +150,8 @@
 	
 	If set to true(), musical keys will be rendered in their short forms. -->
 	<xsl:variable name="config.keys.preferShortLabels">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'keys-prefer-short-labels'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'prefer-short-keys'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -167,9 +166,8 @@
 	One or several chars which will be inserted between each catalog ID
 	is a list of catalog IDs. -->
 	<xsl:variable name="config.catalogIds.Delimiter">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'catalog-ids-delimiter'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'catalog-id-delimiter'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -178,16 +176,14 @@
 	Opening and closing characters surrounding a list of catalog IDs
 	when added to the title of a work. -->
 	<xsl:variable name="config.catalogIds.listPrefix">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'catalog-ids-list-prefix'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'catalog-id-list-prefix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<xsl:variable name="config.catalogIds.listSuffix">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'catalog-ids-list-suffix'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'catalog-id-list-suffix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -226,9 +222,8 @@
 	One or several characters which will be inserted between each character name
 	in a character list embedded in the title of a track. -->
 	<xsl:variable name="config.characters.delimiter">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'characters-delimiter'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'character-delimiter'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -236,16 +231,14 @@
 	
 	Opening and closing characters surrounding a list of characters. -->
 	<xsl:variable name="config.characters.listPrefix">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'characters-list-prefix'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'character-list-prefix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<xsl:variable name="config.characters.listSuffix">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'characters-list-suffix'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'character-list-suffix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -312,6 +305,16 @@
 	</xsl:variable>
 	<!--
 	
+	One or several characters which will be inserted before the title of a
+	movement. -->
+	<xsl:variable name="config.movementTitles.prefix">
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'movement-title-prefix'"/>
+			<xsl:with-param name="AllowEmptyValue" select="true()"/>
+		</xsl:call-template>
+	</xsl:variable>
+	<!--
+	
 	==============================================================================
 	!
 	!	Composers lists
@@ -321,9 +324,8 @@
 	One or serveral characters which will be inserted between each composer name
 	in the list of composers. -->
 	<xsl:variable name="config.composers.delimiter">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'composers-delimiter'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'composer-delimiter'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -332,16 +334,14 @@
 	Opening and closing characters surrounding the composer list
 	in a dynamic album title. -->
 	<xsl:variable name="config.composers.listPrefix">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'composers-list-prefix'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'composer-list-prefix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<xsl:variable name="config.composers.listSuffix">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'composers-list-suffix'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'composer-list-suffix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -356,9 +356,8 @@
 	One or several characters which will be inserted between each music performer
 	in the list of music ensembles. -->
 	<xsl:variable name="config.performers.delimiter">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'performers-delimiter'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'performer-delimiter'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>	
@@ -367,16 +366,14 @@
 	Opening and closing characters surrounding the list of performers
 	in dynamic album titles. -->
 	<xsl:variable name="config.performers.listPrefix">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'performers-list-prefix'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'performer-list-prefix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<xsl:variable name="config.performers.listSuffix">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'performers-list-suffix'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'performer-list-suffix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
