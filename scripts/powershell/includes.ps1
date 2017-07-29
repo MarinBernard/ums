@@ -2,7 +2,7 @@
 [xml] $global:ConfigurationDocument = Get-Content -Path "$PSScriptRoot\..\..\configuration.xml"
 
 # Load localization
-$global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1"
+$global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDirectory "$PSScriptRoot\messages"
 
 # Include dependencies
 . "$PSScriptRoot\classes\Exceptions.ps1"
