@@ -23,6 +23,12 @@ class CachedEntity
     # The value of the 'uid' attribute.
     [string] $Uid
 
+    # The optional URI to the source file if the entity was transcluded
+    [string] $SourceUri
+
+    # Whether transclusion source used a relative file name
+    [bool] $RelativeSource
+
     # A reference to the entity instance
     [UmsAeEntity] $Instance
 
@@ -30,12 +36,19 @@ class CachedEntity
     # Constructor
     ###########################################################################
 
-    CachedEntity([string] $XmlNamespaceUri, [string] $XmlElementName,
-        [string] $Uid, [UmsAeEntity] $Instance)
+    CachedEntity(
+        [string] $XmlNamespaceUri,
+        [string] $XmlElementName,
+        [string] $Uid,
+        [string] $SourceUri,
+        [string] $RelativeSource,
+        [UmsAeEntity] $Instance)
     {
         $this.XmlNamespaceUri = $XmlNamespaceUri
         $this.XmlElementName = $XmlElementName
         $this.Uid = $Uid
+        $this.SourceUri = $SourceUri
+        $this.RelativeSource = $RelativeSource
         $this.Instance = $Instance
     }
 }

@@ -220,11 +220,20 @@ class EntityFactory
     # Adds an entity instance to the cache
     static [void] AddCachedEntity([UmsAeEntity] $Instance)
     {
+        # If the instance was created by transclusion, and that transclusion
+        # targeted a file with a relative path, we cannot guarantee that a
+        # future entity with the same UID should match the same instance.
+        # In such a case, the instance bypasses the cache.
+        if ($Instance.RelativeSource -eq $true){ return }
+
+        # Else, we add the instance to the cache
         [EntityFactory]::EntityCache += (
             New-Object -Type CachedEntity -ArgumentList @(
                 $Instance.XmlNamespaceUri,
                 $Instance.XmlElementName,
                 $Instance.Uid,
+                $Instance.SourceUri,
+                $Instance.RelativeSource,
                 $Instance
             )
         )

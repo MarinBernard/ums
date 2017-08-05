@@ -50,7 +50,9 @@ class UmsAeEntity
     hidden [string] $XmlElementName     # Unprefixed name of XML doc. element
 
     # Entity metadata
-    hidden [string] $Uid   # Uid of the entity, if set
+    hidden [string] $Uid            # Uid of the entity, if set
+    hidden [bool]   $RelativeSource # Whether transclusion implied a rel. path
+    hidden [string] $SourceUri      # URI to source transcluded file, if any
 
     ###########################################################################
     # Visible properties
@@ -76,7 +78,20 @@ class UmsAeEntity
 
         # Entity metadata
         if ($XmlElement.HasAttribute("uid"))
-            { $this.Uid = $XmlElement.Uid }
+        {
+            $this.Uid = $this.GetMandatoryXmlAttributeValue(
+                $XmlElement, "uid")
+        }
+        if ($XmlElement.HasAttribute("relative"))
+        {
+            $this.RelativeSource = [System.Convert]::ToBoolean(
+                $this.GetMandatoryXmlAttributeValue($XmlElement, "relative"))
+        }
+        if ($XmlElement.HasAttribute("src"))
+        {
+            $this.SourceUri = $this.GetMandatoryXmlAttributeValue(
+                $XmlElement, "src")
+        }
     }
 
     ###########################################################################

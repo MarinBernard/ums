@@ -30,28 +30,60 @@
 		<!-- Building the file name of the target document -->
 		<xsl:variable name="_targetDocumentName" select="concat(@uid, $CFG_UMSFileExtension)"/>
 		
-		<!-- Trying to acquire the full path of the target document -->
-		<xsl:variable name="_documentFullPath">
+		<!-- Trying to acquire the document in a remote catalog -->
+		<xsl:variable name="_documentFullPathToCatalogItem">
 			<xsl:choose>
 				<!-- Searching in the specified catalog -->
 				<xsl:when test="document(concat($CatalogRoot, '/', $_targetDocumentName))">
 					<xsl:value-of select="concat($CatalogRoot, '/', $_targetDocumentName)"/>
 				</xsl:when>
+			</xsl:choose>
+		</xsl:variable>
+		
+		<!-- Trying to acquire the document using a relative path -->
+		<xsl:variable name="_documentFullPathToIndependentItem">
+			<xsl:choose>					
+				<!-- Using a relative path -->					
+				<xsl:when test="document(concat($_currentDocumentPath, '/', $_targetDocumentName))">
+					<xsl:value-of select="concat($_currentDocumentPath, '/', $_targetDocumentName)"/>
+				</xsl:when>
+				<!-- Using a relative path with ums independent file prefix -->					
+				<xsl:when test="document(concat($_currentDocumentPath, '/', $CFG_UMSIndependentFilePrefix, $_targetDocumentName))">
+					<xsl:value-of select="concat($_currentDocumentPath, '/', $CFG_UMSIndependentFilePrefix, $_targetDocumentName)"/>
+				</xsl:when>
+			</xsl:choose>
+		</xsl:variable>		
+		
+		<!-- Trying to acquire the full path of the target document -->
+		<xsl:variable name="_documentFullPath">
+			<xsl:choose>
+				<!-- Searching in the specified catalog -->
+				<xsl:when test="$_documentFullPathToCatalogItem != ''">
+					<xsl:value-of select="$_documentFullPathToCatalogItem"/>
+				</xsl:when>
 				<xsl:otherwise>
 					<xsl:choose>					
 						<!-- Searching in relative path -->					
-						<xsl:when test="document(concat($_currentDocumentPath, '/', $_targetDocumentName))">
-							<xsl:value-of select="concat($_currentDocumentPath, '/', $_targetDocumentName)"/>
-						</xsl:when>
-						<!-- Searching in relative path with ums independent file prefix -->					
-						<xsl:when test="document(concat($_currentDocumentPath, '/', $CFG_UMSIndependentFilePrefix, $_targetDocumentName))">
-							<xsl:value-of select="concat($_currentDocumentPath, '/', $CFG_UMSIndependentFilePrefix, $_targetDocumentName)"/>
+						<xsl:when test="$_documentFullPathToIndependentItem != ''">
+							<xsl:value-of select="$_documentFullPathToIndependentItem"/>
 						</xsl:when>
 						<!-- We halt here if no file was found -->
 						<xsl:otherwise>
 							<xsl:message terminate="yes" select="concat('ERROR: A reference to a *', $TargetElement, '* element was unresolved: ', $_targetDocumentName)"/>
 						</xsl:otherwise>
 					</xsl:choose>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		
+		<!-- Whether the path to the target document is relative -->
+		<xsl:variable name="_documentPathIsRelative">
+			<xsl:choose>
+				<xsl:when test="$_documentFullPathToCatalogItem != ''">
+					<xsl:value-of select="false()"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="true()"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
@@ -65,6 +97,8 @@
 		<!-- Performing transclusion -->
 		<xsl:copy select="document($_documentFullPath)/*[local-name()=$TargetElement]">
 			<xsl:attribute name="uid" select="$_targetUid"/>
+			<xsl:attribute name="relative" select="$_documentPathIsRelative"/>
+			<xsl:attribute name="src" select="$_documentFullPath"/>
 			<xsl:apply-templates select="*"/>
 		</xsl:copy>
 

@@ -47,7 +47,7 @@ function ShowUmsException($Exception)
 
 try
 {
-    [EntityFactory]::GetEntity($_albumElement)
+    ([EntityFactory]::GetEntity($_albumElement).performances[0].Work)
 
 }
 catch
