@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="BCT_Release">
-		<element name="release">
-			<ref name="BAT_Event"/>
+	<define name="ALT_Releases">
+		<element name="releases">
+			<oneOrMore>
+				<ref name="ACT_Release"/>				
+			</oneOrMore>
 		</element>
 	</define>
 </grammar>

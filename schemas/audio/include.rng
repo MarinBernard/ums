@@ -7,10 +7,12 @@
 	<include href="concrete/Album.rng"/>
 	<include href="concrete/Label.rng"/>
 	<include href="concrete/Medium.rng"/>
+	<include href="concrete/Release.rng"/>
 	<include href="concrete/Track.rng"/>
 	<!-- List types -->
 	<include href="list/Labels.rng"/>
 	<include href="list/Media.rng"/>
+	<include href="list/Releases.rng"/>
 	<include href="list/Tracks.rng"/>
 	<!-- Reference types -->
 	<include href="reference/Album.rng"/>

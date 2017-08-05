@@ -9,7 +9,7 @@
 			<!-- Labels which produced the album -->
 			<ref name="ALT_Labels"/>
 			<!-- Release events of the album -->
-			<ref name="BLT_Releases"/>
+			<ref name="ALT_Releases"/>
 			<!-- Media included in the album -->
 			<ref name="ALT_Media"/>
 			<!-- Music performances included in the album -->

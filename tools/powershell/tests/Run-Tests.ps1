@@ -26,8 +26,8 @@ foreach( $_file in (Get-ChildItem -File -Filter "*.ums" -Path "$PSScriptRoot\doc
 #. "$ModuleBaseDirectory\entities\base\UmsBaePerson.tests.ps1"
 
 
-$_document = (Get-TestDocument "Base_File_AlbumTrackBinding")
-$_albumElement = $_document.DocumentElement.contentBinding.albumTrackBinding.album
+$_document = (Get-TestDocument "Audio_Binding_AlbumTrackBinding")
+$_albumElement = $_document.binding.albumTrackBinding.album
 $_performanceElement = $_albumElement.performances.performance
 
 function ShowUmsException($Exception)

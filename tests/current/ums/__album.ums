@@ -20,14 +20,14 @@
 		<umsa:label uid="BMG"/>
 		<umsa:label uid="Deutsche Harmonia Mundi"/>
 	</umsa:labels>
-	<releases>
-		<release>
+	<umsa:releases>
+		<umsa:release>
 			<year>1990</year>
 			<place>
 				<country uid="FR"/>
 			</place>
-		</release>
-	</releases>
+		</umsa:release>
+	</umsa:releases>
 	<umsa:media>
 		<umsa:medium number="1" type="CDDA">
 			<umsa:tracks>

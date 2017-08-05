@@ -21,8 +21,9 @@ class UmsAceAlbum : UmsBaeProduct
     # Visible properties
     ###########################################################################
 
-    [UmsAceLabel[]] $Labels
-    [UmsMcePerformance[]] $Performances
+    [UmsAceLabel[]]         $Labels
+    [UmsMcePerformance[]]   $Performances
+    [UmsAceRelease[]]       $Releases 
 
     ###########################################################################
     # Constructors
@@ -48,6 +49,16 @@ class UmsAceAlbum : UmsBaeProduct
                 $XmlElement,
                 [UmsAeEntity]::NamespaceUri.Music,
                 "performances"))
+        
+        # Optional 'releases' element (collection of 'release' elements)
+        if ($XmlElement.releases)
+        {
+            $this.BuildReleases(
+                $this.GetOneXmlElement(
+                    $XmlElement,
+                    [UmsAeEntity]::NamespaceUri.Audio,
+                    "releases"))
+        }
     }
 
     # Sub-constructor for the 'labels' element
@@ -70,7 +81,18 @@ class UmsAceAlbum : UmsBaeProduct
             "performance"
         ) | foreach {
                 $this.Performances += [EntityFactory]::GetEntity($_) }
-    }   
+    }
+
+    # Sub-constructor for the 'releases' element
+    [void] BuildReleases([System.Xml.XmlElement] $ReleasesElement)
+    {
+        $this.GetOneOrManyXmlElement(
+            $ReleasesElement,
+            [UmsAeEntity]::NamespaceUri.Audio,
+            "release"
+        ) | foreach {
+                $this.Releases += [EntityFactory]::GetEntity($_) }
+    }
 
     ###########################################################################
     # Helpers

@@ -85,8 +85,23 @@ class EntityFactory
         # Increase instantiation count
         [EntityFactory]::InstantiationCount += 1
 
+        # Audio namespace
+        if (
+            $XmlElement.NamespaceUri -eq [UmsAeEntity]::NamespaceUri["Audio"])
+        {
+            switch ($XmlElement.LocalName)
+            {
+                "album"
+                    { return New-Object -Type UmsAceAlbum($XmlElement) }
+                "label"
+                    { return New-Object -Type UmsAceLabel($XmlElement) }
+                "release"
+                    { return New-Object -Type UmsAceRelease($XmlElement) }                    
+            }
+        }
+
         # Base namespace
-        if ($XmlElement.NamespaceUri -eq [UmsAeEntity]::NamespaceUri["Base"])
+        elseif ($XmlElement.NamespaceUri -eq [UmsAeEntity]::NamespaceUri["Base"])
         {
             switch ($XmlElement.LocalName)
             {
@@ -165,19 +180,6 @@ class EntityFactory
                     { return New-Object -Type UmsMceVenue($XmlElement) }   
                 "work"
                     { return New-Object -Type UmsMceWork($XmlElement) }
-            }
-        }
-
-        # Audio namespace
-        elseif (
-            $XmlElement.NamespaceUri -eq [UmsAeEntity]::NamespaceUri["Audio"])
-        {
-            switch ($XmlElement.LocalName)
-            {
-                "album"
-                    { return New-Object -Type UmsAceAlbum($XmlElement) }
-                "label"
-                    { return New-Object -Type UmsAceLabel($XmlElement) }                    
             }
         }
 
