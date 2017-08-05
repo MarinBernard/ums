@@ -155,6 +155,8 @@ class EntityFactory
                     { return New-Object -Type UmsMcePerformance($XmlElement) }
                 "premiere"
                     { return New-Object -Type UmsMcePremiere($XmlElement) }
+                "publication"
+                    { return New-Object -Type UmsMcePublication($XmlElement) }
                 "section"
                     { return New-Object -Type UmsMceSection($XmlElement) }
                 "style"

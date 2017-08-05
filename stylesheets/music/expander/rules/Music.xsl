@@ -94,6 +94,12 @@
 			<xsl:with-param name="TargetElement" select="'performance'"/>
 		</xsl:call-template>
 	</xsl:template>
+	<!-- Transclusion of <publication> references -->
+	<xsl:template match="umsm:publication[@uid][not(*)]">
+		<xsl:call-template name="Transcluder">
+			<xsl:with-param name="TargetElement" select="'publication'"/>
+		</xsl:call-template>
+	</xsl:template>
 	<!-- Transclusion of <style> references -->
 	<xsl:template match="umsm:style[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">

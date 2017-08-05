@@ -4,7 +4,7 @@
 	xmlns:umsa="http://schemas.olivarim.com/ums/1.0/audio"
 	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
-	<xsl:template name="BT_AudioContentBinding">
+	<xsl:template name="BT_AudioBinding">
 		<!--======================================================================
 		 !	Processing file list
 		 =========================================================================-->

@@ -80,6 +80,7 @@ function Get-UmsConfigurationItem
             "UmsFileExtension",
             "UmsFolderName",
             "UmsHiddenFolders",
+            "UmsIndependentFilePrefix",
             "UmsStaticFolderName")]
         [string] $ShortName
     )
@@ -104,11 +105,12 @@ function Get-UmsConfigurationItem
             "SaxonJarPath"          { return (Get-UmsConfigurationItem -Type Tool | Where-Object { $_.Id -eq "saxon-jar" }).Path }        
 
             # System Options
-            "UmsCacheFolderName"    { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-folder-name-cache" }).Value }
-            "UmsFileExtension"      { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-file-extension" }).Value }
-            "UmsFolderName"         { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-folder-name" }).Value }
-            "UmsHiddenFolders"      { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-hidden-folders" }).Value }
-            "UmsStaticFolderName"   { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-folder-name-static" }).Value }
+            "UmsCacheFolderName"       { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-folder-name-cache" }).Value }
+            "UmsFileExtension"         { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-file-extension" }).Value }
+            "UmsFolderName"            { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-folder-name" }).Value }
+            "UmsHiddenFolders"         { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-hidden-folders" }).Value }
+            "UmsIndependentFilePrefix" { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-independent-file-prefix" }).Value }
+            "UmsStaticFolderName"      { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-folder-name-static" }).Value }
 
             # UMS rendering options
             "CatalogIdDelimiter"        { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "catalog-id-delimiter" }).Value }

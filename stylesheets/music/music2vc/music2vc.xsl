@@ -47,7 +47,7 @@
 	<!--
 	
 	Processing starts at the files element -->
-	<xsl:template match="umsb:file/umsa:contentBinding">
-		<xsl:call-template name="BT_AudioContentBinding"/>
+	<xsl:template match="umsa:binding">
+		<xsl:call-template name="BT_AudioBinding"/>
 	</xsl:template>
 </xsl:stylesheet>

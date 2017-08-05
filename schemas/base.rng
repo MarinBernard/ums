@@ -13,7 +13,6 @@
 			<ref name="BCT_City"/>
 			<ref name="BCT_Country"/>
 			<ref name="BCT_CountryState"/>
-			<ref name="BCT_File"/>
 			<ref name="BCT_Language"/>
 		</choice>
 	</start>

@@ -6,6 +6,13 @@
 			<ref name="BAT_Referenceable"/>
 			<!-- Inheritance from the Product abstract type -->
 			<ref name="BAT_Product"/>
+			<!-- Publication info about the composition -->
+			<optional>
+				<choice>
+					<ref name="MCT_Publication"/>
+					<ref name="MRT_Publication"/>
+				</choice>
+			</optional>
 			<!-- Catalog IDs associated to the composition -->
 			<optional>
 				<ref name="MLT_CatalogIds"/>

@@ -28,6 +28,7 @@
 			<mapping subpath="instruments" element="instrument"/>
 			<mapping subpath="keys" element="key"/>
 			<mapping subpath="lyricists" element="lyricist"/>
+			<mapping subpath="publications" element="publication"/>
 			<mapping subpath="styles" element="style"/>
 			<mapping subpath="venues" element="venue"/>
 		</catalog>
@@ -53,7 +54,6 @@
 				<option id="instruments-list-suffix">]</option>
 				<option id="movement-titles-concatenate">False</option>
 				<option id="movement-titles-delimiter"> / </option>
-				<option id="keys-prefer-short-labels">True</option>
 				<option id="vorbis-album-titles-include-conductors">True</option>
 				<option id="vorbis-album-titles-include-composers">True</option>
 				<option id="vorbis-album-titles-include-ensembles">True</option>
@@ -122,7 +122,7 @@
 				<option id="vorbis-titles-show-tempo-markings">True</option>
 				<option id="work-titles-show-catalog-ids">True</option>
 				<option id="work-titles-show-key">True</option>
-				<option id="work-titles-show-year">True</option>
+				<option id="work-titles-show-year">False</option>
 				<option id="work-titles-year-prefix">(</option>
 				<option id="work-titles-year-suffix">)</option>
 				<option id="work-titles-year-type">completion</option>
@@ -130,14 +130,14 @@
 		</stylesheet>
 	</stylesheets>
 	<tools>
-		<tool id="jre-bin" path="C:\Program Files\Java\jre1.8.0_131\bin\java.exe"/>
+		<tool id="jre-bin" path="C:\Program Files (x86)\Java\jre1.8.0_144\bin\java.exe"/>
 		<tool id="jing-jar" path="C:\Program Files\XMLBlueprint 13\JavaLib\jing-trang-20151127\bin\jing.jar"/>
 		<tool id="saxon-jar" path="C:\Program Files\XMLBlueprint 13\JavaLib\SaxonPE9-7-0-18J\saxon9pe.jar"/>
 	</tools>
 	<rendering>
 		<option id="catalog-id-delimiter">, </option>
-		<option id="catalog-id-list-prefix">[</option>
-		<option id="catalog-id-list-suffix">]</option>
+		<option id="catalog-id-list-prefix">(</option>
+		<option id="catalog-id-list-suffix">)</option>
 		<option id="character-delimiter">/</option>
 		<option id="character-list-prefix">(</option>
 		<option id="character-list-suffix">)</option>
@@ -164,7 +164,7 @@
 		<option id="place-delimiter">, </option>
 		<option id="prefer-common-labels">True</option>
 		<option id="prefer-common-names">True</option>
-		<option id="prefer-short-keys">True</option>
+		<option id="prefer-short-keys">False</option>
 		<option id="preferred-language">fr</option>
 		<option id="pseudonym-prefix">('</option>
 		<option id="pseudonym-suffix">')</option>
@@ -182,6 +182,7 @@
 		<option id="ums-folder-name-cache">cache</option>
 		<option id="ums-folder-name-static">static</option>
 		<option id="ums-hidden-folders">True</option>
+		<option id="ums-independent-file-prefix">__</option>
 	</system>
 	
 </configuration>

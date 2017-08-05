@@ -43,6 +43,10 @@
 						<xsl:when test="document(concat($_currentDocumentPath, '/', $_targetDocumentName))">
 							<xsl:value-of select="concat($_currentDocumentPath, '/', $_targetDocumentName)"/>
 						</xsl:when>
+						<!-- Searching in relative path with ums independent file prefix -->					
+						<xsl:when test="document(concat($_currentDocumentPath, '/', $CFG_UMSIndependentFilePrefix, $_targetDocumentName))">
+							<xsl:value-of select="concat($_currentDocumentPath, '/', $CFG_UMSIndependentFilePrefix, $_targetDocumentName)"/>
+						</xsl:when>
 						<!-- We halt here if no file was found -->
 						<xsl:otherwise>
 							<xsl:message terminate="yes" select="concat('ERROR: A reference to a *', $TargetElement, '* element was unresolved: ', $_targetDocumentName)"/>

@@ -1,13 +1,13 @@
 ###############################################################################
-#   Concrete entity class UmsMceWork
+#   Concrete entity class UmsMcePublication
 #==============================================================================
 #
-#   This class describes a music work entity, built from a 'work' XML element
-#   from the UMS music namespace.
+#   This class describes a music publication entity, built from a 'publication'
+#   XML element from the UMS music namespace.
 #
 ###############################################################################
 
-class UmsMceWork : UmsBaeProduct
+class UmsMcePublication : UmsBaeProduct
 {
     ###########################################################################
     # Static properties
@@ -53,25 +53,17 @@ class UmsMceWork : UmsBaeProduct
 
     [UmsMceCatalogId[]]     $CatalogIds
     [UmsMceComposer[]]      $Composers
-    [UmsMceInstrument[]]    $Instruments
-    [UmsMceForm]            $Form
-    [UmsMceStyle]           $Style
-    [UmsMcePublication]     $Publication
-    [UmsMceInception]       $Inception
-    [UmsMceCompletion]      $Completion
-    [UmsMcePremiere]        $Premiere
-    [UmsMceSection[]]       $Sections
 
     ###########################################################################
     # Constructors
     ###########################################################################
 
     # Standard constructor.
-    UmsMceWork([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsMcePublication([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(
-            $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "work")
+            $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "publication")
 
         # Optional 'catalogIds' element
         if ($XmlElement.catalogIds)
@@ -82,75 +74,14 @@ class UmsMceWork : UmsBaeProduct
                     [UmsAeEntity]::NamespaceUri.Music,
                     "catalogIds"))
         }
-
-        # Optional 'publication' element
-        if ($XmlElement.publication)
-        {
-            $this.Publication = (
-                [EntityFactory]::GetEntity(
-                    $this.GetOneXmlElement(
-                        $XmlElement,
-                        [UmsAeEntity]::NamespaceUri.Music,
-                        "publication")))
-        }
-
-        # Optional 'inception' element
-        if ($XmlElement.inception)
-        {
-            $this.Inception = (
-                [EntityFactory]::GetEntity(
-                    $this.GetOneXmlElement(
-                        $XmlElement,
-                        [UmsAeEntity]::NamespaceUri.Music,
-                        "inception")))
-        }
-
-        # Optional 'completion' element
-        if ($XmlElement.completion)
-        {
-            $this.Completion = (
-                [EntityFactory]::GetEntity(
-                    $this.GetOneXmlElement(
-                        $XmlElement,
-                        [UmsAeEntity]::NamespaceUri.Music,
-                        "completion")))
-        }
-
-        # Optional 'premiere' element
-        if ($XmlElement.premiere)
-        {
-            $this.Premiere = (
-                [EntityFactory]::GetEntity(
-                    $this.GetOneXmlElement(
-                        $XmlElement,
-                        [UmsAeEntity]::NamespaceUri.Music,
-                        "premiere")))
-        }
         
-        # Mandatory 'composers' element (collection of 'composer' elements)
-        $this.BuildComposers(
-            $this.GetOneXmlElement(
-                $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "composers"))
-
-        # Mandatory 'instruments' element (collection of 'instrument' elements)
-        $this.BuildInstruments(
-            $this.GetOneXmlElement(
-                $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "instruments"))
-
-        # Mandatory 'form' element
-        $this.Form = [EntityFactory]::GetEntity(
-            $this.GetOneXmlElement(
-                $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "form"))
-
-        # Mandatory 'style' element
-        $this.Style = [EntityFactory]::GetEntity(
-            $this.GetOneXmlElement(
-                $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "style"))
-        
-        # Mandatory 'sections' element (collection of 'section' elements)
-        $this.BuildSections(
-            $this.GetOneXmlElement(
-                $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "sections"))
+        # Optional 'composers' element (collection of 'composer' elements)
+        if ($XmlElement.composers)
+        {
+            $this.BuildComposers(
+                $this.GetOneXmlElement(
+                    $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "composers"))
+        }
     }
 
     # Sub-constructor for the 'catalogIds' element
@@ -175,28 +106,6 @@ class UmsMceWork : UmsBaeProduct
                 $this.Composers += [EntityFactory]::GetEntity($_) }
     }
 
-    # Sub-constructor for the 'instruments' element
-    [void] BuildInstruments([System.Xml.XmlElement] $InstrumentsElement)
-    {
-        $this.GetOneOrManyXmlElement(
-            $InstrumentsElement,
-            [UmsAeEntity]::NamespaceUri.Music,
-            "instrument"
-        ) | foreach {
-                $this.Instruments += [EntityFactory]::GetEntity($_) }
-    }   
-
-    # Sub-constructor for the 'sections' element
-    [void] BuildSections([System.Xml.XmlElement] $SectionsElement)
-    {
-        $this.GetOneOrManyXmlElement(
-            $SectionsElement,
-            [UmsAeEntity]::NamespaceUri.Music,
-            "section"
-        ) | foreach {
-                $this.Sections += [EntityFactory]::GetEntity($_) }
-    }   
-
     ###########################################################################
     # Helpers
     ###########################################################################
@@ -216,18 +125,18 @@ class UmsMceWork : UmsBaeProduct
             { $_composers += $_composer.Name.ShortName }
 
         # Add composers to the buffer
-        $_string += ([UmsMceWork]::ComposerListPrefix)
+        $_string += ([UmsMcePublication]::ComposerListPrefix)
         $_string += ($_composers -join(
-            [UmsMceWork]::ComposerDelimiter))
-        $_string += ([UmsMceWork]::ComposerListSuffix)
+            [UmsMcePublication]::ComposerDelimiter))
+        $_string += ([UmsMcePublication]::ComposerListSuffix)
         $_addSpace = $true
 
-        # Include work title. We use the ToString() method from the
+        # Include publication title. We use the ToString() method from the
         # UmsBaeProduct base type to get the string.
         # Add space, if needed
         if ($_addSpace) { $_string += ([UmsAeEntity]::NonBreakingSpace) }
 
-        # Add work title to the buffer
+        # Add publication title to the buffer
         $_string += ([UmsBaeProduct] $this).ToString()
         $_addSpace = $true
 
@@ -243,10 +152,10 @@ class UmsMceWork : UmsBaeProduct
                 { $_catalogIds += $_catalogId.ToString() }
 
             # Add catalog ids to the buffer
-            $_string += ([UmsMceWork]::CatalogIdListPrefix)
+            $_string += ([UmsMcePublication]::CatalogIdListPrefix)
             $_string += ($_catalogIds -join(
-                [UmsMceWork]::CatalogIdDelimiter))
-            $_string += ([UmsMceWork]::CatalogIdListSuffix)
+                [UmsMcePublication]::CatalogIdDelimiter))
+            $_string += ([UmsMcePublication]::CatalogIdListSuffix)
             $_addSpace = $true
         }
 

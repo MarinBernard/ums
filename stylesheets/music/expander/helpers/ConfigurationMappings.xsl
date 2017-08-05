@@ -33,6 +33,15 @@
 		</xsl:call-template>
 	</xsl:variable>
 	<!--
+	
+	Prefix of independent UMS files -->
+	<xsl:variable name="CFG_UMSIndependentFilePrefix">
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionDomain" select="'system'"/>
+			<xsl:with-param name="OptionName" select="'ums-independent-file-prefix'"/>
+		</xsl:call-template>
+	</xsl:variable>
+	<!--
 	==============================================================================
 	!
 	!	Base catalog URIs
@@ -156,6 +165,13 @@
 		<xsl:call-template name="getCatalogUriForElement">
 			<xsl:with-param name="Namespace" select="'http://schema.olivarim.com/ums/1.0/music'"/>
 			<xsl:with-param name="ElementName" select="'movement'"/>
+		</xsl:call-template>
+	</xsl:variable>
+	<!-- URI to the catalog of publication music elements -->
+	<xsl:variable name="CAT_Music_Publications">
+		<xsl:call-template name="getCatalogUriForElement">
+			<xsl:with-param name="Namespace" select="'http://schema.olivarim.com/ums/1.0/music'"/>
+			<xsl:with-param name="ElementName" select="'publication'"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<!-- URI to the catalog of style music elements -->

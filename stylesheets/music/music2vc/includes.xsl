@@ -15,7 +15,7 @@
 	<xsl:include href="helpers/Variants.xsl"/>
 	<xsl:include href="helpers/VorbisComment.xsl"/>
 	<!-- Binding templates -->
-	<xsl:include href="bindings/AudioContentBinding.xsl"/>
+	<xsl:include href="bindings/AudioBinding.xsl"/>
 	<!-- Raw value getters -->
 	<xsl:include href="getter/Label.xsl"/>
 	<xsl:include href="getter/Name.xsl"/>

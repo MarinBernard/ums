@@ -31,9 +31,9 @@
 	<umsa:media>
 		<umsa:medium number="1" type="CDDA">
 			<umsa:tracks>
-				<umsa:track number="1" performance="_performance" section="I/1"/>
-				<umsa:track number="2" performance="_performance" section="I/2"/>
-				<umsa:track number="3" performance="_performance" section="I/3"/>
+				<umsa:track number="1" performance="performance" section="I/1"/>
+				<umsa:track number="2" performance="performance" section="I/2"/>
+				<umsa:track number="3" performance="performance" section="I/3"/>
 			</umsa:tracks>
 		</umsa:medium>
 		<umsa:medium number="2" type="CDDA">
@@ -43,6 +43,6 @@
 		</umsa:medium>
 	</umsa:media>
 	<umsm:performances>
-		<umsm:performance uid="_performance"/>
+		<umsm:performance uid="performance"/>
 	</umsm:performances>
 </umsa:album>

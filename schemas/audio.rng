@@ -9,8 +9,8 @@
 	<include href="audio/include.rng"/>
 	<start>
 		<choice>
+			<ref name="ABT_Binding"/>
 			<ref name="ACT_Album"/>
-			<ref name="ABT_ContentBinding"/>
 			<ref name="ACT_Label"/>
 		</choice>
 	</start>
