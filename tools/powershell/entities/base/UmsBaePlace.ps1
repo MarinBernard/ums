@@ -103,6 +103,7 @@ class UmsBaePlace : UmsBaeItem
     {
         # Initialize empty string
         [string] $_string = ""
+        $_addDelimiter = $false
 
         # Include ToString() output for labelVariant data. This string shall be
         # void if the 'place' element has no 'labelVariants' child element.
@@ -110,28 +111,34 @@ class UmsBaePlace : UmsBaeItem
         if ($_labelToString)
         {
             $_string += $_labelToString
+            $_addDelimiter = $true
         }
 
         # Add city string, which includes countryState and country suffices
         if($this.City)
         {
-            if ($_labelToString)
+            if ($_addDelimiter -eq $true)
                 { $_string += [UmsBaePlace]::PlaceDelimiter }
             $_string += $this.City.ToString()
+            $_addDelimiter = $true
         }
 
         # Add countryState string, which includes a country suffix
         elseif($this.CountryState)
         {
-            $_string += [UmsBaePlace]::PlaceDelimiter
+            if ($_addDelimiter -eq $true)
+                { $_string += [UmsBaePlace]::PlaceDelimiter }
             $_string += $this.CountryState.ToString()
+            $_addDelimiter = $true
         }
 
         # Add country string, which includes no suffix
         elseif($this.Country)
         {
-            $_string += [UmsBaePlace]::PlaceDelimiter
+            if ($_addDelimiter -eq $true)
+                { $_string += [UmsBaePlace]::PlaceDelimiter }
             $_string += $this.Country.ToString()
+            $_addDelimiter = $true
         }
 
         return $_string
