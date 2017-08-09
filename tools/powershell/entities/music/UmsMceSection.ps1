@@ -39,7 +39,8 @@ class UmsMceSection : UmsBaeProduct
     ###########################################################################
 
     # Standard constructor.
-    UmsMceSection([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsMceSection([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(
@@ -80,7 +81,8 @@ class UmsMceSection : UmsBaeProduct
             [UmsAeEntity]::NamespaceUri.Music,
             "section"
         ) | foreach {
-                $this.Sections += [EntityFactory]::GetEntity($_) }
+                $this.Sections += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 
     # Sub-constructor for the 'movements' element
@@ -91,7 +93,8 @@ class UmsMceSection : UmsBaeProduct
             [UmsAeEntity]::NamespaceUri.Music,
             "movement"
         ) | foreach {
-                $this.Movements += [EntityFactory]::GetEntity($_) }
+                $this.Movements += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }   
 
     ###########################################################################

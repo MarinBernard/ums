@@ -57,7 +57,8 @@ class UmsBaeEvent : UmsAeEntity
     ###########################################################################
 
     # Abstract constructor, to be called by child constructors.
-    UmsBaeEvent([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsBaeEvent([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Instantiation of an abstract class is forbidden
         if ($this.getType().Name -eq "UmsBaeEvent")
@@ -91,7 +92,9 @@ class UmsBaeEvent : UmsAeEntity
                         $this.GetOneXmlElement(
                             $XmlElement,
                             [UmsAeEntity]::NamespaceUri.Base,
-                            "place")))
+                            "place"),
+                        $this.SourcePathUri,
+                        $this.SourceFileUri))
             }
         }
 

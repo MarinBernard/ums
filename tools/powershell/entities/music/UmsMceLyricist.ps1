@@ -26,7 +26,8 @@ class UmsMceLyricist : UmsBaePerson
     ###########################################################################
 
     # Standard constructor.
-    UmsMceLyricist([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsMceLyricist([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(

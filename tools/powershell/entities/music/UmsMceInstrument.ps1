@@ -26,7 +26,8 @@ class UmsMceInstrument : UmsBaeItem
     ###########################################################################
 
     # Standard constructor.
-    UmsMceInstrument([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsMceInstrument([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(

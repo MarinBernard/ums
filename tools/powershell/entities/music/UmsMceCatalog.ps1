@@ -26,7 +26,8 @@ class UmsMceCatalog : UmsBaeItem
     ###########################################################################
 
     # Standard constructor.
-    UmsMceCatalog([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsMceCatalog([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(

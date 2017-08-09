@@ -32,7 +32,8 @@ class UmsMceCatalogId : UmsAeEntity
     ###########################################################################
 
     # Standard constructor.
-    UmsMceCatalogId([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsMceCatalogId([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(
@@ -44,7 +45,9 @@ class UmsMceCatalogId : UmsAeEntity
                 $this.GetOneXmlElement(
                     $XmlElement,
                     [UmsAeEntity]::NamespaceUri.Music,
-                    "catalog")))
+                    "catalog"),
+                    $this.SourcePathUri,
+                    $this.SourceFileUri))
         
         # Populate the 'Entries' property with UmsMceCatalogIdEntry instances
         $this.BuildEntries(
@@ -59,7 +62,7 @@ class UmsMceCatalogId : UmsAeEntity
         {
             # Build and store the entry instance. We do not use the factory here, as
             # the name of 'id' elements is too common.
-            $this.Entries += New-Object -Type UmsMceCatalogIdEntry($_idElement)
+            $this.Entries += New-Object -Type UmsMceCatalogIdEntry($_idElement, $this.SourceFileUri)
         }
     }
 

@@ -27,7 +27,8 @@ class UmsMceInception : UmsBaeEvent
     ###########################################################################
 
     # Standard constructor.
-    UmsMceInception([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsMceInception([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(

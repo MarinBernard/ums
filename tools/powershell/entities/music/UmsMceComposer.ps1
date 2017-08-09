@@ -26,7 +26,8 @@ class UmsMceComposer : UmsBaePerson
     ###########################################################################
 
     # Standard constructor.
-    UmsMceComposer([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsMceComposer([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(

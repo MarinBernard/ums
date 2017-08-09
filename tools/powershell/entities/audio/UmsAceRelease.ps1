@@ -27,7 +27,8 @@ class UmsAceRelease : UmsBaeEvent
     ###########################################################################
 
     # Standard constructor.
-    UmsAceRelease([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsAceRelease([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(

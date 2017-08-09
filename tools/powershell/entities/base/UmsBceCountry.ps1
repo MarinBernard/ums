@@ -26,7 +26,8 @@ class UmsBceCountry : UmsBaeItem
     ###########################################################################
 
     # Standard constructor.
-    UmsBceCountry([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsBceCountry([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(

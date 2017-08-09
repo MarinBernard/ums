@@ -27,7 +27,8 @@ class UmsBcePlace : UmsBaePlace
     ###########################################################################
 
     # Standard constructor.
-    UmsBcePlace([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsBcePlace([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(

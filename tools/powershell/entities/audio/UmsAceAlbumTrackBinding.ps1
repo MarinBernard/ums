@@ -1,16 +1,13 @@
 ###############################################################################
-#   Concrete entity class UmsMcePremiere
+#   Concrete entity class UmsAceAlbumTrackBinding
 #==============================================================================
 #
-#   This class describes a composition premiere event entity, built from an
-#   'premiere' XML element from the music namespace. This describes the date
-#   and place at which the premiere of a music work took place.
-#   This entity inherits the UmsMaeEvent class rather that the UmsBaeEvent
-#   class. This means it supports specifying a musical venue as an event place.
+#   This class describes an album track binding, built from an
+#   'albumTrackBinding' XML element from the audio namespace.
 #
 ###############################################################################
 
-class UmsMcePremiere : UmsMaeEvent
+class UmsAceAlbumTrackBinding : UmsAeEntity
 {
     ###########################################################################
     # Static properties
@@ -24,17 +21,41 @@ class UmsMcePremiere : UmsMaeEvent
     # Visible properties
     ###########################################################################
 
+    [int] $Medium
+    [int] $Side = 1
+    [int] $Track
+
+    [UmsAceAlbum] $Album
+
     ###########################################################################
     # Constructors
     ###########################################################################
 
     # Standard constructor.
-    UmsMcePremiere([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+    UmsAceAlbumTrackBinding([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
         : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(
-            $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "premiere")
+            $XmlElement, [UmsAeEntity]::NamespaceUri.Audio, "albumTrackBinding")
+
+        # Attributes
+        $this.Medium = $this.GetMandatoryXmlAttributeValue(
+            $XmlElement, "medium")
+        $this.Side = $this.GetOptionalXmlAttributeValue(
+            $XmlElement, "side")
+        $this.Track = $this.GetMandatoryXmlAttributeValue(
+            $XmlElement, "track")
+
+        # Mandatory 'album' element
+        $this.Album = (
+            [EntityFactory]::GetEntity(
+                $this.GetOneXmlElement(
+                    $XmlElement,
+                    [UmsAeEntity]::NamespaceUri.Audio,
+                    "album"),
+                $this.SourcePathUri,
+                $this.SourceFileUri))
     }
 
     ###########################################################################

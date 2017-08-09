@@ -26,7 +26,8 @@ class UmsAceLabel : UmsBaeItem
     ###########################################################################
 
     # Standard constructor.
-    UmsAceLabel([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsAceLabel([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(

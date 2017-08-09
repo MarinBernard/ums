@@ -32,6 +32,24 @@
             MinExpectedCount =  "Minimum expected number: {0}"
             MaxExpectedCount =  "Maximum expected number: {0}"
         }
+        IncompatibleUmsReferenceElementName =  @{
+            MainMessage = "The document element of the XML document targeted by a UMS reference does not have the expected local name."
+            ResourceUri = "Resource URI is: {0}"
+            ActualName = "Actual local name is: {0}"
+            ExpectedName = "Expected local name is: {0}"
+        }       
+        IncompatibleUmsReferenceElementNamespace =  @{
+            MainMessage = "The document element of the XML document targeted by a UMS reference does not belong to the expected namespace."
+            ResourceUri = "Resource URI is: {0}"
+            ActualNamespace = "Actual namespace is: {0}"
+            ExpectedNamespace = "Expected namespace is: {0}"
+        }        
+        IncompatibleUmsReferenceResourceType =  @{
+            MainMessage = "The resource targeted by a UMS reference is of an unsupported type."
+            ResourceUri = "Resource URI is: {0}"
+            ResourceType = "Actual resource type is: {0}"
+            ExpectedType = "Expected resource type is: {0}"
+        }
         IncompatibleXmlElement = @{
             MainMessage = "Unable to create an instance of class {0} because the XML element passed to the constructor was rejected."
             ElementNamespace = "Element namespace is: {0}"
@@ -46,6 +64,13 @@
         UnhandlableUmsReferenceException = @{
             MainMessage = "The entity factory found a UMS reference to element {0} in namespace {1}, with uid {2}. UMS reference handling is not yet implemented."
         }
+        UnresolvableUmsReference =  @{
+            MainMessage = "A UMS reference could not be resolved: no match was found using any of the configured catalogs, nor a local path."
+            NamespaceURI = "Namespace of the reference: {0}"
+            LocalName = "Local name of the reference: {0}"
+            TriedUri = "Tried URI: {0}"
+            Uid = "Uid of the reference: {0}"
+        }  
     ConvertToForeignMetadata = @{
         BadBindingNamespace = "The binding namespace of the source UMS item does not allow this operation. The binding element is {0}, whereas the parameters you specified require namespace {1}."
         BadBindingElement = "The binding element of the source UMS item does not allow this operation. The binding namespace is {0}, whereas the parameters you specified require element {1}."

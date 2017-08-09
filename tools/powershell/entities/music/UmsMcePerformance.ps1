@@ -56,7 +56,8 @@ class UmsMcePerformance : UmsMaeEvent
     ###########################################################################
 
     # Standard constructor.
-    UmsMcePerformance([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsMcePerformance([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(
@@ -68,7 +69,9 @@ class UmsMcePerformance : UmsMaeEvent
                 $this.GetOneXmlElement(
                     $XmlElement,
                     [UmsAeEntity]::NamespaceUri.Music,
-                    "work")))
+                    "work"),
+                $this.SourcePathUri,
+                $this.SourceFileUri))
         
         # Mandatory 'performers' element (collection of 'performer' elements)
         $this.BuildPerformers(
@@ -102,14 +105,16 @@ class UmsMcePerformance : UmsMaeEvent
                 [UmsAeEntity]::NamespaceUri.Music,
                 "instrumentalist"
             ) | foreach {
-                    $this.Instrumentalists += [EntityFactory]::GetEntity($_) }
+                    $this.Instrumentalists += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
             
             $this.GetZeroOrManyXmlElement(
                 $_performerElement,
                 [UmsAeEntity]::NamespaceUri.Music,
                 "ensemble"
             ) | foreach {
-                    $this.Ensembles += [EntityFactory]::GetEntity($_) }
+                    $this.Ensembles += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
         }
     }
 
@@ -121,7 +126,8 @@ class UmsMcePerformance : UmsMaeEvent
             [UmsAeEntity]::NamespaceUri.Music,
             "conductor"
         ) | foreach {
-                $this.Conductors += [EntityFactory]::GetEntity($_) }
+                $this.Conductors += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
     
     ###########################################################################

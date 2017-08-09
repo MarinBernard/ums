@@ -39,7 +39,8 @@ class UmsBaeItem : UmsBaeResource
     ###########################################################################
 
     # Abstract constructor, to be called by child constructors.
-    UmsBaeItem([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsBaeItem([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Instantiation of an abstract class is forbidden
         if ($this.getType().Name -eq "UmsBaeItem")
@@ -67,7 +68,8 @@ class UmsBaeItem : UmsBaeResource
             [UmsAeEntity]::NamespaceUri.Base,
             "labelVariant"
         ) | foreach {
-                $this.LabelVariants += [EntityFactory]::GetEntity($_) }
+                $this.LabelVariants += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
 
         # Get the best label variant
         $this.Label = [UmsBaeVariant]::GetBestVariant($this.LabelVariants)
@@ -81,7 +83,8 @@ class UmsBaeItem : UmsBaeResource
             [UmsAeEntity]::NamespaceUri.Base,
             "standardId"
         ) | foreach {
-                $this.StandardIds += [EntityFactory]::GetEntity($_) }
+                $this.StandardIds += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 
     ###########################################################################

@@ -43,7 +43,8 @@ class UmsBaePlace : UmsBaeItem
     ###########################################################################
 
     # Standard constructor.
-    UmsBaePlace([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsBaePlace([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Instantiation of an abstract class is forbidden
         if ($this.getType().Name -eq "UmsBaePlace")
@@ -60,7 +61,9 @@ class UmsBaePlace : UmsBaeItem
                     $this.GetOneXmlElement(
                         $XmlElement,
                         [UmsAeEntity]::NamespaceUri.Base,
-                        "city")))
+                        "city"),
+                    $this.SourcePathUri,
+                    $this.SourceFileUri))
             
             # Set the other properties to that of the City
             $this.CountryState = $this.City.CountryState
@@ -75,7 +78,9 @@ class UmsBaePlace : UmsBaeItem
                     $this.GetOneXmlElement(
                         $XmlElement,
                         [UmsAeEntity]::NamespaceUri.Base,
-                        "countryState")))
+                        "countryState"),
+                    $this.SourcePathUri,
+                    $this.SourceFileUri))
             
             # Set the country property to that of the CountryState
             $this.Country = $this.CountryState.Country
@@ -89,7 +94,9 @@ class UmsBaePlace : UmsBaeItem
                     $this.GetOneXmlElement(
                         $XmlElement,
                         [UmsAeEntity]::NamespaceUri.Base,
-                        "country")))
+                        "country"),
+                    $this.SourcePathUri,
+                    $this.SourceFileUri))
         }
     }
 

@@ -36,7 +36,8 @@ class UmsBceCity : UmsBaeItem
     ###########################################################################
 
     # Standard constructor.
-    UmsBceCity([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsBceCity([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(
@@ -50,7 +51,9 @@ class UmsBceCity : UmsBaeItem
                     $this.GetOneXmlElement(
                         $XmlElement,
                         [UmsAeEntity]::NamespaceUri.Base,
-                        "countryState")))
+                        "countryState"),
+                    $this.SourcePathUri,
+                    $this.SourceFileUri))
             
             # Set the country property to that of the CountryState
             $this.Country = $this.CountryState.Country
@@ -65,7 +68,9 @@ class UmsBceCity : UmsBaeItem
                     $this.GetOneXmlElement(
                         $XmlElement,
                         [UmsAeEntity]::NamespaceUri.Base,
-                        "country")))
+                        "country"),
+                    $this.SourcePathUri,
+                    $this.SourceFileUri))
         }
     }
 

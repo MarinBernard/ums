@@ -28,7 +28,7 @@
 	<!-- URI to the catalog hosting common language elements -->
 	<xsl:variable name="config.catalogs.languages">
 		<xsl:call-template name="getCatalogUriForElement">
-			<xsl:with-param name="Namespace" select="'http://schema.olivarim.com/ums/1.0/base'"/>
+			<xsl:with-param name="Namespace" select="'http://schemas.olivarim.com/ums/1.0/base'"/>
 			<xsl:with-param name="ElementName" select="'language'"/>
 		</xsl:call-template>
 	</xsl:variable>

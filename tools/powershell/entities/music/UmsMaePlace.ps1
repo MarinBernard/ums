@@ -37,7 +37,8 @@ class UmsMaePlace : UmsBaePlace
     ###########################################################################
 
     # Standard constructor.
-    UmsMaePlace([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsMaePlace([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Instantiation of an abstract class is forbidden
         if ($this.getType().Name -eq "UmsMaePlace")
@@ -54,7 +55,9 @@ class UmsMaePlace : UmsBaePlace
                     $this.GetOneXmlElement(
                         $XmlElement,
                         [UmsAeEntity]::NamespaceUri.Music,
-                        "venue")))
+                        "venue"),
+                    $this.SourcePathUri,
+                    $this.SourceFileUri))
             
             # Set the other properties to that of the venue
             $this.City = $this.Venue.City

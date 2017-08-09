@@ -39,7 +39,8 @@ class UmsBaeVariant : UmsAeEntity
     ###########################################################################
 
     # Abstract constructor, to be called by child constructors.
-    UmsBaeVariant([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsBaeVariant([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Instantiation of an abstract class is forbidden
         if ($this.getType().Name -eq "UmsBaeVariant")

@@ -26,7 +26,8 @@ class UmsMceKey : UmsBaeItem
     ###########################################################################
 
     # Standard constructor.
-    UmsMceKey([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsMceKey([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(

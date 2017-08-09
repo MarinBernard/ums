@@ -99,7 +99,8 @@ class UmsMceMovement : UmsBaeProduct
     ###########################################################################
 
     # Standard constructor.
-    UmsMceMovement([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsMceMovement([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(
@@ -153,7 +154,9 @@ class UmsMceMovement : UmsBaeProduct
                     $this.GetOneXmlElement(
                         $XmlElement,
                         [UmsAeEntity]::NamespaceUri.Music,
-                        "key")))
+                        "key"),
+                    $this.SourcePathUri,
+                    $this.SourceFileUri))
         }
 
         # Mandatory 'instruments' element (collection of 'instrument' elements)
@@ -187,7 +190,8 @@ class UmsMceMovement : UmsBaeProduct
             [UmsAeEntity]::NamespaceUri.Music,
             "catalogId"
         ) | foreach {
-                $this.CatalogIds += [EntityFactory]::GetEntity($_) }
+                $this.CatalogIds += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 
     # Sub-constructor for the 'forms' element
@@ -198,7 +202,8 @@ class UmsMceMovement : UmsBaeProduct
             [UmsAeEntity]::NamespaceUri.Music,
             "form"
         ) | foreach {
-                $this.Forms += [EntityFactory]::GetEntity($_) }
+                $this.Forms += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 
     # Sub-constructor for the 'instruments' element
@@ -209,7 +214,8 @@ class UmsMceMovement : UmsBaeProduct
             [UmsAeEntity]::NamespaceUri.Music,
             "instrument"
         ) | foreach {
-                $this.Instruments += [EntityFactory]::GetEntity($_) }
+                $this.Instruments += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 
     # Sub-constructor for the 'characters' element
@@ -220,7 +226,8 @@ class UmsMceMovement : UmsBaeProduct
             [UmsAeEntity]::NamespaceUri.Base,
             "character"
         ) | foreach {
-                $this.Characters += [EntityFactory]::GetEntity($_) }
+                $this.Characters += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
         
     # Sub-constructor for the 'lyricists' element
@@ -231,7 +238,8 @@ class UmsMceMovement : UmsBaeProduct
             [UmsAeEntity]::NamespaceUri.Music,
             "lyricist"
         ) | foreach {
-                $this.Lyricists += [EntityFactory]::GetEntity($_) }
+                $this.Lyricists += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 
     ###########################################################################

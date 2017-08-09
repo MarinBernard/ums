@@ -60,6 +60,8 @@ $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDire
 . "$PSScriptRoot\entities\audio\UmsAceLabel.ps1"
 . "$PSScriptRoot\entities\audio\UmsAceRelease.ps1"
 . "$PSScriptRoot\entities\audio\UmsAceAlbum.ps1"
+# Bindings
+. "$PSScriptRoot\entities\audio\UmsAceAlbumTrackBinding.ps1"
 
 # Require entities
 . "$PSScriptRoot\classes\UmsItem.ps1"

@@ -50,10 +50,11 @@ class UmsAeEntity
     hidden [string] $XmlElementName     # Unprefixed name of XML doc. element
 
     # Entity metadata
+    hidden [string] $SourceFileUri  # URI to source transcluded file, if any
+    hidden [string] $SourcePathUri  # URI to path of the trans. file, if any
     hidden [string] $Uid            # Uid of the entity, if set
     hidden [bool]   $RelativeSource # Whether transclusion implied a rel. path
-    hidden [string] $SourceUri      # URI to source transcluded file, if any
-
+    
     ###########################################################################
     # Visible properties
     ###########################################################################
@@ -63,7 +64,7 @@ class UmsAeEntity
     ###########################################################################
 
     # Abstract constructor, to be called by child constructors.
-    UmsAeEntity([System.Xml.XmlElement] $XmlElement)
+    UmsAeEntity([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
     {
         # Instantiation of an abstract class is forbidden
         if ($this.getType().Name -eq "UmsBaeVariant")
@@ -76,7 +77,15 @@ class UmsAeEntity
         $this.XmlNamespaceUri = $XmlElement.NamespaceURI
         $this.XmlElementName  = $XmlElement.LocalName
 
-        # Entity metadata
+        # Absolute URI to the source UMS file from which this entity was
+        # instantiated.
+        $this.SourceFileUri = $Uri.AbsoluteUri
+
+        # Source path URI is built by truncating the absolute URI string
+        # at length - length of the last segment.
+        $this.SourcePathUri = [System.Uri]::New($Uri.AbsoluteUri.Substring(0, $Uri.AbsoluteUri.Length - $Uri.Segments[-1].Length)).AbsoluteUri
+
+        # The "uid" attribute is optional and only specified with references
         if ($XmlElement.HasAttribute("uid"))
         {
             $this.Uid = $this.GetMandatoryXmlAttributeValue(
@@ -89,7 +98,7 @@ class UmsAeEntity
         }
         if ($XmlElement.HasAttribute("src"))
         {
-            $this.SourceUri = $this.GetMandatoryXmlAttributeValue(
+            $this.SourceFileUri = $this.GetMandatoryXmlAttributeValue(
                 $XmlElement, "src")
         }
     }

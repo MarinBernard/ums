@@ -30,8 +30,12 @@ class UmsAceAlbum : UmsBaeProduct
     ###########################################################################
 
     # Standard constructor.
-    UmsAceAlbum([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsAceAlbum([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
+        # Verbose prefix
+        $_verbosePrefix = "[UmsAceAlbum]::UmsAceAlbum(): "
+
         # Validate the XML root element
         $this.ValidateXmlElement(
             $XmlElement, [UmsAeEntity]::NamespaceUri.Audio, "album")
@@ -64,12 +68,16 @@ class UmsAceAlbum : UmsBaeProduct
     # Sub-constructor for the 'labels' element
     [void] BuildLabels([System.Xml.XmlElement] $LabelsElement)
     {
+        # Verbose prefix
+        $_verbosePrefix = "[UmsAceAlbum]::BuildLabels(): "
+
         $this.GetOneOrManyXmlElement(
             $LabelsElement,
             [UmsAeEntity]::NamespaceUri.Audio,
             "label"
         ) | foreach {
-                $this.Labels += [EntityFactory]::GetEntity($_) }
+                $this.Labels += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 
     # Sub-constructor for the 'performances' element
@@ -80,7 +88,8 @@ class UmsAceAlbum : UmsBaeProduct
             [UmsAeEntity]::NamespaceUri.Music,
             "performance"
         ) | foreach {
-                $this.Performances += [EntityFactory]::GetEntity($_) }
+                $this.Performances += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 
     # Sub-constructor for the 'releases' element
@@ -91,7 +100,8 @@ class UmsAceAlbum : UmsBaeProduct
             [UmsAeEntity]::NamespaceUri.Audio,
             "release"
         ) | foreach {
-                $this.Releases += [EntityFactory]::GetEntity($_) }
+                $this.Releases += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 
     ###########################################################################

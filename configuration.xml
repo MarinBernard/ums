@@ -1,7 +1,7 @@
 ﻿<configuration>
 	<catalogs>
 		<catalog id="base"
-			namespace="http://schema.olivarim.com/ums/1.0/base"
+			namespace="http://schemas.olivarim.com/ums/1.0/base"
 			uri="file:///C:/Users/marin/Code/ums/catalogs/base">
 			<mapping subpath="cities" element="city"/>
 			<mapping subpath="cities" element="country"/>
@@ -9,12 +9,12 @@
 			<mapping subpath="languages" element="language"/>
 		</catalog>
 		<catalog id="audio"
-			namespace="http://schema.olivarim.com/ums/1.0/audio"
+			namespace="http://schemas.olivarim.com/ums/1.0/audio"
 			uri="file:///C:/Users/marin/Code/ums/catalogs/audio">
 			<mapping subpath="labels" element="label"/>
 		</catalog>
 		<catalog id="music"
-			namespace="http://schema.olivarim.com/ums/1.0/music"
+			namespace="http://schemas.olivarim.com/ums/1.0/music"
 			uri="file:///C:/Users/marin/Code/ums/catalogs/music">
 			<mapping subpath="catalogs" element="catalog"/>
 			<mapping subpath="composers" element="composer"/>

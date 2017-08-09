@@ -47,7 +47,8 @@ class UmsBceLabelVariant : UmsBaeVariant
     ###########################################################################
 
     # Standard constructor.
-    UmsBceLabelVariant([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsBceLabelVariant([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(

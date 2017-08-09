@@ -33,7 +33,8 @@ class UmsBceCountryState : UmsBaeItem
     ###########################################################################
 
     # Standard constructor.
-    UmsBceCountryState([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsBceCountryState([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(
@@ -42,7 +43,9 @@ class UmsBceCountryState : UmsBaeItem
         # Get the mandatory 'country' instance
         $this.Country = [EntityFactory]::GetEntity(
             $this.GetOneXmlElement(
-                $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "country"))
+                $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "country"),
+            $this.SourcePathUri,
+            $this.SourceFileUri)
     }
 
     ###########################################################################

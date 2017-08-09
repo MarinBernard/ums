@@ -41,7 +41,8 @@ class UmsBaeResource : UmsAeEntity
     ###########################################################################
 
     # Abstract constructor, to be called by child constructors.
-    UmsBaeResource([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsBaeResource([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Instantiation of an abstract class is forbidden
         if ($this.getType().Name -eq "UmsBaeResource")
@@ -65,7 +66,8 @@ class UmsBaeResource : UmsAeEntity
             [UmsAeEntity]::NamespaceUri.Base,
             "linkVariant"
         ) | foreach {
-                $this.LinkVariants += [EntityFactory]::GetEntity($_) }
+                $this.LinkVariants += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
 
         # Select the best link variant for each resource type
         $_groups = $this.LinkVariants | Group-Object -Property ResourceType

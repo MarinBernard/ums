@@ -67,7 +67,8 @@ class UmsMceWork : UmsBaeProduct
     ###########################################################################
 
     # Standard constructor.
-    UmsMceWork([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsMceWork([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(
@@ -91,7 +92,9 @@ class UmsMceWork : UmsBaeProduct
                     $this.GetOneXmlElement(
                         $XmlElement,
                         [UmsAeEntity]::NamespaceUri.Music,
-                        "publication")))
+                        "publication"),
+                    $this.SourcePathUri,
+                    $this.SourceFileUri))
         }
 
         # Optional 'inception' element
@@ -102,7 +105,9 @@ class UmsMceWork : UmsBaeProduct
                     $this.GetOneXmlElement(
                         $XmlElement,
                         [UmsAeEntity]::NamespaceUri.Music,
-                        "inception")))
+                        "inception"),
+                    $this.SourcePathUri,
+                    $this.SourceFileUri))
         }
 
         # Optional 'completion' element
@@ -113,7 +118,9 @@ class UmsMceWork : UmsBaeProduct
                     $this.GetOneXmlElement(
                         $XmlElement,
                         [UmsAeEntity]::NamespaceUri.Music,
-                        "completion")))
+                        "completion"),
+                    $this.SourcePathUri,
+                    $this.SourceFileUri))
         }
 
         # Optional 'premiere' element
@@ -124,7 +131,9 @@ class UmsMceWork : UmsBaeProduct
                     $this.GetOneXmlElement(
                         $XmlElement,
                         [UmsAeEntity]::NamespaceUri.Music,
-                        "premiere")))
+                        "premiere"),
+                    $this.SourcePathUri,
+                    $this.SourceFileUri))
         }
         
         # Mandatory 'composers' element (collection of 'composer' elements)
@@ -140,12 +149,16 @@ class UmsMceWork : UmsBaeProduct
         # Mandatory 'form' element
         $this.Form = [EntityFactory]::GetEntity(
             $this.GetOneXmlElement(
-                $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "form"))
+                $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "form"),
+            $this.SourcePathUri,
+            $this.SourceFileUri)
 
         # Mandatory 'style' element
         $this.Style = [EntityFactory]::GetEntity(
             $this.GetOneXmlElement(
-                $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "style"))
+                $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "style"),
+            $this.SourcePathUri,
+            $this.SourceFileUri)
         
         # Mandatory 'sections' element (collection of 'section' elements)
         $this.BuildSections(
@@ -161,7 +174,8 @@ class UmsMceWork : UmsBaeProduct
             [UmsAeEntity]::NamespaceUri.Music,
             "catalogId"
         ) | foreach {
-                $this.CatalogIds += [EntityFactory]::GetEntity($_) }
+                $this.CatalogIds += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }    
     
     # Sub-constructor for the 'composers' element
@@ -172,9 +186,10 @@ class UmsMceWork : UmsBaeProduct
             [UmsAeEntity]::NamespaceUri.Music,
             "composer"
         ) | foreach {
-                $this.Composers += [EntityFactory]::GetEntity($_) }
+                $this.Composers += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
-
+    
     # Sub-constructor for the 'instruments' element
     [void] BuildInstruments([System.Xml.XmlElement] $InstrumentsElement)
     {
@@ -183,7 +198,8 @@ class UmsMceWork : UmsBaeProduct
             [UmsAeEntity]::NamespaceUri.Music,
             "instrument"
         ) | foreach {
-                $this.Instruments += [EntityFactory]::GetEntity($_) }
+                $this.Instruments += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }   
 
     # Sub-constructor for the 'sections' element
@@ -194,7 +210,8 @@ class UmsMceWork : UmsBaeProduct
             [UmsAeEntity]::NamespaceUri.Music,
             "section"
         ) | foreach {
-                $this.Sections += [EntityFactory]::GetEntity($_) }
+                $this.Sections += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }   
 
     ###########################################################################

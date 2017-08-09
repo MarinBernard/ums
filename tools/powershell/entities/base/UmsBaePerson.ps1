@@ -42,7 +42,8 @@ class UmsBaePerson : UmsBaeResource
     ###########################################################################
 
     # Abstract constructor, to be called by child constructors.
-    UmsBaePerson([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsBaePerson([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Instantiation of an abstract class is forbidden
         if ($this.getType().Name -eq "UmsBaeVariant")
@@ -64,7 +65,9 @@ class UmsBaePerson : UmsBaeResource
                     $this.GetOneXmlElement(
                         $XmlElement,
                         [UmsAeEntity]::NamespaceUri.Base,
-                        "birth")))
+                        "birth"),
+                    $this.SourcePathUri,
+                    $this.SourceFileUri))
         }
         
         # Build death event instance
@@ -75,7 +78,9 @@ class UmsBaePerson : UmsBaeResource
                     $this.GetOneXmlElement(
                         $XmlElement,
                         [UmsAeEntity]::NamespaceUri.Base,
-                        "death")))
+                        "death"),
+                    $this.SourcePathUri,
+                    $this.SourceFileUri))
         }
     }
 
@@ -87,7 +92,8 @@ class UmsBaePerson : UmsBaeResource
             [UmsAeEntity]::NamespaceUri.Base,
             "nameVariant") |
         foreach {
-                $this.NameVariants += [EntityFactory]::GetEntity($_) }
+                $this.NameVariants += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
 
         # Get the best name variant
         $this.Name = [UmsBaeVariant]::GetBestVariant($this.NameVariants)

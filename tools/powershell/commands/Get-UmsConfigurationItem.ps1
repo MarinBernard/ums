@@ -89,7 +89,7 @@ function Get-UmsConfigurationItem
     if ($ShortName)
     {
         switch ($ShortName)
-        {
+        {            
             # Schema namespaces
             "AudioSchemaNamespace" { return (Get-UmsConfigurationItem -Type Schema | Where-Object { $_.Id -eq "audio" }).Namespace }
             "BaseSchemaNamespace"  { return (Get-UmsConfigurationItem -Type Schema | Where-Object { $_.Id -eq "base" }).Namespace }
@@ -176,7 +176,7 @@ function Get-UmsConfigurationItem
             New-Object -Type PSCustomObject -Property @{
                 Type = "Catalog";
                 Id = $_catalog.Node.id;
-                Namespace = $_catalog.Node.namespace;
+                XmlNamespace = $_catalog.Node.namespace;
                 Uri = $_catalog.Node.uri;
                 Mappings = $_mappings;
             }   

@@ -36,7 +36,9 @@ class UmsMceCatalogIdEntry : UmsAeEntity
 
     # Standard constructor.
     UmsMceCatalogIdEntry(
-        [System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+        [System.Xml.XmlElement] $XmlElement,
+        [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(

@@ -135,3 +135,92 @@ class MissingXmlElementAttributeException : UmsException
 # Thrown when a null Xml element is supplied.
 class NullXmlElementException : UmsException
     { NullXmlElementException() : base() {} }
+
+# Thrown when a UMS reference targets a resource which is not from the expected
+# type.
+class IncompatibleUmsReferenceResourceType : UmsException
+{
+    IncompatibleUmsReferenceResourceType(
+        [string] $ResourceUri,
+        [string] $ActualResourceType,
+        [string] $ExpectedResourceType
+    ) : base()
+    {
+        $_strings = $global:ModuleStrings.Exceptions.IncompatibleUmsReferenceResourceType
+        $this.MainMessage =  $_strings.MainMessage
+        $this.SubMessages += (
+            $_strings.ResourceUri -f $ResourceUri)
+        $this.SubMessages += (
+            $_strings.ResourceType -f $ActualResourceType)
+        $this.SubMessages += (
+            $_strings.ExpectedType -f $ExpectedResourceType)
+    }
+}
+
+# Thrown when a UMS reference targets an XML document whose document element
+# is not from the expected namespace.
+class IncompatibleUmsReferenceElementNamespace : UmsException
+{
+    IncompatibleUmsReferenceElementNamespace(
+        [string] $ResourceUri,
+        [string] $ActualNamespace,
+        [string] $ExpectedNamespace
+    ) : base()
+    {
+        $_strings = $global:ModuleStrings.Exceptions.IncompatibleUmsReferenceElementNamespace
+        $this.MainMessage =  $_strings.MainMessage
+        $this.SubMessages += (
+            $_strings.ResourceUri -f $ResourceUri)
+        $this.SubMessages += (
+            $_strings.ActualNamespace -f $ActualNamespace)
+        $this.SubMessages += (
+            $_strings.ExpectedNamespace -f $ExpectedNamespace)
+    }
+}
+
+# Thrown when a UMS reference targets an XML document whose document element
+# does not have the expected local name.
+class IncompatibleUmsReferenceElementName : UmsException
+{
+    IncompatibleUmsReferenceElementName(
+        [string] $ResourceUri,
+        [string] $ActualName,
+        [string] $ExpectedName
+    ) : base()
+    {
+        $_strings = $global:ModuleStrings.Exceptions.IncompatibleUmsReferenceElementName
+        $this.MainMessage =  $_strings.MainMessage
+        $this.SubMessages += (
+            $_strings.ResourceUri -f $ResourceUri)
+        $this.SubMessages += (
+            $_strings.ActualName -f $ActualName)
+        $this.SubMessages += (
+            $_strings.ExpectedName -f $ExpectedName)
+    }
+}
+
+# Thrown when a UMS reference could not be resolved.
+class UnresolvableUmsReference : UmsException
+{
+    UnresolvableUmsReference(
+        [string] $NamespaceURI,
+        [string] $LocalName,
+        [string] $Uid,
+        [System.Uri[]] $Uris
+    ) : base()
+    {
+        $_strings = $global:ModuleStrings.Exceptions.UnresolvableUmsReference
+        $this.MainMessage =  $_strings.MainMessage
+        $this.SubMessages += (
+            $_strings.NamespaceURI -f $NamespaceURI)
+        $this.SubMessages += (
+            $_strings.LocalName -f $LocalName)
+        $this.SubMessages += (
+            $_strings.Uid -f $Uid)
+        foreach ($_uri in $Uris)
+        {
+            $this.SubMessages += (
+                $_strings.TriedUri -f $_uri)
+        }
+    }
+}

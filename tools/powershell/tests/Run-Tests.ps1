@@ -26,10 +26,6 @@ foreach( $_file in (Get-ChildItem -File -Filter "*.ums" -Path "$PSScriptRoot\doc
 #. "$ModuleBaseDirectory\entities\base\UmsBaePerson.tests.ps1"
 
 
-$_document = (Get-TestDocument "Audio_Binding_AlbumTrackBinding")
-$_albumElement = $_document.binding.albumTrackBinding.album
-$_performanceElement = $_albumElement.performances.performance
-
 function ShowUmsException($Exception)
 {
     if ($Exception.InnerException)
@@ -47,7 +43,8 @@ function ShowUmsException($Exception)
 
 try
 {
-    ([EntityFactory]::GetEntity($_albumElement).performances[0].Work)
+    $_uri = [System.Uri]::New("C:\Users\marin\Code\ums\tests\current\ums\file1.flac.ums")
+    ([EntityFactory]::ParseDocument($_uri, "test"))
 
 }
 catch

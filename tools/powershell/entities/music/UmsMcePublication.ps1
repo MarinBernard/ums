@@ -59,7 +59,8 @@ class UmsMcePublication : UmsBaeProduct
     ###########################################################################
 
     # Standard constructor.
-    UmsMcePublication([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsMcePublication([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(
@@ -92,7 +93,8 @@ class UmsMcePublication : UmsBaeProduct
             [UmsAeEntity]::NamespaceUri.Music,
             "catalogId"
         ) | foreach {
-                $this.CatalogIds += [EntityFactory]::GetEntity($_) }
+                $this.CatalogIds += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }    
     
     # Sub-constructor for the 'composers' element
@@ -103,7 +105,8 @@ class UmsMcePublication : UmsBaeProduct
             [UmsAeEntity]::NamespaceUri.Music,
             "composer"
         ) | foreach {
-                $this.Composers += [EntityFactory]::GetEntity($_) }
+                $this.Composers += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 
     ###########################################################################

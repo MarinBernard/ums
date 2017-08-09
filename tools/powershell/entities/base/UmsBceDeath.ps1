@@ -26,7 +26,8 @@ class UmsBceDeath : UmsBaeEvent
     ###########################################################################
 
     # Standard constructor.
-    UmsBceDeath([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsBceDeath([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(

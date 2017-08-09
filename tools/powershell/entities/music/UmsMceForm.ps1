@@ -26,7 +26,8 @@ class UmsMceForm : UmsBaeItem
     ###########################################################################
 
     # Standard constructor.
-    UmsMceForm([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsMceForm([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(

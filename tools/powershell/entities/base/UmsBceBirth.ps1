@@ -26,7 +26,8 @@ class UmsBceBirth : UmsBaeEvent
     ###########################################################################
 
     # Standard constructor.
-    UmsBceBirth([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsBceBirth([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(

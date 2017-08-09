@@ -43,7 +43,8 @@ class UmsBceTitleVariant : UmsBaeVariant
     ###########################################################################
 
     # Standard constructor.
-    UmsBceTitleVariant([System.Xml.XmlElement] $XmlElement) : base($XmlElement)
+    UmsBceTitleVariant([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(

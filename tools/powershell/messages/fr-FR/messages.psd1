@@ -32,6 +32,24 @@
             MinExpectedCount =  "Nombre minimal attendu: {0}"
             MaxExpectedCount =  "Nombre maximal attendu: {0}"
         }
+        IncompatibleUmsReferenceElementName =  @{
+            MainMessage = "L'élément racine du document XML ciblé par une référence UMS ne possède pas le nom local attendu."
+            ResourceUri = "L'URI de la ressource est: {0}"
+            ActualName = "Le nom local de l'élément est: {0}"
+            ExpectedName = "Le nom local attendu est: {0}"
+        }         
+        IncompatibleUmsReferenceElementNamespace =  @{
+            MainMessage = "L'élément racine du document XML ciblé par une référence UMS n'appartient pas à l'espace de noms attendu."
+            ResourceUri = "L'URI de la ressource est: {0}"
+            ActualNamespace = "L'espace de noms de l'élément est: {0}"
+            ExpectedNamespace = "L'espace de noms attendu est: {0}"
+        }   
+        IncompatibleUmsReferenceResourceType =  @{
+            MainMessage = "La ressource ciblée par une référence UMS est d'un type non-supporté."
+            ResourceUri = "L'URI de la ressource est: {0}"
+            ResourceType = "Le type de la ressource est: {0}"
+            ExpectedType = "Le type attendu est: {0}"
+        }
         IncompatibleXmlElement = @{
             MainMessage = "Impossible de créer une instance de la classe {0} car l'élément XML fourni au constructeur a été rejeté."
             ElementNamespace = "L'espace de noms de l'élément est: {0}"
@@ -46,6 +64,13 @@
         UnhandlableUmsReferenceException = @{
             MainMessage = "La fabrique d'entitiés a détecté une référence UMS à un élément {0} de l'espace de noms {1}, possédant l'uid {2}. La gestion des références UMS n'est pas encore implémentée."
         }
+        UnresolvableUmsReference =  @{
+            MainMessage = "Une référence UMS n'a pas pu être résolue: aucune correspondance n'a été trouvée via aucun des catalogues configurés, ni via un chemin local."
+            NamespaceURI = "Espace de noms de la référence: {0}"
+            LocalName = "Nom local de la référence: {0}"
+            TriedUri = "URI tentée: {0}"
+            Uid = "Uid de la référence: {0}"
+        }  
     }
     ConvertToForeignMetadata = @{
         BadBindingNamespace = "L'espace de noms de liaison de l'élement UMS est incompatible avec cette opération. L'espace de noms de liaison est {0}, mais les paramètres que vous avez spécifiés exigent l'espace de noms {1}."
