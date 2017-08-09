@@ -42,6 +42,10 @@
 						<xsl:text> </xsl:text>
 						<xsl:value-of select="umsb:thirdName"/>
 					</xsl:if>
+					<xsl:if test="umsb:particle">
+						<xsl:text> </xsl:text>
+						<xsl:value-of select="umsb:particle"/>
+					</xsl:if>
 					<xsl:if test="umsb:lastName">
 						<xsl:text> </xsl:text>
 						<xsl:value-of select="umsb:lastName"/>
@@ -82,6 +86,10 @@
 							<xsl:value-of select="umsb:pseudonym"/>
 							<xsl:value-of select="$config.variants.pseudonymSuffix"/>
 						</xsl:if>
+					</xsl:if>
+					<xsl:if test="umsb:particle">
+						<xsl:text> </xsl:text>
+						<xsl:value-of select="umsb:particle"/>
 					</xsl:if>
 				</xsl:when>
 				<xsl:otherwise>

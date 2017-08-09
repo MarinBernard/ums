@@ -32,6 +32,11 @@
 				</element>
 			</optional>
 			<optional>
+				<element name="particle">
+					<data type="string"/>
+				</element>
+			</optional>
+			<optional>
 				<element name="lastName">
 					<data type="string"/>
 				</element>

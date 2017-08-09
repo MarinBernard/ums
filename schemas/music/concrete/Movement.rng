@@ -24,6 +24,8 @@
 					<ref name="MRT_Key"/>
 				</choice>
 			</optional>
+			<!-- Mandatory time signature -->
+			<element name="timeSignature"><text/></element>
 			<!-- Optional tempo marking -->
 			<optional>
 				<element name="tempoMarking"><text/></element>

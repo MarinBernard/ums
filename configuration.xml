@@ -1,4 +1,4 @@
-﻿<configuration>
+<configuration>
 	<catalogs>
 		<catalog id="base"
 			namespace="http://schemas.olivarim.com/ums/1.0/base"

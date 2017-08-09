@@ -85,6 +85,7 @@ class UmsMceMovement : UmsBaeProduct
     # Visible properties
     ###########################################################################
 
+    [string]                $TimeSignature
     [string]                $TempoMarking
     [string]                $Incipit
     [UmsBceCharacter[]]     $Characters
@@ -105,6 +106,13 @@ class UmsMceMovement : UmsBaeProduct
         # Validate the XML root element
         $this.ValidateXmlElement(
             $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "movement")
+
+        # Mandatory 'timeSignature' element
+        $this.TimeSignature = (
+            $this.GetOneXmlElementValue(
+                $XmlElement,
+                [UmsAeEntity]::NamespaceUri.Music,
+                "timeSignature"))
 
         # Optional 'tempoMarking' element
         if ($XmlElement.tempoMarking)

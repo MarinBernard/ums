@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:work
+	xmlns="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<titleVariants>
+		<titleVariant lang="de" original="true" default="false">
+			<fullTitle>1. Sinfonie</fullTitle>
+		</titleVariant>
+		<titleVariant lang="en" original="false" default="true">
+			<fullTitle>Symphony No. 1</fullTitle>
+		</titleVariant>
+		<titleVariant lang="es">
+			<fullTitle>Sinfonía n.º 1</fullTitle>
+		</titleVariant>
+		<titleVariant lang="fr">
+			<fullTitle>Symphonie nº 1</fullTitle>
+		</titleVariant>
+		<titleVariant lang="it">
+			<fullTitle>Sinfonia n. 1</fullTitle>
+		</titleVariant>
+		<titleVariant lang="nl">
+			<fullTitle>Symfonie nr. 1</fullTitle>
+		</titleVariant>
+		<titleVariant lang="ru">
+			<fullTitle>Симфония № 1</fullTitle>
+		</titleVariant>
+	</titleVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/1._Sinfonie_(Beethoven)"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Symphony_No._1_(Beethoven)"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Sinfonía_n.º_1_(Beethoven)"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Symphonie_nº_1_de_Beethoven"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Sinfonia_n._1_(Beethoven)"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Symfonie_nr._1_(Beethoven)"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Симфония_№_1_(Бетховен)"/>
+	</linkVariants>
+	<umsm:catalogIds>
+		<umsm:catalogId>
+			<umsm:catalog uid="Opus"/>
+			<umsm:id level="1">21</umsm:id>
+		</umsm:catalogId>
+	</umsm:catalogIds>
+	<umsm:composers>
+		<umsm:composer uid="Beethoven, Ludwig van"/>
+	</umsm:composers>
+	<umsm:form uid="Symphony"/>
+	<umsm:style uid="Classicism/Viennese"/>
+	<umsm:instruments>
+		<umsm:instrument uid="wind/Flute"/>
+		<umsm:instrument uid="wind/Oboe"/>
+		<umsm:instrument uid="wind/Clarinet"/>
+		<umsm:instrument uid="wind/Bassoon"/>
+		<umsm:instrument uid="brass/French horn"/>
+		<umsm:instrument uid="brass/Trumpet"/>
+		<umsm:instrument uid="percussion/Timpani"/>
+		<umsm:instrument uid="string/Violin"/>
+		<umsm:instrument uid="string/Viola"/>
+		<umsm:instrument uid="string/Cello"/>
+		<umsm:instrument uid="string/Contrabass"/>
+	</umsm:instruments>
+	<umsm:key uid="major/C"/>
+	<umsm:inception>
+		<year>1795</year>
+	</umsm:inception>
+	<umsm:completion>
+		<year>1801</year>
+	</umsm:completion>
+	<umsm:premiere>
+		<date>1800-04-02</date>
+		<umsm:place>
+			<umsm:venue uid="AT/Vienna/Burgtheater"/>
+		</umsm:place>
+	</umsm:premiere>
+	<umsm:sections>
+		<umsm:section id="I" numbering="I">
+			<umsm:sections>
+				<umsm:section id="I-01" numbering="1">
+					<umsm:movements>
+						<umsm:movement uid="21/I-01"/>
+					</umsm:movements>
+				</umsm:section>
+				<umsm:section id="I-02" numbering="2">
+					<umsm:movements>
+						<umsm:movement uid="21/I-02"/>
+					</umsm:movements>
+				</umsm:section>
+			</umsm:sections>
+		</umsm:section>
+		<umsm:section id="II" numbering="II">
+			<umsm:movements>
+				<umsm:movement uid="21/II"/>
+			</umsm:movements>
+		</umsm:section>
+		<umsm:section id="III" numbering="III">
+			<umsm:movements>
+				<umsm:movement uid="21/III"/>
+			</umsm:movements>
+		</umsm:section>
+		<umsm:section id="IV" numbering="IV">
+			<umsm:movements>
+				<umsm:movement uid="21/IV"/>
+			</umsm:movements>
+		</umsm:section>
+	</umsm:sections>
+</umsm:work>

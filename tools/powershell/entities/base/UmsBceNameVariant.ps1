@@ -42,6 +42,7 @@ class UmsBceNameVariant : UmsBaeVariant
     hidden [string] $SecondName
     hidden [string] $ThirdName
     hidden [string] $LastName
+    hidden [string] $Particle
     hidden [string] $CommonName
     hidden [string] $Pseudonym
     hidden [string] $ShortNameRaw
@@ -82,6 +83,8 @@ class UmsBceNameVariant : UmsBaeVariant
             $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "secondName")
         $this.ThirdName =  $this.GetZeroOrOneXmlElementValue(
             $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "thirdName")
+        $this.Particle  =  $this.GetZeroOrOneXmlElementValue(
+            $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "particle")
         $this.LastName  =  $this.GetZeroOrOneXmlElementValue(
             $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "lastName")
         $this.CommonName = $this.GetZeroOrOneXmlElementValue(
@@ -129,6 +132,12 @@ class UmsBceNameVariant : UmsBaeVariant
                 $_fullName += $this.ThirdName
             }
 
+            if ($this.Particle)
+            {
+                $_fullName += [UmsAeEntity]::NonBreakingSpace
+                $_fullName += $this.Particle
+            }            
+
             if ($this.LastName)
             {
                 $_fullName += [UmsAeEntity]::NonBreakingSpace
@@ -169,6 +178,12 @@ class UmsBceNameVariant : UmsBaeVariant
                 $_sortName += [UmsAeEntity]::NonBreakingSpace
                 $_sortName += $this.ThirdName
             }
+
+            if ($this.Particle)
+            {
+                $_sortName += [UmsAeEntity]::NonBreakingSpace
+                $_sortName += $this.Particle
+            }   
 
             if (([UmsBceNameVariant]::ShowPseudonyms) -and ($this.Pseudonym))
             {

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:instrument
+	xmlns="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Kontrabass</fullLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>Contrabass</fullLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Contrabajo</fullLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Contrebasse</fullLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Contrabbasso</fullLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Contrabas</fullLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Контрабас</fullLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Kontrabass"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Double_bass"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Contrabajo"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Contrebasse"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Contrabbasso"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Contrabas"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Контрабас"/>
+	</linkVariants>
+</umsm:instrument>

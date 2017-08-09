@@ -43,8 +43,9 @@ function ShowUmsException($Exception)
 
 try
 {
-    $_uri = [System.Uri]::New("C:\Users\marin\Code\ums\tests\current\ums\file1.flac.ums")
+    $_uri = [System.Uri]::New("file:///C:/Users/marin/Code/ums/catalogs/music/compositions/Beethoven%2C%20Ludwig%20van/Opus/21.ums")
     ([EntityFactory]::ParseDocument($_uri, "test"))
+    ([EntityFactory]::DumpCache()) | ft
 
 }
 catch
@@ -52,4 +53,4 @@ catch
     ShowUmsException $_.Exception
 }
 
-[EntityFactory]::GetStatistics()
+[EntityFactory]::GetCacheStatistics()

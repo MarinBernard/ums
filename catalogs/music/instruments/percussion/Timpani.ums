@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:instrument
+	xmlns="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Pauke</fullLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>Timpani</fullLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Timbal</fullLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Timbales</fullLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Timpano</fullLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Pauk</fullLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Литавры</fullLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Pauke"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Timpani"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Timbal_de_concierto"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Timbales_(musique_classique)"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Timpano_(strumento_musicale)"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Pauk"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Литавры"/>
+	</linkVariants>
+</umsm:instrument>

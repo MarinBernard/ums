@@ -177,7 +177,7 @@ function Get-UmsConfigurationItem
                 Type = "Catalog";
                 Id = $_catalog.Node.id;
                 XmlNamespace = $_catalog.Node.namespace;
-                Uri = $_catalog.Node.uri;
+                Uri = $($_catalog.Node.uri + "/");
                 Mappings = $_mappings;
             }   
         }

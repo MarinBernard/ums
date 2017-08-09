@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<country xmlns="http://schemas.olivarim.com/ums/1.0/base">
+	<labelVariants>
+		<labelVariant lang="de" original="true">
+			<fullLabel>Republik Österreich</fullLabel>
+			<sortLabel>Österreich, Republik</sortLabel>
+			<commonLabel>Österreich</commonLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>Republic of Austria</fullLabel>
+			<sortLabel>Austria, Republic of</sortLabel>
+			<commonLabel>Austria</commonLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>République d'Autriche</fullLabel>
+			<sortLabel>Autriche, République d'</sortLabel>
+			<commonLabel>Autriche</commonLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Австрийская Республика</fullLabel>
+			<sortLabel>Австрийская, Республика</sortLabel>
+			<commonLabel>Австрия</commonLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Österreich"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Austria"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Autriche"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Австрия"/>
+	</linkVariants>
+	<standardIds>
+		<standardId standard="ISO 3166-1">AT</standardId>
+	</standardIds>
+</country>

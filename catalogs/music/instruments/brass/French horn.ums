@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:instrument
+	xmlns="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Waldhorn</fullLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>French horn</fullLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Trompa</fullLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Cor d'harmonie</fullLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Corno</fullLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Hoorn</fullLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Валторна</fullLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Horn_(Instrument)"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/French_horn"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Trompa_(instrumento)"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Cor_d'harmonie"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Corno_(strumento_musicale)"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Hoorn_(muziekinstrument)"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Валторна"/>
+	</linkVariants>
+</umsm:instrument>

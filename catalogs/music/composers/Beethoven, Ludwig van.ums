@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:composer
+	xmlns="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<nameVariants>
+		<nameVariant lang="de" original="true" default="true">
+			<firstName>Ludwig</firstName>
+			<particle>van</particle>
+			<lastName>Beethoven</lastName>
+		</nameVariant>
+		<nameVariant lang="ru">
+			<firstName>Людвиг</firstName>
+			<particle>ван</particle>
+			<lastName>Бетховен</lastName>
+		</nameVariant>
+	</nameVariants>
+	<birth>
+		<date>1770-12-16</date>
+		<place>
+			<city uid="DE/Bonn"/>
+		</place>
+	</birth>
+	<death>
+		<date>1827-03-26</date>
+		<place>
+			<city uid="AT/Vienna"/>
+		</place>
+	</death>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Ludwig_van_Beethoven"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Ludwig_van_Beethoven"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Ludwig_van_Beethoven"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Ludwig_van_Beethoven"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Ludwig_van_Beethoven"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бетховен,_Людвиг_ван"/>
+	</linkVariants>
+</umsm:composer>

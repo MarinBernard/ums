@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:movement
+	xmlns="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<umsm:forms>
+		<umsm:form uid="Movement"/>
+	</umsm:forms>
+	<umsm:instruments>
+		<umsm:instrument uid="wind/Flute"/>
+		<umsm:instrument uid="wind/Oboe"/>
+		<umsm:instrument uid="wind/Clarinet"/>
+		<umsm:instrument uid="wind/Bassoon"/>
+		<umsm:instrument uid="brass/French horn"/>
+		<umsm:instrument uid="brass/Trumpet"/>
+		<umsm:instrument uid="percussion/Timpani"/>
+		<umsm:instrument uid="string/Violin"/>
+		<umsm:instrument uid="string/Viola"/>
+		<umsm:instrument uid="string/Cello"/>
+		<umsm:instrument uid="string/Contrabass"/>
+	</umsm:instruments>
+	<umsm:key uid="major/C"/>
+	<umsm:timeSignature>2/2</umsm:timeSignature>
+	<umsm:tempoMarking>Allegro con brio</umsm:tempoMarking>
+</umsm:movement>

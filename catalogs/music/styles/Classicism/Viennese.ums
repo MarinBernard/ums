@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:style
+	xmlns="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Wiener Klassik</fullLabel>
+		</labelVariant>
+		<labelVariant lang="en" default="true">
+			<fullLabel>Viennese classicism</fullLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Clasicismo de Viena</fullLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Classicisme viennois</fullLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Classicismo viennese</fullLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Weense Klassieken</fullLabel>
+		</labelVariant>		
+		<labelVariant lang="ru">
+			<fullLabel>Венская классика</fullLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Wiener_Klassik"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/First_Viennese_School"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Primera Escuela de Viena"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Classicisme_viennois"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Prima scuola di Vienna"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Eerste Weense School"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Венская классическая школа"/>
+	</linkVariants>
+</umsm:style>
