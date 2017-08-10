@@ -3,8 +3,10 @@
         AccessDenied = "Target folder does not exist or access is denied."
         ConfirmPrompt = "Are you sure you want to continue?"
         IncompatibleCardinality = "The cardinality of the target item is not compatible with this command. Valid cardinality: {0}"
-        ExpiredStaticVersion = "The static copy of the target item are expired."
+        ExpiredCachedVersion = "The cached version of the metadata of the UMS item is obsolete."
+        ExpiredStaticVersion = "The static version of the target item is obsolete."
         InvalidState = "Invalid"
+        MissingCachedVersion = "The UMS item has no cached version of its metadata. Use Update-UmsItem to build the cache and speed up future metadata retrieval."
         MissingSidecarFile = "Skipping this file as it lacks a UMS sidecar file."
         MissingUmsItemStaticVersion = "No static metadata copy is available for the target item. Run Update-UmsItemCache then try again."
         OrphanCardinalityWarning = "You are about to run a command on an orphaned item."
@@ -117,7 +119,8 @@
     }
     UpdateUmsItem = @{
         MissingTarget = "The target file does not exist or access is denied."
-        NoUpdateNeeded = "UMS cache is up-to-date. No update needed."
+        CacheUpdateNotNeeded = "Cached metadata are up-to-date. No update needed."
+        StaticUpdateNotNeeded = "The static version is up-to-date. No update needed."
         PromotionFailure = "Failed to promote the newly generated file to be the new cache file."
         TempFileRemovalFailure = "A temporary file could not be removed."
         ValidationFailure = "The cache file did not pass XML validation."     

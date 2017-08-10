@@ -55,12 +55,12 @@ function ConvertTo-ForeignMetadata
             }
 
             # Validate static copy status
-            $_allowedUIStaticVersionStatus = @([UIStaticVersionStatus]::Current, [UIStaticVersionStatus]::Expired)
+            $_allowedUIStaticVersionStatus = @([UIVersionStatus]::Current, [UIVersionStatus]::Expired)
 
             if ($_allowedUIStaticVersionStatus -notcontains($Item.StaticVersion))
                 { throw $ModuleStrings.Common.MissingUmsItemStaticVersion }
 
-            if ($Item.StaticVersion -eq [UIStaticVersionStatus]::Expired)
+            if ($Item.StaticVersion -eq [UIVersionStatus]::Expired)
             {
                 Write-Warning -Message $ModuleStrings.Common.ExpiredStaticVersion
                 if( (Wait-UserConfirmation) -eq $false ){ return }

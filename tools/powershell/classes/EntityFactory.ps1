@@ -598,7 +598,7 @@ class EntityFactory
     ###########################################################################
 
     # Show cache statistics
-    static [void] GetCacheStatistics()
+    static [void] MeasureCache()
     {
         Write-Host "Number of instances created:" $([EntityFactory]::InstantiationCount)
         Write-Host "Cache size:" $([EntityFactory]::EntityCache.Count)
@@ -616,7 +616,7 @@ class EntityFactory
         return [EntityFactory]::EntityCache
     }
 
-    static [void] FlushCache()
+    static [void] ResetCache()
     {
         [EntityFactory]::EntityCache = @()
     }    

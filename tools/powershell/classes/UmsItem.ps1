@@ -27,6 +27,14 @@ class UmsItem
     hidden [string] $StaticFileUri              # URI to $StaticFileFullName
     hidden [string] $StaticFileLastWriteTime    # Last write of the static file
 
+    # Properties related to the cached version of the item metadata
+    hidden [string] $CachePath                  # FQN of the cache folder
+    hidden [string] $CachePathUri               # Absolute URI to $CachePath
+    hidden [string] $CacheFileFullName          # FQN of the cache file linked
+                                                # to this instance
+    hidden [string] $CacheFileUri               # URI to $CacheFileFullName
+    hidden [string] $CacheFileLastWriteTime     # Last write of the cache file
+
     # Properties related to the linked file (for sidecar items)
     hidden [string] $LinkedFileName             # Local name of the linked file
     hidden [string] $LinkedFileExtension        # Extension of the linked file
@@ -72,7 +80,11 @@ class UmsItem
 
     # Status of the static version of the UMS item. This property is set to
     # Unknown by default but should always be updated by the constructor.
-    [UIStaticVersionStatus] $StaticVersion = [UIStaticVersionStatus]::Unknown
+    [UIVersionStatus] $StaticVersion = [UIVersionStatus]::Unknown
+
+    # Status of the cached version of the UMS item metadata. This property is
+    # set to Unknown by default but should always be updated by the constructor
+    [UIVersionStatus] $CachedVersion = [UIVersionStatus]::Unknown
 
     # Validation status of the UMS item. Validation is CPU intensive, and does
     # not occur automatically. This property is set to Unknown by default, and
@@ -96,19 +108,22 @@ class UmsItem
         $this.LastWriteTime = $FileInfo.LastWriteTime
         $this.Name = $FileInfo.BaseName
         
-        # Calling sub-constructor for static information
-        $this.constructStaticInformation($FileInfo)
+        # Calling sub-constructor for static-related properties
+        $this.UpdateStaticInfo()
+
+        # Calling sub-constructor for cache-related properties
+        $this.UpdateCacheInfo()
 
         # Calling sub-constructor for XML content information
-        $this.constructContentInformation($FileInfo)
+        $this.UpdateContentInfo()
 
         # Calling sub-constructor for cardinality information.
         # This subconstructor relies on content information.
-        $this.constructCardinalityInformation($FileInfo)        
+        $this.constructCardinalityInfo($FileInfo)        
     }
 
     # Sub-constructor for static information
-    [void] constructStaticInformation([System.IO.FileInfo] $FileInfo)
+    [void] UpdateStaticInfo()
     {
         # Static file properties
         $this.StaticPath = Get-UmsManagementFolderPath -Type "Static" -Path $this.ManagedPath
@@ -123,16 +138,40 @@ class UmsItem
             
             # Init static version status
             if ($this.LastWriteTime -gt $this.StaticFileLastWriteTime)
-                {  $this.StaticVersion = [UIStaticVersionStatus]::Expired }
+                {  $this.StaticVersion = [UIVersionStatus]::Expired }
             else
-                {  $this.StaticVersion = [UIStaticVersionStatus]::Current }
+                {  $this.StaticVersion = [UIVersionStatus]::Current }
         }
         else
-            { $this.StaticVersion = [UIStaticVersionStatus]::Absent }
+            { $this.StaticVersion = [UIVersionStatus]::Absent }
+    }
+
+    # Sub-constructor for cache-related information
+    [void] UpdateCacheInfo()
+    {
+        # Cache file properties
+        $this.CachePath = Get-UmsManagementFolderPath -Type "Cache" -Path $this.ManagedPath
+        $this.CachePathUri = (New-Object -Type System.Uri -ArgumentList $this.CachePath).AbsoluteUri
+        $this.CacheFileFullName = Join-Path -Path $this.CachePath -ChildPath $this.RealName
+        $this.CacheFileUri = (New-Object -Type System.Uri -ArgumentList $this.CacheFileFullName).AbsoluteUri
+
+        # Cached metadata status
+        if (Test-Path -Path $this.CacheFileFullName)
+        {
+            $this.CacheFileLastWriteTime = (Get-Item -LiteralPath $this.CacheFileFullName).LastWriteTime
+            
+            # Init static version status
+            if ($this.LastWriteTime -gt $this.CacheFileLastWriteTime)
+                {  $this.CachedVersion = [UIVersionStatus]::Expired }
+            else
+                {  $this.CachedVersion = [UIVersionStatus]::Current }
+        }
+        else
+            { $this.CachedVersion = [UIVersionStatus]::Absent }
     }
 
     # Sub-constructor for content information
-    [void] constructContentInformation([System.IO.FileInfo] $FileInfo)
+    [void] UpdateContentInfo()
     {
         # Read XML document
         [xml] $_xmlDocument = Get-Content -Path $this.FullName
@@ -166,7 +205,7 @@ class UmsItem
     }
 
     # Sub-constructor for cardinality information
-    [void] constructCardinalityInformation([System.IO.FileInfo] $FileInfo)
+    [void] constructCardinalityInfo([System.IO.FileInfo] $FileInfo)
     {
         # If the item includes binding information, it is sidecar or orphaned.
         if ($this.BindingElement)
@@ -211,7 +250,7 @@ class UmsItem
     } 
 }
 
-Enum UIStaticVersionStatus
+Enum UIVersionStatus
 {
     Unknown
     Absent

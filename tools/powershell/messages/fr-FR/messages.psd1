@@ -3,8 +3,10 @@
         AccessDenied = "Le dossier spécifié n'existe pas ou l'accès a été refusé."
         ConfirmPrompt = "Êtes-vous sûr de vouloir continuer ?"
         IncompatibleCardinality = "La cardinalité de l'élément cible est incompatible avec cette commande. Cardinalité attendue: {0}"
-        ExpiredStaticVersion = "La copie statique de l'élément cible est périmée."
+        ExpiredCachedVersion = "La version cachée des métadonnées de l'élément UMS est périmée."
+        ExpiredStaticVersion = "La version statique de l'élément UMS est périmée."
         InvalidState = "Invalide"
+        MissingCachedVersion = "L'élément UMS ne possède pas de version cachée de ses métadonnées. Utilisez Update-UmsItem pour construire le cache et accélérer l'exécution de futures requêtes."
         MissingSidecarFile = "Le fichier sera ignoré car il ne possède pas de fichier UMS compagnon."
         MissingUmsItemStaticVersion = "L'élément cible ne dispose pas d'une copie statique. Exécutez Update-UmsItemCache puis réessayez."
         OrphanCardinalityWarning = "Vous êtes sur le point d'exécuter une tâche impliquant un élément orphelin."
@@ -118,7 +120,8 @@
     }
     UpdateUmsItem = @{
         MissingTarget = "Le fichier cible n'existe pas ou n'est pas accessible."
-        NoUpdateNeeded = "Le cache UMS est à jour. Aucune mise à jour n'est nécessaire."
+        CacheUpdateNotNeeded = "Le cache de métadonnées est à jour. Aucune mise à jour n'est nécessaire."
+        StaticUpdateNotNeeded = "La version statique est à jour. Aucune mise à jour n'est nécessaire."
         PromotionFailure = "Echec de la promotion du fichier nouvellement généré en fichier de cache."
         TempFileRemovalFailure = "Un fichier temporaire n'a pas pu être supprimé."
         ValidationFailure = "Le fichier de cache n'a pas réussi la validation XML."
