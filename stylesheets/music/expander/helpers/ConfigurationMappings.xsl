@@ -33,15 +33,6 @@
 		</xsl:call-template>
 	</xsl:variable>
 	<!--
-	
-	Prefix of independent UMS files -->
-	<xsl:variable name="CFG_UMSIndependentFilePrefix">
-		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionDomain" select="'system'"/>
-			<xsl:with-param name="OptionName" select="'ums-independent-file-prefix'"/>
-		</xsl:call-template>
-	</xsl:variable>
-	<!--
 	==============================================================================
 	!
 	!	Base catalog URIs

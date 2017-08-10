@@ -46,8 +46,8 @@
 	<xsl:template match="text()"/>
 	<!--
 	
-	Processing starts at the files element -->
-	<xsl:template match="umsa:binding">
-		<xsl:call-template name="BT_AudioBinding"/>
+	Processing starts at the binding element -->
+	<xsl:template match="umsb:binding">
+		<xsl:call-template name="CT_Binding"/>
 	</xsl:template>
 </xsl:stylesheet>

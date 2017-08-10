@@ -47,10 +47,6 @@
 				<xsl:when test="document(concat($_currentDocumentPath, '/', $_targetDocumentName))">
 					<xsl:value-of select="concat($_currentDocumentPath, '/', $_targetDocumentName)"/>
 				</xsl:when>
-				<!-- Using a relative path with ums independent file prefix -->					
-				<xsl:when test="document(concat($_currentDocumentPath, '/', $CFG_UMSIndependentFilePrefix, $_targetDocumentName))">
-					<xsl:value-of select="concat($_currentDocumentPath, '/', $CFG_UMSIndependentFilePrefix, $_targetDocumentName)"/>
-				</xsl:when>
 			</xsl:choose>
 		</xsl:variable>		
 		

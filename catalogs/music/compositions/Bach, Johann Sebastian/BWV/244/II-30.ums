@@ -17,6 +17,7 @@
 		<umsm:instrument uid="Continuo"/>
 	</umsm:instruments>
 	<umsm:key uid="minor/B"/>
+	<umsm:timeSignature>3/8</umsm:timeSignature>
 	<umsm:lyricists>
 		<umsm:lyricist uid="Picander"/>
 	</umsm:lyricists>

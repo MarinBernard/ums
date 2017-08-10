@@ -16,6 +16,7 @@
 		<umsm:instrument uid="Continuo"/>
 	</umsm:instruments>
 	<umsm:key uid="minor/B"/>
+	<umsm:timeSignature>4/4</umsm:timeSignature>
 	<umsm:incipit>Herzliebster Jesu</umsm:incipit>
 	<umsm:lyrics uid="I-03-lyrics"/>
 	<characters>

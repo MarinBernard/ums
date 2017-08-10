@@ -80,7 +80,6 @@ function Get-UmsConfigurationItem
             "UmsFileExtension",
             "UmsFolderName",
             "UmsHiddenFolders",
-            "UmsIndependentFilePrefix",
             "UmsStaticFolderName")]
         [string] $ShortName
     )
@@ -109,7 +108,6 @@ function Get-UmsConfigurationItem
             "UmsFileExtension"         { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-file-extension" }).Value }
             "UmsFolderName"            { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-folder-name" }).Value }
             "UmsHiddenFolders"         { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-hidden-folders" }).Value }
-            "UmsIndependentFilePrefix" { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-independent-file-prefix" }).Value }
             "UmsStaticFolderName"      { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-folder-name-static" }).Value }
 
             # UMS rendering options

@@ -2,7 +2,6 @@
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
 	<!-- Binding types -->
 	<include href="binding/AlbumTrackBinding.rng"/>
-	<include href="binding/Binding.rng"/>
 	<!-- Concrete types -->
 	<include href="concrete/Album.rng"/>
 	<include href="concrete/Label.rng"/>

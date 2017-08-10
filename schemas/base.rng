@@ -9,6 +9,7 @@
 	<include href="base/include.rng"/>
 	<start>
 		<choice>
+			<ref name="BCT_Binding"/>
 			<ref name="BCT_Character"/>
 			<ref name="BCT_City"/>
 			<ref name="BCT_Country"/>

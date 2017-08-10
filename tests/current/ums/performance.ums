@@ -6,7 +6,7 @@
 	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
 	<date>2006-09-23</date>
 	<umsm:place>
-		<umsm:venue uid="FR/Ambronay Abbey"/>
+		<umsm:venue uid="FR/Ambronay/Ambronay Abbey"/>
 	</umsm:place>
 	<umsm:conductors>
 		<umsm:conductor uid="Jacobs, Rene"/>

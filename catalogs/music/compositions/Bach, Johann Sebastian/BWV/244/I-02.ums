@@ -15,6 +15,7 @@
 		<umsm:instrument uid="Continuo"/>
 	</umsm:instruments>
 	<umsm:key uid="major/G"/>
+	<umsm:timeSignature>4/4</umsm:timeSignature>
 	<umsm:incipit>Da Jesus diese Rede vollendet hatte</umsm:incipit>
 	<umsm:lyrics uid="I-02-lyrics"/>
 	<characters>

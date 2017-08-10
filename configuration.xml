@@ -182,7 +182,6 @@
 		<option id="ums-folder-name-cache">cache</option>
 		<option id="ums-folder-name-static">static</option>
 		<option id="ums-hidden-folders">True</option>
-		<option id="ums-independent-file-prefix">__</option>
 	</system>
 	
 </configuration>

@@ -32,10 +32,6 @@ class EntityFactory
     static [string] $UmsFileExtension = (
         Get-UmsConfigurationItem -ShortName "UmsFileExtension")
 
-    # Prefix of independent UMS items
-    static [string] $UmsIndependentFilePrefix = (
-        Get-UmsConfigurationItem -ShortName "UmsIndependentFilePrefix")
-
     ###########################################################################
     # Factory method
     ###########################################################################
@@ -494,19 +490,6 @@ class EntityFactory
 
         Write-Verbose $(
             $_verbosePrefix + "Target file name is: " + $_fileName)
-
-        # Name and URI of the target UMS file if it is an independent UMS file
-        $_independentFileName = $(
-            [EntityFactory]::UmsIndependentFilePrefix + `
-            $XmlElement.GetAttribute("uid") + `
-            [EntityFactory]::UmsFileExtension)
-
-        $_independentFileRelativeUri = (
-            [System.Uri]::New($_independentFileName, [System.UriKind]::Relative))
-
-        Write-Verbose $(
-            $_verbosePrefix + `
-            "Target independent file name is: " + $_independentFileName)
         
         # Gather a list of potential catalog sub-paths
         [System.Uri[]] $_uris = [EntityFactory]::GetUmsCatalogCandidateUri(
@@ -516,7 +499,6 @@ class EntityFactory
         
         # Add candidate URIs built from relative paths
         $_uris += [System.Uri]::New($SourcePathUri, $_fileRelativeUri)
-        $_uris += [System.Uri]::New($SourcePathUri, $_independentFileRelativeUri)
         
         # Log URI candidates
         foreach ($_uri in $_uris)

@@ -4,9 +4,6 @@ class UmsItem
     # Static properties
     ###########################################################################
 
-    static [string] $IndependentFilePrefix = (
-        Get-UmsConfigurationItem -ShortName "UmsIndependentFilePrefix")
-
     ###########################################################################
     # Hidden properties
     ###########################################################################
@@ -66,7 +63,7 @@ class UmsItem
 
     # The name of the binding element in the XML document, if present. This
     # name includes the namespace prefix.
-    [string] $BindingElement = "None"
+    [string] $BindingElement
 
     # Cardinality of the UMS item: whether it is an independent, sidecar or
     # orphaned item. Value Unknown is set by default but should never make it
@@ -102,11 +99,12 @@ class UmsItem
         # Calling sub-constructor for static information
         $this.constructStaticInformation($FileInfo)
 
-        # Calling sub-constructor for cardinality information
-        $this.constructCardinalityInformation($FileInfo)
-
         # Calling sub-constructor for XML content information
         $this.constructContentInformation($FileInfo)
+
+        # Calling sub-constructor for cardinality information.
+        # This subconstructor relies on content information.
+        $this.constructCardinalityInformation($FileInfo)        
     }
 
     # Sub-constructor for static information
@@ -133,18 +131,45 @@ class UmsItem
             { $this.StaticVersion = [UIStaticVersionStatus]::Absent }
     }
 
+    # Sub-constructor for content information
+    [void] constructContentInformation([System.IO.FileInfo] $FileInfo)
+    {
+        # Read XML document
+        [xml] $_xmlDocument = Get-Content -Path $this.FullName
+
+        # Get and store XML namespace and document element
+        $this.XmlNamespace = $_xmlDocument.DocumentElement.NamespaceURI
+        $this.XmlElementName = $_xmlDocument.DocumentElement.LocalName
+
+        # Resolve schema friendly name
+        $this.Schema = (
+            Get-UmsConfigurationItem -Type "Schema" | Where-Object {
+                $_.Namespace -eq $this.XmlNamespace }).Id
+
+        # Get and store content binding information (only for binding files)
+        $_baseNamespace = (
+            Get-UmsConfigurationItem -ShortName "BaseSchemaNamespace")
+        
+        # If the document element is umsb:binding, we need to retrieve and
+        # store binding information.
+        if (
+            ($this.XmlNamespace   -eq $_baseNamespace) -and 
+            ($this.XmlElementName -eq "binding"))
+        {
+            $this.BindingNamespace = $_xmlDocument.binding.FirstChild.NamespaceURI
+            $this.BindingElementName = $_xmlDocument.binding.FirstChild.LocalName
+            $this.BindingElement = $_xmlDocument.binding.FirstChild.Name
+            $this.BindingSchema = (
+                Get-UmsConfigurationItem -Type "Schema" | Where-Object {
+                    $_.Namespace -eq $this.BindingNamespace }).Id
+        }
+    }
+
     # Sub-constructor for cardinality information
     [void] constructCardinalityInformation([System.IO.FileInfo] $FileInfo)
     {
-        # If the item is independent
-        if ($this.Name.StartsWith([UmsItem]::IndependentFilePrefix))
-        {
-            [UICardinality] $this.Cardinality = [UICardinality]::Independent
-            # Remove prefix from item name
-            $this.Name = $this.Name.Substring(([UmsItem]::IndependentFilePrefix).Length)
-        }
-        # Else, cardinality is orphan or sidecar
-        else
+        # If the item includes binding information, it is sidecar or orphaned.
+        if ($this.BindingElement)
         {
             # Update hidden properties
             $this.LinkedFileName = $FileInfo.BaseName
@@ -167,28 +192,11 @@ class UmsItem
                 $this.Cardinality = [UICardinality]::Orphan
             }
         }
-    }
 
-    # Sub-constructor for content information
-    [void] constructContentInformation([System.IO.FileInfo] $FileInfo)
-    {
-        # Read XML document
-        [xml] $_xmlDocument = Get-Content -Path $this.FullName
-
-        # Get and store XML namespace and document element
-        $this.XmlNamespace = $_xmlDocument.DocumentElement.NamespaceURI
-        $this.XmlElementName = $_xmlDocument.DocumentElement.LocalName
-
-        # Resolve schema friendly name
-        $this.Schema = (Get-UmsConfigurationItem -Type "Schema" | Where-Object { $_.Namespace -eq $this.XmlNamespace }).Id
-
-        # Get and store content binding information (only for sidecar files)
-        if ($this.Cardinality -eq [UICardinality]::Sidecar)
+        # Any item without binding is declared independent
+        else
         {
-            $this.BindingNamespace = $_xmlDocument.binding.FirstChild.NamespaceURI
-            $this.BindingElementName = $_xmlDocument.binding.FirstChild.LocalName
-            $this.BindingElement = $_xmlDocument.binding.FirstChild.Name
-            $this.BindingSchema = (Get-UmsConfigurationItem -Type "Schema" | Where-Object { $_.Namespace -eq $this.BindingNamespace }).Id
+            [UICardinality] $this.Cardinality = [UICardinality]::Independent
         }
     }
 

@@ -12,6 +12,7 @@
 	<include href="abstract/Symbol.rng"/>
 	<include href="abstract/Track.rng"/>
 	<!-- Concrete types -->
+	<include href="concrete/Binding.rng"/>
 	<include href="concrete/Biography.rng"/>
 	<include href="concrete/Character.rng"/>
 	<include href="concrete/City.rng"/>

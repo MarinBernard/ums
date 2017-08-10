@@ -16,7 +16,8 @@
 		    </titleVariant>
 	  </titleVariants>
 	  <umsa:labels>
-		    <umsa:label uid="BMG">
+		    <umsa:label uid="BMG"
+                  src="file:///C:/Users/marin/Code/ums/catalogs/audio/labels/BMG.ums">
          <labelVariants>
 		          <labelVariant lang="de" original="true" default="true">
 			            <fullLabel>Bertelsmann Music Group</fullLabel>
@@ -38,7 +39,8 @@
                          href="https://ru.wikipedia.org/wiki/BMG_Entertainment"/>
 	        </linkVariants>
       </umsa:label>
-		    <umsa:label uid="Deutsche Harmonia Mundi">
+		    <umsa:label uid="Deutsche Harmonia Mundi"
+                  src="file:///C:/Users/marin/Code/ums/catalogs/audio/labels/Deutsche Harmonia Mundi.ums">
          <labelVariants>
 		          <labelVariant lang="de" original="true" default="true">
 			            <fullLabel>Deutsche Harmonia Mundi</fullLabel>
@@ -55,11 +57,12 @@
 	        </linkVariants>
       </umsa:label>
 	  </umsa:labels>
-	  <releases>
-		    <release>
+	  <umsa:releases>
+		    <umsa:release>
 			      <year>1990</year>
 			      <place>
-				        <country uid="FR">
+				        <country uid="FR"
+                     src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/FR.ums">
                <labelVariants>
 		                <labelVariant lang="de">
 			                  <fullLabel>Französische Republik</fullLabel>
@@ -101,14 +104,14 @@
 	              </standardIds>
             </country>
 			      </place>
-		    </release>
-	  </releases>
+		    </umsa:release>
+	  </umsa:releases>
 	  <umsa:media>
 		    <umsa:medium number="1" type="CDDA">
 			      <umsa:tracks>
-				        <umsa:track number="1" performance="_performance" section="I/1"/>
-				        <umsa:track number="2" performance="_performance" section="I/2"/>
-				        <umsa:track number="3" performance="_performance" section="I/3"/>
+				        <umsa:track number="1" performance="performance" section="I/1"/>
+				        <umsa:track number="2" performance="performance" section="I/2"/>
+				        <umsa:track number="3" performance="performance" section="I/3"/>
 			      </umsa:tracks>
 		    </umsa:medium>
 		    <umsa:medium number="2" type="CDDA">
@@ -118,10 +121,12 @@
 		    </umsa:medium>
 	  </umsa:media>
 	  <umsm:performances>
-		    <umsm:performance uid="performance">
+		    <umsm:performance uid="performance"
+                        src="file:///C:/Users/marin/Code/ums/tests/current/ums/performance.ums">
          <date>2006-09-23</date>
          <umsm:place>
-		          <umsm:venue uid="FR/Ambronay Abbey">
+		          <umsm:venue uid="FR/Ambronay/Ambronay Abbey"
+                        src="file:///C:/Users/marin/Code/ums/catalogs/music/venues/FR/Ambronay/Ambronay Abbey.ums">
                <labelVariants>
 		                <labelVariant lang="de">
 			                  <fullLabel>Abtei Notre-Dame in Ambronay</fullLabel>
@@ -148,7 +153,8 @@
                                lang="nl"
                                href="https://nl.wikipedia.org/wiki/Onze-Lieve-Vrouwe_van_Ambronay"/>
 	              </linkVariants>
-               <city uid="FR/Ambronay">
+               <city uid="FR/Ambronay"
+                     src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/FR/Ambronay.ums">
                   <labelVariants>
 		                   <labelVariant lang="fr" original="true" default="true">
 			                     <fullLabel>Ambronay</fullLabel>
@@ -181,7 +187,8 @@
                                   lang="ru"
                                   href="https://ru.wikipedia.org/wiki/Амброне"/>
 	                 </linkVariants>
-                  <country uid="FR">
+                  <country uid="FR"
+                           src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/FR.ums">
                      <labelVariants>
 		                      <labelVariant lang="de">
 			                        <fullLabel>Französische Republik</fullLabel>
@@ -226,7 +233,8 @@
             </umsm:venue>
 	        </umsm:place>
          <umsm:conductors>
-		          <umsm:conductor uid="Jacobs, Rene">
+		          <umsm:conductor uid="Jacobs, Rene"
+                            src="file:///C:/Users/marin/Code/ums/catalogs/music/conductors/Jacobs, Rene.ums">
                <nameVariants>
 		                <nameVariant lang="fr" original="true" default="true">
 			                  <firstName>René</firstName>
@@ -240,7 +248,8 @@
                <birth>
 		                <date>1946-10-30</date>
 		                <place>
-			                  <city uid="BE/Ghent">
+			                  <city uid="BE/Ghent"
+                           src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/BE/Ghent.ums">
                         <labelVariants>
 		                         <labelVariant lang="de" original="true">
 			                           <fullLabel>Gent</fullLabel>
@@ -287,7 +296,8 @@
                                         lang="ru"
                                         href="https://ru.wikipedia.org/wiki/Гент"/>
 	                       </linkVariants>
-                        <country uid="BE">
+                        <country uid="BE"
+                                 src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/BE.ums">
                            <labelVariants>
 		                            <labelVariant lang="de" original="true">
 			                              <fullLabel>Königreich Belgien</fullLabel>
@@ -368,7 +378,8 @@
 	        </umsm:conductors>
          <umsm:performers>
 		          <umsm:performer>
-			            <umsm:ensemble uid="DE/Akamus">
+			            <umsm:ensemble uid="DE/Akamus"
+                              src="file:///C:/Users/marin/Code/ums/catalogs/music/ensembles/DE/Akamus.ums">
                   <labelVariants>
 		                   <labelVariant lang="de" original="true" default="true">
 			                     <fullLabel>Akademie für Alte Musik Berlin</fullLabel>
@@ -398,7 +409,8 @@
                   <creation>
 		                   <year>1982</year>
 		                   <place>
-			                     <city uid="DE/Berlin">
+			                     <city uid="DE/Berlin"
+                              src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE/Berlin.ums">
                            <labelVariants>
 		                            <labelVariant lang="de" default="true" original="true">
 			                              <fullLabel>Berlin</fullLabel>
@@ -439,7 +451,8 @@
                                            lang="ru"
                                            href="https://ru.wikipedia.org/wiki/Берлин"/>
 	                          </linkVariants>
-                           <country uid="DE">
+                           <country uid="DE"
+                                    src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE.ums">
                               <labelVariants>
 		                               <labelVariant lang="de" original="true">
 			                                 <fullLabel>Bundesrepublik Deutschland</fullLabel>
@@ -490,7 +503,8 @@
                </umsm:ensemble>
 		          </umsm:performer>
 		          <umsm:performer>
-			            <umsm:ensemble uid="DE/RIAS Chamber Choir">
+			            <umsm:ensemble uid="DE/RIAS Chamber Choir"
+                              src="file:///C:/Users/marin/Code/ums/catalogs/music/ensembles/DE/RIAS Chamber Choir.ums">
                   <labelVariants>
 		                   <labelVariant lang="de" original="true" default="true">
 			                     <fullLabel>RIAS Kammerchor</fullLabel>
@@ -529,7 +543,8 @@
                   <creation>
 		                   <year>1948</year>
 		                   <place>
-			                     <city uid="DE/Berlin">
+			                     <city uid="DE/Berlin"
+                              src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE/Berlin.ums">
                            <labelVariants>
 		                            <labelVariant lang="de" default="true" original="true">
 			                              <fullLabel>Berlin</fullLabel>
@@ -570,7 +585,8 @@
                                            lang="ru"
                                            href="https://ru.wikipedia.org/wiki/Берлин"/>
 	                          </linkVariants>
-                           <country uid="DE">
+                           <country uid="DE"
+                                    src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE.ums">
                               <labelVariants>
 		                               <labelVariant lang="de" original="true">
 			                                 <fullLabel>Bundesrepublik Deutschland</fullLabel>
@@ -621,14 +637,16 @@
                </umsm:ensemble>
 		          </umsm:performer>
 		          <umsm:performer>
-			            <umsm:instrumentalist uid="Pfeiffer, Julius">
+			            <umsm:instrumentalist uid="Pfeiffer, Julius"
+                                     src="file:///C:/Users/marin/Code/ums/catalogs/music/instrumentalists/Pfeiffer, Julius.ums">
                   <nameVariants>
 		                   <nameVariant lang="de" original="true" default="true">
 			                     <firstName>Julius</firstName>
 			                     <lastName>Pfeiffer</lastName>
 		                   </nameVariant>
 	                 </nameVariants>
-                  <umsm:instrument uid="voice/Tenor">
+                  <umsm:instrument uid="voice/Tenor"
+                                   src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
                      <labelVariants>
 		                      <labelVariant lang="en" default="true">
 			                        <fullLabel>Tenor</fullLabel>
@@ -668,7 +686,8 @@
 	                    </linkVariants>
                   </umsm:instrument>
                </umsm:instrumentalist>
-			            <umsm:instrument uid="voice/Tenor">
+			            <umsm:instrument uid="voice/Tenor"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
                   <labelVariants>
 		                   <labelVariant lang="en" default="true">
 			                     <fullLabel>Tenor</fullLabel>
@@ -709,7 +728,8 @@
                </umsm:instrument>
 		          </umsm:performer>
 		          <umsm:performer>
-			            <umsm:instrumentalist uid="Fink, Marcos">
+			            <umsm:instrumentalist uid="Fink, Marcos"
+                                     src="file:///C:/Users/marin/Code/ums/catalogs/music/instrumentalists/Fink, Marcos.ums">
                   <nameVariants>
 		                   <nameVariant lang="sl" original="true" default="true">
 			                     <firstName>Marcos</firstName>
@@ -719,7 +739,8 @@
                   <birth>
 		                   <date>1950-11-29</date>
 		                   <place>
-			                     <city uid="AR/Buenos Aires">
+			                     <city uid="AR/Buenos Aires"
+                              src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/AR/Buenos Aires.ums">
                            <labelVariants>
 		                            <labelVariant lang="es" default="true" original="true">
 			                              <fullLabel>Buenos Aires</fullLabel>
@@ -751,7 +772,8 @@
                                            lang="ru"
                                            href="https://ru.wikipedia.org/wiki/Буэнос-Айрес"/>
 	                          </linkVariants>
-                           <country uid="AR">
+                           <country uid="AR"
+                                    src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/AR.ums">
                               <labelVariants>
 		                               <labelVariant lang="de">
 			                                 <fullLabel>Argentinische Republik</fullLabel>
@@ -819,7 +841,8 @@
                                   lang="es"
                                   href="https://es.wikipedia.org/wiki/Marcos_Fink"/>
 	                 </linkVariants>
-                  <umsm:instrument uid="voice/Bass">
+                  <umsm:instrument uid="voice/Bass"
+                                   src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Bass.ums">
                      <labelVariants>
 		                      <labelVariant lang="de">
 			                        <fullLabel>Baß</fullLabel>
@@ -866,7 +889,8 @@
 	                    </linkVariants>
                   </umsm:instrument>
                </umsm:instrumentalist>
-			            <umsm:instrument uid="voice/Bass">
+			            <umsm:instrument uid="voice/Bass"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Bass.ums">
                   <labelVariants>
 		                   <labelVariant lang="de">
 			                     <fullLabel>Baß</fullLabel>
@@ -914,7 +938,8 @@
                </umsm:instrument>
 		          </umsm:performer>
 		          <umsm:performer>
-			            <umsm:instrumentalist uid="Im, Sun-hae">
+			            <umsm:instrumentalist uid="Im, Sun-hae"
+                                     src="file:///C:/Users/marin/Code/ums/catalogs/music/instrumentalists/Im, Sun-hae.ums">
                   <nameVariants>
 		                   <nameVariant lang="ko-KR-Kore" original="true">
 			                     <firstName>선혜</firstName>
@@ -929,7 +954,8 @@
                   <birth>
 		                   <date>1976-01-15</date>
 		                   <place>
-			                     <country uid="KR">
+			                     <country uid="KR"
+                                 src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/KR.ums">
                            <labelVariants>
 		                            <labelVariant lang="de">
 			                              <fullLabel>Republik Korea</fullLabel>
@@ -995,7 +1021,8 @@
 		                   <linkVariant type="website" href="http://www.sunhaeim.com/en" lang="en"/>
 		                   <linkVariant type="website" href="http://www.sunhaeim.com/de" lang="de"/>
 	                 </linkVariants>
-                  <umsm:instrument uid="voice/Soprano">
+                  <umsm:instrument uid="voice/Soprano"
+                                   src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Soprano.ums">
                      <labelVariants>
 		                      <labelVariant lang="de">
 			                        <fullLabel>Sopran</fullLabel>
@@ -1035,7 +1062,8 @@
 	                    </linkVariants>
                   </umsm:instrument>
                </umsm:instrumentalist>
-			            <umsm:instrument uid="voice/Soprano">
+			            <umsm:instrument uid="voice/Soprano"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Soprano.ums">
                   <labelVariants>
 		                   <labelVariant lang="de">
 			                     <fullLabel>Sopran</fullLabel>
@@ -1076,7 +1104,8 @@
                </umsm:instrument>
 		          </umsm:performer>
 		          <umsm:performer>
-			            <umsm:instrumentalist uid="Zazzo, Lawrence">
+			            <umsm:instrumentalist uid="Zazzo, Lawrence"
+                                     src="file:///C:/Users/marin/Code/ums/catalogs/music/instrumentalists/Zazzo, Lawrence.ums">
                   <nameVariants>
 		                   <nameVariant lang="en" original="true" default="true">
 			                     <firstName>Lawrence</firstName>
@@ -1086,7 +1115,8 @@
                   <birth>
 		                   <date>1970-12-15</date>
 		                   <place>
-			                     <city uid="US/PA/Philadelphia">
+			                     <city uid="US/PA/Philadelphia"
+                              src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/US/PA/Philadelphia.ums">
                            <labelVariants>
 		                            <labelVariant lang="en" original="true" default="true">
 			                              <fullLabel>Philadelphia</fullLabel>
@@ -1128,7 +1158,8 @@
                                            lang="ru"
                                            href="https://ru.wikipedia.org/wiki/Филадельфия"/>
 	                          </linkVariants>
-                           <countryState uid="US/PA">
+                           <countryState uid="US/PA"
+                                         src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/US/PA.ums">
                               <labelVariants>
 		                               <labelVariant lang="de">
 			                                 <fullLabel>Gemeinwesen Pennsylvaniens</fullLabel>
@@ -1185,7 +1216,8 @@
                               <standardIds>
 		                               <standardId standard="ISO 3166-1">US-PA</standardId>
 	                             </standardIds>
-                              <country uid="US">
+                              <country uid="US"
+                                       src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/US.ums">
                                  <labelVariants>
 		                                  <labelVariant lang="de">
 			                                    <fullLabel>Vereinigte Staaten von Amerika</fullLabel>
@@ -1261,7 +1293,8 @@
                                   lang="en"
                                   href="https://en.wikipedia.org/wiki/Lawrence_Zazzo"/>
 	                 </linkVariants>
-                  <umsm:instrument uid="voice/Countertenor">
+                  <umsm:instrument uid="voice/Countertenor"
+                                   src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Countertenor.ums">
                      <labelVariants>
 		                      <labelVariant lang="en" default="true">
 			                        <fullLabel>Countertenor</fullLabel>
@@ -1307,7 +1340,8 @@
 	                    </linkVariants>
                   </umsm:instrument>
                </umsm:instrumentalist>
-			            <umsm:instrument uid="voice/Alto">
+			            <umsm:instrument uid="voice/Alto"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Alto.ums">
                   <labelVariants>
 		                   <labelVariant lang="de">
 			                     <fullLabel>Alt (Stimmlage)</fullLabel>
@@ -1354,7 +1388,8 @@
                </umsm:instrument>
 		          </umsm:performer>
 		          <umsm:performer>
-			            <umsm:instrumentalist uid="Gilchrist, James">
+			            <umsm:instrumentalist uid="Gilchrist, James"
+                                     src="file:///C:/Users/marin/Code/ums/catalogs/music/instrumentalists/Gilchrist, James.ums">
                   <nameVariants>
 		                   <nameVariant lang="en" original="true" default="true">
 			                     <firstName>James</firstName>
@@ -1364,7 +1399,8 @@
                   <birth>
 		                   <year>1966</year>
 		                   <place>
-			                     <countryState uid="GB/EN">
+			                     <countryState uid="GB/EN"
+                                      src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/GB/EN.ums">
                            <labelVariants>
 		                            <labelVariant lang="en" original="true" default="true">
 			                              <fullLabel>England</fullLabel>
@@ -1411,7 +1447,8 @@
                            <standardIds>
 		                            <standardId standard="ISO 3166-1">GB-EN</standardId>
 	                          </standardIds>
-                           <country uid="GB">
+                           <country uid="GB"
+                                    src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/GB.ums">
                               <labelVariants>
 		                               <labelVariant lang="de">
 			                                 <fullLabel>Vereinigte Königreich Großbritannien und Nordirland</fullLabel>
@@ -1484,7 +1521,8 @@
                                   lang="en"
                                   href="https://en.wikipedia.org/wiki/James_Gilchrist_(tenor)"/>
 	                 </linkVariants>
-                  <umsm:instrument uid="voice/Tenor">
+                  <umsm:instrument uid="voice/Tenor"
+                                   src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
                      <labelVariants>
 		                      <labelVariant lang="en" default="true">
 			                        <fullLabel>Tenor</fullLabel>
@@ -1524,7 +1562,8 @@
 	                    </linkVariants>
                   </umsm:instrument>
                </umsm:instrumentalist>
-			            <umsm:instrument uid="voice/Tenor">
+			            <umsm:instrument uid="voice/Tenor"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
                   <labelVariants>
 		                   <labelVariant lang="en" default="true">
 			                     <fullLabel>Tenor</fullLabel>
@@ -1565,7 +1604,8 @@
                </umsm:instrument>
 		          </umsm:performer>
 	        </umsm:performers>
-         <umsm:work uid="Bach, Johann Sebastian/BWV/244">
+         <umsm:work uid="Bach, Johann Sebastian/BWV/244"
+                    src="file:///C:/Users/marin/Code/ums/catalogs/music/compositions/Bach, Johann Sebastian/BWV/244.ums">
             <titleVariants>
 		             <titleVariant lang="de" original="true" default="false">
 			               <fullTitle>Matthäus-Passion</fullTitle>
@@ -1586,7 +1626,8 @@
 	           </titleVariants>
             <umsm:catalogIds>
 		             <umsm:catalogId>
-			               <umsm:catalog uid="Bach-Werke-Verzeichnis">
+			               <umsm:catalog uid="Bach-Werke-Verzeichnis"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/catalogs/Bach-Werke-Verzeichnis.ums">
                      <labelVariants>
 		                      <labelVariant lang="de" original="true">
 			                        <fullLabel>Bach-Werke-Verzeichnis</fullLabel>
@@ -1635,7 +1676,8 @@
 			               <umsm:id level="1">244</umsm:id>
 		             </umsm:catalogId>
 		             <umsm:catalogId>
-			               <umsm:catalog uid="Bach-Compendium">
+			               <umsm:catalog uid="Bach-Compendium"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/catalogs/Bach-Compendium.ums">
                      <labelVariants>
 		                      <labelVariant lang="de" original="true" default="true">
 			                        <fullLabel>Bach-Compendium</fullLabel>
@@ -1655,7 +1697,8 @@
 		             </umsm:catalogId>
 	           </umsm:catalogIds>
             <umsm:composers>
-		             <umsm:composer uid="Bach, Johann Sebastian">
+		             <umsm:composer uid="Bach, Johann Sebastian"
+                              src="file:///C:/Users/marin/Code/ums/catalogs/music/composers/Bach, Johann Sebastian.ums">
                   <nameVariants>
 		                   <nameVariant lang="de" original="true" default="true">
 			                     <firstName>Johann</firstName>
@@ -1671,7 +1714,8 @@
                   <birth>
 		                   <date>1685-03-31</date>
 		                   <place>
-			                     <city uid="DE/Eisenach">
+			                     <city uid="DE/Eisenach"
+                              src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE/Eisenach.ums">
                            <labelVariants>
 		                            <labelVariant lang="de" default="true" original="true">
 			                              <fullLabel>Eisenach</fullLabel>
@@ -1703,7 +1747,8 @@
                                            lang="ru"
                                            href="https://ru.wikipedia.org/wiki/Айзенах"/>
 	                          </linkVariants>
-                           <country uid="DE">
+                           <country uid="DE"
+                                    src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE.ums">
                               <labelVariants>
 		                               <labelVariant lang="de" original="true">
 			                                 <fullLabel>Bundesrepublik Deutschland</fullLabel>
@@ -1754,7 +1799,8 @@
                   <death>
 		                   <date>1750-07-28</date>
 		                   <place>
-			                     <city uid="DE/Leipzig">
+			                     <city uid="DE/Leipzig"
+                              src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE/Leipzig.ums">
                            <labelVariants>
 		                            <labelVariant lang="de" default="true" original="true">
 			                              <fullLabel>Leipzig</fullLabel>
@@ -1789,7 +1835,8 @@
                                            lang="ru"
                                            href="https://ru.wikipedia.org/wiki/Лейпциг"/>
 	                          </linkVariants>
-                           <country uid="DE">
+                           <country uid="DE"
+                                    src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE.ums">
                               <labelVariants>
 		                               <labelVariant lang="de" original="true">
 			                                 <fullLabel>Bundesrepublik Deutschland</fullLabel>
@@ -1859,7 +1906,8 @@
 	                 </linkVariants>
                </umsm:composer>
 	           </umsm:composers>
-            <umsm:form uid="Oratorio">
+            <umsm:form uid="Oratorio"
+                       src="file:///C:/Users/marin/Code/ums/catalogs/music/forms/Oratorio.ums">
                <labelVariants>
 		                <labelVariant lang="de">
 			                  <fullLabel>Oratorium</fullLabel>
@@ -1898,7 +1946,8 @@
                                href="https://ru.wikipedia.org/wiki/Оратория"/>
 	              </linkVariants>
             </umsm:form>
-            <umsm:style uid="Baroque/Late">
+            <umsm:style uid="Baroque/Late"
+                        src="file:///C:/Users/marin/Code/ums/catalogs/music/styles/Baroque/Late.ums">
                <labelVariants>
 		                <labelVariant lang="de">
 			                  <fullLabel>Spätbarock</fullLabel>
@@ -1945,7 +1994,8 @@
 	              </linkVariants>
             </umsm:style>
             <umsm:instruments>
-		             <umsm:instrument uid="wind/Bassoon">
+		             <umsm:instrument uid="wind/Bassoon"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/wind/Bassoon.ums">
                   <labelVariants>
 		                   <labelVariant lang="de">
 			                     <fullLabel>Fagott</fullLabel>
@@ -1993,7 +2043,8 @@
                                   href="https://ru.wikipedia.org/wiki/Фагот"/>
 	                 </linkVariants>
                </umsm:instrument>
-		             <umsm:instrument uid="wind/Oboe">
+		             <umsm:instrument uid="wind/Oboe"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/wind/Oboe.ums">
                   <labelVariants>
 		                   <labelVariant lang="de">
 			                     <fullLabel>Oboe</fullLabel>
@@ -2035,7 +2086,8 @@
                                   href="https://ru.wikipedia.org/wiki/Гобой"/>		
 	                 </linkVariants>
                </umsm:instrument>
-		             <umsm:instrument uid="wind/Oboe d'amore">
+		             <umsm:instrument uid="wind/Oboe d'amore"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/wind/Oboe d'amore.ums">
                   <labelVariants>
 		                   <labelVariant lang="en" default="true">
 			                     <fullLabel>Oboe d'amore</fullLabel>
@@ -2071,7 +2123,8 @@
                                   href="https://ru.wikipedia.org/wiki/Гобой_д’амур"/>		
 	                 </linkVariants>
                </umsm:instrument>
-		             <umsm:instrument uid="wind/Oboe da caccia">
+		             <umsm:instrument uid="wind/Oboe da caccia"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/wind/Oboe da caccia.ums">
                   <labelVariants>
 		                   <labelVariant lang="en" default="true">
 			                     <fullLabel>Oboe da caccia</fullLabel>
@@ -2107,7 +2160,8 @@
                                   href="https://nl.wikipedia.org/wiki/Jachthobo"/>
 	                 </linkVariants>
                </umsm:instrument>
-		             <umsm:instrument uid="wind/Recorder">
+		             <umsm:instrument uid="wind/Recorder"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/wind/Recorder.ums">
                   <labelVariants>
 		                   <labelVariant lang="de">
 			                     <fullLabel>Blockflöte</fullLabel>
@@ -2155,7 +2209,8 @@
                                   href="https://ru.wikipedia.org/wiki/Блокфлейта"/>
 	                 </linkVariants>
                </umsm:instrument>
-		             <umsm:instrument uid="wind/Traverso">
+		             <umsm:instrument uid="wind/Traverso"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/wind/Traverso.ums">
                   <labelVariants>
 		                   <labelVariant lang="de">
 			                     <fullLabel>Querflöte</fullLabel>
@@ -2203,7 +2258,8 @@
                                   href="https://ru.wikipedia.org/wiki/Поперечная_флейта"/>
 	                 </linkVariants>
                </umsm:instrument>
-		             <umsm:instrument uid="voice/Alto">
+		             <umsm:instrument uid="voice/Alto"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Alto.ums">
                   <labelVariants>
 		                   <labelVariant lang="de">
 			                     <fullLabel>Alt (Stimmlage)</fullLabel>
@@ -2248,7 +2304,8 @@
                                   href="https://ru.wikipedia.org/wiki/Альт_(голос)"/>
 	                 </linkVariants>
                </umsm:instrument>
-		             <umsm:instrument uid="voice/Bass">
+		             <umsm:instrument uid="voice/Bass"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Bass.ums">
                   <labelVariants>
 		                   <labelVariant lang="de">
 			                     <fullLabel>Baß</fullLabel>
@@ -2294,7 +2351,8 @@
 		                   <linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бас"/>
 	                 </linkVariants>
                </umsm:instrument>
-		             <umsm:instrument uid="voice/Choir">
+		             <umsm:instrument uid="voice/Choir"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Choir.ums">
                   <labelVariants>
 		                   <labelVariant lang="de">
 			                     <fullLabel>Chor</fullLabel>
@@ -2340,7 +2398,8 @@
 		                   <linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Хор"/>
 	                 </linkVariants>
                </umsm:instrument>
-		             <umsm:instrument uid="voice/Soprano">
+		             <umsm:instrument uid="voice/Soprano"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Soprano.ums">
                   <labelVariants>
 		                   <labelVariant lang="de">
 			                     <fullLabel>Sopran</fullLabel>
@@ -2379,7 +2438,8 @@
                                   href="https://ru.wikipedia.org/wiki/Сопрано"/>
 	                 </linkVariants>
                </umsm:instrument>
-		             <umsm:instrument uid="voice/Tenor">
+		             <umsm:instrument uid="voice/Tenor"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
                   <labelVariants>
 		                   <labelVariant lang="en" default="true">
 			                     <fullLabel>Tenor</fullLabel>
@@ -2418,7 +2478,8 @@
                                   href="https://ru.wikipedia.org/wiki/Тенор"/>		
 	                 </linkVariants>
                </umsm:instrument>
-		             <umsm:instrument uid="string/Violin">
+		             <umsm:instrument uid="string/Violin"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/string/Violin.ums">
                   <labelVariants>
 		                   <labelVariant lang="de">
 			                     <fullLabel>Violine</fullLabel>
@@ -2460,7 +2521,8 @@
                                   href="https://ru.wikipedia.org/wiki/Скрипка"/>
 	                 </linkVariants>
                </umsm:instrument>
-		             <umsm:instrument uid="string/Viola">
+		             <umsm:instrument uid="string/Viola"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/string/Viola.ums">
                   <labelVariants>
 		                   <labelVariant lang="de">
 			                     <fullLabel>Bratsche</fullLabel>
@@ -2502,7 +2564,8 @@
                                   href="https://ru.wikipedia.org/wiki/Альт"/>
 	                 </linkVariants>
                </umsm:instrument>
-		             <umsm:instrument uid="string/Viola da gamba">
+		             <umsm:instrument uid="string/Viola da gamba"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/string/Viola da gamba.ums">
                   <labelVariants>
 		                   <labelVariant lang="en" default="true">
 			                     <fullLabel>Viola da gamba</fullLabel>
@@ -2538,7 +2601,8 @@
                                   href="https://ru.wikipedia.org/wiki/Виола_да_гамба"/>
 	                 </linkVariants>
                </umsm:instrument>
-		             <umsm:instrument uid="Continuo">
+		             <umsm:instrument uid="Continuo"
+                                src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/Continuo.ums">
                   <labelVariants>
 		                   <labelVariant lang="de">
 			                     <fullLabel>Generalbaß</fullLabel>
@@ -2587,7 +2651,8 @@
 	                 </linkVariants>
                </umsm:instrument>
 	           </umsm:instruments>
-            <umsm:key uid="minor/E">
+            <umsm:key uid="minor/E"
+                      src="file:///C:/Users/marin/Code/ums/catalogs/music/keys/minor/E.ums">
                <labelVariants>
 		                <labelVariant lang="de">
 			                  <fullLabel>e-Moll</fullLabel>
@@ -2664,9 +2729,11 @@
 			               <umsm:sections>
 				                 <umsm:section id="1" numbering="1">
 					                   <umsm:movements>
-						                     <umsm:movement uid="244/I-01">
+						                     <umsm:movement uid="244/I-01"
+                                          src="file:///C:/Users/marin/Code/ums/catalogs/music/compositions/Bach,%20Johann%20Sebastian/BWV/244/I-01.ums">
                               <umsm:forms>
-		                               <umsm:form uid="Chorus">
+		                               <umsm:form uid="Chorus"
+                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/forms/Chorus.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Chor</fullLabel>
@@ -2698,7 +2765,8 @@
                                  </umsm:form>
 	                             </umsm:forms>
                               <umsm:instruments>
-		                               <umsm:instrument uid="wind/Traverso">
+		                               <umsm:instrument uid="wind/Traverso"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/wind/Traverso.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Querflöte</fullLabel>
@@ -2746,7 +2814,8 @@
                                                     href="https://ru.wikipedia.org/wiki/Поперечная_флейта"/>
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="wind/Oboe">
+		                               <umsm:instrument uid="wind/Oboe"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/wind/Oboe.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Oboe</fullLabel>
@@ -2788,7 +2857,8 @@
                                                     href="https://ru.wikipedia.org/wiki/Гобой"/>		
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="voice/Choir">
+		                               <umsm:instrument uid="voice/Choir"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Choir.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Chor</fullLabel>
@@ -2834,7 +2904,8 @@
 		                                     <linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Хор"/>
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="voice/Soprano">
+		                               <umsm:instrument uid="voice/Soprano"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Soprano.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Sopran</fullLabel>
@@ -2873,7 +2944,8 @@
                                                     href="https://ru.wikipedia.org/wiki/Сопрано"/>
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="string/Violin">
+		                               <umsm:instrument uid="string/Violin"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/string/Violin.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Violine</fullLabel>
@@ -2915,7 +2987,8 @@
                                                     href="https://ru.wikipedia.org/wiki/Скрипка"/>
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="string/Viola">
+		                               <umsm:instrument uid="string/Viola"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/string/Viola.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Bratsche</fullLabel>
@@ -2957,7 +3030,8 @@
                                                     href="https://ru.wikipedia.org/wiki/Альт"/>
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="Continuo">
+		                               <umsm:instrument uid="Continuo"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/Continuo.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Generalbaß</fullLabel>
@@ -3006,7 +3080,8 @@
 	                                   </linkVariants>
                                  </umsm:instrument>
 	                             </umsm:instruments>
-                              <umsm:key uid="minor/E">
+                              <umsm:key uid="minor/E"
+                                        src="file:///C:/Users/marin/Code/ums/catalogs/music/keys/minor/E.ums">
                                  <labelVariants>
 		                                  <labelVariant lang="de">
 			                                    <fullLabel>e-Moll</fullLabel>
@@ -3061,8 +3136,10 @@
                                                  href="https://ru.wikipedia.org/wiki/Ми_минор"/>
 	                                </linkVariants>
                               </umsm:key>
+                              <umsm:timeSignature>12/8</umsm:timeSignature>
                               <umsm:lyricists>
-		                               <umsm:lyricist uid="Picander">
+		                               <umsm:lyricist uid="Picander"
+                                                src="file:///C:/Users/marin/Code/ums/catalogs/music/lyricists/Picander.ums">
                                     <nameVariants>
 		                                     <nameVariant lang="de" original="true" default="true">
 			                                       <firstName>Christian</firstName>
@@ -3080,7 +3157,8 @@
                                     <birth>
 		                                     <date>1700-01-14</date>
 		                                     <place>
-			                                       <city uid="DE/Stolpen">
+			                                       <city uid="DE/Stolpen"
+                                                src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE/Stolpen.ums">
                                              <labelVariants>
 		                                              <labelVariant lang="de" default="true" original="true">
 			                                                <fullLabel>Stolpen</fullLabel>
@@ -3112,7 +3190,8 @@
                                                              lang="ru"
                                                              href="https://ru.wikipedia.org/wiki/Штольпен"/>
 	                                            </linkVariants>
-                                             <country uid="DE">
+                                             <country uid="DE"
+                                                      src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE.ums">
                                                 <labelVariants>
 		                                                 <labelVariant lang="de" original="true">
 			                                                   <fullLabel>Bundesrepublik Deutschland</fullLabel>
@@ -3163,7 +3242,8 @@
                                     <death>
 		                                     <date>1764-05-10</date>
 		                                     <place>
-			                                       <city uid="DE/Leipzig">
+			                                       <city uid="DE/Leipzig"
+                                                src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE/Leipzig.ums">
                                              <labelVariants>
 		                                              <labelVariant lang="de" default="true" original="true">
 			                                                <fullLabel>Leipzig</fullLabel>
@@ -3198,7 +3278,8 @@
                                                              lang="ru"
                                                              href="https://ru.wikipedia.org/wiki/Лейпциг"/>
 	                                            </linkVariants>
-                                             <country uid="DE">
+                                             <country uid="DE"
+                                                      src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE.ums">
                                                 <labelVariants>
 		                                                 <labelVariant lang="de" original="true">
 			                                                   <fullLabel>Bundesrepublik Deutschland</fullLabel>
@@ -3267,7 +3348,8 @@
                                                     href="https://ru.wikipedia.org/wiki/Хенрици,_Кристиан_Фридрих"/>
 	                                   </linkVariants>
                                  </umsm:lyricist>
-		                               <umsm:lyricist uid="Decius, Nikolaus">
+		                               <umsm:lyricist uid="Decius, Nikolaus"
+                                                src="file:///C:/Users/marin/Code/ums/catalogs/music/lyricists/Decius, Nikolaus.ums">
                                     <nameVariants>
 		                                     <nameVariant lang="de" original="true" default="true">
 			                                       <firstName>Nikolaus</firstName>
@@ -3281,7 +3363,8 @@
                                     <birth>
 		                                     <year>1485</year>
 		                                     <place>
-			                                       <city uid="DE/Hof, Bavaria">
+			                                       <city uid="DE/Hof, Bavaria"
+                                                src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE/Hof, Bavaria.ums">
                                              <labelVariants>
 		                                              <labelVariant lang="de" default="true" original="true">
 			                                                <fullLabel>Hof (Saale)</fullLabel>
@@ -3328,7 +3411,8 @@
                                                              lang="ru"
                                                              href="https://ru.wikipedia.org/wiki/Хоф_(Зале)"/>
 	                                            </linkVariants>
-                                             <country uid="DE">
+                                             <country uid="DE"
+                                                      src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE.ums">
                                                 <labelVariants>
 		                                                 <labelVariant lang="de" original="true">
 			                                                   <fullLabel>Bundesrepublik Deutschland</fullLabel>
@@ -3379,7 +3463,8 @@
                                     <death>
 		                                     <year>1546</year>
 		                                     <place>
-			                                       <city uid="DE/Hof, Bavaria">
+			                                       <city uid="DE/Hof, Bavaria"
+                                                src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE/Hof, Bavaria.ums">
                                              <labelVariants>
 		                                              <labelVariant lang="de" default="true" original="true">
 			                                                <fullLabel>Hof (Saale)</fullLabel>
@@ -3426,7 +3511,8 @@
                                                              lang="ru"
                                                              href="https://ru.wikipedia.org/wiki/Хоф_(Зале)"/>
 	                                            </linkVariants>
-                                             <country uid="DE">
+                                             <country uid="DE"
+                                                      src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE.ums">
                                                 <labelVariants>
 		                                                 <labelVariant lang="de" original="true">
 			                                                   <fullLabel>Bundesrepublik Deutschland</fullLabel>
@@ -3488,7 +3574,8 @@
                                  </umsm:lyricist>
 	                             </umsm:lyricists>
                               <umsm:incipit>Kommt, ihr Töchter, helft mir klagen</umsm:incipit>
-                              <umsm:lyrics uid="I-01-lyrics">
+                              <umsm:lyrics uid="I-01-lyrics"
+                                           src="file:///C:/Users/marin/Code/ums/catalogs/music/compositions/Bach,%20Johann%20Sebastian/BWV/244/I-01-lyrics.ums">
                                  <umsm:stanza>
 		                                  <umsm:singer character="characters/Choir I">
 			                                    <umsm:verse>Kommt, ihr Töchter, helft mir klagen,</umsm:verse>
@@ -3566,7 +3653,8 @@
 	                                </umsm:stanza>
                               </umsm:lyrics>
                               <characters>
-		                               <character uid="characters/Choir I">
+		                               <character uid="characters/Choir I"
+                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/compositions/Bach,%20Johann%20Sebastian/BWV/244/characters/Choir I.ums">
                                     <nameVariants>
 		                                     <nameVariant lang="de" original="true">
 			                                       <firstName>Chor I</firstName>
@@ -3582,7 +3670,8 @@
 		                                     </nameVariant>		
 	                                   </nameVariants>
                                  </character>
-		                               <character uid="characters/Choir II">
+		                               <character uid="characters/Choir II"
+                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/compositions/Bach,%20Johann%20Sebastian/BWV/244/characters/Choir II.ums">
                                     <nameVariants>
 		                                     <nameVariant lang="de" original="true">
 			                                       <firstName>Chor II</firstName>
@@ -3598,7 +3687,8 @@
 		                                     </nameVariant>		
 	                                   </nameVariants>
                                  </character>
-		                               <character uid="characters/Choir III">
+		                               <character uid="characters/Choir III"
+                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/compositions/Bach,%20Johann%20Sebastian/BWV/244/characters/Choir III.ums">
                                     <nameVariants>
 		                                     <nameVariant lang="de" original="true">
 			                                       <firstName>Chor III</firstName>
@@ -3620,9 +3710,11 @@
 				                 </umsm:section>
 				                 <umsm:section id="2" numbering="2">
 					                   <umsm:movements>
-						                     <umsm:movement uid="244/I-02">
+						                     <umsm:movement uid="244/I-02"
+                                          src="file:///C:/Users/marin/Code/ums/catalogs/music/compositions/Bach,%20Johann%20Sebastian/BWV/244/I-02.ums">
                               <umsm:forms>
-		                               <umsm:form uid="Recitative">
+		                               <umsm:form uid="Recitative"
+                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/forms/Recitative.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Rezitativ</fullLabel>
@@ -3672,7 +3764,8 @@
                                  </umsm:form>
 	                             </umsm:forms>
                               <umsm:instruments>
-		                               <umsm:instrument uid="string/Violin">
+		                               <umsm:instrument uid="string/Violin"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/string/Violin.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Violine</fullLabel>
@@ -3714,7 +3807,8 @@
                                                     href="https://ru.wikipedia.org/wiki/Скрипка"/>
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="string/Viola">
+		                               <umsm:instrument uid="string/Viola"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/string/Viola.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Bratsche</fullLabel>
@@ -3756,7 +3850,8 @@
                                                     href="https://ru.wikipedia.org/wiki/Альт"/>
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="voice/Tenor">
+		                               <umsm:instrument uid="voice/Tenor"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="en" default="true">
 			                                       <fullLabel>Tenor</fullLabel>
@@ -3795,7 +3890,8 @@
                                                     href="https://ru.wikipedia.org/wiki/Тенор"/>		
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="voice/Bass">
+		                               <umsm:instrument uid="voice/Bass"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Bass.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Baß</fullLabel>
@@ -3841,7 +3937,8 @@
 		                                     <linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бас"/>
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="Continuo">
+		                               <umsm:instrument uid="Continuo"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/Continuo.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Generalbaß</fullLabel>
@@ -3890,7 +3987,8 @@
 	                                   </linkVariants>
                                  </umsm:instrument>
 	                             </umsm:instruments>
-                              <umsm:key uid="major/G">
+                              <umsm:key uid="major/G"
+                                        src="file:///C:/Users/marin/Code/ums/catalogs/music/keys/major/G.ums">
                                  <labelVariants>
 		                                  <labelVariant lang="de">
 			                                    <fullLabel>G-Dur</fullLabel>
@@ -3945,8 +4043,10 @@
                                                  href="https://ru.wikipedia.org/wiki/Соль_мажор"/>
 	                                </linkVariants>
                               </umsm:key>
+                              <umsm:timeSignature>4/4</umsm:timeSignature>
                               <umsm:incipit>Da Jesus diese Rede vollendet hatte</umsm:incipit>
-                              <umsm:lyrics uid="I-02-lyrics">
+                              <umsm:lyrics uid="I-02-lyrics"
+                                           src="file:///C:/Users/marin/Code/ums/catalogs/music/compositions/Bach,%20Johann%20Sebastian/BWV/244/I-02-lyrics.ums">
                                  <umsm:stanza>
 		                                  <umsm:singer character="characters/Evangelist">
 			                                    <umsm:verse>Da Jesus diese Rede vollendet hatte, sprach er zu seinen Jüngern:</umsm:verse>
@@ -3957,7 +4057,8 @@
 	                                </umsm:stanza>
                               </umsm:lyrics>
                               <characters>
-		                               <character uid="characters/Evangelist">
+		                               <character uid="characters/Evangelist"
+                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/compositions/Bach,%20Johann%20Sebastian/BWV/244/characters/Evangelist.ums">
                                     <nameVariants>
 		                                     <nameVariant lang="de" original="true">
 			                                       <firstName>Evangelist</firstName>
@@ -3973,7 +4074,8 @@
 		                                     </nameVariant>		
 	                                   </nameVariants>
                                  </character>
-		                               <character uid="characters/Jesus">
+		                               <character uid="characters/Jesus"
+                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/compositions/Bach,%20Johann%20Sebastian/BWV/244/characters/Jesus.ums">
                                     <nameVariants>
 		                                     <nameVariant lang="de" original="true">
 			                                       <firstName>Jesus</firstName>
@@ -3995,9 +4097,11 @@
 				                 </umsm:section>
 				                 <umsm:section id="3" numbering="3">
 					                   <umsm:movements>
-						                     <umsm:movement uid="244/I-03">
+						                     <umsm:movement uid="244/I-03"
+                                          src="file:///C:/Users/marin/Code/ums/catalogs/music/compositions/Bach,%20Johann%20Sebastian/BWV/244/I-03.ums">
                               <umsm:forms>
-		                               <umsm:form uid="Chorale">
+		                               <umsm:form uid="Chorale"
+                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/forms/Chorale.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Choral</fullLabel>
@@ -4047,7 +4151,8 @@
                                  </umsm:form>
 	                             </umsm:forms>
                               <umsm:instruments>
-		                               <umsm:instrument uid="wind/Traverso">
+		                               <umsm:instrument uid="wind/Traverso"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/wind/Traverso.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Querflöte</fullLabel>
@@ -4095,7 +4200,8 @@
                                                     href="https://ru.wikipedia.org/wiki/Поперечная_флейта"/>
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="wind/Oboe">
+		                               <umsm:instrument uid="wind/Oboe"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/wind/Oboe.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Oboe</fullLabel>
@@ -4137,7 +4243,8 @@
                                                     href="https://ru.wikipedia.org/wiki/Гобой"/>		
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="string/Violin">
+		                               <umsm:instrument uid="string/Violin"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/string/Violin.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Violine</fullLabel>
@@ -4179,7 +4286,8 @@
                                                     href="https://ru.wikipedia.org/wiki/Скрипка"/>
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="string/Viola">
+		                               <umsm:instrument uid="string/Viola"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/string/Viola.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Bratsche</fullLabel>
@@ -4221,7 +4329,8 @@
                                                     href="https://ru.wikipedia.org/wiki/Альт"/>
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="voice/Choir">
+		                               <umsm:instrument uid="voice/Choir"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Choir.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Chor</fullLabel>
@@ -4267,7 +4376,8 @@
 		                                     <linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Хор"/>
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="Continuo">
+		                               <umsm:instrument uid="Continuo"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/Continuo.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Generalbaß</fullLabel>
@@ -4316,7 +4426,8 @@
 	                                   </linkVariants>
                                  </umsm:instrument>
 	                             </umsm:instruments>
-                              <umsm:key uid="minor/B">
+                              <umsm:key uid="minor/B"
+                                        src="file:///C:/Users/marin/Code/ums/catalogs/music/keys/minor/B.ums">
                                  <labelVariants>
 		                                  <labelVariant lang="de">
 			                                    <fullLabel>h-Moll</fullLabel>
@@ -4371,8 +4482,10 @@
                                                  href="https://ru.wikipedia.org/wiki/Си_минор"/>
 	                                </linkVariants>
                               </umsm:key>
+                              <umsm:timeSignature>4/4</umsm:timeSignature>
                               <umsm:incipit>Herzliebster Jesu</umsm:incipit>
-                              <umsm:lyrics uid="I-03-lyrics">
+                              <umsm:lyrics uid="I-03-lyrics"
+                                           src="file:///C:/Users/marin/Code/ums/catalogs/music/compositions/Bach,%20Johann%20Sebastian/BWV/244/I-03-lyrics.ums">
                                  <umsm:stanza>
 		                                  <umsm:singer character="characters/Chor I">
 			                                    <umsm:singer character="characters/Chor II">
@@ -4385,7 +4498,8 @@
 	                                </umsm:stanza>
                               </umsm:lyrics>
                               <characters>
-		                               <character uid="characters/Choir I">
+		                               <character uid="characters/Choir I"
+                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/compositions/Bach,%20Johann%20Sebastian/BWV/244/characters/Choir I.ums">
                                     <nameVariants>
 		                                     <nameVariant lang="de" original="true">
 			                                       <firstName>Chor I</firstName>
@@ -4401,7 +4515,8 @@
 		                                     </nameVariant>		
 	                                   </nameVariants>
                                  </character>
-		                               <character uid="characters/Choir II">
+		                               <character uid="characters/Choir II"
+                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/compositions/Bach,%20Johann%20Sebastian/BWV/244/characters/Choir II.ums">
                                     <nameVariants>
 		                                     <nameVariant lang="de" original="true">
 			                                       <firstName>Chor II</firstName>
@@ -4438,9 +4553,11 @@
 			               <umsm:sections>
 				                 <umsm:section id="30" numbering="30">
 					                   <umsm:movements>
-						                     <umsm:movement uid="244/II-30">
+						                     <umsm:movement uid="244/II-30"
+                                          src="file:///C:/Users/marin/Code/ums/catalogs/music/compositions/Bach,%20Johann%20Sebastian/BWV/244/II-30.ums">
                               <umsm:forms>
-		                               <umsm:form uid="Aria">
+		                               <umsm:form uid="Aria"
+                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/forms/Aria.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Arie</fullLabel>
@@ -4478,7 +4595,8 @@
                                  </umsm:form>
 	                             </umsm:forms>
                               <umsm:instruments>
-		                               <umsm:instrument uid="wind/Traverso">
+		                               <umsm:instrument uid="wind/Traverso"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/wind/Traverso.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Querflöte</fullLabel>
@@ -4526,7 +4644,8 @@
                                                     href="https://ru.wikipedia.org/wiki/Поперечная_флейта"/>
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="wind/Oboe d'amore">
+		                               <umsm:instrument uid="wind/Oboe d'amore"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/wind/Oboe d'amore.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="en" default="true">
 			                                       <fullLabel>Oboe d'amore</fullLabel>
@@ -4562,7 +4681,8 @@
                                                     href="https://ru.wikipedia.org/wiki/Гобой_д’амур"/>		
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="voice/Alto">
+		                               <umsm:instrument uid="voice/Alto"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Alto.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Alt (Stimmlage)</fullLabel>
@@ -4607,7 +4727,8 @@
                                                     href="https://ru.wikipedia.org/wiki/Альт_(голос)"/>
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="voice/Choir">
+		                               <umsm:instrument uid="voice/Choir"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Choir.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Chor</fullLabel>
@@ -4653,7 +4774,8 @@
 		                                     <linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Хор"/>
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="string/Violin">
+		                               <umsm:instrument uid="string/Violin"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/string/Violin.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Violine</fullLabel>
@@ -4695,7 +4817,8 @@
                                                     href="https://ru.wikipedia.org/wiki/Скрипка"/>
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="string/Viola">
+		                               <umsm:instrument uid="string/Viola"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/string/Viola.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Bratsche</fullLabel>
@@ -4737,7 +4860,8 @@
                                                     href="https://ru.wikipedia.org/wiki/Альт"/>
 	                                   </linkVariants>
                                  </umsm:instrument>
-		                               <umsm:instrument uid="Continuo">
+		                               <umsm:instrument uid="Continuo"
+                                                  src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/Continuo.ums">
                                     <labelVariants>
 		                                     <labelVariant lang="de">
 			                                       <fullLabel>Generalbaß</fullLabel>
@@ -4786,7 +4910,8 @@
 	                                   </linkVariants>
                                  </umsm:instrument>
 	                             </umsm:instruments>
-                              <umsm:key uid="minor/B">
+                              <umsm:key uid="minor/B"
+                                        src="file:///C:/Users/marin/Code/ums/catalogs/music/keys/minor/B.ums">
                                  <labelVariants>
 		                                  <labelVariant lang="de">
 			                                    <fullLabel>h-Moll</fullLabel>
@@ -4841,8 +4966,10 @@
                                                  href="https://ru.wikipedia.org/wiki/Си_минор"/>
 	                                </linkVariants>
                               </umsm:key>
+                              <umsm:timeSignature>3/8</umsm:timeSignature>
                               <umsm:lyricists>
-		                               <umsm:lyricist uid="Picander">
+		                               <umsm:lyricist uid="Picander"
+                                                src="file:///C:/Users/marin/Code/ums/catalogs/music/lyricists/Picander.ums">
                                     <nameVariants>
 		                                     <nameVariant lang="de" original="true" default="true">
 			                                       <firstName>Christian</firstName>
@@ -4860,7 +4987,8 @@
                                     <birth>
 		                                     <date>1700-01-14</date>
 		                                     <place>
-			                                       <city uid="DE/Stolpen">
+			                                       <city uid="DE/Stolpen"
+                                                src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE/Stolpen.ums">
                                              <labelVariants>
 		                                              <labelVariant lang="de" default="true" original="true">
 			                                                <fullLabel>Stolpen</fullLabel>
@@ -4892,7 +5020,8 @@
                                                              lang="ru"
                                                              href="https://ru.wikipedia.org/wiki/Штольпен"/>
 	                                            </linkVariants>
-                                             <country uid="DE">
+                                             <country uid="DE"
+                                                      src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE.ums">
                                                 <labelVariants>
 		                                                 <labelVariant lang="de" original="true">
 			                                                   <fullLabel>Bundesrepublik Deutschland</fullLabel>
@@ -4943,7 +5072,8 @@
                                     <death>
 		                                     <date>1764-05-10</date>
 		                                     <place>
-			                                       <city uid="DE/Leipzig">
+			                                       <city uid="DE/Leipzig"
+                                                src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE/Leipzig.ums">
                                              <labelVariants>
 		                                              <labelVariant lang="de" default="true" original="true">
 			                                                <fullLabel>Leipzig</fullLabel>
@@ -4978,7 +5108,8 @@
                                                              lang="ru"
                                                              href="https://ru.wikipedia.org/wiki/Лейпциг"/>
 	                                            </linkVariants>
-                                             <country uid="DE">
+                                             <country uid="DE"
+                                                      src="file:///C:/Users/marin/Code/ums/catalogs/base/cities/DE.ums">
                                                 <labelVariants>
 		                                                 <labelVariant lang="de" original="true">
 			                                                   <fullLabel>Bundesrepublik Deutschland</fullLabel>
@@ -5049,7 +5180,8 @@
                                  </umsm:lyricist>
 	                             </umsm:lyricists>
                               <umsm:incipit>Ach! nun ist mein Jesus hin!</umsm:incipit>
-                              <umsm:lyrics uid="II-30-lyrics">
+                              <umsm:lyrics uid="II-30-lyrics"
+                                           src="file:///C:/Users/marin/Code/ums/catalogs/music/compositions/Bach,%20Johann%20Sebastian/BWV/244/II-30-lyrics.ums">
                                  <umsm:stanza>
 		                                  <umsm:singer instrument="voice/Alto">
 			                                    <umsm:verse>Ach, nun ist mein Jesus hin.</umsm:verse>
@@ -5079,7 +5211,8 @@
 	                                </umsm:stanza>
                               </umsm:lyrics>
                               <characters>
-		                               <character uid="characters/Choir II">
+		                               <character uid="characters/Choir II"
+                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/compositions/Bach,%20Johann%20Sebastian/BWV/244/characters/Choir II.ums">
                                     <nameVariants>
 		                                     <nameVariant lang="de" original="true">
 			                                       <firstName>Chor II</firstName>
