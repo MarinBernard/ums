@@ -19,6 +19,9 @@ function Get-UmsItem
     .PARAMETER Validity
     Filters UMS items according to the result of the XML validation. This parameter requires the presence of the -Validate switch.
     
+    .PARAMETER Filter
+    Allows to specify a file name filter. This parater is similar to the -Filter parameter of Get-ChildItem.
+
     .EXAMPLE
     Get-UmsItem -Path "D:\MyMusic"
     #>
@@ -41,7 +44,9 @@ function Get-UmsItem
 
         [Parameter(ParameterSetName='WithValidation',Mandatory=$false)]
         [ValidateSet("All", "Valid", "Invalid")]
-        [string[]] $Validity = "All"
+        [string[]] $Validity = "All",
+
+        [string] $Filter
     )
 
     # Convert DirectoryInfo object to string
@@ -77,6 +82,12 @@ function Get-UmsItem
     # Enumerate files from the local folder
     foreach ($_file in (Get-ChildItem -Path $_umsFolderPath -File -Filter $_filter))
     {
+        # Apply filter, if specified
+        if ($Filter)
+        {
+            if ($_file.Name -notlike $Filter) { continue }
+        }
+
         # Create item instance
         $_item = New-Object -Type UmsItem -ArgumentList $_file
 
