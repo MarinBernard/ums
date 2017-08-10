@@ -53,7 +53,6 @@ class UmsAeEntity
     hidden [string] $SourceFileUri  # URI to source transcluded file, if any
     hidden [string] $SourcePathUri  # URI to path of the trans. file, if any
     hidden [string] $Uid            # Uid of the entity, if set
-    hidden [bool]   $RelativeSource # Whether transclusion implied a rel. path
     
     ###########################################################################
     # Visible properties
@@ -90,11 +89,6 @@ class UmsAeEntity
         {
             $this.Uid = $this.GetMandatoryXmlAttributeValue(
                 $XmlElement, "uid")
-        }
-        if ($XmlElement.HasAttribute("relative"))
-        {
-            $this.RelativeSource = [System.Convert]::ToBoolean(
-                $this.GetMandatoryXmlAttributeValue($XmlElement, "relative"))
         }
         if ($XmlElement.HasAttribute("src"))
         {

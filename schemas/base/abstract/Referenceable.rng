@@ -6,9 +6,6 @@
 			<attribute name="uid">
 				<data type="string"/>
 			</attribute>
-			<attribute name="relative">
-				<data type="boolean"/>
-			</attribute>
 			<attribute name="src">
 				<data type="anyURI"/>
 			</attribute>

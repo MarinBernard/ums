@@ -97,7 +97,6 @@
 		<!-- Performing transclusion -->
 		<xsl:copy select="document($_documentFullPath)/*[local-name()=$TargetElement]">
 			<xsl:attribute name="uid" select="$_targetUid"/>
-			<xsl:attribute name="relative" select="$_documentPathIsRelative"/>
 			<xsl:attribute name="src" select="$_documentFullPath"/>
 			<xsl:apply-templates select="*"/>
 		</xsl:copy>
