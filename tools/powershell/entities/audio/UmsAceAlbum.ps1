@@ -23,7 +23,8 @@ class UmsAceAlbum : UmsBaeProduct
 
     [UmsAceLabel[]]         $Labels
     [UmsMcePerformance[]]   $Performances
-    [UmsAceRelease[]]       $Releases 
+    [UmsAceRelease[]]       $Releases
+    [UmsAceMedium[]]        $Media
 
     ###########################################################################
     # Constructors
@@ -63,6 +64,13 @@ class UmsAceAlbum : UmsBaeProduct
                     [UmsAeEntity]::NamespaceUri.Audio,
                     "releases"))
         }
+
+        # Mandatory 'media' element (collection of 'medium' elements)
+        $this.BuildMedia(
+            $this.GetOneXmlElement(
+                $XmlElement,
+                [UmsAeEntity]::NamespaceUri.Audio,
+                "media"))
     }
 
     # Sub-constructor for the 'labels' element
@@ -101,6 +109,18 @@ class UmsAceAlbum : UmsBaeProduct
             "release"
         ) | foreach {
                 $this.Releases += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
+    }
+
+    # Sub-constructor for the 'media' element
+    [void] BuildMedia([System.Xml.XmlElement] $MediaElement)
+    {
+        $this.GetOneOrManyXmlElement(
+            $MediaElement,
+            [UmsAeEntity]::NamespaceUri.Audio,
+            "medium"
+        ) | foreach {
+                $this.Media += [EntityFactory]::GetEntity(
                     $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 

@@ -1,4 +1,4 @@
-﻿###############################################################################
+###############################################################################
 #   Concrete entity class UmsMceMovement
 #==============================================================================
 #
@@ -15,6 +15,11 @@ class UmsMceMovement : UmsBaeProduct
     # Static properties
     ###########################################################################
 
+    # Whether the musical form of the movement should be shown when it is
+    # rendered as a string.
+    static [string] $ShowMusicalForm = 
+        (Get-UmsConfigurationItem -ShortName "ShowMusicalForm")
+
     # One or several characters which will be inserted between each form name.
     static [string] $FormDelimiter = 
         (Get-UmsConfigurationItem -ShortName "FormDelimiter")
@@ -27,6 +32,11 @@ class UmsMceMovement : UmsBaeProduct
     static [string] $FormListSuffix = 
         (Get-UmsConfigurationItem -ShortName "FormListSuffix")
 
+    # Whether the initial musical key of the movement should be shown when
+    # it is rendered as a string.
+    static [string] $ShowMusicalKey = 
+        (Get-UmsConfigurationItem -ShortName "ShowMusicalKey")
+
     # Whether musical keys will be displayed as their short form.
     static [string] $PreferShortKeys = 
         (Get-UmsConfigurationItem -ShortName "PreferShortKeys")
@@ -38,6 +48,11 @@ class UmsMceMovement : UmsBaeProduct
     # One or several characters which will be inserted after a list of keys.
     static [string] $KeyListSuffix = 
         (Get-UmsConfigurationItem -ShortName "KeyListSuffix")
+
+    # Whether the characters involved in the movement should be shown when
+    # it is rendered as a string.
+    static [string] $ShowCharacterList = 
+        (Get-UmsConfigurationItem -ShortName "ShowCharacterList")
 
     # One or several characters which will be inserted between each name
     # in a list of characters.
@@ -53,11 +68,21 @@ class UmsMceMovement : UmsBaeProduct
     # characters.
     static [string] $CharacterListSuffix = 
         (Get-UmsConfigurationItem -ShortName "CharacterListSuffix")
+
+    # Whether the title of the mouvement should be shown when it is rendered
+    # as a string.
+    static [string] $ShowMovementTitle = 
+        (Get-UmsConfigurationItem -ShortName "ShowMovementTitle")
     
-    # One or several characters which will be inserted before the title
-    # of the movement.
-    static [string] $MovementTitlePrefix = 
-        (Get-UmsConfigurationItem -ShortName "MovementTitlePrefix")
+    # One or several characters which will be inserted between the first and
+    # second parts of the full movement title, when rendered as a string.
+    static [string] $MovementTitleInfix = 
+        (Get-UmsConfigurationItem -ShortName "MovementTitleInfix")
+
+    # Whether tempo marking should be shown when the movement is rendered
+    # as a string.
+    static [string] $ShowTempoMarking = 
+        (Get-UmsConfigurationItem -ShortName "ShowTempoMarking")
     
     # One or several characters which will be inserted before a list of
     # tempo markings.
@@ -68,6 +93,11 @@ class UmsMceMovement : UmsBaeProduct
     # tempo markings.
     static [string] $TempoMarkingListSuffix = 
         (Get-UmsConfigurationItem -ShortName "TempoMarkingListSuffix")
+
+    # Whether the incipit of the movement should be shown when it is rendered
+    # as a string.
+    static [string] $ShowMovementIncipit = 
+        (Get-UmsConfigurationItem -ShortName "ShowMovementIncipit")
     
     # One or several characters which will be inserted before an incipit.
     static [string] $IncipitPrefix = 
@@ -261,7 +291,7 @@ class UmsMceMovement : UmsBaeProduct
         $_addSpace = $false
 
         # Show labels of all musical forms
-        if ($this.Forms)
+        if (([UmsMceMovement]::ShowMusicalForm) -and ($this.Forms))
         {
             # Add space, if needed
             if ($_addSpace) { $_string += ([UmsAeEntity]::NonBreakingSpace) }
@@ -279,7 +309,7 @@ class UmsMceMovement : UmsBaeProduct
         }
 
         # Show musical key
-        if ($this.Key)
+        if (([UmsMceMovement]::ShowMusicalKey) -and ($this.Key))
         {
             # Add space, if needed
             if ($_addSpace) { $_string += ([UmsAeEntity]::NonBreakingSpace) }
@@ -298,7 +328,7 @@ class UmsMceMovement : UmsBaeProduct
         }
 
         # Show character list
-        if ($this.Characters)
+        if (([UmsMceMovement]::ShowCharacterList) -and ($this.Characters))
         {
             # Add space, if needed
             if ($_addSpace) { $_string += ([UmsAeEntity]::NonBreakingSpace) }
@@ -316,14 +346,14 @@ class UmsMceMovement : UmsBaeProduct
             $_addSpace = $true
         }
 
-        # Show movement title prefix
-        $_string += ([UmsMceMovement]::MovementTitlePrefix)
+        # Show movement title infix
+        $_string += ([UmsMceMovement]::MovementTitleInfix)
         $_addSpace = $true
 
         # Include movement title, it defined. We use the ToString() method
         # from the UmsBaeProduct base type to get the string.
         $_fullTitle = ([UmsBaeProduct] $this).ToString()
-        if ($_fullTitle)
+        if (([UmsMceMovement]::ShowMovementTitle) -and ($_fullTitle))
         {
             # Add space, if needed
             if ($_addSpace) { $_string += ([UmsAeEntity]::NonBreakingSpace) }
@@ -333,8 +363,8 @@ class UmsMceMovement : UmsBaeProduct
             $_addSpace = $true
         }
 
-        # Show tempo marking
-        if ($this.TempoMarking)
+        # Show tempo markings
+        if (([UmsMceMovement]::ShowTempoMarking) -and ($this.TempoMarking))
         {
             # Add space, if needed
             if ($_addSpace) { $_string += ([UmsAeEntity]::NonBreakingSpace) }
@@ -347,7 +377,7 @@ class UmsMceMovement : UmsBaeProduct
         }
 
         # Show incipit
-        if ($this.Incipit)
+        if (([UmsMceMovement]::ShowMovementIncipit) -and ($this.Incipit))
         {
             # Add space, if needed
             if ($_addSpace) { $_string += ([UmsAeEntity]::NonBreakingSpace) }

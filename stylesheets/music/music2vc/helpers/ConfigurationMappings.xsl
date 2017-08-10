@@ -198,16 +198,14 @@
 	Opening and closing characters surrounding the name of an instrument as a suffix
 	to a performer's name. -->
 	<xsl:variable name="config.instruments.listPrefix">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'instruments-list-prefix'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'played-instrument-prefix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<xsl:variable name="config.instruments.listSuffix">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'instruments-list-suffix'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'played-instrument-suffix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -307,9 +305,9 @@
 	
 	One or several characters which will be inserted before the title of a
 	movement. -->
-	<xsl:variable name="config.movementTitles.prefix">
+	<xsl:variable name="config.movementTitles.infix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'movement-title-prefix'"/>
+			<xsl:with-param name="OptionName" select="'movement-title-infix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -391,9 +389,8 @@
 	
 	Whether we shall include the main musical key of a work in its title -->
 	<xsl:variable name="config.workTitles.showKey">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'work-titles-show-key'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'show-musical-key'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -401,9 +398,8 @@
 	
 	Whether we shall include the catalog IDs of a work in its title -->
 	<xsl:variable name="config.workTitles.showCatalogIds">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'work-titles-show-catalog-ids'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'show-catalog-ids'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -463,9 +459,8 @@
 	Whether we want to include the performed instrument as a suffix to the name
 	of an instrumentalist when is it rendered as a PERFORMER comment.-->
 	<xsl:variable name="config.vorbis.performers.showInstrument">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'vorbis-performers-show-instrument'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'show-played-instrument'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -670,9 +665,8 @@
 	If set to true(), track titles will include a list of character names
 	involved in the action. This is useful with opera or sung music. -->
 	<xsl:variable name="config.vorbis.titles.showCharacterList">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'vorbis-titles-show-character-list'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'show-character-list'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -681,9 +675,8 @@
 	If set to true(), track titles will include the name of the musical form
 	of the movement. -->
 	<xsl:variable name="config.vorbis.titles.showFormList">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'vorbis-titles-show-musical-form-list'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'show-musical-form'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -692,19 +685,26 @@
 	If set to true(), track titles will include the initial musical key
 	of the movement. -->
 	<xsl:variable name="config.vorbis.titles.showKey">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'vorbis-titles-show-key'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'show-musical-key'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<!--
 	
 	If set to true(), track titles will include tempo markings. -->
-	<xsl:variable name="config.vorbis.titles.showTempoMarkings">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'vorbis-titles-show-tempo-markings'"/>
+	<xsl:variable name="config.vorbis.titles.showTempoMarking">
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'show-tempo-marking'"/>
+			<xsl:with-param name="Boolean" select="true()"/>
+		</xsl:call-template>
+	</xsl:variable>
+	<!--
+	
+	If set to true(), track titles will include movement titles. -->
+	<xsl:variable name="config.vorbis.titles.showMovementTitle">
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'show-movement-title'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>	
@@ -713,9 +713,8 @@
 	If set to true(), track titles will include the first words of the lyrics
 	(incipit) in the context of sung music. -->
 	<xsl:variable name="config.vorbis.titles.showIncipit">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'vorbis-titles-show-incipit'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'show-movement-incipit'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>	
@@ -757,9 +756,8 @@
 	If set to true(), dynamic album titles will include the list of composers
 	of a given work. -->
 	<xsl:variable name="config.albumTitles.includeComposers">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'vorbis-album-titles-include-composers'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'show-composer-list'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>	

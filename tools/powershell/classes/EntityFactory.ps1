@@ -289,6 +289,9 @@ class EntityFactory
                 "label"
                     { return New-Object -Type UmsAceLabel(
                         $XmlElement, $Uri) }
+                "medium"
+                    { return New-Object -Type UmsAceMedium(
+                        $XmlElement, $Uri) }
                 "release"
                     { return New-Object -Type UmsAceRelease(
                         $XmlElement, $Uri) }                    
@@ -466,6 +469,32 @@ class EntityFactory
         )
     }
 
+    # Returns the content of the entity cache
+    static [CachedEntity[]] DumpCache()
+    {
+        return [EntityFactory]::EntityCache
+    }
+
+    # Resets the entity cache
+    static [void] ResetCache()
+    {
+        [EntityFactory]::EntityCache = @()
+    }   
+
+    # Show cache statistics
+    static [void] MeasureCache()
+    {
+        Write-Host "Number of instances created:" $([EntityFactory]::InstantiationCount)
+        Write-Host "Cache size:" $([EntityFactory]::EntityCache.Count)
+        Write-Host "Cache skips:" $([EntityFactory]::CacheSkipCount)
+        Write-Host "Cache hits:" $([EntityFactory]::CacheHitCount)
+        Write-Host "Cache misses:" $([EntityFactory]::CacheMissCount)
+        if ([EntityFactory]::CacheMissCount -gt 0)
+        {
+            Write-Host "Cache hit ratio:" ($([EntityFactory]::CacheHitCount) / $([EntityFactory]::CacheMissCount))
+        }
+    }
+
     ###########################################################################
     # Transclusion methods
     ###########################################################################
@@ -592,32 +621,4 @@ class EntityFactory
 
         return $_list
     }
-
-    ###########################################################################
-    # Statistic methods
-    ###########################################################################
-
-    # Show cache statistics
-    static [void] MeasureCache()
-    {
-        Write-Host "Number of instances created:" $([EntityFactory]::InstantiationCount)
-        Write-Host "Cache size:" $([EntityFactory]::EntityCache.Count)
-        Write-Host "Cache skips:" $([EntityFactory]::CacheSkipCount)
-        Write-Host "Cache hits:" $([EntityFactory]::CacheHitCount)
-        Write-Host "Cache misses:" $([EntityFactory]::CacheMissCount)
-        if ([EntityFactory]::CacheMissCount -gt 0)
-        {
-            Write-Host "Cache hit ratio:" ($([EntityFactory]::CacheHitCount) / $([EntityFactory]::CacheMissCount))
-        }
-    }
-
-    static [CachedEntity[]] DumpCache()
-    {
-        return [EntityFactory]::EntityCache
-    }
-
-    static [void] ResetCache()
-    {
-        [EntityFactory]::EntityCache = @()
-    }    
 }

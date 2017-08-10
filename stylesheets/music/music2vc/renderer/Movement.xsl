@@ -125,12 +125,14 @@
 		 =========================================================================-->
 		<xsl:variable name="_richMovementTitle">
 			<!-- Movement title, if available -->
-			<xsl:if test="normalize-space($_movementTitle) != ''">
-				<xsl:value-of select="$_movementTitle"/>
-				<xsl:value-of select="$config.constants.nonBreakableSpace"/>
+			<xsl:if test="$config.vorbis.titles.showMovementTitle = true()">
+				<xsl:if test="normalize-space($_movementTitle) != ''">
+					<xsl:value-of select="$_movementTitle"/>
+					<xsl:value-of select="$config.constants.nonBreakableSpace"/>
+				</xsl:if>
 			</xsl:if>
 			<!-- Tempo marking, if enabled and available -->
-			<xsl:if test="$config.vorbis.titles.showTempoMarkings = true()">
+			<xsl:if test="$config.vorbis.titles.showTempoMarking = true()">
 				<xsl:if test="normalize-space($_tempoMarking) != ''">
 					<xsl:value-of select="$_tempoMarking"/>
 					<xsl:value-of select="$config.constants.nonBreakableSpace"/>
@@ -159,7 +161,7 @@
 			<!-- Track title prefix -->
 			<xsl:value-of select="substring($_trackTitlePrefix, 1, string-length($_trackTitlePrefix) - 1)"/>
 			<!-- Delimiter -->
-			<xsl:value-of select="':'"/>
+			<xsl:value-of select="$config.movementTitles.infix"/>
 			<xsl:value-of select="$config.constants.nonBreakableSpace"/>
 			<!-- Rich movement title -->
 			<xsl:value-of select="$_richMovementTitle"/>

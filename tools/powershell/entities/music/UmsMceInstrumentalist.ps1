@@ -13,6 +13,21 @@ class UmsMceInstrumentalist : UmsBaePerson
     # Static properties
     ###########################################################################
 
+    # Whether the name of the played instrument should be added to the name of
+    # the instrumentalist when it is rendered as a string.
+    static [string] $ShowPlayedInstrument = 
+        (Get-UmsConfigurationItem -ShortName "ShowPlayedInstrument")
+    
+    # One or several characters which will be inserted before the name of the
+    # played instrument.
+    static [string] $PlayedInstrumentPrefix = 
+        (Get-UmsConfigurationItem -ShortName "PlayedInstrumentPrefix")
+
+    # One or several characters which will be inserted after the name of the
+    # played instrument.
+    static [string] $PlayedInstrumentSuffix = 
+        (Get-UmsConfigurationItem -ShortName "PlayedInstrumentSuffix")
+
     ###########################################################################
     # Hidden properties
     ###########################################################################
@@ -20,6 +35,8 @@ class UmsMceInstrumentalist : UmsBaePerson
     ###########################################################################
     # Visible properties
     ###########################################################################
+
+    [UmsMceInstrument] $Instrument
 
     ###########################################################################
     # Constructors
@@ -39,5 +56,31 @@ class UmsMceInstrumentalist : UmsBaePerson
     ###########################################################################
     # Helpers
     ###########################################################################
+
+    [void] RegisterInstrument([UmsMceInstrument] $Instrument)
+    {
+        if ($this.Instrument -eq $null) { $this.Instrument = $Instrument }
+    }
+
+    # Renders the instrumentalist as a string, with the played instrument as an
+    # optional suffix.
+    [string] ToString()
+    {
+        $_string = ""
+
+        # Full name of the instrumentalist, gathered from base type.
+        $_string += ([UmsBaePerson] $this).ToString()
+
+        # Show instrument suffix, if enabled.
+        if ([UmsMceInstrumentalist]::ShowPlayedInstrument)
+        {
+            $_string += ([UmsAeEntity]::NonBreakingSpace)
+            $_string += ([UmsMceInstrumentalist]::PlayedInstrumentPrefix)
+            $_string += $this.Instrument
+            $_string += ([UmsMceInstrumentalist]::PlayedInstrumentSuffix)
+        }
+
+        return $_string
+    }
 
 }

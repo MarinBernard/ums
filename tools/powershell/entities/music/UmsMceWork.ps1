@@ -13,6 +13,11 @@ class UmsMceWork : UmsBaeProduct
     # Static properties
     ###########################################################################
 
+    # Whether a list of composers of the work should be shown when it is
+    # rendered as a string.
+    static [string] $ShowComposerList = 
+        (Get-UmsConfigurationItem -ShortName "ShowComposerList")
+
     # One or several characters which will be inserted between each name
     # in a list of composers.
     static [string] $ComposerDelimiter = 
@@ -27,6 +32,11 @@ class UmsMceWork : UmsBaeProduct
     # composers.
     static [string] $ComposerListSuffix = 
         (Get-UmsConfigurationItem -ShortName "ComposerListSuffix")
+    
+    # Whether the catalog IDs of the work should be shown when it is
+    # rendered as a string.
+    static [string] $ShowCatalogIds = 
+        (Get-UmsConfigurationItem -ShortName "ShowCatalogIds")
 
     # One or several characters which will be inserted between each name
     # in a list of catalog ids.
@@ -224,20 +234,23 @@ class UmsMceWork : UmsBaeProduct
         $_addSpace = $false
         
         # Show composer list
-        # Add space, if needed
-        if ($_addSpace) { $_string += ([UmsAeEntity]::NonBreakingSpace) }
+        if ([UmsMceWork]::ShowComposerList)
+        {
+            # Add space, if needed
+            if ($_addSpace) { $_string += ([UmsAeEntity]::NonBreakingSpace) }
 
-        # Get an array of composer short names
-        $_composers = @()
-        foreach ($_composer in $this.Composers)
-            { $_composers += $_composer.Name.ShortName }
+            # Get an array of composer short names
+            $_composers = @()
+            foreach ($_composer in $this.Composers)
+                { $_composers += $_composer.Name.ShortName }
 
-        # Add composers to the buffer
-        $_string += ([UmsMceWork]::ComposerListPrefix)
-        $_string += ($_composers -join(
-            [UmsMceWork]::ComposerDelimiter))
-        $_string += ([UmsMceWork]::ComposerListSuffix)
-        $_addSpace = $true
+            # Add composers to the buffer
+            $_string += ([UmsMceWork]::ComposerListPrefix)
+            $_string += ($_composers -join(
+                [UmsMceWork]::ComposerDelimiter))
+            $_string += ([UmsMceWork]::ComposerListSuffix)
+            $_addSpace = $true
+        }
 
         # Include work title. We use the ToString() method from the
         # UmsBaeProduct base type to get the string.
@@ -249,7 +262,7 @@ class UmsMceWork : UmsBaeProduct
         $_addSpace = $true
 
         # Show catalog ids
-        if ($this.CatalogIds)
+        if (([UmsMceWork]::ShowCatalogIds) -and ($this.CatalogIds))
         {
             # Add space, if needed
             if ($_addSpace) { $_string += ([UmsAeEntity]::NonBreakingSpace) }

@@ -54,18 +54,33 @@ function Get-UmsConfigurationItem
             "IncipitSuffix",
             "KeyListPrefix",
             "KeyListSuffix",
-            "MovementTitlePrefix",
-            "PlaceDelimiter",
+            "MediumNumberFormat",
+            "MediumTitlePrefix",
+            "MediumTitleSuffix",
+            "MovementTitleInfix",
             "PerformanceYearPrefix",
             "PerformerDelimiter",
             "PerformerListPrefix",
             "PerformerListSuffix",
+            "PlaceDelimiter",
+            "PlayedInstrumentPrefix",
+            "PlayedInstrumentSuffix",
             "PreferCommonNames",
             "PreferCommonLabels",
             "PreferShortKeys",
             "PseudonymPrefix",
             "PseudonymSuffix",
+            "ShowCatalogIds",
+            "ShowCharacterList",
+            "ShowComposerList",
+            "ShowMediumTitle",
+            "ShowMovementIncipit",
+            "ShowMovementTitle",
+            "ShowMusicalForm",
+            "ShowMusicalKey",
+            "ShowPlayedInstrument",
             "ShowPseudonyms",
+            "ShowTempoMarking",
             "SortNameDelimiter",
             "TempoMarkingListPrefix",
             "TempoMarkingListSuffix",
@@ -130,18 +145,33 @@ function Get-UmsConfigurationItem
             "IncipitSuffix"             { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "incipit-suffix" }).Value }
             "KeyListPrefix"             { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "key-list-prefix" }).Value }
             "KeyListSuffix"             { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "key-list-suffix" }).Value }
-            "MovementTitlePrefix"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "movement-title-prefix" }).Value }
+            "MediumNumberFormat"        { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "medium-number-format" }).Value }
+            "MediumTitlePrefix"         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "medium-title-prefix" }).Value }
+            "MediumTitleSuffix"         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "medium-title-suffix" }).Value }
+            "MovementTitleInfix"        { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "movement-title-infix" }).Value }
             "PlaceDelimiter"            { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "place-delimiter" }).Value }
             "PerformanceYearPrefix"     { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "performance-year-prefix" }).Value }
             "PerformerDelimiter"        { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "performer-delimiter" }).Value }
             "PerformerListPrefix"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "performer-list-prefix" }).Value }
             "PerformerListSuffix"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "performer-list-suffix" }).Value }
+            "PlayedInstrumentPrefix"    { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "played-instrument-prefix" }).Value }
+            "PlayedInstrumentSuffix"    { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "played-instrument-suffix" }).Value }
             "PreferCommonLabels"        { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "prefer-common-labels" }).Value }
             "PreferCommonNames"         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "prefer-common-names" }).Value }
-            "PreferShortKeys  "         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "prefer-short-keys" }).Value }
+            "PreferShortKeys"           { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "prefer-short-keys" }).Value }
             "PseudonymPrefix"           { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "pseudonym-prefix" }).Value }
             "PseudonymSuffix"           { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "pseudonym-suffix" }).Value }
+            "ShowCatalogIds"            { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-catalog-ids" }).Value }
+            "ShowCharacterList"         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-character-list" }).Value }
+            "ShowComposerList"          { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-composer-list" }).Value }
+            "ShowMediumTitle"           { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-medium-title" }).Value }
+            "ShowMovementIncipit"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-movement-incipit" }).Value }
+            "ShowMovementTitle"         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-movement-title" }).Value }
+            "ShowMusicalForm"           { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-musical-form" }).Value }
+            "ShowMusicalKey"            { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-musical-key" }).Value }
+            "ShowPlayedInstrument"      { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-played-instrument" }).Value }
             "ShowPseudonyms"            { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-pseudonyms" }).Value }
+            "ShowTempomarking"          { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-tempo-marking" }).Value }
             "SortNameDelimiter"         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "sort-name-delimiter" }).Value }
             "TempoMarkingListPrefix"    { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "tempo-marking-list-prefix" }).Value }
             "TempoMarkingListSuffix"    { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "tempo-marking-list-suffix" }).Value }
