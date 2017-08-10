@@ -115,7 +115,7 @@
         CacheFolderNotFound = "The data cache subfolder is missing."
         StaticFolderNotFound = "The static data subfolder is missing."
     }
-    UpdateUmsItemCache = @{
+    UpdateUmsItem = @{
         MissingTarget = "The target file does not exist or access is denied."
         NoUpdateNeeded = "UMS cache is up-to-date. No update needed."
         PromotionFailure = "Failed to promote the newly generated file to be the new cache file."
