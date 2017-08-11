@@ -76,7 +76,8 @@ function Get-UmsItem
         # Apply filter, if specified
         if ($Filter)
         {
-            if ($_file.Name -notlike $Filter) { continue }
+            $_ext = Get-UmsConfigurationItem -ShortName "UmsFileExtension"
+            if ($_file.Name -notlike $($Filter + $_ext)) { continue }
         }
 
         # Create item instance

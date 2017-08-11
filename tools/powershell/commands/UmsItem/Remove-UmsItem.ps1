@@ -34,7 +34,7 @@ function Remove-UmsItem
             Remove-Item -Force -Confirm:$Confirm -Path $Item.CacheFileFullName
             $Item.UpdateCacheInfo()
         }
-        catch
+        catch [System.IO.IOException]
         {
             Write-Warning -Message (
                 $ModuleStrings.RemoveUmsItem.CacheFileRemovalFailure)
@@ -46,7 +46,7 @@ function Remove-UmsItem
             Remove-Item -Force -Confirm:$Confirm -Path $Item.StaticFileFullName
             $Item.UpdateStaticInfo()
         }
-        catch
+        catch [System.IO.IOException]
         {
             Write-Warning -Message (
                 $ModuleStrings.RemoveUmsItem.StaticFileRemovalFailure)
@@ -57,7 +57,7 @@ function Remove-UmsItem
         {
             Remove-Item -Force -Confirm:$Confirm -Path $Item.FullName
         }
-        catch
+        catch [System.IO.IOException]
         {
             Write-Warning -Message (
                 $ModuleStrings.RemoveUmsItem.UmsFileRemovalFailure)
