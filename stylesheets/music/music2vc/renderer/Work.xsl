@@ -123,17 +123,9 @@
 			<!-- Musical key suffix -->
 			<xsl:if test="$config.workTitles.showKey = true() and normalize-space($_musicalKey) != ''">
 				<xsl:value-of select="$config.constants.nonBreakableSpace"/>
-				<xsl:variable name="_introducer">
-					<xsl:call-template name="getIdiom">
-						<xsl:with-param name="Language" select="$config.variants.preferredLanguage"/>
-						<xsl:with-param name="Idiom" select="'musical-key-introducer'"/>
-					</xsl:call-template>
-				</xsl:variable>
-				<xsl:if test="normalize-space($_introducer) != ''">
-					<xsl:value-of select="$_introducer"/>
-					<xsl:value-of select="$config.constants.nonBreakableSpace"/>
-				</xsl:if>
+				<xsl:value-of select="$config.keys.listPrefix"/>
 				<xsl:value-of select="$_musicalKey"/>
+				<xsl:value-of select="$config.keys.listSuffix"/>
 			</xsl:if>
 			<!-- Catalog ID suffix -->
 			<xsl:if test="$config.workTitles.showCatalogIds = true()">
@@ -143,27 +135,25 @@
 				<xsl:value-of select="$config.catalogIds.listSuffix"/>
 			</xsl:if>
 			<!-- Year suffix -->
-			<xsl:if test="$config.workTitles.showYear = true()">
-				<xsl:choose>
-					<xsl:when test="upper-case($config.workTitles.yearType) = 'INCEPTION' and normalize-space($_inceptionYear) != ''">
-						<xsl:value-of select="$config.constants.nonBreakableSpace"/>
-						<xsl:value-of select="$config.workTitles.yearPrefix"/>
-						<xsl:value-of select="$_inceptionYear"/>
-						<xsl:value-of select="$config.workTitles.yearSuffix"/>
-					</xsl:when>
-					<xsl:when test="upper-case($config.workTitles.yearType) = 'COMPLETION' and normalize-space($_completionYear) != ''">
-						<xsl:value-of select="$config.constants.nonBreakableSpace"/>
-						<xsl:value-of select="$config.workTitles.yearPrefix"/>
-						<xsl:value-of select="$_completionYear"/>
-						<xsl:value-of select="$config.workTitles.yearSuffix"/>
-					</xsl:when>
-					<xsl:when test="upper-case($config.workTitles.yearType) = 'PREMIERE' and normalize-space($_premiereYear) != ''">
-						<xsl:value-of select="$config.constants.nonBreakableSpace"/>
-						<xsl:value-of select="$config.workTitles.yearPrefix"/>
-						<xsl:value-of select="$_premiereYear"/>
-						<xsl:value-of select="$config.workTitles.yearSuffix"/>
-					</xsl:when>
-				</xsl:choose>
+			<xsl:variable name="_yearSuffixTmp">
+				<xsl:if test="$config.workTitles.showInceptionYear = true() and normalize-space($_inceptionYear) != ''">
+					<xsl:value-of select="$_inceptionYear"/>
+					<xsl:value-of select="$config.workTitles.yearListDelimiter"/>
+				</xsl:if>
+				<xsl:if test="$config.workTitles.showCompletionYear = true() and normalize-space($_completionYear) != ''">
+					<xsl:value-of select="$_completionYear"/>
+					<xsl:value-of select="$config.workTitles.yearListDelimiter"/>
+				</xsl:if>
+				<xsl:if test="$config.workTitles.showPremiereYear = true() and normalize-space($_premiereYear) != ''">
+					<xsl:value-of select="$_premiereYear"/>
+					<xsl:value-of select="$config.workTitles.yearListDelimiter"/>
+				</xsl:if>
+			</xsl:variable>
+			<xsl:if test="normalize-space($_yearSuffixTmp) != ''">
+				<xsl:value-of select="$config.constants.nonBreakableSpace"/>
+				<xsl:value-of select="$config.workTitles.yearListPrefix"/>
+				<xsl:value-of select="substring($_yearSuffixTmp, 1, string-length($_yearSuffixTmp) - string-length($config.workTitles.yearListDelimiter))"/>
+				<xsl:value-of select="$config.workTitles.yearListSuffix"/>
 			</xsl:if>
 		</xsl:variable>
 		<xsl:variable name="_workTitleFullWithSuffix" select="concat($_workTitleFull, $_workTitleSuffix)"/>

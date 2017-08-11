@@ -17,7 +17,7 @@ class UmsMceMovement : UmsBaeProduct
 
     # Whether the musical form of the movement should be shown when it is
     # rendered as a string.
-    static [string] $ShowMusicalForm = 
+    static [bool] $ShowMusicalForm = 
         (Get-UmsConfigurationItem -ShortName "ShowMusicalForm")
 
     # One or several characters which will be inserted between each form name.
@@ -34,11 +34,11 @@ class UmsMceMovement : UmsBaeProduct
 
     # Whether the initial musical key of the movement should be shown when
     # it is rendered as a string.
-    static [string] $ShowMusicalKey = 
+    static [bool] $ShowMusicalKey = 
         (Get-UmsConfigurationItem -ShortName "ShowMusicalKey")
 
     # Whether musical keys will be displayed as their short form.
-    static [string] $PreferShortKeys = 
+    static [bool] $PreferShortKeys = 
         (Get-UmsConfigurationItem -ShortName "PreferShortKeys")
     
     # One or several characters which will be inserted before a list of keys.
@@ -51,7 +51,7 @@ class UmsMceMovement : UmsBaeProduct
 
     # Whether the characters involved in the movement should be shown when
     # it is rendered as a string.
-    static [string] $ShowCharacterList = 
+    static [bool] $ShowCharacterList = 
         (Get-UmsConfigurationItem -ShortName "ShowCharacterList")
 
     # One or several characters which will be inserted between each name
@@ -71,7 +71,7 @@ class UmsMceMovement : UmsBaeProduct
 
     # Whether the title of the mouvement should be shown when it is rendered
     # as a string.
-    static [string] $ShowMovementTitle = 
+    static [bool] $ShowMovementTitle = 
         (Get-UmsConfigurationItem -ShortName "ShowMovementTitle")
     
     # One or several characters which will be inserted between the first and
@@ -81,7 +81,7 @@ class UmsMceMovement : UmsBaeProduct
 
     # Whether tempo marking should be shown when the movement is rendered
     # as a string.
-    static [string] $ShowTempoMarking = 
+    static [bool] $ShowTempoMarking = 
         (Get-UmsConfigurationItem -ShortName "ShowTempoMarking")
     
     # One or several characters which will be inserted before a list of
@@ -96,7 +96,7 @@ class UmsMceMovement : UmsBaeProduct
 
     # Whether the incipit of the movement should be shown when it is rendered
     # as a string.
-    static [string] $ShowMovementIncipit = 
+    static [bool] $ShowMovementIncipit = 
         (Get-UmsConfigurationItem -ShortName "ShowMovementIncipit")
     
     # One or several characters which will be inserted before an incipit.
@@ -110,6 +110,12 @@ class UmsMceMovement : UmsBaeProduct
     ###########################################################################
     # Hidden properties
     ###########################################################################
+
+    # Parent section of the movement. We cannot use the UmsMceSection type name
+    # because there is a dependency loop between the UmsMceSection and
+    # UmsMceMovement types. We cast the section to its nearer parent type to
+    # avoid errors at compile time.
+    hidden [UmsBaeProduct] $ParentSection
 
     ###########################################################################
     # Visible properties
@@ -283,6 +289,29 @@ class UmsMceMovement : UmsBaeProduct
     ###########################################################################
     # Helpers
     ###########################################################################
+
+    # Updates the parent section after the instance was constructed.
+    [void] UpdateParentSection([UmsBaeProduct] $ParentSection)
+    {
+        if ($this.ParentSection -eq $null)
+        {
+            $this.ParentSection  = $ParentSection
+        }
+    }
+
+    # Returns the full string representation of the movement. The full string
+    # representation includes a prefix with the hierarchy of parent sections,
+    # and the regular output of the ToString() method of the current movement.
+    [string] ToFullString()
+    {
+        $_string = ""
+
+        $_string += $this.ParentSection.ToFullString()
+        $_string += ([UmsAeEntity]::NonBreakingSpace)
+        $_string += $this.ToString()
+
+        return $_string
+    }
 
     # Builds the full title of a music movement
     [string] ToString()

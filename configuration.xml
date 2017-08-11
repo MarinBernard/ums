@@ -108,12 +108,7 @@
 				<option id="vorbis-labels-work-title-sort">WORKSORT</option>
 				<option id="vorbis-labels-work-subtitle">WORKSUBTITLE</option>
 				<option id="vorbis-titles-parent-work-delimiter">-</option>
-				<option id="vorbis-titles-section-number-delimiter">.</option>
 				<option id="vorbis-titles-show-parent-work">False</option>
-				<option id="vorbis-titles-show-section-numbers">True</option>
-				<option id="work-titles-show-year">True</option>
-				<option id="work-titles-year-prefix">(</option>
-				<option id="work-titles-year-suffix">)</option>
 				<option id="work-titles-year-type">completion</option>
 			</options>
 		</stylesheet>
@@ -143,8 +138,8 @@
 		<option id="form-list-suffix"></option>
 		<option id="incipit-prefix">&#171;&#160;</option>
 		<option id="incipit-suffix">&#160;&#187;</option>
-		<option id="key-list-prefix">(</option>
-		<option id="key-list-suffix">)</option>
+		<option id="key-list-prefix">en&#160;</option>
+		<option id="key-list-suffix"></option>
 		<option id="medium-number-format">{0:D2}</option>
 		<option id="medium-side-prefix">/</option>
 		<option id="medium-side-suffix"></option>
@@ -164,6 +159,8 @@
 		<option id="preferred-language">fr</option>
 		<option id="pseudonym-prefix">('</option>
 		<option id="pseudonym-suffix">')</option>
+		<option id="section-list-delimiter"> - </option>
+		<option id="section-numbering-delimiter">.</option>
 		<option id="show-catalog-ids">True</option>
 		<option id="show-character-list">True</option>
 		<option id="show-composer-list">True</option>
@@ -174,8 +171,14 @@
 		<option id="show-musical-key">True</option>
 		<option id="show-played-instrument">True</option>
 		<option id="show-pseudonyms">True</option>
+		<option id="show-section-number">True</option>
+		<option id="show-section-title">True</option>
 		<option id="show-tempo-marking">True</option>
 		<option id="show-track-title">True</option>
+		<option id="show-track-number">True</option>
+		<option id="show-work-completion-year">False</option>
+		<option id="show-work-inception-year">False</option>
+		<option id="show-work-premiere-year">True</option>
 		<option id="sort-name-delimiter">,</option>
 		<option id="tempo-marking-list-prefix"></option>
 		<option id="tempo-marking-list-suffix"></option>
@@ -183,6 +186,9 @@
 		<option id="use-default-variants">True</option>
 		<option id="use-fake-sort-variants">True</option>
 		<option id="use-original-variants">False</option>
+		<option id="year-list-delimiter">/</option>
+		<option id="year-list-prefix">(</option>
+		<option id="year-list-suffix">)</option>
 	</rendering>
 	<system>
 		<option id="ums-file-extension">.ums</option>

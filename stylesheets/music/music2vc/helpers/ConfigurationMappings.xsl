@@ -157,6 +157,22 @@
 	</xsl:variable>
 	<!--
 	
+	Opening and closing characters surrounding a list of musical keys when added
+	to the title of a work or of a movement. -->
+	<xsl:variable name="config.keys.listPrefix">
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'key-list-prefix'"/>
+			<xsl:with-param name="AllowEmptyValue" select="true()"/>
+		</xsl:call-template>
+	</xsl:variable>
+	<xsl:variable name="config.keys.listSuffix">
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'key-list-suffix'"/>
+			<xsl:with-param name="AllowEmptyValue" select="true()"/>
+		</xsl:call-template>
+	</xsl:variable>
+	<!--
+	
 	==============================================================================
 	!
 	!	Catalog IDs
@@ -405,42 +421,52 @@
 	</xsl:variable>
 	<!--
 	
-	Whether we shall include the year of inception, completion or premiere
-	of a work in its title -->
-	<xsl:variable name="config.workTitles.showYear">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'work-titles-show-year'"/>
+	Whether we shall include the year of inception of a work in its title -->
+	<xsl:variable name="config.workTitles.showInceptionYear">
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'show-work-inception-year'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<!--
 	
-	What kind of year should be included as a suffix to the work title?
-	Possible values are:
-		- 'inception', the year the composer started the composition the work
-		- 'completion', the year the composer completed the composition of the work
-		- 'premiere', the year of the première of the work -->
-	<xsl:variable name="config.workTitles.yearType">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'work-titles-year-type'"/>
+	Whether we shall include the year of completion of a work in its title -->
+	<xsl:variable name="config.workTitles.showCompletionYear">
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'show-work-completion-year'"/>
+			<xsl:with-param name="Boolean" select="true()"/>
+		</xsl:call-template>
+	</xsl:variable>
+	<!--
+	
+	Whether we shall include the year of premiere of a work in its title -->
+	<xsl:variable name="config.workTitles.showPremiereYear">
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'show-work-premiere-year'"/>
+			<xsl:with-param name="Boolean" select="true()"/>
+		</xsl:call-template>
+	</xsl:variable>
+	<!--
+	
+	One or several characters which will be inserted between each year in a list of years -->
+	<xsl:variable name="config.workTitles.yearListDelimiter">
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'year-list-delimiter'"/>
+			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<!--
 	
 	Opening and closing characters surrounding year suffices -->
-	<xsl:variable name="config.workTitles.yearPrefix">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'work-titles-year-prefix'"/>
+	<xsl:variable name="config.workTitles.yearListPrefix">
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'year-list-prefix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
-	<xsl:variable name="config.workTitles.yearSuffix">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'work-titles-year-suffix'"/>
+	<xsl:variable name="config.workTitles.yearListSuffix">
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'year-list-suffix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>	
@@ -643,9 +669,8 @@
 	If set to true(), track titles will include section numbering from the layout
 	of the parent work. -->
 	<xsl:variable name="config.vorbis.titles.showSectionNumbers">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'vorbis-titles-show-section-numbers'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'show-section-number'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -654,9 +679,8 @@
 	One or several characters which will be inserted between each level
 	of the section numbering when it is embedded in the title of a track. -->
 	<xsl:variable name="config.vorbis.titles.sectionNumberDelimiter">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'vorbis-titles-section-number-delimiter'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'section-numbering-delimiter'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>

@@ -72,6 +72,8 @@ function Get-UmsConfigurationItem
             "PreferShortKeys",
             "PseudonymPrefix",
             "PseudonymSuffix",
+            "SectionListDelimiter",
+            "SectionNumberingDelimiter",
             "ShowCatalogIds",
             "ShowCharacterList",
             "ShowComposerList",
@@ -82,8 +84,14 @@ function Get-UmsConfigurationItem
             "ShowMusicalKey",
             "ShowPlayedInstrument",
             "ShowPseudonyms",
+            "ShowSectionTitle",
+            "ShowSectionNumber",
             "ShowTempoMarking",
             "ShowTrackTitle",
+            "ShowTrackNumber",
+            "ShowWorkCompletionYear",
+            "ShowWorkInceptionYear",
+            "ShowWorkPremiereYear",
             "SortNameDelimiter",
             "TempoMarkingListPrefix",
             "TempoMarkingListSuffix",
@@ -92,6 +100,9 @@ function Get-UmsConfigurationItem
             "UseFakeSortVariants",
             "UseOriginalVariants",
             "YearDateFormat",
+            "YearListDelimiter",
+            "YearListPrefix",
+            "YearListSuffix",
             "YearMonthDateFormat",
 
             # System options
@@ -167,6 +178,8 @@ function Get-UmsConfigurationItem
             "PreferShortKeys"           { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "prefer-short-keys" }).Value }
             "PseudonymPrefix"           { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "pseudonym-prefix" }).Value }
             "PseudonymSuffix"           { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "pseudonym-suffix" }).Value }
+            "SectionListDelimiter"      { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "section-list-delimiter" }).Value }
+            "SectionNumberingDelimiter" { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "section-numbering-delimiter" }).Value }
             "ShowCatalogIds"            { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-catalog-ids" }).Value }
             "ShowCharacterList"         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-character-list" }).Value }
             "ShowComposerList"          { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-composer-list" }).Value }
@@ -177,8 +190,14 @@ function Get-UmsConfigurationItem
             "ShowMusicalKey"            { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-musical-key" }).Value }
             "ShowPlayedInstrument"      { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-played-instrument" }).Value }
             "ShowPseudonyms"            { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-pseudonyms" }).Value }
+            "ShowSectionTitle"          { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-section-title" }).Value }
+            "ShowSectionNumber"         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-section-number" }).Value }
             "ShowTempomarking"          { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-tempo-marking" }).Value }
             "ShowTrackTitle"            { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-track-title" }).Value }
+            "ShowTrackNumber"           { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-track-number" }).Value }
+            "ShowWorkCompletionYear"    { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-work-completion-year" }).Value }
+            "ShowWorkInceptionYear"     { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-work-inception-year" }).Value }
+            "ShowWorkPremiereYear"      { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-work-premiere-year" }).Value }
             "SortNameDelimiter"         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "sort-name-delimiter" }).Value }
             "TempoMarkingListPrefix"    { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "tempo-marking-list-prefix" }).Value }
             "TempoMarkingListSuffix"    { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "tempo-marking-list-suffix" }).Value }
@@ -187,6 +206,9 @@ function Get-UmsConfigurationItem
             "UseFakeSortVariants"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "use-fake-sort-variants" }).Value }
             "UseOriginalVariants"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "use-original-variants" }).Value }
             "YearDateFormat"            { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "date-format-year" }).Value }
+            "YearListDelimiter"         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "year-list-delimiter" }).Value }
+            "YearListPrefix"            { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "year-list-prefix" }).Value }
+            "YearListSuffix"            { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "year-list-suffix" }).Value }
             "YearMonthDateFormat"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "date-format-year-month" }).Value }            
 
             default { return }
@@ -281,12 +303,20 @@ function Get-UmsConfigurationItem
             $_options = $_stylesheet.Node | Select-Xml -XPath "options/option"
             foreach ($_option in $_options)
             {
+                # Try to cast the value to boolean, if supported
+                [bool] $_out = $null
+                $_res = [System.Boolean]::TryParse($_option.Node.'#text', [ref] $_out)
+                if ($_res)
+                    { $_value = $_out }
+                else
+                    { $_value = $_option.Node.'#text' }
+
                 New-Object -Type PSCustomObject -Property @{
                     Type = "StylesheetOption";
                     StylesheetId = $_stylesheet.Node.id;
                     StylesheetUri = $_stylesheet.Node.uri;
                     Id = $_option.Node.id;
-                    Value = $_option.Node.'#Text'
+                    Value = $_value
                 }
             }
         }
@@ -311,11 +341,19 @@ function Get-UmsConfigurationItem
         $_options = $ConfigurationDocument | Select-Xml -XPath "/configuration/rendering/*"
         foreach ($_option in $_options)
         {
+            # Try to cast the value to boolean, if supported
+            [bool] $_out = $null
+            $_res = [System.Boolean]::TryParse($_option.Node.'#text', [ref] $_out)
+            if ($_res)
+                { $_value = $_out }
+            else
+                { $_value = $_option.Node.'#text' }
+            
             # Returning rendering option object
             New-Object -Type PSCustomObject -Property @{
                 Type = "Rendering";
                 Id = $_option.Node.id;
-                Value = $_option.Node.'#text';
+                Value = $_value;
             }   
         }
     }
@@ -325,11 +363,19 @@ function Get-UmsConfigurationItem
         $_options = $ConfigurationDocument | Select-Xml -XPath "/configuration/system/*"
         foreach ($_option in $_options)
         {
+            # Try to cast the value to boolean, if supported
+            [bool] $_out = $null
+            $_res = [System.Boolean]::TryParse($_option.Node.'#text', [ref] $_out)
+            if ($_res)
+                { $_value = $_out }
+            else
+                { $_value = $_option.Node.'#text' }
+
             # Returning UmsSystem object
             New-Object -Type PSCustomObject -Property @{
                 Type = "System";
                 Id = $_option.Node.id;
-                Value = $_option.Node.'#text';
+                Value = $_value;
             }   
         }
     }  

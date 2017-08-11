@@ -14,9 +14,31 @@ class UmsMceSection : UmsBaeProduct
     # Static properties
     ###########################################################################
 
+    # Whether the numbering of the section will be shown when it is rendered
+    # as a string.
+    static [bool] $ShowSectionNumber = 
+    (Get-UmsConfigurationItem -ShortName "ShowSectionNumber") 
+
+    # One or several characters which will be inserted between the section
+    # number and the section title.
+    static [string] $SectionNumberingDelimiter = 
+    (Get-UmsConfigurationItem -ShortName "SectionNumberingDelimiter")
+
+    # One or several characters which will be inserted between each section
+    # level when the section hierarchy is rendered as a string.
+    static [string] $SectionListDelimiter = 
+    (Get-UmsConfigurationItem -ShortName "SectionListDelimiter") 
+
+    # Whether the title of the section will be shown when rendered as a string.
+    static [bool] $ShowSectionTitle = 
+    (Get-UmsConfigurationItem -ShortName "ShowSectionTitle") 
+
     ###########################################################################
     # Hidden properties
     ###########################################################################
+
+    # Parent section of the section
+    hidden [UmsMceSection] $ParentSection
 
     ###########################################################################
     # Visible properties
@@ -81,8 +103,11 @@ class UmsMceSection : UmsBaeProduct
             [UmsAeEntity]::NamespaceUri.Music,
             "section"
         ) | foreach {
-                $this.Sections += [EntityFactory]::GetEntity(
-                    $_, $this.SourcePathUri, $this.SourceFileUri) }
+            $_section = [EntityFactory]::GetEntity(
+                $_, $this.SourcePathUri, $this.SourceFileUri)
+            $_section.UpdateParentSection($this)
+            $this.Sections += $_section
+        }
     }
 
     # Sub-constructor for the 'movements' element
@@ -93,11 +118,70 @@ class UmsMceSection : UmsBaeProduct
             [UmsAeEntity]::NamespaceUri.Music,
             "movement"
         ) | foreach {
-                $this.Movements += [EntityFactory]::GetEntity(
-                    $_, $this.SourcePathUri, $this.SourceFileUri) }
+            $_movement = [EntityFactory]::GetEntity(
+                $_, $this.SourcePathUri, $this.SourceFileUri)
+            $_movement.UpdateParentSection($this)
+            $this.Movements += $_movement
+        }
     }   
 
     ###########################################################################
     # Helpers
     ###########################################################################
+
+    # Updates the parent section after the instance was constructed.
+    [void] UpdateParentSection([UmsMceSection] $ParentSection)
+    {
+        if ($this.ParentSection -eq $null)
+        {
+            $this.ParentSection  = $ParentSection
+        }
+    }
+
+    # Renders the section as a string including data inherited from parent
+    # sections.
+    [string] ToFullString()
+    {
+        $_string = ""
+
+        # Include parent sections, if any
+        if ($this.ParentSection)
+        {
+            $_string += $this.ParentSection.ToString()
+            # Delimiter is shown only if section titles are enabled
+            if ([UmsMceSection]::ShowSectionTitle)
+                { $_string += ([UmsMceSection]::SectionListDelimiter) }
+        }
+
+        $_string += $this.ToString()
+
+        return $_string
+    }
+
+    # Renders the section as a string.
+    [string] ToString()
+    {
+        $_string = ""
+        $_addSpace = $false
+
+        # Add section numbering, if enabled
+        if ([UmsMceSection]::ShowSectionNumber)
+        {
+            # Include numbering of the current section.
+            $_string += $this.Numbering
+            $_string += ([UmsMceSection]::SectionNumberingDelimiter)
+            $_addSpace = $true
+        }
+
+        # Add section title, if enabled
+        $_title = ([UmsBaeProduct] $this).ToString()
+        if (([UmsMceSection]::ShowSectionTitle) -and ($_title))
+        {
+            if ($_addSpace) { $_string += ([UmsAeEntity]::NonBreakingSpace) }
+            $_string += $_title
+            $_addSpace = $true        
+        }
+
+        return $_string
+    }
 }

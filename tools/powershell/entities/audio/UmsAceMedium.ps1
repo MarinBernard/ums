@@ -28,7 +28,7 @@ class UmsAceMedium : UmsBaeProduct
         (Get-UmsConfigurationItem -ShortName "MediumSideSuffix")
 
     # Whether the title of the medium will be shown when rendered as a string.
-    static [string] $ShowMediumTitle = 
+    static [bool] $ShowMediumTitle = 
         (Get-UmsConfigurationItem -ShortName "ShowMediumTitle")
 
     # One or several characters which will be inserted before the title of the

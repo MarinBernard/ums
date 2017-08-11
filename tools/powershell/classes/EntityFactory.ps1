@@ -161,7 +161,7 @@ class EntityFactory
                             $_instance = [EntityFactory]::ParseDocument(
                                 $_uri, $XmlElement.GetAttribute("uid"))
                         }
-                        catch
+                        catch [System.Net.WebException]
                         {
                             Write-Verbose $(
                                 $_verbosePrefix + `

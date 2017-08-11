@@ -53,4 +53,4 @@ catch
     ShowUmsException $_.Exception
 }
 
-[EntityFactory]::GetCacheStatistics()
+[EntityFactory]::MeasureCache()

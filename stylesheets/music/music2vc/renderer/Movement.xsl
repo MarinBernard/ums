@@ -99,17 +99,9 @@
 			</xsl:if>
 			<!-- Musical key -->
 			<xsl:if test="$config.vorbis.titles.showKey = true() and normalize-space($_musicalKey) != ''">
-				<xsl:variable name="_introducer">
-					<xsl:call-template name="getIdiom">
-						<xsl:with-param name="Language" select="$config.variants.preferredLanguage"/>
-						<xsl:with-param name="Idiom" select="'musical-key-introducer'"/>
-					</xsl:call-template>
-				</xsl:variable>
-				<xsl:if test="normalize-space($_introducer) != ''">
-					<xsl:value-of select="$_introducer"/>
-					<xsl:value-of select="$config.constants.nonBreakableSpace"/>
-				</xsl:if>
+				<xsl:value-of select="$config.keys.listPrefix"/>
 				<xsl:value-of select="$_musicalKey"/>
+				<xsl:value-of select="$config.keys.listSuffix"/>
 				<xsl:value-of select="$config.constants.nonBreakableSpace"/>
 			</xsl:if>
 			<!-- Character list prefix -->

@@ -22,8 +22,12 @@ class UmsBaeTrack : UmsBaeProduct
     static [string] $TrackNumberFormat = 
     (Get-UmsConfigurationItem -ShortName "TrackNumberFormat")
 
+    # Whether the number of the track will be shown when rendered as a string.
+    static [bool] $ShowTrackNumber = 
+    (Get-UmsConfigurationItem -ShortName "ShowTrackNumber")
+
     # Whether the title of the track will be shown when rendered as a string.
-    static [string] $ShowTrackTitle = 
+    static [bool] $ShowTrackTitle = 
     (Get-UmsConfigurationItem -ShortName "ShowTrackTitle")
 
     ###########################################################################
@@ -67,17 +71,23 @@ class UmsBaeTrack : UmsBaeProduct
     [string] ToString()
     {
         $_string = ""
+        $_addSpace = $false
 
         # Include track number
-        $_string += ([UmsBaeTrack]::TrackNumberFormat -f $this.Number)
+        if ([UmsBaeTrack]::ShowTrackNumber)
+        {
+            $_string += ([UmsBaeTrack]::TrackNumberFormat -f $this.Number)
+            $_addSpace = $true
+        }
 
         # Include track title, if defined. We use the ToString() method
         # from the UmsBaeProduct base type to get the string.
         $_fullTitle = ([UmsBaeProduct] $this).ToString()
-        if (([UmsBaeTrack]::ShowMediumTitle) -and ($_fullTitle))
+        if (([UmsBaeTrack]::ShowTrackTitle) -and ($_fullTitle))
         {
-            $_string += ([UmsAeEntity]::NonBreakingSpace)
+            if ($_addSpace) { $_string += ([UmsAeEntity]::NonBreakingSpace) }
             $_string += $_fullTitle
+            $_addSpace = $true
         }
 
         return $_string
