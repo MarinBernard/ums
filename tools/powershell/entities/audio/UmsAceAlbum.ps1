@@ -111,6 +111,40 @@ class UmsAceAlbum : UmsBaeProduct
     }
 
     ###########################################################################
+    # Query helpers
+    ###########################################################################
+
+    # Returns the UmsAceMedium instance matching both medium number and side.
+    [UmsAceMedium] GetAlbumMedium([int] $MediumNumber, [int] $MediumSide)
+    {
+        return $this.Media | Where-Object {
+            ($_.Number -eq $MediumNumber) -and ($_.Side -eq $MediumSide) }
+    }
+
+    # Returns the UmsAceMedium instance matching a medium number.
+    [UmsAceMedium] GetAlbumMedium([int] $MediumNumber)
+    {
+        return $this.GetAlbumMedium($MediumNumber, 0)
+    }
+
+    # Returns a UmsBaeTrack instance (either UmsMaeTrack or, one day maybe, a
+    # UmsAceTrack instance) matching the supplied medium number, medium side,
+    # and track number.
+    [UmsBaeTrack] GetAlbumTrack(
+        [int] $MediumNumber, [int] $MediumSide, [int] $TrackNumber)
+    {
+        $_medium = $this.GetAlbumMedium($MediumNumber, $MediumSide)
+        return $_medium.Tracks | Where-Object { $_.Number -eq $TrackNumber }
+    }
+
+    # Returns a UmsBaeTrack instance (either UmsMaeTrack or, one day maybe, a
+    # UmsAceTrack instance) matching the supplied medium and track numbers.
+    [UmsBaeTrack] GetAlbumTrack([int] $MediumNumber, [int] $TrackNumber)
+    {
+        return $this.GetAlbumTrack($MediumNumber, 0, $TrackNumber)
+    }  
+
+    ###########################################################################
     # Helpers
     ###########################################################################
 

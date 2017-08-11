@@ -21,11 +21,13 @@ class UmsAceAlbumTrackBinding : UmsAeEntity
     # Visible properties
     ###########################################################################
 
-    [int] $Medium
-    [int] $Side = 1
-    [int] $Track
-
+    [int] $MediumNumber
+    [int] $MediumSide
+    [int] $TrackNumber
     [UmsAceAlbum] $Album
+
+    # Views
+    [UmsBaeTrack] $Track
 
     ###########################################################################
     # Constructors
@@ -40,11 +42,11 @@ class UmsAceAlbumTrackBinding : UmsAeEntity
             $XmlElement, [UmsAeEntity]::NamespaceUri.Audio, "albumTrackBinding")
 
         # Attributes
-        $this.Medium = $this.GetMandatoryXmlAttributeValue(
+        $this.MediumNumber = $this.GetMandatoryXmlAttributeValue(
             $XmlElement, "medium")
-        $this.Side = $this.GetOptionalXmlAttributeValue(
+        $this.MediumSide = $this.GetOptionalXmlAttributeValue(
             $XmlElement, "side")
-        $this.Track = $this.GetMandatoryXmlAttributeValue(
+        $this.TrackNumber = $this.GetMandatoryXmlAttributeValue(
             $XmlElement, "track")
 
         # Mandatory 'album' element
@@ -56,6 +58,12 @@ class UmsAceAlbumTrackBinding : UmsAeEntity
                     "album"),
                 $this.SourcePathUri,
                 $this.SourceFileUri))
+
+        # Bound album track
+        $this.Track = $this.Album.GetAlbumTrack(
+            $this.MediumNumber,
+            $this.MediumSide,
+            $this.TrackNumber)
     }
 
     ###########################################################################

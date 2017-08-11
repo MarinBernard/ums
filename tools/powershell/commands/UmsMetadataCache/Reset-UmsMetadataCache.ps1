@@ -10,6 +10,6 @@ function Reset-UmsMetadataCache
 
     Process
     {
-        return [EntityFactory]::FlushCache()
+        return [EntityFactory]::ResetCache()
     }
 }

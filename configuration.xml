@@ -50,8 +50,6 @@
 				<option id="constant-new-line">&#xa;</option>
 				<option id="constant-non-breakable-space">&#160;</option>
 				<option id="constant-vorbis-assignment">=</option>
-				<option id="movement-titles-concatenate">False</option>
-				<option id="movement-titles-delimiter"> / </option>
 				<option id="vorbis-album-titles-include-conductors">True</option>
 				<option id="vorbis-album-titles-include-ensembles">True</option>
 				<option id="vorbis-album-titles-include-instrumentalists">False</option>
@@ -144,6 +142,7 @@
 		<option id="medium-side-suffix"></option>
 		<option id="medium-title-prefix">(</option>
 		<option id="medium-title-suffix">)</option>
+		<option id="movement-title-delimiter"> / </option>
 		<option id="movement-title-infix">:</option>
 		<option id="performance-year-prefix">, </option>
 		<option id="performer-delimiter">/</option>
@@ -166,6 +165,7 @@
 		<option id="show-medium-title">True</option>
 		<option id="show-movement-incipit">True</option>
 		<option id="show-movement-title">True</option>
+		<option id="show-all-movement-titles">False</option>
 		<option id="show-musical-form">True</option>
 		<option id="show-musical-key">True</option>
 		<option id="show-played-instrument">True</option>
@@ -174,7 +174,7 @@
 		<option id="show-section-title">True</option>
 		<option id="show-tempo-marking">True</option>
 		<option id="show-track-title">True</option>
-		<option id="show-track-number">True</option>
+		<option id="show-track-number">False</option>
 		<option id="show-work-completion-year">False</option>
 		<option id="show-work-inception-year">False</option>
 		<option id="show-work-premiere-year">True</option>

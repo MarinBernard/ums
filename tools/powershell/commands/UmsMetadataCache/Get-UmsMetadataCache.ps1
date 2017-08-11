@@ -10,6 +10,6 @@ function Get-UmsMetadataCache
 
     Process
     {
-        return [EntityFactory]::ResetCache()
+        return [EntityFactory]::DumpCache()
     }
 }

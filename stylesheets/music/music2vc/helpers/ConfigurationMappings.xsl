@@ -300,9 +300,8 @@
 	merge movement titles so that they all fit in the track title. If set to
 	false(), the track title will only include the title of the first movement. -->
 	<xsl:variable name="config.vorbis.movementTitles.concatenate">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'movement-titles-concatenate'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'show-alls-movement-titles'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -311,9 +310,8 @@
 	One or several characters which will be inserted between each movement title
 	in multi-movement track titles. -->
 	<xsl:variable name="config.movementTitles.delimiter">
-		<xsl:call-template name="getStylesheetOptionValue">
-			<xsl:with-param name="Stylesheet" select="'music2vc'"/>
-			<xsl:with-param name="OptionName" select="'movement-titles-delimiter'"/>
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'movement-title-delimiter'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
