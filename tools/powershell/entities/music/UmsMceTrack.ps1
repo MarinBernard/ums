@@ -55,15 +55,11 @@ class UmsMceTrack : UmsBaeTrack
             $this.SourceFileUri)
 
         # Update movement list
-        $this.UpdateMovementList()
+        $this.Movements = $this.Performance.GetMovementFromSPath($this.SPath)
     }
 
     ###########################################################################
     # Helpers
     ###########################################################################
 
-    [void] UpdateMovementList()
-    {
-        $this.Movements = $this.Performance.GetMovementFromSPath($this.SPath)
-    }
 }
