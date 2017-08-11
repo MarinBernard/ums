@@ -57,8 +57,8 @@
 	        </linkVariants>
       </umsa:label>
 	  </umsa:labels>
-	  <umsa:releases>
-		    <umsa:release>
+	  <publications>
+		    <publication>
 			      <year>1990</year>
 			      <place>
 				        <country uid="FR"
@@ -104,8 +104,8 @@
 	              </standardIds>
             </country>
 			      </place>
-		    </umsa:release>
-	  </umsa:releases>
+		    </publication>
+	  </publications>
 	  <umsa:media>
 		    <umsa:medium number="1" type="CDDA">
 			      <umsa:tracks>

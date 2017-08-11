@@ -8,8 +8,8 @@
 			<ref name="BAT_Product"/>
 			<!-- Labels which produced the album -->
 			<ref name="ALT_Labels"/>
-			<!-- Release events of the album -->
-			<ref name="ALT_Releases"/>
+			<!-- Publication events of the album -->
+			<ref name="BLT_Publications"/>
 			<!-- Media included in the album -->
 			<ref name="ALT_Media"/>
 			<!-- Music performances included in the album -->

@@ -23,7 +23,7 @@ class UmsAceAlbum : UmsBaeProduct
 
     [UmsAceLabel[]]         $Labels
     [UmsMcePerformance[]]   $Performances
-    [UmsAceRelease[]]       $Releases
+    [UmsBcePublication[]]   $Publications
     [UmsAceMedium[]]        $Media
 
     ###########################################################################
@@ -55,14 +55,14 @@ class UmsAceAlbum : UmsBaeProduct
                 [UmsAeEntity]::NamespaceUri.Music,
                 "performances"))
         
-        # Optional 'releases' element (collection of 'release' elements)
-        if ($XmlElement.releases)
+        # Optional 'publications' element (collection of 'publication' elements)
+        if ($XmlElement.publications)
         {
-            $this.BuildReleases(
+            $this.BuildPublications(
                 $this.GetOneXmlElement(
                     $XmlElement,
-                    [UmsAeEntity]::NamespaceUri.Audio,
-                    "releases"))
+                    [UmsAeEntity]::NamespaceUri.Base,
+                    "publications"))
         }
 
         # Mandatory 'media' element (collection of 'medium' elements)
@@ -100,15 +100,15 @@ class UmsAceAlbum : UmsBaeProduct
                     $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 
-    # Sub-constructor for the 'releases' element
-    [void] BuildReleases([System.Xml.XmlElement] $ReleasesElement)
+    # Sub-constructor for the 'publications' element
+    [void] BuildPublications([System.Xml.XmlElement] $PublicationsElement)
     {
         $this.GetOneOrManyXmlElement(
-            $ReleasesElement,
-            [UmsAeEntity]::NamespaceUri.Audio,
-            "release"
+            $PublicationsElement,
+            [UmsAeEntity]::NamespaceUri.Base,
+            "publication"
         ) | foreach {
-                $this.Releases += [EntityFactory]::GetEntity(
+                $this.Publications += [EntityFactory]::GetEntity(
                     $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 
