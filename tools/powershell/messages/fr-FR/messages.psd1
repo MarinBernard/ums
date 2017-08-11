@@ -8,7 +8,7 @@
         InvalidState = "Invalide"
         MissingCachedVersion = "L'élément UMS ne possède pas de version cachée de ses métadonnées. Utilisez Update-UmsItem pour construire le cache et accélérer l'exécution de futures requêtes."
         MissingSidecarFile = "Le fichier sera ignoré car il ne possède pas de fichier UMS compagnon."
-        MissingUmsItemStaticVersion = "L'élément cible ne dispose pas d'une copie statique. Exécutez Update-UmsItemCache puis réessayez."
+        MissingStaticVersion = "L'élément cible ne dispose pas d'une copie statique. Exécutez Update-UmsItemCache pour construire une copie statique."
         OrphanCardinalityWarning = "Vous êtes sur le point d'exécuter une tâche impliquant un élément orphelin."
         UmsNotEnabled = "Les métadonnées UMS ne sont pas activées pour ce dossier."
         UnknownState = "Inconnu"
@@ -120,8 +120,6 @@
     }
     UpdateUmsItem = @{
         MissingTarget = "Le fichier cible n'existe pas ou n'est pas accessible."
-        CacheUpdateNotNeeded = "Le cache de métadonnées est à jour. Aucune mise à jour n'est nécessaire."
-        StaticUpdateNotNeeded = "La version statique est à jour. Aucune mise à jour n'est nécessaire."
         PromotionFailure = "Echec de la promotion du fichier nouvellement généré en fichier de cache."
         TempFileRemovalFailure = "Un fichier temporaire n'a pas pu être supprimé."
         ValidationFailure = "Le fichier de cache n'a pas réussi la validation XML."

@@ -7,20 +7,20 @@ function Get-UmsItem
     .DESCRIPTION
     This command lists all UMS items available in the specified folder.
     
+    .PARAMETER Filter
+    Allows to specify a file name filter. This parater is similar to the -Filter parameter of Get-ChildItem.
+
     .PARAMETER Path
     A path to a valid, UMS-enabled folder. Default is the current folder.
 
-    .PARAMETER Status
-    Filters UMS items according to their status.
+    .PARAMETER Cardinality
+    Filters UMS items according to their cardinality. By default, the command returns UMS items with any cardinality. Use this parameter to filter the command output. Sidecar cardinality applies to UMS files which are linked to a companion file in the parent folder. Such files are XML documents beginning with a 'umsb:binding' root element, which 'binds' the companion file to specific metadata. 'Orphan' cardinality applies to Sidecar items which are missing a companion file. 'Independent' cardinality applies to any other kind of UMS item.
 
     .PARAMETER Validate
     Runs an XML validation for each UMS item.
 
     .PARAMETER Validity
     Filters UMS items according to the result of the XML validation. This parameter requires the presence of the -Validate switch.
-    
-    .PARAMETER Filter
-    Allows to specify a file name filter. This parater is similar to the -Filter parameter of Get-ChildItem.
 
     .EXAMPLE
     Get-UmsItem -Path "D:\MyMusic"
@@ -28,13 +28,12 @@ function Get-UmsItem
 
     [CmdletBinding(DefaultParametersetName='None')]
     Param(
-        [Parameter(ParameterSetName='LiteralPath',Position=0)]
-        [ValidateNotNull()]
-        [string] $Path = ".",
+        [Parameter(Position=0)]
+        [string] $Filter,
 
-        [Parameter(ParameterSetName='ObjectPath',Position=0,ValueFromPipeline=$true)]
+        [Parameter(Position=1,ValueFromPipeline=$true)]
         [ValidateNotNull()]
-        [System.IO.DirectoryInfo] $DirectoryInfo,
+        [System.IO.DirectoryInfo] $Path = ".",
 
         [ValidateSet("All", "Independent", "Sidecar", "Orphan")]
         [string[]] $Cardinality = "Any",
@@ -44,16 +43,8 @@ function Get-UmsItem
 
         [Parameter(ParameterSetName='WithValidation',Mandatory=$false)]
         [ValidateSet("All", "Valid", "Invalid")]
-        [string[]] $Validity = "All",
-
-        [string] $Filter
+        [string[]] $Validity = "All"
     )
-
-    # Convert DirectoryInfo object to string
-    if ($PsCmdLet.ParameterSetName -eq "ObjectPath")
-    {
-        $Path = $DirectoryInfo.FullName
-    }
 
     # Check whether UMS metadata are enabled
     try

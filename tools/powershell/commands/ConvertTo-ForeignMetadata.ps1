@@ -58,7 +58,7 @@ function ConvertTo-ForeignMetadata
             $_allowedUIStaticVersionStatus = @([UIVersionStatus]::Current, [UIVersionStatus]::Expired)
 
             if ($_allowedUIStaticVersionStatus -notcontains($Item.StaticVersion))
-                { throw $ModuleStrings.Common.MissingUmsItemStaticVersion }
+                { throw $ModuleStrings.Common.MissingStaticVersion }
 
             if ($Item.StaticVersion -eq [UIVersionStatus]::Expired)
             {

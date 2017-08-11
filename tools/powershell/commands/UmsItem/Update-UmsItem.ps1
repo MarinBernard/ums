@@ -6,9 +6,6 @@ function Update-UmsItem
     
     .DESCRIPTION
     Update the static and cached version of an UMS item. Static metadata are stored locally and consist of a single, dependency-free UMS file. Most advanced metadata converters use cached versions as a data source, and expect them to be up-to-date.
-    
-    .PARAMETER FileInfo
-    A valid FileInfo instance as returned by the Get-Item command. Use this parameter to trigger cache update on a sidecar UMS item by specifying a reference to its linked file.
 
     .PARAMETER Item
     A valid UmsItem instance. Use Get-UmsItem to retrieve UmsItem instances.
@@ -17,7 +14,7 @@ function Update-UmsItem
     The type of version to update. Default is to update both static and cached versions, but this behaviour may be altered using this parameter.
 
     .PARAMETER Silent
-    Do not show informational or warning messages.
+    Do not show the update report.
 
     .PARAMETER Force
     Force cache update even if it is not necessary. Default is to skip cache updates if the cached file is newer than the source UMS item.
@@ -28,11 +25,7 @@ function Update-UmsItem
 
     [CmdletBinding(DefaultParametersetName='None')]
     Param(
-        [Parameter(ParameterSetName='FileInfoInstance',Position=0,Mandatory=$true,ValueFromPipeline=$true)]  
-        [ValidateNotNull()]
-        [System.IO.FileInfo[]] $FileInfo,
-
-        [Parameter(ParameterSetName='ItemInstance',Position=0,Mandatory=$true,ValueFromPipeline=$true)]
+        [Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
         [UmsItem[]] $Item,
 
@@ -52,19 +45,12 @@ function Update-UmsItem
 
     Process
     {
-        # If FileInfo were specified, we need to retrieve an UmsItem instance
-        # which is the sidecar file of the target file.
-        if($FileInfo)
-        {
-            $_item = $FileInfo.Directory | Get-UmsItem -Cardinality Sidecar | Where-Object { $_.LinkedFileName -eq $FileInfo.Name }
-            if ($Item)
-                { $Item = $_item }
-            else
-            {
-                Write-Warning -Message $($FileInfo.Name + ": " + $ModuleStrings.Common.MissingSidecarFile)
-                continue
-            }
-        }
+        # Update progress bar
+        $_progressActivity = $("Updating UMS item " + $Item.Name + "...")
+        Write-Progress `
+            -Activity $_progressActivity `
+            -CurrentOperation "Updating static version" `
+            -PercentComplete 50
 
         # Update static version, if asked to
         if (@("All", "Static") -contains $Version)
@@ -72,12 +58,7 @@ function Update-UmsItem
             # Check whether the update is needed
             if (($Item.StaticVersion -eq [UIVersionStatus]::Current) -and (-not $Force.IsPresent))
             {
-                if (-not $Silent.IsPresent)
-                {
-                    Write-Host $(
-                        $Item.Name + ": " + `
-                        $ModuleStrings.UpdateUmsItem.StaticUpdateNotNeeded)
-                }
+                Write-Verbose "Static version is up-to-date."
             }
             else
             {
@@ -160,6 +141,12 @@ function Update-UmsItem
             }
         }
 
+        # Update progress bar
+        Write-Progress `
+            -Activity $_progressActivity `
+            -CurrentOperation "Updating cached version" `
+            -PercentComplete 50
+
         # Update cached version, if asked to
         if (@("All", "Cached") -contains $Version)
         {
@@ -168,12 +155,7 @@ function Update-UmsItem
                 ($Item.CachedVersion -eq [UIVersionStatus]::Current) -and
                 (-not $Force.IsPresent))
             {
-                if (-not $Silent.IsPresent)
-                {
-                    Write-Host $(
-                        $Item.Name + ": " + `
-                        $ModuleStrings.UpdateUmsItem.CacheUpdateNotNeeded)
-                }
+                Write-Verbose "Cached version is up-to-date."
             }
             else
             {
@@ -196,5 +178,21 @@ function Update-UmsItem
                 $Item.UpdateCacheInfo()
             }
         }
+
+        # Return item update report
+        if (-not $Silent.IsPresent)
+        {
+            return New-Object -Type PSCustomObject -Property (
+                [ordered] @{
+                    Item = $Item.Name
+                    StaticVersion = $Item.StaticVersion
+                    CachedVersion = $Item.CachedVersion
+                })
+        }
+
+        # Update progress bar
+        Write-Progress `
+            -Activity $_progressActivity `
+            -Completed
     }
 }

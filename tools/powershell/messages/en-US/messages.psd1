@@ -8,7 +8,7 @@
         InvalidState = "Invalid"
         MissingCachedVersion = "The UMS item has no cached version of its metadata. Use Update-UmsItem to build the cache and speed up future metadata retrieval."
         MissingSidecarFile = "Skipping this file as it lacks a UMS sidecar file."
-        MissingUmsItemStaticVersion = "No static metadata copy is available for the target item. Run Update-UmsItemCache then try again."
+        MissingStaticVersion = "No static version is available for the target item. Run Update-UmsItemCache to create a static version.."
         OrphanCardinalityWarning = "You are about to run a command on an orphaned item."
         UmsNotEnabled = "UMS metadata are not enabled with this folder."
         UnknownState = "Unknown"
@@ -119,8 +119,6 @@
     }
     UpdateUmsItem = @{
         MissingTarget = "The target file does not exist or access is denied."
-        CacheUpdateNotNeeded = "Cached metadata are up-to-date. No update needed."
-        StaticUpdateNotNeeded = "The static version is up-to-date. No update needed."
         PromotionFailure = "Failed to promote the newly generated file to be the new cache file."
         TempFileRemovalFailure = "A temporary file could not be removed."
         ValidationFailure = "The cache file did not pass XML validation."     

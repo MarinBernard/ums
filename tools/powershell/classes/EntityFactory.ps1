@@ -482,6 +482,10 @@ class EntityFactory
     static [void] ResetCache()
     {
         [EntityFactory]::EntityCache = @()
+        [EntityFactory]::InstantiationCount = 0
+        [EntityFactory]::CacheHitCount = 0
+        [EntityFactory]::CacheMissCount = 0
+        [EntityFactory]::CacheSkipCount = 0  
     }   
 
     # Show cache statistics
