@@ -73,6 +73,7 @@ $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDire
 . "$PSScriptRoot\helpers\Invoke-XslTransformer.ps1"
 . "$PSScriptRoot\helpers\Wait-UserConfirmation.ps1"
 . "$PSScriptRoot\commands\UmsItem\Get-UmsItem.ps1"
+. "$PSScriptRoot\commands\UmsItem\Remove-UmsItem.ps1"
 . "$PSScriptRoot\commands\UmsItem\Update-UmsItem.ps1"
 . "$PSScriptRoot\commands\UmsManagement\Enable-UmsManagement.ps1"
 . "$PSScriptRoot\commands\UmsManagement\Disable-UmsManagement.ps1"

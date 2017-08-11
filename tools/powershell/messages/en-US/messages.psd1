@@ -94,6 +94,11 @@
         BadXmlContent = "XML file {0} is invalid and could not be read."
         NoNamespace = "XML file {0} is empty or uses unqualified elements."
     }
+    RemoveUmsItem = @{
+        CacheFileRemovalFailure = "The command was unable to remove the metadata cache file."
+        StaticFileRemovalFailure = "The command was unable to remove the static version file."
+        UmsFileRemovalFailure = "The command was unable to remove main UMS file."
+    }
     RunUmsXmlValidation = @{
        SourceFileNotFound = "XML source file {0} does not exist or access is denied."
        SchemaFileNotFound = "UMS schema file {0} does not exist or access is denied."

@@ -4,6 +4,7 @@
 # Export
 # *-UmsItem
 Export-ModuleMember -Function Get-UmsItem
+Export-ModuleMember -Function Remove-UmsItem
 Export-ModuleMember -Function Update-UmsItem
 # *-UmsManagement
 Export-ModuleMember -Function Disable-UmsManagement

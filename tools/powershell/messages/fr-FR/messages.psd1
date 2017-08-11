@@ -95,6 +95,11 @@
         BadXmlContent = "Le fichier XML {0} est invalide et n'a pas pu être lu."
         NoNamespace = "Le fichier XML {0} est vide ou utilise des éléments non-qualifiés."
     }
+    RemoveUmsItem = @{
+        CacheFileRemovalFailure = "La commande n'est pas parvenue à supprimer le fichier contenant le cache des métadonnées."
+        StaticFileRemovalFailure = "La commande n'est pas parvenue à supprimer le fichier contenant la copie statique."
+        UmsFileRemovalFailure = "La commande n'est pas parvenue à supprimer le fichier UMS principal."
+    }
     RunUmsXmlValidation = @{
         SourceFileNotFound = "Le fichier source XML {0} n'existe pas ou n'est pas accessible."
         SchemaFileNotFound = "Le fichier de schéma UMS {0} n'existe pas ou n'est pas accessible."
