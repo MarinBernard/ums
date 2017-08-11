@@ -6,12 +6,9 @@
 			<ref name="BAT_Referenceable"/>
 			<!-- Inheritance from the Product abstract type -->
 			<ref name="BAT_Product"/>
-			<!-- Publication info about the composition -->
+			<!-- Related music books -->
 			<optional>
-				<choice>
-					<ref name="MCT_Publication"/>
-					<ref name="MRT_Publication"/>
-				</choice>
+				<ref name="MLT_Books"/>
 			</optional>
 			<!-- Catalog IDs associated to the composition -->
 			<optional>
@@ -44,15 +41,11 @@
 			</optional>
 			<!-- Inception event of the music work -->
 			<optional>
-				<element name="inception">
-					<ref name="BAT_Event"/>
-				</element>
+				<ref name="BCT_Inception"/>
 			</optional>	
 			<!-- Completion event of the music work -->
 			<optional>
-				<element name="completion">
-					<ref name="BAT_Event"/>
-				</element>
+				<ref name="BCT_Completion"/>
 			</optional>			
 			<!-- Première event of the music work -->
 			<optional>

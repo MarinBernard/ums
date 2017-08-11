@@ -46,7 +46,7 @@
 		</xsl:variable>
 		<!-- Year of inception -->
 		<xsl:variable name="_inceptionYear">
-			<xsl:for-each select="umsm:inception">
+			<xsl:for-each select="umsb:inception">
 				<xsl:choose>
 					<xsl:when test="umsb:year">
 						<xsl:value-of select="umsb:year"/>
@@ -59,7 +59,7 @@
 		</xsl:variable>
 		<!-- Year of completion -->
 		<xsl:variable name="_completionYear">
-			<xsl:for-each select="umsm:completion">
+			<xsl:for-each select="umsb:completion">
 				<xsl:choose>
 					<xsl:when test="umsb:year">
 						<xsl:value-of select="umsb:year"/>

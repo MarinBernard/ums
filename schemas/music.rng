@@ -10,6 +10,7 @@
 	<!-- Legal root elements -->
 	<start>
 		<choice>
+			<ref name="MCT_Book"/>
 			<ref name="MCT_Catalog"/>
 			<ref name="MCT_Composer"/>
 			<ref name="MCT_Conductor"/>

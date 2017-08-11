@@ -2710,9 +2710,9 @@
                                      href="https://ru.wikipedia.org/wiki/Ми_минор"/>
 	                    </linkVariants>
                   </umsm:key>
-                  <umsm:completion>
+                  <completion>
 		                   <year>1736</year>
-	                 </umsm:completion>
+	                 </completion>
                   <umsm:premiere>
 		                   <date>1736-03-30</date>
 	                 </umsm:premiere>

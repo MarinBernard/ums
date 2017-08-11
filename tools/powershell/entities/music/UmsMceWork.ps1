@@ -66,9 +66,9 @@ class UmsMceWork : UmsBaeProduct
     [UmsMceInstrument[]]    $Instruments
     [UmsMceForm]            $Form
     [UmsMceStyle]           $Style
-    [UmsMcePublication]     $Publication
-    [UmsMceInception]       $Inception
-    [UmsMceCompletion]      $Completion
+    [UmsMceBook[]]          $Books
+    [UmsBceInception]       $Inception
+    [UmsBceCompletion]      $Completion
     [UmsMcePremiere]        $Premiere
     [UmsMceSection[]]       $Sections
 
@@ -94,19 +94,6 @@ class UmsMceWork : UmsBaeProduct
                     "catalogIds"))
         }
 
-        # Optional 'publication' element
-        if ($XmlElement.publication)
-        {
-            $this.Publication = (
-                [EntityFactory]::GetEntity(
-                    $this.GetOneXmlElement(
-                        $XmlElement,
-                        [UmsAeEntity]::NamespaceUri.Music,
-                        "publication"),
-                    $this.SourcePathUri,
-                    $this.SourceFileUri))
-        }
-
         # Optional 'inception' element
         if ($XmlElement.inception)
         {
@@ -114,7 +101,7 @@ class UmsMceWork : UmsBaeProduct
                 [EntityFactory]::GetEntity(
                     $this.GetOneXmlElement(
                         $XmlElement,
-                        [UmsAeEntity]::NamespaceUri.Music,
+                        [UmsAeEntity]::NamespaceUri.Base,
                         "inception"),
                     $this.SourcePathUri,
                     $this.SourceFileUri))
@@ -127,7 +114,7 @@ class UmsMceWork : UmsBaeProduct
                 [EntityFactory]::GetEntity(
                     $this.GetOneXmlElement(
                         $XmlElement,
-                        [UmsAeEntity]::NamespaceUri.Music,
+                        [UmsAeEntity]::NamespaceUri.Base,
                         "completion"),
                     $this.SourcePathUri,
                     $this.SourceFileUri))
@@ -144,6 +131,14 @@ class UmsMceWork : UmsBaeProduct
                         "premiere"),
                     $this.SourcePathUri,
                     $this.SourceFileUri))
+        }
+
+        # Optional 'books' element (collection of 'book' elements)
+        if ($XmlElement.books)
+        {
+            $this.BuildBooks(
+                $this.GetOneXmlElement(
+                    $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "books"))
         }
         
         # Mandatory 'composers' element (collection of 'composer' elements)
@@ -176,18 +171,18 @@ class UmsMceWork : UmsBaeProduct
                 $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "sections"))
     }
 
-    # Sub-constructor for the 'catalogIds' element
-    [void] BuildCatalogIds([System.Xml.XmlElement] $CatalogIdsElement)
+    # Sub-constructor for the 'books' element
+    [void] BuildBooks([System.Xml.XmlElement] $BooksElement)
     {
         $this.GetOneOrManyXmlElement(
-            $CatalogIdsElement,
+            $BooksElement,
             [UmsAeEntity]::NamespaceUri.Music,
-            "catalogId"
+            "book"
         ) | foreach {
-                $this.CatalogIds += [EntityFactory]::GetEntity(
+                $this.Books += [EntityFactory]::GetEntity(
                     $_, $this.SourcePathUri, $this.SourceFileUri) }
-    }    
-    
+    }
+
     # Sub-constructor for the 'composers' element
     [void] BuildComposers([System.Xml.XmlElement] $ComposersElement)
     {
@@ -199,6 +194,18 @@ class UmsMceWork : UmsBaeProduct
                 $this.Composers += [EntityFactory]::GetEntity(
                     $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
+
+    # Sub-constructor for the 'catalogIds' element
+    [void] BuildCatalogIds([System.Xml.XmlElement] $CatalogIdsElement)
+    {
+        $this.GetOneOrManyXmlElement(
+            $CatalogIdsElement,
+            [UmsAeEntity]::NamespaceUri.Music,
+            "catalogId"
+        ) | foreach {
+                $this.CatalogIds += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
+    }    
     
     # Sub-constructor for the 'instruments' element
     [void] BuildInstruments([System.Xml.XmlElement] $InstrumentsElement)

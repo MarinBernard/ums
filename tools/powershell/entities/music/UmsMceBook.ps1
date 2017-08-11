@@ -1,32 +1,18 @@
 ###############################################################################
-#   Concrete entity class UmsMcePublication
+#   Concrete entity class UmsMceBook
 #==============================================================================
 #
-#   This class describes a music publication entity, built from a 'publication'
-#   XML element from the UMS music namespace.
+#   This class describes a music book entity, built from a 'book' XML element
+#   from the UMS music namespace. A music book is the published score of a
+#   musical work.s
 #
 ###############################################################################
 
-class UmsMcePublication : UmsBaeProduct
+class UmsMceBook : UmsBaeProduct
 {
     ###########################################################################
     # Static properties
     ###########################################################################
-
-    # One or several characters which will be inserted between each name
-    # in a list of composers.
-    static [string] $ComposerDelimiter = 
-        (Get-UmsConfigurationItem -ShortName "ComposerDelimiter")
-    
-    # One or several characters which will be inserted before a list of
-    # composers.
-    static [string] $ComposerListPrefix = 
-        (Get-UmsConfigurationItem -ShortName "ComposerListPrefix")
-
-    # One or several characters which will be inserted after a list of
-    # composers.
-    static [string] $ComposerListSuffix = 
-        (Get-UmsConfigurationItem -ShortName "ComposerListSuffix")
 
     # One or several characters which will be inserted between each name
     # in a list of catalog ids.
@@ -59,12 +45,12 @@ class UmsMcePublication : UmsBaeProduct
     ###########################################################################
 
     # Standard constructor.
-    UmsMcePublication([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+    UmsMceBook([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
         : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(
-            $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "publication")
+            $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "book")
 
         # Optional 'catalogIds' element
         if ($XmlElement.catalogIds)
@@ -128,10 +114,10 @@ class UmsMcePublication : UmsBaeProduct
             { $_composers += $_composer.Name.ShortName }
 
         # Add composers to the buffer
-        $_string += ([UmsMcePublication]::ComposerListPrefix)
+        $_string += ([UmsMceBook]::ComposerListPrefix)
         $_string += ($_composers -join(
-            [UmsMcePublication]::ComposerDelimiter))
-        $_string += ([UmsMcePublication]::ComposerListSuffix)
+            [UmsMceBook]::ComposerDelimiter))
+        $_string += ([UmsMceBook]::ComposerListSuffix)
         $_addSpace = $true
 
         # Include publication title. We use the ToString() method from the
@@ -155,14 +141,13 @@ class UmsMcePublication : UmsBaeProduct
                 { $_catalogIds += $_catalogId.ToString() }
 
             # Add catalog ids to the buffer
-            $_string += ([UmsMcePublication]::CatalogIdListPrefix)
+            $_string += ([UmsMceBook]::CatalogIdListPrefix)
             $_string += ($_catalogIds -join(
-                [UmsMcePublication]::CatalogIdDelimiter))
-            $_string += ([UmsMcePublication]::CatalogIdListSuffix)
+                [UmsMceBook]::CatalogIdDelimiter))
+            $_string += ([UmsMceBook]::CatalogIdListSuffix)
             $_addSpace = $true
         }
 
         return $_string
     }
-
 }

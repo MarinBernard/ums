@@ -1,14 +1,14 @@
 ###############################################################################
-#   Concrete entity class UmsMceCompletion
+#   Concrete entity class UmsBcePublication
 #==============================================================================
 #
-#   This class describes a composition completion event entity, built from an
-#   'completion' XML element from the music namespace. This describes the date
-#   and place at which the composition of a music work was completed.
+#   This class describes a music publication entity, built from a 'publication'
+#   XML element from the vase namespace. This entity describes a generic
+#   publication event.
 #
 ###############################################################################
 
-class UmsMceCompletion : UmsBaeEvent
+class UmsBcePublication : UmsBaeEvent
 {
     ###########################################################################
     # Static properties
@@ -27,12 +27,12 @@ class UmsMceCompletion : UmsBaeEvent
     ###########################################################################
 
     # Standard constructor.
-    UmsMceCompletion([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+    UmsBcePublication([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
         : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(
-            $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "completion")
+            $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "publication")
     }
 
     ###########################################################################

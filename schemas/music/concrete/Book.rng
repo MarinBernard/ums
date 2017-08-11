@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="MCT_Book">
+		<element name="book">
+			<!-- This element might be used by reference -->
+			<ref name="BAT_Referenceable"/>
+			<!-- Inheritance from the Product abstract type -->
+			<ref name="BAT_Product"/>
+			<!-- Composers of the music book -->
+			<ref name="MLT_Composers"/>
+			<!-- Catalog IDs associated to the book -->
+			<optional>
+				<ref name="MLT_CatalogIds"/>
+			</optional>
+			<!-- Publication event -->
+			<optional>
+				<ref name="BCT_Publication"/>
+			</optional>	
+		</element>
+	</define>
+</grammar>

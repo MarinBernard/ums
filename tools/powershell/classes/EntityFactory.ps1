@@ -312,6 +312,9 @@ class EntityFactory
                 "city"
                     { return New-Object -Type UmsBceCity(
                         $XmlElement, $Uri) }
+                "completion"
+                    { return New-Object -Type UmsBceCompletion(
+                        $XmlElement, $Uri) }
                 "country"
                     { return New-Object -Type UmsBceCountry(
                         $XmlElement, $Uri) }
@@ -320,7 +323,10 @@ class EntityFactory
                         $XmlElement, $Uri) }
                 "death"
                     { return New-Object -Type UmsBceDeath(
-                        $XmlElement, $Uri) }                 
+                        $XmlElement, $Uri) }
+                "inception"
+                    { return New-Object -Type UmsBceInception(
+                        $XmlElement, $Uri) }
                 "labelVariant"
                     { return New-Object -Type UmsBceLabelVariant(
                         $XmlElement, $Uri) }
@@ -332,6 +338,9 @@ class EntityFactory
                         $XmlElement, $Uri) }
                 "place"
                     { return New-Object -Type UmsBcePlace(
+                        $XmlElement, $Uri) }
+                "publication"
+                    { return New-Object -Type UmsBcePublication(
                         $XmlElement, $Uri) }
                 "standardId"
                     { return New-Object -Type UmsBceStandardId(
@@ -348,14 +357,14 @@ class EntityFactory
         {
             switch ($XmlElement.LocalName)
             {
+                "book"
+                    { return New-Object -Type UmsMceBook(
+                    $XmlElement, $Uri) }
                 "catalog"
                     { return New-Object -Type UmsMceCatalog(
                         $XmlElement, $Uri) }
                 "catalogId"
                     { return New-Object -Type UmsMceCatalogId(
-                        $XmlElement, $Uri) }
-                "completion"
-                    { return New-Object -Type UmsMceCompletion(
                         $XmlElement, $Uri) }
                 "composer"
                     { return New-Object -Type UmsMceComposer(
@@ -368,9 +377,6 @@ class EntityFactory
                         $XmlElement, $Uri) }                    
                 "form"
                     { return New-Object -Type UmsMceForm(
-                        $XmlElement, $Uri) }
-                "inception"
-                    { return New-Object -Type UmsMceInception(
                         $XmlElement, $Uri) }
                 "instrument"
                     { return New-Object -Type UmsMceInstrument(
@@ -395,9 +401,6 @@ class EntityFactory
                         $XmlElement, $Uri) }
                 "premiere"
                     { return New-Object -Type UmsMcePremiere(
-                        $XmlElement, $Uri) }
-                "publication"
-                    { return New-Object -Type UmsMcePublication(
                         $XmlElement, $Uri) }
                 "section"
                     { return New-Object -Type UmsMceSection(

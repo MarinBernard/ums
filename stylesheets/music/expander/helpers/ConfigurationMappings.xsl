@@ -82,6 +82,13 @@
 	==============================================================================
 	-->
 	<!-- URI to the catalog of catalog music elements -->
+	<xsl:variable name="CAT_Music_Books">
+		<xsl:call-template name="getCatalogUriForElement">
+			<xsl:with-param name="Namespace" select="'http://schemas.olivarim.com/ums/1.0/music'"/>
+			<xsl:with-param name="ElementName" select="'book'"/>
+		</xsl:call-template>
+	</xsl:variable>
+	<!-- URI to the catalog of catalog music elements -->
 	<xsl:variable name="CAT_Music_Catalogs">
 		<xsl:call-template name="getCatalogUriForElement">
 			<xsl:with-param name="Namespace" select="'http://schemas.olivarim.com/ums/1.0/music'"/>
@@ -156,13 +163,6 @@
 		<xsl:call-template name="getCatalogUriForElement">
 			<xsl:with-param name="Namespace" select="'http://schemas.olivarim.com/ums/1.0/music'"/>
 			<xsl:with-param name="ElementName" select="'movement'"/>
-		</xsl:call-template>
-	</xsl:variable>
-	<!-- URI to the catalog of publication music elements -->
-	<xsl:variable name="CAT_Music_Publications">
-		<xsl:call-template name="getCatalogUriForElement">
-			<xsl:with-param name="Namespace" select="'http://schemas.olivarim.com/ums/1.0/music'"/>
-			<xsl:with-param name="ElementName" select="'publication'"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<!-- URI to the catalog of style music elements -->

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="MRT_Catalog">
-		<element name="catalog">
-			<ref name="BAT_Reference"/>
+	<define name="BCT_Inception">
+		<element name="inception">
+			<ref name="BAT_Event"/>
 		</element>
 	</define>
 </grammar>

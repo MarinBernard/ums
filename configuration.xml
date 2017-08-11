@@ -16,6 +16,7 @@
 		<catalog id="music"
 			namespace="http://schemas.olivarim.com/ums/1.0/music"
 			uri="file:///C:/Users/marin/Code/ums/catalogs/music">
+			<mapping subpath="books" element="book"/>
 			<mapping subpath="catalogs" element="catalog"/>
 			<mapping subpath="composers" element="composer"/>
 			<mapping subpath="compositions" element="lyrics"/>
@@ -28,7 +29,6 @@
 			<mapping subpath="instruments" element="instrument"/>
 			<mapping subpath="keys" element="key"/>
 			<mapping subpath="lyricists" element="lyricist"/>
-			<mapping subpath="publications" element="publication"/>
 			<mapping subpath="styles" element="style"/>
 			<mapping subpath="venues" element="venue"/>
 		</catalog>
@@ -111,7 +111,7 @@
 				<option id="vorbis-titles-section-number-delimiter">.</option>
 				<option id="vorbis-titles-show-parent-work">False</option>
 				<option id="vorbis-titles-show-section-numbers">True</option>
-				<option id="work-titles-show-year">False</option>
+				<option id="work-titles-show-year">True</option>
 				<option id="work-titles-year-prefix">(</option>
 				<option id="work-titles-year-suffix">)</option>
 				<option id="work-titles-year-type">completion</option>

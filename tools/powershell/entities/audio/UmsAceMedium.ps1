@@ -39,9 +39,9 @@ class UmsAceMedium : UmsBaeProduct
     # Visible properties
     ###########################################################################
 
-    [int]       $Number
-    [int]       $Side = 1
-    [string]    $Type
+    [int]               $Number
+    [int]               $Side = 1
+    [UmsAceMediumType]  $Type
 
 
     ###########################################################################
@@ -95,4 +95,10 @@ class UmsAceMedium : UmsBaeProduct
 
         return $_string
     }
+}
+
+# Supported audio medium types
+Enum UmsAceMediumType
+{
+    CDDA
 }

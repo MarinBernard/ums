@@ -1,14 +1,14 @@
 ###############################################################################
-#   Concrete entity class UmsMceInception
+#   Concrete entity class UmsBceInception
 #==============================================================================
 #
 #   This class describes a composition inception event entity, built from an
-#   'inception' XML element from the music namespace. This describes the date
-#   and place at which the composition of a music work began.
+#   'inception' XML element from the base namespace. This describes the date
+#   and place of inception of something.
 #
 ###############################################################################
 
-class UmsMceInception : UmsBaeEvent
+class UmsBceInception : UmsBaeEvent
 {
     ###########################################################################
     # Static properties
@@ -27,12 +27,12 @@ class UmsMceInception : UmsBaeEvent
     ###########################################################################
 
     # Standard constructor.
-    UmsMceInception([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+    UmsBceInception([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
         : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(
-            $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "inception")
+            $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "inception")
     }
 
     ###########################################################################
