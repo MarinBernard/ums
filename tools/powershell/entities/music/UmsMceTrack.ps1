@@ -17,13 +17,16 @@ class UmsMceTrack : UmsBaeTrack
     # Hidden properties
     ###########################################################################
     
-    hidden [string] $SectionRef             # The uid of the target section
+    hidden [string] $SPath          # An SPath expression to the target section
 
     ###########################################################################
     # Visible properties
     ###########################################################################
 
     [UmsMcePerformance] $Performance
+
+    # Views
+    [UmsMceMovement[]]  $Movements
 
     ###########################################################################
     # Constructors
@@ -41,7 +44,7 @@ class UmsMceTrack : UmsBaeTrack
             $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "track")
 
         # Attributes specific to music tracks
-        $this.SectionRef = $this.GetMandatoryXmlAttributeValue(
+        $this.SPath = $this.GetMandatoryXmlAttributeValue(
             $XmlElement, "section")
 
         # Mandatory 'performance' instance
@@ -50,9 +53,17 @@ class UmsMceTrack : UmsBaeTrack
                 $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "performance"),
             $this.SourcePathUri,
             $this.SourceFileUri)
+
+        # Update movement list
+        $this.UpdateMovementList()
     }
 
     ###########################################################################
     # Helpers
     ###########################################################################
+
+    [void] UpdateMovementList()
+    {
+        $this.Movements = $this.Performance.GetMovementFromSPath($this.SPath)
+    }
 }

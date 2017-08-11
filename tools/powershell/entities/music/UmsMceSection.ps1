@@ -138,6 +138,38 @@ class UmsMceSection : UmsBaeProduct
         }
     }
 
+    # Returns a list of movements from a section path.
+    [UmsMceMovement[]] GetMovementFromSPath([string[]] $Segments)
+    {
+        # Initialize return collection
+        [UmsMceMovement[]] $_movements = @()
+
+        # Split the SPath expression into segments.
+        $_firstSegment = $Segments[0]
+        $_remainingSegments = $Segments[1..$Segments.Length]
+
+        # Enumerate subsections
+        foreach ($_section in $this.Sections)
+        {
+            # If the Id of the current section matches the first level of the
+            # path, or if there is no filter segment left, let's ask the
+            # subsection to perform a recursive search.
+            if (
+                ($_section.Id -eq $_firstSegment) -or
+                ($Segments.Count -eq 0))
+            {
+                $_movements += (
+                    $_section.GetMovementFromSPath($_remainingSegments))
+            }
+        }
+
+        # If there is no filter segment left, let's add the movements of
+        # the current section.
+        if ($Segments.Count -eq 0) { $_movements += $this.Movements }
+
+        return $_movements
+    }
+
     # Renders the section as a string including data inherited from parent
     # sections.
     [string] ToFullString()

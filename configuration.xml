@@ -109,7 +109,6 @@
 				<option id="vorbis-labels-work-subtitle">WORKSUBTITLE</option>
 				<option id="vorbis-titles-parent-work-delimiter">-</option>
 				<option id="vorbis-titles-show-parent-work">False</option>
-				<option id="work-titles-year-type">completion</option>
 			</options>
 		</stylesheet>
 	</stylesheets>

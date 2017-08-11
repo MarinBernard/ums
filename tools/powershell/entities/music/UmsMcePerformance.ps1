@@ -166,6 +166,34 @@ class UmsMcePerformance : UmsMaeEvent
     # Helpers
     ###########################################################################
 
+    # Returns a list of movements from a section path.
+    [UmsMceMovement[]] GetMovementFromSPath([string] $SPath)
+    {
+        # Initialize return collection
+        [UmsMceMovement[]] $_movements = @()
+
+        # Split the SPath expression into segments.
+        $_segments = $SPath.Split("/")
+        $_firstSegment = $_segments[0]
+        $_remainingSegments = $_segments[1..$_segments.Length]
+
+        foreach ($_section in $this.Work.Sections)
+        {
+            # If the Id current section matches the first level of the path,
+            # or if the SPath expression was empty (empty first segment),
+            # let's ask the current section to perform a recursive search.
+            if (
+                ($_section.Id -eq $_firstSegment) -or
+                (-not $_firstSegment))
+            {
+                $_movements += (
+                    $_section.GetMovementFromSPath($_remainingSegments))
+            }
+        }
+
+        return $_movements
+    }
+
     # Performance to string
     [string] ToString()
     {
