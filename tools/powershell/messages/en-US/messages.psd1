@@ -96,8 +96,15 @@
     }
     RemoveUmsItem = @{
         CacheFileRemovalFailure = "The command was unable to remove the metadata cache file."
+        CompanionFileRemovalFailure = "The command was unable to remove the companion file of the item."
         StaticFileRemovalFailure = "The command was unable to remove the static version file."
-        UmsFileRemovalFailure = "The command was unable to remove main UMS file."
+        UmsFileRemovalFailure = "The command was unable to remove the main UMS file."
+    }
+    RenameUmsItem = @{
+        CacheFileRenameFailure = "The command was unable to rename the metadata cache file."
+        CompanionFileRenameFailure = "The command was unable to rename the companion file of the item."
+        StaticFileRenameFailure = "The command was unable to rename the static version file."
+        UmsFileRenameFailure = "The command was unable to rename the main UMS file."
     }
     RunUmsXmlValidation = @{
        SourceFileNotFound = "XML source file {0} does not exist or access is denied."

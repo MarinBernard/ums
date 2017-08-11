@@ -10,6 +10,9 @@ function Remove-UmsItem
     .PARAMETER Item
     An instance of the UmsItem class, as returned by the Get-UmsItem command.
 
+    .PARAMETER WithCompanion
+    If this parameter is specified, the command will also remove the companion file of the UMS item, if it exists.
+
     .PARAMETER Confirm
     Whether the command will ask the user to confirm each file deletion.
 
@@ -22,6 +25,8 @@ function Remove-UmsItem
         [Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
         [UmsItem[]] $Item,
+
+        [switch] $WithCompanion,
 
         [bool] $Confirm = $true
     )
@@ -50,6 +55,22 @@ function Remove-UmsItem
         {
             Write-Warning -Message (
                 $ModuleStrings.RemoveUmsItem.StaticFileRemovalFailure)
+        }
+
+        # Remove companion file
+        if (($WithCompanion.IsPresent) -and
+            ($Item.Cardinality -eq [UICardinality]::Sidecar))
+        {
+            try
+            {
+                Remove-Item -Force -Confirm:$Confirm -Path $Item.LinkedFileFullName
+                $Item.UpdateCardinalityInfo()
+            }
+            catch [System.IO.IOException]
+            {
+                Write-Warning -Message (
+                    $ModuleStrings.RemoveUmsItem.CompanionFileRemovalFailure)
+            }
         }
 
         # Remove the UMS file

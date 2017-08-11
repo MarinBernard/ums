@@ -13,6 +13,9 @@ function Rename-UmsItem
     .PARAMETER NewName
     The new name of the UMS item.
 
+    .PARAMETER WithCompanion
+    If this parameter is specified, the command will also rename the companion file of the UMS item, if it exists.
+
     .EXAMPLE
     Get-UmsItem -Path "D:\MyMusic" -Filter "uselessFile" | Remove-UmsItem
     #>
@@ -25,7 +28,9 @@ function Rename-UmsItem
 
         [Parameter(Position=1,Mandatory=$true)]
         [ValidateNotNull()]
-        [string] $NewName
+        [string] $NewName,
+
+        [switch] $WithCompanion
     )
 
     Process
@@ -62,6 +67,22 @@ function Rename-UmsItem
         {
             Write-Warning -Message (
                 $ModuleStrings.RemoveUmsItem.StaticFileRenameFailure)
+        }
+
+        # Move companion file
+        if (($WithCompanion.IsPresent) -and
+            ($Item.Cardinality -eq [UICardinality]::Sidecar))
+        {
+            try
+            {
+                $_newPath = Join-Path -Path $Item.LinkedFilePath -ChildPath $NewName
+                Move-Item -Force -Path $Item.LinkedFileFullName -Destination $_newPath
+            }
+            catch [System.IO.IOException]
+            {
+                Write-Warning -Message (
+                    $ModuleStrings.RemoveUmsItem.CompanionFileRenameFailure)
+            }
         }
 
         # Move the UMS file

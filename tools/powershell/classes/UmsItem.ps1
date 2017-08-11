@@ -119,7 +119,7 @@ class UmsItem
 
         # Calling sub-constructor for cardinality information.
         # This subconstructor relies on content information.
-        $this.constructCardinalityInfo($FileInfo)        
+        $this.UpdateCardinalityInfo()       
     }
 
     # Sub-constructor for static information
@@ -205,13 +205,13 @@ class UmsItem
     }
 
     # Sub-constructor for cardinality information
-    [void] constructCardinalityInfo([System.IO.FileInfo] $FileInfo)
+    [void] UpdateCardinalityInfo()
     {
         # If the item includes binding information, it is sidecar or orphaned.
         if ($this.BindingElement)
         {
             # Update hidden properties
-            $this.LinkedFileName = $FileInfo.BaseName
+            $this.LinkedFileName = $this.Name
             $this.LinkedFilePath = $this.ManagedPath
             $this.LinkedFileFullName = Join-Path -Path $this.LinkedFilePath -ChildPath $this.LinkedFileName
             $this.LinkedFileExtension = [System.IO.Path]::GetExtension($this.LinkedFileName)

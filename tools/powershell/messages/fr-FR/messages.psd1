@@ -97,8 +97,15 @@
     }
     RemoveUmsItem = @{
         CacheFileRemovalFailure = "La commande n'est pas parvenue à supprimer le fichier contenant le cache des métadonnées."
+        CompanionFileRemovalFailure = "La commande n'est pas parvenue à supprimer le fichier compagnion de l'élément UMS."
         StaticFileRemovalFailure = "La commande n'est pas parvenue à supprimer le fichier contenant la copie statique."
         UmsFileRemovalFailure = "La commande n'est pas parvenue à supprimer le fichier UMS principal."
+    }
+    RenameUmsItem = @{
+        CacheFileRenameFailure = "La commande n'est pas parvenue à renommer le fichier contenant le cache des métadonnées."
+        CompanionFileRenameFailure = "La commande n'est pas parvenue à renommer le fichier compagnion de l'élément UMS."
+        StaticFileRenameFailure = "La commande n'est pas parvenue à renommer le fichier contenant la copie statique."
+        UmsFileRenameFailure = "La commande n'est pas parvenue à renommer le fichier UMS principal."
     }
     RunUmsXmlValidation = @{
         SourceFileNotFound = "Le fichier source XML {0} n'existe pas ou n'est pas accessible."
