@@ -7,11 +7,15 @@
 #
 ###############################################################################
 
-class UmsAceTrack : UmsBaeProduct
+class UmsAceTrack : UmsAeEntity
 {
     ###########################################################################
     # Static properties
     ###########################################################################
+
+    # The format of track numbers in string representations.
+    static [string] $TrackNumberFormat = 
+    (Get-UmsConfigurationItem -ShortName "TrackNumberFormat")
 
     ###########################################################################
     # Hidden properties
@@ -54,4 +58,14 @@ class UmsAceTrack : UmsBaeProduct
     # Helpers
     ###########################################################################
 
+    # Returns the string representation of the track.
+    [string] ToString()
+    {
+        $_string = ""
+
+        # Include track number
+        $_string += ([UmsAceTrack]::TrackNumberFormat -f $this.Number)
+
+        return $_string
+    }
 }

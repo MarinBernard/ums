@@ -86,6 +86,7 @@ function Get-UmsConfigurationItem
             "SortNameDelimiter",
             "TempoMarkingListPrefix",
             "TempoMarkingListSuffix",
+            "TrackNumberFormat",
             "UseDefaultVariants",
             "UseFakeSortVariants",
             "UseOriginalVariants",
@@ -179,6 +180,7 @@ function Get-UmsConfigurationItem
             "SortNameDelimiter"         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "sort-name-delimiter" }).Value }
             "TempoMarkingListPrefix"    { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "tempo-marking-list-prefix" }).Value }
             "TempoMarkingListSuffix"    { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "tempo-marking-list-suffix" }).Value }
+            "TrackNumberFormat"         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "track-number-format" }).Value }
             "UseDefaultVariants"        { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "use-default-variants" }).Value }
             "UseFakeSortVariants"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "use-fake-sort-variants" }).Value }
             "UseOriginalVariants"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "use-original-variants" }).Value }

@@ -13,7 +13,7 @@ class UmsAceMedium : UmsBaeProduct
     # Static properties
     ###########################################################################
 
-    # The format of medium numbers
+    # The format of medium numbers in string representations.
     static [string] $MediumNumberFormat = 
         (Get-UmsConfigurationItem -ShortName "MediumNumberFormat")
 
@@ -76,6 +76,23 @@ class UmsAceMedium : UmsBaeProduct
             $XmlElement, "side")
         $this.Type = $this.GetMandatoryXmlAttributeValue(
             $XmlElement, "type")
+        
+        # Mandatory 'tracks' element (collection of 'track' elements)
+        $this.BuildTracks(
+            $this.GetOneXmlElement(
+                $XmlElement, [UmsAeEntity]::NamespaceUri.Audio, "tracks"))
+    }
+
+    # Sub-constructor for the 'tracks' element
+    [void] BuildTracks([System.Xml.XmlElement] $TracksElement)
+    {
+        $this.GetOneOrManyXmlElement(
+            $TracksElement,
+            [UmsAeEntity]::NamespaceUri.Audio,
+            "track"
+        ) | foreach {
+                $this.Tracks += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 
     ###########################################################################

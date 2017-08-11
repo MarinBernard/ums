@@ -178,6 +178,7 @@
 		<option id="sort-name-delimiter">,</option>
 		<option id="tempo-marking-list-prefix"></option>
 		<option id="tempo-marking-list-suffix"></option>
+		<option id="track-number-format">{0:D2}</option>
 		<option id="use-default-variants">True</option>
 		<option id="use-fake-sort-variants">True</option>
 		<option id="use-original-variants">False</option>
