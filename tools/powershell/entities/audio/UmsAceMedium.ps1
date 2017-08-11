@@ -17,6 +17,16 @@ class UmsAceMedium : UmsBaeProduct
     static [string] $MediumNumberFormat = 
         (Get-UmsConfigurationItem -ShortName "MediumNumberFormat")
 
+    # One or several characters which will be inserted before the side of the
+    # medium when it is rendered as a string.
+    static [string] $MediumSidePrefix = 
+        (Get-UmsConfigurationItem -ShortName "MediumSidePrefix")
+
+    # One or several characters which will be inserted after the side of the
+    # medium when it is rendered as a string.
+    static [string] $MediumSideSuffix = 
+        (Get-UmsConfigurationItem -ShortName "MediumSideSuffix")
+
     # Whether the title of the medium will be shown when rendered as a string.
     static [string] $ShowMediumTitle = 
         (Get-UmsConfigurationItem -ShortName "ShowMediumTitle")
@@ -40,9 +50,9 @@ class UmsAceMedium : UmsBaeProduct
     ###########################################################################
 
     [int]               $Number
-    [int]               $Side = 1
+    [int]               $Side
     [UmsAceMediumType]  $Type
-
+    [UmsAceTrack[]]     $Tracks
 
     ###########################################################################
     # Constructors
@@ -81,6 +91,15 @@ class UmsAceMedium : UmsBaeProduct
         $_string += $this.Type
         $_string += ([UmsAeEntity]::NonBreakingSpace)
         $_string += ([UmsAceMedium]::MediumNumberFormat -f $this.Number)
+
+        # Include medium side, if defined
+        if ($this.Side -gt 0)
+        {
+            $_string += ([UmsAeEntity]::NonBreakingSpace)
+            $_string += ([UmsAceMedium]::MediumSidePrefix)
+            $_string += $this.Side
+            $_string += ([UmsAceMedium]::MediumSideSuffix)
+        }
 
         # Include medium title, if defined. We use the ToString() method
         # from the UmsBaeProduct base type to get the string.

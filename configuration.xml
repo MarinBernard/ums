@@ -146,6 +146,8 @@
 		<option id="key-list-prefix">(</option>
 		<option id="key-list-suffix">)</option>
 		<option id="medium-number-format">{0:D2}</option>
+		<option id="medium-side-prefix">/</option>
+		<option id="medium-side-suffix"></option>
 		<option id="medium-title-prefix">(</option>
 		<option id="medium-title-suffix">)</option>
 		<option id="movement-title-infix">:</option>

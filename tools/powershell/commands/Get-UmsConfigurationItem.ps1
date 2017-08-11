@@ -55,6 +55,8 @@ function Get-UmsConfigurationItem
             "KeyListPrefix",
             "KeyListSuffix",
             "MediumNumberFormat",
+            "MediumSidePrefix",
+            "MediumSideSuffix",
             "MediumTitlePrefix",
             "MediumTitleSuffix",
             "MovementTitleInfix",
@@ -146,6 +148,8 @@ function Get-UmsConfigurationItem
             "KeyListPrefix"             { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "key-list-prefix" }).Value }
             "KeyListSuffix"             { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "key-list-suffix" }).Value }
             "MediumNumberFormat"        { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "medium-number-format" }).Value }
+            "MediumSidePrefix"          { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "medium-side-prefix" }).Value }
+            "MediumSideSuffix"          { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "medium-side-suffix" }).Value }
             "MediumTitlePrefix"         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "medium-title-prefix" }).Value }
             "MediumTitleSuffix"         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "medium-title-suffix" }).Value }
             "MovementTitleInfix"        { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "movement-title-infix" }).Value }

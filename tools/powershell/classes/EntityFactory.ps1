@@ -294,7 +294,10 @@ class EntityFactory
                         $XmlElement, $Uri) }
                 "release"
                     { return New-Object -Type UmsAceRelease(
-                        $XmlElement, $Uri) }                    
+                        $XmlElement, $Uri) }
+                "track"
+                    { return New-Object -Type UmsAceTrack(
+                        $XmlElement, $Uri) }                 
             }
         }
 
