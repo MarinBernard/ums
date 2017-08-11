@@ -24,15 +24,14 @@
 		<!-- Track number -->
 		<xsl:variable name="_number" select="@number"/>
 		<!-- Linked performance -->
-		<xsl:variable name="_performance" select="@performance"/>
+		<xsl:variable name="_performance" select="umsm:performance"/>
 		<!-- Part id expression pointing to a part of the work -->
 		<xsl:variable name="_section" select="@section"/>
 		<!--======================================================================
 		 !	Retrieving target performance
 		 =========================================================================-->		
-		<xsl:variable name="_targetPerformance" select="ancestor::umsa:album/umsm:performances/umsm:performance[@uid = $_performance]"/>
-		<xsl:if test="not($_targetPerformance)">
-			<xsl:message terminate="yes" select="concat('Performance with id ', $_performance, ' was not found.')"/>
+		<xsl:if test="not($_performance)">
+			<xsl:message terminate="yes" select="'The music track has no linked performance.'"/>
 		</xsl:if>
 		<!--======================================================================
 		 !	Building track title
@@ -42,7 +41,7 @@
 			<xsl:with-param name="Message" select="'Beginning to build track title.'"/>
 		</xsl:call-template>
 		<xsl:variable name="_trackTitle">
-			<xsl:for-each select="$_targetPerformance">
+			<xsl:for-each select="$_performance">
 				<xsl:call-template name="RT_Performance">
 					<xsl:with-param name="TargetSection" select="$_section"/>
 					<xsl:with-param name="Mode" select="'RAWTRACKTITLE'"/>
@@ -61,7 +60,7 @@
 			<xsl:with-param name="Message" select="'Beginning to build track lyrics.'"/>
 		</xsl:call-template>
 		<xsl:variable name="_lyrics">
-			<xsl:for-each select="$_targetPerformance">
+			<xsl:for-each select="$_performance">
 				<xsl:call-template name="RT_Performance">
 					<xsl:with-param name="TargetSection" select="$_section"/>
 					<xsl:with-param name="Mode" select="'RAWLYRICS'"/>
@@ -91,7 +90,7 @@
 					<xsl:variable name="_composerList">
 						<xsl:if test="$config.albumTitles.includeComposers = true()">
 							<xsl:value-of select="$config.composers.listPrefix"/>
-							<xsl:for-each select="$_targetPerformance">
+							<xsl:for-each select="$_performance">
 								<xsl:call-template name="RT_Performance">
 									<xsl:with-param name="TargetSection" select="$_section"/>
 									<xsl:with-param name="Mode" select="'RAWCOMPOSERLIST'"/>
@@ -103,7 +102,7 @@
 					</xsl:variable>
 					<!-- Getting raw work title -->
 					<xsl:variable name="_workTitle">
-						<xsl:for-each select="$_targetPerformance">
+						<xsl:for-each select="$_performance">
 							<xsl:call-template name="RT_Performance">
 								<xsl:with-param name="TargetSection" select="$_section"/>
 								<xsl:with-param name="Mode" select="'RAWWORKTITLE'"/>
@@ -115,7 +114,7 @@
 					<xsl:variable name="_performerList">
 						<xsl:if test="$config.albumTitles.includePerformers = true()">
 							<xsl:value-of select="$config.performers.listPrefix"/>
-							<xsl:for-each select="$_targetPerformance">
+							<xsl:for-each select="$_performance">
 								<xsl:call-template name="RT_Performance">
 									<xsl:with-param name="TargetSection" select="$_section"/>
 									<xsl:with-param name="Mode" select="'RAWPERFORMERLIST'"/>
@@ -184,7 +183,7 @@
 			<xsl:with-param name="Message" select="'Beginning of the performance call chain.'"/>
 		</xsl:call-template>
 		<xsl:variable name="_VC_Performance">
-			<xsl:for-each select="$_targetPerformance">
+			<xsl:for-each select="$_performance">
 				<xsl:call-template name="RT_Performance">
 					<xsl:with-param name="TargetSection" select="$_section"/>
 				</xsl:call-template>

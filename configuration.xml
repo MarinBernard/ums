@@ -175,6 +175,7 @@
 		<option id="show-played-instrument">True</option>
 		<option id="show-pseudonyms">True</option>
 		<option id="show-tempo-marking">True</option>
+		<option id="show-track-title">True</option>
 		<option id="sort-name-delimiter">,</option>
 		<option id="tempo-marking-list-prefix"></option>
 		<option id="tempo-marking-list-suffix"></option>

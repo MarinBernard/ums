@@ -3,7 +3,10 @@
 	<define name="ALT_Tracks">
 		<element name="tracks">
 			<oneOrMore>
-				<ref name="ACT_Track"/>
+				<choice>
+					<!-- Music track -->
+					<ref name="MCT_Track"/>
+				</choice>
 			</oneOrMore>
 		</element>
 	</define>

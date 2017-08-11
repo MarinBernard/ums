@@ -291,10 +291,7 @@ class EntityFactory
                         $XmlElement, $Uri) }
                 "medium"
                     { return New-Object -Type UmsAceMedium(
-                        $XmlElement, $Uri) }
-                "track"
-                    { return New-Object -Type UmsAceTrack(
-                        $XmlElement, $Uri) }                 
+                        $XmlElement, $Uri) }               
             }
         }
 
@@ -408,6 +405,9 @@ class EntityFactory
                 "style"
                     { return New-Object -Type UmsMceStyle(
                         $XmlElement, $Uri) }
+                "track"
+                    { return New-Object -Type UmsMceTrack(
+                        $XmlElement, $Uri) }  
                 "venue"
                     { return New-Object -Type UmsMceVenue(
                         $XmlElement, $Uri) }   

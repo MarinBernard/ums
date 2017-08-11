@@ -22,9 +22,11 @@ class UmsAceAlbum : UmsBaeProduct
     ###########################################################################
 
     [UmsAceLabel[]]         $Labels
-    [UmsMcePerformance[]]   $Performances
     [UmsBcePublication[]]   $Publications
     [UmsAceMedium[]]        $Media
+
+    # Views
+    [UmsMcePerformance[]]   $Performances
 
     ###########################################################################
     # Constructors
@@ -47,13 +49,6 @@ class UmsAceAlbum : UmsBaeProduct
                 $XmlElement,
                 [UmsAeEntity]::NamespaceUri.Audio,
                 "labels"))
-
-        # Mandatory 'performances' element (collection of 'performance' elements)
-        $this.BuildPerformances(
-            $this.GetOneXmlElement(
-                $XmlElement,
-                [UmsAeEntity]::NamespaceUri.Music,
-                "performances"))
         
         # Optional 'publications' element (collection of 'publication' elements)
         if ($XmlElement.publications)
@@ -71,6 +66,9 @@ class UmsAceAlbum : UmsBaeProduct
                 $XmlElement,
                 [UmsAeEntity]::NamespaceUri.Audio,
                 "media"))
+
+        # Update views
+        $this.UpdatePerformances()
     }
 
     # Sub-constructor for the 'labels' element
@@ -85,18 +83,6 @@ class UmsAceAlbum : UmsBaeProduct
             "label"
         ) | foreach {
                 $this.Labels += [EntityFactory]::GetEntity(
-                    $_, $this.SourcePathUri, $this.SourceFileUri) }
-    }
-
-    # Sub-constructor for the 'performances' element
-    [void] BuildPerformances([System.Xml.XmlElement] $PerformancesElement)
-    {
-        $this.GetOneOrManyXmlElement(
-            $PerformancesElement,
-            [UmsAeEntity]::NamespaceUri.Music,
-            "performance"
-        ) | foreach {
-                $this.Performances += [EntityFactory]::GetEntity(
                     $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 
@@ -127,4 +113,20 @@ class UmsAceAlbum : UmsBaeProduct
     ###########################################################################
     # Helpers
     ###########################################################################
+
+    # Update the Performances view
+    [void] UpdatePerformances()
+    {
+        [UmsMcePerformance[]] $_performances = $null
+
+        foreach ($_medium in $this.Media)
+        {
+            foreach ($_track in $_medium.Tracks)
+            {
+                $_performances += $_track.Performance
+            }
+        }
+
+        $this.Performances = $_performances | Sort-Object -Unique
+    }
 }

@@ -83,6 +83,7 @@ function Get-UmsConfigurationItem
             "ShowPlayedInstrument",
             "ShowPseudonyms",
             "ShowTempoMarking",
+            "ShowTrackTitle",
             "SortNameDelimiter",
             "TempoMarkingListPrefix",
             "TempoMarkingListSuffix",
@@ -177,6 +178,7 @@ function Get-UmsConfigurationItem
             "ShowPlayedInstrument"      { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-played-instrument" }).Value }
             "ShowPseudonyms"            { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-pseudonyms" }).Value }
             "ShowTempomarking"          { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-tempo-marking" }).Value }
+            "ShowTrackTitle"            { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "show-track-title" }).Value }
             "SortNameDelimiter"         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "sort-name-delimiter" }).Value }
             "TempoMarkingListPrefix"    { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "tempo-marking-list-prefix" }).Value }
             "TempoMarkingListSuffix"    { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "tempo-marking-list-suffix" }).Value }

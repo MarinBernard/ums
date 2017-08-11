@@ -23,6 +23,7 @@
 	<include href="concrete/Place.rng"/>
 	<include href="concrete/Section.rng"/>
 	<include href="concrete/Style.rng"/>
+	<include href="concrete/Track.rng"/>
 	<include href="concrete/Venue.rng"/>
 	<include href="concrete/Work.rng"/>
 	<!-- List types -->
@@ -34,7 +35,6 @@
 	<include href="list/Instruments.rng"/>
 	<include href="list/Lyricists.rng"/>
 	<include href="list/Movements.rng"/>
-	<include href="list/Performances.rng"/>
 	<include href="list/Performers.rng"/>
 	<include href="list/Sections.rng"/>
 	<!-- Reference types -->

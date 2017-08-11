@@ -43,7 +43,7 @@ function ShowUmsException($Exception)
 
 try
 {
-    $_uri = [System.Uri]::New("file:///C:/Users/marin/Code/ums/catalogs/music/compositions/Beethoven%2C%20Ludwig%20van/Opus/21.ums")
+    $_uri = [System.Uri]::New("file:///C:/Users/marin/Code/ums/tests/current/ums/album.ums")
     ([EntityFactory]::ParseDocument($_uri, "test"))
     ([EntityFactory]::DumpCache()) | ft
 

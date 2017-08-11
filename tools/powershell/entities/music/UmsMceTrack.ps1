@@ -1,71 +1,58 @@
 ###############################################################################
-#   Concrete entity class UmsAceTrack
+#   Concrete entity class UmsMceTrack
 #==============================================================================
 #
-#   This class describes an audio track entity, built from a 'track' XML
-#   element from the audio namespace.
+#   This class describes a music track entity, built from a 'track' XML
+#   element from the music namespace.
 #
 ###############################################################################
 
-class UmsAceTrack : UmsAeEntity
+class UmsMceTrack : UmsBaeTrack
 {
     ###########################################################################
     # Static properties
     ###########################################################################
 
-    # The format of track numbers in string representations.
-    static [string] $TrackNumberFormat = 
-    (Get-UmsConfigurationItem -ShortName "TrackNumberFormat")
-
     ###########################################################################
     # Hidden properties
     ###########################################################################
     
-    hidden [string] $PerformanceRef         # The uid of the target performance
     hidden [string] $SectionRef             # The uid of the target section
 
     ###########################################################################
     # Visible properties
     ###########################################################################
 
-    [int]   $Number
+    [UmsMcePerformance] $Performance
 
     ###########################################################################
     # Constructors
     ###########################################################################
 
     # Standard constructor.
-    UmsAceTrack([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+    UmsMceTrack([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
         : base($XmlElement, $Uri)
     {
         # Verbose prefix
-        $_verbosePrefix = "[UmsAceTrack]::UmsAceTrack(): "
+        $_verbosePrefix = "[UmsMceTrack]::UmsMceTrack(): "
 
         # Validate the XML root element
         $this.ValidateXmlElement(
-            $XmlElement, [UmsAeEntity]::NamespaceUri.Audio, "track")
+            $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "track")
 
-        # Attributes
-        $this.Number = $this.GetMandatoryXmlAttributeValue(
-            $XmlElement, "number")
-        $this.PerformanceRef = $this.GetMandatoryXmlAttributeValue(
-            $XmlElement, "performance")
+        # Attributes specific to music tracks
         $this.SectionRef = $this.GetMandatoryXmlAttributeValue(
             $XmlElement, "section")
+
+        # Mandatory 'performance' instance
+        $this.Performance = [EntityFactory]::GetEntity(
+            $this.GetOneXmlElement(
+                $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "performance"),
+            $this.SourcePathUri,
+            $this.SourceFileUri)
     }
 
     ###########################################################################
     # Helpers
     ###########################################################################
-
-    # Returns the string representation of the track.
-    [string] ToString()
-    {
-        $_string = ""
-
-        # Include track number
-        $_string += ([UmsAceTrack]::TrackNumberFormat -f $this.Number)
-
-        return $_string
-    }
 }

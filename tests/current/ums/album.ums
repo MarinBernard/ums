@@ -31,18 +31,23 @@
 	<umsa:media>
 		<umsa:medium number="1" type="CDDA">
 			<umsa:tracks>
-				<umsa:track number="1" performance="performance" section="I/1"/>
-				<umsa:track number="2" performance="performance" section="I/2"/>
-				<umsa:track number="3" performance="performance" section="I/3"/>
+				<umsm:track number="1" section="I/1">
+					<umsm:performance uid="performance"/>
+				</umsm:track>
+				<umsm:track number="2" section="I/2">
+					<umsm:performance uid="performance"/>
+				</umsm:track>
+				<umsm:track number="3" section="I/3">
+					<umsm:performance uid="performance"/>
+				</umsm:track>
 			</umsa:tracks>
 		</umsa:medium>
 		<umsa:medium number="2" type="CDDA">
 			<umsa:tracks>
-				<umsa:track number="12" performance="_performance" section="II/30"/>
+				<umsm:track number="12" section="II/30">
+					<umsm:performance uid="performance"/>
+				</umsm:track>
 			</umsa:tracks>
 		</umsa:medium>
 	</umsa:media>
-	<umsm:performances>
-		<umsm:performance uid="performance"/>
-	</umsm:performances>
 </umsa:album>

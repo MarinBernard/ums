@@ -52,7 +52,7 @@ class UmsAceMedium : UmsBaeProduct
     [int]               $Number
     [int]               $Side
     [UmsAceMediumType]  $Type
-    [UmsAceTrack[]]     $Tracks
+    [UmsBaeTrack[]]     $Tracks                         # Audio or music tracks
 
     ###########################################################################
     # Constructors
@@ -88,7 +88,7 @@ class UmsAceMedium : UmsBaeProduct
     {
         $this.GetOneOrManyXmlElement(
             $TracksElement,
-            [UmsAeEntity]::NamespaceUri.Audio,
+            [UmsAeEntity]::NamespaceUri.Music,
             "track"
         ) | foreach {
                 $this.Tracks += [EntityFactory]::GetEntity(
@@ -121,7 +121,7 @@ class UmsAceMedium : UmsBaeProduct
         # Include medium title, if defined. We use the ToString() method
         # from the UmsBaeProduct base type to get the string.
         $_fullTitle = ([UmsBaeProduct] $this).ToString()
-        if (([UmsAeEntity]::ShowMediumTitle) -and ($_fullTitle))
+        if (([UmsAceMedium]::ShowMediumTitle) -and ($_fullTitle))
         {
             $_string += ([UmsAeEntity]::NonBreakingSpace)
             $_string += ([UmsAceMedium]::MediumTitlePrefix)

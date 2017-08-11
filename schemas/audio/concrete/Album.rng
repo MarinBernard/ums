@@ -12,8 +12,6 @@
 			<ref name="BLT_Publications"/>
 			<!-- Media included in the album -->
 			<ref name="ALT_Media"/>
-			<!-- Music performances included in the album -->
-			<ref name="MLT_Performances"/>
 		</element>
 	</define>
 </grammar>
