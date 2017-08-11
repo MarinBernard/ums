@@ -354,9 +354,6 @@ class EntityFactory
         {
             switch ($XmlElement.LocalName)
             {
-                "book"
-                    { return New-Object -Type UmsMceBook(
-                    $XmlElement, $Uri) }
                 "catalog"
                     { return New-Object -Type UmsMceCatalog(
                         $XmlElement, $Uri) }
@@ -399,6 +396,9 @@ class EntityFactory
                 "premiere"
                     { return New-Object -Type UmsMcePremiere(
                         $XmlElement, $Uri) }
+                "score"
+                    { return New-Object -Type UmsMceScore(
+                    $XmlElement, $Uri) }
                 "section"
                     { return New-Object -Type UmsMceSection(
                         $XmlElement, $Uri) }

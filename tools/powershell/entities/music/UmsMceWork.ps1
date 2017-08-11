@@ -114,7 +114,7 @@ class UmsMceWork : UmsBaeProduct
     [UmsMceKey]             $Key
     [UmsMceForm]            $Form
     [UmsMceStyle]           $Style
-    [UmsMceBook[]]          $Books
+    [UmsMceScore]           $Score
     [UmsBceInception]       $Inception
     [UmsBceCompletion]      $Completion
     [UmsMcePremiere]        $Premiere
@@ -191,12 +191,17 @@ class UmsMceWork : UmsBaeProduct
                 $this.SourcePathUri,
                 $this.SourceFileUri))
 
-        # Optional 'books' element (collection of 'book' elements)
-        if ($XmlElement.books)
+        # Optional 'score' element
+        if ($XmlElement.score)
         {
-            $this.BuildBooks(
-                $this.GetOneXmlElement(
-                    $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "books"))
+            $this.Score = (
+                [EntityFactory]::GetEntity(
+                    $this.GetOneXmlElement(
+                        $XmlElement,
+                        [UmsAeEntity]::NamespaceUri.Music,
+                        "score"),
+                    $this.SourcePathUri,
+                    $this.SourceFileUri))
         }
         
         # Mandatory 'composers' element (collection of 'composer' elements)
@@ -227,18 +232,6 @@ class UmsMceWork : UmsBaeProduct
         $this.BuildSections(
             $this.GetOneXmlElement(
                 $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "sections"))
-    }
-
-    # Sub-constructor for the 'books' element
-    [void] BuildBooks([System.Xml.XmlElement] $BooksElement)
-    {
-        $this.GetOneOrManyXmlElement(
-            $BooksElement,
-            [UmsAeEntity]::NamespaceUri.Music,
-            "book"
-        ) | foreach {
-                $this.Books += [EntityFactory]::GetEntity(
-                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 
     # Sub-constructor for the 'composers' element

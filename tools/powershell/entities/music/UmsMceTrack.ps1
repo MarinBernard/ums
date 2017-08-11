@@ -34,9 +34,8 @@ class UmsMceTrack : UmsBaeTrack
     # Visible properties
     ###########################################################################
 
-    [UmsMcePerformance] $Performance
-
     # Views
+    [UmsAceAlbum[]]     $ParentAlbum
     [UmsMceMovement[]]  $Movements
 
     ###########################################################################

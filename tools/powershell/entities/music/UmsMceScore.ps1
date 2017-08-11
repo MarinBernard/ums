@@ -1,14 +1,14 @@
 ###############################################################################
-#   Concrete entity class UmsMceBook
+#   Concrete entity class UmsMceScore
 #==============================================================================
 #
-#   This class describes a music book entity, built from a 'book' XML element
+#   This class describes a music score entity, built from a 'score' XML element
 #   from the UMS music namespace. A music book is the published score of a
-#   musical work.s
+#   musical work.
 #
 ###############################################################################
 
-class UmsMceBook : UmsBaeProduct
+class UmsMceScore : UmsBaeProduct
 {
     ###########################################################################
     # Static properties
@@ -45,12 +45,12 @@ class UmsMceBook : UmsBaeProduct
     ###########################################################################
 
     # Standard constructor.
-    UmsMceBook([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+    UmsMceScore([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
         : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(
-            $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "book")
+            $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "score")
 
         # Optional 'catalogIds' element
         if ($XmlElement.catalogIds)
@@ -114,10 +114,10 @@ class UmsMceBook : UmsBaeProduct
             { $_composers += $_composer.Name.ShortName }
 
         # Add composers to the buffer
-        $_string += ([UmsMceBook]::ComposerListPrefix)
+        $_string += ([UmsMceScore]::ComposerListPrefix)
         $_string += ($_composers -join(
-            [UmsMceBook]::ComposerDelimiter))
-        $_string += ([UmsMceBook]::ComposerListSuffix)
+            [UmsMceScore]::ComposerDelimiter))
+        $_string += ([UmsMceScore]::ComposerListSuffix)
         $_addSpace = $true
 
         # Include publication title. We use the ToString() method from the
@@ -141,10 +141,10 @@ class UmsMceBook : UmsBaeProduct
                 { $_catalogIds += $_catalogId.ToString() }
 
             # Add catalog ids to the buffer
-            $_string += ([UmsMceBook]::CatalogIdListPrefix)
+            $_string += ([UmsMceScore]::CatalogIdListPrefix)
             $_string += ($_catalogIds -join(
-                [UmsMceBook]::CatalogIdDelimiter))
-            $_string += ([UmsMceBook]::CatalogIdListSuffix)
+                [UmsMceScore]::CatalogIdDelimiter))
+            $_string += ([UmsMceScore]::CatalogIdListSuffix)
             $_addSpace = $true
         }
 

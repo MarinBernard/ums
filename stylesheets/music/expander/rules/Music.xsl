@@ -11,13 +11,6 @@
 	!
 	==============================================================================
 	-->
-	<!-- Transclusion of <book> references -->
-	<xsl:template match="umsm:book[@uid][not(*)]">
-		<xsl:call-template name="Transcluder">
-			<xsl:with-param name="CatalogRoot" select="$CAT_Music_Books"/>
-			<xsl:with-param name="TargetElement" select="'book'"/>
-		</xsl:call-template>
-	</xsl:template>
 	<!-- Transclusion of <catalog> references -->
 	<xsl:template match="umsm:catalog[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
@@ -99,6 +92,13 @@
 	<xsl:template match="umsm:performance[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
 			<xsl:with-param name="TargetElement" select="'performance'"/>
+		</xsl:call-template>
+	</xsl:template>
+	<!-- Transclusion of <score> references -->
+	<xsl:template match="umsm:score[@uid][not(*)]">
+		<xsl:call-template name="Transcluder">
+			<xsl:with-param name="CatalogRoot" select="$CAT_Music_Scores"/>
+			<xsl:with-param name="TargetElement" select="'score'"/>
 		</xsl:call-template>
 	</xsl:template>
 	<!-- Transclusion of <style> references -->

@@ -10,7 +10,6 @@
 	<!-- Legal root elements -->
 	<start>
 		<choice>
-			<ref name="MCT_Book"/>
 			<ref name="MCT_Catalog"/>
 			<ref name="MCT_Composer"/>
 			<ref name="MCT_Conductor"/>
@@ -23,6 +22,7 @@
 			<ref name="MCT_Lyrics"/>
 			<ref name="MCT_Movement"/>
 			<ref name="MCT_Performance"/>
+			<ref name="MCT_Score"/>
 			<ref name="MCT_Style"/>
 			<ref name="MCT_Venue"/>
 			<ref name="MCT_Work"/>

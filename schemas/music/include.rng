@@ -5,7 +5,6 @@
 	<include href="abstract/Place.rng"/>
 	<!-- Binding types -->
 	<!-- Concrete types -->
-	<include href="concrete/Book.rng"/>
 	<include href="concrete/Catalog.rng"/>
 	<include href="concrete/CatalogId.rng"/>
 	<include href="concrete/Composer.rng"/>
@@ -21,13 +20,13 @@
 	<include href="concrete/Performance.rng"/>
 	<include href="concrete/Performer.rng"/>
 	<include href="concrete/Place.rng"/>
+	<include href="concrete/Score.rng"/>
 	<include href="concrete/Section.rng"/>
 	<include href="concrete/Style.rng"/>
 	<include href="concrete/Track.rng"/>
 	<include href="concrete/Venue.rng"/>
 	<include href="concrete/Work.rng"/>
 	<!-- List types -->
-	<include href="list/Books.rng"/>
 	<include href="list/CatalogIds.rng"/>
 	<include href="list/Composers.rng"/>
 	<include href="list/Conductors.rng"/>
@@ -38,7 +37,6 @@
 	<include href="list/Performers.rng"/>
 	<include href="list/Sections.rng"/>
 	<!-- Reference types -->
-	<include href="reference/Book.rng"/>
 	<include href="reference/Catalog.rng"/>
 	<include href="reference/Composer.rng"/>
 	<include href="reference/Conductor.rng"/>
@@ -51,6 +49,7 @@
 	<include href="reference/Lyrics.rng"/>
 	<include href="reference/Movement.rng"/>
 	<include href="reference/Performance.rng"/>
+	<include href="reference/Score.rng"/>
 	<include href="reference/Style.rng"/>
 	<include href="reference/Venue.rng"/>
 	<include href="reference/Work.rng"/>

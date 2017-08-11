@@ -16,7 +16,6 @@
 		<catalog id="music"
 			namespace="http://schemas.olivarim.com/ums/1.0/music"
 			uri="file:///C:/Users/marin/Code/ums/catalogs/music">
-			<mapping subpath="books" element="book"/>
 			<mapping subpath="catalogs" element="catalog"/>
 			<mapping subpath="composers" element="composer"/>
 			<mapping subpath="compositions" element="lyrics"/>
@@ -29,6 +28,7 @@
 			<mapping subpath="instruments" element="instrument"/>
 			<mapping subpath="keys" element="key"/>
 			<mapping subpath="lyricists" element="lyricist"/>
+			<mapping subpath="scores" element="book"/>
 			<mapping subpath="styles" element="style"/>
 			<mapping subpath="venues" element="venue"/>
 		</catalog>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="MCT_Book">
-		<element name="book">
+	<define name="MCT_Score">
+		<element name="score">
 			<!-- This element might be used by reference -->
 			<ref name="BAT_Referenceable"/>
 			<!-- Inheritance from the Product abstract type -->

@@ -8,7 +8,10 @@
 			<ref name="BAT_Product"/>
 			<!-- Related music books -->
 			<optional>
-				<ref name="MLT_Books"/>
+				<choice>
+					<ref name="MCT_Score"/>
+					<ref name="MRT_Score"/>
+				</choice>
 			</optional>
 			<!-- Catalog IDs associated to the composition -->
 			<optional>
