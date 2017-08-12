@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
 	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
-	<define name="BLT_Publications">
-		<element name="publications">
+	<define name="BLT_Releases">
+		<element name="releases">
 			<oneOrMore>
-				<ref name="BCT_Publication"/>
+				<ref name="BCT_Release"/>
 			</oneOrMore>
 		</element>
 	</define>

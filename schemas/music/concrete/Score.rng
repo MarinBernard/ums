@@ -12,9 +12,9 @@
 			<optional>
 				<ref name="MLT_CatalogIds"/>
 			</optional>
-			<!-- Publication event -->
+			<!-- Release event -->
 			<optional>
-				<ref name="BCT_Publication"/>
+				<ref name="BCT_Release"/>
 			</optional>	
 		</element>
 	</define>

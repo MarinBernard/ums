@@ -335,8 +335,8 @@ class EntityFactory
                 "place"
                     { return New-Object -Type UmsBcePlace(
                         $XmlElement, $Uri) }
-                "publication"
-                    { return New-Object -Type UmsBcePublication(
+                "release"
+                    { return New-Object -Type UmsBceRelease(
                         $XmlElement, $Uri) }
                 "standardId"
                     { return New-Object -Type UmsBceStandardId(

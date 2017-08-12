@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="BCT_Publication">
-		<element name="publication">
+	<define name="BCT_Release">
+		<element name="release">
 			<ref name="BAT_Event"/>
 		</element>
 	</define>

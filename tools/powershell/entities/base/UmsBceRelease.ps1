@@ -1,14 +1,15 @@
 ###############################################################################
-#   Concrete entity class UmsBcePublication
+#   Concrete entity class UmsBceRelease
 #==============================================================================
 #
-#   This class describes a music publication entity, built from a 'publication'
-#   XML element from the vase namespace. This entity describes a generic
-#   publication event.
+#   This class describes a release event entity, built from a 'release'
+#   XML element from the base namespace. This entity describes a generic
+#   release event. It is mainly used in children of the UmsBaePublication
+#   asbtract type.
 #
 ###############################################################################
 
-class UmsBcePublication : UmsBaeEvent
+class UmsBceRelease : UmsBaeEvent
 {
     ###########################################################################
     # Static properties
@@ -27,12 +28,12 @@ class UmsBcePublication : UmsBaeEvent
     ###########################################################################
 
     # Standard constructor.
-    UmsBcePublication([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+    UmsBceRelease([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
         : base($XmlElement, $Uri)
     {
         # Validate the XML root element
         $this.ValidateXmlElement(
-            $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "publication")
+            $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "release")
     }
 
     ###########################################################################

@@ -283,6 +283,7 @@ class VorbisCommentConverter
             if ($_res) { $_lines += $_res }
 
             # Get virtual track number; virtual total tracks
+            # Use the performance uid to compare and count each track in the album.
         }
 
         # Standard mode: use real track number.
