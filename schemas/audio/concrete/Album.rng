@@ -4,13 +4,11 @@
 		<element name="album">
 			<!-- This element might be used by reference -->
 			<ref name="BAT_Referenceable"/>
-			<!-- Inheritance from the Product abstract type -->
-			<ref name="BAT_Product"/>
+			<!-- An audio album is a Publication -->
+			<ref name="BAT_Publication"/>
 			<!-- Labels which produced the album -->
 			<ref name="ALT_Labels"/>
-			<!-- Release events of the album -->
-			<ref name="BLT_Releases"/>
-			<!-- Media included in the album -->
+			<!-- Audio media included in the album -->
 			<ref name="ALT_Media"/>
 		</element>
 	</define>

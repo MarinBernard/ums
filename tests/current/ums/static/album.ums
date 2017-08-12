@@ -15,48 +15,6 @@
 			      <fullTitle>Passion selon St. Matthieu</fullTitle>
 		    </titleVariant>
 	  </titleVariants>
-	  <umsa:labels>
-		    <umsa:label uid="BMG"
-                  src="file:///C:/Users/marin/Code/ums/catalogs/audio/labels/BMG.ums">
-         <labelVariants>
-		          <labelVariant lang="de" original="true" default="true">
-			            <fullLabel>Bertelsmann Music Group</fullLabel>
-			            <shortLabel>BMG</shortLabel>
-		          </labelVariant>
-	        </labelVariants>
-         <linkVariants>
-		          <linkVariant type="wikipedia"
-                         lang="de"
-                         href="https://de.wikipedia.org/wiki/BMG_Music_Publishing"/>
-		          <linkVariant type="wikipedia"
-                         lang="en"
-                         href="https://en.wikipedia.org/wiki/Bertelsmann_Music_Group"/>
-		          <linkVariant type="wikipedia"
-                         lang="fr"
-                         href="https://fr.wikipedia.org/wiki/BMG_Entertainment"/>
-		          <linkVariant type="wikipedia"
-                         lang="ru"
-                         href="https://ru.wikipedia.org/wiki/BMG_Entertainment"/>
-	        </linkVariants>
-      </umsa:label>
-		    <umsa:label uid="Deutsche Harmonia Mundi"
-                  src="file:///C:/Users/marin/Code/ums/catalogs/audio/labels/Deutsche Harmonia Mundi.ums">
-         <labelVariants>
-		          <labelVariant lang="de" original="true" default="true">
-			            <fullLabel>Deutsche Harmonia Mundi</fullLabel>
-			            <shortLabel>DHM</shortLabel>
-		          </labelVariant>
-	        </labelVariants>
-         <linkVariants>
-		          <linkVariant type="wikipedia"
-                         lang="de"
-                         href="https://de.wikipedia.org/wiki/Deutsche_Harmonia_Mundi"/>
-		          <linkVariant type="wikipedia"
-                         lang="en"
-                         href="https://en.wikipedia.org/wiki/Deutsche_Harmonia_Mundi"/>
-	        </linkVariants>
-      </umsa:label>
-	  </umsa:labels>
 	  <releases>
 		    <release>
 			      <year>1990</year>
@@ -106,6 +64,48 @@
 			      </place>
 		    </release>
 	  </releases>
+	  <umsa:labels>
+		    <umsa:label uid="BMG"
+                  src="file:///C:/Users/marin/Code/ums/catalogs/audio/labels/BMG.ums">
+         <labelVariants>
+		          <labelVariant lang="de" original="true" default="true">
+			            <fullLabel>Bertelsmann Music Group</fullLabel>
+			            <shortLabel>BMG</shortLabel>
+		          </labelVariant>
+	        </labelVariants>
+         <linkVariants>
+		          <linkVariant type="wikipedia"
+                         lang="de"
+                         href="https://de.wikipedia.org/wiki/BMG_Music_Publishing"/>
+		          <linkVariant type="wikipedia"
+                         lang="en"
+                         href="https://en.wikipedia.org/wiki/Bertelsmann_Music_Group"/>
+		          <linkVariant type="wikipedia"
+                         lang="fr"
+                         href="https://fr.wikipedia.org/wiki/BMG_Entertainment"/>
+		          <linkVariant type="wikipedia"
+                         lang="ru"
+                         href="https://ru.wikipedia.org/wiki/BMG_Entertainment"/>
+	        </linkVariants>
+      </umsa:label>
+		    <umsa:label uid="Deutsche Harmonia Mundi"
+                  src="file:///C:/Users/marin/Code/ums/catalogs/audio/labels/Deutsche Harmonia Mundi.ums">
+         <labelVariants>
+		          <labelVariant lang="de" original="true" default="true">
+			            <fullLabel>Deutsche Harmonia Mundi</fullLabel>
+			            <shortLabel>DHM</shortLabel>
+		          </labelVariant>
+	        </labelVariants>
+         <linkVariants>
+		          <linkVariant type="wikipedia"
+                         lang="de"
+                         href="https://de.wikipedia.org/wiki/Deutsche_Harmonia_Mundi"/>
+		          <linkVariant type="wikipedia"
+                         lang="en"
+                         href="https://en.wikipedia.org/wiki/Deutsche_Harmonia_Mundi"/>
+	        </linkVariants>
+      </umsa:label>
+	  </umsa:labels>
 	  <umsa:media>
 		    <umsa:medium number="1" type="CDDA">
 			      <umsa:tracks>

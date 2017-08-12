@@ -111,7 +111,7 @@ function Get-UmsMetadata
                     }
 
                     # In any other case, cached version is declared unavailable.
-                    # and we need to fallback to the static version.
+                    # and we need to fallback to the raw version.
                     default
                     {
                         if (-not $Silent.IsPresent)
@@ -120,9 +120,9 @@ function Get-UmsMetadata
                                 $ModuleStrings.Common.MissingCachedVersion)
                         }
 
-                        # Use static version via recursive call.
+                        # Use raw version via recursive call.
                         return Get-UmsMetadata `
-                            -Source Static `
+                            -Source Raw `
                             -Item $Item `
                             -Silent:$Silent
                     }

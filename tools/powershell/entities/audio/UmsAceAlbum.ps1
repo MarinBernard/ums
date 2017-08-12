@@ -7,7 +7,7 @@
 #
 ###############################################################################
 
-class UmsAceAlbum : UmsBaeProduct
+class UmsAceAlbum : UmsBaePublication
 {
     ###########################################################################
     # Static properties
@@ -22,7 +22,6 @@ class UmsAceAlbum : UmsBaeProduct
     ###########################################################################
 
     [UmsAceLabel[]]         $Labels
-    [UmsBceRelease[]]       $Releases
     [UmsAceMedium[]]        $Media
 
     # Views
@@ -49,16 +48,6 @@ class UmsAceAlbum : UmsBaeProduct
                 $XmlElement,
                 [UmsAeEntity]::NamespaceUri.Audio,
                 "labels"))
-        
-        # Optional 'releases' element (collection of 'release' elements)
-        if ($XmlElement.releases)
-        {
-            $this.BuildReleases(
-                $this.GetOneXmlElement(
-                    $XmlElement,
-                    [UmsAeEntity]::NamespaceUri.Base,
-                    "releases"))
-        }
 
         # Mandatory 'media' element (collection of 'medium' elements)
         $this.BuildMedia(
@@ -83,18 +72,6 @@ class UmsAceAlbum : UmsBaeProduct
             "label"
         ) | foreach {
                 $this.Labels += [EntityFactory]::GetEntity(
-                    $_, $this.SourcePathUri, $this.SourceFileUri) }
-    }
-
-    # Sub-constructor for the 'releases' element
-    [void] BuildReleases([System.Xml.XmlElement] $ReleasesElement)
-    {
-        $this.GetOneOrManyXmlElement(
-            $ReleasesElement,
-            [UmsAeEntity]::NamespaceUri.Base,
-            "release"
-        ) | foreach {
-                $this.Releases += [EntityFactory]::GetEntity(
                     $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 

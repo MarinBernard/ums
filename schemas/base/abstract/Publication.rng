@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="BAT_Publication">
+		<!-- Inheritance from the Product abstract type -->
+		<ref name="BAT_Product"/>
+		<!-- Release events of the publication -->
+		<ref name="BLT_Releases"/>
+	</define>
+</grammar>

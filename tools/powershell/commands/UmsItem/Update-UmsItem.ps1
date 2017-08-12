@@ -27,7 +27,7 @@ function Update-UmsItem
     Param(
         [Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
-        [UmsItem[]] $Item,
+        [UmsItem] $Item,
 
         [ValidateSet("All", "Static", "Cached")]
         [string] $Version = "All",
@@ -159,16 +159,10 @@ function Update-UmsItem
             }
             else
             {
-                # Check whether we can rely on a static version
-                if ($Item.StaticVersion -eq [UIVersionStatus]::Current)
-                    { $_sourceFile = $Item.StaticFileFullName }
-                else
-                    { $_sourceFile = $Item.FullName }
-
                 # Retrieve metadata
                 try
                 {
-                    $_metadata = Get-UmsMetadata -Silent -Path $_sourceFile
+                    $_metadata = Get-UmsMetadata -Silent -Item $Item
                 }
                 catch [UmsException]
                 {
@@ -176,20 +170,50 @@ function Update-UmsItem
                     throw [UmsItemUpdateFailure]::New($Item)
                 }
 
-                # Save metadata
+                # Build the name of the temporary destination file
+                $_tempFileFullName = $($Item.CacheFileFullName + ".tmp")
+
+                # Cache metadata
                 try
                 {
                     $_depth = (
                         Get-UmsConfigurationItem -ShortName "UmsXmlCacheDepth")
                         
                     $_metadata | Export-Clixml `
-                        -LiteralPath $Item.CacheFileFullName `
+                        -LiteralPath $_tempFileFullName `
                         -Depth $_depth
                 }
                 catch
                 {
+                    # Temporary file should be removed if caching has failed
+                    Remove-Item `
+                        -Force `
+                        -LiteralPath $_tempFileFullName `
+                        -ErrorAction SilentlyContinue
+
                     Write-Error $_.Exception.Message
                     throw [UmsItemUpdateFailure]::New($Item)
+                }
+
+                # Promote temporary file to be the new cache file
+                try
+                {
+                    # Remove pre-existing cache file, if it exists
+                    if (Test-Path -LiteralPath $Item.CacheFileFullName)
+                        { Remove-Item -Force -LiteralPath $Item.CacheFileFullName }
+                    
+                    # Promote temporary file to cache file
+                    Move-Item `
+                        -Path $_tempFileFullName `
+                        -Destination $Item.CacheFileFullName
+                }
+
+                # Catch promotion failure
+                catch
+                {
+                    # Temporary file should be removed if validation has failed
+                    Remove-Item -Force -LiteralPath $_tempFileFullName
+                    throw $ModuleStrings.UpdateUmsItem.PromotionFailure
                 }
 
                 # Update cached version status in the UmsItem instance

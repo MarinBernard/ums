@@ -8,7 +8,7 @@
 #
 ###############################################################################
 
-class UmsMceScore : UmsBaeProduct
+class UmsMceScore : UmsBaePublication
 {
     ###########################################################################
     # Static properties
