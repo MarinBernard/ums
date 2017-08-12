@@ -26,20 +26,26 @@ class VorbisCommentConverter
     # Default Vorbis Comment labels.
     # May be altered by configuration values passed to the constructor.
     [hashtable] $VorbisLabels = @{
-        AlbumFullTitle          =   "ALBUM";
-        AlbumSortTitle          =   "ALBUMSORT";
-        AlbumSubtitle           =   "";
-        ArtistFullName          =   "ARTIST";
-        LabelFullLabel          =   "LABEL";
-        OriginalAlbumFullTitle  =   "ORIGINALALBUM";
-        OriginalAlbumSortTitle  =   "ORIGINALALBUMSORT";
-        OriginalAlbumSubtitle   =   "ORIGINALALBUMSUBTITLE";
-        OriginalTrackFullTitle  =   "ORIGINALTITLE";
-        OriginalTrackSortTitle  =   "ORIGINALTITLESORT";
-        OriginalTrackSubtitle   =   "ORIGINALSUBTITLE";
-        TrackFullTitle          =   "TITLE";
-        TrackSortTitle          =   "TITLESORT";
-        TrackSubtitle           =   "SUBTITLE";
+        AlbumFullTitle              =   "ALBUM";
+        AlbumSortTitle              =   "ALBUMSORT";
+        AlbumSubtitle               =   "";
+        ArtistFullName              =   "ARTIST";
+        LabelFullLabel              =   "LABEL";
+        OriginalAlbumFullTitle      =   "ORIGINALALBUM";
+        OriginalTrackNumberCombined =   "ORIGINALTRACKNUM";
+        OriginalTrackNumberSimple   =   "ORIGINALTRACK";
+        OriginalAlbumSortTitle      =   "ORIGINALALBUMSORT";
+        OriginalAlbumSubtitle       =   "ORIGINALALBUMSUBTITLE";
+        OriginalTrackFullTitle      =   "ORIGINALTITLE";
+        OriginalTrackSortTitle      =   "ORIGINALTITLESORT";
+        OriginalTrackSubtitle       =   "ORIGINALSUBTITLE";
+        OriginalTrackTotal          =   "ORIGINALTRACKTOTAL";
+        TrackFullTitle              =   "TITLE";
+        TrackNumberCombined         =   "TRACKNUM";
+        TrackNumberSimple           =   "TRACK";
+        TrackSortTitle              =   "TITLESORT";
+        TrackSubtitle               =   "SUBTITLE";
+        TrackTotal                  =   "TRACKTOTAL";
     }
 
     ###########################################################################
@@ -152,9 +158,14 @@ class VorbisCommentConverter
     {
         [string[]] $_lines = @()
 
-        $_lines += $this.RenderAlbumTitle($Metadata.Album, $Metadata.Track)
-        $_lines += $this.RenderAlbumLabels($Metadata.Album)
-        $_lines += $this.RenderTrackTitle($Metadata.Track)
+        $_album  = $Metadata.Album
+        $_medium = $Metadata.Medium
+        $_track  = $Metadata.Track
+
+        $_lines += $this.RenderAlbumTitle($_album, $_track)
+        $_lines += $this.RenderAlbumLabels($_album)
+        $_lines += $this.RenderTrackNumber($_track, $_medium, $_album)
+        $_lines += $this.RenderTrackTitle($_track)
 
         return $_lines
     }
@@ -231,6 +242,62 @@ class VorbisCommentConverter
 
             $_res = $this.CreateVorbisComment(
                 "AlbumSubtitle", $_realSubTitle)
+            if ($_res) { $_lines += $_res }
+        }
+
+        return $_lines
+    }
+
+    # Render the track number info of an album track to Vorbis Comment.
+    # The return value of this method depends on the status of the
+    # DynamicAlbums feature. If this feature is disabled, the method returns
+    # the real track number of the track on its parent album. If the feature
+    # is enabled, it returns Vorbis Comments describing the order of appearance
+    # of the track in the music performance. The real track number is returned
+    # as a set of ORIGINALTRACKNUM VCs.
+    [string[]] RenderTrackNumber(
+        $TrackMetadata, $MediumMetadata, $AlbumMetadata)
+    {
+        [string[]] $_lines = @()
+
+        # Get real track numbers
+        $_realTrackNumber = (
+            $this.ExtractTrackNumber($TrackMetadata)).ToString()
+        $_realTrackTotal = (
+            $this.ExtractMediumTotalTracks($MediumMetadata)).ToString()
+        $_realCombined = $($_realTrackNumber + "/" + $_realTrackTotal)
+
+        # Dynamic mode: use both real and virtual track numbers
+        if($this.Features.DynamicAlbums)
+        {
+            $_res = $this.CreateVorbisComment(
+                "OriginalTrackNumberCombined", $_realCombined)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "OriginalTrackNumberSimple", $_realTrackNumber)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "OriginalTrackTotal", $_realTrackTotal)
+            if ($_res) { $_lines += $_res }
+
+            # Get virtual track number; virtual total tracks
+        }
+
+        # Standard mode: use real track number.
+        else
+        {
+            $_res = $this.CreateVorbisComment(
+                "TrackNumberCombined", $_realCombined)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "TrackNumberSimple", $_realTrackNumber)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "TrackTotal", $_realTrackTotal)
             if ($_res) { $_lines += $_res }
         }
 
@@ -333,6 +400,12 @@ class VorbisCommentConverter
         return $AlbumMetadata.Title.Subtitle
     }
 
+    # Extracts and returns the total number of tracks in a medium.
+    [int] ExtractMediumTotalTracks($MediumMetadata)
+    {
+        return $MediumMetadata.Tracks.Count
+    }
+
     # Extracts and returns the string representation of a music performance.
     [string] ExtractTrackPerformanceString($TrackMetadata)
     {
@@ -343,6 +416,12 @@ class VorbisCommentConverter
     [string] ExtractTrackFullTitle($TrackMetadata)
     {
         return $TrackMetadata.Title.FullTitle
+    }
+
+    # Extracts and returns the real track number of an album track.
+    [int] ExtractTrackNumber($TrackMetadata)
+    {
+        return $TrackMetadata.Number
     }
 
     # Extracts and returns the real sort title of an album track.

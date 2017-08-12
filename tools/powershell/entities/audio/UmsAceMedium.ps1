@@ -7,39 +7,11 @@
 #
 ###############################################################################
 
-class UmsAceMedium : UmsBaeProduct
+class UmsAceMedium : UmsBaeMedium
 {
     ###########################################################################
     # Static properties
     ###########################################################################
-
-    # The format of medium numbers in string representations.
-    static [string] $MediumNumberFormat = 
-        (Get-UmsConfigurationItem -ShortName "MediumNumberFormat")
-
-    # One or several characters which will be inserted before the side of the
-    # medium when it is rendered as a string.
-    static [string] $MediumSidePrefix = 
-        (Get-UmsConfigurationItem -ShortName "MediumSidePrefix")
-
-    # One or several characters which will be inserted after the side of the
-    # medium when it is rendered as a string.
-    static [string] $MediumSideSuffix = 
-        (Get-UmsConfigurationItem -ShortName "MediumSideSuffix")
-
-    # Whether the title of the medium will be shown when rendered as a string.
-    static [bool] $ShowMediumTitle = 
-        (Get-UmsConfigurationItem -ShortName "ShowMediumTitle")
-
-    # One or several characters which will be inserted before the title of the
-    # medium when it is rendered as a string.
-    static [string] $MediumTitlePrefix = 
-        (Get-UmsConfigurationItem -ShortName "MediumTitlePrefix")
-
-    # One or several characters which will be inserted after the title of the
-    # medium when it is rendered as a string.
-    static [string] $MediumTitleSuffix = 
-        (Get-UmsConfigurationItem -ShortName "MediumTitleSuffix")
 
     ###########################################################################
     # Hidden properties
@@ -49,9 +21,6 @@ class UmsAceMedium : UmsBaeProduct
     # Visible properties
     ###########################################################################
 
-    [int]               $Number
-    [int]               $Side
-    [UmsAceMediumType]  $Type
     [UmsBaeTrack[]]     $Tracks                         # Audio or music tracks
 
     ###########################################################################
@@ -68,14 +37,6 @@ class UmsAceMedium : UmsBaeProduct
         # Validate the XML root element
         $this.ValidateXmlElement(
             $XmlElement, [UmsAeEntity]::NamespaceUri.Audio, "medium")
-
-        # Attributes
-        $this.Number = $this.GetMandatoryXmlAttributeValue(
-            $XmlElement, "number")
-        $this.Side = $this.GetOptionalXmlAttributeValue(
-            $XmlElement, "side")
-        $this.Type = $this.GetMandatoryXmlAttributeValue(
-            $XmlElement, "type")
         
         # Mandatory 'tracks' element (collection of 'track' elements)
         $this.BuildTracks(
@@ -98,43 +59,4 @@ class UmsAceMedium : UmsBaeProduct
     ###########################################################################
     # Helpers
     ###########################################################################
-
-    # Returns the string representation of the medium.
-    [string] ToString()
-    {
-        $_string = ""
-
-        # Include medium type and number
-        $_string += $this.Type
-        $_string += ([UmsAeEntity]::NonBreakingSpace)
-        $_string += ([UmsAceMedium]::MediumNumberFormat -f $this.Number)
-
-        # Include medium side, if defined
-        if ($this.Side -gt 0)
-        {
-            $_string += ([UmsAeEntity]::NonBreakingSpace)
-            $_string += ([UmsAceMedium]::MediumSidePrefix)
-            $_string += $this.Side
-            $_string += ([UmsAceMedium]::MediumSideSuffix)
-        }
-
-        # Include medium title, if defined. We use the ToString() method
-        # from the UmsBaeProduct base type to get the string.
-        $_fullTitle = ([UmsBaeProduct] $this).ToString()
-        if (([UmsAceMedium]::ShowMediumTitle) -and ($_fullTitle))
-        {
-            $_string += ([UmsAeEntity]::NonBreakingSpace)
-            $_string += ([UmsAceMedium]::MediumTitlePrefix)
-            $_string += $_fullTitle
-            $_string += ([UmsAceMedium]::MediumTitleSuffix)
-        }
-
-        return $_string
-    }
-}
-
-# Supported audio medium types
-Enum UmsAceMediumType
-{
-    CDDA
 }

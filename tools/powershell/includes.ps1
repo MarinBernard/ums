@@ -34,6 +34,7 @@ $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDire
 . "$PSScriptRoot\entities\base\UmsBaePlace.ps1"
 . "$PSScriptRoot\entities\base\UmsBcePlace.ps1"  
 . "$PSScriptRoot\entities\base\UmsBaeProduct.ps1"
+. "$PSScriptRoot\entities\base\UmsBaeMedium.ps1"
 . "$PSScriptRoot\entities\base\UmsBaeTrack.ps1"
 . "$PSScriptRoot\entities\base\UmsBaeEvent.ps1"
 . "$PSScriptRoot\entities\base\UmsBceBirth.ps1"

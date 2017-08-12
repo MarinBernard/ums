@@ -27,7 +27,8 @@ class UmsAbeAlbumTrackBinding : UmsBaeBinding
     [UmsAceAlbum] $Album
 
     # Views
-    [UmsBaeTrack] $Track
+    [UmsAceMedium] $Medium
+    [UmsBaeTrack]  $Track
 
     ###########################################################################
     # Constructors
@@ -58,6 +59,11 @@ class UmsAbeAlbumTrackBinding : UmsBaeBinding
                     "album"),
                 $this.SourcePathUri,
                 $this.SourceFileUri))
+
+        # Bound album medium
+        $this.Medium = $this.Album.GetAlbumMedium(
+            $this.MediumNumber,
+            $this.MediumSide)
 
         # Bound album track
         $this.Track = $this.Album.GetAlbumTrack(
