@@ -3,7 +3,7 @@ function ConvertTo-ForeignMetadata
     Param(
         [Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
-        [UmsItem[]] $Item,
+        [UmsItem] $Item,
 
         [ValidateSet("VorbisComment", "RawLyrics")]
         [string] $Format = "VorbisComment"
@@ -46,7 +46,10 @@ function ConvertTo-ForeignMetadata
             $_allowedCardinality = @([UICardinality]::Sidecar, [UICardinality]::Orphan)
 
             if ($_allowedCardinality -notcontains($Item.Cardinality))
-                { throw $($ModuleStrings.Common.IncompatibleCardinality -f ($_allowedCardinality -join(","))) }
+            {
+                throw IncompatibleUmsItemCardinality::New(
+                    $Item, $_allowedCardinality)
+            }
 
             if ($Item.Cardinality -eq [UICardinality]::Orphan)
             {

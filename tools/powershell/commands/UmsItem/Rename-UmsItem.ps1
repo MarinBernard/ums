@@ -24,7 +24,7 @@ function Rename-UmsItem
     Param(
         [Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
-        [UmsItem[]] $Item,
+        [UmsItem] $Item,
 
         [Parameter(Position=1,Mandatory=$true)]
         [ValidateNotNull()]

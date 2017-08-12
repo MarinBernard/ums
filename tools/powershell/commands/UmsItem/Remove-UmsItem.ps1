@@ -24,7 +24,7 @@ function Remove-UmsItem
     Param(
         [Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
-        [UmsItem[]] $Item,
+        [UmsItem] $Item,
 
         [switch] $WithCompanion,
 

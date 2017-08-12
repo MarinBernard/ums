@@ -33,6 +33,14 @@
 			<mapping subpath="venues" element="venue"/>
 		</catalog>
 	</catalogs>
+	<converters>
+		<converter id="VorbisComment">
+			<constraints>
+				<constraint id="bindingElementNamespace">http://schemas.olivarim.com/ums/1.0/audio</constraint>
+				<constraint id="bindingElementName">albumTrackBinding</constraint>
+			</constraints>
+		</converter>
+	</converters>
 	<schemas>
 		<schema id="audio" namespace="http://schemas.olivarim.com/ums/1.0/audio" uri="file:///C:/Users/marin/Code/ums/schemas/audio.rng"/>
 		<schema id="base" namespace="http://schemas.olivarim.com/ums/1.0/base" uri="file:///C:/Users/marin/Code/ums/schemas/base.rng"/>

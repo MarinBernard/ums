@@ -224,3 +224,22 @@ class UnresolvableUmsReference : UmsException
         }
     }
 }
+
+# Thrown when a UMS item does not have the expected cardinality.
+class IncompatibleUmsItemCardinality : UmsException
+{
+    IncompatibleUmsItemCardinality(
+        [UmsItem] $Item,
+        [UICardinality[]] $CompatibleCardinalities
+    ) : base()
+    {
+        $_strings = $global:ModuleStrings.Exceptions.IncompatibleUmsItemCardinality
+        $this.MainMessage =  $_strings.MainMessage
+        $this.SubMessages += (
+            $_strings.ItemName -f $Item.FullName)
+        $this.SubMessages += (
+            $_strings.ActualCardinality -f $Item.Cardinality)
+        $this.SubMessages += (
+            $_strings.CompatibleCardinalities -f $CompatibleCardinalities.Join(", "))
+    }
+}

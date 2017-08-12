@@ -34,6 +34,12 @@
             MinExpectedCount =  "Nombre minimal attendu: {0}"
             MaxExpectedCount =  "Nombre maximal attendu: {0}"
         }
+        IncompatibleUmsItemCardinality = @{
+            MainMessage = "La cardinalité de l'élément n'est pas compatible avec cette commande."
+            ItemName = "Nom complet de l'élément: {0}"
+            ActualCardinality = "Cardinalité de l'élément: {0}"
+            CompatibleCardinalities = "Cardinalités compatibles: {0}"
+        }
         IncompatibleUmsReferenceElementName =  @{
             MainMessage = "L'élément racine du document XML ciblé par une référence UMS ne possède pas le nom local attendu."
             ResourceUri = "L'URI de la ressource est: {0}"

@@ -20,7 +20,7 @@ function Get-UmsConfigurationItem
     [CmdletBinding(DefaultParametersetName='ByType')]
     Param(
         [Parameter(ParameterSetName="ByType")]
-        [ValidateSet("All", "Catalog", "Schema", "Stylesheet", "StylesheetConstraint", "StylesheetOption", "Tool", "Rendering", "System")]
+        [ValidateSet("All", "Catalog", "Converter", "Schema", "Stylesheet", "StylesheetConstraint", "StylesheetOption", "Tool", "Rendering", "System")]
         [string[]] $Type = "All",
 
         [Parameter(ParameterSetName="ByShortName")]
@@ -242,6 +242,61 @@ function Get-UmsConfigurationItem
                 Uri = $($_catalog.Node.uri + "/");
                 Mappings = $_mappings;
             }   
+        }
+    }
+
+    if (($Type -eq "all") -or ($Type -contains "converter"))
+    {
+        $_convertersElement = ($ConfigurationDocument | 
+            Select-Xml -XPath "/configuration/converters/*")
+        foreach ($_converterElement in $_convertersElement)
+        {
+            # Building converter constraints
+            $_constraints = @()
+            $_constraintsElement = ($_converterElement.Node | 
+                Select-Xml -XPath "constraints/constraint")
+            foreach ($_constraintElement in $_constraintsElement)
+            {
+                $_constraints += New-Object -Type PSCustomObject -Property(
+                    [ordered] @{
+                        Type = "ConverterConstraint";
+                        Converter = $_converterElement.Node.id;
+                        Name = $_constraintElement.Node.id;
+                        Value = $_constraintElement.Node.'#Text';
+                })
+            }
+
+            # Building converter options
+            $_options = @()
+            $_optionsElement =( $_converterElement.Node | 
+                Select-Xml -XPath "options/option")
+            foreach ($_optionElement in $_optionsElement)
+            {
+                # Try to cast the value to boolean, if supported
+                [bool] $_out = $null
+                $_res = [System.Boolean]::TryParse($_option.Node.'#text', [ref] $_out)
+                if ($_res)
+                    { $_value = $_out }
+                else
+                    { $_value = $_option.Node.'#text' }
+                
+                $_options += New-Object -Type PSCustomObject -Property (
+                    [ordered] @{
+                        Type = "ConverterOption";
+                        Converter = $_converterElement.Node.id;
+                        Name = $_optionElement.Node.id;
+                        Value = $_value;
+                })
+            }
+
+            # Building converter object
+            New-Object -Type PSCustomObject -Property (
+                [ordered] @{
+                    Type = "Converter";
+                    Name = $_converterElement.Node.id;
+                    Constraints = $_constraints;
+                    Options = $_options;
+            })
         }
     }
 
