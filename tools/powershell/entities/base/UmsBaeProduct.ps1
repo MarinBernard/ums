@@ -70,7 +70,7 @@ class UmsBaeProduct : UmsBaeResource
 
         # Get the best label variant
         $this.Title = [UmsBaeVariant]::GetBestVariant($this.TitleVariants)
-    }    
+    }
 
     ###########################################################################
     # Helpers

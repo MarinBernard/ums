@@ -166,12 +166,30 @@ function Update-UmsItem
                     { $_sourceFile = $Item.FullName }
 
                 # Retrieve metadata
-                $_metadata = Get-UmsMetadata -Silent -Path $_sourceFile
+                try
+                {
+                    $_metadata = Get-UmsMetadata -Silent -Path $_sourceFile
+                }
+                catch [UmsException]
+                {
+                    Write-Error $_.Exception.MainMessage
+                    throw [UmsItemUpdateFailure]::New($Item)
+                }
 
                 # Save metadata
-                if ($_metadata)
+                try
                 {
-                    $_metadata | Export-Clixml -LiteralPath $Item.CacheFileFullName
+                    $_depth = (
+                        Get-UmsConfigurationItem -ShortName "UmsXmlCacheDepth")
+                        
+                    $_metadata | Export-Clixml `
+                        -LiteralPath $Item.CacheFileFullName `
+                        -Depth $_depth
+                }
+                catch
+                {
+                    Write-Error $_.Exception.Message
+                    throw [UmsItemUpdateFailure]::New($Item)
                 }
 
                 # Update cached version status in the UmsItem instance

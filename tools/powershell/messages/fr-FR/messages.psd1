@@ -2,7 +2,6 @@
     Common = @{
         AccessDenied = "Le dossier spécifié n'existe pas ou l'accès a été refusé."
         ConfirmPrompt = "Êtes-vous sûr de vouloir continuer ?"
-        IncompatibleCardinality = "La cardinalité de l'élément cible est incompatible avec cette commande. Cardinalité attendue: {0}"
         ExpiredCachedVersion = "La version cachée des métadonnées de l'élément UMS est périmée."
         ExpiredStaticVersion = "La version statique de l'élément UMS est périmée."
         InvalidState = "Invalide"
@@ -22,6 +21,11 @@
         ClassLookupFailure = @{
             MainMessage = "La fabrique d'entités a échoué à trouver une classe d'entité adaptée à l'élément XML {0} issu de l'espace de noms {1}."
         }
+        ConstraintValidationFailure = @{
+            MainMessage = "L'élément UMS n'a pas réussi les tests de validation de contraintes."
+            ItemPath = "Répertoire de l'élément: {0}"
+            ItemName = "Nom de l'élément: {0}"
+        }
         IllegalXmlAttributeValue = @{
             MainMessage = "La valeur de l'attribut {0} de l'élément XML {1} issu de l'espace noms {2} est illégale."
             ActualValue = "Valeur de l'attribut: {0}"
@@ -33,6 +37,16 @@
             ActualCount = "Nombre d'éléments: {0}"
             MinExpectedCount =  "Nombre minimal attendu: {0}"
             MaxExpectedCount =  "Nombre maximal attendu: {0}"
+        }
+        IncompatibleBindingElement = @{
+            MainMessage = "Le nom de l'élément binding de l'élément UMS n'est pas compatible avec cette commande;."
+            ActualName = "Nom local trouvé: {0}"
+            ExpectedName = "Nom local attendu: {0}"
+        }
+        IncompatibleBindingNamespace = @{
+            MainMessage = "L'espace de noms XML de l'élément binding de l'élément UMS n'est pas compatible avec cette commande;."
+            ActualNamespace = "Espace de noms trouvé: {0}"
+            ExpectedNamespace = "Espace de noms attendu: {0}"
         }
         IncompatibleUmsItemCardinality = @{
             MainMessage = "La cardinalité de l'élément n'est pas compatible avec cette commande."
@@ -69,6 +83,16 @@
             MainMessage = "L'attribut {0} est manquant mais est obligatoire dans ce contexte."
             Context = "Le contexte est celui d'un élément {0} issue de l'espace de noms {1}."
         }
+        UmsItemMetadataConversionFailure = @{
+            MainMessage = "L'élément UMS n'a pas pu être converti."
+            ItemPath = "Répertoire de l'élément: {0}"
+            ItemName = "Nom de l'élément: {0}"
+        }
+        UmsItemUpdateFailure = @{
+            MainMessage = "L'élément UMS n'a pas pu être mis à jour."
+            ItemPath = "Répertoire de l'élément: {0}"
+            ItemName = "Nom de l'élément: {0}"
+        }
         UnhandlableUmsReferenceException = @{
             MainMessage = "La fabrique d'entitiés a détecté une référence UMS à un élément {0} de l'espace de noms {1}, possédant l'uid {2}. La gestion des références UMS n'est pas encore implémentée."
         }
@@ -78,7 +102,15 @@
             LocalName = "Nom local de la référence: {0}"
             TriedUri = "URI tentée: {0}"
             Uid = "Uid de la référence: {0}"
-        }  
+        }
+        VCCBadRootElementNameException = @{
+            MainMessage = "Le convertisseur Vorbis Comment ne peut pas convertir les métadonnés, parce que le nom de l'élément racine n'est pas supporté."
+            ElementName = "Nom de l'élément racine: "
+        }
+        VCCBadRootNamespaceException = @{
+            MainMessage = "Le convertisseur Vorbis Comment ne peut pas convertir les métadonnés, parce que l'espace de noms de l'élément racine n'est pas supporté."
+            ElementNamespace = "Espace de noms de l'élément racine: "
+        }
     }
     ConvertToForeignMetadata = @{
         BadBindingNamespace = "L'espace de noms de liaison de l'élement UMS est incompatible avec cette opération. L'espace de noms de liaison est {0}, mais les paramètres que vous avez spécifiés exigent l'espace de noms {1}."

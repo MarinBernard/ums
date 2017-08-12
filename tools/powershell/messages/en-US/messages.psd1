@@ -2,7 +2,6 @@
     Common = @{
         AccessDenied = "Target folder does not exist or access is denied."
         ConfirmPrompt = "Are you sure you want to continue?"
-        IncompatibleCardinality = "The cardinality of the target item is not compatible with this command. Valid cardinality: {0}"
         ExpiredCachedVersion = "The cached version of the metadata of the UMS item is obsolete."
         ExpiredStaticVersion = "The static version of the target item is obsolete."
         InvalidState = "Invalid"
@@ -22,6 +21,11 @@
         ClassLookupFailure = @{
             MainMessage = "The entity factory was unable to find a matching entity class for the XML element {0} in namespace {1}."
         }
+        ConstraintValidationFailure = @{
+            MainMessage = "The UMS item did not pass constraint validation tests."
+            ItemPath = "Path of the item: {0}"
+            ItemName = "Name of the item: {0}"
+        }
         IllegalXmlAttributeValue = @{
             MainMessage = "The value of the {0} attribute of the {1} XML element from the {2} namespace is illegal."
             ActualValue = "Attribute value: {0}"
@@ -33,6 +37,16 @@
             ActualCount = "Number of elements: {0}"
             MinExpectedCount =  "Minimum expected number: {0}"
             MaxExpectedCount =  "Maximum expected number: {0}"
+        }
+        IncompatibleBindingElement = @{
+            MainMessage = "The local name of the binding element of the UMS item is not compatible with this command."
+            ActualName = "Actual local name: {0}"
+            ExpectedName = "Expected local name: {0}"
+        }
+        IncompatibleBindingNamespace = @{
+            MainMessage = "The XML namespace of the binding element of the UMS item is not compatible with this command."
+            ActualNamespace = "Found namespace: {0}"
+            ExpectedNamespace = "Expected namespace: {0}"
         }
         IncompatibleUmsItemCardinality = @{
             MainMessage = "The cardinality of the item is not compatible with this command."
@@ -72,13 +86,31 @@
         UnhandlableUmsReferenceException = @{
             MainMessage = "The entity factory found a UMS reference to element {0} in namespace {1}, with uid {2}. UMS reference handling is not yet implemented."
         }
+        UmsItemMetadataConversionFailure = @{
+            MainMessage = "The UMS item could not be converted."
+            ItemPath = "Path of the item: {0}"
+            ItemName = "Name of the item: {0}"
+        }
+        UmsItemUpdateFailure = @{
+            MainMessage = "The UMS item could not be updated."
+            ItemPath = "Path of the item: {0}"
+            ItemName = "Name of the item: {0}"
+        }
         UnresolvableUmsReference =  @{
             MainMessage = "A UMS reference could not be resolved: no match was found using any of the configured catalogs, nor a local path."
             NamespaceURI = "Namespace of the reference: {0}"
             LocalName = "Local name of the reference: {0}"
             TriedUri = "Tried URI: {0}"
             Uid = "Uid of the reference: {0}"
-        }  
+        }
+        VCCBadRootElementNameException = @{
+            MainMessage = "The Vorbis Comment converter cannot convert the supplied metadata, because the root element has an unsupported name."
+            ElementName = "Name of the root element: "
+        }
+        VCCBadRootNamespaceException = @{
+            MainMessage = "The Vorbis Comment converter cannot convert the supplied metadata, because the root element is from an unsupported XML namespace."
+            ElementNamespace = "Namespace of the root element: "
+        }
     ConvertToForeignMetadata = @{
         BadBindingNamespace = "The binding namespace of the source UMS item does not allow this operation. The binding element is {0}, whereas the parameters you specified require namespace {1}."
         BadBindingElement = "The binding element of the source UMS item does not allow this operation. The binding namespace is {0}, whereas the parameters you specified require element {1}."

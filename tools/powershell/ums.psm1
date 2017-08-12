@@ -17,6 +17,8 @@ Export-ModuleMember -Function Get-UmsMetadata
 Export-ModuleMember -Function Get-UmsMetadataCache
 Export-ModuleMember -Function Measure-UmsMetadataCache
 Export-ModuleMember -Function Reset-UmsMetadataCache
+# *-VorbisMetadata
+Export-ModuleMember -Function ConvertTo-VorbisMetadata
 # Other
 Export-ModuleMember -Function ConvertTo-ForeignMetadata
 Export-ModuleMember -Function Get-UmsConfigurationItem

@@ -36,9 +36,27 @@
 	<converters>
 		<converter id="VorbisComment">
 			<constraints>
+				<constraint id="ItemCardinality">SidecarOrOrphan</constraint>
 				<constraint id="bindingElementNamespace">http://schemas.olivarim.com/ums/1.0/audio</constraint>
 				<constraint id="bindingElementName">albumTrackBinding</constraint>
 			</constraints>
+			<options>
+				<option id="vorbis-label-album-full-title">ALBUM</option>
+				<option id="vorbis-label-album-sort-title">ALBUMSORT</option>
+				<option id="vorbis-label-album-subtitle"></option>
+				<option id="vorbis-label-artist-full-name">ARTIST</option>
+				<option id="vorbis-label-label-full-label">LABEL</option>
+				<option id="vorbis-label-original-album-full-title">ORIGINALALBUM</option>
+				<option id="vorbis-label-original-album-sort-title">ORIGINALALBUMSORT</option>
+				<option id="vorbis-label-original-album-subtitle">ORIGINALALBUMSUBTITLE</option>
+				<option id="vorbis-label-original-track-full-title">ORIGINALTITLE</option>
+				<option id="vorbis-label-original-track-sort-title">ORIGINALTITLESORT</option>
+				<option id="vorbis-label-original-track-subtitle">ORIGINALSUBTITLE</option>
+				<option id="vorbis-label-track-full-title">TITLE</option>
+				<option id="vorbis-label-track-sort-title">TITLESORT</option>
+				<option id="vorbis-label-track-subtitle">SUBTITLE</option>
+				<option id="feature-dynamic-albums">True</option>
+			</options>
 		</converter>
 	</converters>
 	<schemas>
@@ -203,6 +221,7 @@
 		<option id="ums-folder-name-cache">cache</option>
 		<option id="ums-folder-name-static">static</option>
 		<option id="ums-hidden-folders">True</option>
+		<option id="ums-xml-cache-depth">10</option>
 	</system>
 	
 </configuration>

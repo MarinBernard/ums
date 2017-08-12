@@ -1,17 +1,25 @@
-# Load module configuration
+###############################################################################
+# Configuration
+###############################################################################
+# Configuration file
 [xml] $global:ConfigurationDocument = Get-Content -Path "$PSScriptRoot\..\..\configuration.xml"
 
 # Load localization
 $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDirectory "$PSScriptRoot\messages"
-
-# Include dependencies
+###############################################################################
+# Entities and classes
+###############################################################################
+# UmsItem
+. "$PSScriptRoot\classes\UmsItem.ps1"
+# Exceptions
 . "$PSScriptRoot\classes\Exceptions.ps1"
-# Require exceptions
+# Abstract entity
 . "$PSScriptRoot\entities\UmsAeEntity.ps1"
-# Require UmsAeEntity
+# Entity Factory
 . "$PSScriptRoot\classes\CachedEntity.ps1"
 . "$PSScriptRoot\classes\EntityFactory.ps1"
-# Require EntityFactory
+# Base namespace
+. "$PSScriptRoot\entities\base\UmsBaeBinding.ps1"
 . "$PSScriptRoot\entities\base\UmsBaeVariant.ps1"
 . "$PSScriptRoot\entities\base\UmsBceLabelVariant.ps1"
 . "$PSScriptRoot\entities\base\UmsBceLinkVariant.ps1"
@@ -35,7 +43,7 @@ $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDire
 . "$PSScriptRoot\entities\base\UmsBcePublication.ps1"
 . "$PSScriptRoot\entities\base\UmsBaePerson.ps1"
 . "$PSScriptRoot\entities\base\UmsBceCharacter.ps1"
-# Require common namespace
+# Music namespace
 . "$PSScriptRoot\entities\music\UmsMceVenue.ps1"
 . "$PSScriptRoot\entities\music\UmsMaePlace.ps1"
 . "$PSScriptRoot\entities\music\UmsMcePlace.ps1"
@@ -59,29 +67,44 @@ $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDire
 . "$PSScriptRoot\entities\music\UmsMceInstrumentalist.ps1"
 . "$PSScriptRoot\entities\music\UmsMcePerformance.ps1"
 . "$PSScriptRoot\entities\music\UmsMceTrack.ps1"
-# Require music namespace
+#  Audio namespace
 . "$PSScriptRoot\entities\audio\UmsAceLabel.ps1"
 . "$PSScriptRoot\entities\audio\UmsAceMedium.ps1"
 . "$PSScriptRoot\entities\audio\UmsAceAlbum.ps1"
 # Bindings
-. "$PSScriptRoot\entities\audio\UmsAceAlbumTrackBinding.ps1"
-
-# Require entities
-. "$PSScriptRoot\classes\UmsItem.ps1"
+. "$PSScriptRoot\entities\audio\UmsAbeAlbumTrackBinding.ps1"
+###############################################################################
+# Helpers
+###############################################################################
 . "$PSScriptRoot\helpers\Get-UmsManagementFolderPath.ps1"
 . "$PSScriptRoot\helpers\Invoke-XmlValidator.ps1"
 . "$PSScriptRoot\helpers\Invoke-XslTransformer.ps1"
+. "$PSScriptRoot\helpers\Test-ConstraintValidation.ps1"
 . "$PSScriptRoot\helpers\Wait-UserConfirmation.ps1"
+###############################################################################
+# Converters
+###############################################################################
+. "$PSScriptRoot\converters\VorbisCommentConverter.ps1"
+###############################################################################
+# Commands
+###############################################################################
+# *-UmsItem
 . "$PSScriptRoot\commands\UmsItem\Get-UmsItem.ps1"
 . "$PSScriptRoot\commands\UmsItem\Remove-UmsItem.ps1"
 . "$PSScriptRoot\commands\UmsItem\Rename-UmsItem.ps1"
 . "$PSScriptRoot\commands\UmsItem\Update-UmsItem.ps1"
+# *-UmsManagement
 . "$PSScriptRoot\commands\UmsManagement\Enable-UmsManagement.ps1"
 . "$PSScriptRoot\commands\UmsManagement\Disable-UmsManagement.ps1"
 . "$PSScriptRoot\commands\UmsManagement\Test-UmsManagement.ps1"
+# *-UmsMetadata
 . "$PSScriptRoot\commands\UmsMetadata\Get-UmsMetadata.ps1"
+# *-UmsMetadataCache
 . "$PSScriptRoot\commands\UmsMetadataCache\Get-UmsMetadataCache.ps1"
 . "$PSScriptRoot\commands\UmsMetadataCache\Measure-UmsMetadataCache.ps1"
 . "$PSScriptRoot\commands\UmsMetadataCache\Reset-UmsMetadataCache.ps1"
+# *-VorbisMetadata
+. "$PSScriptRoot\commands\VorbisMetadata\ConvertTo-VorbisMetadata.ps1"
+# Other
 . "$PSScriptRoot\commands\ConvertTo-ForeignMetadata.ps1"
 . "$PSScriptRoot\commands\Get-UmsConfigurationItem.ps1"

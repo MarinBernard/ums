@@ -112,7 +112,8 @@ function Get-UmsConfigurationItem
             "UmsFileExtension",
             "UmsFolderName",
             "UmsHiddenFolders",
-            "UmsStaticFolderName")]
+            "UmsStaticFolderName",
+            "UmsXmlCacheDepth")]
         [string] $ShortName
     )
 
@@ -141,6 +142,7 @@ function Get-UmsConfigurationItem
             "UmsFolderName"            { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-folder-name" }).Value }
             "UmsHiddenFolders"         { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-hidden-folders" }).Value }
             "UmsStaticFolderName"      { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-folder-name-static" }).Value }
+            "UmsXmlCacheDepth"         { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-xml-cache-depth" }).Value }
 
             # UMS rendering options
             "CatalogIdDelimiter"        { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "catalog-id-delimiter" }).Value }
@@ -278,7 +280,7 @@ function Get-UmsConfigurationItem
                 if ($_res)
                     { $_value = $_out }
                 else
-                    { $_value = $_option.Node.'#text' }
+                    { $_value = $_optionElement.Node.'#text' }
                 
                 $_options += New-Object -Type PSCustomObject -Property (
                     [ordered] @{

@@ -134,7 +134,9 @@ class MissingXmlElementAttributeException : UmsException
 
 # Thrown when a null Xml element is supplied.
 class NullXmlElementException : UmsException
-    { NullXmlElementException() : base() {} }
+{
+    NullXmlElementException() : base() {}
+}
 
 # Thrown when a UMS reference targets a resource which is not from the expected
 # type.
@@ -241,5 +243,130 @@ class IncompatibleUmsItemCardinality : UmsException
             $_strings.ActualCardinality -f $Item.Cardinality)
         $this.SubMessages += (
             $_strings.CompatibleCardinalities -f $CompatibleCardinalities.Join(", "))
+    }
+}
+
+# Thrown when the binding element of a UMS item does not belong to the expected
+# XML namespace.
+class IncompatibleBindingNamespace : UmsException
+{
+    IncompatibleBindingNamespace(
+        [UmsItem] $Item,
+        [string] $ExpectedNamespace
+    ) : base()
+    {
+        $_strings = (
+            $global:ModuleStrings.Exceptions.IncompatibleBindingNamespace)
+        $this.MainMessage =  $_strings.MainMessage
+        $this.SubMessages += (
+            $_strings.ActualNamespace -f $Item.BindingNamespace)
+        $this.SubMessages += (
+            $_strings.ExpectedNamespace -f $Item.ExpectedNamespace)
+    }
+}
+
+# Thrown when the local name of the binding element of a UMS item is not
+# the expected one.
+class IncompatibleBindingElement : UmsException
+{
+    IncompatibleBindingElement(
+        [UmsItem] $Item,
+        [string] $ExpectedName
+    ) : base()
+    {
+        $_strings = (
+            $global:ModuleStrings.Exceptions.IncompatibleBindingElement)
+        $this.MainMessage =  $_strings.MainMessage
+        $this.SubMessages += (
+            $_strings.ActualName -f $Item.BindingElementName)
+        $this.SubMessages += (
+            $_strings.ExpectedName -f $Item.ExpectedName)
+    }
+}
+
+# Thrown when the local name of the binding element of a UMS item is not
+# the expected one.
+class ConstraintValidationFailure : UmsException
+{
+    ConstraintValidationFailure(
+        [UmsItem] $Item
+    ) : base()
+    {
+        $_strings = (
+            $global:ModuleStrings.Exceptions.ConstraintValidationFailure)
+        $this.MainMessage =  $_strings.MainMessage
+        $this.SubMessages += (
+            $_strings.ItemPath -f $Item.Path)
+        $this.SubMessages += (
+            $_strings.ItemName -f $Item.Name)
+    }
+}
+
+# Thrown when an UMS item update failed.
+class UmsItemUpdateFailure : UmsException
+{
+    UmsItemUpdateFailure(
+        [UmsItem] $Item
+    ) : base()
+    {
+        $_strings = (
+            $global:ModuleStrings.Exceptions.UmsItemUpdateFailure)
+        $this.MainMessage =  $_strings.MainMessage
+        $this.SubMessages += (
+            $_strings.ItemPath -f $Item.Path)
+        $this.SubMessages += (
+            $_strings.ItemName -f $Item.Name)
+    }
+}
+
+# Thrown when an UMS item update failed.
+class UmsItemMetadataConversionFailure : UmsException
+{
+    UmsItemMetadataConversionFailure(
+        [UmsItem] $Item
+    ) : base()
+    {
+        $_strings = (
+            $global:ModuleStrings.Exceptions.UmsItemMetadataConversionFailure)
+        $this.MainMessage =  $_strings.MainMessage
+        $this.SubMessages += (
+            $_strings.ItemPath -f $Item.Path)
+        $this.SubMessages += (
+            $_strings.ItemName -f $Item.Name)
+    }
+}
+
+###############################################################################
+# Exceptions thrown by the VorbisCommentConverter class
+###############################################################################
+
+# Thrown when the document element of supplied metadata has an unsupported name
+class VCCBadRootElementNameException : UmsException
+{
+    VCCBadRootElementNameException(
+        [string] $Name
+    ) : base()
+    {
+        $_strings = (
+            $global:ModuleStrings.Exceptions.VCCBadRootElementNameException)
+        $this.MainMessage =  $_strings.MainMessage
+        $this.SubMessages += (
+            $_strings.ElementName -f $Name)
+    }
+}
+
+# Thrown when the document element of supplied metadata is from an unsupported
+# namespace.
+class VCCBadRootNamespaceException : UmsException
+{
+    VCCBadRootNamespaceException(
+        [string] $Namespace
+    ) : base()
+    {
+        $_strings = (
+            $global:ModuleStrings.Exceptions.VCCBadRootNamespaceException)
+        $this.MainMessage =  $_strings.MainMessage
+        $this.SubMessages += (
+            $_strings.ElementNamespace -f $Namespace)
     }
 }

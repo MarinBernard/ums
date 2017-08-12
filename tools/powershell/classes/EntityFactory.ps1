@@ -63,16 +63,15 @@ class EntityFactory
             $_verbosePrefix + "Built source path URI: " + $_sourcePathUri)
 
         # Get first usable element. This is needed in binding context, since
-        # the binding root element is only used as a content wrapper and is
+        # the file root element is only used as a content wrapper and is
         # useless. We need to specify an alternate document root for further
         # processing.
-        if ($_document.DocumentElement.LocalName -eq "binding")
+        $_baseNamespaceUri = (
+            Get-UmsConfigurationItem -ShortName "BaseSchemaNamespace")
+        if (
+            ($_document.DocumentElement.NamespaceURI -eq $_baseNamespaceUri) -and
+            ($_document.DocumentElement.LocalName -eq "file"))
         {
-            Write-Verbose $(
-                $_verbosePrefix + `
-                "Retrieved document is a binding entity from namespace " + `
-                $_document.DocumentElement.NamespaceURI)
-
             $_element = $_document.DocumentElement.SelectNodes("*")[0]
         }
         else
@@ -284,7 +283,7 @@ class EntityFactory
                     { return New-Object -Type UmsAceAlbum(
                         $XmlElement, $Uri) }
                 "albumTrackBinding"
-                    { return New-Object -Type UmsAceAlbumTrackBinding(
+                    { return New-Object -Type UmsAbeAlbumTrackBinding(
                         $XmlElement, $Uri) }
                 "label"
                     { return New-Object -Type UmsAceLabel(
