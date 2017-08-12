@@ -41,14 +41,28 @@
 				<constraint id="bindingElementName">albumTrackBinding</constraint>
 			</constraints>
 			<options>
+				<option id="vorbis-label-album-artist-full-name">ALBUMARTIST</option>
+				<option id="vorbis-label-album-artist-short-name">ALBUMARTISTSHORT</option>
+				<option id="vorbis-label-album-artist-sort-name">ALBUMARTISTSORT</option>
 				<option id="vorbis-label-album-full-title">ALBUM</option>
 				<option id="vorbis-label-album-sort-title">ALBUMSORT</option>
 				<option id="vorbis-label-album-subtitle"></option>
 				<option id="vorbis-label-artist-full-name">ARTIST</option>
+				<option id="vorbis-label-artist-short-name">ARTISTSHORT</option>
+				<option id="vorbis-label-artist-sort-name">ARTISTSORT</option>
+				<option id="vorbis-label-composer-full-name">COMPOSER</option>
+				<option id="vorbis-label-composer-short-name">COMPOSERSHORT</option>
+				<option id="vorbis-label-composer-sort-name">COMPOSERSORT</option>
 				<option id="vorbis-label-label-full-label">LABEL</option>
+				<option id="vorbis-label-medium-number-combined">MEDIUMNUM</option>
+				<option id="vorbis-label-medium-number-simple">MEDIUM</option>
+				<option id="vorbis-label-medium-total">MEDIUMTOTAL</option>
 				<option id="vorbis-label-original-album-full-title">ORIGINALALBUM</option>
 				<option id="vorbis-label-original-album-sort-title">ORIGINALALBUMSORT</option>
 				<option id="vorbis-label-original-album-subtitle">ORIGINALALBUMSUBTITLE</option>
+				<option id="vorbis-label-original-medium-number-combined">ORIGINALMEDIUMNUM</option>
+				<option id="vorbis-label-original-medium-number-simple">ORIGINALMEDIUM</option>
+				<option id="vorbis-label-original-medium-total">ORIGINALMEDIUMTOTAL</option>
 				<option id="vorbis-label-original-track-full-title">ORIGINALTITLE</option>
 				<option id="vorbis-label-original-track-number-combined">ORIGINALTRACKNUM</option>
 				<option id="vorbis-label-original-track-number-simple">ORIGINALTRACK</option>
@@ -61,6 +75,7 @@
 				<option id="vorbis-label-track-sort-title">TITLESORT</option>
 				<option id="vorbis-label-track-subtitle">SUBTITLE</option>
 				<option id="vorbis-label-track-total">TRACKTOTAL</option>
+				<option id="feature-composer-as-artist">False</option>
 				<option id="feature-dynamic-albums">True</option>
 			</options>
 		</converter>

@@ -24,6 +24,7 @@ $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDire
 . "$PSScriptRoot\entities\base\UmsBceLabelVariant.ps1"
 . "$PSScriptRoot\entities\base\UmsBceLinkVariant.ps1"
 . "$PSScriptRoot\entities\base\UmsBceNameVariant.ps1"
+. "$PSScriptRoot\entities\base\UmsBceSymbolVariant.ps1"
 . "$PSScriptRoot\entities\base\UmsBceTitleVariant.ps1"
 . "$PSScriptRoot\entities\base\UmsBceStandardId.ps1"
 . "$PSScriptRoot\entities\base\UmsBaeResource.ps1"

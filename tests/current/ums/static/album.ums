@@ -64,6 +64,11 @@
 			      </place>
 		    </release>
 	  </releases>
+	  <umsa:artist>
+		    <symbolVariants>
+			      <symbolVariant lang="de" default="true" original="true">Gustav Leonhardt</symbolVariant>
+		    </symbolVariants>
+	  </umsa:artist>
 	  <umsa:labels>
 		    <umsa:label uid="BMG"
                   src="file:///C:/Users/marin/Code/ums/catalogs/audio/labels/BMG.ums">

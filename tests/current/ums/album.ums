@@ -24,6 +24,11 @@
 			</place>
 		</release>
 	</releases>
+	<umsa:artist>
+		<symbolVariants>
+			<symbolVariant lang="de" default="true" original="true">Gustav Leonhardt</symbolVariant>
+		</symbolVariants>
+	</umsa:artist>
 	<umsa:labels>
 		<umsa:label uid="BMG"/>
 		<umsa:label uid="Deutsche Harmonia Mundi"/>

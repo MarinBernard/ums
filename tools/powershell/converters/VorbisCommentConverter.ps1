@@ -20,32 +20,47 @@ class VorbisCommentConverter
     ###########################################################################
 
     [hashtable] $Features = @{
-        DynamicAlbums   =   $false;
+        DynamicAlbums       =   $false;
+        ComposerAsArtist    =   $false;
     }
 
     # Default Vorbis Comment labels.
     # May be altered by configuration values passed to the constructor.
     [hashtable] $VorbisLabels = @{
-        AlbumFullTitle              =   "ALBUM";
-        AlbumSortTitle              =   "ALBUMSORT";
-        AlbumSubtitle               =   "";
-        ArtistFullName              =   "ARTIST";
-        LabelFullLabel              =   "LABEL";
-        OriginalAlbumFullTitle      =   "ORIGINALALBUM";
-        OriginalTrackNumberCombined =   "ORIGINALTRACKNUM";
-        OriginalTrackNumberSimple   =   "ORIGINALTRACK";
-        OriginalAlbumSortTitle      =   "ORIGINALALBUMSORT";
-        OriginalAlbumSubtitle       =   "ORIGINALALBUMSUBTITLE";
-        OriginalTrackFullTitle      =   "ORIGINALTITLE";
-        OriginalTrackSortTitle      =   "ORIGINALTITLESORT";
-        OriginalTrackSubtitle       =   "ORIGINALSUBTITLE";
-        OriginalTrackTotal          =   "ORIGINALTRACKTOTAL";
-        TrackFullTitle              =   "TITLE";
-        TrackNumberCombined         =   "TRACKNUM";
-        TrackNumberSimple           =   "TRACK";
-        TrackSortTitle              =   "TITLESORT";
-        TrackSubtitle               =   "SUBTITLE";
-        TrackTotal                  =   "TRACKTOTAL";
+        AlbumArtistFullName             =   "ALBUMARTIST"
+        AlbumArtistShortName            =   "ALBUMARTISTSHORT"
+        AlbumArtistSortName             =   "ALBUMARTISTSORT"
+        AlbumFullTitle                  =   "ALBUM";
+        AlbumSortTitle                  =   "ALBUMSORT";
+        AlbumSubtitle                   =   "";
+        ArtistFullName                  =   "ARTIST";
+        ArtistShortName                 =   "ARTISTSHORT";
+        ArtistSortName                  =   "ARTISTSORT";
+        ComposerFullName                =   "COMPOSER";
+        ComposerShortName               =   "COMPOSERSHORT";
+        ComposerSortName                =   "COMPOSERSORT";
+        LabelFullLabel                  =   "LABEL";
+        MediumNumberCombined            =   "MEDIUMNUM";
+        MediumNumberSimple              =   "MEDIUM";
+        MediumTotal                     =   "MEDIUMTOTAL";
+        OriginalAlbumFullTitle          =   "ORIGINALALBUM";
+        OriginalAlbumSortTitle          =   "ORIGINALALBUMSORT";
+        OriginalAlbumSubtitle           =   "ORIGINALALBUMSUBTITLE";
+        OriginalMediumNumberCombined    =   "ORIGINALMEDIUMNUM";
+        OriginalMediumNumberSimple      =   "ORIGINALMEDIUM";
+        OriginalMediumTotal             =   "ORIGINALMEDIUMTOTAL";
+        OriginalTrackNumberCombined     =   "ORIGINALTRACKNUM";
+        OriginalTrackNumberSimple       =   "ORIGINALTRACK";
+        OriginalTrackFullTitle          =   "ORIGINALTITLE";
+        OriginalTrackSortTitle          =   "ORIGINALTITLESORT";
+        OriginalTrackSubtitle           =   "ORIGINALSUBTITLE";
+        OriginalTrackTotal              =   "ORIGINALTRACKTOTAL";
+        TrackFullTitle                  =   "TITLE";
+        TrackNumberCombined             =   "TRACKNUM";
+        TrackNumberSimple               =   "TRACK";
+        TrackSortTitle                  =   "TITLESORT";
+        TrackSubtitle                   =   "SUBTITLE";
+        TrackTotal                      =   "TRACKTOTAL";
     }
 
     ###########################################################################
@@ -162,10 +177,13 @@ class VorbisCommentConverter
         $_medium = $Metadata.Medium
         $_track  = $Metadata.Track
 
+        $_lines += $this.RenderAlbumArtist($_album, $_track)
         $_lines += $this.RenderAlbumTitle($_album, $_track)
         $_lines += $this.RenderAlbumLabels($_album)
+        $_lines += $this.RenderMediumNumber($_medium, $_album)
         $_lines += $this.RenderTrackNumber($_track, $_medium, $_album)
         $_lines += $this.RenderTrackTitle($_track)
+        $_lines += $this.RenderWorkComposer($_track)
 
         return $_lines
     }
@@ -177,6 +195,48 @@ class VorbisCommentConverter
     #   Renderers build sets of Vorbis Comment sharing the same data domain.
     #
     ###########################################################################
+
+    # Render the album artist to Vorbis Comments. If the DynamicAlbum feature
+    # is enabled, the album artist is read from the 'artist' element of the
+    # album element. If this feature is disabled, the album artist is built
+    # from the composers of the performed work.
+    [string[]] RenderAlbumArtist($AlbumMetadata, $TrackMetadata)
+    {
+        [string[]] $_lines = @()
+
+        # Extract album artist
+        $_albumArtist = $this.ExtractAlbumArtist($AlbumMetadata)
+        $_albumArtistAsString = $this.ExtractAsString($_albumArtist)
+
+        # DynamicAlbum mode: use music composers as album artists
+        if ($this.Features.DynamicAlbums)
+        {
+            $_performance = $this.ExtractTrackPerformance($TrackMetadata)
+            $_work = $this.ExtractPerformanceWork($_performance)
+            $_composers = $this.ExtractWorkComposers($_work)
+
+            [string[]] $_segments = @()
+
+            foreach ($_composer in $_composers)
+            {
+                $_segments += $this.ExtractPersonSortName($_composer)
+            }
+            
+            $_res = $this.CreateVorbisComment(
+                "AlbumArtistFullName", ($_segments -join(" & ")))
+            if ($_res) { $_lines += $_res }
+        }
+
+        # Standard mode: use the 'artist' element.
+        else
+        {
+            $_res = $this.CreateVorbisComment(
+                "AlbumArtistFullName", $_albumArtistAsString)
+            if ($_res) { $_lines += $_res }
+        }
+
+        return $_lines
+    }
 
     # Render the list of labels associated to an audio album to Vorbis Comment.
     [string[]] RenderAlbumLabels($AlbumMetadata)
@@ -223,7 +283,8 @@ class VorbisCommentConverter
             if ($_res) { $_lines += $_res }
 
             $_performanceString = (
-                $this.ExtractTrackPerformanceString($TrackMetadata))
+                $this.ExtractAsString(
+                    $this.ExtractTrackPerformance($TrackMetadata)))
             $_res = $this.CreateVorbisComment(
                 "AlbumFullTitle", $_performanceString)
             if ($_res) { $_lines += $_res }
@@ -242,6 +303,60 @@ class VorbisCommentConverter
 
             $_res = $this.CreateVorbisComment(
                 "AlbumSubtitle", $_realSubTitle)
+            if ($_res) { $_lines += $_res }
+        }
+
+        return $_lines
+    }
+
+    # Renders the medium number info of an album track to Vorbis Comments.
+    # The return value of this method depends on the status of the
+    # DynamicAlbums feature. If this feature is disabled, the method returns
+    # the number of the medium owning the track on its parent album.
+    # If the feature is enabled, real media numbers will be rendered as
+    # a set of ORIGINAL* Vorbis Comments. At the difference of track numbers,
+    # no virtual medium number will be created: media numbers will be disabled
+    # as tracks are all consolidated into performance groups.
+    [string[]] RenderMediumNumber($MediumMetadata, $AlbumMetadata)
+    {
+        [string[]] $_lines = @()
+
+        # Get real track numbers
+        $_realMediumNumber = (
+            $this.ExtractMediumNumber($MediumMetadata)).ToString()
+        $_realMediumTotal = (
+            $this.ExtractAlbumTotalMedia($AlbumMetadata)).ToString()
+        $_realCombined = $($_realMediumNumber + "/" + $_realMediumTotal)
+
+        # Dynamic mode: render real medium numbers to ORIGINAL* VCs
+        if($this.Features.DynamicAlbums)
+        {
+            $_res = $this.CreateVorbisComment(
+                "OriginalMediumNumberCombined", $_realCombined)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "OriginalMediumNumberSimple", $_realMediumNumber)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "OriginalMediumTotal", $_realMediumTotal)
+            if ($_res) { $_lines += $_res }
+        }
+
+        # Standard mode: use real medium numbers
+        else
+        {
+            $_res = $this.CreateVorbisComment(
+                "MediumNumberCombined", $_realCombined)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "MediumNumberSimple", $_realMediumNumber)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "MediumTotal", $_realMediumTotal)
             if ($_res) { $_lines += $_res }
         }
 
@@ -282,8 +397,42 @@ class VorbisCommentConverter
                 "OriginalTrackTotal", $_realTrackTotal)
             if ($_res) { $_lines += $_res }
 
-            # Get virtual track number; virtual total tracks
-            # Use the performance uid to compare and count each track in the album.
+            # Get the list of all tracks linked to the same performance
+            # We explicitely sort media and tracks to get an ordered array
+            # of album tracks.
+            [Object[]] $_tracks = @()
+
+            foreach ($_medium in (
+                $AlbumMetadata.Media | Sort-Object -Property Number))
+            {
+                foreach ($_track in (
+                    $_medium.Tracks | Sort-Object -Property Number))
+                {
+                    if ($_track.Performance -eq $TrackMetadata.Performance)
+                    {
+                        $_tracks += $_track
+                    }
+                }
+            }
+
+            # Locate current track in the array and use the index as a track
+            # number. Total tracks is equal to the size of the array.
+            $_trackNumber = ($_tracks.IndexOf($TrackMetadata) + 1).ToString()
+            $_trackTotal  = ($_tracks.Count).ToString()
+            $_combined    = $($_trackNumber + "/" + $_trackTotal)
+
+            # Output Vorbis Comments
+            $_res = $this.CreateVorbisComment(
+                "TrackNumberCombined", $_combined)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "TrackNumberSimple", $_trackNumber)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "TrackTotal", $_trackTotal)
+            if ($_res) { $_lines += $_res }
         }
 
         # Standard mode: use real track number.
@@ -335,7 +484,7 @@ class VorbisCommentConverter
                 "OriginalTrackSubtitle", $_realSubTitle)
             if ($_res) { $_lines += $_res }
 
-            $_trackString = $this.ExtractTrackString($TrackMetadata)
+            $_trackString = $this.ExtractAsString($TrackMetadata)
             $_res = $this.CreateVorbisComment(
                 "TrackFullTitle", $_trackString)
             if ($_res) { $_lines += $_res }
@@ -360,6 +509,53 @@ class VorbisCommentConverter
         return $_lines
     }
 
+    # Renders the composers of the music work to Vorbis Comment.
+    [string[]] RenderWorkComposer($TrackMetadata)
+    {
+        [string[]] $_lines = @()
+
+        $_performance = $this.ExtractTrackPerformance($TrackMetadata)
+        $_work = $this.ExtractPerformanceWork($_performance)
+        $_composers = $this.ExtractWorkComposers($_work)
+
+        foreach ($_composer in $_composers)
+        {
+            $_fullName  = $this.ExtractPersonFullName($_composer)
+            $_sortName  = $this.ExtractPersonSortName($_composer)
+            $_shortName = $this.ExtractPersonShortName($_composer)
+
+            $_res = $this.CreateVorbisComment(
+                "ComposerFullName", $_fullName)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "ComposerShortName", $_shortName)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "ComposerSortName", $_sortName)
+            if ($_res) { $_lines += $_res }
+
+            # If composers should be registered as artists, let's do it.
+            if($this.Features.ComposerAsArtist)
+            {
+                $_res = $this.CreateVorbisComment(
+                    "ArtistFullName", $_fullName)
+                if ($_res) { $_lines += $_res }
+
+                $_res = $this.CreateVorbisComment(
+                    "ArtistShortName", $_shortName)
+                if ($_res) { $_lines += $_res }
+    
+                $_res = $this.CreateVorbisComment(
+                    "ArtistSortName", $_sortName)
+                if ($_res) { $_lines += $_res }
+            }
+        }
+
+        return $_lines
+    }
+
     ###########################################################################
     #   Data extractors
     #--------------------------------------------------------------------------
@@ -369,6 +565,12 @@ class VorbisCommentConverter
     #   Vorbis Comments.
     #
     ###########################################################################
+
+    # Extracts and returns the main artist of an album.
+    [string] ExtractAlbumArtist($AlbumMetadata)
+    {
+        return $AlbumMetadata.Artist
+    }
 
     # Extracts and returns a list of album labels from album metadata.
     [string[]] ExtractAlbumLabels($AlbumMetadata)
@@ -389,6 +591,12 @@ class VorbisCommentConverter
         return $AlbumMetadata.Title.FullTitle
     }
 
+    # Returns the total number of media in an album.
+    [int] ExtractAlbumMediumCount($AlbumMetadata)
+    {
+        return $AlbumMetadata.Media.Count
+    }
+
     # Extracts and returns the full title of an album from its metadata.
     [string] ExtractAlbumSortTitle($AlbumMetadata)
     {
@@ -401,17 +609,53 @@ class VorbisCommentConverter
         return $AlbumMetadata.Title.Subtitle
     }
 
+    # Extracts and returns the total number of media in an album.
+    [int] ExtractAlbumTotalMedia($AlbumMetadata)
+    {
+        return $AlbumMetadata.Media.Count
+    }
+
+    # Extracts and returns the string representation of an object.
+    [string] ExtractAsString($Object)
+    {
+        return $Object.ToString()
+    }
+
+    # Extracts and returns the real number of an album medium.
+    [int] ExtractMediumNumber($MediumMetadata)
+    {
+        return $MediumMetadata.Number
+    }
+
     # Extracts and returns the total number of tracks in a medium.
     [int] ExtractMediumTotalTracks($MediumMetadata)
     {
         return $MediumMetadata.Tracks.Count
     }
 
-    # Extracts and returns the string representation of a music performance.
-    [string] ExtractTrackPerformanceString($TrackMetadata)
+    # Extracts and returns the performed work from a performance.
+    [object] ExtractPerformanceWork($PerformanceMetadata)
     {
-        return $TrackMetadata.Performance.ToString()
+        return $PerformanceMetadata.Work
     }
+
+    # Returns the full name of a person.
+    [string] ExtractPersonFullName($Person)
+    {
+        return $Person.Name.FullName
+    }
+
+    # Returns the short name of a person.
+    [string] ExtractPersonShortName($Person)
+    {
+        return $Person.Name.ShortName
+    } 
+
+    # Returns the sort name of a person.
+    [string] ExtractPersonSortName($Person)
+    {
+        return $Person.Name.SortName
+    }    
 
     # Extracts and returns the real full title of an album track.
     [string] ExtractTrackFullTitle($TrackMetadata)
@@ -425,27 +669,27 @@ class VorbisCommentConverter
         return $TrackMetadata.Number
     }
 
+    # Returns the performance included in an album track.
+    [object] ExtractTrackPerformance($TrackMetadata)
+    {
+        return $TrackMetadata.Performance
+    }
+
     # Extracts and returns the real sort title of an album track.
     [string] ExtractTrackSortTitle($TrackMetadata)
     {
         return $TrackMetadata.Title.SortTitle
     }  
 
-    # Extracts and returns the string representation of an album track.
-    [string] ExtractTrackString($TrackMetadata)
-    {
-        return $TrackMetadata.ToString()
-    }
-
     # Extracts and returns the real subtitle of an album track.
     [string] ExtractTrackSubtitle($TrackMetadata)
     {
         return $TrackMetadata.Title.Subtitle
-    } 
+    }
 
-    # Returns the total number of media in an album.
-    [int] ExtractAlbumMediumCount($AlbumMetadata)
+    # Extracts and returns a list of composers from a music work.
+    [object[]] ExtractWorkComposers($WorkMetadata)
     {
-        return $AlbumMetadata.Media.Count
+        return $WorkMetadata.Composers
     }
 }

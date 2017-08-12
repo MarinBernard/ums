@@ -162,7 +162,7 @@ function Update-UmsItem
                 # Retrieve metadata
                 try
                 {
-                    $_metadata = Get-UmsMetadata -Silent -Item $Item
+                    $_metadata = Get-UmsMetadata -Silent -Item $Item -Source Raw
                 }
                 catch [UmsException]
                 {

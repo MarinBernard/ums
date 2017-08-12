@@ -53,14 +53,6 @@ class UmsBceLabelVariant : UmsBaeVariant
         # Validate the XML root element
         $this.ValidateXmlElement(
             $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "labelVariant")
-
-        # Attributes
-        $this.Language = $this.GetMandatoryXmlAttributeValue(
-            $XmlElement, "lang")
-        $this.IsDefault = $this.GetOptionalXmlAttributeValue(
-            $XmlElement, "default")
-        $this.IsOriginal = $this.GetOptionalXmlAttributeValue(
-            $XmlElement, "original")
         
         # Child elements
         $this.FullLabelRaw =  $this.GetOneXmlElementValue(

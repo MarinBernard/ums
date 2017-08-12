@@ -17,10 +17,14 @@ class UmsAceAlbum : UmsBaePublication
     # Hidden properties
     ###########################################################################
 
+    # Variants of the album artist
+    hidden [UmsBceSymbolVariant[]] $ArtistVariants
+
     ###########################################################################
     # Visible properties
     ###########################################################################
 
+    [UmsBceSymbolVariant]   $Artist
     [UmsAceLabel[]]         $Labels
     [UmsAceMedium[]]        $Media
 
@@ -41,6 +45,16 @@ class UmsAceAlbum : UmsBaePublication
         # Validate the XML root element
         $this.ValidateXmlElement(
             $XmlElement, [UmsAeEntity]::NamespaceUri.Audio, "album")
+
+        # Mandatory 'artist' element
+        $this.BuildArtist(
+            $this.GetOneXmlElement(
+                $XmlElement,
+                [UmsAeEntity]::NamespaceUri.Audio,
+                "artist"))
+
+        # Get the best artist variant
+        $this.Artist = [UmsBaeVariant]::GetBestVariant($this.ArtistVariants)
         
         # Mandatory 'labels' element (collection of 'label' elements)
         $this.BuildLabels(
@@ -58,6 +72,27 @@ class UmsAceAlbum : UmsBaePublication
 
         # Update views
         $this.UpdatePerformances()
+    }
+
+    # Sub-constructor for the 'artist' element
+    [void] BuildArtist([System.Xml.XmlElement] $ArtistElement)
+    {
+        # Verbose prefix
+        $_verbosePrefix = "[UmsAceAlbum]::BuildArtist(): "
+
+        foreach ($_symbolVariantElement in ($this.GetOneXmlElement(
+            $ArtistElement,
+            [UmsAeEntity]::NamespaceUri.Base,
+            "symbolVariants")))
+        {
+            $this.GetOneOrManyXmlElement(
+                $_symbolVariantElement,
+                [UmsAeEntity]::NamespaceUri.Base,
+                "symbolVariant"
+            ) | foreach {
+                $this.ArtistVariants += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
+        }
     }
 
     # Sub-constructor for the 'labels' element

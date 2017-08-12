@@ -341,6 +341,9 @@ class EntityFactory
                 "standardId"
                     { return New-Object -Type UmsBceStandardId(
                         $XmlElement, $Uri) }
+                "symbolVariant"
+                    { return New-Object -Type UmsBceSymbolVariant(
+                        $XmlElement, $Uri) }
                 "titleVariant"
                     { return New-Object -Type UmsBceTitleVariant(
                         $XmlElement, $Uri) }

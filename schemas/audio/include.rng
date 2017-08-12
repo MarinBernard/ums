@@ -4,6 +4,7 @@
 	<include href="binding/AlbumTrackBinding.rng"/>
 	<!-- Concrete types -->
 	<include href="concrete/Album.rng"/>
+	<include href="concrete/AlbumArtist.rng"/>
 	<include href="concrete/Label.rng"/>
 	<include href="concrete/Medium.rng"/>
 	<include href="concrete/Release.rng"/>

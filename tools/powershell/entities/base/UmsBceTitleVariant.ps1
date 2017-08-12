@@ -49,14 +49,6 @@ class UmsBceTitleVariant : UmsBaeVariant
         # Validate the XML root element
         $this.ValidateXmlElement(
             $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "titleVariant")
-
-        # Attributes
-        $this.Language = $this.GetMandatoryXmlAttributeValue(
-            $XmlElement, "lang")
-        $this.IsDefault = $this.GetOptionalXmlAttributeValue(
-            $XmlElement, "default")
-        $this.IsOriginal = $this.GetOptionalXmlAttributeValue(
-            $XmlElement, "original")
         
         # Child elements
         $this.FullTitle =  $this.GetOneXmlElementValue(

@@ -6,6 +6,8 @@
 			<ref name="BAT_Referenceable"/>
 			<!-- An audio album is a Publication -->
 			<ref name="BAT_Publication"/>
+			<!-- Unique album artist -->
+			<ref name="ACT_AlbumArtist"/>
 			<!-- Labels which produced the album -->
 			<ref name="ALT_Labels"/>
 			<!-- Audio media included in the album -->

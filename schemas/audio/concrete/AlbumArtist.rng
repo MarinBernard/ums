@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="ACT_AlbumArtist">
+		<element name="artist">
+			<!-- This element might be used by reference -->
+			<ref name="BAT_Referenceable"/>
+			<!-- Abstract properties common to all symbols -->
+			<ref name="BAT_Symbol"/>
+		</element>
+	</define>
+</grammar>

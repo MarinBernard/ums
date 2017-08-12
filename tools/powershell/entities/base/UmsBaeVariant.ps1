@@ -48,6 +48,14 @@ class UmsBaeVariant : UmsAeEntity
             throw [AbstractClassInstantiationException]::New(
                 $this.getType().Name)
         }
+
+        # Attributes
+        $this.Language = $this.GetMandatoryXmlAttributeValue(
+            $XmlElement, "lang")
+        $this.IsDefault = $this.GetOptionalXmlAttributeValue(
+            $XmlElement, "default")
+        $this.IsOriginal = $this.GetOptionalXmlAttributeValue(
+            $XmlElement, "original")
     }
 
     ###########################################################################
