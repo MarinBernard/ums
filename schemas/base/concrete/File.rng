@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
-	<define name="BCT_Binding">
-		<element name="binding">
+	<define name="BCT_File">
+		<element name="file">
 			<choice>
 				<ref name="ABT_AlbumTrackBinding"/>
 			</choice>

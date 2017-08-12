@@ -301,7 +301,7 @@
 	false(), the track title will only include the title of the first movement. -->
 	<xsl:variable name="config.vorbis.movementTitles.concatenate">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'show-alls-movement-titles'"/>
+			<xsl:with-param name="OptionName" select="'show-all-movement-titles'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>

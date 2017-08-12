@@ -64,14 +64,15 @@ class UmsItem
     [string] $Name
 
     # Friendly-name of the XML schema linked to the XML namespace of the
-    # document element. The value of this property is extracted from the
-    # configuration file. It is the 'id' of the schema whose namespace is
-    # identical to $XmlNamespace.
+    # document element. If the item cardinality is Sidecar/Orphan, the
+    # value of this property is set to the friendly-name of the XML schema
+    # of the binding element, instead of the document element.
     [string] $Schema
 
-    # The name of the binding element in the XML document, if present. This
-    # name includes the namespace prefix.
-    [string] $BindingElement
+    # The local name of the document element in the XML document. If the item
+    # is a sidecar item, with a umsb:file root attribute, this property
+    # is set to the local name of the binding element.
+    [string] $Element
 
     # Cardinality of the UMS item: whether it is an independent, sidecar or
     # orphaned item. Value Unknown is set by default but should never make it
@@ -180,27 +181,35 @@ class UmsItem
         $this.XmlNamespace = $_xmlDocument.DocumentElement.NamespaceURI
         $this.XmlElementName = $_xmlDocument.DocumentElement.LocalName
 
-        # Resolve schema friendly name
+        # Set default value for schema and element visible properties.
+        # These values shall be replaced with the values from the binding
+        # element if the Item has a Sidecar/Orphan cardinality.
         $this.Schema = (
             Get-UmsConfigurationItem -Type "Schema" | Where-Object {
                 $_.Namespace -eq $this.XmlNamespace }).Id
+        $this.Element = $this.XmlElementName
 
         # Get and store content binding information (only for binding files)
         $_baseNamespace = (
             Get-UmsConfigurationItem -ShortName "BaseSchemaNamespace")
         
-        # If the document element is umsb:binding, we need to retrieve and
+        # If the document element is umsb:file, we need to retrieve and
         # store binding information.
         if (
             ($this.XmlNamespace   -eq $_baseNamespace) -and 
-            ($this.XmlElementName -eq "binding"))
+            ($this.XmlElementName -eq "file"))
         {
-            $this.BindingNamespace = $_xmlDocument.binding.FirstChild.NamespaceURI
-            $this.BindingElementName = $_xmlDocument.binding.FirstChild.LocalName
-            $this.BindingElement = $_xmlDocument.binding.FirstChild.Name
+            $this.BindingNamespace = (
+                $_xmlDocument.DocumentElement.FirstChild.NamespaceURI)
+            $this.BindingElementName = (
+                $_xmlDocument.DocumentElement.FirstChild.LocalName)
             $this.BindingSchema = (
                 Get-UmsConfigurationItem -Type "Schema" | Where-Object {
                     $_.Namespace -eq $this.BindingNamespace }).Id
+
+            # Set schema and element visible properties to those of the binding
+            $this.Schema = $this.BindingSchema
+            $this.Element = $this.BindingElementName
         }
     }
 
@@ -208,7 +217,7 @@ class UmsItem
     [void] UpdateCardinalityInfo()
     {
         # If the item includes binding information, it is sidecar or orphaned.
-        if ($this.BindingElement)
+        if ($this.BindingElementName)
         {
             # Update hidden properties
             $this.LinkedFileName = $this.Name

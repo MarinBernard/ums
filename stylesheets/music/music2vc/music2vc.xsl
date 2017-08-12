@@ -47,7 +47,7 @@
 	<!--
 	
 	Processing starts at the binding element -->
-	<xsl:template match="umsb:binding">
-		<xsl:call-template name="CT_Binding"/>
+	<xsl:template match="umsb:file">
+		<xsl:call-template name="BT_File"/>
 	</xsl:template>
 </xsl:stylesheet>

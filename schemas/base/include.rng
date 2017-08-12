@@ -12,7 +12,6 @@
 	<include href="abstract/Symbol.rng"/>
 	<include href="abstract/Track.rng"/>
 	<!-- Concrete types -->
-	<include href="concrete/Binding.rng"/>
 	<include href="concrete/Biography.rng"/>
 	<include href="concrete/Character.rng"/>
 	<include href="concrete/City.rng"/>
@@ -22,6 +21,7 @@
 	<include href="concrete/Creation.rng"/>
 	<include href="concrete/Date.rng"/>
 	<include href="concrete/Dissolution.rng"/>
+	<include href="concrete/File.rng"/>
 	<include href="concrete/Inception.rng"/>
 	<include href="concrete/Language.rng"/>
 	<include href="concrete/LabelVariant.rng"/>

@@ -44,10 +44,4 @@
 	<xsl:template match="processing-instruction('xml-model')">
 		<xsl:copy/>
 	</xsl:template>
-	<!-- Main entry point -->
-	<xsl:template match="umsb:file">
-		<xsl:copy>
-			<xsl:apply-templates select="text()|*|@*"/>
-		</xsl:copy>
-	</xsl:template>
 </xsl:stylesheet>
