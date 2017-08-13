@@ -112,6 +112,7 @@ class UmsMceWork : UmsBaeProduct
     [UmsMceComposer[]]      $Composers
     [UmsMceInstrument[]]    $Instruments
     [UmsMceKey]             $Key
+    [UmsBceCharacter[]]     $Characters
     [UmsMceForm]            $Form
     [UmsMceStyle]           $Style
     [UmsMceScore]           $Score
@@ -191,6 +192,16 @@ class UmsMceWork : UmsBaeProduct
                 $this.SourcePathUri,
                 $this.SourceFileUri))
 
+        # Optional 'characters' element (collection of 'character' elements)
+        if ($XmlElement.characters)
+        {
+            $this.BuildCharacters(
+                $this.GetOneXmlElement(
+                    $XmlElement,
+                    [UmsAeEntity]::NamespaceUri.Base,
+                    "characters"))     
+        }
+
         # Optional 'score' element
         if ($XmlElement.score)
         {
@@ -268,7 +279,19 @@ class UmsMceWork : UmsBaeProduct
         ) | foreach {
                 $this.Instruments += [EntityFactory]::GetEntity(
                     $_, $this.SourcePathUri, $this.SourceFileUri) }
-    }   
+    }
+
+    # Sub-constructor for the 'characters' element
+    [void] BuildCharacters([System.Xml.XmlElement] $CharactersElement)
+    {
+        $this.GetOneOrManyXmlElement(
+            $CharactersElement,
+            [UmsAeEntity]::NamespaceUri.Base,
+            "character"
+        ) | foreach {
+                $this.Characters += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
+    }
 
     # Sub-constructor for the 'sections' element
     [void] BuildSections([System.Xml.XmlElement] $SectionsElement)

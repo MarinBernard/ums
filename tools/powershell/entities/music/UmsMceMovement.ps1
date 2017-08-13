@@ -124,9 +124,9 @@ class UmsMceMovement : UmsBaeProduct
     [string]                $TimeSignature
     [string]                $TempoMarking
     [string]                $Incipit
-    [UmsBceCharacter[]]     $Characters
     [UmsMceLyricist[]]      $Lyricists
     [UmsMceKey]             $Key
+    [UmsBceCharacter[]]     $Characters
     [UmsMceInstrument[]]    $Instruments
     [UmsMceForm[]]          $Forms
     [UmsMceCatalogId[]]     $CatalogIds

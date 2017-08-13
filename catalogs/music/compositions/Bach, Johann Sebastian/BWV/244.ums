@@ -55,6 +55,13 @@
 		<umsm:instrument uid="Continuo"/>
 	</umsm:instruments>
 	<umsm:key uid="minor/E"/>
+	<characters>
+		<character uid="244/characters/Choir I"/>
+		<character uid="244/characters/Choir II"/>
+		<character uid="244/characters/Choir III"/>
+		<character uid="244/characters/Evangelist"/>
+		<character uid="244/characters/Jesus"/>
+	</characters>
 	<completion>
 		<year>1736</year>
 	</completion>

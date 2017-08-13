@@ -11,6 +11,19 @@ class VorbisCommentConverter
         "Music" = Get-UmsConfigurationItem -ShortName "MusicSchemaNamespace";
     }
 
+    # The non-breaking space character constant
+    static [string] $NonBreakingSpace = $([char] 0x00A0)
+
+    # One or several characters which will be inserted before the name of the
+    # played instrument in a performer/instrumentalist/artist suffix.
+    static [string] $PlayedInstrumentPrefix = 
+        (Get-UmsConfigurationItem -ShortName "PlayedInstrumentPrefix")
+
+    # One or several characters which will be inserted after the name of the
+    # played instrument in a performer/instrumentalist/artist suffix.
+    static [string] $PlayedInstrumentSuffix = 
+        (Get-UmsConfigurationItem -ShortName "PlayedInstrumentSuffix")
+
     ###########################################################################
     # Hidden properties
     ###########################################################################
@@ -20,9 +33,15 @@ class VorbisCommentConverter
     ###########################################################################
 
     [hashtable] $Features = @{
-        DynamicAlbums       =   $false;
-        ComposerAsArtist    =   $false;
-        ConductorAsArtist   =   $false;
+        DynamicAlbums                               =   $false;
+        ComposerAsArtist                            =   $false;
+        ConductorAsArtist                           =   $false;
+        EnsembleAsArtist                            =   $false;
+        InstrumentalistAsArtist                     =   $true;
+        InstrumentalistAsArtistInstrumentSuffix     =   $false;
+        InstrumentalistAsPerformer                  =   $true;
+        InstrumentalistAsPerformerInstrumentSuffix  =   $true;
+        InstrumentalistInstrumentSuffix             =   $false;
     }
 
     # Rendering options for dynamic albums
@@ -50,6 +69,12 @@ class VorbisCommentConverter
         ConductorFullName               =   "CONDUCTOR";
         ConductorShortName              =   "CONDUCTORSHORT";
         ConductorSortName               =   "CONDUCTORSORT";
+        EnsembleFullLabel               =   "ENSEMBLE";
+        EnsembleShortLabel              =   "ENSEMBLESHORT";
+        EnsembleSortLabel               =   "ENSEMBLESORT";
+        InstrumentalistFullName         =   "INSTRUMENTALIST";
+        InstrumentalistShortName        =   "INSTRUMENTALISTSHORT";
+        InstrumentalistSortName         =   "INSTRUMENTALISTSORT";
         LabelFullLabel                  =   "LABEL";
         MediumNumberCombined            =   "MEDIUMNUM";
         MediumNumberSimple              =   "MEDIUM";
@@ -67,6 +92,9 @@ class VorbisCommentConverter
         OriginalTrackSortTitle          =   "ORIGINALTITLESORT";
         OriginalTrackSubtitle           =   "ORIGINALSUBTITLE";
         OriginalTrackTotal              =   "ORIGINALTRACKTOTAL";
+        PerformerFullName               =   "PERFORMER";
+        PerformerShortName              =   "PERFORMERSHORT";
+        PerformerSortName               =   "PERFORMERSORT";
         TrackFullTitle                  =   "TITLE";
         TrackNumberCombined             =   "TRACKNUM";
         TrackNumberSimple               =   "TRACK";
@@ -209,6 +237,8 @@ class VorbisCommentConverter
         $_lines += $this.RenderTrackTitle($_track)
         $_lines += $this.RenderWorkComposer($_track)
         $_lines += $this.RenderPerformanceConductor($_track)
+        $_lines += $this.RenderPerformanceEnsemble($_track)
+        $_lines += $this.RenderPerformanceInstrumentalist($_track)
 
         return $_lines
     }
@@ -439,6 +469,143 @@ class VorbisCommentConverter
     
                 $_res = $this.CreateVorbisComment(
                     "ArtistSortName", $_sortName)
+                if ($_res) { $_lines += $_res }
+            }
+        }
+
+        return $_lines
+    }
+
+    # Renders the ensembles of a music performance to Vorbis Comment.
+    [string[]] RenderPerformanceEnsemble($TrackMetadata)
+    {
+        [string[]] $_lines = @()
+
+        $_performance = $this.ExtractTrackPerformance($TrackMetadata)
+        $_ensembles = $this.ExtractPerformanceEnsembles($_performance)
+
+        foreach ($_ensemble in $_ensembles)
+        {
+            $_full  = $this.ExtractItemFullLabel($_ensemble)
+            $_short = $this.ExtractItemShortLabel($_ensemble)
+            $_sort  = $this.ExtractItemSortLabel($_ensemble)
+
+            $_res = $this.CreateVorbisComment(
+                "EnsembleFullLabel", $_full)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "EnsembleShortLabel", $_short)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "EnsembleSortLabel", $_sort)
+            if ($_res) { $_lines += $_res }
+
+            # If ensembles should be registered as artists, let's do it.
+            if($this.Features.EnsembleAsArtist)
+            {
+                $_res = $this.CreateVorbisComment(
+                    "ArtistFullName", $_full)
+                if ($_res) { $_lines += $_res }
+
+                $_res = $this.CreateVorbisComment(
+                    "ArtistShortName", $_short)
+                if ($_res) { $_lines += $_res }
+    
+                $_res = $this.CreateVorbisComment(
+                    "ArtistSortName", $_sort)
+                if ($_res) { $_lines += $_res }
+            }
+        }
+
+        return $_lines
+    }
+
+    # Renders the instrumentalists of a music performance to Vorbis Comment.
+    [string[]] RenderPerformanceInstrumentalist($TrackMetadata)
+    {
+        [string[]] $_lines = @()
+
+        $_performance = $this.ExtractTrackPerformance($TrackMetadata)
+        $_instrumentalists = $this.ExtractPerformanceInstrumentalists(
+            $_performance)
+
+        foreach ($_instrumentalist in $_instrumentalists)
+        {
+            # Gather data
+            $_full  = $this.ExtractPersonFullName($_instrumentalist)
+            $_short = $this.ExtractPersonShortName($_instrumentalist)
+            $_sort  = $this.ExtractPersonSortName($_instrumentalist)
+            $_instrument = (
+                $this.ExtractInstrumentalistInstrument($_instrumentalist))
+
+            # Build instrument suffix
+            $_instrumentSuffix = $(
+                [VorbisCommentConverter]::NonBreakingSpace + `
+                [VorbisCommentConverter]::PlayedInstrumentPrefix + `
+                $this.ExtractAsString($_instrument) + `
+                [VorbisCommentConverter]::PlayedInstrumentSuffix)
+
+            # Assign instrument suffix
+            if($this.Features.InstrumentalistInstrumentSuffix)
+                { $_suffix = $_instrumentSuffix }
+            else 
+                { $_suffix = "" }
+            
+            $_res = $this.CreateVorbisComment(
+                "InstrumentalistFullName", $($_full + $_suffix))
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "InstrumentalistShortName", $($_short + $_suffix))
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "InstrumentalistSortName", $($_sort + $_suffix))
+            if ($_res) { $_lines += $_res }
+
+            # If instrumentalists should be registered as artists, let's do it.
+            if($this.Features.InstrumentalistAsArtist)
+            {
+                # Assign instrument suffix
+                if($this.Features.InstrumentalistAsArtistInstrumentSuffix)
+                    { $_suffix = $_instrumentSuffix }
+                else 
+                    { $_suffix = "" }
+                
+                $_res = $this.CreateVorbisComment(
+                    "ArtistFullName", $($_full + $_suffix))
+                if ($_res) { $_lines += $_res }
+
+                $_res = $this.CreateVorbisComment(
+                    "ArtistShortName", $($_short + $_suffix))
+                if ($_res) { $_lines += $_res }
+    
+                $_res = $this.CreateVorbisComment(
+                    "ArtistSortName", $($_sort + $_suffix))
+                if ($_res) { $_lines += $_res }
+            }
+
+            # If instrumentalists should be registered as performers, let's do it.
+            if($this.Features.InstrumentalistAsPerformer)
+            {
+                # Assign instrument suffix
+                if($this.Features.InstrumentalistAsPerformerInstrumentSuffix)
+                    { $_suffix = $_instrumentSuffix }
+                else 
+                    { $_suffix = "" }
+
+                $_res = $this.CreateVorbisComment(
+                    "PerformerFullName", $($_full + $_suffix))
+                if ($_res) { $_lines += $_res }
+
+                $_res = $this.CreateVorbisComment(
+                    "PerformerShortName", $($_short + $_suffix))
+                if ($_res) { $_lines += $_res }
+    
+                $_res = $this.CreateVorbisComment(
+                    "PerformerSortName", $($_sort + $_suffix))
                 if ($_res) { $_lines += $_res }
             }
         }
@@ -704,6 +871,30 @@ class VorbisCommentConverter
         return $Object.ToString()
     }
 
+    # Returns the instrument played by an instrumentalist.
+    [object] ExtractInstrumentalistInstrument($InstrumentalistMetadata)
+    {
+        return $InstrumentalistMetadata.Instrument
+    }
+
+    # Returns the full label of an item.
+    [string] ExtractItemFullLabel($Item)
+    {
+        return $Item.Label.FullLabel
+    }
+
+    # Returns the short label of an item.
+    [string] ExtractItemShortLabel($Item)
+    {
+        return $Item.Label.ShortLabel
+    } 
+
+    # Returns the sort label of an item.
+    [string] ExtractItemSortLabel($Item)
+    {
+        return $Item.Label.SortLabel
+    } 
+
     # Extracts and returns the real number of an album medium.
     [int] ExtractMediumNumber($MediumMetadata)
     {
@@ -720,6 +911,18 @@ class VorbisCommentConverter
     [object[]] ExtractPerformanceConductors($PerformanceMetadata)
     {
         return $PerformanceMetadata.Conductors
+    }
+
+    # Extracts and returns the ensembles involved in a music performance.
+    [object[]] ExtractPerformanceEnsembles($PerformanceMetadata)
+    {
+        return $PerformanceMetadata.Ensembles
+    }
+
+    # Extracts and returns the instrumentalists from a performance.
+    [object[]] ExtractPerformanceInstrumentalists($PerformanceMetadata)
+    {
+        return $PerformanceMetadata.Instrumentalists
     }
 
     # Extracts and returns the performed work from a performance.

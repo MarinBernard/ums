@@ -24,7 +24,7 @@ class UmsAeEntity
     }
 
     # The non-breaking space character constant
-    static [string] $NonBreakingSpace = " "
+    static [string] $NonBreakingSpace = $([char] 0x00A0)
 
     # The 2-letter ISO code of the prefered language
     static [string] $PreferredLanguage = (Get-Culture).TwoLetterISOLanguageName

@@ -41,9 +41,15 @@
 				<constraint id="bindingElementName">albumTrackBinding</constraint>
 			</constraints>
 			<options>
+				<option id="feature-dynamic-albums">True</option>
 				<option id="feature-composer-as-artist">False</option>
 				<option id="feature-conductor-as-artist">False</option>
-				<option id="feature-dynamic-albums">True</option>
+				<option id="feature-ensemble-as-artist">False</option>
+				<option id="feature-instrumentalist-as-artist">True</option>
+				<option id="feature-instrumentalist-as-artist-instrument-suffix">False</option>
+				<option id="feature-instrumentalist-as-performer">True</option>
+				<option id="feature-instrumentalist-as-performer-instrument-suffix">True</option>
+				<option id="feature-instrumentalist-instrument-suffix">False</option>
 				<!-- Default value: " & ", with non breakable spaces -->
 				<option id="dynamic-album-option-album-artist-delimiter">&#160;&#038;&#160;</option>
 				<option id="vorbis-label-album-artist">ALBUMARTIST</option>
@@ -59,6 +65,12 @@
 				<option id="vorbis-label-conductor-full-name">CONDUCTOR</option>
 				<option id="vorbis-label-conductor-short-name">CONDUCTORSHORT</option>
 				<option id="vorbis-label-conductor-sort-name">CONDUCTORSORT</option>
+				<option id="vorbis-label-ensemble-full-label">ENSEMBLE</option>
+				<option id="vorbis-label-ensemble-short-label">ENSEMBLESHORT</option>
+				<option id="vorbis-label-ensemble-sort-label">ENSEMBLESORT</option>
+				<option id="vorbis-label-instrumentalist-full-name">INSTRUMENTALIST</option>
+				<option id="vorbis-label-instrumentalist-short-name">INSTRUMENTALISTSHORT</option>
+				<option id="vorbis-label-instrumentalist-sort-name">INSTRUMENTALISTSORT</option>
 				<option id="vorbis-label-label-full-label">LABEL</option>
 				<option id="vorbis-label-medium-number-combined">MEDIUMNUM</option>
 				<option id="vorbis-label-medium-number-simple">MEDIUM</option>
@@ -76,6 +88,9 @@
 				<option id="vorbis-label-original-track-sort-title">ORIGINALTITLESORT</option>
 				<option id="vorbis-label-original-track-subtitle">ORIGINALSUBTITLE</option>
 				<option id="vorbis-label-original-track-total">ORIGINALTRACKTOTAL</option>
+				<option id="vorbis-label-performer-full-name">PERFORMER</option>
+				<option id="vorbis-label-performer-short-name">PERFORMERSHORT</option>
+				<option id="vorbis-label-performer-sort-name">PERFORMERSORT</option>
 				<option id="vorbis-label-track-full-title">TITLE</option>
 				<option id="vorbis-label-track-number-combined">TRACKNUM</option>
 				<option id="vorbis-label-track-number-simple">TRACK</option>

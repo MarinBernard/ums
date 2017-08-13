@@ -42,6 +42,10 @@
 					<ref name="MRT_Key"/>
 				</choice>
 			</optional>
+			<!-- Characters present in the work -->
+			<optional>
+				<ref name="BLT_Characters"/>
+			</optional>
 			<!-- Inception event of the music work -->
 			<optional>
 				<ref name="BCT_Inception"/>
