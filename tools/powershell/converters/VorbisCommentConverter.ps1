@@ -29,6 +29,10 @@ class VorbisCommentConverter
     static [string] $InstrumentListSuffix = 
         (Get-UmsConfigurationItem -ShortName "InstrumentListSuffix")
 
+    # Whether the first letter of a musical key must be capitalized.
+    static [string] $MusicalKeyCapitalizeFirstLetter = 
+    (Get-UmsConfigurationItem -ShortName "MusicalKeyCapitalizeFirstLetter")
+
     ###########################################################################
     # Hidden properties
     ###########################################################################
@@ -70,7 +74,10 @@ class VorbisCommentConverter
         # A prefix which will be inserted before the name of a musical form
         # when it is rendered as a GENRE Vorbis Comment. Use this prefix to
         # group musical forms together in the genre list.
-        MusicalFormAsGenrePrefix    =   "";
+        MusicalFormAsGenrePrefix        =   "";
+        # If set to $true, the first letter of a musical key will be
+        # capitalized.
+        MusicalKeyCapitalizeFirstLetter =   $true;
     }
 
     # Default Vorbis Comment labels.
@@ -102,6 +109,7 @@ class VorbisCommentConverter
         MediumNumberCombined            =   "MEDIUMNUM";
         MediumNumberSimple              =   "MEDIUM";
         MediumTotal                     =   "MEDIUMTOTAL";
+        MovementMusicalKey              =   "KEY";
         MusicalForm                     =   "MUSICALFORM";
         OriginalAlbumArtist             =   "ORIGINALALBUMARTIST";
         OriginalAlbumFullTitle          =   "ORIGINALALBUM";
@@ -130,6 +138,7 @@ class VorbisCommentConverter
         TrackSubtitle                   =   "SUBTITLE";
         TrackTotal                      =   "TRACKTOTAL";
         WorkFullTitle                   =   "WORK";
+        WorkMusicalKey                  =   "MAINKEY";
         WorkSortTitle                   =   "WORKSORT";
         WorkSubtitle                    =   "WORKSUBTITLE";
     }
@@ -272,19 +281,20 @@ class VorbisCommentConverter
         $_medium = $Metadata.Medium
         $_track  = $Metadata.Track
 
+        $_lines += $this.RenderAlbumArtist($_album, $_track)
+        $_lines += $this.RenderAlbumLabels($_album)
+        $_lines += $this.RenderAlbumTitle($_album, $_track)
+        $_lines += $this.RenderComposers($_track)
+        $_lines += $this.RenderConductors($_track)
+        $_lines += $this.RenderDate($_album, $_track)
         $_lines += $this.RenderMediumNumber($_medium, $_album)
+        $_lines += $this.RenderMusicalForms($_track)
+        $_lines += $this.RenderMusicalKeys($_track)
+        $_lines += $this.RenderPerformers($_track)
+        $_lines += $this.RenderPlace($_album, $_track)
         $_lines += $this.RenderTrackNumber($_track, $_medium, $_album)
         $_lines += $this.RenderTrackTitle($_track)
-        $_lines += $this.RenderAlbumArtist($_album, $_track)
-        $_lines += $this.RenderAlbumTitle($_album, $_track)
-        $_lines += $this.RenderDate($_album, $_track)
-        $_lines += $this.RenderPlace($_album, $_track)
-        $_lines += $this.RenderAlbumLabels($_album)
-        $_lines += $this.RenderPerformanceConductor($_track)
-        $_lines += $this.RenderPerformancePerformer($_track)
         $_lines += $this.RenderWork($_track)
-        $_lines += $this.RenderWorkComposer($_track)
-        $_lines += $this.RenderMusicalForm($_track)
 
         return $_lines
     }
@@ -351,21 +361,6 @@ class VorbisCommentConverter
         return $_lines
     }
 
-    # Render the list of labels associated to an audio album to Vorbis Comment.
-    [string[]] RenderAlbumLabels($AlbumMetadata)
-    {
-        [string[]] $_lines = @()
-
-        foreach ($_label in $AlbumMetadata.Labels)
-        {
-            $_res = $this.CreateVorbisComment(
-                "LabelFullLabel", $_label.ToString())
-            if ($_res) { $_lines += $_res }
-        }
-
-        return $_lines
-    }
-
     # Render the title of an audio album to Vorbis Comment. The return value of
     # this method depends on the status of the DynamicAlbums feature. If that
     # feature is disabled, the method returns Vorbis Comments describing the
@@ -416,6 +411,111 @@ class VorbisCommentConverter
             $_res = $this.CreateVorbisComment(
                 "AlbumSubtitle", $_realSubTitle)
             if ($_res) { $_lines += $_res }
+        }
+
+        return $_lines
+    }
+
+    # Render the list of labels associated to an audio album to Vorbis Comment.
+    [string[]] RenderAlbumLabels($AlbumMetadata)
+    {
+        [string[]] $_lines = @()
+
+        foreach ($_label in $AlbumMetadata.Labels)
+        {
+            $_res = $this.CreateVorbisComment(
+                "LabelFullLabel", $_label.ToString())
+            if ($_res) { $_lines += $_res }
+        }
+
+        return $_lines
+    }
+
+    # Renders the composers of the music work to Vorbis Comment.
+    [string[]] RenderComposers($TrackMetadata)
+    {
+        [string[]] $_lines = @()
+
+        $_composers = $TrackMetadata.Performance.Work.Composers
+
+        foreach ($_composer in $_composers)
+        {
+            $_fullName  = $_composer.Name.FullName
+            $_shortName = $_composer.Name.ShortName
+            $_sortName  = $_composer.Name.SortName
+
+            $_res = $this.CreateVorbisComment(
+                "ComposerFullName", $_fullName)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "ComposerShortName", $_shortName)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "ComposerSortName", $_sortName)
+            if ($_res) { $_lines += $_res }
+
+            # If composers should be registered as artists, let's do it.
+            if($this.Features.ComposerAsArtist)
+            {
+                $_res = $this.CreateVorbisComment(
+                    "ArtistFullName", $_fullName)
+                if ($_res) { $_lines += $_res }
+
+                $_res = $this.CreateVorbisComment(
+                    "ArtistShortName", $_shortName)
+                if ($_res) { $_lines += $_res }
+    
+                $_res = $this.CreateVorbisComment(
+                    "ArtistSortName", $_sortName)
+                if ($_res) { $_lines += $_res }
+            }
+        }
+
+        return $_lines
+    } 
+
+    # Renders the conductors of the music performance to Vorbis Comment.
+    [string[]] RenderConductors($TrackMetadata)
+    {
+        [string[]] $_lines = @()
+
+        $_conductors = $TrackMetadata.Performance.Conductors
+
+        foreach ($_conductor in $_conductors)
+        {
+            $_fullName  = $_conductor.Name.FullName
+            $_shortName = $_conductor.Name.ShortName
+            $_sortName  = $_conductor.Name.SortName
+
+            $_res = $this.CreateVorbisComment(
+                "ConductorFullName", $_fullName)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "ConductorShortName", $_shortName)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "ConductorSortName", $_sortName)
+            if ($_res) { $_lines += $_res }
+
+            # If conductors should be registered as artists, let's do it.
+            if($this.Features.ConductorAsArtist)
+            {
+                $_res = $this.CreateVorbisComment(
+                    "ArtistFullName", $_fullName)
+                if ($_res) { $_lines += $_res }
+
+                $_res = $this.CreateVorbisComment(
+                    "ArtistShortName", $_shortName)
+                if ($_res) { $_lines += $_res }
+    
+                $_res = $this.CreateVorbisComment(
+                    "ArtistSortName", $_sortName)
+                if ($_res) { $_lines += $_res }
+            }
         }
 
         return $_lines
@@ -536,7 +636,7 @@ class VorbisCommentConverter
     }
 
     # Renders musical forms to Vorbis Comment.
-    [string[]] RenderMusicalForm($TrackMetadata)
+    [string[]] RenderMusicalForms($TrackMetadata)
     {
         [string[]] $_lines = @()
         [string[]] $_forms = @()
@@ -573,55 +673,50 @@ class VorbisCommentConverter
         }
 
         return $_lines
-    } 
+    }
 
-    # Renders the conductors of the music performance to Vorbis Comment.
-    [string[]] RenderPerformanceConductor($TrackMetadata)
+    # Renders musical keys to Vorbis Comment.
+    [string[]] RenderMusicalKeys($TrackMetadata)
     {
         [string[]] $_lines = @()
 
-        $_conductors = $TrackMetadata.Performance.Conductors
-
-        foreach ($_conductor in $_conductors)
+        # Main key of the parent work.
+        $_rawKey = $TrackMetadata.Performance.Work.Key.ToString()
+        if ([VorbisCommentConverter]::MusicalKeyCapitalizeFirstLetter)
         {
-            $_fullName  = $_conductor.Name.FullName
-            $_shortName = $_conductor.Name.ShortName
-            $_sortName  = $_conductor.Name.SortName
+            $_key = $(
+                $_rawKey.Substring(0, 1).ToUpper() + $_rawKey.Substring(1))
+        }
+        else
+            { $_key = $_rawKey }
+        
+        $_res = $this.CreateVorbisComment(
+            "WorkMusicalKey", $_key)
+        if ($_res) { $_lines += $_res }
 
-            $_res = $this.CreateVorbisComment(
-                "ConductorFullName", $_fullName)
-            if ($_res) { $_lines += $_res }
-
-            $_res = $this.CreateVorbisComment(
-                "ConductorShortName", $_shortName)
-            if ($_res) { $_lines += $_res }
-
-            $_res = $this.CreateVorbisComment(
-                "ConductorSortName", $_sortName)
-            if ($_res) { $_lines += $_res }
-
-            # If conductors should be registered as artists, let's do it.
-            if($this.Features.ConductorAsArtist)
+        # Musical keys associated to each movement included in the track
+        foreach ($_movement in $TrackMetadata.Movements)
+        {
+            # Main key of the parent work.
+            $_rawKey = $_movement.Key.ToString()
+            if ([VorbisCommentConverter]::MusicalKeyCapitalizeFirstLetter)
             {
-                $_res = $this.CreateVorbisComment(
-                    "ArtistFullName", $_fullName)
-                if ($_res) { $_lines += $_res }
-
-                $_res = $this.CreateVorbisComment(
-                    "ArtistShortName", $_shortName)
-                if ($_res) { $_lines += $_res }
-    
-                $_res = $this.CreateVorbisComment(
-                    "ArtistSortName", $_sortName)
-                if ($_res) { $_lines += $_res }
+                $_key = $(
+                    $_rawKey.Substring(0, 1).ToUpper() + $_rawKey.Substring(1))
             }
+            else
+                { $_key = $_rawKey }
+
+            $_res = $this.CreateVorbisComment(
+                "MovementMusicalKey", $_key)
+            if ($_res) { $_lines += $_res }
         }
 
         return $_lines
-    }
+    } 
 
     # Renders the performers of a music performance to Vorbis Comment.
-    [string[]] RenderPerformancePerformer($TrackMetadata)
+    [string[]] RenderPerformers($TrackMetadata)
     {
         [string[]] $_lines = @()
 
@@ -971,51 +1066,6 @@ class VorbisCommentConverter
         $_res = $this.CreateVorbisComment(
             "WorkSubtitle", $_sub)
         if ($_res) { $_lines += $_res }
-
-        return $_lines
-    } 
-
-    # Renders the composers of the music work to Vorbis Comment.
-    [string[]] RenderWorkComposer($TrackMetadata)
-    {
-        [string[]] $_lines = @()
-
-        $_composers = $TrackMetadata.Performance.Work.Composers
-
-        foreach ($_composer in $_composers)
-        {
-            $_fullName  = $_composer.Name.FullName
-            $_shortName = $_composer.Name.ShortName
-            $_sortName  = $_composer.Name.SortName
-
-            $_res = $this.CreateVorbisComment(
-                "ComposerFullName", $_fullName)
-            if ($_res) { $_lines += $_res }
-
-            $_res = $this.CreateVorbisComment(
-                "ComposerShortName", $_shortName)
-            if ($_res) { $_lines += $_res }
-
-            $_res = $this.CreateVorbisComment(
-                "ComposerSortName", $_sortName)
-            if ($_res) { $_lines += $_res }
-
-            # If composers should be registered as artists, let's do it.
-            if($this.Features.ComposerAsArtist)
-            {
-                $_res = $this.CreateVorbisComment(
-                    "ArtistFullName", $_fullName)
-                if ($_res) { $_lines += $_res }
-
-                $_res = $this.CreateVorbisComment(
-                    "ArtistShortName", $_shortName)
-                if ($_res) { $_lines += $_res }
-    
-                $_res = $this.CreateVorbisComment(
-                    "ArtistSortName", $_sortName)
-                if ($_res) { $_lines += $_res }
-            }
-        }
 
         return $_lines
     } 

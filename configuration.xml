@@ -83,6 +83,7 @@
 				<option id="vorbis-label-medium-number-combined">MEDIUMNUM</option>
 				<option id="vorbis-label-medium-number-simple">MEDIUM</option>
 				<option id="vorbis-label-medium-total">MEDIUMTOTAL</option>
+				<option id="vorbis-label-movement-musical-key">KEY</option>
 				<option id="vorbis-label-musical-form">MUSICALFORM</option>
 				<option id="vorbis-label-original-album-artist">ORIGINALALBUMARTIST</option>
 				<option id="vorbis-label-original-album-full-title">ORIGINALALBUM</option>
@@ -111,6 +112,7 @@
 				<option id="vorbis-label-track-subtitle">SUBTITLE</option>
 				<option id="vorbis-label-track-total">TRACKTOTAL</option>
 				<option id="vorbis-label-work-full-title">WORK</option>
+				<option id="vorbis-label-work-musical-key">MAINKEY</option>
 				<option id="vorbis-label-work-sort-title">WORKSORT</option>
 				<option id="vorbis-label-work-subtitle">WORKSUBTITLE</option>
 			</options>
@@ -230,6 +232,7 @@
 		<option id="medium-title-suffix">)</option>
 		<option id="movement-title-delimiter"> / </option>
 		<option id="movement-title-infix">:</option>
+		<option id="musical-key-capitalize-first-letter">True</option>
 		<option id="performance-year-prefix">, </option>
 		<option id="performer-delimiter">/</option>
 		<option id="performer-list-prefix">(</option>
