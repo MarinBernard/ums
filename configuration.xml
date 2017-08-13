@@ -86,6 +86,7 @@
 				<option id="vorbis-label-medium-number-simple">MEDIUM</option>
 				<option id="vorbis-label-medium-total">MEDIUMTOTAL</option>
 				<option id="vorbis-label-movement-musical-key">KEY</option>
+				<option id="vorbis-label-musical-catalog-id">CATALOGID</option>
 				<option id="vorbis-label-musical-form">MUSICALFORM</option>
 				<option id="vorbis-label-musical-style">STYLE</option>
 				<option id="vorbis-label-original-album-artist">ORIGINALALBUMARTIST</option>

@@ -115,6 +115,7 @@ class VorbisCommentConverter
         MediumNumberSimple              =   "MEDIUM";
         MediumTotal                     =   "MEDIUMTOTAL";
         MovementMusicalKey              =   "KEY";
+        MusicalCatalogId                =   "CATALOGID";
         MusicalForm                     =   "MUSICALFORM";
         MusicalStyle                    =   "STYLE";
         OriginalAlbumArtist             =   "ORIGINALALBUMARTIST";
@@ -294,6 +295,7 @@ class VorbisCommentConverter
         $_lines += $this.RenderConductors($_track)
         $_lines += $this.RenderDate($_album, $_track)
         $_lines += $this.RenderMediumNumber($_medium, $_album)
+        $_lines += $this.RenderMusicalCatalogIds($_track)
         $_lines += $this.RenderMusicalForms($_track)
         $_lines += $this.RenderMusicalKeys($_track)
         $_lines += $this.RenderMusicalStyle($_track)
@@ -636,6 +638,38 @@ class VorbisCommentConverter
 
             $_res = $this.CreateVorbisComment(
                 "MediumTotal", $_realMediumTotal)
+            if ($_res) { $_lines += $_res }
+        }
+
+        return $_lines
+    }
+
+    # Renders catalog IDs of the music work/movements to Vorbis Comment.
+    [string[]] RenderMusicalCatalogIds($TrackMetadata)
+    {
+        [string[]] $_lines = @()
+        [string[]] $_catalogIds = @()
+
+        # Catalog IDs of the parent work
+        foreach ($_catalogId in $TrackMetadata.Performance.Work.CatalogIds)
+        {
+            $_catalogIds += $_catalogId.ToString()
+        }
+
+        # Catalog IDs associated to each movement included in the track
+        foreach ($_movement in $TrackMetadata.Movements)
+        {
+            foreach ($_catalogId in $_movement.CatalogIds)
+            {
+                $_catalogIds += $_catalogId.ToString()
+            }
+        }
+
+        # Create Vorbis Comments
+        foreach ($_catalogId in $_catalogIds)
+        {
+            $_res = $this.CreateVorbisComment(
+                "MusicalCatalogId", $_catalogId)
             if ($_res) { $_lines += $_res }
         }
 
