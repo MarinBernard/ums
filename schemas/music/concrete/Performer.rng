@@ -16,12 +16,9 @@
 						<ref name="MCT_Ensemble"/>
 						<ref name="MRT_Ensemble"/>
 					</choice>
-					<zeroOrMore>
-						<choice>
-							<ref name="MCT_Instrument"/>
-							<ref name="MRT_Instrument"/>
-						</choice>
-					</zeroOrMore>
+					<optional>
+						<ref name="MLT_Instruments"/>
+					</optional>
 				</group>
 				<!-- Instrumentalist -->
 				<group>
@@ -29,12 +26,9 @@
 						<ref name="MCT_Instrumentalist"/>
 						<ref name="MRT_Instrumentalist"/>
 					</choice>
-					<oneOrMore>
-						<choice>
-							<ref name="MCT_Instrument"/>
-							<ref name="MRT_Instrument"/>
-						</choice>
-					</oneOrMore>
+					<optional>
+						<ref name="MLT_Instruments"/>
+					</optional>
 				</group>
 			</choice>
 		</element>

@@ -9,16 +9,19 @@
 		<!--======================================================================
 		 !	Common performance data
 		 =========================================================================-->
-		<!-- Performed instrument -->
-		<xsl:variable name="_instrument">
-			<xsl:for-each select="umsm:instrument">
-				<xsl:call-template name="GT_Label_Full"/>			
+		<!-- Performed instruments -->
+		<xsl:variable name="_instrumentListTmp">
+			<xsl:for-each select="umsm:instruments/umsm:instrument">
+				<xsl:call-template name="GT_Label_Full"/>
+				<xsl:value-of select="$config.instruments.listDelimiter"/>
 			</xsl:for-each>
 		</xsl:variable>
+		<!-- Remove last delimiter char from the list of instruments -->
+		<xsl:variable name="_instrumentList" select="substring($_instrumentListTmp, 1, string-length($_instrumentListTmp) - string-length($config.instruments.listDelimiter))"/>
 		<!-- Instrumentalists -->
 		<xsl:for-each select="umsm:instrumentalist">
 			<xsl:call-template name="RT_Instrumentalist">
-				<xsl:with-param name="Instrument" select="$_instrument"/>
+				<xsl:with-param name="Instrument" select="$_instrumentList"/>
 			</xsl:call-template>			
 		</xsl:for-each>		
 		<!-- Music ensembles -->

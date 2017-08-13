@@ -20,23 +20,33 @@
 		</umsm:performer>
 		<umsm:performer>
 			<umsm:instrumentalist uid="Pfeiffer, Julius"/>
-			<umsm:instrument uid="voice/Tenor"/>
+			<umsm:instruments>
+				<umsm:instrument uid="voice/Tenor"/>
+			</umsm:instruments>
 		</umsm:performer>
 		<umsm:performer>
 			<umsm:instrumentalist uid="Fink, Marcos"/>
-			<umsm:instrument uid="voice/Bass"/>
+			<umsm:instruments>
+				<umsm:instrument uid="voice/Bass"/>
+			</umsm:instruments>
 		</umsm:performer>
 		<umsm:performer>
 			<umsm:instrumentalist uid="Im, Sun-hae"/>
-			<umsm:instrument uid="voice/Soprano"/>
+			<umsm:instruments>
+				<umsm:instrument uid="voice/Soprano"/>
+			</umsm:instruments>
 		</umsm:performer>
 		<umsm:performer>
 			<umsm:instrumentalist uid="Zazzo, Lawrence"/>
-			<umsm:instrument uid="voice/Alto"/>
+			<umsm:instruments>
+				<umsm:instrument uid="voice/Alto"/>
+			</umsm:instruments>
 		</umsm:performer>
 		<umsm:performer>
 			<umsm:instrumentalist uid="Gilchrist, James"/>
-			<umsm:instrument uid="voice/Tenor"/>
+			<umsm:instruments>
+				<umsm:instrument uid="voice/Tenor"/>
+			</umsm:instruments>
 		</umsm:performer>
 	</umsm:performers>
 	<umsm:work uid="Bach, Johann Sebastian/BWV/244"/>

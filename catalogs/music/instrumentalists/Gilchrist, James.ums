@@ -21,5 +21,7 @@
 		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/James_Gilchrist"/>
 		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/James_Gilchrist_(tenor)"/>
 	</linkVariants>
-	<umsm:instrument uid="voice/Tenor"/>
+	<umsm:instruments>
+		<umsm:instrument uid="voice/Tenor"/>
+	</umsm:instruments>
 </umsm:instrumentalist>

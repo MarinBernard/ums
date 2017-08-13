@@ -21,5 +21,7 @@
 		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Lawrence_Zazzo"/>
 		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Lawrence_Zazzo"/>
 	</linkVariants>
-	<umsm:instrument uid="voice/Countertenor"/>
+	<umsm:instruments>
+		<umsm:instrument uid="voice/Countertenor"/>
+	</umsm:instruments>
 </umsm:instrumentalist>

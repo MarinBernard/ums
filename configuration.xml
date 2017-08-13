@@ -45,6 +45,8 @@
 				<option id="feature-composer-as-artist">False</option>
 				<option id="feature-conductor-as-artist">False</option>
 				<option id="feature-ensemble-as-artist">False</option>
+				<option id="feature-ensemble-as-artist-instrument-suffix">False</option>
+				<option id="feature-ensemble-instrument-suffix">False</option>
 				<option id="feature-instrumentalist-as-artist">True</option>
 				<option id="feature-instrumentalist-as-artist-instrument-suffix">False</option>
 				<option id="feature-instrumentalist-as-performer">True</option>
@@ -202,6 +204,9 @@
 		<option id="form-list-suffix"></option>
 		<option id="incipit-prefix">&#171;&#160;</option>
 		<option id="incipit-suffix">&#160;&#187;</option>
+		<option id="instrument-list-delimiter">/</option>
+		<option id="instrument-list-prefix">[</option>
+		<option id="instrument-list-suffix">]</option>
 		<option id="key-list-prefix">en&#160;</option>
 		<option id="key-list-suffix"></option>
 		<option id="medium-number-format">{0:D2}</option>
@@ -216,8 +221,6 @@
 		<option id="performer-list-prefix">(</option>
 		<option id="performer-list-suffix">)</option>
 		<option id="place-delimiter">, </option>
-		<option id="played-instrument-prefix">[</option>
-		<option id="played-instrument-suffix">]</option>
 		<option id="prefer-common-labels">True</option>
 		<option id="prefer-common-names">True</option>
 		<option id="prefer-short-keys">False</option>

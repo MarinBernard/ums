@@ -25,5 +25,7 @@
 		<linkVariant type="website" href="http://www.sunhaeim.com/en" lang="en"/>
 		<linkVariant type="website" href="http://www.sunhaeim.com/de" lang="de"/>
 	</linkVariants>
-	<umsm:instrument uid="voice/Soprano"/>
+	<umsm:instruments>
+		<umsm:instrument uid="voice/Soprano"/>
+	</umsm:instruments>
 </umsm:instrumentalist>

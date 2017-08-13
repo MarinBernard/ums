@@ -6,11 +6,10 @@
 			<ref name="BAT_Referenceable"/>
 			<!-- Inherited elements common to all persons -->
 			<ref name="BAT_Person"/>
-			<!-- The instrument played by the instrumentalist -->
-			<choice>
-				<ref name="MCT_Instrument"/>
-				<ref name="MRT_Instrument"/>
-			</choice>
+			<!-- Instruments played by the instrumentalist -->
+			<optional>
+				<ref name="MLT_Instruments"/>
+			</optional>
 		</element>
 	</define>
 </grammar>

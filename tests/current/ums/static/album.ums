@@ -639,7 +639,51 @@
 			                              <lastName>Pfeiffer</lastName>
 		                            </nameVariant>
 	                          </nameVariants>
-                           <umsm:instrument uid="voice/Tenor"
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Tenor"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Tenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="fr">
+			                                    <fullLabel>Ténor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="it">
+			                                    <fullLabel>Tenore</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Тенор</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Ténor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Tenore"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://nl.wikipedia.org/wiki/Tenor_(zangstem)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="ru"
+                                                 href="https://ru.wikipedia.org/wiki/Тенор"/>		
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Tenor"
                                             src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
                               <labelVariants>
 		                               <labelVariant lang="en" default="true">
@@ -679,47 +723,7 @@
                                               href="https://ru.wikipedia.org/wiki/Тенор"/>		
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Tenor"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
-                           <labelVariants>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Tenor</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="fr">
-			                              <fullLabel>Ténor</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="it">
-			                              <fullLabel>Tenore</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Тенор</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Ténor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="it"
-                                           href="https://it.wikipedia.org/wiki/Tenore"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://nl.wikipedia.org/wiki/Tenor_(zangstem)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="ru"
-                                           href="https://ru.wikipedia.org/wiki/Тенор"/>		
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 		                   <umsm:performer>
 			                     <umsm:instrumentalist uid="Fink, Marcos"
@@ -835,7 +839,58 @@
                                            lang="es"
                                            href="https://es.wikipedia.org/wiki/Marcos_Fink"/>
 	                          </linkVariants>
-                           <umsm:instrument uid="voice/Bass"
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Bass"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Bass.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="de">
+			                                    <fullLabel>Baß</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Bass (voice)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="es">
+			                                    <fullLabel>Bajo (voz)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="fr">
+			                                    <fullLabel>Basse (voix)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="it">
+			                                    <fullLabel>Basso (voce)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="nl">
+			                                    <fullLabel>Bas (zangstem)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Бас</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Bass_(Stimmlage)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Bass_(voice_type)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Bajo_(voz)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Basse_(voix)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Basso_(voce)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://la.wikipedia.org/wiki/Bas_(zangstem)"/>
+		                                  <linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бас"/>
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Bass"
                                             src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Bass.ums">
                               <labelVariants>
 		                               <labelVariant lang="de">
@@ -882,54 +937,7 @@
 		                               <linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бас"/>
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Bass"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Bass.ums">
-                           <labelVariants>
-		                            <labelVariant lang="de">
-			                              <fullLabel>Baß</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Bass (voice)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="es">
-			                              <fullLabel>Bajo (voz)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="fr">
-			                              <fullLabel>Basse (voix)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="it">
-			                              <fullLabel>Basso (voce)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="nl">
-			                              <fullLabel>Bas (zangstem)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Бас</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Bass_(Stimmlage)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Bass_(voice_type)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Bajo_(voz)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Basse_(voix)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="it"
-                                           href="https://it.wikipedia.org/wiki/Basso_(voce)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://la.wikipedia.org/wiki/Bas_(zangstem)"/>
-		                            <linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бас"/>
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 		                   <umsm:performer>
 			                     <umsm:instrumentalist uid="Im, Sun-hae"
@@ -1015,7 +1023,51 @@
 		                            <linkVariant type="website" href="http://www.sunhaeim.com/en" lang="en"/>
 		                            <linkVariant type="website" href="http://www.sunhaeim.com/de" lang="de"/>
 	                          </linkVariants>
-                           <umsm:instrument uid="voice/Soprano"
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Soprano"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Soprano.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="de">
+			                                    <fullLabel>Sopran</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Soprano</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="nl">
+			                                    <fullLabel>Sopraan (zangstem)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Сопрано</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Sopran"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Soprano"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Soprano"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Soprano"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Soprano"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://la.wikipedia.org/wiki/Sopraan (zangstem)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="ru"
+                                                 href="https://ru.wikipedia.org/wiki/Сопрано"/>
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Soprano"
                                             src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Soprano.ums">
                               <labelVariants>
 		                               <labelVariant lang="de">
@@ -1055,47 +1107,7 @@
                                               href="https://ru.wikipedia.org/wiki/Сопрано"/>
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Soprano"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Soprano.ums">
-                           <labelVariants>
-		                            <labelVariant lang="de">
-			                              <fullLabel>Sopran</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Soprano</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="nl">
-			                              <fullLabel>Sopraan (zangstem)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Сопрано</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Sopran"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Soprano"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Soprano"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Soprano"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="it"
-                                           href="https://it.wikipedia.org/wiki/Soprano"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://la.wikipedia.org/wiki/Sopraan (zangstem)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="ru"
-                                           href="https://ru.wikipedia.org/wiki/Сопрано"/>
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 		                   <umsm:performer>
 			                     <umsm:instrumentalist uid="Zazzo, Lawrence"
@@ -1287,99 +1299,103 @@
                                            lang="en"
                                            href="https://en.wikipedia.org/wiki/Lawrence_Zazzo"/>
 	                          </linkVariants>
-                           <umsm:instrument uid="voice/Countertenor"
-                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Countertenor.ums">
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Countertenor"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Countertenor.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Countertenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="es">
+			                                    <fullLabel>Contratenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="fr">
+			                                    <fullLabel>Contreténor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="it">
+			                                    <fullLabel>Contraltista</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="nl">
+			                                    <fullLabel>Contratenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Контратенор</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Countertenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Countertenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Contratenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Contreténor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Contraltista"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://nl.wikipedia.org/wiki/Contratenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="ru"
+                                                 href="https://ru.wikipedia.org/wiki/Контратенор"/>		
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Alto"
+                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Alto.ums">
                               <labelVariants>
+		                               <labelVariant lang="de">
+			                                 <fullLabel>Alt (Stimmlage)</fullLabel>
+		                               </labelVariant>
 		                               <labelVariant lang="en" default="true">
-			                                 <fullLabel>Countertenor</fullLabel>
+			                                 <fullLabel>Alto (voice)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="es">
-			                                 <fullLabel>Contratenor</fullLabel>
+			                                 <fullLabel>Alto (voz)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="fr">
-			                                 <fullLabel>Contreténor</fullLabel>
+			                                 <fullLabel>Alto (voix)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="it">
-			                                 <fullLabel>Contraltista</fullLabel>
+			                                 <fullLabel>Alto (voce)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="nl">
-			                                 <fullLabel>Contratenor</fullLabel>
+			                                 <fullLabel>Alt (zangstem)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="ru">
-			                                 <fullLabel>Контратенор</fullLabel>
+			                                 <fullLabel>Альт (голос)</fullLabel>
 		                               </labelVariant>
 	                             </labelVariants>
                               <linkVariants>
 		                               <linkVariant type="wikipedia"
                                               lang="de"
-                                              href="https://de.wikipedia.org/wiki/Countertenor"/>
+                                              href="https://de.wikipedia.org/wiki/Alt_(Stimmlage)"/>
 		                               <linkVariant type="wikipedia"
                                               lang="en"
-                                              href="https://en.wikipedia.org/wiki/Countertenor"/>
+                                              href="https://en.wikipedia.org/wiki/Alto"/>
 		                               <linkVariant type="wikipedia"
                                               lang="es"
-                                              href="https://es.wikipedia.org/wiki/Contratenor"/>
+                                              href="https://es.wikipedia.org/wiki/Alto"/>
 		                               <linkVariant type="wikipedia"
                                               lang="fr"
-                                              href="https://fr.wikipedia.org/wiki/Contreténor"/>
-		                               <linkVariant type="wikipedia"
-                                              lang="it"
-                                              href="https://it.wikipedia.org/wiki/Contraltista"/>
+                                              href="https://fr.wikipedia.org/wiki/Alto_(voix)"/>
 		                               <linkVariant type="wikipedia"
                                               lang="nl"
-                                              href="https://nl.wikipedia.org/wiki/Contratenor"/>
+                                              href="https://la.wikipedia.org/wiki/Alt_(zangstem)"/>
 		                               <linkVariant type="wikipedia"
                                               lang="ru"
-                                              href="https://ru.wikipedia.org/wiki/Контратенор"/>		
+                                              href="https://ru.wikipedia.org/wiki/Альт_(голос)"/>
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Alto"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Alto.ums">
-                           <labelVariants>
-		                            <labelVariant lang="de">
-			                              <fullLabel>Alt (Stimmlage)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Alto (voice)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="es">
-			                              <fullLabel>Alto (voz)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="fr">
-			                              <fullLabel>Alto (voix)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="it">
-			                              <fullLabel>Alto (voce)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="nl">
-			                              <fullLabel>Alt (zangstem)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Альт (голос)</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Alt_(Stimmlage)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Alto"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Alto"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Alto_(voix)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://la.wikipedia.org/wiki/Alt_(zangstem)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="ru"
-                                           href="https://ru.wikipedia.org/wiki/Альт_(голос)"/>
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 		                   <umsm:performer>
 			                     <umsm:instrumentalist uid="Gilchrist, James"
@@ -1515,7 +1531,51 @@
                                            lang="en"
                                            href="https://en.wikipedia.org/wiki/James_Gilchrist_(tenor)"/>
 	                          </linkVariants>
-                           <umsm:instrument uid="voice/Tenor"
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Tenor"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Tenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="fr">
+			                                    <fullLabel>Ténor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="it">
+			                                    <fullLabel>Tenore</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Тенор</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Ténor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Tenore"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://nl.wikipedia.org/wiki/Tenor_(zangstem)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="ru"
+                                                 href="https://ru.wikipedia.org/wiki/Тенор"/>		
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Tenor"
                                             src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
                               <labelVariants>
 		                               <labelVariant lang="en" default="true">
@@ -1555,47 +1615,7 @@
                                               href="https://ru.wikipedia.org/wiki/Тенор"/>		
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Tenor"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
-                           <labelVariants>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Tenor</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="fr">
-			                              <fullLabel>Ténor</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="it">
-			                              <fullLabel>Tenore</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Тенор</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Ténor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="it"
-                                           href="https://it.wikipedia.org/wiki/Tenore"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://nl.wikipedia.org/wiki/Tenor_(zangstem)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="ru"
-                                           href="https://ru.wikipedia.org/wiki/Тенор"/>		
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 	                 </umsm:performers>
                   <umsm:work uid="Bach, Johann Sebastian/BWV/244"
@@ -5844,7 +5864,51 @@
 			                              <lastName>Pfeiffer</lastName>
 		                            </nameVariant>
 	                          </nameVariants>
-                           <umsm:instrument uid="voice/Tenor"
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Tenor"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Tenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="fr">
+			                                    <fullLabel>Ténor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="it">
+			                                    <fullLabel>Tenore</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Тенор</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Ténor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Tenore"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://nl.wikipedia.org/wiki/Tenor_(zangstem)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="ru"
+                                                 href="https://ru.wikipedia.org/wiki/Тенор"/>		
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Tenor"
                                             src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
                               <labelVariants>
 		                               <labelVariant lang="en" default="true">
@@ -5884,47 +5948,7 @@
                                               href="https://ru.wikipedia.org/wiki/Тенор"/>		
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Tenor"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
-                           <labelVariants>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Tenor</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="fr">
-			                              <fullLabel>Ténor</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="it">
-			                              <fullLabel>Tenore</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Тенор</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Ténor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="it"
-                                           href="https://it.wikipedia.org/wiki/Tenore"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://nl.wikipedia.org/wiki/Tenor_(zangstem)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="ru"
-                                           href="https://ru.wikipedia.org/wiki/Тенор"/>		
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 		                   <umsm:performer>
 			                     <umsm:instrumentalist uid="Fink, Marcos"
@@ -6040,7 +6064,58 @@
                                            lang="es"
                                            href="https://es.wikipedia.org/wiki/Marcos_Fink"/>
 	                          </linkVariants>
-                           <umsm:instrument uid="voice/Bass"
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Bass"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Bass.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="de">
+			                                    <fullLabel>Baß</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Bass (voice)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="es">
+			                                    <fullLabel>Bajo (voz)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="fr">
+			                                    <fullLabel>Basse (voix)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="it">
+			                                    <fullLabel>Basso (voce)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="nl">
+			                                    <fullLabel>Bas (zangstem)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Бас</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Bass_(Stimmlage)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Bass_(voice_type)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Bajo_(voz)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Basse_(voix)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Basso_(voce)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://la.wikipedia.org/wiki/Bas_(zangstem)"/>
+		                                  <linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бас"/>
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Bass"
                                             src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Bass.ums">
                               <labelVariants>
 		                               <labelVariant lang="de">
@@ -6087,54 +6162,7 @@
 		                               <linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бас"/>
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Bass"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Bass.ums">
-                           <labelVariants>
-		                            <labelVariant lang="de">
-			                              <fullLabel>Baß</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Bass (voice)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="es">
-			                              <fullLabel>Bajo (voz)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="fr">
-			                              <fullLabel>Basse (voix)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="it">
-			                              <fullLabel>Basso (voce)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="nl">
-			                              <fullLabel>Bas (zangstem)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Бас</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Bass_(Stimmlage)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Bass_(voice_type)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Bajo_(voz)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Basse_(voix)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="it"
-                                           href="https://it.wikipedia.org/wiki/Basso_(voce)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://la.wikipedia.org/wiki/Bas_(zangstem)"/>
-		                            <linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бас"/>
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 		                   <umsm:performer>
 			                     <umsm:instrumentalist uid="Im, Sun-hae"
@@ -6220,7 +6248,51 @@
 		                            <linkVariant type="website" href="http://www.sunhaeim.com/en" lang="en"/>
 		                            <linkVariant type="website" href="http://www.sunhaeim.com/de" lang="de"/>
 	                          </linkVariants>
-                           <umsm:instrument uid="voice/Soprano"
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Soprano"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Soprano.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="de">
+			                                    <fullLabel>Sopran</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Soprano</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="nl">
+			                                    <fullLabel>Sopraan (zangstem)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Сопрано</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Sopran"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Soprano"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Soprano"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Soprano"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Soprano"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://la.wikipedia.org/wiki/Sopraan (zangstem)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="ru"
+                                                 href="https://ru.wikipedia.org/wiki/Сопрано"/>
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Soprano"
                                             src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Soprano.ums">
                               <labelVariants>
 		                               <labelVariant lang="de">
@@ -6260,47 +6332,7 @@
                                               href="https://ru.wikipedia.org/wiki/Сопрано"/>
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Soprano"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Soprano.ums">
-                           <labelVariants>
-		                            <labelVariant lang="de">
-			                              <fullLabel>Sopran</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Soprano</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="nl">
-			                              <fullLabel>Sopraan (zangstem)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Сопрано</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Sopran"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Soprano"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Soprano"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Soprano"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="it"
-                                           href="https://it.wikipedia.org/wiki/Soprano"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://la.wikipedia.org/wiki/Sopraan (zangstem)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="ru"
-                                           href="https://ru.wikipedia.org/wiki/Сопрано"/>
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 		                   <umsm:performer>
 			                     <umsm:instrumentalist uid="Zazzo, Lawrence"
@@ -6492,99 +6524,103 @@
                                            lang="en"
                                            href="https://en.wikipedia.org/wiki/Lawrence_Zazzo"/>
 	                          </linkVariants>
-                           <umsm:instrument uid="voice/Countertenor"
-                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Countertenor.ums">
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Countertenor"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Countertenor.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Countertenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="es">
+			                                    <fullLabel>Contratenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="fr">
+			                                    <fullLabel>Contreténor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="it">
+			                                    <fullLabel>Contraltista</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="nl">
+			                                    <fullLabel>Contratenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Контратенор</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Countertenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Countertenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Contratenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Contreténor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Contraltista"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://nl.wikipedia.org/wiki/Contratenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="ru"
+                                                 href="https://ru.wikipedia.org/wiki/Контратенор"/>		
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Alto"
+                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Alto.ums">
                               <labelVariants>
+		                               <labelVariant lang="de">
+			                                 <fullLabel>Alt (Stimmlage)</fullLabel>
+		                               </labelVariant>
 		                               <labelVariant lang="en" default="true">
-			                                 <fullLabel>Countertenor</fullLabel>
+			                                 <fullLabel>Alto (voice)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="es">
-			                                 <fullLabel>Contratenor</fullLabel>
+			                                 <fullLabel>Alto (voz)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="fr">
-			                                 <fullLabel>Contreténor</fullLabel>
+			                                 <fullLabel>Alto (voix)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="it">
-			                                 <fullLabel>Contraltista</fullLabel>
+			                                 <fullLabel>Alto (voce)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="nl">
-			                                 <fullLabel>Contratenor</fullLabel>
+			                                 <fullLabel>Alt (zangstem)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="ru">
-			                                 <fullLabel>Контратенор</fullLabel>
+			                                 <fullLabel>Альт (голос)</fullLabel>
 		                               </labelVariant>
 	                             </labelVariants>
                               <linkVariants>
 		                               <linkVariant type="wikipedia"
                                               lang="de"
-                                              href="https://de.wikipedia.org/wiki/Countertenor"/>
+                                              href="https://de.wikipedia.org/wiki/Alt_(Stimmlage)"/>
 		                               <linkVariant type="wikipedia"
                                               lang="en"
-                                              href="https://en.wikipedia.org/wiki/Countertenor"/>
+                                              href="https://en.wikipedia.org/wiki/Alto"/>
 		                               <linkVariant type="wikipedia"
                                               lang="es"
-                                              href="https://es.wikipedia.org/wiki/Contratenor"/>
+                                              href="https://es.wikipedia.org/wiki/Alto"/>
 		                               <linkVariant type="wikipedia"
                                               lang="fr"
-                                              href="https://fr.wikipedia.org/wiki/Contreténor"/>
-		                               <linkVariant type="wikipedia"
-                                              lang="it"
-                                              href="https://it.wikipedia.org/wiki/Contraltista"/>
+                                              href="https://fr.wikipedia.org/wiki/Alto_(voix)"/>
 		                               <linkVariant type="wikipedia"
                                               lang="nl"
-                                              href="https://nl.wikipedia.org/wiki/Contratenor"/>
+                                              href="https://la.wikipedia.org/wiki/Alt_(zangstem)"/>
 		                               <linkVariant type="wikipedia"
                                               lang="ru"
-                                              href="https://ru.wikipedia.org/wiki/Контратенор"/>		
+                                              href="https://ru.wikipedia.org/wiki/Альт_(голос)"/>
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Alto"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Alto.ums">
-                           <labelVariants>
-		                            <labelVariant lang="de">
-			                              <fullLabel>Alt (Stimmlage)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Alto (voice)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="es">
-			                              <fullLabel>Alto (voz)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="fr">
-			                              <fullLabel>Alto (voix)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="it">
-			                              <fullLabel>Alto (voce)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="nl">
-			                              <fullLabel>Alt (zangstem)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Альт (голос)</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Alt_(Stimmlage)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Alto"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Alto"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Alto_(voix)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://la.wikipedia.org/wiki/Alt_(zangstem)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="ru"
-                                           href="https://ru.wikipedia.org/wiki/Альт_(голос)"/>
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 		                   <umsm:performer>
 			                     <umsm:instrumentalist uid="Gilchrist, James"
@@ -6720,7 +6756,51 @@
                                            lang="en"
                                            href="https://en.wikipedia.org/wiki/James_Gilchrist_(tenor)"/>
 	                          </linkVariants>
-                           <umsm:instrument uid="voice/Tenor"
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Tenor"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Tenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="fr">
+			                                    <fullLabel>Ténor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="it">
+			                                    <fullLabel>Tenore</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Тенор</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Ténor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Tenore"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://nl.wikipedia.org/wiki/Tenor_(zangstem)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="ru"
+                                                 href="https://ru.wikipedia.org/wiki/Тенор"/>		
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Tenor"
                                             src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
                               <labelVariants>
 		                               <labelVariant lang="en" default="true">
@@ -6760,47 +6840,7 @@
                                               href="https://ru.wikipedia.org/wiki/Тенор"/>		
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Tenor"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
-                           <labelVariants>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Tenor</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="fr">
-			                              <fullLabel>Ténor</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="it">
-			                              <fullLabel>Tenore</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Тенор</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Ténor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="it"
-                                           href="https://it.wikipedia.org/wiki/Tenore"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://nl.wikipedia.org/wiki/Tenor_(zangstem)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="ru"
-                                           href="https://ru.wikipedia.org/wiki/Тенор"/>		
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 	                 </umsm:performers>
                   <umsm:work uid="Bach, Johann Sebastian/BWV/244"
@@ -11049,7 +11089,51 @@
 			                              <lastName>Pfeiffer</lastName>
 		                            </nameVariant>
 	                          </nameVariants>
-                           <umsm:instrument uid="voice/Tenor"
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Tenor"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Tenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="fr">
+			                                    <fullLabel>Ténor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="it">
+			                                    <fullLabel>Tenore</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Тенор</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Ténor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Tenore"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://nl.wikipedia.org/wiki/Tenor_(zangstem)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="ru"
+                                                 href="https://ru.wikipedia.org/wiki/Тенор"/>		
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Tenor"
                                             src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
                               <labelVariants>
 		                               <labelVariant lang="en" default="true">
@@ -11089,47 +11173,7 @@
                                               href="https://ru.wikipedia.org/wiki/Тенор"/>		
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Tenor"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
-                           <labelVariants>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Tenor</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="fr">
-			                              <fullLabel>Ténor</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="it">
-			                              <fullLabel>Tenore</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Тенор</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Ténor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="it"
-                                           href="https://it.wikipedia.org/wiki/Tenore"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://nl.wikipedia.org/wiki/Tenor_(zangstem)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="ru"
-                                           href="https://ru.wikipedia.org/wiki/Тенор"/>		
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 		                   <umsm:performer>
 			                     <umsm:instrumentalist uid="Fink, Marcos"
@@ -11245,7 +11289,58 @@
                                            lang="es"
                                            href="https://es.wikipedia.org/wiki/Marcos_Fink"/>
 	                          </linkVariants>
-                           <umsm:instrument uid="voice/Bass"
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Bass"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Bass.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="de">
+			                                    <fullLabel>Baß</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Bass (voice)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="es">
+			                                    <fullLabel>Bajo (voz)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="fr">
+			                                    <fullLabel>Basse (voix)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="it">
+			                                    <fullLabel>Basso (voce)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="nl">
+			                                    <fullLabel>Bas (zangstem)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Бас</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Bass_(Stimmlage)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Bass_(voice_type)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Bajo_(voz)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Basse_(voix)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Basso_(voce)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://la.wikipedia.org/wiki/Bas_(zangstem)"/>
+		                                  <linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бас"/>
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Bass"
                                             src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Bass.ums">
                               <labelVariants>
 		                               <labelVariant lang="de">
@@ -11292,54 +11387,7 @@
 		                               <linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бас"/>
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Bass"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Bass.ums">
-                           <labelVariants>
-		                            <labelVariant lang="de">
-			                              <fullLabel>Baß</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Bass (voice)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="es">
-			                              <fullLabel>Bajo (voz)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="fr">
-			                              <fullLabel>Basse (voix)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="it">
-			                              <fullLabel>Basso (voce)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="nl">
-			                              <fullLabel>Bas (zangstem)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Бас</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Bass_(Stimmlage)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Bass_(voice_type)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Bajo_(voz)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Basse_(voix)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="it"
-                                           href="https://it.wikipedia.org/wiki/Basso_(voce)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://la.wikipedia.org/wiki/Bas_(zangstem)"/>
-		                            <linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бас"/>
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 		                   <umsm:performer>
 			                     <umsm:instrumentalist uid="Im, Sun-hae"
@@ -11425,7 +11473,51 @@
 		                            <linkVariant type="website" href="http://www.sunhaeim.com/en" lang="en"/>
 		                            <linkVariant type="website" href="http://www.sunhaeim.com/de" lang="de"/>
 	                          </linkVariants>
-                           <umsm:instrument uid="voice/Soprano"
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Soprano"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Soprano.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="de">
+			                                    <fullLabel>Sopran</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Soprano</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="nl">
+			                                    <fullLabel>Sopraan (zangstem)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Сопрано</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Sopran"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Soprano"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Soprano"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Soprano"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Soprano"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://la.wikipedia.org/wiki/Sopraan (zangstem)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="ru"
+                                                 href="https://ru.wikipedia.org/wiki/Сопрано"/>
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Soprano"
                                             src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Soprano.ums">
                               <labelVariants>
 		                               <labelVariant lang="de">
@@ -11465,47 +11557,7 @@
                                               href="https://ru.wikipedia.org/wiki/Сопрано"/>
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Soprano"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Soprano.ums">
-                           <labelVariants>
-		                            <labelVariant lang="de">
-			                              <fullLabel>Sopran</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Soprano</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="nl">
-			                              <fullLabel>Sopraan (zangstem)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Сопрано</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Sopran"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Soprano"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Soprano"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Soprano"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="it"
-                                           href="https://it.wikipedia.org/wiki/Soprano"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://la.wikipedia.org/wiki/Sopraan (zangstem)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="ru"
-                                           href="https://ru.wikipedia.org/wiki/Сопрано"/>
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 		                   <umsm:performer>
 			                     <umsm:instrumentalist uid="Zazzo, Lawrence"
@@ -11697,99 +11749,103 @@
                                            lang="en"
                                            href="https://en.wikipedia.org/wiki/Lawrence_Zazzo"/>
 	                          </linkVariants>
-                           <umsm:instrument uid="voice/Countertenor"
-                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Countertenor.ums">
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Countertenor"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Countertenor.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Countertenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="es">
+			                                    <fullLabel>Contratenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="fr">
+			                                    <fullLabel>Contreténor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="it">
+			                                    <fullLabel>Contraltista</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="nl">
+			                                    <fullLabel>Contratenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Контратенор</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Countertenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Countertenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Contratenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Contreténor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Contraltista"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://nl.wikipedia.org/wiki/Contratenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="ru"
+                                                 href="https://ru.wikipedia.org/wiki/Контратенор"/>		
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Alto"
+                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Alto.ums">
                               <labelVariants>
+		                               <labelVariant lang="de">
+			                                 <fullLabel>Alt (Stimmlage)</fullLabel>
+		                               </labelVariant>
 		                               <labelVariant lang="en" default="true">
-			                                 <fullLabel>Countertenor</fullLabel>
+			                                 <fullLabel>Alto (voice)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="es">
-			                                 <fullLabel>Contratenor</fullLabel>
+			                                 <fullLabel>Alto (voz)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="fr">
-			                                 <fullLabel>Contreténor</fullLabel>
+			                                 <fullLabel>Alto (voix)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="it">
-			                                 <fullLabel>Contraltista</fullLabel>
+			                                 <fullLabel>Alto (voce)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="nl">
-			                                 <fullLabel>Contratenor</fullLabel>
+			                                 <fullLabel>Alt (zangstem)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="ru">
-			                                 <fullLabel>Контратенор</fullLabel>
+			                                 <fullLabel>Альт (голос)</fullLabel>
 		                               </labelVariant>
 	                             </labelVariants>
                               <linkVariants>
 		                               <linkVariant type="wikipedia"
                                               lang="de"
-                                              href="https://de.wikipedia.org/wiki/Countertenor"/>
+                                              href="https://de.wikipedia.org/wiki/Alt_(Stimmlage)"/>
 		                               <linkVariant type="wikipedia"
                                               lang="en"
-                                              href="https://en.wikipedia.org/wiki/Countertenor"/>
+                                              href="https://en.wikipedia.org/wiki/Alto"/>
 		                               <linkVariant type="wikipedia"
                                               lang="es"
-                                              href="https://es.wikipedia.org/wiki/Contratenor"/>
+                                              href="https://es.wikipedia.org/wiki/Alto"/>
 		                               <linkVariant type="wikipedia"
                                               lang="fr"
-                                              href="https://fr.wikipedia.org/wiki/Contreténor"/>
-		                               <linkVariant type="wikipedia"
-                                              lang="it"
-                                              href="https://it.wikipedia.org/wiki/Contraltista"/>
+                                              href="https://fr.wikipedia.org/wiki/Alto_(voix)"/>
 		                               <linkVariant type="wikipedia"
                                               lang="nl"
-                                              href="https://nl.wikipedia.org/wiki/Contratenor"/>
+                                              href="https://la.wikipedia.org/wiki/Alt_(zangstem)"/>
 		                               <linkVariant type="wikipedia"
                                               lang="ru"
-                                              href="https://ru.wikipedia.org/wiki/Контратенор"/>		
+                                              href="https://ru.wikipedia.org/wiki/Альт_(голос)"/>
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Alto"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Alto.ums">
-                           <labelVariants>
-		                            <labelVariant lang="de">
-			                              <fullLabel>Alt (Stimmlage)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Alto (voice)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="es">
-			                              <fullLabel>Alto (voz)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="fr">
-			                              <fullLabel>Alto (voix)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="it">
-			                              <fullLabel>Alto (voce)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="nl">
-			                              <fullLabel>Alt (zangstem)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Альт (голос)</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Alt_(Stimmlage)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Alto"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Alto"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Alto_(voix)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://la.wikipedia.org/wiki/Alt_(zangstem)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="ru"
-                                           href="https://ru.wikipedia.org/wiki/Альт_(голос)"/>
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 		                   <umsm:performer>
 			                     <umsm:instrumentalist uid="Gilchrist, James"
@@ -11925,7 +11981,51 @@
                                            lang="en"
                                            href="https://en.wikipedia.org/wiki/James_Gilchrist_(tenor)"/>
 	                          </linkVariants>
-                           <umsm:instrument uid="voice/Tenor"
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Tenor"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Tenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="fr">
+			                                    <fullLabel>Ténor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="it">
+			                                    <fullLabel>Tenore</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Тенор</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Ténor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Tenore"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://nl.wikipedia.org/wiki/Tenor_(zangstem)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="ru"
+                                                 href="https://ru.wikipedia.org/wiki/Тенор"/>		
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Tenor"
                                             src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
                               <labelVariants>
 		                               <labelVariant lang="en" default="true">
@@ -11965,47 +12065,7 @@
                                               href="https://ru.wikipedia.org/wiki/Тенор"/>		
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Tenor"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
-                           <labelVariants>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Tenor</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="fr">
-			                              <fullLabel>Ténor</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="it">
-			                              <fullLabel>Tenore</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Тенор</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Ténor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="it"
-                                           href="https://it.wikipedia.org/wiki/Tenore"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://nl.wikipedia.org/wiki/Tenor_(zangstem)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="ru"
-                                           href="https://ru.wikipedia.org/wiki/Тенор"/>		
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 	                 </umsm:performers>
                   <umsm:work uid="Bach, Johann Sebastian/BWV/244"
@@ -16258,7 +16318,51 @@
 			                              <lastName>Pfeiffer</lastName>
 		                            </nameVariant>
 	                          </nameVariants>
-                           <umsm:instrument uid="voice/Tenor"
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Tenor"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Tenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="fr">
+			                                    <fullLabel>Ténor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="it">
+			                                    <fullLabel>Tenore</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Тенор</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Ténor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Tenore"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://nl.wikipedia.org/wiki/Tenor_(zangstem)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="ru"
+                                                 href="https://ru.wikipedia.org/wiki/Тенор"/>		
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Tenor"
                                             src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
                               <labelVariants>
 		                               <labelVariant lang="en" default="true">
@@ -16298,47 +16402,7 @@
                                               href="https://ru.wikipedia.org/wiki/Тенор"/>		
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Tenor"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
-                           <labelVariants>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Tenor</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="fr">
-			                              <fullLabel>Ténor</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="it">
-			                              <fullLabel>Tenore</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Тенор</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Ténor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="it"
-                                           href="https://it.wikipedia.org/wiki/Tenore"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://nl.wikipedia.org/wiki/Tenor_(zangstem)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="ru"
-                                           href="https://ru.wikipedia.org/wiki/Тенор"/>		
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 		                   <umsm:performer>
 			                     <umsm:instrumentalist uid="Fink, Marcos"
@@ -16454,7 +16518,58 @@
                                            lang="es"
                                            href="https://es.wikipedia.org/wiki/Marcos_Fink"/>
 	                          </linkVariants>
-                           <umsm:instrument uid="voice/Bass"
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Bass"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Bass.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="de">
+			                                    <fullLabel>Baß</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Bass (voice)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="es">
+			                                    <fullLabel>Bajo (voz)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="fr">
+			                                    <fullLabel>Basse (voix)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="it">
+			                                    <fullLabel>Basso (voce)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="nl">
+			                                    <fullLabel>Bas (zangstem)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Бас</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Bass_(Stimmlage)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Bass_(voice_type)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Bajo_(voz)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Basse_(voix)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Basso_(voce)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://la.wikipedia.org/wiki/Bas_(zangstem)"/>
+		                                  <linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бас"/>
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Bass"
                                             src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Bass.ums">
                               <labelVariants>
 		                               <labelVariant lang="de">
@@ -16501,54 +16616,7 @@
 		                               <linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бас"/>
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Bass"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Bass.ums">
-                           <labelVariants>
-		                            <labelVariant lang="de">
-			                              <fullLabel>Baß</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Bass (voice)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="es">
-			                              <fullLabel>Bajo (voz)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="fr">
-			                              <fullLabel>Basse (voix)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="it">
-			                              <fullLabel>Basso (voce)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="nl">
-			                              <fullLabel>Bas (zangstem)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Бас</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Bass_(Stimmlage)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Bass_(voice_type)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Bajo_(voz)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Basse_(voix)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="it"
-                                           href="https://it.wikipedia.org/wiki/Basso_(voce)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://la.wikipedia.org/wiki/Bas_(zangstem)"/>
-		                            <linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бас"/>
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 		                   <umsm:performer>
 			                     <umsm:instrumentalist uid="Im, Sun-hae"
@@ -16634,7 +16702,51 @@
 		                            <linkVariant type="website" href="http://www.sunhaeim.com/en" lang="en"/>
 		                            <linkVariant type="website" href="http://www.sunhaeim.com/de" lang="de"/>
 	                          </linkVariants>
-                           <umsm:instrument uid="voice/Soprano"
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Soprano"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Soprano.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="de">
+			                                    <fullLabel>Sopran</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Soprano</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="nl">
+			                                    <fullLabel>Sopraan (zangstem)</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Сопрано</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Sopran"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Soprano"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Soprano"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Soprano"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Soprano"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://la.wikipedia.org/wiki/Sopraan (zangstem)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="ru"
+                                                 href="https://ru.wikipedia.org/wiki/Сопрано"/>
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Soprano"
                                             src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Soprano.ums">
                               <labelVariants>
 		                               <labelVariant lang="de">
@@ -16674,47 +16786,7 @@
                                               href="https://ru.wikipedia.org/wiki/Сопрано"/>
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Soprano"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Soprano.ums">
-                           <labelVariants>
-		                            <labelVariant lang="de">
-			                              <fullLabel>Sopran</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Soprano</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="nl">
-			                              <fullLabel>Sopraan (zangstem)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Сопрано</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Sopran"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Soprano"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Soprano"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Soprano"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="it"
-                                           href="https://it.wikipedia.org/wiki/Soprano"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://la.wikipedia.org/wiki/Sopraan (zangstem)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="ru"
-                                           href="https://ru.wikipedia.org/wiki/Сопрано"/>
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 		                   <umsm:performer>
 			                     <umsm:instrumentalist uid="Zazzo, Lawrence"
@@ -16906,99 +16978,103 @@
                                            lang="en"
                                            href="https://en.wikipedia.org/wiki/Lawrence_Zazzo"/>
 	                          </linkVariants>
-                           <umsm:instrument uid="voice/Countertenor"
-                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Countertenor.ums">
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Countertenor"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Countertenor.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Countertenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="es">
+			                                    <fullLabel>Contratenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="fr">
+			                                    <fullLabel>Contreténor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="it">
+			                                    <fullLabel>Contraltista</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="nl">
+			                                    <fullLabel>Contratenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Контратенор</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Countertenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Countertenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Contratenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Contreténor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Contraltista"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://nl.wikipedia.org/wiki/Contratenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="ru"
+                                                 href="https://ru.wikipedia.org/wiki/Контратенор"/>		
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Alto"
+                                            src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Alto.ums">
                               <labelVariants>
+		                               <labelVariant lang="de">
+			                                 <fullLabel>Alt (Stimmlage)</fullLabel>
+		                               </labelVariant>
 		                               <labelVariant lang="en" default="true">
-			                                 <fullLabel>Countertenor</fullLabel>
+			                                 <fullLabel>Alto (voice)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="es">
-			                                 <fullLabel>Contratenor</fullLabel>
+			                                 <fullLabel>Alto (voz)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="fr">
-			                                 <fullLabel>Contreténor</fullLabel>
+			                                 <fullLabel>Alto (voix)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="it">
-			                                 <fullLabel>Contraltista</fullLabel>
+			                                 <fullLabel>Alto (voce)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="nl">
-			                                 <fullLabel>Contratenor</fullLabel>
+			                                 <fullLabel>Alt (zangstem)</fullLabel>
 		                               </labelVariant>
 		                               <labelVariant lang="ru">
-			                                 <fullLabel>Контратенор</fullLabel>
+			                                 <fullLabel>Альт (голос)</fullLabel>
 		                               </labelVariant>
 	                             </labelVariants>
                               <linkVariants>
 		                               <linkVariant type="wikipedia"
                                               lang="de"
-                                              href="https://de.wikipedia.org/wiki/Countertenor"/>
+                                              href="https://de.wikipedia.org/wiki/Alt_(Stimmlage)"/>
 		                               <linkVariant type="wikipedia"
                                               lang="en"
-                                              href="https://en.wikipedia.org/wiki/Countertenor"/>
+                                              href="https://en.wikipedia.org/wiki/Alto"/>
 		                               <linkVariant type="wikipedia"
                                               lang="es"
-                                              href="https://es.wikipedia.org/wiki/Contratenor"/>
+                                              href="https://es.wikipedia.org/wiki/Alto"/>
 		                               <linkVariant type="wikipedia"
                                               lang="fr"
-                                              href="https://fr.wikipedia.org/wiki/Contreténor"/>
-		                               <linkVariant type="wikipedia"
-                                              lang="it"
-                                              href="https://it.wikipedia.org/wiki/Contraltista"/>
+                                              href="https://fr.wikipedia.org/wiki/Alto_(voix)"/>
 		                               <linkVariant type="wikipedia"
                                               lang="nl"
-                                              href="https://nl.wikipedia.org/wiki/Contratenor"/>
+                                              href="https://la.wikipedia.org/wiki/Alt_(zangstem)"/>
 		                               <linkVariant type="wikipedia"
                                               lang="ru"
-                                              href="https://ru.wikipedia.org/wiki/Контратенор"/>		
+                                              href="https://ru.wikipedia.org/wiki/Альт_(голос)"/>
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Alto"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Alto.ums">
-                           <labelVariants>
-		                            <labelVariant lang="de">
-			                              <fullLabel>Alt (Stimmlage)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Alto (voice)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="es">
-			                              <fullLabel>Alto (voz)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="fr">
-			                              <fullLabel>Alto (voix)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="it">
-			                              <fullLabel>Alto (voce)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="nl">
-			                              <fullLabel>Alt (zangstem)</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Альт (голос)</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Alt_(Stimmlage)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Alto"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Alto"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Alto_(voix)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://la.wikipedia.org/wiki/Alt_(zangstem)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="ru"
-                                           href="https://ru.wikipedia.org/wiki/Альт_(голос)"/>
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 		                   <umsm:performer>
 			                     <umsm:instrumentalist uid="Gilchrist, James"
@@ -17134,7 +17210,51 @@
                                            lang="en"
                                            href="https://en.wikipedia.org/wiki/James_Gilchrist_(tenor)"/>
 	                          </linkVariants>
-                           <umsm:instrument uid="voice/Tenor"
+                           <umsm:instruments>
+		                            <umsm:instrument uid="voice/Tenor"
+                                               src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
+                                 <labelVariants>
+		                                  <labelVariant lang="en" default="true">
+			                                    <fullLabel>Tenor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="fr">
+			                                    <fullLabel>Ténor</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="it">
+			                                    <fullLabel>Tenore</fullLabel>
+		                                  </labelVariant>
+		                                  <labelVariant lang="ru">
+			                                    <fullLabel>Тенор</fullLabel>
+		                                  </labelVariant>
+	                                </labelVariants>
+                                 <linkVariants>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="de"
+                                                 href="https://de.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="en"
+                                                 href="https://en.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="es"
+                                                 href="https://es.wikipedia.org/wiki/Tenor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="fr"
+                                                 href="https://fr.wikipedia.org/wiki/Ténor"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="it"
+                                                 href="https://it.wikipedia.org/wiki/Tenore"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="nl"
+                                                 href="https://nl.wikipedia.org/wiki/Tenor_(zangstem)"/>
+		                                  <linkVariant type="wikipedia"
+                                                 lang="ru"
+                                                 href="https://ru.wikipedia.org/wiki/Тенор"/>		
+	                                </linkVariants>
+                              </umsm:instrument>
+	                          </umsm:instruments>
+                        </umsm:instrumentalist>
+			                     <umsm:instruments>
+				                       <umsm:instrument uid="voice/Tenor"
                                             src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
                               <labelVariants>
 		                               <labelVariant lang="en" default="true">
@@ -17174,47 +17294,7 @@
                                               href="https://ru.wikipedia.org/wiki/Тенор"/>		
 	                             </linkVariants>
                            </umsm:instrument>
-                        </umsm:instrumentalist>
-			                     <umsm:instrument uid="voice/Tenor"
-                                         src="file:///C:/Users/marin/Code/ums/catalogs/music/instruments/voice/Tenor.ums">
-                           <labelVariants>
-		                            <labelVariant lang="en" default="true">
-			                              <fullLabel>Tenor</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="fr">
-			                              <fullLabel>Ténor</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="it">
-			                              <fullLabel>Tenore</fullLabel>
-		                            </labelVariant>
-		                            <labelVariant lang="ru">
-			                              <fullLabel>Тенор</fullLabel>
-		                            </labelVariant>
-	                          </labelVariants>
-                           <linkVariants>
-		                            <linkVariant type="wikipedia"
-                                           lang="de"
-                                           href="https://de.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="en"
-                                           href="https://en.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="es"
-                                           href="https://es.wikipedia.org/wiki/Tenor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="fr"
-                                           href="https://fr.wikipedia.org/wiki/Ténor"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="it"
-                                           href="https://it.wikipedia.org/wiki/Tenore"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="nl"
-                                           href="https://nl.wikipedia.org/wiki/Tenor_(zangstem)"/>
-		                            <linkVariant type="wikipedia"
-                                           lang="ru"
-                                           href="https://ru.wikipedia.org/wiki/Тенор"/>		
-	                          </linkVariants>
-                        </umsm:instrument>
+			                     </umsm:instruments>
 		                   </umsm:performer>
 	                 </umsm:performers>
                   <umsm:work uid="Bach, Johann Sebastian/BWV/244"

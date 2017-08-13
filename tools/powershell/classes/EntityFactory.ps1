@@ -395,6 +395,9 @@ class EntityFactory
                 "performance"
                     { return New-Object -Type UmsMcePerformance(
                         $XmlElement, $Uri) }
+                "performer"
+                    { return New-Object -Type UmsMcePerformer(
+                        $XmlElement, $Uri) }      
                 "premiere"
                     { return New-Object -Type UmsMcePremiere(
                         $XmlElement, $Uri) }

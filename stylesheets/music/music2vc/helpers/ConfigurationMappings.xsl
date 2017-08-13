@@ -211,17 +211,27 @@
 	!
 	==============================================================================
 	
+	One or several characters which will be inserted between each instrument name
+	in an instrument list embedded as a performer suffix. -->
+	<xsl:variable name="config.instruments.listDelimiter">
+		<xsl:call-template name="getUmsOptionValue">
+			<xsl:with-param name="OptionName" select="'instrument-list-delimiter'"/>
+			<xsl:with-param name="AllowEmptyValue" select="true()"/>
+		</xsl:call-template>
+	</xsl:variable>
+	<!--
+	
 	Opening and closing characters surrounding the name of an instrument as a suffix
 	to a performer's name. -->
 	<xsl:variable name="config.instruments.listPrefix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'played-instrument-prefix'"/>
+			<xsl:with-param name="OptionName" select="'instrument-list-prefix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<xsl:variable name="config.instruments.listSuffix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'played-instrument-suffix'"/>
+			<xsl:with-param name="OptionName" select="'instrument-list-suffix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>

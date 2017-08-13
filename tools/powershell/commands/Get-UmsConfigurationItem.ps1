@@ -52,6 +52,9 @@ function Get-UmsConfigurationItem
             "FullDateFormat",
             "IncipitPrefix",
             "IncipitSuffix",
+            "InstrumentListDelimiter",
+            "InstrumentListPrefix",
+            "InstrumentListSuffix",
             "KeyListPrefix",
             "KeyListSuffix",
             "MediumNumberFormat",
@@ -66,8 +69,6 @@ function Get-UmsConfigurationItem
             "PerformerListPrefix",
             "PerformerListSuffix",
             "PlaceDelimiter",
-            "PlayedInstrumentPrefix",
-            "PlayedInstrumentSuffix",
             "PreferCommonNames",
             "PreferCommonLabels",
             "PreferShortKeys",
@@ -176,8 +177,9 @@ function Get-UmsConfigurationItem
             "PerformerDelimiter"        { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "performer-delimiter" }).Value }
             "PerformerListPrefix"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "performer-list-prefix" }).Value }
             "PerformerListSuffix"       { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "performer-list-suffix" }).Value }
-            "PlayedInstrumentPrefix"    { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "played-instrument-prefix" }).Value }
-            "PlayedInstrumentSuffix"    { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "played-instrument-suffix" }).Value }
+            "InstrumentListDelimiter"   { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "instrument-list-delimiter" }).Value }
+            "InstrumentListPrefix"      { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "instrument-list-prefix" }).Value }
+            "InstrumentListSuffix"      { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "instrument-list-suffix" }).Value }
             "PreferCommonLabels"        { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "prefer-common-labels" }).Value }
             "PreferCommonNames"         { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "prefer-common-names" }).Value }
             "PreferShortKeys"           { return (Get-UmsConfigurationItem -Type Rendering | Where-Object { $_.Id -eq "prefer-short-keys" }).Value }

@@ -20,5 +20,7 @@
 		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Marcos_Fink"/>
 		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Marcos_Fink"/>
 	</linkVariants>
-	<umsm:instrument uid="voice/Bass"/>
+	<umsm:instruments>
+		<umsm:instrument uid="voice/Bass"/>
+	</umsm:instruments>
 </umsm:instrumentalist>

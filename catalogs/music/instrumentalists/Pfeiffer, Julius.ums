@@ -10,5 +10,7 @@
 			<lastName>Pfeiffer</lastName>
 		</nameVariant>
 	</nameVariants>
-	<umsm:instrument uid="voice/Tenor"/>
+	<umsm:instruments>
+		<umsm:instrument uid="voice/Tenor"/>
+	</umsm:instruments>
 </umsm:instrumentalist>

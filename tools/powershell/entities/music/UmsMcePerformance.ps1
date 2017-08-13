@@ -47,8 +47,7 @@ class UmsMcePerformance : UmsMaeEvent
     ###########################################################################
 
     [UmsMceWork] $Work
-    [UmsMceEnsemble[]] $Ensembles
-    [UmsMceInstrumentalist[]] $Instrumentalists
+    [UmsMcePerformer[]] $Performers
     [UmsMceConductor[]] $Conductors
 
     ###########################################################################
@@ -94,60 +93,13 @@ class UmsMcePerformance : UmsMaeEvent
     # Sub-constructor for the 'performers' element
     [void] BuildPerformers([System.Xml.XmlElement] $PerformersElement)
     {
-        # Enumerate performers
-        foreach ($_performerElement in (
-            $this.GetOneOrManyXmlElement(
-                $PerformersElement,
-                [UmsAeEntity]::NamespaceUri.Music,
-                "performer")))
-        {            
-            # If an instrumentalist is specified
-            if ($_performerElement.instrumentalist)
-            {
-                # Retrieve the instrument of the instrumentalist
-                $_element = $this.GetOneXmlElement(
-                    $_performerElement,
-                    [UmsAeEntity]::NamespaceUri.Music,
-                    "instrument")
-
-                $_instrument = (
-                    [EntityFactory]::GetEntity(
-                        $_element,
-                        $this.SourcePathUri,
-                        $this.SourceFileUri))
-
-                # Instantiate the instrumentalist
-                $_element = $this.GetOneXmlElement(
-                    $_performerElement,
-                    [UmsAeEntity]::NamespaceUri.Music,
-                    "instrumentalist")
-                
-                $_instrumentalist = (
-                    [EntityFactory]::GetEntity(
-                        $_element,
-                        $this.SourcePathUri,
-                        $this.SourceFileUri))
-
-                # Register the instrument
-                $_instrumentalist.RegisterInstrument($_instrument)
-
-                # Register the instrumentalist
-                $this.Instrumentalists += $_instrumentalist
-            }
-
-            # If the performer is not an instrumentalist, it has to be
-            # a musical ensemble.
-            else
-            {
-                $this.GetOneXmlElement(
-                    $_performerElement,
-                    [UmsAeEntity]::NamespaceUri.Music,
-                    "ensemble"
-                ) | foreach {
-                        $this.Ensembles += [EntityFactory]::GetEntity(
-                        $_, $this.SourcePathUri, $this.SourceFileUri) }
-            }
-        }
+        $this.GetOneOrManyXmlElement(
+            $PerformersElement,
+            [UmsAeEntity]::NamespaceUri.Music,
+            "performer"
+        ) | foreach {
+                $this.Performers += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 
     # Sub-constructor for the 'conductors' element
