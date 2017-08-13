@@ -53,6 +53,7 @@ class VorbisCommentConverter
         InstrumentalistAsPerformer                  =   $true;
         InstrumentalistAsPerformerInstrumentSuffix  =   $true;
         InstrumentalistInstrumentSuffix             =   $false;
+        LyricistAsArtist                            =   $false;
         MusicalFormAsGenre                          =   $false;
         MusicalStyleAsGenre                         =   $false;
     }
@@ -111,6 +112,9 @@ class VorbisCommentConverter
         InstrumentalistShortName        =   "INSTRUMENTALISTSHORT";
         InstrumentalistSortName         =   "INSTRUMENTALISTSORT";
         LabelFullLabel                  =   "LABEL";
+        LyricistFullName                =   "LYRICIST";
+        LyricistShortName               =   "LYRICISTSHORT";
+        LyricistSortName                =   "LYRICISTSORT";
         MediumNumberCombined            =   "MEDIUMNUM";
         MediumNumberSimple              =   "MEDIUM";
         MediumTotal                     =   "MEDIUMTOTAL";
@@ -294,6 +298,7 @@ class VorbisCommentConverter
         $_lines += $this.RenderComposers($_track)
         $_lines += $this.RenderConductors($_track)
         $_lines += $this.RenderDate($_album, $_track)
+        $_lines += $this.RenderLyricists($_track)
         $_lines += $this.RenderMediumNumber($_medium, $_album)
         $_lines += $this.RenderMusicalCatalogIds($_track)
         $_lines += $this.RenderMusicalForms($_track)
@@ -591,6 +596,52 @@ class VorbisCommentConverter
 
         return $_lines
     }
+
+    # Renders lyricists to Vorbis Comment.
+    [string[]] RenderLyricists($TrackMetadata)
+    {
+        [string[]] $_lines = @()
+
+        foreach ($_movement in $TrackMetadata.Movements)
+        {
+            foreach ($_lyricist in $_movement.Lyricists)
+            {
+                $_full  = $_lyricist.Name.FullName
+                $_short = $_lyricist.Name.ShortName
+                $_sort  = $_lyricist.Name.SortName
+
+                $_res = $this.CreateVorbisComment(
+                    "LyricistFullName", $_full)
+                if ($_res) { $_lines += $_res }
+
+                $_res = $this.CreateVorbisComment(
+                    "LyricistShortName", $_short)
+                if ($_res) { $_lines += $_res }
+
+                $_res = $this.CreateVorbisComment(
+                    "LyricistSortName", $_sort)
+                if ($_res) { $_lines += $_res }
+
+                # If lyricists should be registered as artists, let's do it.
+                if($this.Features.LyricistAsArtist)
+                {
+                    $_res = $this.CreateVorbisComment(
+                        "ArtistFullName", $_full)
+                    if ($_res) { $_lines += $_res }
+
+                    $_res = $this.CreateVorbisComment(
+                        "ArtistShortName", $_short)
+                    if ($_res) { $_lines += $_res }
+        
+                    $_res = $this.CreateVorbisComment(
+                        "ArtistSortName", $_sort)
+                    if ($_res) { $_lines += $_res }
+                }
+            }
+        }
+
+        return $_lines
+    } 
 
     # Renders the medium number info of an album track to Vorbis Comments.
     # The return value of this method depends on the status of the

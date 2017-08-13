@@ -55,6 +55,7 @@
 				<option id="feature-instrumentalist-as-performer">True</option>
 				<option id="feature-instrumentalist-as-performer-instrument-suffix">True</option>
 				<option id="feature-instrumentalist-instrument-suffix">False</option>
+				<option id="feature-lyricist-as-artist">False</option>
 				<option id="feature-musical-form-as-genre">True</option>
 				<option id="feature-musical-style-as-genre">True</option>
 				<option id="rendering-musical-form-as-genre-prefix">#</option>
@@ -82,6 +83,9 @@
 				<option id="vorbis-label-instrumentalist-short-name">INSTRUMENTALISTSHORT</option>
 				<option id="vorbis-label-instrumentalist-sort-name">INSTRUMENTALISTSORT</option>
 				<option id="vorbis-label-label-full-label">LABEL</option>
+				<option id="vorbis-label-lyricist-full-name">LYRICIST</option>
+				<option id="vorbis-label-lyricist-short-name">LYRICISTSHORT</option>
+				<option id="vorbis-label-lyricist-sort-name">LYRICISTSORT</option>
 				<option id="vorbis-label-medium-number-combined">MEDIUMNUM</option>
 				<option id="vorbis-label-medium-number-simple">MEDIUM</option>
 				<option id="vorbis-label-medium-total">MEDIUMTOTAL</option>
@@ -286,7 +290,7 @@
 		<option id="ums-folder-name-cache">cache</option>
 		<option id="ums-folder-name-static">static</option>
 		<option id="ums-hidden-folders">True</option>
-		<option id="ums-xml-cache-depth">10</option>
+		<option id="ums-xml-cache-depth">15</option>
 	</system>
 	
 </configuration>
