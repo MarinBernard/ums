@@ -49,10 +49,11 @@ class VorbisCommentConverter
         InstrumentalistAsPerformer                  =   $true;
         InstrumentalistAsPerformerInstrumentSuffix  =   $true;
         InstrumentalistInstrumentSuffix             =   $false;
+        MusicalFormAsGenre                          =   $false;
     }
 
     # Rendering options for dynamic albums
-    [hashtable] $DynamicAlbumOptions = @{
+    [hashtable] $DynamicAlbumRendering = @{
         # When dynamic albums are enabled, the composer of the performed work
         # is used as an album artist. When a work has several composers, the
         # names of these composers are merged into a single album artist
@@ -62,6 +63,14 @@ class VorbisCommentConverter
         # sort-friendly variants of composer names. If set to false, full
         # composer names will be used instead.
         AlbumArtistUseSortVariants  =   $true;
+    }
+
+    # Rendering options
+    [hashtable] $Rendering = @{
+        # A prefix which will be inserted before the name of a musical form
+        # when it is rendered as a GENRE Vorbis Comment. Use this prefix to
+        # group musical forms together in the genre list.
+        MusicalFormAsGenrePrefix    =   "";
     }
 
     # Default Vorbis Comment labels.
@@ -83,6 +92,7 @@ class VorbisCommentConverter
         EnsembleFullLabel               =   "ENSEMBLE";
         EnsembleShortLabel              =   "ENSEMBLESHORT";
         EnsembleSortLabel               =   "ENSEMBLESORT";
+        Genre                           =   "GENRE";
         InstrumentalistFullName         =   "INSTRUMENTALIST";
         InstrumentalistShortName        =   "INSTRUMENTALISTSHORT";
         InstrumentalistSortName         =   "INSTRUMENTALISTSORT";
@@ -90,6 +100,7 @@ class VorbisCommentConverter
         MediumNumberCombined            =   "MEDIUMNUM";
         MediumNumberSimple              =   "MEDIUM";
         MediumTotal                     =   "MEDIUMTOTAL";
+        MusicalForm                     =   "MUSICALFORM";
         OriginalAlbumArtist             =   "ORIGINALALBUMARTIST";
         OriginalAlbumFullTitle          =   "ORIGINALALBUM";
         OriginalAlbumSortTitle          =   "ORIGINALALBUMSORT";
@@ -135,14 +146,26 @@ class VorbisCommentConverter
             }
 
             # Rendering options for dynamic albums
-            if ($_option.Name -like "dynamic-album-option-*")
+            if ($_option.Name -like "dynamic-album-rendering-*")
             {
                 $_label = $_option.Name.
-                    Replace("dynamic-album-option-", "").
+                    Replace("dynamic-album-rendering-", "").
                     Replace("-", "")
-                if ($this.DynamicAlbumOptions.ContainsKey($_label))
+                if ($this.DynamicAlbumRendering.ContainsKey($_label))
                 {
-                    $this.DynamicAlbumOptions[$_label] = $_option.Value
+                    $this.DynamicAlbumRendering[$_label] = $_option.Value
+                }
+            }
+
+            # Rendering options
+            if ($_option.Name -like "rendering-*")
+            {
+                $_label = $_option.Name.
+                    Replace("rendering-", "").
+                    Replace("-", "")
+                if ($this.Rendering.ContainsKey($_label))
+                {
+                    $this.Rendering[$_label] = $_option.Value
                 }
             }
 
@@ -240,15 +263,16 @@ class VorbisCommentConverter
         $_medium = $Metadata.Medium
         $_track  = $Metadata.Track
 
-        $_lines += $this.RenderAlbumArtist($_album, $_track)
-        $_lines += $this.RenderAlbumTitle($_album, $_track)
-        $_lines += $this.RenderAlbumLabels($_album)
         $_lines += $this.RenderMediumNumber($_medium, $_album)
         $_lines += $this.RenderTrackNumber($_track, $_medium, $_album)
         $_lines += $this.RenderTrackTitle($_track)
-        $_lines += $this.RenderWorkComposer($_track)
+        $_lines += $this.RenderAlbumArtist($_album, $_track)
+        $_lines += $this.RenderAlbumTitle($_album, $_track)
+        $_lines += $this.RenderAlbumLabels($_album)
         $_lines += $this.RenderPerformanceConductor($_track)
         $_lines += $this.RenderPerformancePerformer($_track)
+        $_lines += $this.RenderWorkComposer($_track)
+        $_lines += $this.RenderMusicalForm($_track)
 
         return $_lines
     }
@@ -287,7 +311,7 @@ class VorbisCommentConverter
             [string[]] $_composerNames = @()
             foreach ($_composer in $_composers)
             {
-                if ($this.DynamicAlbumOptions.AlbumArtistUseSortVariants)
+                if ($this.DynamicAlbumRendering.AlbumArtistUseSortVariants)
                     { $_composerNames += $_composer.Name.SortName }
                 else
                     { $_composerNames += $_composer.Name.FullName }
@@ -296,7 +320,7 @@ class VorbisCommentConverter
             # Build album artist string
             $_virtualAlbumArtistFullName = (
                 $_composerNames -join(
-                    $this.DynamicAlbumOptions.AlbumArtistDelimiter))
+                    $this.DynamicAlbumRendering.AlbumArtistDelimiter))
 
             # Build Vorbis Comment
             $_res = $this.CreateVorbisComment(
@@ -436,6 +460,46 @@ class VorbisCommentConverter
 
         return $_lines
     }
+
+    # Renders musical forms to Vorbis Comment.
+    [string[]] RenderMusicalForm($TrackMetadata)
+    {
+        [string[]] $_lines = @()
+        [string[]] $_forms = @()
+
+        # Musical form associated to the parent work.
+        $_forms += $TrackMetadata.Performance.Work.Form
+
+        # Musical forms associated to each movement included in the track
+        foreach ($_movement in $TrackMetadata.Movements)
+        {
+            foreach ($_form in $_movement.Forms)
+            {
+                $_forms += $_form.ToString()
+            }
+        }
+
+        # Create Vorbis Comments
+        foreach ($_form in $_forms)
+        {
+            $_res = $this.CreateVorbisComment(
+                "MusicalForm", $_form)
+            if ($_res) { $_lines += $_res }
+
+            # If forms should be registered as genres, let's do it.
+            if($this.Features.MusicalFormAsGenre)
+            {
+                $_fullForm = $(
+                    $this.Rendering.MusicalFormAsGenrePrefix + $_form)
+                
+                $_res = $this.CreateVorbisComment(
+                    "Genre", $_fullForm)
+                if ($_res) { $_lines += $_res }
+            }
+        }
+
+        return $_lines
+    } 
 
     # Renders the conductors of the music performance to Vorbis Comment.
     [string[]] RenderPerformanceConductor($TrackMetadata)

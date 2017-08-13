@@ -41,6 +41,9 @@
 				<constraint id="bindingElementName">albumTrackBinding</constraint>
 			</constraints>
 			<options>
+				<!-- Default value: " & ", with non breakable spaces -->
+				<option id="dynamic-album-rendering-album-artist-delimiter">&#160;&#038;&#160;</option>
+				<option id="dynamic-album-rendering-album-artist-use-sort-variants">True</option>
 				<option id="feature-dynamic-albums">True</option>
 				<option id="feature-composer-as-artist">False</option>
 				<option id="feature-conductor-as-artist">False</option>
@@ -52,9 +55,8 @@
 				<option id="feature-instrumentalist-as-performer">True</option>
 				<option id="feature-instrumentalist-as-performer-instrument-suffix">True</option>
 				<option id="feature-instrumentalist-instrument-suffix">False</option>
-				<!-- Default value: " & ", with non breakable spaces -->
-				<option id="dynamic-album-option-album-artist-delimiter">&#160;&#038;&#160;</option>
-				<option id="dynamic-album-option-album-artist-use-sort-variants">True</option>
+				<option id="feature-musical-form-as-genre">True</option>
+				<option id="rendering-musical-form-as-genre-prefix">#</option>
 				<option id="vorbis-label-album-artist">ALBUMARTIST</option>
 				<option id="vorbis-label-album-full-title">ALBUM</option>
 				<option id="vorbis-label-album-sort-title">ALBUMSORT</option>
@@ -71,6 +73,7 @@
 				<option id="vorbis-label-ensemble-full-label">ENSEMBLE</option>
 				<option id="vorbis-label-ensemble-short-label">ENSEMBLESHORT</option>
 				<option id="vorbis-label-ensemble-sort-label">ENSEMBLESORT</option>
+				<option id="vorbis-label-genre">GENRE</option>
 				<option id="vorbis-label-instrumentalist-full-name">INSTRUMENTALIST</option>
 				<option id="vorbis-label-instrumentalist-short-name">INSTRUMENTALISTSHORT</option>
 				<option id="vorbis-label-instrumentalist-sort-name">INSTRUMENTALISTSORT</option>
@@ -78,6 +81,7 @@
 				<option id="vorbis-label-medium-number-combined">MEDIUMNUM</option>
 				<option id="vorbis-label-medium-number-simple">MEDIUM</option>
 				<option id="vorbis-label-medium-total">MEDIUMTOTAL</option>
+				<option id="vorbis-label-musical-form">MUSICALFORM</option>
 				<option id="vorbis-label-original-album-artist">ORIGINALALBUMARTIST</option>
 				<option id="vorbis-label-original-album-full-title">ORIGINALALBUM</option>
 				<option id="vorbis-label-original-album-sort-title">ORIGINALALBUMSORT</option>
