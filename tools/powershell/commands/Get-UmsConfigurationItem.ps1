@@ -276,7 +276,7 @@ function Get-UmsConfigurationItem
             {
                 # Try to cast the value to boolean, if supported
                 [bool] $_out = $null
-                $_res = [System.Boolean]::TryParse($_option.Node.'#text', [ref] $_out)
+                $_res = [System.Boolean]::TryParse($_optionElement.Node.'#text', [ref] $_out)
                 if ($_res)
                     { $_value = $_out }
                 else

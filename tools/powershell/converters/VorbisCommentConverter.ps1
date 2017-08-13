@@ -22,14 +22,22 @@ class VorbisCommentConverter
     [hashtable] $Features = @{
         DynamicAlbums       =   $false;
         ComposerAsArtist    =   $false;
+        ConductorAsArtist   =   $false;
+    }
+
+    # Rendering options for dynamic albums
+    [hashtable] $DynamicAlbumOptions = @{
+        # When dynamic albums are enabled, the composer of the performed work
+        # is used as an album artist. When a work has several composers, the
+        # names of these composers are merged into a single album artist
+        # comment. This string will be inserted between each composer name.
+        AlbumArtistDelimiter    =   " & ";
     }
 
     # Default Vorbis Comment labels.
     # May be altered by configuration values passed to the constructor.
     [hashtable] $VorbisLabels = @{
-        AlbumArtistFullName             =   "ALBUMARTIST"
-        AlbumArtistShortName            =   "ALBUMARTISTSHORT"
-        AlbumArtistSortName             =   "ALBUMARTISTSORT"
+        AlbumArtist                     =   "ALBUMARTIST"
         AlbumFullTitle                  =   "ALBUM";
         AlbumSortTitle                  =   "ALBUMSORT";
         AlbumSubtitle                   =   "";
@@ -39,10 +47,14 @@ class VorbisCommentConverter
         ComposerFullName                =   "COMPOSER";
         ComposerShortName               =   "COMPOSERSHORT";
         ComposerSortName                =   "COMPOSERSORT";
+        ConductorFullName               =   "CONDUCTOR";
+        ConductorShortName              =   "CONDUCTORSHORT";
+        ConductorSortName               =   "CONDUCTORSORT";
         LabelFullLabel                  =   "LABEL";
         MediumNumberCombined            =   "MEDIUMNUM";
         MediumNumberSimple              =   "MEDIUM";
         MediumTotal                     =   "MEDIUMTOTAL";
+        OriginalAlbumArtist             =   "ORIGINALALBUMARTIST";
         OriginalAlbumFullTitle          =   "ORIGINALALBUM";
         OriginalAlbumSortTitle          =   "ORIGINALALBUMSORT";
         OriginalAlbumSubtitle           =   "ORIGINALALBUMSUBTITLE";
@@ -80,6 +92,18 @@ class VorbisCommentConverter
                 if ($this.Features.ContainsKey($_label))
                 {
                     $this.Features[$_label] = $_option.Value
+                }
+            }
+
+            # Rendering options for dynamic albums
+            if ($_option.Name -like "dynamic-album-option-*")
+            {
+                $_label = $_option.Name.
+                    Replace("dynamic-album-option-", "").
+                    Replace("-", "")
+                if ($this.DynamicAlbumOptions.ContainsKey($_label))
+                {
+                    $this.DynamicAlbumOptions[$_label] = $_option.Value
                 }
             }
 
@@ -184,6 +208,7 @@ class VorbisCommentConverter
         $_lines += $this.RenderTrackNumber($_track, $_medium, $_album)
         $_lines += $this.RenderTrackTitle($_track)
         $_lines += $this.RenderWorkComposer($_track)
+        $_lines += $this.RenderPerformanceConductor($_track)
 
         return $_lines
     }
@@ -208,22 +233,34 @@ class VorbisCommentConverter
         $_albumArtist = $this.ExtractAlbumArtist($AlbumMetadata)
         $_albumArtistAsString = $this.ExtractAsString($_albumArtist)
 
-        # DynamicAlbum mode: use music composers as album artists
+        # DynamicAlbum mode: use music composers as album artists,
+        # and register the real album artist as ORIGINAL*.
         if ($this.Features.DynamicAlbums)
         {
+            # Original album artist
+            $_res = $this.CreateVorbisComment(
+                "OriginalAlbumArtist", $_albumArtistAsString)
+            if ($_res) { $_lines += $_res }
+
+            # Extract composers
             $_performance = $this.ExtractTrackPerformance($TrackMetadata)
             $_work = $this.ExtractPerformanceWork($_performance)
             $_composers = $this.ExtractWorkComposers($_work)
 
-            [string[]] $_segments = @()
-
+            [string[]] $_composerNames = @()
             foreach ($_composer in $_composers)
             {
-                $_segments += $this.ExtractPersonSortName($_composer)
+                $_composerNames += $this.ExtractPersonSortName($_composer)
             }
-            
+
+            # Build album artist string
+            $_virtualAlbumArtistFullName = (
+                $_composerNames -join(
+                    $this.DynamicAlbumOptions.AlbumArtistDelimiter))
+
+            # Build Vorbis Comment
             $_res = $this.CreateVorbisComment(
-                "AlbumArtistFullName", ($_segments -join(" & ")))
+                "AlbumArtist", ($_virtualAlbumArtistFullName))
             if ($_res) { $_lines += $_res }
         }
 
@@ -231,7 +268,7 @@ class VorbisCommentConverter
         else
         {
             $_res = $this.CreateVorbisComment(
-                "AlbumArtistFullName", $_albumArtistAsString)
+                "AlbumArtist", $_albumArtistAsString)
             if ($_res) { $_lines += $_res }
         }
 
@@ -358,6 +395,52 @@ class VorbisCommentConverter
             $_res = $this.CreateVorbisComment(
                 "MediumTotal", $_realMediumTotal)
             if ($_res) { $_lines += $_res }
+        }
+
+        return $_lines
+    }
+
+    # Renders the conductors of the music performance to Vorbis Comment.
+    [string[]] RenderPerformanceConductor($TrackMetadata)
+    {
+        [string[]] $_lines = @()
+
+        $_performance = $this.ExtractTrackPerformance($TrackMetadata)
+        $_conductors = $this.ExtractPerformanceConductors($_performance)
+
+        foreach ($_conductor in $_conductors)
+        {
+            $_fullName  = $this.ExtractPersonFullName($_conductor)
+            $_sortName  = $this.ExtractPersonSortName($_conductor)
+            $_shortName = $this.ExtractPersonShortName($_conductor)
+
+            $_res = $this.CreateVorbisComment(
+                "ConductorFullName", $_fullName)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "ConductorShortName", $_shortName)
+            if ($_res) { $_lines += $_res }
+
+            $_res = $this.CreateVorbisComment(
+                "ConductorSortName", $_sortName)
+            if ($_res) { $_lines += $_res }
+
+            # If conductors should be registered as artists, let's do it.
+            if($this.Features.ConductorAsArtist)
+            {
+                $_res = $this.CreateVorbisComment(
+                    "ArtistFullName", $_fullName)
+                if ($_res) { $_lines += $_res }
+
+                $_res = $this.CreateVorbisComment(
+                    "ArtistShortName", $_shortName)
+                if ($_res) { $_lines += $_res }
+    
+                $_res = $this.CreateVorbisComment(
+                    "ArtistSortName", $_sortName)
+                if ($_res) { $_lines += $_res }
+            }
         }
 
         return $_lines
@@ -631,6 +714,12 @@ class VorbisCommentConverter
     [int] ExtractMediumTotalTracks($MediumMetadata)
     {
         return $MediumMetadata.Tracks.Count
+    }
+
+    # Extracts and returns the conductors from a performance.
+    [object[]] ExtractPerformanceConductors($PerformanceMetadata)
+    {
+        return $PerformanceMetadata.Conductors
     }
 
     # Extracts and returns the performed work from a performance.
