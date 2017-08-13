@@ -70,6 +70,8 @@
 				<option id="vorbis-label-conductor-full-name">CONDUCTOR</option>
 				<option id="vorbis-label-conductor-short-name">CONDUCTORSHORT</option>
 				<option id="vorbis-label-conductor-sort-name">CONDUCTORSORT</option>
+				<option id="vorbis-label-date-full">DATE</option>
+				<option id="vorbis-label-date-year">YEAR</option>
 				<option id="vorbis-label-ensemble-full-label">ENSEMBLE</option>
 				<option id="vorbis-label-ensemble-short-label">ENSEMBLESHORT</option>
 				<option id="vorbis-label-ensemble-sort-label">ENSEMBLESORT</option>
@@ -86,9 +88,12 @@
 				<option id="vorbis-label-original-album-full-title">ORIGINALALBUM</option>
 				<option id="vorbis-label-original-album-sort-title">ORIGINALALBUMSORT</option>
 				<option id="vorbis-label-original-album-subtitle">ORIGINALALBUMSUBTITLE</option>
+				<option id="vorbis-label-original-date-full">ORIGINALDATE</option>
+				<option id="vorbis-label-original-date-year">ORIGINALYEAR</option>
 				<option id="vorbis-label-original-medium-number-combined">ORIGINALMEDIUMNUM</option>
 				<option id="vorbis-label-original-medium-number-simple">ORIGINALMEDIUM</option>
 				<option id="vorbis-label-original-medium-total">ORIGINALMEDIUMTOTAL</option>
+				<option id="vorbis-label-original-place">ORIGINALPLACE</option>
 				<option id="vorbis-label-original-track-full-title">ORIGINALTITLE</option>
 				<option id="vorbis-label-original-track-number-combined">ORIGINALTRACKNUM</option>
 				<option id="vorbis-label-original-track-number-simple">ORIGINALTRACK</option>
@@ -98,12 +103,16 @@
 				<option id="vorbis-label-performer-full-name">PERFORMER</option>
 				<option id="vorbis-label-performer-short-name">PERFORMERSHORT</option>
 				<option id="vorbis-label-performer-sort-name">PERFORMERSORT</option>
+				<option id="vorbis-label-place">PLACE</option>
 				<option id="vorbis-label-track-full-title">TITLE</option>
 				<option id="vorbis-label-track-number-combined">TRACKNUM</option>
 				<option id="vorbis-label-track-number-simple">TRACK</option>
 				<option id="vorbis-label-track-sort-title">TITLESORT</option>
 				<option id="vorbis-label-track-subtitle">SUBTITLE</option>
 				<option id="vorbis-label-track-total">TRACKTOTAL</option>
+				<option id="vorbis-label-work-full-title">WORK</option>
+				<option id="vorbis-label-work-sort-title">WORKSORT</option>
+				<option id="vorbis-label-work-subtitle">WORKSUBTITLE</option>
 			</options>
 		</converter>
 	</converters>

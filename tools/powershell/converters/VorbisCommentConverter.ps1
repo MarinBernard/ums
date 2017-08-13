@@ -89,6 +89,8 @@ class VorbisCommentConverter
         ConductorFullName               =   "CONDUCTOR";
         ConductorShortName              =   "CONDUCTORSHORT";
         ConductorSortName               =   "CONDUCTORSORT";
+        DateFull                        =   "DATE";
+        DateYear                        =   "YEAR";
         EnsembleFullLabel               =   "ENSEMBLE";
         EnsembleShortLabel              =   "ENSEMBLESHORT";
         EnsembleSortLabel               =   "ENSEMBLESORT";
@@ -105,9 +107,12 @@ class VorbisCommentConverter
         OriginalAlbumFullTitle          =   "ORIGINALALBUM";
         OriginalAlbumSortTitle          =   "ORIGINALALBUMSORT";
         OriginalAlbumSubtitle           =   "ORIGINALALBUMSUBTITLE";
+        OriginalDateFull                =   "ORIGINALDATE";
+        OriginalDateYear                =   "ORIGINALYEAR";
         OriginalMediumNumberCombined    =   "ORIGINALMEDIUMNUM";
         OriginalMediumNumberSimple      =   "ORIGINALMEDIUM";
         OriginalMediumTotal             =   "ORIGINALMEDIUMTOTAL";
+        OriginalPlace                   =   "ORIGINALPLACE";
         OriginalTrackNumberCombined     =   "ORIGINALTRACKNUM";
         OriginalTrackNumberSimple       =   "ORIGINALTRACK";
         OriginalTrackFullTitle          =   "ORIGINALTITLE";
@@ -117,12 +122,16 @@ class VorbisCommentConverter
         PerformerFullName               =   "PERFORMER";
         PerformerShortName              =   "PERFORMERSHORT";
         PerformerSortName               =   "PERFORMERSORT";
+        Place                           =   "PLACE";
         TrackFullTitle                  =   "TITLE";
         TrackNumberCombined             =   "TRACKNUM";
         TrackNumberSimple               =   "TRACK";
         TrackSortTitle                  =   "TITLESORT";
         TrackSubtitle                   =   "SUBTITLE";
         TrackTotal                      =   "TRACKTOTAL";
+        WorkFullTitle                   =   "WORK";
+        WorkSortTitle                   =   "WORKSORT";
+        WorkSubtitle                    =   "WORKSUBTITLE";
     }
 
     ###########################################################################
@@ -268,9 +277,12 @@ class VorbisCommentConverter
         $_lines += $this.RenderTrackTitle($_track)
         $_lines += $this.RenderAlbumArtist($_album, $_track)
         $_lines += $this.RenderAlbumTitle($_album, $_track)
+        $_lines += $this.RenderDate($_album, $_track)
+        $_lines += $this.RenderPlace($_album, $_track)
         $_lines += $this.RenderAlbumLabels($_album)
         $_lines += $this.RenderPerformanceConductor($_track)
         $_lines += $this.RenderPerformancePerformer($_track)
+        $_lines += $this.RenderWork($_track)
         $_lines += $this.RenderWorkComposer($_track)
         $_lines += $this.RenderMusicalForm($_track)
 
@@ -403,6 +415,68 @@ class VorbisCommentConverter
 
             $_res = $this.CreateVorbisComment(
                 "AlbumSubtitle", $_realSubTitle)
+            if ($_res) { $_lines += $_res }
+        }
+
+        return $_lines
+    }
+
+    # Renders the date and year of release of the album to Vorbis Comment.
+    # If the DynamicAlbums feature is enabled, these are set the the date
+    # and year of the performance. If that feature is disabled, the converter
+    # will use the date and year of the oldest album release.
+    [string[]] RenderDate($AlbumMetadata, $TrackMetadata)
+    {
+        [string[]] $_lines = @()
+
+        # Build album release info. We use the oldest release event.
+        $_release = (
+            $AlbumMetadata.Releases | Sort-Object -Property Date)[0]
+        $_releaseDate = Get-Date -Date $_release.Date -Format "yyyy-MM-dd"
+        $_releaseYear = Get-Date -Date $_release.Date -Format "yyyy"
+
+        # If DynamicAlbums are enabled, we use the date of the performance,
+        # and render the date of the oldest album release into ORIGINAL* VCs.
+        if ($this.Features.DynamicAlbums)
+        {
+            $_performance = $TrackMetadata.Performance
+            $_performanceDate = (
+                Get-Date -Date $_performance.Date -Format "yyyy-MM-dd")
+            $_performanceYear = (
+                Get-Date -Date $_performance.Date -Format "yyyy")
+
+            # Performance date
+            $_res = $this.CreateVorbisComment(
+                "DateFull", $_performanceDate)
+            if ($_res) { $_lines += $_res }
+
+            # Performance year
+            $_res = $this.CreateVorbisComment(
+                "DateYear", $_performanceYear)
+            if ($_res) { $_lines += $_res }
+
+            # Original album release date
+            $_res = $this.CreateVorbisComment(
+                "OriginalDateFull", $_releaseDate)
+            if ($_res) { $_lines += $_res }
+
+            # Original album release year
+            $_res = $this.CreateVorbisComment(
+                "OriginalDateYear", $_releaseYear)
+            if ($_res) { $_lines += $_res }
+        }
+
+        # Else, we use data from the oldest release of the album
+        else
+        {
+            # Release date
+            $_res = $this.CreateVorbisComment(
+                "DateFull", $_releaseDate)
+            if ($_res) { $_lines += $_res }
+
+            # Release year
+            $_res = $this.CreateVorbisComment(
+                "DateYear", $_releaseYear)
             if ($_res) { $_lines += $_res }
         }
 
@@ -688,6 +762,49 @@ class VorbisCommentConverter
         return $_lines
     }
 
+    # Renders place data to Vorbis Comment. If the DynamicAlbums feature is
+    # enabled, this method renders the performance place. If this feature
+    # is disabled, the method renders the place linked to the oldest release
+    # event in the album Releases collection.
+    [string[]] RenderPlace($AlbumMetadata, $TrackMetadata)
+    {
+        [string[]] $_lines = @()
+
+        # Build album release info. We use the oldest release event.
+        $_release = (
+            $AlbumMetadata.Releases | Sort-Object -Property Date)[0]
+        $_releasePlace = $_release.Place.ToString()
+
+        # If DynamicAlbums are enabled, we use the date of the performance,
+        # and render the date of the oldest album release into ORIGINAL* VCs.
+        if ($this.Features.DynamicAlbums)
+        {
+            $_performance = $TrackMetadata.Performance
+            $_performancePlace = $_performance.Place.ToString()
+
+            # Performance place
+            $_res = $this.CreateVorbisComment(
+                "Place", $_performancePlace)
+            if ($_res) { $_lines += $_res }
+
+            # Original album release place
+            $_res = $this.CreateVorbisComment(
+                "OriginalPlace", $_releasePlace)
+            if ($_res) { $_lines += $_res }
+        }
+
+        # Else, we use data from the oldest release of the album
+        else
+        {
+            # Release place
+            $_res = $this.CreateVorbisComment(
+                "Place", $_releasePlace)
+            if ($_res) { $_lines += $_res }
+        }
+
+        return $_lines
+    }
+
     # Render the track number info of an album track to Vorbis Comment.
     # The return value of this method depends on the status of the
     # DynamicAlbums feature. If this feature is disabled, the method returns
@@ -831,6 +948,32 @@ class VorbisCommentConverter
 
         return $_lines
     }
+
+    # Renders the performed work to Vorbis Comment.
+    [string[]] RenderWork($TrackMetadata)
+    {
+        [string[]] $_lines = @()
+
+        $_work = $TrackMetadata.Performance.Work
+
+        $_full  = $_work.Title.FullTitle
+        $_sort  = $_work.Title.SortTitle
+        $_sub   = $_work.Title.Subtitle
+
+        $_res = $this.CreateVorbisComment(
+            "WorkFullTitle", $_full)
+        if ($_res) { $_lines += $_res }
+
+        $_res = $this.CreateVorbisComment(
+            "WorkSortTitle", $_sort)
+        if ($_res) { $_lines += $_res }
+
+        $_res = $this.CreateVorbisComment(
+            "WorkSubtitle", $_sub)
+        if ($_res) { $_lines += $_res }
+
+        return $_lines
+    } 
 
     # Renders the composers of the music work to Vorbis Comment.
     [string[]] RenderWorkComposer($TrackMetadata)
