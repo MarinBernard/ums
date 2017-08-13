@@ -54,6 +54,7 @@
 				<option id="feature-instrumentalist-instrument-suffix">False</option>
 				<!-- Default value: " & ", with non breakable spaces -->
 				<option id="dynamic-album-option-album-artist-delimiter">&#160;&#038;&#160;</option>
+				<option id="dynamic-album-option-album-artist-use-sort-variants">True</option>
 				<option id="vorbis-label-album-artist">ALBUMARTIST</option>
 				<option id="vorbis-label-album-full-title">ALBUM</option>
 				<option id="vorbis-label-album-sort-title">ALBUMSORT</option>

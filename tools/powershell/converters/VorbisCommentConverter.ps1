@@ -57,7 +57,11 @@ class VorbisCommentConverter
         # is used as an album artist. When a work has several composers, the
         # names of these composers are merged into a single album artist
         # comment. This string will be inserted between each composer name.
-        AlbumArtistDelimiter    =   " & ";
+        AlbumArtistDelimiter        =   " & ";
+        # If set to $true, dynamic album artist will be created from
+        # sort-friendly variants of composer names. If set to false, full
+        # composer names will be used instead.
+        AlbumArtistUseSortVariants  =   $true;
     }
 
     # Default Vorbis Comment labels.
@@ -266,8 +270,7 @@ class VorbisCommentConverter
         [string[]] $_lines = @()
 
         # Extract album artist
-        $_albumArtist = $this.ExtractAlbumArtist($AlbumMetadata)
-        $_albumArtistAsString = $this.ExtractAsString($_albumArtist)
+        $_albumArtist = $AlbumMetadata.Artist.ToString()
 
         # DynamicAlbum mode: use music composers as album artists,
         # and register the real album artist as ORIGINAL*.
@@ -275,18 +278,19 @@ class VorbisCommentConverter
         {
             # Original album artist
             $_res = $this.CreateVorbisComment(
-                "OriginalAlbumArtist", $_albumArtistAsString)
+                "OriginalAlbumArtist", $_albumArtist)
             if ($_res) { $_lines += $_res }
 
             # Extract composers
-            $_performance = $this.ExtractTrackPerformance($TrackMetadata)
-            $_work = $this.ExtractPerformanceWork($_performance)
-            $_composers = $this.ExtractWorkComposers($_work)
+            $_composers = $TrackMetadata.Performance.Work.Composers
 
             [string[]] $_composerNames = @()
             foreach ($_composer in $_composers)
             {
-                $_composerNames += $this.ExtractPersonSortName($_composer)
+                if ($this.DynamicAlbumOptions.AlbumArtistUseSortVariants)
+                    { $_composerNames += $_composer.Name.SortName }
+                else
+                    { $_composerNames += $_composer.Name.FullName }
             }
 
             # Build album artist string
@@ -304,7 +308,7 @@ class VorbisCommentConverter
         else
         {
             $_res = $this.CreateVorbisComment(
-                "AlbumArtist", $_albumArtistAsString)
+                "AlbumArtist", $_albumArtist)
             if ($_res) { $_lines += $_res }
         }
 
@@ -316,9 +320,10 @@ class VorbisCommentConverter
     {
         [string[]] $_lines = @()
 
-        foreach ($_label in ($this.ExtractAlbumLabels($AlbumMetadata)))
+        foreach ($_label in $AlbumMetadata.Labels)
         {
-            $_res = $this.CreateVorbisComment("LabelFullLabel", $_label)
+            $_res = $this.CreateVorbisComment(
+                "LabelFullLabel", $_label.ToString())
             if ($_res) { $_lines += $_res }
         }
 
@@ -336,9 +341,9 @@ class VorbisCommentConverter
         [string[]] $_lines = @()
 
         # Gather real album data
-        $_realFullTitle = $this.ExtractAlbumFullTitle($AlbumMetadata)
-        $_realSortTitle = $this.ExtractAlbumSortTitle($AlbumMetadata)
-        $_realSubTitle  = $this.ExtractAlbumSubTitle($AlbumMetadata)
+        $_realFullTitle = $AlbumMetadata.Title.FullTitle
+        $_realSortTitle = $AlbumMetadata.Title.SortTitle
+        $_realSubTitle  = $AlbumMetadata.Title.Subtitle
 
         # Dynamic mode: output both real album title and virtual title
         if($this.Features.DynamicAlbums)
@@ -355,11 +360,9 @@ class VorbisCommentConverter
                 "OriginalAlbumSubtitle", $_realSubTitle)
             if ($_res) { $_lines += $_res }
 
-            $_performanceString = (
-                $this.ExtractAsString(
-                    $this.ExtractTrackPerformance($TrackMetadata)))
+            $_performanceAsString = $TrackMetadata.Performance.ToString()
             $_res = $this.CreateVorbisComment(
-                "AlbumFullTitle", $_performanceString)
+                "AlbumFullTitle", $_performanceAsString)
             if ($_res) { $_lines += $_res }
         }
 
@@ -395,10 +398,8 @@ class VorbisCommentConverter
         [string[]] $_lines = @()
 
         # Get real track numbers
-        $_realMediumNumber = (
-            $this.ExtractMediumNumber($MediumMetadata)).ToString()
-        $_realMediumTotal = (
-            $this.ExtractAlbumTotalMedia($AlbumMetadata)).ToString()
+        $_realMediumNumber = $MediumMetadata.Number.ToString()
+        $_realMediumTotal = $AlbumMetadata.Media.Count.ToString()
         $_realCombined = $($_realMediumNumber + "/" + $_realMediumTotal)
 
         # Dynamic mode: render real medium numbers to ORIGINAL* VCs
@@ -441,14 +442,13 @@ class VorbisCommentConverter
     {
         [string[]] $_lines = @()
 
-        $_performance = $this.ExtractTrackPerformance($TrackMetadata)
-        $_conductors = $this.ExtractPerformanceConductors($_performance)
+        $_conductors = $TrackMetadata.Performance.Conductors
 
         foreach ($_conductor in $_conductors)
         {
-            $_fullName  = $this.ExtractPersonFullName($_conductor)
-            $_sortName  = $this.ExtractPersonSortName($_conductor)
-            $_shortName = $this.ExtractPersonShortName($_conductor)
+            $_fullName  = $_conductor.Name.FullName
+            $_shortName = $_conductor.Name.ShortName
+            $_sortName  = $_conductor.Name.SortName
 
             $_res = $this.CreateVorbisComment(
                 "ConductorFullName", $_fullName)
@@ -637,10 +637,8 @@ class VorbisCommentConverter
         [string[]] $_lines = @()
 
         # Get real track numbers
-        $_realTrackNumber = (
-            $this.ExtractTrackNumber($TrackMetadata)).ToString()
-        $_realTrackTotal = (
-            $this.ExtractMediumTotalTracks($MediumMetadata)).ToString()
+        $_realTrackNumber = $TrackMetadata.Number.ToString()
+        $_realTrackTotal = $MediumMetadata.Tracks.Count.ToString()
         $_realCombined = $($_realTrackNumber + "/" + $_realTrackTotal)
 
         # Dynamic mode: use both real and virtual track numbers
@@ -726,9 +724,9 @@ class VorbisCommentConverter
         [string[]] $_lines = @()
 
         # Gather real album data
-        $_realFullTitle = $this.ExtractTrackFullTitle($TrackMetadata)
-        $_realSortTitle = $this.ExtractTrackSortTitle($TrackMetadata)
-        $_realSubTitle  = $this.ExtractTrackSubTitle($TrackMetadata)
+        $_realFullTitle = $TrackMetadata.Title.FullTitle
+        $_realSortTitle = $TrackMetadata.Title.SortTitle
+        $_realSubTitle  = $TrackMetadata.Title.Subtitle
 
         # Dynamic mode: output both real and virtual track titles
         if($this.Features.DynamicAlbums)
@@ -745,7 +743,7 @@ class VorbisCommentConverter
                 "OriginalTrackSubtitle", $_realSubTitle)
             if ($_res) { $_lines += $_res }
 
-            $_trackString = $this.ExtractAsString($TrackMetadata)
+            $_trackString = $TrackMetadata.ToString()
             $_res = $this.CreateVorbisComment(
                 "TrackFullTitle", $_trackString)
             if ($_res) { $_lines += $_res }
@@ -775,15 +773,13 @@ class VorbisCommentConverter
     {
         [string[]] $_lines = @()
 
-        $_performance = $this.ExtractTrackPerformance($TrackMetadata)
-        $_work = $this.ExtractPerformanceWork($_performance)
-        $_composers = $this.ExtractWorkComposers($_work)
+        $_composers = $TrackMetadata.Performance.Work.Composers
 
         foreach ($_composer in $_composers)
         {
-            $_fullName  = $this.ExtractPersonFullName($_composer)
-            $_sortName  = $this.ExtractPersonSortName($_composer)
-            $_shortName = $this.ExtractPersonShortName($_composer)
+            $_fullName  = $_composer.Name.FullName
+            $_shortName = $_composer.Name.ShortName
+            $_sortName  = $_composer.Name.SortName
 
             $_res = $this.CreateVorbisComment(
                 "ComposerFullName", $_fullName)
@@ -815,178 +811,5 @@ class VorbisCommentConverter
         }
 
         return $_lines
-    }
-
-    ###########################################################################
-    #   Data extractors
-    #--------------------------------------------------------------------------
-    #
-    #   Data extractors extract various types of data from UMS metadata.
-    #   They provide these data to renderers, which wrap them into
-    #   Vorbis Comments.
-    #
-    ###########################################################################
-
-    # Extracts and returns the main artist of an album.
-    [string] ExtractAlbumArtist($AlbumMetadata)
-    {
-        return $AlbumMetadata.Artist
-    }
-
-    # Extracts and returns a list of album labels from album metadata.
-    [string[]] ExtractAlbumLabels($AlbumMetadata)
-    {
-        [string[]] $_labels = @()
-
-        foreach ($_label in $AlbumMetadata.Labels)
-        {
-            $_labels += $_label.ToString()
-        }
-
-        return $_labels
-    }
-
-    # Extracts and returns the full title of an album from its metadata.
-    [string] ExtractAlbumFullTitle($AlbumMetadata)
-    {
-        return $AlbumMetadata.Title.FullTitle
-    }
-
-    # Returns the total number of media in an album.
-    [int] ExtractAlbumMediumCount($AlbumMetadata)
-    {
-        return $AlbumMetadata.Media.Count
-    }
-
-    # Extracts and returns the full title of an album from its metadata.
-    [string] ExtractAlbumSortTitle($AlbumMetadata)
-    {
-        return $AlbumMetadata.Title.SortTitle
-    }
-
-    # Extracts and returns the subtitle of an album from its metadata.
-    [string] ExtractAlbumSubtitle($AlbumMetadata)
-    {
-        return $AlbumMetadata.Title.Subtitle
-    }
-
-    # Extracts and returns the total number of media in an album.
-    [int] ExtractAlbumTotalMedia($AlbumMetadata)
-    {
-        return $AlbumMetadata.Media.Count
-    }
-
-    # Extracts and returns the string representation of an object.
-    [string] ExtractAsString($Object)
-    {
-        return $Object.ToString()
-    }
-
-    # Returns the instrument played by an instrumentalist.
-    [object] ExtractInstrumentalistInstrument($InstrumentalistMetadata)
-    {
-        return $InstrumentalistMetadata.Instrument
-    }
-
-    # Returns the full label of an item.
-    [string] ExtractItemFullLabel($Item)
-    {
-        return $Item.Label.FullLabel
-    }
-
-    # Returns the short label of an item.
-    [string] ExtractItemShortLabel($Item)
-    {
-        return $Item.Label.ShortLabel
     } 
-
-    # Returns the sort label of an item.
-    [string] ExtractItemSortLabel($Item)
-    {
-        return $Item.Label.SortLabel
-    } 
-
-    # Extracts and returns the real number of an album medium.
-    [int] ExtractMediumNumber($MediumMetadata)
-    {
-        return $MediumMetadata.Number
-    }
-
-    # Extracts and returns the total number of tracks in a medium.
-    [int] ExtractMediumTotalTracks($MediumMetadata)
-    {
-        return $MediumMetadata.Tracks.Count
-    }
-
-    # Extracts and returns the conductors from a performance.
-    [object[]] ExtractPerformanceConductors($PerformanceMetadata)
-    {
-        return $PerformanceMetadata.Conductors
-    }
-
-    # Extracts and returns the performers involved in a music performance.
-    [object[]] ExtractPerformancePerformers($PerformanceMetadata)
-    {
-        return $PerformanceMetadata.Performers
-    }
-
-    # Extracts and returns the performed work from a performance.
-    [object] ExtractPerformanceWork($PerformanceMetadata)
-    {
-        return $PerformanceMetadata.Work
-    }
-
-    # Returns the full name of a person.
-    [string] ExtractPersonFullName($Person)
-    {
-        return $Person.Name.FullName
-    }
-
-    # Returns the short name of a person.
-    [string] ExtractPersonShortName($Person)
-    {
-        return $Person.Name.ShortName
-    } 
-
-    # Returns the sort name of a person.
-    [string] ExtractPersonSortName($Person)
-    {
-        return $Person.Name.SortName
-    }    
-
-    # Extracts and returns the real full title of an album track.
-    [string] ExtractTrackFullTitle($TrackMetadata)
-    {
-        return $TrackMetadata.Title.FullTitle
-    }
-
-    # Extracts and returns the real track number of an album track.
-    [int] ExtractTrackNumber($TrackMetadata)
-    {
-        return $TrackMetadata.Number
-    }
-
-    # Returns the performance included in an album track.
-    [object] ExtractTrackPerformance($TrackMetadata)
-    {
-        return $TrackMetadata.Performance
-    }
-
-    # Extracts and returns the real sort title of an album track.
-    [string] ExtractTrackSortTitle($TrackMetadata)
-    {
-        return $TrackMetadata.Title.SortTitle
-    }  
-
-    # Extracts and returns the real subtitle of an album track.
-    [string] ExtractTrackSubtitle($TrackMetadata)
-    {
-        return $TrackMetadata.Title.Subtitle
-    }
-
-    # Extracts and returns a list of composers from a music work.
-    [object[]] ExtractWorkComposers($WorkMetadata)
-    {
-        return $WorkMetadata.Composers
-    }
 }
