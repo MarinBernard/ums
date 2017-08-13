@@ -108,6 +108,7 @@ class VorbisCommentConverter
         EnsembleShortLabel              =   "ENSEMBLESHORT";
         EnsembleSortLabel               =   "ENSEMBLESORT";
         Genre                           =   "GENRE";
+        Incipit                         =   "INCIPIT";
         InstrumentalistFullName         =   "INSTRUMENTALIST";
         InstrumentalistShortName        =   "INSTRUMENTALISTSHORT";
         InstrumentalistSortName         =   "INSTRUMENTALISTSORT";
@@ -138,6 +139,9 @@ class VorbisCommentConverter
         OriginalTrackSortTitle          =   "ORIGINALTITLESORT";
         OriginalTrackSubtitle           =   "ORIGINALSUBTITLE";
         OriginalTrackTotal              =   "ORIGINALTRACKTOTAL";
+        PerformanceDateFull             =   "PERFORMANCEDATE";
+        PerformanceDateYear             =   "PERFORMANCEYEAR";
+        PerformancePlace                =   "PERFORMANCEPLACE";
         PerformerFullName               =   "PERFORMER";
         PerformerShortName              =   "PERFORMERSHORT";
         PerformerSortName               =   "PERFORMERSORT";
@@ -298,6 +302,7 @@ class VorbisCommentConverter
         $_lines += $this.RenderComposers($_track)
         $_lines += $this.RenderConductors($_track)
         $_lines += $this.RenderDate($_album, $_track)
+        $_lines += $this.RenderIncipits($_track)
         $_lines += $this.RenderLyricists($_track)
         $_lines += $this.RenderMediumNumber($_medium, $_album)
         $_lines += $this.RenderMusicalCatalogIds($_track)
@@ -549,16 +554,17 @@ class VorbisCommentConverter
         $_releaseDate = Get-Date -Date $_release.Date -Format "yyyy-MM-dd"
         $_releaseYear = Get-Date -Date $_release.Date -Format "yyyy"
 
+        # Build performance date info.
+        $_performance = $TrackMetadata.Performance
+        $_performanceDate = (
+            Get-Date -Date $_performance.Date -Format "yyyy-MM-dd")
+        $_performanceYear = (
+            Get-Date -Date $_performance.Date -Format "yyyy")
+
         # If DynamicAlbums are enabled, we use the date of the performance,
         # and render the date of the oldest album release into ORIGINAL* VCs.
         if ($this.Features.DynamicAlbums)
         {
-            $_performance = $TrackMetadata.Performance
-            $_performanceDate = (
-                Get-Date -Date $_performance.Date -Format "yyyy-MM-dd")
-            $_performanceYear = (
-                Get-Date -Date $_performance.Date -Format "yyyy")
-
             # Performance date
             $_res = $this.CreateVorbisComment(
                 "DateFull", $_performanceDate)
@@ -594,8 +600,33 @@ class VorbisCommentConverter
             if ($_res) { $_lines += $_res }
         }
 
+        # Performance date and year are alwaus rendered
+        $_res = $this.CreateVorbisComment(
+            "PerformanceDateFull", $_performanceDate)
+        if ($_res) { $_lines += $_res }
+
+        # Performance year
+        $_res = $this.CreateVorbisComment(
+            "PerformanceDateYear", $_performanceYear)
+        if ($_res) { $_lines += $_res }
+
         return $_lines
     }
+
+    # Renders incipits to Vorbis Comment.
+    [string[]] RenderIncipits($TrackMetadata)
+    {
+        [string[]] $_lines = @()
+
+        foreach ($_movement in $TrackMetadata.Movements)
+        {
+            $_res = $this.CreateVorbisComment(
+                "Incipit", $_movement.Incipit)
+            if ($_res) { $_lines += $_res }
+        }
+
+        return $_lines
+    } 
 
     # Renders lyricists to Vorbis Comment.
     [string[]] RenderLyricists($TrackMetadata)
@@ -988,13 +1019,14 @@ class VorbisCommentConverter
             $AlbumMetadata.Releases | Sort-Object -Property Date)[0]
         $_releasePlace = $_release.Place.ToString()
 
+        # Build performance place
+        $_performance = $TrackMetadata.Performance
+        $_performancePlace = $_performance.Place.ToString()
+
         # If DynamicAlbums are enabled, we use the date of the performance,
         # and render the date of the oldest album release into ORIGINAL* VCs.
         if ($this.Features.DynamicAlbums)
         {
-            $_performance = $TrackMetadata.Performance
-            $_performancePlace = $_performance.Place.ToString()
-
             # Performance place
             $_res = $this.CreateVorbisComment(
                 "Place", $_performancePlace)
@@ -1014,6 +1046,11 @@ class VorbisCommentConverter
                 "Place", $_releasePlace)
             if ($_res) { $_lines += $_res }
         }
+
+        # Performance place is always rendered
+        $_res = $this.CreateVorbisComment(
+            "PerformancePlace", $_performancePlace)
+        if ($_res) { $_lines += $_res }
 
         return $_lines
     }

@@ -79,6 +79,7 @@
 				<option id="vorbis-label-ensemble-short-label">ENSEMBLESHORT</option>
 				<option id="vorbis-label-ensemble-sort-label">ENSEMBLESORT</option>
 				<option id="vorbis-label-genre">GENRE</option>
+				<option id="vorbis-label-incipit">INCIPIT</option>
 				<option id="vorbis-label-instrumentalist-full-name">INSTRUMENTALIST</option>
 				<option id="vorbis-label-instrumentalist-short-name">INSTRUMENTALISTSHORT</option>
 				<option id="vorbis-label-instrumentalist-sort-name">INSTRUMENTALISTSORT</option>
@@ -109,6 +110,9 @@
 				<option id="vorbis-label-original-track-sort-title">ORIGINALTITLESORT</option>
 				<option id="vorbis-label-original-track-subtitle">ORIGINALSUBTITLE</option>
 				<option id="vorbis-label-original-track-total">ORIGINALTRACKTOTAL</option>
+				<option id="vorbis-label-performance-date-full">PERFORMANCEDATE</option>
+				<option id="vorbis-label-performance-date-year">PERFORMANCEYEAR</option>
+				<option id="vorbis-label-performance-place">PERFORMANCEPLACE</option>
 				<option id="vorbis-label-performer-full-name">PERFORMER</option>
 				<option id="vorbis-label-performer-short-name">PERFORMERSHORT</option>
 				<option id="vorbis-label-performer-sort-name">PERFORMERSORT</option>
