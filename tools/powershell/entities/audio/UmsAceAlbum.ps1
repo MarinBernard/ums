@@ -27,6 +27,7 @@ class UmsAceAlbum : UmsBaePublication
     [UmsBceSymbolVariant]   $Artist
     [UmsAceLabel[]]         $Labels
     [UmsAceMedium[]]        $Media
+    [UmsBceStandardId[]]    $StandardIds
 
     # Views
     [UmsMcePerformance[]]   $Performances
@@ -69,6 +70,16 @@ class UmsAceAlbum : UmsBaePublication
                 $XmlElement,
                 [UmsAeEntity]::NamespaceUri.Audio,
                 "media"))
+
+        # Optional 'standardIds' element (collection of 'standardId' elements)
+        if ($XmlElement.standardIds)
+        {
+            $this.BuildStandardId(
+                $this.GetOneXmlElement(
+                    $XmlElement,
+                    [UmsAeEntity]::NamespaceUri.Base,
+                    "standardIds"))
+        }
 
         # Update views
         $this.UpdatePerformances()
@@ -119,6 +130,21 @@ class UmsAceAlbum : UmsBaePublication
             "medium"
         ) | foreach {
                 $this.Media += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
+    }
+
+    # Sub-constructor for the 'standardIds' element
+    [void] BuildStandardIds([System.Xml.XmlElement] $StandardIdsElement)
+    {
+        # Verbose prefix
+        $_verbosePrefix = "[UmsAceAlbum]::BuildStandardIds(): "
+
+        $this.GetOneOrManyXmlElement(
+            $StandardIdsElement,
+            [UmsAeEntity]::NamespaceUri.Audio,
+            "standardId"
+        ) | foreach {
+                $this.StandardIds += [EntityFactory]::GetEntity(
                     $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 

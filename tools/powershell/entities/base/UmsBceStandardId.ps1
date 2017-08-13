@@ -22,7 +22,7 @@ class UmsBceStandardId : UmsAeEntity
     ###########################################################################
 
     # Imported raw
-    [string] $StandardName
+    [string] $Standard
     [string] $Id
 
     ###########################################################################
@@ -38,7 +38,7 @@ class UmsBceStandardId : UmsAeEntity
             $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "standardId")
 
         # Attributes
-        $this.StandardName = $this.GetMandatoryXmlAttributeValue(
+        $this.Standard = $this.GetMandatoryXmlAttributeValue(
             $XmlElement, "standard")
         
         # Text value
@@ -52,6 +52,6 @@ class UmsBceStandardId : UmsAeEntity
     # String representation
     [string] ToString()
     {
-        return $this.StandardName
+        return $this.Standard
     }
 }
