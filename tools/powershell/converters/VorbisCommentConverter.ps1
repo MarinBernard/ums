@@ -54,6 +54,7 @@ class VorbisCommentConverter
         InstrumentalistAsPerformerInstrumentSuffix  =   $true;
         InstrumentalistInstrumentSuffix             =   $false;
         MusicalFormAsGenre                          =   $false;
+        MusicalStyleAsGenre                         =   $false;
     }
 
     # Rendering options for dynamic albums
@@ -75,6 +76,10 @@ class VorbisCommentConverter
         # when it is rendered as a GENRE Vorbis Comment. Use this prefix to
         # group musical forms together in the genre list.
         MusicalFormAsGenrePrefix        =   "";
+        # A prefix which will be inserted before the name of a musical style
+        # when it is rendered as a GENRE Vorbis Comment. Use this prefix to
+        # group musical styles together in the genre list.
+        MusicalStyleAsGenrePrefix       =   "";
         # If set to $true, the first letter of a musical key will be
         # capitalized.
         MusicalKeyCapitalizeFirstLetter =   $true;
@@ -111,6 +116,7 @@ class VorbisCommentConverter
         MediumTotal                     =   "MEDIUMTOTAL";
         MovementMusicalKey              =   "KEY";
         MusicalForm                     =   "MUSICALFORM";
+        MusicalStyle                    =   "STYLE";
         OriginalAlbumArtist             =   "ORIGINALALBUMARTIST";
         OriginalAlbumFullTitle          =   "ORIGINALALBUM";
         OriginalAlbumSortTitle          =   "ORIGINALALBUMSORT";
@@ -290,6 +296,7 @@ class VorbisCommentConverter
         $_lines += $this.RenderMediumNumber($_medium, $_album)
         $_lines += $this.RenderMusicalForms($_track)
         $_lines += $this.RenderMusicalKeys($_track)
+        $_lines += $this.RenderMusicalStyle($_track)
         $_lines += $this.RenderPerformers($_track)
         $_lines += $this.RenderPlace($_album, $_track)
         $_lines += $this.RenderTrackNumber($_track, $_medium, $_album)
@@ -713,7 +720,33 @@ class VorbisCommentConverter
         }
 
         return $_lines
-    } 
+    }
+
+    # Renders musical styles to Vorbis Comment.
+    [string[]] RenderMusicalStyle($TrackMetadata)
+    {
+        [string[]] $_lines = @()
+
+        # Musical style associated to the parent work.
+        $_style = $TrackMetadata.Performance.Work.Style.ToString()
+
+        $_res = $this.CreateVorbisComment(
+            "MusicalStyle", $_style)
+        if ($_res) { $_lines += $_res }
+
+        # If styles should be registered as genres, let's do it.
+        if($this.Features.MusicalStyleAsGenre)
+        {
+            $_fullStyle = $(
+                $this.Rendering.MusicalStyleAsGenrePrefix + $_style)
+            
+            $_res = $this.CreateVorbisComment(
+                "Genre", $_fullStyle)
+            if ($_res) { $_lines += $_res }
+        }
+
+        return $_lines
+    }
 
     # Renders the performers of a music performance to Vorbis Comment.
     [string[]] RenderPerformers($TrackMetadata)

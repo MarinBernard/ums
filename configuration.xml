@@ -56,7 +56,9 @@
 				<option id="feature-instrumentalist-as-performer-instrument-suffix">True</option>
 				<option id="feature-instrumentalist-instrument-suffix">False</option>
 				<option id="feature-musical-form-as-genre">True</option>
+				<option id="feature-musical-style-as-genre">True</option>
 				<option id="rendering-musical-form-as-genre-prefix">#</option>
+				<option id="rendering-musical-style-as-genre-prefix">~</option>
 				<option id="vorbis-label-album-artist">ALBUMARTIST</option>
 				<option id="vorbis-label-album-full-title">ALBUM</option>
 				<option id="vorbis-label-album-sort-title">ALBUMSORT</option>
@@ -85,6 +87,7 @@
 				<option id="vorbis-label-medium-total">MEDIUMTOTAL</option>
 				<option id="vorbis-label-movement-musical-key">KEY</option>
 				<option id="vorbis-label-musical-form">MUSICALFORM</option>
+				<option id="vorbis-label-musical-style">STYLE</option>
 				<option id="vorbis-label-original-album-artist">ORIGINALALBUMARTIST</option>
 				<option id="vorbis-label-original-album-full-title">ORIGINALALBUM</option>
 				<option id="vorbis-label-original-album-sort-title">ORIGINALALBUMSORT</option>
