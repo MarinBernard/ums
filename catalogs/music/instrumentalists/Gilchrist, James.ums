@@ -13,7 +13,7 @@
 	<birth>
 		<year>1966</year>
 		<place>
-			<countryState uid="GB/EN"/>
+			<countryDivision uid="GB/EN"/>
 		</place>
 	</birth>
 	<linkVariants>

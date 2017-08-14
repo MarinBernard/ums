@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<countryDivision xmlns="http://schemas.olivarim.com/ums/1.0/base">
+	<labelVariants>
+		<labelVariant lang="de" original="true" default="true">
+			<fullLabel>Freistaat Sachsen</fullLabel>
+			<sortLabel>Sachsen, Freistaat</sortLabel>
+			<commonLabel>Sachsen</commonLabel>
+		</labelVariant>
+		<labelVariant lang="en">
+			<fullLabel>Free State of Saxony</fullLabel>
+			<sortLabel>Saxony, Free State of</sortLabel>
+			<commonLabel>Saxony</commonLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Estado Libre de Sajonia</fullLabel>
+			<sortLabel>Sajonia, Estado Libre de</sortLabel>
+			<commonLabel>Sajonia</commonLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>État Libre de Saxe</fullLabel>
+			<sortLabel>Saxe, État Libre de</sortLabel>
+			<commonLabel>Saxe</commonLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Stato Libero di Sassonia</fullLabel>
+			<sortLabel>Sassonia, Stato Libero di</sortLabel>
+			<commonLabel>Sassonia</commonLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Vrijstaat Saksen</fullLabel>
+			<sortLabel>Saksen, Vrijstaat</sortLabel>
+			<commonLabel>Saksen</commonLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Свободное государство Саксония</fullLabel>
+			<sortLabel>Саксония, Свободное государство</sortLabel>
+			<commonLabel>Саксония</commonLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Sachsen"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Saxony"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Sajonia"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Saxe_(Land)"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Sassonia"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Saksen_(deelstaat)"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Саксония_(земля)"/>
+	</linkVariants>
+	<standardIds>
+		<standardId>
+			<standard uid="ISO/3166/2"/>
+			<segments>
+				<segment level="1">DE</segment>
+				<segment level="2">SN</segment>
+			</segments>
+		</standardId>
+	</standardIds>
+	<country uid="DE"/>
+</countryDivision>

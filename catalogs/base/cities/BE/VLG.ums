@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<countryDivision xmlns="http://schemas.olivarim.com/ums/1.0/base">
+	<labelVariants>
+		<labelVariant lang="de" original="true" default="true">
+			<fullLabel>Flämische Region</fullLabel>
+			<sortLabel>Flämische, Region</sortLabel>
+			<commonLabel>Flandern</commonLabel>
+		</labelVariant>
+		<labelVariant lang="en">
+			<fullLabel>Flemish Region</fullLabel>
+			<sortLabel>Flemish, Region</sortLabel>
+			<commonLabel>Flanders</commonLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Región Flamenca</fullLabel>
+			<sortLabel>Flamenca, Región</sortLabel>
+			<commonLabel>Flandes</commonLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Région flamande</fullLabel>
+			<sortLabel>Flamande, Région</sortLabel>
+			<commonLabel>Flandre</commonLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Regione fiamminga</fullLabel>
+			<sortLabel>Fiamminga, Regione</sortLabel>
+			<commonLabel>Fiandre</commonLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Vlaams Gewest</fullLabel>
+			<sortLabel>Vlaams, Gewest</sortLabel>
+			<commonLabel>Vlaanderen</commonLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Фламандский регион</fullLabel>
+			<sortLabel>Фламандский, регион</sortLabel>
+			<commonLabel>Берлин</commonLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Flandern"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Flemish_Region"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Región_Flamenca"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Région_flamande"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Vlaams_Gewest"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Фламандский_регион"/>
+	</linkVariants>
+	<standardIds>
+		<standardId>
+			<standard uid="ISO/3166/2"/>
+			<segments>
+				<segment level="1">BE</segment>
+				<segment level="2">VLG</segment>
+			</segments>
+		</standardId>
+	</standardIds>
+	<country uid="BE"/>
+</countryDivision>

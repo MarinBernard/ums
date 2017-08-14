@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<standard
+	xmlns="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Codes für die Namen von Ländern und deren Untereinheiten</fullLabel>
+			<shortLabel>ISO 3166</shortLabel>
+		</labelVariant>
+		<labelVariant lang="en" original="true" default="true">
+			<fullLabel>Codes for the representation of names of countries and their subdivisions</fullLabel>
+			<shortLabel>ISO 3166</shortLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Códigos para la representación de nombres de países y sus subdivisiones</fullLabel>
+			<shortLabel>ISO 3166</shortLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Codes pour la représentation des noms des pays et de leurs subdivisions</fullLabel>
+			<shortLabel>ISO 3166</shortLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Codici per la rappresentazione dei nomi dei paesi e delle loro suddivisioni</fullLabel>
+			<shortLabel>ISO 3166</shortLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Кодовые обозначения государств, зависимых территорий и основных административных образований</fullLabel>
+			<shortLabel>ISO 3166</shortLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/ISO_3166"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/ISO_3166"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/ISO_3166"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/ISO_3166"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/ISO_3166"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/ISO_3166"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/ISO_3166"/>
+	</linkVariants>
+	<standardIds>
+		<standardId>
+			<standard uid="ICS"/>
+			<segments>
+				<segment level="1">01</segment>
+				<segment level="2">140</segment>
+				<segment level="3">30</segment>
+			</segments>
+		</standardId>
+	</standardIds>
+	<status>Current</status>
+	<parent>
+		<standard uid="../ISO"/>
+	</parent>
+</standard>

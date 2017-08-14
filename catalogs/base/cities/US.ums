@@ -24,12 +24,12 @@
 		<labelVariant lang="it">
 			<fullLabel>Argentijnse Republiek</fullLabel>
 			<commonLabel>Argentinië</commonLabel>
-		</labelVariant>				
+		</labelVariant>
 		<labelVariant lang="nl">
 			<fullLabel>Verenigde Staten van Amerika</fullLabel>
 			<commonLabel>Verenigde Staten</commonLabel>
 			<shortLabel>VS</shortLabel>
-		</labelVariant>		
+		</labelVariant>
 		<labelVariant lang="ru">
 			<fullLabel>Соединённые Штаты Америки</fullLabel>
 			<commonLabel>Соединённые Штаты</commonLabel>
@@ -46,6 +46,11 @@
 		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Аргентина"/>
 	</linkVariants>
 	<standardIds>
-		<standardId standard="ISO 3166-1">US</standardId>
+		<standardId>
+			<standard uid="ISO/3166/1"/>
+			<segments>
+				<segment level="1">US</segment>
+			</segments>
+		</standardId>
 	</standardIds>
 </country>

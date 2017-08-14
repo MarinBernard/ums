@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<countryDivision xmlns="http://schemas.olivarim.com/ums/1.0/base">
+	<labelVariants>
+		<labelVariant lang="de" original="true" default="true">
+			<fullLabel>Bundesland Wien</fullLabel>
+			<sortLabel>Wien, Bundesland</sortLabel>
+			<commonLabel>Wien</commonLabel>
+		</labelVariant>
+		<labelVariant lang="en">
+			<fullLabel>Federated State of Vienna</fullLabel>
+			<sortLabel>Vienna, Federated State of</sortLabel>
+			<commonLabel>Vienna</commonLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Estado Federado de Viena</fullLabel>
+			<sortLabel>Viena, Estado Federado de</sortLabel>
+			<commonLabel>Viena</commonLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>État fédéré de Vienne</fullLabel>
+			<sortLabel>Vienne, État fédéré de</sortLabel>
+			<commonLabel>Vienne</commonLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Stato Federato di Vienna</fullLabel>
+			<sortLabel>Vienna, Stato Federato di</sortLabel>
+			<commonLabel>Vienna</commonLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Deelstaat Wenen</fullLabel>
+			<sortLabel>Wenen, Deelstaat</sortLabel>
+			<commonLabel>Wenen</commonLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Земля Вена</fullLabel>
+			<sortLabel>Вена, Земля</sortLabel>
+			<commonLabel>Вена</commonLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Wien"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Vienna"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Viena"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Vienne_(Autriche)"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Vienna"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Wenen"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Вена"/>
+	</linkVariants>
+	<standardIds>
+		<standardId>
+			<standard uid="ISO/3166/2"/>
+			<segments>
+				<segment level="1">AT</segment>
+				<segment level="2">9</segment>
+			</segments>
+		</standardId>
+	</standardIds>
+	<country uid="AT"/>
+</countryDivision>

@@ -25,7 +25,7 @@
 			<sortLabel>België, Koninkrijk</sortLabel>
 			<commonLabel>België</commonLabel>
 			<shortLabel>BE</shortLabel>
-		</labelVariant>		
+		</labelVariant>
 		<labelVariant lang="ru">
 			<fullLabel>Королевство Бельгия</fullLabel>
 			<sortLabel>Бельгия, Королевство</sortLabel>
@@ -41,6 +41,11 @@
 		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бельгия"/>
 	</linkVariants>
 	<standardIds>
-		<standardId standard="ISO 3166-1">BE</standardId>
+		<standardId>
+			<standard uid="ISO/3166/1"/>
+			<segments>
+				<segment level="1">BE</segment>
+			</segments>
+		</standardId>
 	</standardIds>
 </country>

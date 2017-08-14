@@ -25,11 +25,11 @@ class UmsBceCity : UmsBaeItem
     # Visible properties
     ###########################################################################
 
-    # Parent country state, if any
-    [UmsBceCountryState] $CountryState
-
     # Parent country
-    [UmsBceCountry] $Country    
+    [UmsBceCountry] $Country 
+    
+    # Parent country division, if any
+    [UmsBceCountryDivision] $CountryDivision
 
     ###########################################################################
     # Constructors
@@ -43,23 +43,23 @@ class UmsBceCity : UmsBaeItem
         $this.ValidateXmlElement(
             $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "city")
         
-        # Try to get a 'countryState' element
-        if ($XmlElement.countryState)
+        # Try to get a 'countryDivision' element
+        if ($XmlElement.countryDivision)
         {
-            $this.CountryState = (
+            $this.CountryDivision = (
                 [EntityFactory]::GetEntity(
                     $this.GetOneXmlElement(
                         $XmlElement,
                         [UmsAeEntity]::NamespaceUri.Base,
-                        "countryState"),
+                        "countryDivision"),
                     $this.SourcePathUri,
                     $this.SourceFileUri))
             
-            # Set the country property to that of the CountryState
-            $this.Country = $this.CountryState.Country
+            # Set the country property to that of the countryDivision
+            $this.Country = $this.CountryDivision.Country
         }
 
-        # If no 'countryState' element was found, a 'country' child element
+        # If no 'countryDivision' element was found, a 'country' child element
         # becomes mandatory.
         else
         {
@@ -92,14 +92,17 @@ class UmsBceCity : UmsBaeItem
             $_string += ([UmsBaeItem]$this).ToString()
         }
 
-        # Add countryState string, which includes a country suffix
-        if($this.CountryState)
+        # If CountryDivision is set, the parent of the city is a country
+        # division. We include the string representation of the country
+        # division, which includes all remanining parents, as a suffix.
+        if($this.CountryDivision)
         {
             $_string += [UmsBceCity]::PlaceDelimiter
-            $_string += $this.CountryState.ToString()
+            $_string += $this.CountryDivision.ToString()
         }
 
-        # Add country string, which includes no suffix
+        # Else, the parent is a country.
+        # We Include the country string representation as a suffix.
         elseif($this.Country)
         {
             $_string += [UmsBceCity]::PlaceDelimiter

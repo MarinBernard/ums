@@ -31,9 +31,6 @@ class UmsBaeItem : UmsBaeResource
     # Elected label variant
     [UmsBceLabelVariant] $Label
 
-    # Collection of all standard Ids
-    [UmsBceStandardId[]] $StandardIds
-
     ###########################################################################
     # Constructors
     ###########################################################################
@@ -53,11 +50,6 @@ class UmsBaeItem : UmsBaeResource
         $this.BuildLabelVariants(
             $this.GetZeroOrOneXmlElement(
                 $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "labelVariants"))
-
-        # Build optional standard ids
-        $this.BuildStandardIds(
-            $this.GetZeroOrOneXmlElement(
-                $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "standardIds"))
     }
 
     # Builds instances of all label variants and elects the best one.
@@ -73,18 +65,6 @@ class UmsBaeItem : UmsBaeResource
 
         # Get the best label variant
         $this.Label = [UmsBaeVariant]::GetBestVariant($this.LabelVariants)
-    }
-
-    # Builds instances of all standard ids.
-    [void] BuildStandardIds([System.Xml.XmlElement] $StandardIdsElement)
-    {
-        $this.GetZeroOrManyXmlElement(
-            $StandardIdsElement,
-            [UmsAeEntity]::NamespaceUri.Base,
-            "standardId"
-        ) | foreach {
-                $this.StandardIds += [EntityFactory]::GetEntity(
-                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 
     ###########################################################################

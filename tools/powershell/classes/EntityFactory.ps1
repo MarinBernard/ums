@@ -314,8 +314,8 @@ class EntityFactory
                 "country"
                     { return New-Object -Type UmsBceCountry(
                         $XmlElement, $Uri) }
-                "countryState"
-                    { return New-Object -Type UmsBceCountryState(
+                "countryDivision"
+                    { return New-Object -Type UmsBceCountryDivision(
                         $XmlElement, $Uri) }
                 "death"
                     { return New-Object -Type UmsBceDeath(
@@ -337,6 +337,9 @@ class EntityFactory
                         $XmlElement, $Uri) }
                 "release"
                     { return New-Object -Type UmsBceRelease(
+                        $XmlElement, $Uri) }
+                "standard"
+                    { return New-Object -Type UmsBceStandard(
                         $XmlElement, $Uri) }
                 "standardId"
                     { return New-Object -Type UmsBceStandardId(

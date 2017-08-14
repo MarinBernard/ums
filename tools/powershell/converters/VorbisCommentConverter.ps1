@@ -96,6 +96,10 @@ class VorbisCommentConverter
         ArtistFullName                  =   "ARTIST";
         ArtistShortName                 =   "ARTISTSHORT";
         ArtistSortName                  =   "ARTISTSORT";
+        Asin                            =   "ASIN";
+        Barcode                         =   "BARCODE";
+        BarcodeEan                      =   "EAN";
+        BarcodeUpc                      =   "UPC";
         ComposerFullName                =   "COMPOSER";
         ComposerShortName               =   "COMPOSERSHORT";
         ComposerSortName                =   "COMPOSERSORT";
@@ -311,6 +315,7 @@ class VorbisCommentConverter
         $_lines += $this.RenderMusicalStyle($_track)
         $_lines += $this.RenderPerformers($_track)
         $_lines += $this.RenderPlace($_album, $_track)
+        $_lines += $this.RenderStandardIds($_album, $_track)
         $_lines += $this.RenderTrackNumber($_track, $_medium, $_album)
         $_lines += $this.RenderTrackTitle($_track)
         $_lines += $this.RenderWork($_track)
@@ -1051,6 +1056,49 @@ class VorbisCommentConverter
         $_res = $this.CreateVorbisComment(
             "PerformancePlace", $_performancePlace)
         if ($_res) { $_lines += $_res }
+
+        return $_lines
+    }
+
+    # Renders standard IDs to Vorbis Comment. This includes barcode and ASIN.
+    [string[]] RenderStandardIds($AlbumMetadata, $TrackMetadata)
+    {
+        [string[]] $_lines = @()
+
+        # Render the barcodes
+        foreach ($_standardId in $AlbumMetadata.StandardIds)
+        {
+            switch ($_standardId.Standard)
+            {
+                "asin"
+                {
+                    $_res = $this.CreateVorbisComment(
+                        "Asin", $_standardId.Id)
+                    if ($_res) { $_lines += $_res }
+                }
+
+                "barcode"
+                {
+                    $_res = $this.CreateVorbisComment(
+                        "Barcode", $_standardId.Id)
+                    if ($_res) { $_lines += $_res }
+                }
+
+                "barcode-ean"
+                {
+                    $_res = $this.CreateVorbisComment(
+                        "BarcodeEan", $_standardId.Id)
+                    if ($_res) { $_lines += $_res }
+                }
+
+                "barcode-upc"
+                {
+                    $_res = $this.CreateVorbisComment(
+                        "BarcodeUpc", $_standardId.Id)
+                    if ($_res) { $_lines += $_res }
+                }
+            }
+        }
 
         return $_lines
     }

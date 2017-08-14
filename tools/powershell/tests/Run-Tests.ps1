@@ -44,13 +44,16 @@ function ShowUmsException($Exception)
 try
 {
     $_uri = [System.Uri]::New("file:///C:/Users/marin/Code/ums/tests/current/ums/album.ums")
-    ([EntityFactory]::ParseDocument($_uri, "test"))
-    ([EntityFactory]::DumpCache()) | ft
+    ([EntityFactory]::ParseDocument($_uri, "test")).Performances[0].Place.CountryDivision
 
+}
+catch [UmsException]
+{
+    Write-Error $_.Exception.MainMessage
 }
 catch
 {
     ShowUmsException $_.Exception
 }
 
-[EntityFactory]::MeasureCache()
+#[EntityFactory]::MeasureCache()

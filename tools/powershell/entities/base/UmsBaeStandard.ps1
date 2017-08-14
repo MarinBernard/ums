@@ -1,0 +1,161 @@
+###############################################################################
+#   Abstract entity class UmsBaeStandard
+#==============================================================================
+#
+#   This class describes an abstract UMS entity representing a generic
+#   standard. It deals with properties defined in the 'Standard' abstract type
+#   from the XML schema.
+#
+#   This class must *NOT* be instantiated, but rather be inherited by concrete 
+#   entity classes.
+#
+###############################################################################
+
+class UmsBaeStandard : UmsBaeItem
+{
+    ###########################################################################
+    # Static properties
+    ###########################################################################
+
+    ###########################################################################
+    # Hidden properties
+    ###########################################################################
+
+    ###########################################################################
+    # Visible properties
+    ###########################################################################
+
+    [UmsBaeStandard_Status]    $Status
+    [UmsBaeStandard_Segment[]] $Segments
+
+    ###########################################################################
+    # Constructors
+    ###########################################################################
+
+    # Abstract constructor, to be called by child constructors.
+    UmsBaeStandard([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+        : base($XmlElement, $Uri)
+    {
+        # Instantiation of an abstract class is forbidden
+        if ($this.getType().Name -eq "UmsBaeStandard")
+        {
+            throw [AbstractClassInstantiationException]::New(
+                $this.getType().Name)
+        }
+
+        # Mandatory 'status' element
+        $this.Status = (
+            $this.GetOneXmlElementValue(
+                $XmlElement,
+                [UmsAeEntity]::NamespaceUri.Base,
+                "status"))
+
+        # Optional 'segments' element (collection of 'segment' elements)
+        if ($XmlElement.segments)
+        {
+            $this.BuildSegments(
+                $this.GetOneXmlElement(
+                    $XmlElement,
+                    [UmsAeEntity]::NamespaceUri.Base,
+                    "segments"))     
+        }
+    }
+
+    # Sub-constructor for the 'segments' element
+    [void] BuildSegments([System.Xml.XmlElement] $SegmentsElement)
+    {
+        $this.GetOneOrManyXmlElement(
+            $SegmentsElement,
+            [UmsAeEntity]::NamespaceUri.Base,
+            "segment"
+        ) | foreach { $this.Segments += [UmsBaeStandard_Segment]::New($_) }
+
+        # Sort segments by order
+        $this.Segments = $this.Segments | Sort-Object -Property Order
+    }
+
+    ###########################################################################
+    # Helpers
+    ###########################################################################
+
+    # Build the full ID of a standard ID from a collection of ID segments.
+    [string] ConstructId([UmsBaeStandard_IdSegment[]] $IdSegments)
+    {
+        # Verbose prefix
+        $_verbosePrefix = "[UmsBaeStandard]::ConstructId(): "
+
+        [string] $_string = ""
+
+        Write-Verbose $(
+            $_verbosePrefix + `
+            "Beginning to construct an ID for standard: " + `
+            $this.ToString())
+
+        foreach ($_segment in $this.Segments)
+        {            
+            # Try to gather an ID segment of the same level
+            $_idSegment = $IdSegments |
+                Where-Object { $_.Level -eq $_segment.Order }
+
+            if ($_idSegment)
+            {
+                Write-Verbose $(
+                    $_verbosePrefix + `
+                    "Matching segment found with value: " + `
+                    $_idSegment.Value)
+                
+                $_string += $_segment.GetPrefix()
+                $_string += $_idSegment.Value
+            }
+
+            # If no match was found and the segment was mandatory
+            elseif ($_segment.Mandatory)
+            {
+                Write-Verbose $(
+                    $_verbosePrefix + `
+                    "No matching segment found but the segment is mandatory.")
+                
+                # TODO: use a real exception
+                throw $("Mandatory standard ID segment not found: " + $_segment.Order)
+            }
+
+            # If no match was found and the segment was optional
+            else
+            {
+                Write-Verbose $(
+                    $_verbosePrefix + `
+                    "No matching segment found but the segment is optional. Continuing.")
+                
+                continue;
+            }
+        }
+
+        return $_string
+    }
+
+    # Renders the standard name to string
+    [string] ToString()
+    {
+        # If a short label exists, use it first.
+        if ($this.Label.ShortLabel)
+            { return $this.Label.ShortLabel }
+        
+        # Else, return the default string representation for string items
+        else
+            { return ([UmsBaeItem] $this).ToString() }
+    }
+}
+
+###############################################################################
+#   Local enum UmsBaeStandard_Status
+#==============================================================================
+#
+#   Describes the status of a standard.
+#
+###############################################################################
+
+Enum UmsBaeStandard_Status
+{
+    Current
+    Deprecated
+}

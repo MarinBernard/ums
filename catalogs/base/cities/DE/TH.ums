@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<countryDivision xmlns="http://schemas.olivarim.com/ums/1.0/base">
+	<labelVariants>
+		<labelVariant lang="de" original="true" default="true">
+			<fullLabel>Freistaat Thüringen</fullLabel>
+			<sortLabel>Thüringen, Freistaat</sortLabel>
+			<commonLabel>Thüringen</commonLabel>
+		</labelVariant>
+		<labelVariant lang="en">
+			<fullLabel>Free State of Thuringia</fullLabel>
+			<sortLabel>Thuringia, Free State of</sortLabel>
+			<commonLabel>Thuringia</commonLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Estado Libre de Turingia</fullLabel>
+			<sortLabel>Turingia, Estado Libre de</sortLabel>
+			<commonLabel>Turingia</commonLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>État Libre de Thuringe</fullLabel>
+			<sortLabel>Thuringe, État Libre de</sortLabel>
+			<commonLabel>Thuringe</commonLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Stato Libero di Turingia</fullLabel>
+			<sortLabel>Turingia, Stato Libero di</sortLabel>
+			<commonLabel>Turingia</commonLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Vrijstaat Thüringen</fullLabel>
+			<sortLabel>Thüringen, Vrijstaat</sortLabel>
+			<commonLabel>Thüringen</commonLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Свободное государство Тюрингия</fullLabel>
+			<sortLabel>Тюрингия, Свободное государство</sortLabel>
+			<commonLabel>Тюрингия</commonLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Thüringen"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Thuringia"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Turingia"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Thuringe"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Turingia"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Thüringen_(deelstaat)"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Тюрингия"/>
+	</linkVariants>
+	<standardIds>
+		<standardId>
+			<standard uid="ISO/3166/2"/>
+			<segments>
+				<segment level="1">DE</segment>
+				<segment level="2">TH</segment>
+			</segments>
+		</standardId>
+	</standardIds>
+	<country uid="DE"/>
+</countryDivision>

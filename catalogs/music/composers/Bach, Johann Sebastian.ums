@@ -19,13 +19,13 @@
 	<birth>
 		<date>1685-03-31</date>
 		<place>
-			<city uid="DE/Eisenach"/>
+			<city uid="DE/TH/Eisenach"/>
 		</place>
 	</birth>
 	<death>
 		<date>1750-07-28</date>
 		<place>
-			<city uid="DE/Leipzig"/>
+			<city uid="DE/SN/Leipzig"/>
 		</place>
 	</death>
 	<linkVariants>

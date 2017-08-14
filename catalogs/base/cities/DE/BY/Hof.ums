@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<city xmlns="http://schemas.olivarim.com/ums/1.0/base">
+	<labelVariants>
+		<labelVariant lang="de" default="true" original="true">
+			<fullLabel>Hof</fullLabel>
+		</labelVariant>
+		<labelVariant lang="en">
+			<fullLabel>Hof</fullLabel>
+		</labelVariant>	
+		<labelVariant lang="es">
+			<fullLabel>Hof</fullLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Hof</fullLabel>
+		</labelVariant>			
+		<labelVariant lang="it">
+			<fullLabel>Hof</fullLabel>
+		</labelVariant>	
+		<labelVariant lang="nl">
+			<fullLabel>Hof</fullLabel>
+		</labelVariant>	
+		<labelVariant lang="ru">
+			<fullLabel>Хоф</fullLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Hof_(Saale)"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Hof,_Bavaria"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Hof_(Baviera)"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Hof_(Bavière)"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Hof_(Baviera)"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Hof_(Beieren)"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Хоф_(Зале)"/>
+	</linkVariants>
+	<countryDivision uid="DE/BY"/>
+</city>

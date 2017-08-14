@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<countryDivision xmlns="http://schemas.olivarim.com/ums/1.0/base">
+	<labelVariants>
+		<labelVariant lang="de" original="true" default="true">
+			<fullLabel>Bundesland Baden-Württemberg</fullLabel>
+			<sortLabel>Baden-Württemberg, Bundesland</sortLabel>
+			<commonLabel>Baden-Württemberg</commonLabel>
+		</labelVariant>
+		<labelVariant lang="en">
+			<fullLabel>Federated State of Baden-Württemberg</fullLabel>
+			<sortLabel>Baden-Württemberg, Federator State of</sortLabel>
+			<commonLabel>Baden-Württemberg</commonLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Estado Federado de Baden-Wurtemberg</fullLabel>
+			<sortLabel>Baden-Wurtemberg, Estado Federado de</sortLabel>
+			<commonLabel>Baden-Wurtemberg</commonLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>État Fédéré du Bade-Wurtemberg</fullLabel>
+			<sortLabel>Bade-Wurtemberg, État Fédéré du</sortLabel>
+			<commonLabel>Bade-Wurtemberg</commonLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Stato Federato di Baden-Württemberg</fullLabel>
+			<sortLabel>Baden-Württemberg, Stato Federato di</sortLabel>
+			<commonLabel>Baden-Württemberg</commonLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Deelstaat Baden-Württemberg</fullLabel>
+			<sortLabel>Baden-Württemberg, Deelstaat</sortLabel>
+			<commonLabel>Baden-Württemberg</commonLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Земля Баден-Вюртемберг</fullLabel>
+			<sortLabel>Баден-Вюртемберг, Земля</sortLabel>
+			<commonLabel>Баден-Вюртемберг</commonLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Baden-Württemberg"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Baden-Württemberg"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Baden-Wurtemberg"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Bade-Wurtemberg"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Baden-Württemberg"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Baden-Württemberg"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Баден-Вюртемберг"/>
+	</linkVariants>
+	<standardIds>
+		<standardId>
+			<standard uid="ISO/3166/2"/>
+			<segments>
+				<segment level="1">DE</segment>
+				<segment level="2">BW</segment>
+			</segments>
+		</standardId>
+	</standardIds>
+	<country uid="DE"/>
+</countryDivision>

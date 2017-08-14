@@ -9,7 +9,7 @@
 #
 #   This abstract type has not equivalent in the XML schema. Its goal is to
 #   lighten class definitions by regrouping pieces of code which are common
-#   to all resources, such as the management of link variants.
+#   to all resources, such as the management of link variants and standard ids.
 #
 #   This class must *NOT* be instantiated, but rather be inherited by concrete 
 #   entity classes.
@@ -28,6 +28,11 @@ class UmsBaeResource : UmsAeEntity
 
     # Collection of all link variants
     hidden [UmsBceLinkVariant[]] $LinkVariants
+
+    # Collection of standard Ids
+    # The type of the items in the collection is always UmsBceStandardId, but
+    # could not be specified as-is due to a dependency loop.
+    [UmsAeEntity[]] $StandardIds
 
     ###########################################################################
     # Visible properties
@@ -55,6 +60,11 @@ class UmsBaeResource : UmsAeEntity
         $this.BuildLinkVariants(
             $this.GetZeroOrOneXmlElement(
                 $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "linkVariants"))
+
+        # Build optional standard ids
+        $this.BuildStandardIds(
+            $this.GetZeroOrOneXmlElement(
+                $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "standardIds"))
     }
 
     # Builds instances of all link variants and elects those which fit
@@ -75,6 +85,18 @@ class UmsBaeResource : UmsAeEntity
         {
             $this.Links += [UmsBaeVariant]::GetBestVariant($_group.Group)
         }
+    }
+
+    # Builds instances of all standard ids.
+    [void] BuildStandardIds([System.Xml.XmlElement] $StandardIdsElement)
+    {
+        $this.GetZeroOrManyXmlElement(
+            $StandardIdsElement,
+            [UmsAeEntity]::NamespaceUri.Base,
+            "standardId"
+        ) | foreach {
+                $this.StandardIds += [EntityFactory]::GetEntity(
+                    $_, $this.SourcePathUri, $this.SourceFileUri) }
     }
 
     ###########################################################################

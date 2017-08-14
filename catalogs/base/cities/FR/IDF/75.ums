@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<countryDivision xmlns="http://schemas.olivarim.com/ums/1.0/base">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Département Paris</fullLabel>
+			<sortLabel>Paris, Département</sortLabel>
+			<commonLabel>Paris</commonLabel>
+			<shortLabel>75</shortLabel>
+		</labelVariant>
+		<labelVariant lang="en">
+			<fullLabel>Paris Department</fullLabel>
+			<sortLabel>Paris, Department</sortLabel>
+			<commonLabel>Paris</commonLabel>
+			<shortLabel>75</shortLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Departamento de París</fullLabel>
+			<sortLabel>París, Departamento de</sortLabel>
+			<commonLabel>París</commonLabel>
+			<shortLabel>75</shortLabel>
+		</labelVariant>
+		<labelVariant lang="fr" original="true" default="true">
+			<fullLabel>Département de Paris</fullLabel>
+			<sortLabel>Paris, Département de</sortLabel>
+			<commonLabel>Paris</commonLabel>
+			<shortLabel>75</shortLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Dipartimento di Parigi</fullLabel>
+			<sortLabel>Parigi, Dipartimento di</sortLabel>
+			<commonLabel>Parigi</commonLabel>
+			<shortLabel>75</shortLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Departement Parijs</fullLabel>
+			<sortLabel>Parijs, Departement</sortLabel>
+			<commonLabel>Parijs</commonLabel>
+			<shortLabel>75</shortLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Департамент Париж</fullLabel>
+			<sortLabel>Париж, Департамент</sortLabel>
+			<commonLabel>Париж</commonLabel>
+			<shortLabel>75</shortLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Paris"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Paris"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/París"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Paris"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Parigi"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Parijs"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Париж"/>
+	</linkVariants>
+	<standardIds>
+		<standardId>
+			<standard uid="ISO/3166/2"/>
+			<segments>
+				<segment level="1">FR</segment>
+				<segment level="2">75</segment>
+			</segments>
+		</standardId>
+	</standardIds>
+	<countryDivision uid="FR/IDF"/>
+</countryDivision>

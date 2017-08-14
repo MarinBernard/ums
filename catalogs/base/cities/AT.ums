@@ -30,6 +30,11 @@
 		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Австрия"/>
 	</linkVariants>
 	<standardIds>
-		<standardId standard="ISO 3166-1">AT</standardId>
+		<standardId>
+			<standard uid="ISO/3166/1"/>
+			<segments>
+				<segment level="1">AT</segment>
+			</segments>
+		</standardId>
 	</standardIds>
 </country>

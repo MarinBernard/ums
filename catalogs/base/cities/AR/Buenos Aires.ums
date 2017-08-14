@@ -3,7 +3,24 @@
 <city xmlns="http://schemas.olivarim.com/ums/1.0/base">
 	<labelVariants>
 		<labelVariant lang="es" default="true" original="true">
-			<fullLabel>Buenos Aires</fullLabel>
+			<fullLabel>Ciudad autónoma de Buenos Aires</fullLabel>
+			<sortLabel>Buenos Aires, Ciudad autónoma de</sortLabel>
+			<commonLabel>Buenos Aires</commonLabel>
+		</labelVariant>
+		<labelVariant lang="en">
+			<fullLabel>Autonomous City of Buenos Aires</fullLabel>
+			<sortLabel>Buenos Aires, Autonomous City of</sortLabel>
+			<commonLabel>Buenos Aires</commonLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Ville autonome de Buenos Aires</fullLabel>
+			<sortLabel>Buenos Aires, Ville autonome de</sortLabel>
+			<commonLabel>Buenos Aires</commonLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Città autonoma de Buenos Aires</fullLabel>
+			<sortLabel>Buenos Aires, Città autonoma de</sortLabel>
+			<commonLabel>Buenos Aires</commonLabel>
 		</labelVariant>
 		<labelVariant lang="ru">
 			<fullLabel>Буэнос-Айрес</fullLabel>

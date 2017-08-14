@@ -17,13 +17,13 @@
 	<birth>
 		<year>1485</year>
 		<place>
-			<city uid="DE/Hof, Bavaria"/>
+			<city uid="DE/BY/Hof"/>
 		</place>
 	</birth>
 	<death>
 		<year>1546</year>
 		<place>
-			<city uid="DE/Hof, Bavaria"/>
+			<city uid="DE/BY/Hof"/>
 		</place>
 	</death>
 	<linkVariants>

@@ -34,7 +34,7 @@
 	<creation>
 		<year>1948</year>
 		<place>
-			<city uid="DE/Berlin"/>
+			<city uid="DE/BE/Berlin"/>
 		</place>
 	</creation>
 </umsm:ensemble>

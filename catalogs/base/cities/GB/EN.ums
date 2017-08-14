@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<countryState xmlns="http://schemas.olivarim.com/ums/1.0/base">
+<countryDivision xmlns="http://schemas.olivarim.com/ums/1.0/base">
 	<labelVariants>
 		<labelVariant lang="en" original="true" default="true">
 			<fullLabel>England</fullLabel>
 		</labelVariant>
 		<labelVariant lang="es">
 			<fullLabel>Inglaterra</fullLabel>
-		</labelVariant>		
+		</labelVariant>
 		<labelVariant lang="fr">
 			<fullLabel>Angleterre</fullLabel>
 		</labelVariant>
@@ -16,7 +16,7 @@
 		</labelVariant>
 		<labelVariant lang="nl">
 			<fullLabel>Engeland</fullLabel>
-		</labelVariant>	
+		</labelVariant>
 		<labelVariant lang="ru">
 			<fullLabel>Англия</fullLabel>
 		</labelVariant>
@@ -31,7 +31,13 @@
 		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Англия"/>
 	</linkVariants>
 	<standardIds>
-		<standardId standard="ISO 3166-1">GB-EN</standardId>
+		<standardId>
+			<standard uid="ISO/3166/2"/>
+			<segments>
+				<segment level="1">GB</segment>
+				<segment level="2">EN</segment>
+			</segments>
+		</standardId>
 	</standardIds>
 	<country uid="GB"/>
-</countryState>
+</countryDivision>

@@ -25,5 +25,5 @@
 		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/New_York_(stad)"/>
 		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Нью-Йорк"/>
 	</linkVariants>
-	<countryState uid="US/NY"/>
+	<countryDivision uid="US/NY"/>
 </city>

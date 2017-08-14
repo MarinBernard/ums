@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<standard
+	xmlns="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Ländercodeliste</fullLabel>
+			<shortLabel>ISO 3166-2</shortLabel>
+		</labelVariant>
+		<labelVariant lang="en" original="true" default="true">
+			<fullLabel>Country subdivision codes</fullLabel>
+			<shortLabel>ISO 3166-2</shortLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Código de subdivisión País</fullLabel>
+			<shortLabel>ISO 3166-2</shortLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Codes des subdivisions des pays</fullLabel>
+			<shortLabel>ISO 3166-2</shortLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Codici di suddivisione di paese</fullLabel>
+			<shortLabel>ISO 3166-2</shortLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Коды административных образований стран</fullLabel>
+			<shortLabel>ISO 3166-2</shortLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/ISO_3166-2"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/ISO_3166-2"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/ISO_3166-2"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/ISO_3166-2"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/ISO_3166-2"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/ISO_3166-2"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/ISO_3166-2"/>
+	</linkVariants>
+	<status>Current</status>
+	<segments>
+		<segment order="1" mandatory="true" delimiter="">
+			<standard uid="../3166"/>
+		</segment>
+		<segment order="2" mandatory="true" delimiter="-"/>
+	</segments>
+	<parent>
+		<standard uid="../3166"/>
+	</parent>
+</standard>

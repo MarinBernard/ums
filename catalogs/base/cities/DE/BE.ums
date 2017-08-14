@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<countryDivision xmlns="http://schemas.olivarim.com/ums/1.0/base">
+	<labelVariants>
+		<labelVariant lang="de" original="true" default="true">
+			<fullLabel>Bundesland Berlin</fullLabel>
+			<sortLabel>Berlin, Bundesland</sortLabel>
+			<commonLabel>Berlin</commonLabel>
+		</labelVariant>
+		<labelVariant lang="en">
+			<fullLabel>Federated State of Berlin</fullLabel>
+			<sortLabel>Berlin, Federated State of</sortLabel>
+			<commonLabel>Berlin</commonLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Estado Federado de Berlín</fullLabel>
+			<sortLabel>Berlín, Estado Federado de</sortLabel>
+			<commonLabel>Berlín</commonLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>État fédéré de Berlin</fullLabel>
+			<sortLabel>Berlin, État fédéré de</sortLabel>
+			<commonLabel>Berlin</commonLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Stato Federato di Berlino</fullLabel>
+			<sortLabel>Berlino, Stato Federato di</sortLabel>
+			<commonLabel>Berlino</commonLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Deelstaat Berlijn</fullLabel>
+			<sortLabel>Berlijn, Deelstaat</sortLabel>
+			<commonLabel>Berlijn</commonLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Земля Берлин</fullLabel>
+			<sortLabel>Берлин, Земля</sortLabel>
+			<commonLabel>Берлин</commonLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Berlin"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Berlin"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Berlín"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Berlin"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Berlino"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Berlijn"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Берлин"/>
+	</linkVariants>
+	<standardIds>
+		<standardId>
+			<standard uid="ISO/3166/2"/>
+			<segments>
+				<segment level="1">DE</segment>
+				<segment level="2">BE</segment>
+			</segments>
+		</standardId>
+	</standardIds>
+	<country uid="DE"/>
+</countryDivision>

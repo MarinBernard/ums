@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
 	<define name="BCT_StandardId">
 		<element name="standardId">
-			<!-- Name of the standard -->
-			<attribute name="standard">
-				<data type="string"/>
-			</attribute>
+			<!-- Related standard -->
+			<choice>
+				<ref name="BCT_Standard"/>
+				<ref name="BRT_Standard"/>
+			</choice>
 			<!-- Id of the record within the standard -->
-			<data type="string"/>
+			<element name="segments">
+				<oneOrMore>
+					<element name="segment">
+						<!-- Level of the part. Used to describe multi-level ids. -->
+						<optional>
+							<attribute name="level">
+								<data type="integer"/>
+							</attribute>
+						</optional>
+						<data type="string"/>
+					</element>
+				</oneOrMore>
+			</element>
 		</element>
 	</define>
 </grammar>

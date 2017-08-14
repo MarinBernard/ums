@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="BCT_CountryDivision">
+		<element name="countryDivision">
+			<!-- This element might be used by reference -->
+			<ref name="BAT_Referenceable"/>
+			<!-- Abstract properties common to all items -->
+			<ref name="BAT_Item"/>
+			<choice>
+				<ref name="BCT_Country"/>
+				<ref name="BRT_Country"/>
+				<ref name="BCT_CountryDivision"/>
+				<ref name="BRT_CountryDivision"/>
+			</choice>
+		</element>
+	</define>
+</grammar>

@@ -29,14 +29,14 @@ class UmsBaePlace : UmsBaeItem
     # Visible properties
     ###########################################################################
 
-    # Parent city, if any
-    [UmsBceCity] $City
+    # Parent country
+    [UmsBceCountry] $Country
 
     # Parent country state, if any
-    [UmsBceCountryState] $CountryState
+    [UmsBceCountryDivision] $CountryDivision
 
-    # Parent country, if any
-    [UmsBceCountry] $Country
+    # Parent city
+    [UmsBceCity] $City
 
     ###########################################################################
     # Constructors
@@ -66,24 +66,24 @@ class UmsBaePlace : UmsBaeItem
                     $this.SourceFileUri))
             
             # Set the other properties to that of the City
-            $this.CountryState = $this.City.CountryState
+            $this.CountryDivision = $this.City.CountryDivision
             $this.Country = $this.City.Country
         }
         
-        # Try to get an instance of a countryState entity
-        elseif ($XmlElement.countryState)
+        # Try to get an instance of a countryDivision entity
+        elseif ($XmlElement.countryDivision)
         {
-            $this.CountryState = (
+            $this.CountryDivision = (
                 [EntityFactory]::GetEntity(
                     $this.GetOneXmlElement(
                         $XmlElement,
                         [UmsAeEntity]::NamespaceUri.Base,
-                        "countryState"),
+                        "countryDivision"),
                     $this.SourcePathUri,
                     $this.SourceFileUri))
             
-            # Set the country property to that of the CountryState
-            $this.Country = $this.CountryState.Country
+            # Set the country property to that of the CountryDivision
+            $this.Country = $this.CountryDivision.Country
         }
 
         # Try to get an instance of a country entity
@@ -121,7 +121,9 @@ class UmsBaePlace : UmsBaeItem
             $_addDelimiter = $true
         }
 
-        # Add city string, which includes countryState and country suffices
+        # If City is set, the parent of the venue is a city. We include the
+        # string representation of the city, which includes all remanining
+        # parents, as a suffix.
         if($this.City)
         {
             if ($_addDelimiter -eq $true)
@@ -130,16 +132,19 @@ class UmsBaePlace : UmsBaeItem
             $_addDelimiter = $true
         }
 
-        # Add countryState string, which includes a country suffix
-        elseif($this.CountryState)
+        # If CountryDivision is set, the parent of the venue is a country
+        # division. We include the string representation of the country
+        # division, which includes all remanining parents, as a suffix.
+        elseif($this.CountryDivision)
         {
             if ($_addDelimiter -eq $true)
                 { $_string += [UmsBaePlace]::PlaceDelimiter }
-            $_string += $this.CountryState.ToString()
+            $_string += $this.CountryDivision.ToString()
             $_addDelimiter = $true
         }
 
-        # Add country string, which includes no suffix
+        # Else, the parent of the venue must be a country, and we include its
+        # string representation as a suffix.
         elseif($this.Country)
         {
             if ($_addDelimiter -eq $true)

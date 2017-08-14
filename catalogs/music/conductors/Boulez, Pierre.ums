@@ -21,13 +21,13 @@
 	<birth>
 		<date>1925-03-26</date>
 		<place>
-			<city uid="FR/Montbrison, Loire"/>
+			<city uid="FR/ARA/42/Montbrison"/>
 		</place>
 	</birth>
 	<death>
 		<date>2016-01-05</date>
 		<place>
-			<city uid="DE/Baden-Baden"/>
+			<city uid="DE/BW/Baden-Baden"/>
 		</place>
 	</death>
 	<linkVariants>

@@ -34,6 +34,11 @@
 		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Германия"/>
 	</linkVariants>
 	<standardIds>
-		<standardId standard="ISO 3166-1">DE</standardId>
+		<standardId>
+			<standard uid="ISO/3166/1"/>
+			<segments>
+				<segment level="1">DE</segment>
+			</segments>
+		</standardId>
 	</standardIds>
 </country>

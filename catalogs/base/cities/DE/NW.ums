@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<countryDivision xmlns="http://schemas.olivarim.com/ums/1.0/base">
+	<labelVariants>
+		<labelVariant lang="de" original="true" default="true">
+			<fullLabel>Bundesland Nordrhein-Westfalen</fullLabel>
+			<sortLabel>Nordrhein-Westfalen, Bundesland</sortLabel>
+			<commonLabel>Nordrhein-Westfalen</commonLabel>
+			<shortLabel>NRW</shortLabel>
+		</labelVariant>
+		<labelVariant lang="en">
+			<fullLabel>Federated State of North Rhine-Westphalia</fullLabel>
+			<sortLabel>North Rhine-Westphalia, Federated State of</sortLabel>
+			<commonLabel>North Rhine-Westphalia</commonLabel>
+			<shortLabel>NRW</shortLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Estado Federado de Renania del Norte-Westfalia</fullLabel>
+			<sortLabel>Renania del Norte-Westfalia, Estado Federado de</sortLabel>
+			<commonLabel>Renania del Norte-Westfalia</commonLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>État Fédéré de Rhénanie-du-Nord-Westphalie</fullLabel>
+			<sortLabel>Rhénanie-du-Nord-Westphalie, État Fédéré de</sortLabel>
+			<commonLabel>Rhénanie-du-Nord-Westphalie</commonLabel>
+			<shortLabel>NRW</shortLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Stato Federato di Renania Settentrionale-Vestfalia</fullLabel>
+			<sortLabel>Renania Settentrionale-Vestfalia, Stato Federato di</sortLabel>
+			<commonLabel>Renania Settentrionale-Vestfalia</commonLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Deelstaat Noordrijn-Westfalen</fullLabel>
+			<sortLabel>Noordrijn-Westfalen, Deelstaat</sortLabel>
+			<commonLabel>Noordrijn-Westfalen</commonLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Земля Северный Рейн-Вестфалия</fullLabel>
+			<sortLabel>Северный Рейн-Вестфалия, Земля</sortLabel>
+			<commonLabel>Северный Рейн-Вестфалия</commonLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Nordrhein-Westfalen"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/North_Rhine-Westphalia"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Renania_del_Norte-Westfalia"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Rhénanie-du-Nord-Westphalie"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Renania_Settentrionale-Vestfalia"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Noordrijn-Westfalen"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Северный_Рейн-Вестфалия"/>
+	</linkVariants>
+	<standardIds>
+		<standardId>
+			<standard uid="ISO/3166/2"/>
+			<segments>
+				<segment level="1">DE</segment>
+				<segment level="2">NW</segment>
+			</segments>
+		</standardId>
+	</standardIds>
+	<country uid="DE"/>
+</countryDivision>

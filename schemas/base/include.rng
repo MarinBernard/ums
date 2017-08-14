@@ -10,6 +10,8 @@
 	<include href="abstract/Publication.rng"/>
 	<include href="abstract/Reference.rng"/>
 	<include href="abstract/Referenceable.rng"/>
+	<include href="abstract/Resource.rng"/>
+	<include href="abstract/Standard.rng"/>
 	<include href="abstract/Symbol.rng"/>
 	<include href="abstract/Track.rng"/>
 	<!-- Concrete types -->
@@ -18,7 +20,7 @@
 	<include href="concrete/City.rng"/>
 	<include href="concrete/Completion.rng"/>
 	<include href="concrete/Country.rng"/>
-	<include href="concrete/CountryState.rng"/>
+	<include href="concrete/CountryDivision.rng"/>
 	<include href="concrete/Creation.rng"/>
 	<include href="concrete/Date.rng"/>
 	<include href="concrete/Dissolution.rng"/>
@@ -30,6 +32,7 @@
 	<include href="concrete/Month.rng"/>
 	<include href="concrete/NameVariant.rng"/>
 	<include href="concrete/Release.rng"/>
+	<include href="concrete/Standard.rng"/>
 	<include href="concrete/StandardId.rng"/>
 	<include href="concrete/SymbolVariant.rng"/>
 	<include href="concrete/TextVariant.rng"/>
@@ -50,5 +53,6 @@
 	<include href="reference/Character.rng"/>
 	<include href="reference/City.rng"/>
 	<include href="reference/Country.rng"/>
-	<include href="reference/CountryState.rng"/>
+	<include href="reference/CountryDivision.rng"/>
+	<include href="reference/Standard.rng"/>
 </grammar>

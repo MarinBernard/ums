@@ -26,7 +26,7 @@
 			<fullLabel>Argentijnse Republiek</fullLabel>
 			<commonLabel>Argentinië</commonLabel>
 			<shortLabel>AR</shortLabel>
-		</labelVariant>		
+		</labelVariant>
 		<labelVariant lang="ru">
 			<fullLabel>Аргентинская Республика</fullLabel>
 			<commonLabel>Аргентина</commonLabel>
@@ -42,6 +42,11 @@
 		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Аргентина"/>
 	</linkVariants>
 	<standardIds>
-		<standardId standard="ISO 3166-1">AR</standardId>
+		<standardId>
+			<standard uid="ISO/3166/1"/>
+			<segments>
+				<segment level="1">AR</segment>
+			</segments>
+		</standardId>
 	</standardIds>
 </country>

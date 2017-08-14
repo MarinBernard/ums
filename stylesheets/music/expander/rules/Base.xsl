@@ -31,11 +31,11 @@
 			<xsl:with-param name="TargetElement" select="'country'"/>
 		</xsl:call-template>
 	</xsl:template>
-	<!-- Transclusion of references to <countryState> elements -->
-	<xsl:template match="umsb:countryState[@uid][not(*)]">
+	<!-- Transclusion of references to <countryDivision> elements -->
+	<xsl:template match="umsb:countryDivision[@uid][not(*)]">
 		<xsl:call-template name="Transcluder">
-			<xsl:with-param name="CatalogRoot" select="$CAT_Base_CountryStates"/>
-			<xsl:with-param name="TargetElement" select="'countryState'"/>
+			<xsl:with-param name="CatalogRoot" select="$CAT_Base_CountryDivisions"/>
+			<xsl:with-param name="TargetElement" select="'countryDivision'"/>
 		</xsl:call-template>
 	</xsl:template>
 </xsl:stylesheet>

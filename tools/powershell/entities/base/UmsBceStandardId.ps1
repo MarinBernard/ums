@@ -7,7 +7,7 @@
 #
 ###############################################################################
 
-class UmsBceStandardId : UmsAeEntity
+class UmsBceStandardId : UmsBaeStandardId
 {
     ###########################################################################
     # Static properties
@@ -21,10 +21,6 @@ class UmsBceStandardId : UmsAeEntity
     # Visible properties
     ###########################################################################
 
-    # Imported raw
-    [string] $Standard
-    [string] $Id
-
     ###########################################################################
     # Constructors
     ###########################################################################
@@ -37,12 +33,18 @@ class UmsBceStandardId : UmsAeEntity
         $this.ValidateXmlElement(
             $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "standardId")
 
-        # Attributes
-        $this.Standard = $this.GetMandatoryXmlAttributeValue(
-            $XmlElement, "standard")
+        # Mandatory 'standard' element
+        $_standard = (
+            [EntityFactory]::GetEntity(
+                $this.GetOneXmlElement(
+                    $XmlElement,
+                    [UmsAeEntity]::NamespaceUri.Base,
+                    "standard"),
+                $this.SourcePathUri,
+                $this.SourceFileUri))
         
-        # Text value
-        $this.Id = $XmlElement.'#text'
+        # Register the standard
+        $this.RegisterStandard($_standard)  
     }
 
     ###########################################################################
@@ -52,6 +54,6 @@ class UmsBceStandardId : UmsAeEntity
     # String representation
     [string] ToString()
     {
-        return $this.Standard
+        return $($this.Standard.ToString() + ": " + $this.Id)
     }
 }

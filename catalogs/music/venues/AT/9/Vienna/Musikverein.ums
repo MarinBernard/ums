@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:venue
+	xmlns="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de" original="true" default="true">
+			<fullLabel>Haus des Wiener Musikvereins</fullLabel>
+			<commonLabel>Wiener Musikvereins</commonLabel>
+			<shortLabel>Wiener Musikvereins</shortLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="website" lang="de" href="https://www.musikverein.at"/>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Wiener_Musikverein"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Musikverein"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Musikverein"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Musikverein_(Vienne)"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Musikverein"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Wiener_Musikverein"/>
+	</linkVariants>
+	<city uid="AT/9/Vienna"/>
+</umsm:venue>

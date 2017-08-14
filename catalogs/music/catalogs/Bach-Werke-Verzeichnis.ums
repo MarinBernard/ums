@@ -38,4 +38,8 @@
 		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Bach-Werke-Verzeichnis"/>
 		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/BWV"/>
 	</linkVariants>
+	<status>Current</status>
+	<segments>
+		<segment order="1" mandatory="true"/>
+	</segments>
 </umsm:catalog>

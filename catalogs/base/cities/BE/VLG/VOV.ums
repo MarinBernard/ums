@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<countryDivision xmlns="http://schemas.olivarim.com/ums/1.0/base">
+	<labelVariants>
+		<labelVariant lang="de" original="true" default="true">
+			<fullLabel>Provinz Ostflandern</fullLabel>
+			<sortLabel>Ostflandern, Provinz</sortLabel>
+			<commonLabel>Ostflandern</commonLabel>
+		</labelVariant>
+		<labelVariant lang="en">
+			<fullLabel>Province of East Flanders</fullLabel>
+			<sortLabel>East Flanders, Province of</sortLabel>
+			<commonLabel>East Flanders</commonLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Provincia de Flandes Oriental</fullLabel>
+			<sortLabel>Flandes Oriental, Provincia de</sortLabel>
+			<commonLabel>Flandes Oriental</commonLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Province de Flandre-Orientale</fullLabel>
+			<sortLabel>Flandre-Orientale, Province de</sortLabel>
+			<commonLabel>Flandre-Orientale</commonLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Provincia delle Fiandre Orientali</fullLabel>
+			<sortLabel>Fiandre Orientali, Provincia delle</sortLabel>
+			<commonLabel>Fiandre Orientali</commonLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Provincie Oost-Vlaanderen</fullLabel>
+			<sortLabel>Oost-Vlaanderen, Provincie</sortLabel>
+			<commonLabel>Oost-Vlaanderen</commonLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Восточная Фландрия</fullLabel>
+			<sortLabel>Восточная Фландрия</sortLabel>
+			<commonLabel>Восточная Фландрия</commonLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Provinz_Ostflandern"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/East_Flanders"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Provincia_de_Flandes_Oriental"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Province_de_Flandre-Orientale"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Provincia_delle_Fiandre_Orientali"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Oost-Vlaanderen"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Восточная_Фландрия"/>
+	</linkVariants>
+	<standardIds>
+		<standardId>
+			<standard uid="ISO/3166/2"/>
+			<segments>
+				<segment level="1">BE</segment>
+				<segment level="2">VOV</segment>
+			</segments>
+		</standardId>
+	</standardIds>
+	<countryDivision uid="BE/VLG"/>
+</countryDivision>

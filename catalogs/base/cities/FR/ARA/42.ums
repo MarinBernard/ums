@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<countryState xmlns="http://schemas.olivarim.com/ums/1.0/base">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Département Loire</fullLabel>
+			<sortLabel>Loire, Département</sortLabel>
+			<commonLabel>Loire</commonLabel>
+			<shortLabel>42</shortLabel>
+		</labelVariant>
+		<labelVariant lang="en">
+			<fullLabel>Loire Department</fullLabel>
+			<sortLabel>Loire, Department</sortLabel>
+			<commonLabel>Loire</commonLabel>
+			<shortLabel>42</shortLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Departamento del Loira</fullLabel>
+			<sortLabel>Loira, Departamento del</sortLabel>
+			<commonLabel>Loira</commonLabel>
+			<shortLabel>42</shortLabel>
+		</labelVariant>
+		<labelVariant lang="fr" original="true" default="true">
+			<fullLabel>Département de la Loire</fullLabel>
+			<sortLabel>Loire, Département de la</sortLabel>
+			<commonLabel>Loire</commonLabel>
+			<shortLabel>42</shortLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Dipartimento della Loira</fullLabel>
+			<sortLabel>Loira, Dipartimento della</sortLabel>
+			<commonLabel>Loira</commonLabel>
+			<shortLabel>42</shortLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Departement Loire</fullLabel>
+			<sortLabel>Loire, Departement</sortLabel>
+			<commonLabel>Loire</commonLabel>
+			<shortLabel>42</shortLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Департамент Луара</fullLabel>
+			<sortLabel>Луара, Департамент</sortLabel>
+			<commonLabel>Луара</commonLabel>
+			<shortLabel>42</shortLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Département_Loire"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Loira_(departamento)"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Auvernia-Ródano-Alpes"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Loire_(département)"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Loira_(dipartimento)"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Loire_(departement)"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Луара_(департамент)"/>
+	</linkVariants>
+	<standardIds>
+		<standardId>
+			<standard uid="ISO/3166/2"/>
+			<segments>
+				<segment level="1">FR</segment>
+				<segment level="2">42</segment>
+			</segments>
+		</standardId>
+	</standardIds>
+	<countryDivision uid="FR/ARA"/>
+</countryState>

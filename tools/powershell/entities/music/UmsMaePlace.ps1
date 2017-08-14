@@ -61,7 +61,7 @@ class UmsMaePlace : UmsBaePlace
             
             # Set the other properties to that of the venue
             $this.City = $this.Venue.City
-            $this.CountryState = $this.Venue.CountryState
+            $this.CountryDivision = $this.Venue.CountryDivision
             $this.Country = $this.Venue.Country
         }
     }
@@ -86,7 +86,7 @@ class UmsMaePlace : UmsBaePlace
             $_string += $_labelToString
         }
 
-        # Add venue string, which includes city, countryState and country
+        # Add venue string, which includes city, countryDivision and country
         # suffices
         if($this.Venue)
         {
@@ -97,7 +97,7 @@ class UmsMaePlace : UmsBaePlace
 
         # If no venue is set, we fallback to the ToString() method of the base
         # 'UmsBaePlace' type, which already knows how to deal with 'city',
-        # 'countryState' and 'country' strings.
+        # 'countryDivision' and 'country' strings.
         else
         {
             if ($_labelToString)

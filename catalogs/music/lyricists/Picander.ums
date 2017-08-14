@@ -21,13 +21,13 @@
 	<birth>
 		<date>1700-01-14</date>
 		<place>
-			<city uid="DE/Stolpen"/>
+			<city uid="DE/SN/Stolpen"/>
 		</place>
 	</birth>
 	<death>
 		<date>1764-05-10</date>
 		<place>
-			<city uid="DE/Leipzig"/>
+			<city uid="DE/SN/Leipzig"/>
 		</place>
 	</death>
 	<linkVariants>

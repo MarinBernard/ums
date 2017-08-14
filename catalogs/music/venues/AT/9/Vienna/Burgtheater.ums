@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/music.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<umsm:venue
+	xmlns="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de" original="true" default="true">
+			<fullLabel>Burgtheater</fullLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Бургтеатр</fullLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="website" lang="de" href="https://www.burgtheater.at/de"/>
+		<linkVariant type="website" lang="en" href="https://www.burgtheater.at/en"/>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Burgtheater"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Burgtheater"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Burgtheater"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Burgtheater"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Burgtheater"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Burgtheater"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бургтеатр"/>
+	</linkVariants>
+	<city uid="AT/9/Vienna"/>
+</umsm:venue>

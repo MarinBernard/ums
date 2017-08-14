@@ -4,8 +4,8 @@
 		<element name="catalog">
 			<!-- This element might be used by reference -->
 			<ref name="BAT_Referenceable"/>
-			<!-- Abstract properties common to all items -->
-			<ref name="BAT_Item"/>
+			<!-- Abstract properties common to all standards -->
+			<ref name="BAT_Standard"/>
 		</element>
 	</define>
 </grammar>

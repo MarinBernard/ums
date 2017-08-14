@@ -19,9 +19,7 @@
 				<ref name="BAT_Event"/>
 			</element>
 		</optional>
-		<!-- Common links -->
-		<optional>
-			<ref name="BLT_LinkVariants"/>
-		</optional>
+		<!-- Inherited elements common to all Resources -->
+		<ref name="BAT_Resource"/>
 	</define>
 </grammar>

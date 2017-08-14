@@ -14,4 +14,9 @@
 		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Bach-Compendium"/>
 		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Bach_Compendium"/>
 	</linkVariants>
+	<status>Current</status>
+	<segments>
+		<segment order="1" mandatory="true"/>
+		<segment order="2" mandatory="true" delimiter=" "/>
+	</segments>
 </umsm:catalog>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<define name="BAT_Standard">
+		<!-- Abstract properties common to all items -->
+		<ref name="BAT_Item"/>
+		<!-- Status of the standard -->
+		<element name="status">
+			<choice>
+				<value>Current</value>
+				<value>Deprecated</value>
+			</choice>
+		</element>
+		<!-- Hierarchy levels. This is an optional element, since some
+		standards, such as the main ISO standard, are only used for grouping
+		and have no usable segment. -->
+		<optional>
+			<element name="segments">
+				<oneOrMore>
+					<element name="segment">
+						<attribute name="order">
+							<data type="integer"/>
+						</attribute>
+						<attribute name="mandatory">
+							<data type="boolean"/>
+						</attribute>
+						<optional>
+							<choice>
+								<attribute name="delimiter">
+									<data type="string"/>
+								</attribute>
+								<attribute name="qualifier">
+									<choice>
+										<value>numero</value>
+									</choice>
+								</attribute>
+							</choice>
+						</optional>
+					</element>
+				</oneOrMore>
+			</element>
+		</optional>
+	</define>
+</grammar>

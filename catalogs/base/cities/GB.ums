@@ -22,12 +22,12 @@
 		<labelVariant lang="it">
 			<fullLabel>Regno Unito di Gran Bretagna e Irlanda del Nord</fullLabel>
 			<commonLabel>Regno_Unito</commonLabel>
-		</labelVariant>				
+		</labelVariant>
 		<labelVariant lang="nl">
 			<fullLabel>Verenigd Koninkrijk van Groot-Brittannië en Noord-Ierland</fullLabel>
 			<commonLabel>Verenigd Koninkrijk</commonLabel>
 			<shortLabel>VK</shortLabel>
-		</labelVariant>		
+		</labelVariant>
 		<labelVariant lang="ru">
 			<fullLabel>Соединённое Королевство Великобритании и Северной Ирландии</fullLabel>
 			<commonLabel>Великобритания</commonLabel>
@@ -44,6 +44,11 @@
 		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Великобритания"/>
 	</linkVariants>
 	<standardIds>
-		<standardId standard="ISO 3166-1">GB</standardId>
+		<standardId>
+			<standard uid="ISO/3166/1"/>
+			<segments>
+				<segment level="1">GB</segment>
+			</segments>
+		</standardId>
 	</standardIds>
 </country>

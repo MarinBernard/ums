@@ -5,8 +5,9 @@
 			uri="file:///C:/Users/marin/Code/ums/catalogs/base">
 			<mapping subpath="cities" element="city"/>
 			<mapping subpath="cities" element="country"/>
-			<mapping subpath="cities" element="countryState"/>
+			<mapping subpath="cities" element="countryDivision"/>
 			<mapping subpath="languages" element="language"/>
+			<mapping subpath="standards" element="standard"/>
 		</catalog>
 		<catalog id="audio"
 			namespace="http://schemas.olivarim.com/ums/1.0/audio"
@@ -67,6 +68,9 @@
 				<option id="vorbis-label-artist-full-name">ARTIST</option>
 				<option id="vorbis-label-artist-short-name">ARTISTSHORT</option>
 				<option id="vorbis-label-artist-sort-name">ARTISTSORT</option>
+				<option id="vorbis-label-asin">ASIN</option>
+				<option id="vorbis-label-barcode-ean">EAN</option>
+				<option id="vorbis-label-barcode-upc">UPC</option>
 				<option id="vorbis-label-composer-full-name">COMPOSER</option>
 				<option id="vorbis-label-composer-short-name">COMPOSERSHORT</option>
 				<option id="vorbis-label-composer-sort-name">COMPOSERSORT</option>

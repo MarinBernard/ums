@@ -10,8 +10,8 @@
 			<choice>
 				<ref name="BCT_Country"/>
 				<ref name="BRT_Country"/>
-				<ref name="BCT_CountryState"/>
-				<ref name="BRT_CountryState"/>
+				<ref name="BCT_CountryDivision"/>
+				<ref name="BRT_CountryDivision"/>
 			</choice>
 		</element>
 	</define>

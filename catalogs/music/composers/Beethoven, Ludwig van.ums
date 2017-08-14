@@ -19,13 +19,13 @@
 	<birth>
 		<date>1770-12-16</date>
 		<place>
-			<city uid="DE/Bonn"/>
+			<city uid="DE/NW/Bonn"/>
 		</place>
 	</birth>
 	<death>
 		<date>1827-03-26</date>
 		<place>
-			<city uid="AT/Vienna"/>
+			<city uid="AT/9/Vienna"/>
 		</place>
 	</death>
 	<linkVariants>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<city xmlns="http://schemas.olivarim.com/ums/1.0/base">
+	<labelVariants>
+		<labelVariant lang="de" default="true" original="true">
+			<fullLabel>Stolpen</fullLabel>
+		</labelVariant>	
+		<labelVariant lang="ru">
+			<fullLabel>Штольпен</fullLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Stolpen"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Stolpen"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Stolpen"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Stolpen"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Stolpen"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Stolpen"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Штольпен"/>
+	</linkVariants>
+	<countryDivision uid="DE/SN"/>
+</city>

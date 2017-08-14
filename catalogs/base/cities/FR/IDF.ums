@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<countryDivision xmlns="http://schemas.olivarim.com/ums/1.0/base">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Île-de-France Region</fullLabel>
+			<sortLabel>Île-de-France, Region</sortLabel>
+			<commonLabel>Île-de-France</commonLabel>
+			<shortLabel>IDF</shortLabel>
+		</labelVariant>
+		<labelVariant lang="en">
+			<fullLabel>Île-de-France Region</fullLabel>
+			<sortLabel>Île-de-France, Region</sortLabel>
+			<commonLabel>Île-de-France</commonLabel>
+			<shortLabel>IDF</shortLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Región Isla de Francia</fullLabel>
+			<sortLabel>Isla de Francia, Región</sortLabel>
+			<commonLabel>Isla de Francia</commonLabel>
+			<shortLabel>IDF</shortLabel>
+		</labelVariant>
+		<labelVariant lang="fr" original="true" default="true">
+			<fullLabel>Région Île-de-France</fullLabel>
+			<sortLabel>Île-de-France, Région</sortLabel>
+			<commonLabel>Île-de-France</commonLabel>
+			<shortLabel>IDF</shortLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Regione Île-de-France</fullLabel>
+			<sortLabel>Île-de-France, Regione</sortLabel>
+			<commonLabel>Île-de-France</commonLabel>
+			<shortLabel>IDF</shortLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Regio Île-de-France</fullLabel>
+			<sortLabel>Île-de-France, Regio</sortLabel>
+			<commonLabel>Île-de-France</commonLabel>
+			<shortLabel>IDF</shortLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Регион Иль-де-Франс</fullLabel>
+			<sortLabel>Иль-де-Франс, Регион</sortLabel>
+			<commonLabel>Иль-де-Франс</commonLabel>
+			<shortLabel>ИдФ</shortLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Île-de-France"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Île-de-France"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Isla_de_Francia"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Île-de-France"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Île-de-France"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Île-de-France"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Иль-де-Франс"/>
+	</linkVariants>
+	<standardIds>
+		<standardId>
+			<standard uid="ISO/3166/2"/>
+			<segments>
+				<segment level="1">FR</segment>
+				<segment level="2">IDF</segment>
+			</segments>
+		</standardId>
+	</standardIds>
+	<country uid="FR"/>
+</countryDivision>

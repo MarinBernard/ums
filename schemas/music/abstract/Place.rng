@@ -12,8 +12,8 @@
 			<ref name="MRT_Venue"/>
 			<ref name="BCT_City"/>
 			<ref name="BRT_City"/>
-			<ref name="BCT_CountryState"/>
-			<ref name="BRT_CountryState"/>
+			<ref name="BCT_CountryDivision"/>
+			<ref name="BRT_CountryDivision"/>
 			<ref name="BCT_Country"/>
 			<ref name="BRT_Country"/>
 		</choice>

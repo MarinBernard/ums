@@ -70,7 +70,7 @@
 	<umsm:premiere>
 		<date>1800-04-02</date>
 		<umsm:place>
-			<umsm:venue uid="AT/Vienna/Burgtheater"/>
+			<umsm:venue uid="AT/9/Vienna/Burgtheater"/>
 		</umsm:place>
 	</umsm:premiere>
 	<umsm:sections>

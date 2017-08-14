@@ -2,11 +2,7 @@
 <grammar xmlns="http://relaxng.org/ns/structure/1.0">
 	<define name="BAT_Symbol">
 		<ref name="BLT_SymbolVariants"/>
-		<optional>
-			<ref name="BLT_LinkVariants"/>
-		</optional>
-		<optional>
-			<ref name="BLT_StandardIds"/>
-		</optional>
+		<!-- Inherited elements common to all Resources -->
+		<ref name="BAT_Resource"/>
 	</define>
 </grammar>

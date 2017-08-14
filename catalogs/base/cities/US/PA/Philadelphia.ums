@@ -28,5 +28,5 @@
 		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Philadelphia_(Pennsylvania)"/>
 		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Филадельфия"/>
 	</linkVariants>
-	<countryState uid="US/PA"/>
+	<countryDivision uid="US/PA"/>
 </city>

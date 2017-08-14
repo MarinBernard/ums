@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<countryDivision xmlns="http://schemas.olivarim.com/ums/1.0/base">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Auvergne-Rhône-Alpes Region</fullLabel>
+			<sortLabel>Auvergne-Rhône-Alpes, Region</sortLabel>
+			<commonLabel>Auvergne-Rhône-Alpes</commonLabel>
+			<shortLabel>ARA</shortLabel>
+		</labelVariant>
+		<labelVariant lang="en">
+			<fullLabel>Auvergne-Rhône-Alpes Region</fullLabel>
+			<sortLabel>Auvergne-Rhône-Alpes, Region</sortLabel>
+			<commonLabel>Auvergne-Rhône-Alpes</commonLabel>
+			<shortLabel>ARA</shortLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Región Auvernia-Ródano-Alpes</fullLabel>
+			<sortLabel>Auvernia-Ródano-Alpes, Región</sortLabel>
+			<commonLabel>Auvernia-Ródano-Alpes</commonLabel>
+			<shortLabel>ARA</shortLabel>
+		</labelVariant>
+		<labelVariant lang="fr" original="true" default="true">
+			<fullLabel>Région Auvergne-Rhône-Alpes</fullLabel>
+			<sortLabel>Auvergne-Rhône-Alpes, Région</sortLabel>
+			<commonLabel>Auvergne-Rhône-Alpes</commonLabel>
+			<shortLabel>ARA</shortLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Regione Alvernia-Rodano-Alpi</fullLabel>
+			<sortLabel>Alvernia-Rodano-Alpi, Regione</sortLabel>
+			<commonLabel>Alvernia-Rodano-Alpi</commonLabel>
+			<shortLabel>ARA</shortLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Regio Auvergne-Rhône-Alpes</fullLabel>
+			<sortLabel>Auvergne-Rhône-Alpes, Regio</sortLabel>
+			<commonLabel>Auvergne-Rhône-Alpes</commonLabel>
+			<shortLabel>ARA</shortLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Регион Овернь — Рона — Альпы</fullLabel>
+			<sortLabel>Овернь — Рона — Альпы, Регион</sortLabel>
+			<commonLabel>Овернь — Рона — Альпы</commonLabel>
+			<shortLabel>ОРА</shortLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Auvergne-Rhône-Alpes"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Auvergne-Rhône-Alpes"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Auvernia-Ródano-Alpes"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Auvergne-Rhône-Alpes"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Alvernia-Rodano-Alpi"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Auvergne-Rhône-Alpes"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Овернь_—_Рона_—_Альпы"/>
+	</linkVariants>
+	<standardIds>
+		<standardId>
+			<standard uid="ISO/3166/2"/>
+			<segments>
+				<segment level="1">FR</segment>
+				<segment level="2">ARA</segment>
+			</segments>
+		</standardId>
+	</standardIds>
+	<country uid="FR"/>
+</countryDivision>

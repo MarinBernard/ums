@@ -53,11 +53,11 @@
 			<xsl:with-param name="ElementName" select="'country'"/>
 		</xsl:call-template>
 	</xsl:variable>
-	<!-- URI to the catalog of base countryState elements -->
-	<xsl:variable name="CAT_Base_CountryStates">
+	<!-- URI to the catalog of base countryDivision elements -->
+	<xsl:variable name="CAT_Base_CountryDivisions">
 		<xsl:call-template name="getCatalogUriForElement">
 			<xsl:with-param name="Namespace" select="'http://schemas.olivarim.com/ums/1.0/base'"/>
-			<xsl:with-param name="ElementName" select="'countryState'"/>
+			<xsl:with-param name="ElementName" select="'countryDivision'"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<!--

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<countryState xmlns="http://schemas.olivarim.com/ums/1.0/base">
+<countryDivision xmlns="http://schemas.olivarim.com/ums/1.0/base">
 	<labelVariants>
 		<labelVariant lang="en" original="true" default="true">
 			<fullLabel>State of New York</fullLabel>
@@ -11,7 +11,7 @@
 			<fullLabel>Estado de Nueva York</fullLabel>
 			<sortLabel>Nueva York, Estado de</sortLabel>
 			<commonLabel>Nueva York</commonLabel>
-		</labelVariant>		
+		</labelVariant>
 		<labelVariant lang="fr">
 			<fullLabel>État de New York</fullLabel>
 			<sortLabel>New York, État de</sortLabel>
@@ -21,7 +21,7 @@
 			<fullLabel>Commonwealth of Pennsylvania</fullLabel>
 			<sortLabel>Pennsylvania, Commonwealth of</sortLabel>
 			<commonLabel>Pennsylvanië</commonLabel>
-		</labelVariant>	
+		</labelVariant>
 		<labelVariant lang="ru">
 			<fullLabel>Штат Нью-Йорк</fullLabel>
 			<sortLabel>Нью-Йорк, Штат</sortLabel>
@@ -38,7 +38,13 @@
 		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Нью-Йорк_(штат)"/>
 	</linkVariants>
 	<standardIds>
-		<standardId standard="ISO 3166-1">US-NY</standardId>
+		<standardId>
+			<standard uid="ISO/3166/2"/>
+			<segments>
+				<segment level="1">US</segment>
+				<segment level="2">NY</segment>
+			</segments>
+		</standardId>
 	</standardIds>
 	<country uid="US"/>
-</countryState>
+</countryDivision>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<countryDivision xmlns="http://schemas.olivarim.com/ums/1.0/base">
+	<labelVariants>
+		<labelVariant lang="de" original="true" default="true">
+			<fullLabel>Freistaat Bayern</fullLabel>
+			<sortLabel>Bayern, Freistaat</sortLabel>
+			<commonLabel>Bayern</commonLabel>
+		</labelVariant>
+		<labelVariant lang="en">
+			<fullLabel>Free State of Bavaria</fullLabel>
+			<sortLabel>Bavaria, Free State of</sortLabel>
+			<commonLabel>Bavaria</commonLabel>
+		</labelVariant>
+		<labelVariant lang="es">
+			<fullLabel>Estado Libre de Baviera</fullLabel>
+			<sortLabel>Baviera, Estado Libre de</sortLabel>
+			<commonLabel>Baviera</commonLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>État Libre de Bavière</fullLabel>
+			<sortLabel>Bavière, État Libre de</sortLabel>
+			<commonLabel>Bavière</commonLabel>
+		</labelVariant>
+		<labelVariant lang="it">
+			<fullLabel>Stato Libero di Baviera</fullLabel>
+			<sortLabel>Baviera, Stato Libero di</sortLabel>
+			<commonLabel>Baviera</commonLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Vrijstaat Beieren</fullLabel>
+			<sortLabel>Beieren, Vrijstaat</sortLabel>
+			<commonLabel>Beieren</commonLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Свободное государство Бавария</fullLabel>
+			<sortLabel>Бавария, Свободное государство</sortLabel>
+			<commonLabel>Бавария</commonLabel>
+		</labelVariant>
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Bayern"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/Bavaria"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/Baviera"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/Bavière"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/Baviera"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Beieren"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Бавария"/>
+	</linkVariants>
+	<standardIds>
+		<standardId>
+			<standard uid="ISO/3166/2"/>
+			<segments>
+				<segment level="1">DE</segment>
+				<segment level="2">BY</segment>
+			</segments>
+		</standardId>
+	</standardIds>
+	<country uid="DE"/>
+</countryDivision>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+	<define name="BAT_Resource">
+		<optional>
+			<ref name="BLT_LinkVariants"/>
+		</optional>
+		<optional>
+			<ref name="BLT_StandardIds"/>
+		</optional>
+	</define>
+</grammar>

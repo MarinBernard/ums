@@ -23,4 +23,9 @@
 		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Opus_(compositie)"/>
 		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Музыкальное_произведение"/>
 	</linkVariants>
+	<status>Current</status>
+	<segments>
+		<segment order="1" mandatory="true"/>
+		<segment order="2" mandatory="false" qualifier="numero"/>
+	</segments>
 </umsm:catalog>

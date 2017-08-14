@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<define name="BCT_Standard">
+		<element name="standard">
+			<!-- This element might be used by reference -->
+			<ref name="BAT_Referenceable"/>
+			<!-- Abstract properties common to all standards -->
+			<ref name="BAT_Standard"/>
+			<!-- Optional parent base:standard -->
+			<optional>
+				<element name="parent">
+					<oneOrMore>
+						<choice>
+							<ref name="BCT_Standard"/>
+							<ref name="BRT_Standard"/>
+						</choice>
+					</oneOrMore>
+				</element>
+			</optional>
+		</element>
+	</define>
+</grammar>
