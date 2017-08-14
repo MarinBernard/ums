@@ -40,6 +40,6 @@
 	</linkVariants>
 	<status>Current</status>
 	<segments>
-		<segment order="1" mandatory="true"/>
+		<segment order="1" mandatory="true" delimiter="none"/>
 	</segments>
 </umsm:catalog>

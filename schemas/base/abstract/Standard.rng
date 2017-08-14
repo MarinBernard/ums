@@ -24,18 +24,15 @@
 						<attribute name="mandatory">
 							<data type="boolean"/>
 						</attribute>
-						<optional>
+						<attribute name="delimiter">
 							<choice>
-								<attribute name="delimiter">
-									<data type="string"/>
-								</attribute>
-								<attribute name="qualifier">
-									<choice>
-										<value>numero</value>
-									</choice>
-								</attribute>
+								<value>dash</value>
+								<value>dot</value>
+								<value>none</value>
+								<value>numero</value>
+								<value>space</value>
 							</choice>
-						</optional>
+						</attribute>
 					</element>
 				</oneOrMore>
 			</element>

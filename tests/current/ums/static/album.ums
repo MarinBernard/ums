@@ -2199,7 +2199,7 @@
 	                             </linkVariants>
                               <status>Current</status>
                               <segments>
-		                               <segment order="1" mandatory="true"/>
+		                               <segment order="1" mandatory="true" delimiter="none"/>
 	                             </segments>
                            </umsm:catalog>
 			                        <umsm:id level="1">244</umsm:id>
@@ -2223,8 +2223,8 @@
 	                             </linkVariants>
                               <status>Current</status>
                               <segments>
-		                               <segment order="1" mandatory="true"/>
-		                               <segment order="2" mandatory="true" delimiter=" "/>
+		                               <segment order="1" mandatory="true" delimiter="none"/>
+		                               <segment order="2" mandatory="true" delimiter="space"/>
 	                             </segments>
                            </umsm:catalog>
 			                        <umsm:id level="1">D3b</umsm:id>
@@ -8555,7 +8555,7 @@
 	                             </linkVariants>
                               <status>Current</status>
                               <segments>
-		                               <segment order="1" mandatory="true"/>
+		                               <segment order="1" mandatory="true" delimiter="none"/>
 	                             </segments>
                            </umsm:catalog>
 			                        <umsm:id level="1">244</umsm:id>
@@ -8579,8 +8579,8 @@
 	                             </linkVariants>
                               <status>Current</status>
                               <segments>
-		                               <segment order="1" mandatory="true"/>
-		                               <segment order="2" mandatory="true" delimiter=" "/>
+		                               <segment order="1" mandatory="true" delimiter="none"/>
+		                               <segment order="2" mandatory="true" delimiter="space"/>
 	                             </segments>
                            </umsm:catalog>
 			                        <umsm:id level="1">D3b</umsm:id>
@@ -14911,7 +14911,7 @@
 	                             </linkVariants>
                               <status>Current</status>
                               <segments>
-		                               <segment order="1" mandatory="true"/>
+		                               <segment order="1" mandatory="true" delimiter="none"/>
 	                             </segments>
                            </umsm:catalog>
 			                        <umsm:id level="1">244</umsm:id>
@@ -14935,8 +14935,8 @@
 	                             </linkVariants>
                               <status>Current</status>
                               <segments>
-		                               <segment order="1" mandatory="true"/>
-		                               <segment order="2" mandatory="true" delimiter=" "/>
+		                               <segment order="1" mandatory="true" delimiter="none"/>
+		                               <segment order="2" mandatory="true" delimiter="space"/>
 	                             </segments>
                            </umsm:catalog>
 			                        <umsm:id level="1">D3b</umsm:id>
@@ -21271,7 +21271,7 @@
 	                             </linkVariants>
                               <status>Current</status>
                               <segments>
-		                               <segment order="1" mandatory="true"/>
+		                               <segment order="1" mandatory="true" delimiter="none"/>
 	                             </segments>
                            </umsm:catalog>
 			                        <umsm:id level="1">244</umsm:id>
@@ -21295,8 +21295,8 @@
 	                             </linkVariants>
                               <status>Current</status>
                               <segments>
-		                               <segment order="1" mandatory="true"/>
-		                               <segment order="2" mandatory="true" delimiter=" "/>
+		                               <segment order="1" mandatory="true" delimiter="none"/>
+		                               <segment order="2" mandatory="true" delimiter="space"/>
 	                             </segments>
                            </umsm:catalog>
 			                        <umsm:id level="1">D3b</umsm:id>

@@ -45,7 +45,7 @@
 	</linkVariants>
 	<status>Current</status>
 	<segments>
-		<segment order="1" mandatory="true" delimiter=""/>
+		<segment order="1" mandatory="true" delimiter="none"/>
 	</segments>
 	<parent>
 		<standard uid="../3166"/>

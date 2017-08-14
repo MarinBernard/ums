@@ -25,7 +25,7 @@
 	</linkVariants>
 	<status>Current</status>
 	<segments>
-		<segment order="1" mandatory="true"/>
-		<segment order="2" mandatory="false" qualifier="numero"/>
+		<segment order="1" mandatory="true" delimiter="none"/>
+		<segment order="2" mandatory="false" delimiter="numero"/>
 	</segments>
 </umsm:catalog>

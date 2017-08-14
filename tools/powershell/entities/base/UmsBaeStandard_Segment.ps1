@@ -13,6 +13,12 @@ class UmsBaeStandard_Segment
     # Static properties
     ###########################################################################
 
+    # List of segment delimiters which must be included with a blank space
+    # before and after the delimiter itself.
+    [UmsBaeStandard_SegmentDelimiter[]] $SpacedDelimiters = @(
+        [UmsBaeStandard_SegmentDelimiter]::Numero
+    )
+
     ###########################################################################
     # Hidden properties
     ###########################################################################
@@ -23,8 +29,7 @@ class UmsBaeStandard_Segment
 
     [int]       $Order
     [bool]      $Mandatory
-    [string]    $Delimiter
-    [UmsBaeStandard_Segment_Qualifier]  $Qualifier
+    [UmsBaeStandard_SegmentDelimiter]  $Delimiter
 
     ###########################################################################
     # Constructors
@@ -51,8 +56,6 @@ class UmsBaeStandard_Segment
 
         if ($XmlElement.HasAttribute("delimiter"))
             { $this.Delimiter = $XmlElement.GetAttribute("delimiter") }
-        elseif ($XmlElement.HasAttribute("qualifier"))
-            { $this.Qualifier = $XmlElement.GetAttribute("qualifier") }
         else
         {
             throw [MissingXmlElementAttributeException]::New(
@@ -68,20 +71,27 @@ class UmsBaeStandard_Segment
     {
         [string] $_string = ""
 
-        if ($this.Delimiter)
-            { $_string += $this.Delimiter }
-
-        elseif ($this.Qualifier)
+        # Include optional space before the delimiter
+        if ([UmsBaeStandard_Segment]::SpacedDelimiters -contains(
+            $this.Delimiter))
         {
-            switch ($this.Qualifier)
-            {
-                "Numero"
-                {
-                    $_string += ([UmsAeEntity]::NonBreakingSpace)
-                    $_string += "n°"
-                    $_string += ([UmsAeEntity]::NonBreakingSpace)
-                }
-            }
+            $_string += ([UmsAeEntity]::NonBreakingSpace)
+        }
+
+        switch ($this.Delimiter)
+        {
+            "dash"      { $_string += "-" }
+            "dot"       { $_string += "." }
+            "numero"    { $_string += "n°" }
+            "space"     { $_string += "." }
+            "none"      {}
+        }
+
+        # Include optional space after the delimiter
+        if ([UmsBaeStandard_Segment]::SpacedDelimiters -contains(
+            $this.Delimiter))
+        {
+            $_string += ([UmsAeEntity]::NonBreakingSpace)
         }
 
         return $_string
@@ -89,14 +99,18 @@ class UmsBaeStandard_Segment
 }
 
 ###############################################################################
-#   Local enum UmsBaeStandard_Segment_Qualifier
+#   Local enum UmsBaeStandard_SegmentDelimiter
 #==============================================================================
 #
-#   Describes a qualifier in a standard's segment.
+#   Describes a delimiter prefix in a standard's segment.
 #
 ###############################################################################
 
-Enum UmsBaeStandard_Segment_Qualifier
+Enum UmsBaeStandard_SegmentDelimiter
 {
+    Dash
+    Dot
+    None
     Numero
+    Space
 }

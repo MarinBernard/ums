@@ -30,9 +30,9 @@
 	</linkVariants>
 	<status>Current</status>
 	<segments>
-		<segment order="1" mandatory="true" delimiter=""/>
-		<segment order="2" mandatory="true" delimiter="."/>
-		<segment order="3" mandatory="true" delimiter="."/>
-		<segment order="4" mandatory="false" delimiter="."/>
+		<segment order="1" mandatory="true" delimiter="none"/>
+		<segment order="2" mandatory="true" delimiter="dot"/>
+		<segment order="3" mandatory="true" delimiter="dot"/>
+		<segment order="4" mandatory="false" delimiter="dot"/>
 	</segments>
 </standard>
