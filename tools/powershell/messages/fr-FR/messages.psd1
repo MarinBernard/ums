@@ -79,6 +79,9 @@
             ElementName = "Le nom de l'élement est: {0}"
             ExpectedName = "Le nom attendu est: {0}"
         }
+        MandatoryStandardIdSegmentNotFoundException = @{
+            MainMessage = "Un segment d'ID obligatoire n'a pas été trouvé dans la collection de segments: le segment de niveau {0} est manquant."
+        }
         MissingXmlElementAttributeException = @{
             MainMessage = "L'attribut {0} est manquant mais est obligatoire dans ce contexte."
             Context = "Le contexte est celui d'un élément {0} issue de l'espace de noms {1}."

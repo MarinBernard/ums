@@ -336,6 +336,20 @@ class UmsItemMetadataConversionFailure : UmsException
     }
 }
 
+# Thrown when an UMS item update failed.
+class MandatoryStandardIdSegmentNotFoundException : UmsException
+{
+    MandatoryStandardIdSegmentNotFoundException(
+        [object] $Segment
+    ) : base()
+    {
+        $_strings = (
+            $global:ModuleStrings.Exceptions.
+                MandatoryStandardIdSegmentNotFoundException)
+        $this.MainMessage =  ($_strings.MainMessage -f $Segment.Order)
+    }
+}
+
 ###############################################################################
 # Exceptions thrown by the VorbisCommentConverter class
 ###############################################################################

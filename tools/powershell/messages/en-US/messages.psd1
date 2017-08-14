@@ -79,6 +79,9 @@
             ElementName = "Element name is: {0}"
             ExpectedName = "Expected name is: {0}"
         }
+        MandatoryStandardIdSegmentNotFoundException = @{
+            MainMessage = "A mandatory ID segment was not found in the segment collection: missing level {0} segment."
+        }
         MissingXmlElementAttributeException = @{
             MainMessage = "The attribute {0} is missing but is mandatory in this context."
             Context = "Context is XML element {0} in namespace {1}."

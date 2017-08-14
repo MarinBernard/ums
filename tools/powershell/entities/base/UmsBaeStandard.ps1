@@ -115,8 +115,8 @@ class UmsBaeStandard : UmsBaeItem
                     $_verbosePrefix + `
                     "No matching segment found but the segment is mandatory.")
                 
-                # TODO: use a real exception
-                throw $("Mandatory standard ID segment not found: " + $_segment.Order)
+                throw [MandatoryStandardIdSegmentNotFoundException]::New(
+                    $_segment)
             }
 
             # If no match was found and the segment was optional

@@ -15,14 +15,6 @@
 			      <fullTitle>Passion selon St. Matthieu</fullTitle>
 		    </titleVariant>
 	  </titleVariants>
-	  <standardIds>
-		    <standardId>
-			      <standard uid="ASIN"/>
-			      <segments>
-				        <segment level="1">12345678</segment>
-			      </segments>
-		    </standardId>
-	  </standardIds>
 	  <releases>
 		    <release>
 			      <year>1990</year>
@@ -2234,7 +2226,7 @@
                               <status>Current</status>
                               <segments>
 		                               <segment order="1" mandatory="true" delimiter="none"/>
-		                               <segment order="2" mandatory="true" delimiter="space"/>
+		                               <segment order="2" mandatory="true" delimiter="none"/>
 	                             </segments>
                            </umsm:catalog>
 			                        <segments>
@@ -8595,7 +8587,7 @@
                               <status>Current</status>
                               <segments>
 		                               <segment order="1" mandatory="true" delimiter="none"/>
-		                               <segment order="2" mandatory="true" delimiter="space"/>
+		                               <segment order="2" mandatory="true" delimiter="none"/>
 	                             </segments>
                            </umsm:catalog>
 			                        <segments>
@@ -14956,7 +14948,7 @@
                               <status>Current</status>
                               <segments>
 		                               <segment order="1" mandatory="true" delimiter="none"/>
-		                               <segment order="2" mandatory="true" delimiter="space"/>
+		                               <segment order="2" mandatory="true" delimiter="none"/>
 	                             </segments>
                            </umsm:catalog>
 			                        <segments>
@@ -21321,7 +21313,7 @@
                               <status>Current</status>
                               <segments>
 		                               <segment order="1" mandatory="true" delimiter="none"/>
-		                               <segment order="2" mandatory="true" delimiter="space"/>
+		                               <segment order="2" mandatory="true" delimiter="none"/>
 	                             </segments>
                            </umsm:catalog>
 			                        <segments>
