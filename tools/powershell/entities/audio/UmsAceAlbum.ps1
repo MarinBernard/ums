@@ -70,16 +70,6 @@ class UmsAceAlbum : UmsBaePublication
                 [UmsAeEntity]::NamespaceUri.Audio,
                 "media"))
 
-        # Optional 'standardIds' element (collection of 'standardId' elements)
-        if ($XmlElement.standardIds)
-        {
-            $this.BuildStandardId(
-                $this.GetOneXmlElement(
-                    $XmlElement,
-                    [UmsAeEntity]::NamespaceUri.Base,
-                    "standardIds"))
-        }
-
         # Update views
         $this.UpdatePerformances()
     }

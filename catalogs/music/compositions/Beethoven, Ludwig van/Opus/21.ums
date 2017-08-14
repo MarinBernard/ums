@@ -39,7 +39,9 @@
 	<umsm:catalogIds>
 		<umsm:catalogId>
 			<umsm:catalog uid="Opus"/>
-			<umsm:id level="1">21</umsm:id>
+			<segments>
+				<segment level="1">21</segment>
+			</segments>
 		</umsm:catalogId>
 	</umsm:catalogIds>
 	<umsm:composers>

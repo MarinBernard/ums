@@ -3,11 +3,13 @@
 #==============================================================================
 #
 #   This class describes a music catalog if entity, built from a 'catalogId'
-#   XML element from the UMS music namespace.
+#   XML element from the UMS music namespace. This class extends the base
+#   abstract type UmsBaeStandardId, which defines common members for all
+#   entities which aim to link a Standard to a Standard Record.
 #
 ###############################################################################
 
-class UmsMceCatalogId : UmsAeEntity
+class UmsMceCatalogId : UmsBaeStandardId
 {
     ###########################################################################
     # Static properties
@@ -24,9 +26,6 @@ class UmsMceCatalogId : UmsAeEntity
     # Music catalog
     [UmsMceCatalog] $Catalog
 
-    # Catalog entries
-    [UmsMceCatalogIdEntry[]] $Entries
-
     ###########################################################################
     # Constructors
     ###########################################################################
@@ -38,50 +37,35 @@ class UmsMceCatalogId : UmsAeEntity
         # Validate the XML root element
         $this.ValidateXmlElement(
             $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "catalogId")
-        
-        # Populate the 'Catalog' property with an UmsMceCatalog instance
+
+        # Mandatory 'catalog' element
         $this.Catalog = (
             [EntityFactory]::GetEntity(
                 $this.GetOneXmlElement(
                     $XmlElement,
                     [UmsAeEntity]::NamespaceUri.Music,
                     "catalog"),
-                    $this.SourcePathUri,
-                    $this.SourceFileUri))
-        
-        # Populate the 'Entries' property with UmsMceCatalogIdEntry instances
-        $this.BuildEntries(
-            $this.GetOneOrManyXmlElement(
-                    $XmlElement, [UmsAeEntity]::NamespaceUri.Music, "id"))
-    }
+                $this.SourcePathUri,
+                $this.SourceFileUri))
 
-    # Sub-constructor for catalog id entries
-    [void] BuildEntries([System.Xml.XmlElement[]] $XmlElements)
-    {
-        foreach ($_idElement in $XmlElements)
-        {
-            # Build and store the entry instance. We do not use the factory here, as
-            # the name of 'id' elements is too common.
-            $this.Entries += New-Object -Type UmsMceCatalogIdEntry($_idElement, $this.SourceFileUri)
-        }
+        # Register the catalog as the standard
+        $this.RegisterStandard($this.Catalog)
     }
 
     ###########################################################################
     # Helpers
     ###########################################################################
 
-    # String representation
+    # String representation. Music catalogs do not use any separator between
+    # the catalog name and the catalog number, so we must override the
+    # ToString() method of the parent class.
     [string] ToString()
     {
         $_string = ""
 
         $_string += $this.Catalog.Label.ShortLabel
-
-        foreach ($_entry in ($this.Entries | Sort-Object -Property "Level"))
-        {
-            $_string += [UmsAeEntity]::NonBreakingSpace
-            $_string += $_entry.ToString()
-        }
+        $_string += [UmsAeEntity]::NonBreakingSpace
+        $_string += $this.Id
        
         return $_string
     }

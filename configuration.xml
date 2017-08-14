@@ -69,8 +69,7 @@
 				<option id="vorbis-label-artist-short-name">ARTISTSHORT</option>
 				<option id="vorbis-label-artist-sort-name">ARTISTSORT</option>
 				<option id="vorbis-label-asin">ASIN</option>
-				<option id="vorbis-label-barcode-ean">EAN</option>
-				<option id="vorbis-label-barcode-upc">UPC</option>
+				<option id="vorbis-label-barcode">BARCODE</option>
 				<option id="vorbis-label-composer-full-name">COMPOSER</option>
 				<option id="vorbis-label-composer-short-name">COMPOSERSHORT</option>
 				<option id="vorbis-label-composer-sort-name">COMPOSERSORT</option>
@@ -79,6 +78,7 @@
 				<option id="vorbis-label-conductor-sort-name">CONDUCTORSORT</option>
 				<option id="vorbis-label-date-full">DATE</option>
 				<option id="vorbis-label-date-year">YEAR</option>
+				<option id="vorbis-label-ean">EAN</option>
 				<option id="vorbis-label-ensemble-full-label">ENSEMBLE</option>
 				<option id="vorbis-label-ensemble-short-label">ENSEMBLESHORT</option>
 				<option id="vorbis-label-ensemble-sort-label">ENSEMBLESORT</option>

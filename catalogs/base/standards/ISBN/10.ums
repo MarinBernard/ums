@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<standard
+	xmlns="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>10 Nummern Internationale Standardbuchnummer</fullLabel>
+			<shortLabel>ISBN-10</shortLabel>
+		</labelVariant>
+		<labelVariant lang="en" original="true" default="true">
+			<fullLabel>10-Digit International Standard Book Number</fullLabel>
+			<shortLabel>ISBN-10</shortLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Numéro international normalisé du livre sur 10 chiffres</fullLabel>
+			<shortLabel>ISBN-10</shortLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>10-cijferige internationaal Standaard Boeknummer</fullLabel>
+			<shortLabel>ISBN-10</shortLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>10-значный международный стандартный книжный номер</fullLabel>
+			<shortLabel>ISBN-10</shortLabel>
+		</labelVariant>		
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Internationale_Standardbuchnummer"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/International_Standard_Book_Number"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/ISBN"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/International_Standard_Book_Number"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/ISBN"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Internationaal_Standaard_Boeknummer"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Международный_стандартный_книжный_номер"/>
+	</linkVariants>
+	<status>Deprecated</status>
+	<parent>
+		<standard uid="../ISBN"/>
+	</parent>
+	<supersets>
+		<standard uid="EAN/13"/>
+	</supersets>
+</standard>

@@ -34,6 +34,7 @@
 	<include href="concrete/Release.rng"/>
 	<include href="concrete/Standard.rng"/>
 	<include href="concrete/StandardId.rng"/>
+	<include href="concrete/StandardId_Segment.rng"/>
 	<include href="concrete/SymbolVariant.rng"/>
 	<include href="concrete/TextVariant.rng"/>
 	<include href="concrete/TitleVariant.rng"/>
@@ -46,6 +47,7 @@
 	<include href="list/NameVariants.rng"/>
 	<include href="list/Releases.rng"/>
 	<include href="list/StandardIds.rng"/>
+	<include href="list/StandardId_Segments.rng"/>
 	<include href="list/SymbolVariants.rng"/>
 	<include href="list/TextVariants.rng"/>
 	<include href="list/TitleVariants.rng"/>

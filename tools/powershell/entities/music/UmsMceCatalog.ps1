@@ -3,11 +3,12 @@
 #==============================================================================
 #
 #   This class describes a music catalog entity, built from an 'catalog'
-#   XML element from the music namespace.
+#   XML element from the music namespace. It extends the base abstract type
+#   defining common members for standard-related entities.
 #
 ###############################################################################
 
-class UmsMceCatalog : UmsBaeItem
+class UmsMceCatalog : UmsBaeStandard
 {
     ###########################################################################
     # Static properties
@@ -37,16 +38,4 @@ class UmsMceCatalog : UmsBaeItem
     ###########################################################################
     # Helpers
     ###########################################################################
-
-    # String representation uses the short label if it is available.
-    [string] ToString()
-    {
-        # Short label
-        if ($this.Label.ShortLabel)
-            { return $this.Label.ShortLabel }
-        
-        # Default string representation for items
-        else
-            { return ([UmsBaeItem] $this).ToString() }
-    }
 }

@@ -18,6 +18,17 @@
 					</oneOrMore>
 				</element>
 			</optional>
+			<!-- Optional supersets base:standard -->
+			<optional>
+				<element name="supersets">
+					<oneOrMore>
+						<choice>
+							<ref name="BCT_Standard"/>
+							<ref name="BRT_Standard"/>
+						</choice>
+					</oneOrMore>
+				</element>
+			</optional>
 		</element>
 	</define>
 </grammar>

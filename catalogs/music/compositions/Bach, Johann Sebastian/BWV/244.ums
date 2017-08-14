@@ -25,11 +25,16 @@
 	<umsm:catalogIds>
 		<umsm:catalogId>
 			<umsm:catalog uid="Bach-Werke-Verzeichnis"/>
-			<umsm:id level="1">244</umsm:id>
+			<segments>
+				<segment level="1">244</segment>
+			</segments>
 		</umsm:catalogId>
 		<umsm:catalogId>
 			<umsm:catalog uid="Bach-Compendium"/>
-			<umsm:id level="1">D3b</umsm:id>
+			<segments>
+				<segment level="1">D</segment>
+				<segment level="2">3B</segment>
+			</segments>
 		</umsm:catalogId>
 	</umsm:catalogIds>
 	<umsm:composers>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<define name="BLT_StandardId_Segments">
+		<element name="segments">
+			<oneOrMore>
+				<ref name="BCT_StandardId_Segment"/>
+			</oneOrMore>
+		</element>
+	</define>
+</grammar>

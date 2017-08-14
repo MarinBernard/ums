@@ -9,6 +9,7 @@
 			<choice>
 				<value>Current</value>
 				<value>Deprecated</value>
+				<value>Superseded</value>
 			</choice>
 		</element>
 		<!-- Hierarchy levels. This is an optional element, since some

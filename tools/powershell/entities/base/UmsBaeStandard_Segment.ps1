@@ -83,7 +83,7 @@ class UmsBaeStandard_Segment
             "dash"      { $_string += "-" }
             "dot"       { $_string += "." }
             "numero"    { $_string += "n°" }
-            "space"     { $_string += "." }
+            "space"     { $_string += [UmsAeEntity]::NonBreakingSpace }
             "none"      {}
         }
 

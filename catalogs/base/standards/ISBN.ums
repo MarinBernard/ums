@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://schemas.olivarim.com/ums/1.0/base.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<standard
+	xmlns="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsb="http://schemas.olivarim.com/ums/1.0/base"
+	xmlns:umsm="http://schemas.olivarim.com/ums/1.0/music">
+	<labelVariants>
+		<labelVariant lang="de">
+			<fullLabel>Internationale Standardbuchnummer</fullLabel>
+			<shortLabel>ISBN</shortLabel>
+		</labelVariant>
+		<labelVariant lang="en" original="true" default="true">
+			<fullLabel>International Standard Book Number</fullLabel>
+			<shortLabel>ISBN</shortLabel>
+		</labelVariant>
+		<labelVariant lang="fr">
+			<fullLabel>Numéro international normalisé du livre</fullLabel>
+			<shortLabel>ISBN</shortLabel>
+		</labelVariant>
+		<labelVariant lang="nl">
+			<fullLabel>Internationaal Standaard Boeknummer</fullLabel>
+			<shortLabel>ISBN</shortLabel>
+		</labelVariant>
+		<labelVariant lang="ru">
+			<fullLabel>Международный стандартный книжный номер</fullLabel>
+			<shortLabel>ISBN</shortLabel>
+		</labelVariant>		
+	</labelVariants>
+	<linkVariants>
+		<linkVariant type="wikipedia" lang="de" href="https://de.wikipedia.org/wiki/Internationale_Standardbuchnummer"/>
+		<linkVariant type="wikipedia" lang="en" href="https://en.wikipedia.org/wiki/International_Standard_Book_Number"/>
+		<linkVariant type="wikipedia" lang="es" href="https://es.wikipedia.org/wiki/ISBN"/>
+		<linkVariant type="wikipedia" lang="fr" href="https://fr.wikipedia.org/wiki/International_Standard_Book_Number"/>
+		<linkVariant type="wikipedia" lang="it" href="https://it.wikipedia.org/wiki/ISBN"/>
+		<linkVariant type="wikipedia" lang="nl" href="https://nl.wikipedia.org/wiki/Internationaal_Standaard_Boeknummer"/>
+		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Международный_стандартный_книжный_номер"/>
+	</linkVariants>
+	<standardIds>
+		<standardId>
+			<standard uid="ICS"/>
+			<segments>
+				<segment level="1">01</segment>
+				<segment level="2">140</segment>
+				<segment level="3">20</segment>
+			</segments>
+		</standardId>
+		<standardId>
+			<standard uid="ISO"/>
+			<segments>
+				<segment level="1">2108</segment>
+			</segments>
+		</standardId>
+	</standardIds>
+	<status>Current</status>
+</standard>

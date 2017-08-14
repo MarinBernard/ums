@@ -21,7 +21,12 @@ class UmsBceStandard : UmsBaeStandard
     # Visible properties
     ###########################################################################
 
-    [UmsBceStandard] $ParentStandard
+    # Parent standard. Not implemented in UmsBaeStandard, as it is very seldom
+    # used.
+    [UmsBceStandard] $Parent
+
+    # Superset standards, which supersede the current standard.
+    [UmsBceStandard] $Supersets
 
     ###########################################################################
     # Constructors
@@ -38,18 +43,28 @@ class UmsBceStandard : UmsBaeStandard
         # Optional 'parent' element (wrapper of a single 'standard' element)
         if ($XmlElement.parent)
         {
-            $this.BuildParentStandard(
+            $this.BuildParent(
                 $this.GetOneXmlElement(
                     $XmlElement,
                     [UmsAeEntity]::NamespaceUri.Base,
                     "parent"))     
         }
+
+        # Optional 'supersets' element (collection of a 'standard' elements)
+        if ($XmlElement.supersets)
+        {
+            $this.BuildSupersets(
+                $this.GetOneXmlElement(
+                    $XmlElement,
+                    [UmsAeEntity]::NamespaceUri.Base,
+                    "supersets"))     
+        }
     }
 
     # Sub-constructor for the 'parent/standard' element
-    [void] BuildParentStandard([System.Xml.XmlElement] $ParentElement)
+    [void] BuildParent([System.Xml.XmlElement] $ParentElement)
     {
-        $this.ParentStandard = (
+        $this.Parent = (
             [EntityFactory]::GetEntity(
                 $this.GetOneXmlElement(
                     $ParentElement,
@@ -58,6 +73,18 @@ class UmsBceStandard : UmsBaeStandard
                 $this.SourcePathUri,
                 $this.SourceFileUri))
     }
+
+    # Sub-constructor for the 'supersets' element
+    [void] BuildSupersets([System.Xml.XmlElement] $SupersetsElement)
+    {
+        $this.GetOneOrManyXmlElement(
+            $SupersetsElement,
+            [UmsAeEntity]::NamespaceUri.Music,
+            "standard"
+        ) | foreach {
+            $this.Supersets += [EntityFactory]::GetEntity(
+                $_, $this.SourcePathUri, $this.SourceFileUri) }
+    }  
 
     ###########################################################################
     # Helpers

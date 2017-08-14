@@ -98,8 +98,6 @@ class VorbisCommentConverter
         ArtistSortName                  =   "ARTISTSORT";
         Asin                            =   "ASIN";
         Barcode                         =   "BARCODE";
-        BarcodeEan                      =   "EAN";
-        BarcodeUpc                      =   "UPC";
         ComposerFullName                =   "COMPOSER";
         ComposerShortName               =   "COMPOSERSHORT";
         ComposerSortName                =   "COMPOSERSORT";
@@ -108,6 +106,7 @@ class VorbisCommentConverter
         ConductorSortName               =   "CONDUCTORSORT";
         DateFull                        =   "DATE";
         DateYear                        =   "YEAR";
+        Ean                             =   "EAN";
         EnsembleFullLabel               =   "ENSEMBLE";
         EnsembleShortLabel              =   "ENSEMBLESHORT";
         EnsembleSortLabel               =   "ENSEMBLESORT";
@@ -1065,36 +1064,25 @@ class VorbisCommentConverter
     {
         [string[]] $_lines = @()
 
-        # Render the barcodes
         foreach ($_standardId in $AlbumMetadata.StandardIds)
         {
-            switch ($_standardId.Standard)
+            switch ($_standardId.Standard.Uid)
             {
-                "asin"
+                "ASIN"
                 {
                     $_res = $this.CreateVorbisComment(
                         "Asin", $_standardId.Id)
                     if ($_res) { $_lines += $_res }
                 }
 
-                "barcode"
+                "EAN/13"
                 {
                     $_res = $this.CreateVorbisComment(
                         "Barcode", $_standardId.Id)
                     if ($_res) { $_lines += $_res }
-                }
 
-                "barcode-ean"
-                {
                     $_res = $this.CreateVorbisComment(
-                        "BarcodeEan", $_standardId.Id)
-                    if ($_res) { $_lines += $_res }
-                }
-
-                "barcode-upc"
-                {
-                    $_res = $this.CreateVorbisComment(
-                        "BarcodeUpc", $_standardId.Id)
+                        "Ean", $_standardId.Id)
                     if ($_res) { $_lines += $_res }
                 }
             }

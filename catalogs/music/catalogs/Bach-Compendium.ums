@@ -17,6 +17,6 @@
 	<status>Current</status>
 	<segments>
 		<segment order="1" mandatory="true" delimiter="none"/>
-		<segment order="2" mandatory="true" delimiter="space"/>
+		<segment order="2" mandatory="true" delimiter="none"/>
 	</segments>
 </umsm:catalog>

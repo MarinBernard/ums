@@ -8,27 +8,8 @@
 				<ref name="MCT_Catalog"/>
 				<ref name="MRT_Catalog"/>
 			</choice>
-			<!-- Id of the record within the catalog -->
-			<oneOrMore>
-				<element name="id">
-					<!-- Level of the record. Used to describe multi-level ids. -->
-					<optional>
-						<attribute name="level">
-							<data type="integer"/>
-						</attribute>
-					</optional>
-					<!-- Qualifier of the record. For instance, use "numero" for Opus sub-ids. -->
-					<optional>
-						<attribute name="qualifier">
-							<choice>
-								<value>none</value>
-								<value>numero</value>
-							</choice>
-						</attribute>
-					</optional>
-					<data type="string"/>
-				</element>
-			</oneOrMore>
+			<!-- Id of the record within the catalog, divided into segments -->
+			<ref name="BLT_StandardId_Segments"/>
 		</element>
 	</define>
 </grammar>

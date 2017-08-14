@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<define name="BCT_StandardId_Segment">
+		<element name="segment">
+			<!-- Level of the part. Used to describe multi-level ids. -->
+			<optional>
+				<attribute name="level">
+					<data type="integer"/>
+				</attribute>
+			</optional>
+			<data type="string"/>
+		</element>
+	</define>
+</grammar>

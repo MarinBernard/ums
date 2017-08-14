@@ -44,4 +44,8 @@
 		<linkVariant type="wikipedia" lang="ru" href="https://ru.wikipedia.org/wiki/Международная_организация_по_стандартизации"/>
 	</linkVariants>
 	<status>Current</status>
+	<segments>
+		<segment order="1" mandatory="true" delimiter="none"/>
+		<segment order="2" mandatory="false" delimiter="dash"/>
+	</segments>
 </standard>

@@ -30,7 +30,7 @@
 		 =========================================================================-->
 		<!-- Sort catalog ids by level -->
 		<xsl:variable name="_sortedCatalogIds">
-			<xsl:for-each select="umsm:id">
+			<xsl:for-each select="umsb:segments/umsb:segment">
 				<xsl:sort data-type="number" select="@level"/>
 				<xsl:copy-of select="."/>
 			</xsl:for-each>
@@ -38,19 +38,29 @@
 		<!-- Build catalog id string -->
 		<xsl:variable name="_catalogIdTmp">
 			<xsl:value-of select="$_catalogShortLabel"/>
-			<xsl:value-of select="' '"/>
-			<xsl:for-each select="$_sortedCatalogIds/umsm:id">
+			<xsl:value-of select="$config.constants.nonBreakableSpace"/>
+			<xsl:for-each select="$_sortedCatalogIds/umsb:segment">
+				<xsl:value-of select="text()"/>
 				<xsl:choose>
-					<xsl:when test="lower-case(@qualifier) = 'numero'">
+					<xsl:when test="lower-case(@delimiter) = 'dash'">
+						<xsl:value-of select="'-'"/>
+					</xsl:when>
+					<xsl:when test="lower-case(@delimiter) = 'dot'">
+						<xsl:value-of select="'.'"/>
+					</xsl:when>
+					<xsl:when test="lower-case(@delimiter) = 'none'"/>					
+					<xsl:when test="lower-case(@delimiter) = 'numero'">
 						<xsl:call-template name="getTypographicSign">
 							<xsl:with-param name="SignName" select="'numero'"/>
 							<xsl:with-param name="Language" select="$config.variants.preferredLanguage"/>
 						</xsl:call-template>
 					</xsl:when>
+					<xsl:when test="lower-case(@delimiter) = 'space'">
+						<xsl:value-of select="$config.constants.nonBreakableSpace"/>
+					</xsl:when>
 					<xsl:otherwise/>					
 				</xsl:choose>
-				<xsl:value-of select="text()"/>
-				<xsl:value-of select="' '"/>
+				<xsl:value-of select="$config.constants.nonBreakableSpace"/>
 			</xsl:for-each>
 		</xsl:variable>
 		<!-- Remove trailing space character -->

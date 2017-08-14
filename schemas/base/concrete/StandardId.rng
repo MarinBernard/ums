@@ -8,20 +8,8 @@
 				<ref name="BCT_Standard"/>
 				<ref name="BRT_Standard"/>
 			</choice>
-			<!-- Id of the record within the standard -->
-			<element name="segments">
-				<oneOrMore>
-					<element name="segment">
-						<!-- Level of the part. Used to describe multi-level ids. -->
-						<optional>
-							<attribute name="level">
-								<data type="integer"/>
-							</attribute>
-						</optional>
-						<data type="string"/>
-					</element>
-				</oneOrMore>
-			</element>
+			<!-- Id of the record within the standard, divided into segments -->
+			<ref name="BLT_StandardId_Segments"/>
 		</element>
 	</define>
 </grammar>
