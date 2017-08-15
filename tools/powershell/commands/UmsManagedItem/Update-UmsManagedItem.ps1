@@ -1,14 +1,14 @@
-function Update-UmsItem
+function Update-UmsManagedItem
 {
     <#
     .SYNOPSIS
-    Update the static and cached version of an UMS item.
+    Update the static and cached version of a managed UMS item.
     
     .DESCRIPTION
-    Update the static and cached version of an UMS item. Static metadata are stored locally and consist of a single, dependency-free UMS file. Most advanced metadata converters use cached versions as a data source, and expect them to be up-to-date.
+    Update the static and cached version of a managed UMS item. Static metadata are stored locally and consist of a single, dependency-free UMS file. Most advanced metadata converters use cached versions as a data source, and expect them to be up-to-date.
 
-    .PARAMETER Item
-    A valid UmsItem instance. Use Get-UmsItem to retrieve UmsItem instances.
+    .PARAMETER ManagedItem
+    A valid UmsManagedItem instance. Use Get-UmsManagedItem to retrieve UmsManagedItem instances.
 
     .PARAMETER Version
     The type of version to update. Default is to update both static and cached versions, but this behaviour may be altered using this parameter.
@@ -20,14 +20,14 @@ function Update-UmsItem
     Force cache update even if it is not necessary. Default is to skip cache updates if the cached file is newer than the source UMS item.
     
     .EXAMPLE
-    Get-UmsItem -Path "D:\MyMusic" -Status Sidecar | Update-UmsItem
+    Get-UmsManagedItem -Path "D:\MyMusic" -Status Sidecar | Update-UmsManagedItem
     #>
 
     [CmdletBinding(DefaultParametersetName='None')]
     Param(
         [Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
-        [UmsItem] $Item,
+        [UmsManagedItem] $ManagedItem,
 
         [ValidateSet("All", "Static", "Cached")]
         [string] $Version = "All",
@@ -46,7 +46,7 @@ function Update-UmsItem
     Process
     {
         # Update progress bar
-        $_progressActivity = $("Updating UMS item " + $Item.Name + "...")
+        $_progressActivity = $("Updating UMS item " + $ManagedItem.Name + "...")
         Write-Progress `
             -Activity $_progressActivity `
             -CurrentOperation "Updating static version" `
@@ -56,14 +56,14 @@ function Update-UmsItem
         if (@("All", "Static") -contains $Version)
         {
             # Check whether the update is needed
-            if (($Item.StaticVersion -eq [UIVersionStatus]::Current) -and (-not $Force.IsPresent))
+            if (($ManagedItem.StaticVersion -eq [UIVersionStatus]::Current) -and (-not $Force.IsPresent))
             {
                 Write-Verbose "Static version is up-to-date."
             }
             else
             {
                 # Get the full name of the static file
-                $_staticFileFullName = $Item.StaticFileFullName
+                $_staticFileFullName = $ManagedItem.StaticFileFullName
 
                 # Build the name of the temporary destination file
                 $_tempFileFullName = $($_staticFileFullName + ".tmp")
@@ -78,7 +78,7 @@ function Update-UmsItem
                     }
                     catch
                     {
-                        throw $ModuleStrings.UpdateUmsItem.TempFileRemovalFailure
+                        throw $ModuleStrings.UpdateUmsManagedItem.TempFileRemovalFailure
                     }
                 }
 
@@ -86,7 +86,7 @@ function Update-UmsItem
                 try 
                 {
                     Invoke-XslTransformer `
-                        -Source $Item.Uri `
+                        -Source $ManagedItem.Uri `
                         -Stylesheet $_stylesheetUri `
                         -Destination $_tempFileFullName
                 }
@@ -103,7 +103,7 @@ function Update-UmsItem
                 }
 
                 # Instantiate temporary file
-                $_tempItem = New-object -Type UmsItem -ArgumentList (Get-Item -LiteralPath $_tempFileFullName)
+                $_tempItem = New-object -Type UmsManagedItem -ArgumentList (Get-Item -LiteralPath $_tempFileFullName)
                 
                 # Validate the temporary file
                 $_schemaUri = (Get-UmsConfigurationItem -Type Schema | Where-Object { $_.Namespace -eq $_tempItem.XmlNamespace }).Uri
@@ -114,7 +114,7 @@ function Update-UmsItem
                 {
                     # Temporary file should be removed if validation has failed
                     Remove-Item -Force -LiteralPath $_tempFileFullName
-                    throw $ModuleStrings.UpdateUmsItem.ValidationFailure
+                    throw $ModuleStrings.UpdateUmsManagedItem.ValidationFailure
                 }
 
                 # Promote temporary file to be the new static file
@@ -133,11 +133,11 @@ function Update-UmsItem
                 {
                     # Temporary file should be removed if validation has failed
                     Remove-Item -Force -LiteralPath $_tempFileFullName
-                    throw $ModuleStrings.UpdateUmsItem.PromotionFailure
+                    throw $ModuleStrings.UpdateUmsManagedItem.PromotionFailure
                 }
 
-                # Update static version status in the UmsItem instance
-                $Item.UpdateStaticInfo()
+                # Update static version status in the UmsManagedItem instance
+                $ManagedItem.UpdateStaticInfo()
             }
         }
 
@@ -152,7 +152,7 @@ function Update-UmsItem
         {
             # Check whether the update is needed
             if (
-                ($Item.CachedVersion -eq [UIVersionStatus]::Current) -and
+                ($ManagedItem.CachedVersion -eq [UIVersionStatus]::Current) -and
                 (-not $Force.IsPresent))
             {
                 Write-Verbose "Cached version is up-to-date."
@@ -162,16 +162,16 @@ function Update-UmsItem
                 # Retrieve metadata
                 try
                 {
-                    $_metadata = Get-UmsMetadata -Silent -Item $Item -Source Raw
+                    $_metadata = Get-UmsMetadata -Silent -Item $ManagedItem -Source Raw
                 }
                 catch [UmsException]
                 {
                     Write-Error $_.Exception.MainMessage
-                    throw [UmsItemUpdateFailure]::New($Item)
+                    throw [UmsManagedItemUpdateFailure]::New($ManagedItem)
                 }
 
                 # Build the name of the temporary destination file
-                $_tempFileFullName = $($Item.CacheFileFullName + ".tmp")
+                $_tempFileFullName = $($ManagedItem.CacheFileFullName + ".tmp")
 
                 # Cache metadata
                 try
@@ -192,20 +192,20 @@ function Update-UmsItem
                         -ErrorAction SilentlyContinue
 
                     Write-Error $_.Exception.Message
-                    throw [UmsItemUpdateFailure]::New($Item)
+                    throw [UmsManagedItemUpdateFailure]::New($ManagedItem)
                 }
 
                 # Promote temporary file to be the new cache file
                 try
                 {
                     # Remove pre-existing cache file, if it exists
-                    if (Test-Path -LiteralPath $Item.CacheFileFullName)
-                        { Remove-Item -Force -LiteralPath $Item.CacheFileFullName }
+                    if (Test-Path -LiteralPath $ManagedItem.CacheFileFullName)
+                        { Remove-Item -Force -LiteralPath $ManagedItem.CacheFileFullName }
                     
                     # Promote temporary file to cache file
                     Move-Item `
                         -Path $_tempFileFullName `
-                        -Destination $Item.CacheFileFullName
+                        -Destination $ManagedItem.CacheFileFullName
                 }
 
                 # Catch promotion failure
@@ -213,11 +213,11 @@ function Update-UmsItem
                 {
                     # Temporary file should be removed if validation has failed
                     Remove-Item -Force -LiteralPath $_tempFileFullName
-                    throw $ModuleStrings.UpdateUmsItem.PromotionFailure
+                    throw $ModuleStrings.UpdateUmsManagedItem.PromotionFailure
                 }
 
-                # Update cached version status in the UmsItem instance
-                $Item.UpdateCacheInfo()
+                # Update cached version status in the UmsManagedItem instance
+                $ManagedItem.UpdateCacheInfo()
             }
         }
 
@@ -226,9 +226,9 @@ function Update-UmsItem
         {
             return New-Object -Type PSCustomObject -Property (
                 [ordered] @{
-                    Item = $Item.Name
-                    StaticVersion = $Item.StaticVersion
-                    CachedVersion = $Item.CachedVersion
+                    Item = $ManagedItem.Name
+                    StaticVersion = $ManagedItem.StaticVersion
+                    CachedVersion = $ManagedItem.CachedVersion
                 })
         }
 

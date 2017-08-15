@@ -1,4 +1,4 @@
-function Rename-UmsItem
+function Rename-UmsManagedItem
 {
     <#
     .SYNOPSIS
@@ -7,8 +7,8 @@ function Rename-UmsItem
     .DESCRIPTION
     This command renames all versions of a UMS item in the UMS store.
     
-    .PARAMETER Item
-    An instance of the UmsItem class, as returned by the Get-UmsItem command.
+    .PARAMETER ManagedItem
+    An instance of the UmsManagedItem class, as returned by the Get-UmsManagedItem command.
 
     .PARAMETER NewName
     The new name of the UMS item.
@@ -17,14 +17,14 @@ function Rename-UmsItem
     If this parameter is specified, the command will also rename the companion file of the UMS item, if it exists.
 
     .EXAMPLE
-    Get-UmsItem -Path "D:\MyMusic" -Filter "uselessFile" | Remove-UmsItem
+    Get-UmsManagedItem -Path "D:\MyMusic" -Filter "uselessFile" | Remove-UmsManagedItem
     #>
 
     [CmdletBinding(DefaultParametersetName='None')]
     Param(
         [Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
-        [UmsItem] $Item,
+        [UmsManagedItem] $ManagedItem,
 
         [Parameter(Position=1,Mandatory=$true)]
         [ValidateNotNull()]
@@ -36,8 +36,8 @@ function Rename-UmsItem
     Process
     {
         # Build paths
-        $_newFileName = $NewName + $Item.Extension
-        $_newFullFileName = Join-Path -Path $Item.Path -ChildPath $_newFileName
+        $_newFileName = $NewName + $ManagedItem.Extension
+        $_newFullFileName = Join-Path -Path $ManagedItem.Path -ChildPath $_newFileName
 
         # Prevent name collisions
         if (Test-Path $_newFullFileName)
@@ -48,55 +48,55 @@ function Rename-UmsItem
         # Move cached metadata
         try
         {
-            $_newPath = Join-Path -Path $Item.CachePath -ChildPath $_newFileName
-            Move-Item -Force -Path $Item.CacheFileFullName -Destination $_newPath
+            $_newPath = Join-Path -Path $ManagedItem.CachePath -ChildPath $_newFileName
+            Move-Item -Force -Path $ManagedItem.CacheFileFullName -Destination $_newPath
         }
         catch [System.IO.IOException]
         {
             Write-Warning -Message (
-                $ModuleStrings.RemoveUmsItem.CacheFileRenameFailure)
+                $ModuleStrings.RemoveUmsManagedItem.CacheFileRenameFailure)
         }
 
         # Move static version
         try
         {
-            $_newPath = Join-Path -Path $Item.StaticPath -ChildPath $_newFileName
-            Move-Item -Force -Path $Item.StaticFileFullName -Destination $_newPath
+            $_newPath = Join-Path -Path $ManagedItem.StaticPath -ChildPath $_newFileName
+            Move-Item -Force -Path $ManagedItem.StaticFileFullName -Destination $_newPath
         }
         catch [System.IO.IOException]
         {
             Write-Warning -Message (
-                $ModuleStrings.RemoveUmsItem.StaticFileRenameFailure)
+                $ModuleStrings.RemoveUmsManagedItem.StaticFileRenameFailure)
         }
 
         # Move companion file
         if (($WithCompanion.IsPresent) -and
-            ($Item.Cardinality -eq [UICardinality]::Sidecar))
+            ($ManagedItem.Cardinality -eq [UICardinality]::Sidecar))
         {
             try
             {
-                $_newPath = Join-Path -Path $Item.LinkedFilePath -ChildPath $NewName
-                Move-Item -Force -Path $Item.LinkedFileFullName -Destination $_newPath
+                $_newPath = Join-Path -Path $ManagedItem.LinkedFilePath -ChildPath $NewName
+                Move-Item -Force -Path $ManagedItem.LinkedFileFullName -Destination $_newPath
             }
             catch [System.IO.IOException]
             {
                 Write-Warning -Message (
-                    $ModuleStrings.RemoveUmsItem.CompanionFileRenameFailure)
+                    $ModuleStrings.RemoveUmsManagedItem.CompanionFileRenameFailure)
             }
         }
 
         # Move the UMS file
         try
         {
-            Move-Item -Force -Path $Item.FullName -Destination $_newFullFileName
+            Move-Item -Force -Path $ManagedItem.FullName -Destination $_newFullFileName
         }
         catch [System.IO.IOException]
         {
             Write-Warning -Message (
-                $ModuleStrings.RemoveUmsItem.UmsFileRemovalFailure)
+                $ModuleStrings.RemoveUmsManagedItem.UmsFileRemovalFailure)
         }
 
         # Return a fresh instance
-        return New-Object -Type UmsItem -ArgumentList $_newFullFileName
+        return New-Object -Type UmsManagedItem -ArgumentList $_newFullFileName
     }
 }

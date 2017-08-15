@@ -228,14 +228,14 @@ class UnresolvableUmsReference : UmsException
 }
 
 # Thrown when a UMS item does not have the expected cardinality.
-class IncompatibleUmsItemCardinality : UmsException
+class IncompatibleCardinalityException : UmsException
 {
-    IncompatibleUmsItemCardinality(
-        [UmsItem] $Item,
+    IncompatibleCardinalityException(
+        [UmsManagedItem] $Item,
         [UICardinality[]] $CompatibleCardinalities
     ) : base()
     {
-        $_strings = $global:ModuleStrings.Exceptions.IncompatibleUmsItemCardinality
+        $_strings = $global:ModuleStrings.Exceptions.IncompatibleCardinalityException
         $this.MainMessage =  $_strings.MainMessage
         $this.SubMessages += (
             $_strings.ItemName -f $Item.FullName)
@@ -251,7 +251,8 @@ class IncompatibleUmsItemCardinality : UmsException
 class IncompatibleBindingNamespace : UmsException
 {
     IncompatibleBindingNamespace(
-        [UmsItem] $Item,
+        # todo: use base class
+        [UmsManagedItem] $Item,
         [string] $ExpectedNamespace
     ) : base()
     {
@@ -270,7 +271,8 @@ class IncompatibleBindingNamespace : UmsException
 class IncompatibleBindingElement : UmsException
 {
     IncompatibleBindingElement(
-        [UmsItem] $Item,
+        # TODO: Use base class
+        [UmsManagedItem] $Item,
         [string] $ExpectedName
     ) : base()
     {
@@ -289,7 +291,8 @@ class IncompatibleBindingElement : UmsException
 class ConstraintValidationFailure : UmsException
 {
     ConstraintValidationFailure(
-        [UmsItem] $Item
+        # TODO: Use base class
+        [UmsManagedItem] $Item
     ) : base()
     {
         $_strings = (
@@ -303,14 +306,14 @@ class ConstraintValidationFailure : UmsException
 }
 
 # Thrown when an UMS item update failed.
-class UmsItemUpdateFailure : UmsException
+class UmsManagedItemUpdateFailure : UmsException
 {
-    UmsItemUpdateFailure(
-        [UmsItem] $Item
+    UmsManagedItemUpdateFailure(
+        [UmsManagedItem] $Item
     ) : base()
     {
         $_strings = (
-            $global:ModuleStrings.Exceptions.UmsItemUpdateFailure)
+            $global:ModuleStrings.Exceptions.UmsManagedItemUpdateFailure)
         $this.MainMessage =  $_strings.MainMessage
         $this.SubMessages += (
             $_strings.ItemPath -f $Item.Path)
@@ -319,15 +322,15 @@ class UmsItemUpdateFailure : UmsException
     }
 }
 
-# Thrown when an UMS item update failed.
-class UmsItemMetadataConversionFailure : UmsException
+# Thrown on metadata conversion failure.
+class UmsManagedItemMetadataConversionFailure : UmsException
 {
-    UmsItemMetadataConversionFailure(
-        [UmsItem] $Item
+    UmsManagedItemMetadataConversionFailure(
+        [UmsManagedItem] $Item
     ) : base()
     {
         $_strings = (
-            $global:ModuleStrings.Exceptions.UmsItemMetadataConversionFailure)
+            $global:ModuleStrings.Exceptions.UmsManagedItemMetadataConversionFailure)
         $this.MainMessage =  $_strings.MainMessage
         $this.SubMessages += (
             $_strings.ItemPath -f $Item.Path)

@@ -2,11 +2,11 @@
 . "$PSScriptRoot\includes.ps1"
 
 # Export
-# *-UmsItem
-Export-ModuleMember -Function Get-UmsItem
-Export-ModuleMember -Function Remove-UmsItem
-Export-ModuleMember -Function Rename-UmsItem
-Export-ModuleMember -Function Update-UmsItem
+# *-UmsManagedItem
+Export-ModuleMember -Function Get-UmsManagedItem
+Export-ModuleMember -Function Remove-UmsManagedItem
+Export-ModuleMember -Function Rename-UmsManagedItem
+Export-ModuleMember -Function Update-UmsManagedItem
 # *-UmsManagement
 Export-ModuleMember -Function Disable-UmsManagement
 Export-ModuleMember -Function Enable-UmsManagement

@@ -1,11 +1,12 @@
-# Helper function which performs constraint validation on a UmsItem instance.
+# Helper function which performs constraint validation on a UmsItem/UmsManagedItem instance.
 function Test-ConstraintValidation
 {
     [CmdletBinding(DefaultParametersetName='None')]
     Param(
         [Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
-        [UmsItem] $Item,
+        # TODO: use the base class
+        [UmsManagedItem] $Item,
 
         [Parameter(Position=1,Mandatory=$true)]
         [ValidateNotNullOrEmpty()]
@@ -40,7 +41,7 @@ function Test-ConstraintValidation
                         # Check cardinality
                         if ($_allowedCardinalities -notcontains($Item.Cardinality))
                         {
-                            throw [IncompatibleUmsItemCardinality]::New(
+                            throw [IncompatibleCardinalityException]::New(
                                 $Item, $_allowedCardinalities)
                         }
                     }

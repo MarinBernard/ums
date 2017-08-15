@@ -48,7 +48,7 @@
             ActualNamespace = "Espace de noms trouvé: {0}"
             ExpectedNamespace = "Espace de noms attendu: {0}"
         }
-        IncompatibleUmsItemCardinality = @{
+        IncompatibleCardinalityException = @{
             MainMessage = "La cardinalité de l'élément n'est pas compatible avec cette commande."
             ItemName = "Nom complet de l'élément: {0}"
             ActualCardinality = "Cardinalité de l'élément: {0}"
@@ -86,12 +86,12 @@
             MainMessage = "L'attribut {0} est manquant mais est obligatoire dans ce contexte."
             Context = "Le contexte est celui d'un élément {0} issue de l'espace de noms {1}."
         }
-        UmsItemMetadataConversionFailure = @{
+        UmsManagedItemMetadataConversionFailure = @{
             MainMessage = "L'élément UMS n'a pas pu être converti."
             ItemPath = "Répertoire de l'élément: {0}"
             ItemName = "Nom de l'élément: {0}"
         }
-        UmsItemUpdateFailure = @{
+        UmsManagedItemUpdateFailure = @{
             MainMessage = "L'élément UMS n'a pas pu être mis à jour."
             ItemPath = "Répertoire de l'élément: {0}"
             ItemName = "Nom de l'élément: {0}"
@@ -136,13 +136,13 @@
         BadXmlContent = "Le fichier XML {0} est invalide et n'a pas pu être lu."
         NoNamespace = "Le fichier XML {0} est vide ou utilise des éléments non-qualifiés."
     }
-    RemoveUmsItem = @{
+    RemoveUmsManagedItem = @{
         CacheFileRemovalFailure = "La commande n'est pas parvenue à supprimer le fichier contenant le cache des métadonnées."
         CompanionFileRemovalFailure = "La commande n'est pas parvenue à supprimer le fichier compagnion de l'élément UMS."
         StaticFileRemovalFailure = "La commande n'est pas parvenue à supprimer le fichier contenant la copie statique."
         UmsFileRemovalFailure = "La commande n'est pas parvenue à supprimer le fichier UMS principal."
     }
-    RenameUmsItem = @{
+    RenameUmsManagedItem = @{
         CacheFileRenameFailure = "La commande n'est pas parvenue à renommer le fichier contenant le cache des métadonnées."
         CompanionFileRenameFailure = "La commande n'est pas parvenue à renommer le fichier compagnion de l'élément UMS."
         StaticFileRenameFailure = "La commande n'est pas parvenue à renommer le fichier contenant la copie statique."
@@ -171,7 +171,7 @@
         CacheFolderNotFound = "Le sous-dossier du cache de données n'est pas présent."
         StaticFolderNotFound = "Le sous-dossier des données statiques n'est pas présent."
     }
-    UpdateUmsItem = @{
+    UpdateUmsManagedItem = @{
         MissingTarget = "Le fichier cible n'existe pas ou n'est pas accessible."
         PromotionFailure = "Echec de la promotion du fichier nouvellement généré en fichier de cache."
         TempFileRemovalFailure = "Un fichier temporaire n'a pas pu être supprimé."

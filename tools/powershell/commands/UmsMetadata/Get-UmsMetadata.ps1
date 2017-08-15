@@ -13,11 +13,11 @@ function Get-UmsMetadata
     .PARAMETER Uri
     Absolute URI to one or several UMS documents.
 
-    .PARAMETER Item
-    One or several UmsItem instances as returned by the Get-UmsItem command.
+    .PARAMETER ManagedItem
+    One or several UmsManagedItem instances as returned by the Get-UmsManagedItem command.
 
     .PARAMETER Source
-    Allows to select the source to use to build metadata. This parameter is only available when input objects are UmsItem instances, as returned by the Get-UmsItem command. The default value of this parameter is "Cache", and will make the command return cached metadata, if available. If cached metadata are unavailable, the command will fallback to the static version of the UMS document, provided it is up-to-date. Finally, it will use raw metadata rendering if no other source is available. Unmanaged UMS items do not support static or cached versions and always use raw rendering.
+    Allows to select the source to use to build metadata. This parameter is only available when input objects are UmsManagedItem instances, as returned by the Get-UmsManagedItem command. The default value of this parameter is "Cache", and will make the command return cached metadata, if available. If cached metadata are unavailable, the command will fallback to the static version of the UMS document, provided it is up-to-date. Finally, it will use raw metadata rendering if no other source is available. Unmanaged UMS items do not support static or cached versions and always use raw rendering.
 
     .PARAMETER Silent
     If specified, informational and warning message won't be displayed.
@@ -38,7 +38,7 @@ function Get-UmsMetadata
 
         [Parameter(ParameterSetName='ItemInstance',Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
-        [UmsItem] $Item,
+        [UmsManagedItem] $ManagedItem,
 
         [Parameter(ParameterSetName='ItemInstance')]
         [ValidateSet("Cache", "Static", "Raw")]
@@ -69,12 +69,12 @@ function Get-UmsMetadata
         # If a UMS item is supplied, we just map the properties
         if ($PSCmdlet.ParameterSetName -eq "ItemInstance")
         {
-            $_uid = $Item.Name
+            $_uid = $ManagedItem.Name
             switch ($Source)
             {
-                "Cache"     { $_uri = $Item.CacheFileUri }
-                "Static"    { $_uri = $Item.StaticFileUri }
-                "Raw"       { $_uri = $Item.Uri }
+                "Cache"     { $_uri = $ManagedItem.CacheFileUri }
+                "Static"    { $_uri = $ManagedItem.StaticFileUri }
+                "Raw"       { $_uri = $ManagedItem.Uri }
             }
         }
 
@@ -91,11 +91,11 @@ function Get-UmsMetadata
             # exists before proceeding.
             "Cache"
             {
-                switch ($Item.CachedVersion)
+                switch ($ManagedItem.CachedVersion)
                 {
                     "Current"
                     {
-                        return Import-Clixml -Path $Item.CacheFileFullName
+                        return Import-Clixml -Path $ManagedItem.CacheFileFullName
                     }
 
                     "Expired"
@@ -107,7 +107,7 @@ function Get-UmsMetadata
                         }
 
                         # We use cached metadata by design, even obsolete
-                        return Import-Clixml -Path $Item.CacheFileFullName
+                        return Import-Clixml -Path $ManagedItem.CacheFileFullName
                     }
 
                     # In any other case, cached version is declared unavailable.
@@ -123,7 +123,7 @@ function Get-UmsMetadata
                         # Use raw version via recursive call.
                         return Get-UmsMetadata `
                             -Source Raw `
-                            -Item $Item `
+                            -Item $ManagedItem `
                             -Silent:$Silent
                     }
                 }
@@ -133,7 +133,7 @@ function Get-UmsMetadata
             # version exists before proceeding.
             "Static"
             {
-                switch ($Item.StaticVersion)
+                switch ($ManagedItem.StaticVersion)
                 {
                     "Current"
                     {
@@ -165,7 +165,7 @@ function Get-UmsMetadata
                         # Use static version via recursive call.
                         return Get-UmsMetadata `
                             -Source Raw `
-                            -Item $Item `
+                            -Item $ManagedItem `
                             -Silent:$Silent
                     }
                 }

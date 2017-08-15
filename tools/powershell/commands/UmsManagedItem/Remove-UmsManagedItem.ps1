@@ -1,14 +1,14 @@
-function Remove-UmsItem
+function Remove-UmsManagedItem
 {
     <#
     .SYNOPSIS
-    Removes an item from the UMS store.
+    Removes a managed UMS item from the UMS store.
     
     .DESCRIPTION
-    This command removes all versions of a UMS item from the UMS store.
+    This command removes all versions of a managed item from the UMS store.
     
-    .PARAMETER Item
-    An instance of the UmsItem class, as returned by the Get-UmsItem command.
+    .PARAMETER ManagedItem
+    An instance of the UmsManagedItem class, as returned by the Get-UmsManagedItem command.
 
     .PARAMETER WithCompanion
     If this parameter is specified, the command will also remove the companion file of the UMS item, if it exists.
@@ -17,14 +17,14 @@ function Remove-UmsItem
     Whether the command will ask the user to confirm each file deletion.
 
     .EXAMPLE
-    Get-UmsItem -Path "D:\MyMusic" -Filter "uselessFile" | Remove-UmsItem
+    Get-UmsManagedItem -Path "D:\MyMusic" -Filter "uselessFile" | Remove-UmsManagedItem
     #>
 
     [CmdletBinding(DefaultParametersetName='None')]
     Param(
         [Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
-        [UmsItem] $Item,
+        [UmsManagedItem] $ManagedItem,
 
         [switch] $WithCompanion,
 
@@ -36,52 +36,52 @@ function Remove-UmsItem
         # Remove cached metadata
         try
         {
-            Remove-Item -Force -Confirm:$Confirm -Path $Item.CacheFileFullName
-            $Item.UpdateCacheInfo()
+            Remove-Item -Force -Confirm:$Confirm -Path $ManagedItem.CacheFileFullName
+            $ManagedItem.UpdateCacheInfo()
         }
         catch [System.IO.IOException]
         {
             Write-Warning -Message (
-                $ModuleStrings.RemoveUmsItem.CacheFileRemovalFailure)
+                $ModuleStrings.RemoveUmsManagedItem.CacheFileRemovalFailure)
         }
 
         # Remove static version
         try
         {
-            Remove-Item -Force -Confirm:$Confirm -Path $Item.StaticFileFullName
-            $Item.UpdateStaticInfo()
+            Remove-Item -Force -Confirm:$Confirm -Path $ManagedItem.StaticFileFullName
+            $ManagedItem.UpdateStaticInfo()
         }
         catch [System.IO.IOException]
         {
             Write-Warning -Message (
-                $ModuleStrings.RemoveUmsItem.StaticFileRemovalFailure)
+                $ModuleStrings.RemoveUmsManagedItem.StaticFileRemovalFailure)
         }
 
         # Remove companion file
         if (($WithCompanion.IsPresent) -and
-            ($Item.Cardinality -eq [UICardinality]::Sidecar))
+            ($ManagedItem.Cardinality -eq [UICardinality]::Sidecar))
         {
             try
             {
-                Remove-Item -Force -Confirm:$Confirm -Path $Item.LinkedFileFullName
-                $Item.UpdateCardinalityInfo()
+                Remove-Item -Force -Confirm:$Confirm -Path $ManagedItem.LinkedFileFullName
+                $ManagedItem.UpdateCardinalityInfo()
             }
             catch [System.IO.IOException]
             {
                 Write-Warning -Message (
-                    $ModuleStrings.RemoveUmsItem.CompanionFileRemovalFailure)
+                    $ModuleStrings.RemoveUmsManagedItem.CompanionFileRemovalFailure)
             }
         }
 
         # Remove the UMS file
         try
         {
-            Remove-Item -Force -Confirm:$Confirm -Path $Item.FullName
+            Remove-Item -Force -Confirm:$Confirm -Path $ManagedItem.FullName
         }
         catch [System.IO.IOException]
         {
             Write-Warning -Message (
-                $ModuleStrings.RemoveUmsItem.UmsFileRemovalFailure)
+                $ModuleStrings.RemoveUmsManagedItem.UmsFileRemovalFailure)
         }
     }
 }

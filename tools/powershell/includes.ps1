@@ -10,7 +10,7 @@ $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDire
 # Entities and classes
 ###############################################################################
 # UmsItem
-. "$PSScriptRoot\classes\UmsItem.ps1"
+. "$PSScriptRoot\classes\UmsManagedItem.ps1"
 # Exceptions
 . "$PSScriptRoot\classes\Exceptions.ps1"
 # Abstract entity
@@ -96,11 +96,11 @@ $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDire
 ###############################################################################
 # Commands
 ###############################################################################
-# *-UmsItem
-. "$PSScriptRoot\commands\UmsItem\Get-UmsItem.ps1"
-. "$PSScriptRoot\commands\UmsItem\Remove-UmsItem.ps1"
-. "$PSScriptRoot\commands\UmsItem\Rename-UmsItem.ps1"
-. "$PSScriptRoot\commands\UmsItem\Update-UmsItem.ps1"
+# *-UmsManagedItem
+. "$PSScriptRoot\commands\UmsManagedItem\Get-UmsManagedItem.ps1"
+. "$PSScriptRoot\commands\UmsManagedItem\Remove-UmsManagedItem.ps1"
+. "$PSScriptRoot\commands\UmsManagedItem\Rename-UmsManagedItem.ps1"
+. "$PSScriptRoot\commands\UmsManagedItem\Update-UmsManagedItem.ps1"
 # *-UmsManagement
 . "$PSScriptRoot\commands\UmsManagement\Enable-UmsManagement.ps1"
 . "$PSScriptRoot\commands\UmsManagement\Disable-UmsManagement.ps1"

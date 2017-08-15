@@ -1,11 +1,11 @@
-function Get-UmsItem
+function Get-UmsManagedItem
 {
     <#
     .SYNOPSIS
-    Returns a list of UMS items for the specified folder.
+    Returns a list of managed UMS items for the specified folder.
     
     .DESCRIPTION
-    This command lists all UMS items available in the specified folder.
+    This command lists all managed UMS items available in the specified folder.
     
     .PARAMETER Filter
     Allows to specify a file name filter. This parater is similar to the -Filter parameter of Get-ChildItem.
@@ -81,7 +81,7 @@ function Get-UmsItem
         }
 
         # Create item instance
-        $_item = New-Object -Type UmsItem -ArgumentList $_file
+        $_item = New-Object -Type UmsManagedItem -ArgumentList $_file
 
         # Filter by status
         if ($Cardinality -notcontains "Any")
@@ -94,7 +94,8 @@ function Get-UmsItem
         if ($Validate.IsPresent)
         {
             # Get the URI to the Relax NG schema to use
-            $_schemaUri = (Get-UmsConfigurationItem -Type Schema | Where-Object { $_.Namespace -eq $_item.XmlNamespace }).Uri
+            $_schemaUri = (Get-UmsConfigurationItem -Type Schema | 
+                Where-Object { $_.Namespace -eq $_item.XmlNamespace }).Uri
 
             # Run XML validation
             $_isInvalid = Invoke-XmlValidator -Source $_item.Uri -Schema $_schemaUri

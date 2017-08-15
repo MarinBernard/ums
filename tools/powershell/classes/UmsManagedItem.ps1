@@ -1,4 +1,4 @@
-class UmsItem
+class UmsManagedItem
 {
     ###########################################################################
     # Static properties
@@ -96,7 +96,7 @@ class UmsItem
     # Constructors
     ###########################################################################
 
-    UmsItem([System.IO.FileInfo] $FileInfo)
+    UmsManagedItem([System.IO.FileInfo] $FileInfo)
     {
         # Main properties
         $this.Extension = $FileInfo.Extension

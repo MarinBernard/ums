@@ -48,7 +48,7 @@
             ActualNamespace = "Found namespace: {0}"
             ExpectedNamespace = "Expected namespace: {0}"
         }
-        IncompatibleUmsItemCardinality = @{
+        IncompatibleCardinalityException = @{
             MainMessage = "The cardinality of the item is not compatible with this command."
             ItemName = "Item full name: {0}"
             ActualCardinality = "Item cardinality: {0}"
@@ -89,12 +89,12 @@
         UnhandlableUmsReferenceException = @{
             MainMessage = "The entity factory found a UMS reference to element {0} in namespace {1}, with uid {2}. UMS reference handling is not yet implemented."
         }
-        UmsItemMetadataConversionFailure = @{
+        UmsManagedItemMetadataConversionFailure = @{
             MainMessage = "The UMS item could not be converted."
             ItemPath = "Path of the item: {0}"
             ItemName = "Name of the item: {0}"
         }
-        UmsItemUpdateFailure = @{
+        UmsManagedItemUpdateFailure = @{
             MainMessage = "The UMS item could not be updated."
             ItemPath = "Path of the item: {0}"
             ItemName = "Name of the item: {0}"
@@ -135,13 +135,13 @@
         BadXmlContent = "XML file {0} is invalid and could not be read."
         NoNamespace = "XML file {0} is empty or uses unqualified elements."
     }
-    RemoveUmsItem = @{
+    RemoveUmsManagedItem = @{
         CacheFileRemovalFailure = "The command was unable to remove the metadata cache file."
         CompanionFileRemovalFailure = "The command was unable to remove the companion file of the item."
         StaticFileRemovalFailure = "The command was unable to remove the static version file."
         UmsFileRemovalFailure = "The command was unable to remove the main UMS file."
     }
-    RenameUmsItem = @{
+    RenameUmsManagedItem = @{
         CacheFileRenameFailure = "The command was unable to rename the metadata cache file."
         CompanionFileRenameFailure = "The command was unable to rename the companion file of the item."
         StaticFileRenameFailure = "The command was unable to rename the static version file."
@@ -170,7 +170,7 @@
         CacheFolderNotFound = "The data cache subfolder is missing."
         StaticFolderNotFound = "The static data subfolder is missing."
     }
-    UpdateUmsItem = @{
+    UpdateUmsManagedItem = @{
         MissingTarget = "The target file does not exist or access is denied."
         PromotionFailure = "Failed to promote the newly generated file to be the new cache file."
         TempFileRemovalFailure = "A temporary file could not be removed."
