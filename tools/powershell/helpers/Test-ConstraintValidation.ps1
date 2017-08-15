@@ -5,8 +5,7 @@ function Test-ConstraintValidation
     Param(
         [Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
-        # TODO: use the base class
-        [UmsManagedItem] $Item,
+        [UmsItem] $Item,
 
         [Parameter(Position=1,Mandatory=$true)]
         [ValidateNotNullOrEmpty()]

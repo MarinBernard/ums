@@ -3,8 +3,7 @@ function ConvertTo-ForeignMetadata
     Param(
         [Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
-        # TODO: Use base class
-        [UmsManagedItem] $Item,
+        [UmsItem] $Item,
 
         [ValidateSet("VorbisComment", "RawLyrics")]
         [string] $Format = "VorbisComment"

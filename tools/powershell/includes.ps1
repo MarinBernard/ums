@@ -10,6 +10,7 @@ $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDire
 # Entities and classes
 ###############################################################################
 # UmsItem
+. "$PSScriptRoot\classes\UmsItem.ps1"
 . "$PSScriptRoot\classes\UmsManagedItem.ps1"
 # Exceptions
 . "$PSScriptRoot\classes\Exceptions.ps1"

@@ -1,4 +1,4 @@
-class UmsManagedItem
+class UmsManagedItem : UmsItem
 {
     ###########################################################################
     # Static properties
@@ -96,27 +96,13 @@ class UmsManagedItem
     # Constructors
     ###########################################################################
 
-    UmsManagedItem([System.IO.FileInfo] $FileInfo)
-    {
-        # Main properties
-        $this.Extension = $FileInfo.Extension
-        $this.RealName = $FileInfo.Name
-        $this.Path = $FileInfo.Directory.FullName
-        $this.ManagedPath = $FileInfo.Directory.Parent.FullName
-        $this.FullName = $FileInfo.FullName
-        $this.Uri = (New-Object -Type System.Uri -ArgumentList $this.FullName).AbsoluteUri
-        $this.PathUri = (New-Object -Type System.Uri -ArgumentList $this.Path).AbsoluteUri
-        $this.LastWriteTime = $FileInfo.LastWriteTime
-        $this.Name = $FileInfo.BaseName
-        
+    UmsManagedItem([System.IO.FileInfo] $FileInfo) : base($FileInfo)
+    {        
         # Calling sub-constructor for static-related properties
         $this.UpdateStaticInfo()
 
         # Calling sub-constructor for cache-related properties
         $this.UpdateCacheInfo()
-
-        # Calling sub-constructor for XML content information
-        $this.UpdateContentInfo()
 
         # Calling sub-constructor for cardinality information.
         # This subconstructor relies on content information.
@@ -171,48 +157,6 @@ class UmsManagedItem
             { $this.CachedVersion = [UIVersionStatus]::Absent }
     }
 
-    # Sub-constructor for content information
-    [void] UpdateContentInfo()
-    {
-        # Read XML document
-        [xml] $_xmlDocument = Get-Content -Path $this.FullName
-
-        # Get and store XML namespace and document element
-        $this.XmlNamespace = $_xmlDocument.DocumentElement.NamespaceURI
-        $this.XmlElementName = $_xmlDocument.DocumentElement.LocalName
-
-        # Set default value for schema and element visible properties.
-        # These values shall be replaced with the values from the binding
-        # element if the Item has a Sidecar/Orphan cardinality.
-        $this.Schema = (
-            Get-UmsConfigurationItem -Type "Schema" | Where-Object {
-                $_.Namespace -eq $this.XmlNamespace }).Id
-        $this.Element = $this.XmlElementName
-
-        # Get and store content binding information (only for binding files)
-        $_baseNamespace = (
-            Get-UmsConfigurationItem -ShortName "BaseSchemaNamespace")
-        
-        # If the document element is umsb:file, we need to retrieve and
-        # store binding information.
-        if (
-            ($this.XmlNamespace   -eq $_baseNamespace) -and 
-            ($this.XmlElementName -eq "file"))
-        {
-            $this.BindingNamespace = (
-                $_xmlDocument.DocumentElement.FirstChild.NamespaceURI)
-            $this.BindingElementName = (
-                $_xmlDocument.DocumentElement.FirstChild.LocalName)
-            $this.BindingSchema = (
-                Get-UmsConfigurationItem -Type "Schema" | Where-Object {
-                    $_.Namespace -eq $this.BindingNamespace }).Id
-
-            # Set schema and element visible properties to those of the binding
-            $this.Schema = $this.BindingSchema
-            $this.Element = $this.BindingElementName
-        }
-    }
-
     # Sub-constructor for cardinality information
     [void] UpdateCardinalityInfo()
     {
@@ -251,12 +195,6 @@ class UmsManagedItem
     ###########################################################################
     # Helpers
     ###########################################################################
-
-    # String representation
-    [string] ToString()
-    {
-        return $this._name
-    } 
 }
 
 Enum UIVersionStatus
@@ -273,11 +211,4 @@ Enum UICardinality
     Independent
     Sidecar
     Orphan
-}
-
-Enum UIValidity
-{
-    Unknown
-    Valid
-    Invalid
 }

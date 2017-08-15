@@ -251,8 +251,7 @@ class IncompatibleCardinalityException : UmsException
 class IncompatibleBindingNamespace : UmsException
 {
     IncompatibleBindingNamespace(
-        # todo: use base class
-        [UmsManagedItem] $Item,
+        [UmsItem] $Item,
         [string] $ExpectedNamespace
     ) : base()
     {
@@ -271,8 +270,7 @@ class IncompatibleBindingNamespace : UmsException
 class IncompatibleBindingElement : UmsException
 {
     IncompatibleBindingElement(
-        # TODO: Use base class
-        [UmsManagedItem] $Item,
+        [UmsItem] $Item,
         [string] $ExpectedName
     ) : base()
     {
@@ -291,8 +289,7 @@ class IncompatibleBindingElement : UmsException
 class ConstraintValidationFailure : UmsException
 {
     ConstraintValidationFailure(
-        # TODO: Use base class
-        [UmsManagedItem] $Item
+        [UmsItem] $Item
     ) : base()
     {
         $_strings = (
