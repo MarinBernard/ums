@@ -65,7 +65,22 @@ class UmsItem
     # Constructors
     ###########################################################################
 
+    UmsItem([System.Uri] $Uri)
+    {
+        $this.MainConstructor([System.IO.FileInfo] $Uri.AbsoluteUri)
+    }
+
     UmsItem([System.IO.FileInfo] $FileInfo)
+    {
+        $this.MainConstructor($FileInfo)
+    }
+
+    ###########################################################################
+    # Sub-constructors
+    ###########################################################################
+
+    # Main constructor. Performs real construction tasks.
+    MainConstructor([System.IO.FileInfo] $FileInfo)
     {
         # Main properties
         $this.Extension = $FileInfo.Extension
@@ -79,7 +94,7 @@ class UmsItem
         $this.Name = $FileInfo.BaseName
 
         # Calling sub-constructor for XML content information
-        $this.UpdateContentInfo()     
+        $this.UpdateContentInfo()  
     }
 
     # Sub-constructor for content information
