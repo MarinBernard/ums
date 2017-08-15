@@ -1,7 +1,28 @@
-# Include dependencies
+###############################################################################
+# Dependencies
+###############################################################################
 . "$PSScriptRoot\includes.ps1"
 
-# Export
+###############################################################################
+# Initialize caching toolset
+###############################################################################
+
+# Document cache
+$_cacheFolder = Join-Path -Path $env:LocalAppData -ChildPath "UMSCache"
+$global:UmsDocumentCache = [UmsDocumentCache]::New($_cacheFolder)
+
+###############################################################################
+# Exports
+###############################################################################
+# *-UmsCachedDocument
+Export-ModuleMember -Function Get-UmsCachedDocument
+Export-ModuleMember -Function Remove-UmsCachedDocument
+# *-UmsDocument
+Export-ModuleMember -Function Get-UmsDocument
+# *-UmsDocumentCache
+Export-ModuleMember -Function Clear-UmsDocumentCache
+Export-ModuleMember -Function Reset-UmsDocumentCache
+Export-ModuleMember -Function Measure-UmsDocumentCache
 # *-UmsManagedItem
 Export-ModuleMember -Function Get-UmsManagedItem
 Export-ModuleMember -Function Remove-UmsManagedItem

@@ -293,6 +293,7 @@
 		<option id="year-list-suffix">)</option>
 	</rendering>
 	<system>
+		<option id="ums-document-cache-lifetime">20</option>
 		<option id="ums-file-extension">.ums</option>
 		<option id="ums-folder-name">ums</option>
 		<option id="ums-folder-name-cache">cache</option>

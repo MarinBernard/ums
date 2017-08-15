@@ -111,6 +111,7 @@ function Get-UmsConfigurationItem
 
             # System options
             "UmsCacheFolderName",
+            "UmsDocumentCacheLifetime",
             "UmsFileExtension",
             "UmsFolderName",
             "UmsHiddenFolders",
@@ -140,6 +141,7 @@ function Get-UmsConfigurationItem
 
             # System Options
             "UmsCacheFolderName"       { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-folder-name-cache" }).Value }
+            "UmsDocumentCacheLifetime" { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-document-cache-lifetime" }).Value }
             "UmsFileExtension"         { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-file-extension" }).Value }
             "UmsFolderName"            { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-folder-name" }).Value }
             "UmsHiddenFolders"         { return (Get-UmsConfigurationItem -Type System | Where-Object { $_.Id -eq "ums-hidden-folders" }).Value }

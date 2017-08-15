@@ -79,6 +79,9 @@
             ElementName = "Element name is: {0}"
             ExpectedName = "Expected name is: {0}"
         }
+        InvalidUmsDocumentException = @{
+            MainMessage = "The UMS document at the following location is invalid: {0}"
+        }
         MandatoryStandardIdSegmentNotFoundException = @{
             MainMessage = "A mandatory ID segment was not found in the segment collection: missing level {0} segment."
         }
@@ -86,8 +89,12 @@
             MainMessage = "The attribute {0} is missing but is mandatory in this context."
             Context = "Context is XML element {0} in namespace {1}."
         }
-        UnhandlableUmsReferenceException = @{
-            MainMessage = "The entity factory found a UMS reference to element {0} in namespace {1}, with uid {2}. UMS reference handling is not yet implemented."
+        UmsCachedDocumentWriteFailureException = @{
+            Mainmessage = "Unable to write a cache file from the UMS document retrieved from the following URI: {0}"
+            CacheFileName = "Name of the cache file: {0}"
+        }
+        UmsDocumentNotFoundExcepion = @{
+            MainMessage = "The document at the following URI cannot not be retrieved: {0}"
         }
         UmsManagedItemMetadataConversionFailure = @{
             MainMessage = "The UMS item could not be converted."
@@ -169,6 +176,10 @@
         Disabled = "UMS metadata are disabled."
         CacheFolderNotFound = "The data cache subfolder is missing."
         StaticFolderNotFound = "The static data subfolder is missing."
+    }
+    UmsDocumentCache = @{
+        CacheFolderCreationFailure = "On-disk persistence was disabled as the cache folder could not be created."
+        CacheFileRemovalFailure = "The cache file at the following location could not be removed from the disk: {0}"
     }
     UpdateUmsManagedItem = @{
         MissingTarget = "The target file does not exist or access is denied."

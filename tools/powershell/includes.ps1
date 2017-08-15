@@ -14,6 +14,9 @@ $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDire
 . "$PSScriptRoot\classes\UmsManagedItem.ps1"
 # Exceptions
 . "$PSScriptRoot\classes\Exceptions.ps1"
+# Cache management
+. "$PSScriptRoot\classes\UmsCachedDocument.ps1"
+. "$PSScriptRoot\classes\UmsDocumentCache.ps1"
 # Abstract entity
 . "$PSScriptRoot\entities\UmsAeEntity.ps1"
 # Entity Factory
@@ -97,6 +100,15 @@ $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDire
 ###############################################################################
 # Commands
 ###############################################################################
+# *-UmsCachedDocument
+. "$PSScriptRoot\commands\UmsCachedDocument\Get-UmsCachedDocument.ps1"
+. "$PSScriptRoot\commands\UmsCachedDocument\Remove-UmsCachedDocument.ps1"
+# *-UmsDocument
+. "$PSScriptRoot\commands\UmsDocument\Get-UmsDocument.ps1"
+# *-UmsDocumentCache
+. "$PSScriptRoot\commands\UmsDocumentCache\Clear-UmsDocumentCache.ps1"
+. "$PSScriptRoot\commands\UmsDocumentCache\Reset-UmsDocumentCache.ps1"
+. "$PSScriptRoot\commands\UmsDocumentCache\Measure-UmsDocumentCache.ps1"
 # *-UmsManagedItem
 . "$PSScriptRoot\commands\UmsManagedItem\Get-UmsManagedItem.ps1"
 . "$PSScriptRoot\commands\UmsManagedItem\Remove-UmsManagedItem.ps1"
