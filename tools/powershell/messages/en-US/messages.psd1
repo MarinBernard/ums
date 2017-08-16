@@ -1,4 +1,18 @@
 @{
+    Commands = @{
+        Management = @{
+            DisableFailure = "An error occurred while trying to disable UMS item management for the specified folder."
+            DisableSuccess = "UMS item management was successfully disabled for the specified folder."
+            EnableFailure = "An error occurred while trying to enable UMS item management for the specified folder."
+            EnableSuccess = "UMS item management was successfully enabled for the specified folder."
+            ManagementDisabled = "The management of UMS items is disabled."
+            ManagementEnabled = "The management of UMS items is enabled."
+            InconsistentState = "The management folder is in an inconsistent state."
+            MissingCacheFolder = "The metadata cache subfolder is missing."
+            MissingStaticFolder = "The static document subfolder is missing."
+            TestAdvice = "Run the Test-UmsItemManagement command to obtain more information."
+        }
+    }
     Common = @{
         AccessDenied = "Target folder does not exist or access is denied."
         ConfirmPrompt = "Are you sure you want to continue?"
@@ -94,19 +108,9 @@
         BadDocumentNamespace = "The document namespace of the source UMS item does not allow this operation. The document namespace is {0}, whereas the parameters you specified require namespace {1}."
         BadDocumentElement = "The document element of the source UMS item does not allow this operation. The document element is {0}, whereas the parameters you specified require element {1}."
     }
-    DisableUmsManagement = @{
-        ConfirmDeletion = "This will destroy all UMS metadata for any file within in this folder. Please confirm to continue."
-    }
     DocumentCache = @{
         CacheFolderCreationFailure = "On-disk persistence was disabled as the cache folder could not be created."
         CacheFileRemovalFailure = "The cache file at the following location could not be removed from the disk: {0}"
-    }
-    EnableUmsManagement = @{
-        AlreadyEnabled = "UMS metadata are already enabled with this folder."
-        CacheFolderCreationError = "The cache subfolder could not be created."
-        StaticFolderCreationError = "The static data subfolder could not be created."
-        FolderCreationError = "The metadata storage folder could not be created."
-        FolderHideoutError = "The metadata folder was created but not hidden."
     }
     ReadXmlNamespaceUri = @{
         FileNotFound = "XML file {0} was not found or access was denied."
@@ -141,12 +145,6 @@
         SourceFileNotFound = "XML source file {0} does not exist or access is denied."
         StylesheetNotFound = "XSLT stylesheet {0} does not exist or access is denied."
         TransformFailure = "An error occured while running the XSLT transform."
-    }
-    TestUmsManagement = @{
-        Enabled = "UMS metadata are enabled."
-        Disabled = "UMS metadata are disabled."
-        CacheFolderNotFound = "The data cache subfolder is missing."
-        StaticFolderNotFound = "The static data subfolder is missing."
     }
     UpdateUmsManagedItem = @{
         MissingTarget = "The target file does not exist or access is denied."

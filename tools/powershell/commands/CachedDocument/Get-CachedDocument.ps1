@@ -2,10 +2,10 @@ function Get-CachedDocument
 {
     <#
     .SYNOPSIS
-    Retrieves and returns the list of all cached UMS documents.
+    Returns the list of all cached UMS documents.
     
     .DESCRIPTION
-    Retrieves and returns the list of all cached UMS documents.
+    Returns the list of all cached UMS documents.
     #>
 
     [CmdletBinding(DefaultParametersetName='None')]
@@ -13,6 +13,6 @@ function Get-CachedDocument
 
     Process
     {
-        return [DocumentCache]::DumpCachedDocuments()
+        return [DocumentCache]::Dump()
     }
 }

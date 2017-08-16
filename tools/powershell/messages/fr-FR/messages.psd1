@@ -1,4 +1,18 @@
 @{
+    Commands = @{
+        Management = @{
+            DisableFailure = "Une erreur est survenue lors de la désactivation de la gestion des objets UMS pour le dossier spécifié."
+            DisableSuccess = "La gestion des objets UMS a été correctement désactivée pour le dossier spécifié."
+            EnableFailure = "Une erreur est survenue lors de l'activation de la gestion des objets UMS pour le dossier spécifié."
+            EnableSuccess = "La gestion des objets UMS a été correctement activée pour le dossier spécifié."
+            InconsistentState = "Le dossier est dans un état incohérent."
+            ManagementDisabled = "La gestion des objets UMS est désactivée."
+            ManagementEnabled = "La gestion des objets UMS est activée."
+            MissingCacheFolder = "Le sous-dossier du cache de métadonnées n'est pas présent."
+            MissingStaticFolder = "Le sous-dossier des documents statiques n'est pas présent."
+            TestAdvice = "Exécutez la commande Test-UmsItemManagement pour obtenir plus d'informations."
+        }
+    }
     Common = @{
         AccessDenied = "Le dossier spécifié n'existe pas ou l'accès a été refusé."
         ConfirmPrompt = "Êtes-vous sûr de vouloir continuer ?"
@@ -95,9 +109,6 @@
         BadDocumentNamespace = "L'espace de noms du document de l'élement UMS est incompatible avec cette opération. L'espace de noms est {0}, mais les paramètres que vous avez spécifiés exigent l'espace de noms {1}."
         BadDocumentElement = "L'élement racine du document de l'élement UMS est incompatible avec cette opération. L'élement racine est {0}, mais les paramètres que vous avez spécifiés exigent une balise {1}."
     }
-    DisableUmsManagement = @{
-        ConfirmDeletion = "Vous vous apprêtez à détruire la totalité des métadonnées UMS pour chacun des fichiers présents dans ce dossier. Confirmez pour continuer."
-    }
     DocumentCache = @{
         CacheFolderCreationFailure = "La persistance du cache sur le disque dur a été désactivée car le dossier de cache n'a pas pu être créé."
         CacheFileRemovalFailure = "Le fichier de cache à l'emplacement suivant n'a pas pu être supprimé du disque: {0}"
@@ -142,12 +153,6 @@
         SourceFileNotFound = "Le fichier source XML {0} n'existe pas ou n'est pas accessible."
         StylesheetNotFound = "La feuille de style {0} n'existe pas ou n'est pas accessible."
         TransformFailure = "Une erreur s'est produite lors de la transformation XSLT."
-    }
-    TestUmsManagement = @{
-        Enabled = "Les métadonnées UMS sont activées."
-        Disabled = "Les métadonnées UMS sont désactivées."
-        CacheFolderNotFound = "Le sous-dossier du cache de données n'est pas présent."
-        StaticFolderNotFound = "Le sous-dossier des données statiques n'est pas présent."
     }
     UpdateUmsManagedItem = @{
         MissingTarget = "Le fichier cible n'existe pas ou n'est pas accessible."

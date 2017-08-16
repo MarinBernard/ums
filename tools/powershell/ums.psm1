@@ -47,10 +47,10 @@ Export-ModuleMember -Function Remove-UmsManagedItem
 Export-ModuleMember -Function Rename-UmsManagedItem
 Export-ModuleMember -Function Update-UmsManagedItem
 
-# *-UmsManagement
-Export-ModuleMember -Function Disable-UmsManagement
-Export-ModuleMember -Function Enable-UmsManagement
-Export-ModuleMember -Function Test-UmsManagement
+# *-ItemManagement
+Export-ModuleMember -Function Disable-ItemManagement
+Export-ModuleMember -Function Enable-ItemManagement
+Export-ModuleMember -Function Test-ItemManagement
 
 # *-UmsMetadata
 Export-ModuleMember -Function Get-UmsMetadata

@@ -14,25 +14,19 @@ function Get-UmsManagementFolderPath
         # Path to the cache metadata folder
         "Cache"
         {
-            $_folderName = ([ConfigurationStore]::GetSystemItem(
-                "UmsFolderNameCache").Value)
-            $_folderFullName = Join-Path (Get-UmsManagementFolderPath -Path $Path) -ChildPath $_folderName
+            $_folderFullName = [ItemManager]::GetCacheFolderPath($Path)
         }
 
         # Path to the main metadata folder
         "Main"
         {
-            $_folderName = ([ConfigurationStore]::GetSystemItem(
-                "UmsFolderNameMain").Value)
-            $_folderFullName = Join-Path -Path $Path -ChildPath $_folderName
+            $_folderFullName = [ItemManager]::GetManagementFolderPath($Path)
         }
 
         # Path to the static metadata folder
         "Static"
         {
-            $_folderName = ([ConfigurationStore]::GetSystemItem(
-                "UmsFolderNameStatic").Value)
-            $_folderFullName = Join-Path (Get-UmsManagementFolderPath -Path $Path) -ChildPath $_folderName
+            $_folderFullName = [ItemManager]::GetStaticFolderPath($Path)
         }
     }
 

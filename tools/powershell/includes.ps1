@@ -9,6 +9,10 @@
 . "$PSScriptRoot\helpers\ConfigurationStore\ConfigurationStore.Exceptions.ps1"
 . "$PSScriptRoot\helpers\ConfigurationStore\ConfigurationStore.ps1"
 
+# Item manager
+. "$PSScriptRoot\helpers\ItemManager\ItemManager.Exceptions.ps1"
+. "$PSScriptRoot\helpers\ItemManager\ItemManager.ps1"
+
 # UmsItem
 . "$PSScriptRoot\classes\UmsItem.ps1"
 . "$PSScriptRoot\classes\UmsManagedItem.ps1"
@@ -126,16 +130,16 @@
 # *-Document
 . "$PSScriptRoot\commands\Document\Get-Document.ps1"
 
+# *-ItemManagement
+. "$PSScriptRoot\commands\ItemManagement\Enable-ItemManagement.ps1"
+. "$PSScriptRoot\commands\ItemManagement\Disable-ItemManagement.ps1"
+. "$PSScriptRoot\commands\ItemManagement\Test-ItemManagement.ps1"
+
 # *-UmsManagedItem
 . "$PSScriptRoot\commands\UmsManagedItem\Get-UmsManagedItem.ps1"
 . "$PSScriptRoot\commands\UmsManagedItem\Remove-UmsManagedItem.ps1"
 . "$PSScriptRoot\commands\UmsManagedItem\Rename-UmsManagedItem.ps1"
 . "$PSScriptRoot\commands\UmsManagedItem\Update-UmsManagedItem.ps1"
-
-# *-UmsManagement
-. "$PSScriptRoot\commands\UmsManagement\Enable-UmsManagement.ps1"
-. "$PSScriptRoot\commands\UmsManagement\Disable-UmsManagement.ps1"
-. "$PSScriptRoot\commands\UmsManagement\Test-UmsManagement.ps1"
 
 # *-UmsMetadata
 . "$PSScriptRoot\commands\UmsMetadata\Get-UmsMetadata.ps1"

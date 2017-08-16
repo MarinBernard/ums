@@ -151,7 +151,7 @@ class DocumentCache
 
     # Returns the whole CachedDocuments collection after a TTL update.
     # This method does not throw any custom exception.
-    static [CachedDocument[]] DumpCachedDocuments()
+    static [CachedDocument[]] Dump()
     {
         [DocumentCache]::RemoveExpiredCachedDocuments()
         return [DocumentCache]::CachedDocuments
