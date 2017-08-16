@@ -21,11 +21,6 @@
         ClassLookupFailure = @{
             MainMessage = "The entity factory was unable to find a matching entity class for the XML element {0} in namespace {1}."
         }
-        ConstraintValidationFailure = @{
-            MainMessage = "The UMS item did not pass constraint validation tests."
-            ItemPath = "Path of the item: {0}"
-            ItemName = "Name of the item: {0}"
-        }
         IllegalXmlAttributeValue = @{
             MainMessage = "The value of the {0} attribute of the {1} XML element from the {2} namespace is illegal."
             ActualValue = "Attribute value: {0}"
@@ -37,16 +32,6 @@
             ActualCount = "Number of elements: {0}"
             MinExpectedCount =  "Minimum expected number: {0}"
             MaxExpectedCount =  "Maximum expected number: {0}"
-        }
-        IncompatibleBindingElement = @{
-            MainMessage = "The local name of the binding element of the UMS item is not compatible with this command."
-            ActualName = "Actual local name: {0}"
-            ExpectedName = "Expected local name: {0}"
-        }
-        IncompatibleBindingNamespace = @{
-            MainMessage = "The XML namespace of the binding element of the UMS item is not compatible with this command."
-            ActualNamespace = "Found namespace: {0}"
-            ExpectedNamespace = "Expected namespace: {0}"
         }
         IncompatibleCardinalityException = @{
             MainMessage = "The cardinality of the item is not compatible with this command."

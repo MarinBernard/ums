@@ -23,12 +23,15 @@ function ConvertTo-VorbisMetadata
 
     Begin
     {
-        $_converterConfiguration = (
-            [ConfigurationStore]::GetConverterItem(
-                "VorbisComment"))
-        
-        $_constraints = $_converterConfiguration.Constraints
-        $_options = $_converterConfiguration.Options
+        # Instantiate the constraint validator
+        $Validator = [ConstraintValidator]::New(
+            [ConfigurationStore]::GetConverterItem("VorbisComment").Constraints
+        )
+
+        # Instantiate the converter
+        $Converter = [VorbisCommentConverter]::New(
+            [ConfigurationStore]::GetConverterItem("VorbisComment").Options
+        )
     }
 
     Process
@@ -36,22 +39,11 @@ function ConvertTo-VorbisMetadata
         # Validate constraints
         try
         {
-            Test-ConstraintValidation  -Item $ManagedItem  -Constraints $_constraints
+            $Validator.Validate($ManagedItem)
         }
-        catch [ConstraintValidationFailure]
+        catch [CVValidationFailureException]
         {
             Write-Error $_.Exception.MainMessage
-            throw [UmsManagedItemMetadataConversionFailure]::New($ManagedItem)
-        }
-
-        # Instantiate a converter instance
-        try
-        {
-            $_converter = [VorbisCommentConverter] $_options
-        }
-        catch
-        {
-            Write-Error $_.Exception.Message
             throw [UmsManagedItemMetadataConversionFailure]::New($ManagedItem)
         }
 
@@ -61,7 +53,7 @@ function ConvertTo-VorbisMetadata
         # Start conversion
         try
         {
-            $_converter.Convert($metadata)
+            $Converter.Convert($metadata)
         }
         catch [UmsException]
         {

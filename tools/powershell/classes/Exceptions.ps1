@@ -237,62 +237,6 @@ class IncompatibleCardinalityException : UmsException
     }
 }
 
-# Thrown when the binding element of a UMS item does not belong to the expected
-# XML namespace.
-class IncompatibleBindingNamespace : UmsException
-{
-    IncompatibleBindingNamespace(
-        [UmsItem] $Item,
-        [string] $ExpectedNamespace
-    ) : base()
-    {
-        $_strings = (
-            $global:ModuleStrings.Exceptions.IncompatibleBindingNamespace)
-        $this.MainMessage =  $_strings.MainMessage
-        $this.SubMessages += (
-            $_strings.ActualNamespace -f $Item.BindingNamespace)
-        $this.SubMessages += (
-            $_strings.ExpectedNamespace -f $Item.ExpectedNamespace)
-    }
-}
-
-# Thrown when the local name of the binding element of a UMS item is not
-# the expected one.
-class IncompatibleBindingElement : UmsException
-{
-    IncompatibleBindingElement(
-        [UmsItem] $Item,
-        [string] $ExpectedName
-    ) : base()
-    {
-        $_strings = (
-            $global:ModuleStrings.Exceptions.IncompatibleBindingElement)
-        $this.MainMessage =  $_strings.MainMessage
-        $this.SubMessages += (
-            $_strings.ActualName -f $Item.BindingElementName)
-        $this.SubMessages += (
-            $_strings.ExpectedName -f $Item.ExpectedName)
-    }
-}
-
-# Thrown when the local name of the binding element of a UMS item is not
-# the expected one.
-class ConstraintValidationFailure : UmsException
-{
-    ConstraintValidationFailure(
-        [UmsItem] $Item
-    ) : base()
-    {
-        $_strings = (
-            $global:ModuleStrings.Exceptions.ConstraintValidationFailure)
-        $this.MainMessage =  $_strings.MainMessage
-        $this.SubMessages += (
-            $_strings.ItemPath -f $Item.Path)
-        $this.SubMessages += (
-            $_strings.ItemName -f $Item.Name)
-    }
-}
-
 # Thrown when an UMS item update failed.
 class UmsManagedItemUpdateFailure : UmsException
 {

@@ -9,6 +9,28 @@ function ConvertTo-ForeignMetadata
         [string] $Format = "VorbisComment"
     )
 
+    Begin
+    {
+        # Select the stylesheet to use
+        switch ($Format)
+        {
+            "VorbisComment"
+            {
+                # Select the music2vc stylesheet
+                $Stylesheet = [ConfigurationStore]::GetStylesheetItem("music2vc")
+            }
+
+            "RawLyrics"
+            {
+                # Select the music2vc stylesheet
+                $Stylesheet = [ConfigurationStore]::GetStylesheetItem("music2vc")
+            }
+        }
+
+        # Instantiate the constraint validator
+        $Validator = [ConstraintValidator]::New($Stylesheet.Constraints)
+    }
+
     Process
     {
         # Build transform arguments
@@ -16,9 +38,6 @@ function ConvertTo-ForeignMetadata
         {
             "VorbisComment"
             {
-                # Select the music2vc stylesheet
-                $_stylesheet = [ConfigurationStore]::GetStylesheetItem("music2vc")
-
                 # Build transform arguments
                 $_outputFileFullName = $($Item.LinkedFileBaseName + ".tags")
                 $_arguments = @{
@@ -28,9 +47,6 @@ function ConvertTo-ForeignMetadata
 
             "RawLyrics"
             {
-                # Select the music2vc stylesheet
-                $_stylesheet = [ConfigurationStore]::GetStylesheetItem("music2vc")
-
                 # Build transform arguments
                 $_outputFileFullName = $($Item.LinkedFileBaseName + ".txt")
                 $_arguments = @{
@@ -42,11 +58,9 @@ function ConvertTo-ForeignMetadata
         # Validate stylesheet constraints
         try
         {
-            Test-ConstraintValidation `
-                -Item $Item `
-                -Constraints $_stylesheet.Constraints
+            $Validator.Validate($Item)
         }
-        catch [ConstraintValidationFailure]
+        catch [CVValidationFailureException]
         {
             Write-Error $_.Exception.MainMessage
             throw($_.Exception)
@@ -69,7 +83,7 @@ function ConvertTo-ForeignMetadata
         # Run the transform
         try 
         {
-            Invoke-XslTransformer -Source $Item.StaticFileUri -Stylesheet $_stylesheet.Uri -Destination $_outputFileFullName -Arguments $_arguments
+            Invoke-XslTransformer -Source $Item.StaticFileUri -Stylesheet $Stylesheet.Uri -Destination $_outputFileFullName -Arguments $_arguments
         }
         catch [UmsException]
         {

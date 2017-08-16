@@ -21,11 +21,6 @@
         ClassLookupFailure = @{
             MainMessage = "La fabrique d'entités a échoué à trouver une classe d'entité adaptée à l'élément XML {0} issu de l'espace de noms {1}."
         }
-        ConstraintValidationFailure = @{
-            MainMessage = "L'élément UMS n'a pas réussi les tests de validation de contraintes."
-            ItemPath = "Répertoire de l'élément: {0}"
-            ItemName = "Nom de l'élément: {0}"
-        }
         IllegalXmlAttributeValue = @{
             MainMessage = "La valeur de l'attribut {0} de l'élément XML {1} issu de l'espace noms {2} est illégale."
             ActualValue = "Valeur de l'attribut: {0}"
@@ -37,16 +32,6 @@
             ActualCount = "Nombre d'éléments: {0}"
             MinExpectedCount =  "Nombre minimal attendu: {0}"
             MaxExpectedCount =  "Nombre maximal attendu: {0}"
-        }
-        IncompatibleBindingElement = @{
-            MainMessage = "Le nom de l'élément binding de l'élément UMS n'est pas compatible avec cette commande;."
-            ActualName = "Nom local trouvé: {0}"
-            ExpectedName = "Nom local attendu: {0}"
-        }
-        IncompatibleBindingNamespace = @{
-            MainMessage = "L'espace de noms XML de l'élément binding de l'élément UMS n'est pas compatible avec cette commande;."
-            ActualNamespace = "Espace de noms trouvé: {0}"
-            ExpectedNamespace = "Espace de noms attendu: {0}"
         }
         IncompatibleCardinalityException = @{
             MainMessage = "La cardinalité de l'élément n'est pas compatible avec cette commande."

@@ -16,11 +16,18 @@
 # UmsItem
 . "$PSScriptRoot\classes\UmsItem.ps1"
 . "$PSScriptRoot\classes\UmsManagedItem.ps1"
-# Exceptions
+
+# Common exceptions
 . "$PSScriptRoot\classes\Exceptions.ps1"
+
+# Constraint validator
+. "$PSScriptRoot\classes\ConstraintValidator.Exceptions.ps1"
+. "$PSScriptRoot\classes\ConstraintValidator.ps1"
+
 # Cache management
 . "$PSScriptRoot\classes\UmsCachedDocument.ps1"
 . "$PSScriptRoot\classes\UmsDocumentCache.ps1"
+
 # Abstract base entity
 . "$PSScriptRoot\entities\UmsAeEntity.ps1"
 # Entity Factory
@@ -97,7 +104,6 @@
 . "$PSScriptRoot\helpers\Get-UmsManagementFolderPath.ps1"
 . "$PSScriptRoot\helpers\Invoke-XmlValidator.ps1"
 . "$PSScriptRoot\helpers\Invoke-XslTransformer.ps1"
-. "$PSScriptRoot\helpers\Test-ConstraintValidation.ps1"
 . "$PSScriptRoot\helpers\Wait-UserConfirmation.ps1"
 
 ###############################################################################
