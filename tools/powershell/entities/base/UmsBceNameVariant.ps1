@@ -15,23 +15,28 @@ class UmsBceNameVariant : UmsBaeVariant
 
     # Whether common names should be prefered when present
     static [bool] $PreferCommonNames = (
-        Get-UmsConfigurationItem -ShortName "PreferCommonNames")
+        [ConfigurationStore]::GetRenderingItem(
+            "VariantsPreferCommonNames").Value)
 
     # Whether we should show pseudonyms in a person's name
     static [bool] $ShowPseudonyms = (
-        Get-UmsConfigurationItem -ShortName "ShowPseudonyms")
+        [ConfigurationStore]::GetRenderingItem(
+            "VariantsUsePseudonyms").Value)
 
     # A string which will be included as a pseudonym prefix
     static [string] $PseudonymPrefix = (
-        Get-UmsConfigurationItem -ShortName "PseudonymPrefix")
+        [ConfigurationStore]::GetRenderingItem(
+            "VariantsPseudonymPrefix").Value)
 
     # A string which will be included as a pseudonym suffix
     static [string] $PseudonymSuffix = (
-        Get-UmsConfigurationItem -ShortName "PseudonymSuffix")
+        [ConfigurationStore]::GetRenderingItem(
+            "VariantsPseudonymSuffix").Value)
 
     # A string which will split the two parts of a sort name.
-    static [string] $SortNameDelimiter = (
-        Get-UmsConfigurationItem -ShortName "SortNameDelimiter")   
+    static [string] $SortNameInfix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "VariantsSortNameInfix").Value)
 
     ###########################################################################
     # Hidden properties
@@ -155,7 +160,7 @@ class UmsBceNameVariant : UmsBaeVariant
         if ($this.LastName)
         {
             $_sortName = $this.LastName
-            $_sortName += [UmsBceNameVariant]::SortNameDelimiter
+            $_sortName += [UmsBceNameVariant]::SortNameInfix
             $_sortName += [UmsAeEntity]::NonBreakingSpace
             $_sortName += $this.FirstName
 

@@ -43,7 +43,7 @@
 	All localized data will be rendered in this language, if available. -->
 	<xsl:variable name="config.variants.preferredLanguage">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'preferred-language'"/>
+			<xsl:with-param name="OptionName" select="'variants-preferred-language'"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<!--
@@ -53,7 +53,7 @@
 	in the prefered language. -->
 	<xsl:variable name="config.variants.fallbackLanguage">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'fallback-language'"/>
+			<xsl:with-param name="OptionName" select="'variants-fallback-language'"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<!--
@@ -62,7 +62,7 @@
 	in prefered or fallback language. -->
 	<xsl:variable name="config.variants.useDefaultVariants">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'use-default-variants'"/>
+			<xsl:with-param name="OptionName" select="'variants-use-default'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -73,7 +73,7 @@
 	and no default variant was available either. -->
 	<xsl:variable name="config.variants.useOriginalVariants">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'use-original-variants'"/>
+			<xsl:with-param name="OptionName" select="'variants-use-original'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -83,7 +83,7 @@
 	when no sort variant is explicitely available. -->
 	<xsl:variable name="config.variants.useFakeSortVariants">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'use-fake-sort-variants'"/>
+			<xsl:with-param name="OptionName" select="'variants-use-fake-sort-variants'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -93,7 +93,7 @@
 	of a sort-friendly name. -->
 	<xsl:variable name="config.variants.sortNameDelimiter">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'sort-name-delimiter'"/>
+			<xsl:with-param name="OptionName" select="'variants-sort-name-infix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -103,7 +103,7 @@
 	and sort-friendly variants of persons' names. -->
 	<xsl:variable name="config.variants.showPseudonyms">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'show-pseudonyms'"/>
+			<xsl:with-param name="OptionName" select="'variants-use-pseudonyms'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -112,13 +112,13 @@
 	Opening and closing characters surrounding pseudonym suffices. -->
 	<xsl:variable name="config.variants.pseudonymPrefix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'pseudonym-prefix'"/>
+			<xsl:with-param name="OptionName" select="'variants-pseudonym-prefix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<xsl:variable name="config.variants.pseudonymSuffix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'pseudonym-suffix'"/>
+			<xsl:with-param name="OptionName" select="'variants-pseudonym-suffix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -127,7 +127,7 @@
 	If set to true(), common names will take precedence over full names. -->
 	<xsl:variable name="config.variants.preferCommonNames">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'prefer-common-names'"/>
+			<xsl:with-param name="OptionName" select="'variants-prefer-common-names'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -136,7 +136,7 @@
 	If set to true(), common labels will take precedence over full labels. -->
 	<xsl:variable name="config.variants.preferCommonLabels">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'prefer-common-labels'"/>
+			<xsl:with-param name="OptionName" select="'variants-prefer-common-labels'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -151,7 +151,7 @@
 	If set to true(), musical keys will be rendered in their short forms. -->
 	<xsl:variable name="config.keys.preferShortLabels">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'prefer-short-keys'"/>
+			<xsl:with-param name="OptionName" select="'musical-key-prefer-short'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -161,13 +161,13 @@
 	to the title of a work or of a movement. -->
 	<xsl:variable name="config.keys.listPrefix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'key-list-prefix'"/>
+			<xsl:with-param name="OptionName" select="'musical-key-prefix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<xsl:variable name="config.keys.listSuffix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'key-list-suffix'"/>
+			<xsl:with-param name="OptionName" select="'musical-key-suffix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -183,7 +183,7 @@
 	is a list of catalog IDs. -->
 	<xsl:variable name="config.catalogIds.Delimiter">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'catalog-id-delimiter'"/>
+			<xsl:with-param name="OptionName" select="'music-catalog-id-list-delimiter'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -193,13 +193,13 @@
 	when added to the title of a work. -->
 	<xsl:variable name="config.catalogIds.listPrefix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'catalog-id-list-prefix'"/>
+			<xsl:with-param name="OptionName" select="'music-catalog-id-list-prefix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<xsl:variable name="config.catalogIds.listSuffix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'catalog-id-list-suffix'"/>
+			<xsl:with-param name="OptionName" select="'music-catalog-id-list-suffix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -215,7 +215,7 @@
 	in an instrument list embedded as a performer suffix. -->
 	<xsl:variable name="config.instruments.listDelimiter">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'instrument-list-delimiter'"/>
+			<xsl:with-param name="OptionName" select="'music-performer-performed-instrument-list-delimiter'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -225,13 +225,13 @@
 	to a performer's name. -->
 	<xsl:variable name="config.instruments.listPrefix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'instrument-list-prefix'"/>
+			<xsl:with-param name="OptionName" select="'music-performer-performed-instrument-list-prefix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<xsl:variable name="config.instruments.listSuffix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'instrument-list-suffix'"/>
+			<xsl:with-param name="OptionName" select="'music-performer-performed-instrument-list-suffix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -247,7 +247,7 @@
 	in a character list embedded in the title of a track. -->
 	<xsl:variable name="config.characters.delimiter">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'character-delimiter'"/>
+			<xsl:with-param name="OptionName" select="'musical-movement-character-list-delimiter'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -256,13 +256,13 @@
 	Opening and closing characters surrounding a list of characters. -->
 	<xsl:variable name="config.characters.listPrefix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'character-list-prefix'"/>
+			<xsl:with-param name="OptionName" select="'musical-movement-character-list-prefix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<xsl:variable name="config.characters.listSuffix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'character-list-suffix'"/>
+			<xsl:with-param name="OptionName" select="'musical-movement-character-list-suffix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -278,7 +278,7 @@
 	label in the title of a track. -->
 	<xsl:variable name="config.musicalForms.delimiter">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'form-delimiter'"/>
+			<xsl:with-param name="OptionName" select="'musical-movement-form-list-delimiter'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -288,13 +288,13 @@
 	in the title of track. -->
 	<xsl:variable name="config.musicalForms.listPrefix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'form-list-prefix'"/>
+			<xsl:with-param name="OptionName" select="'musical-movement-form-list-prefix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<xsl:variable name="config.musicalForms.listSuffix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'form-list-suffix'"/>
+			<xsl:with-param name="OptionName" select="'musical-movement-form-list-suffix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -311,7 +311,7 @@
 	false(), the track title will only include the title of the first movement. -->
 	<xsl:variable name="config.vorbis.movementTitles.concatenate">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'show-all-movement-titles'"/>
+			<xsl:with-param name="OptionName" select="'audio-track-title-include-all-movements'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -321,7 +321,7 @@
 	in multi-movement track titles. -->
 	<xsl:variable name="config.movementTitles.delimiter">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'movement-title-delimiter'"/>
+			<xsl:with-param name="OptionName" select="'audio-track-title-movement-delimiter'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -331,7 +331,7 @@
 	movement. -->
 	<xsl:variable name="config.movementTitles.infix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'movement-title-infix'"/>
+			<xsl:with-param name="OptionName" select="'musical-movement-title-infix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -347,7 +347,7 @@
 	in the list of composers. -->
 	<xsl:variable name="config.composers.delimiter">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'composer-delimiter'"/>
+			<xsl:with-param name="OptionName" select="'musical-work-composer-list-delimiter'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -357,13 +357,13 @@
 	in a dynamic album title. -->
 	<xsl:variable name="config.composers.listPrefix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'composer-list-prefix'"/>
+			<xsl:with-param name="OptionName" select="'musical-work-composer-list-prefix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<xsl:variable name="config.composers.listSuffix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'composer-list-suffix'"/>
+			<xsl:with-param name="OptionName" select="'musical-work-composer-list-suffix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -379,7 +379,7 @@
 	in the list of music ensembles. -->
 	<xsl:variable name="config.performers.delimiter">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'performer-delimiter'"/>
+			<xsl:with-param name="OptionName" select="'music-performer-list-delimiter'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>	
@@ -389,13 +389,13 @@
 	in dynamic album titles. -->
 	<xsl:variable name="config.performers.listPrefix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'performer-list-prefix'"/>
+			<xsl:with-param name="OptionName" select="'music-performer-list-prefix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<xsl:variable name="config.performers.listSuffix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'performer-list-suffix'"/>
+			<xsl:with-param name="OptionName" select="'music-performer-list-suffix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -414,7 +414,7 @@
 	Whether we shall include the main musical key of a work in its title -->
 	<xsl:variable name="config.workTitles.showKey">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'show-musical-key'"/>
+			<xsl:with-param name="OptionName" select="'musical-work-musical-key-show'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -423,7 +423,7 @@
 	Whether we shall include the catalog IDs of a work in its title -->
 	<xsl:variable name="config.workTitles.showCatalogIds">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'show-catalog-ids'"/>
+			<xsl:with-param name="OptionName" select="'musical-work-catalog-id-list-show'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -432,7 +432,7 @@
 	Whether we shall include the year of inception of a work in its title -->
 	<xsl:variable name="config.workTitles.showInceptionYear">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'show-work-inception-year'"/>
+			<xsl:with-param name="OptionName" select="'musical-work-year-list-inception-show'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -441,7 +441,7 @@
 	Whether we shall include the year of completion of a work in its title -->
 	<xsl:variable name="config.workTitles.showCompletionYear">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'show-work-completion-year'"/>
+			<xsl:with-param name="OptionName" select="'musical-work-year-list-completion-show'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -450,7 +450,7 @@
 	Whether we shall include the year of premiere of a work in its title -->
 	<xsl:variable name="config.workTitles.showPremiereYear">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'show-work-premiere-year'"/>
+			<xsl:with-param name="OptionName" select="'musical-work-year-list-premiere-show'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -459,7 +459,7 @@
 	One or several characters which will be inserted between each year in a list of years -->
 	<xsl:variable name="config.workTitles.yearListDelimiter">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'year-list-delimiter'"/>
+			<xsl:with-param name="OptionName" select="'musical-work-year-list-delimiter'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -468,13 +468,13 @@
 	Opening and closing characters surrounding year suffices -->
 	<xsl:variable name="config.workTitles.yearListPrefix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'year-list-prefix'"/>
+			<xsl:with-param name="OptionName" select="'musical-work-year-list-prefix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
 	<xsl:variable name="config.workTitles.yearListSuffix">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'year-list-suffix'"/>
+			<xsl:with-param name="OptionName" select="'musical-work-year-list-suffix'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>	
@@ -494,7 +494,7 @@
 	of an instrumentalist when is it rendered as a PERFORMER comment.-->
 	<xsl:variable name="config.vorbis.performers.showInstrument">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'show-played-instrument'"/>
+			<xsl:with-param name="OptionName" select="'music-performer-performed-instrument-list-show'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -678,7 +678,7 @@
 	of the parent work. -->
 	<xsl:variable name="config.vorbis.titles.showSectionNumbers">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'show-section-number'"/>
+			<xsl:with-param name="OptionName" select="'music-section-number-show'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -688,7 +688,7 @@
 	of the section numbering when it is embedded in the title of a track. -->
 	<xsl:variable name="config.vorbis.titles.sectionNumberDelimiter">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'section-numbering-delimiter'"/>
+			<xsl:with-param name="OptionName" select="'music-section-number-delimiter'"/>
 			<xsl:with-param name="AllowEmptyValue" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -698,7 +698,7 @@
 	involved in the action. This is useful with opera or sung music. -->
 	<xsl:variable name="config.vorbis.titles.showCharacterList">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'show-character-list'"/>
+			<xsl:with-param name="OptionName" select="'musical-movement-character-list-show'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -708,7 +708,7 @@
 	of the movement. -->
 	<xsl:variable name="config.vorbis.titles.showFormList">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'show-musical-form'"/>
+			<xsl:with-param name="OptionName" select="'musical-movement-form-list-show'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -718,7 +718,7 @@
 	of the movement. -->
 	<xsl:variable name="config.vorbis.titles.showKey">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'show-musical-key'"/>
+			<xsl:with-param name="OptionName" select="'musical-movement-musical-key-show'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -727,7 +727,7 @@
 	If set to true(), track titles will include tempo markings. -->
 	<xsl:variable name="config.vorbis.titles.showTempoMarking">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'show-tempo-marking'"/>
+			<xsl:with-param name="OptionName" select="'musical-movement-tempo-marking-list-show'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>
@@ -736,7 +736,7 @@
 	If set to true(), track titles will include movement titles. -->
 	<xsl:variable name="config.vorbis.titles.showMovementTitle">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'show-movement-title'"/>
+			<xsl:with-param name="OptionName" select="'musical-movement-title-show'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>	
@@ -746,7 +746,7 @@
 	(incipit) in the context of sung music. -->
 	<xsl:variable name="config.vorbis.titles.showIncipit">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'show-movement-incipit'"/>
+			<xsl:with-param name="OptionName" select="'musical-movement-incipit-show'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>	
@@ -789,7 +789,7 @@
 	of a given work. -->
 	<xsl:variable name="config.albumTitles.includeComposers">
 		<xsl:call-template name="getUmsOptionValue">
-			<xsl:with-param name="OptionName" select="'show-composer-list'"/>
+			<xsl:with-param name="OptionName" select="'musical-work-composer-list-show'"/>
 			<xsl:with-param name="Boolean" select="true()"/>
 		</xsl:call-template>
 	</xsl:variable>	

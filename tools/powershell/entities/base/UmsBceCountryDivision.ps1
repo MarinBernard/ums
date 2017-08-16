@@ -14,8 +14,8 @@ class UmsBceCountryDivision : UmsBaeItem
     ###########################################################################
 
     # A string inserted between each part of a multi-part place
-    static [string] $PlaceDelimiter = 
-        (Get-UmsConfigurationItem -ShortName "PlaceDelimiter")
+    static [string] $PlaceListDelimiter = (
+        [ConfigurationStore]::GetRenderingItem("PlaceListDelimiter").Value)
 
     ###########################################################################
     # Hidden properties
@@ -93,13 +93,13 @@ class UmsBceCountryDivision : UmsBaeItem
         # If a country division is set, then the parent is a country division.
         if($this.CountryDivision)
         {
-            $_string += [UmsBceCountryDivision]::PlaceDelimiter
+            $_string += [UmsBceCountryDivision]::PlaceListDelimiter
             $_string += $this.CountryDivision.ToString()
         }
         # If no country division is set, the parent is a country
         else
         {
-            $_string += [UmsBceCountryDivision]::PlaceDelimiter
+            $_string += [UmsBceCountryDivision]::PlaceListDelimiter
             $_string += $this.Country.ToString()
         }
 

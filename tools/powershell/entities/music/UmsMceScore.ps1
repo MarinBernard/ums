@@ -16,18 +16,21 @@ class UmsMceScore : UmsBaePublication
 
     # One or several characters which will be inserted between each name
     # in a list of catalog ids.
-    static [string] $CatalogIdDelimiter = 
-        (Get-UmsConfigurationItem -ShortName "CatalogIdDelimiter")
+    static [string] $CatalogIdDelimiter = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicCatalogIdListDelimiter").Value)
     
     # One or several characters which will be inserted before a list of
     # catalog ids.
-    static [string] $CatalogIdListPrefix = 
-        (Get-UmsConfigurationItem -ShortName "CatalogIdListPrefix")
+    static [string] $CatalogIdListPrefix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicCatalogIdListPrefix").Value)
 
     # One or several characters which will be inserted after a list of
     # catalog ids.
-    static [string] $CatalogIdListSuffix = 
-        (Get-UmsConfigurationItem -ShortName "CatalogIdListSuffix")
+    static [string] $CatalogIdListSuffix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicCatalogIdListSuffix").Value)
 
     ###########################################################################
     # Hidden properties

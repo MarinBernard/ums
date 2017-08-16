@@ -17,95 +17,115 @@ class UmsMceMovement : UmsBaeProduct
 
     # Whether the musical form of the movement should be shown when it is
     # rendered as a string.
-    static [bool] $ShowMusicalForm = 
-        (Get-UmsConfigurationItem -ShortName "ShowMusicalForm")
+    static [bool] $ShowMusicalForm = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalMovementFormListShow").Value)
 
     # One or several characters which will be inserted between each form name.
-    static [string] $FormDelimiter = 
-        (Get-UmsConfigurationItem -ShortName "FormDelimiter")
+    static [string] $FormDelimiter = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalMovementFormListDelimiter").Value)
     
     # One or several characters which will be inserted before a form list.
-    static [string] $FormListPrefix = 
-        (Get-UmsConfigurationItem -ShortName "FormListPrefix")
+    static [string] $FormListPrefix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalMovementFormListPrefix").Value)
 
     # One or several characters which will be inserted after a form list.
-    static [string] $FormListSuffix = 
-        (Get-UmsConfigurationItem -ShortName "FormListSuffix")
+    static [string] $FormListSuffix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalMovementFormListSuffix").Value)
 
     # Whether the initial musical key of the movement should be shown when
     # it is rendered as a string.
-    static [bool] $ShowMusicalKey = 
-        (Get-UmsConfigurationItem -ShortName "ShowMusicalKey")
+    static [bool] $ShowMusicalKey = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalMovementMusicalKeyShow").Value)
 
     # Whether musical keys will be displayed as their short form.
-    static [bool] $PreferShortKeys = 
-        (Get-UmsConfigurationItem -ShortName "PreferShortKeys")
+    static [bool] $PreferShortKeys = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalKeyPreferShort").Value)
     
     # One or several characters which will be inserted before a list of keys.
-    static [string] $KeyListPrefix = 
-        (Get-UmsConfigurationItem -ShortName "KeyListPrefix")
+    static [string] $KeyListPrefix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalKeyPrefix").Value)
 
     # One or several characters which will be inserted after a list of keys.
-    static [string] $KeyListSuffix = 
-        (Get-UmsConfigurationItem -ShortName "KeyListSuffix")
+    static [string] $KeyListSuffix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalKeySuffix").Value)
 
     # Whether the characters involved in the movement should be shown when
     # it is rendered as a string.
-    static [bool] $ShowCharacterList = 
-        (Get-UmsConfigurationItem -ShortName "ShowCharacterList")
+    static [bool] $ShowCharacterList = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalMovementCharacterListShow").Value)
 
     # One or several characters which will be inserted between each name
     # in a list of characters.
-    static [string] $CharacterDelimiter = 
-        (Get-UmsConfigurationItem -ShortName "CharacterDelimiter")
+    static [string] $CharacterDelimiter = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalMovementCharacterListDelimiter").Value)
     
     # One or several characters which will be inserted before a list of
     # characters.
-    static [string] $CharacterListPrefix = 
-        (Get-UmsConfigurationItem -ShortName "CharacterListPrefix")
+    static [string] $CharacterListPrefix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalMovementCharacterListPrefix").Value)
 
     # One or several characters which will be inserted after a list of
     # characters.
-    static [string] $CharacterListSuffix = 
-        (Get-UmsConfigurationItem -ShortName "CharacterListSuffix")
+    static [string] $CharacterListSuffix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalMovementCharacterListSuffix").Value)
 
     # Whether the title of the mouvement should be shown when it is rendered
     # as a string.
-    static [bool] $ShowMovementTitle = 
-        (Get-UmsConfigurationItem -ShortName "ShowMovementTitle")
+    static [bool] $ShowMovementTitle = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalMovementTitleShow").Value)
     
     # One or several characters which will be inserted between the first and
     # second parts of the full movement title, when rendered as a string.
-    static [string] $MovementTitleInfix = 
-        (Get-UmsConfigurationItem -ShortName "MovementTitleInfix")
+    static [string] $MovementTitleInfix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalMovementTitleInfix").Value)
 
     # Whether tempo marking should be shown when the movement is rendered
     # as a string.
-    static [bool] $ShowTempoMarking = 
-        (Get-UmsConfigurationItem -ShortName "ShowTempoMarking")
+    static [bool] $ShowTempoMarking = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalMovementTempoMarkingListShow").Value)
     
     # One or several characters which will be inserted before a list of
     # tempo markings.
-    static [string] $TempoMarkingListPrefix = 
-        (Get-UmsConfigurationItem -ShortName "TempoMarkingListPrefix")
+    static [string] $TempoMarkingListPrefix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalMovementTempoMarkingListPrefix").Value)
     
     # One or several characters which will be inserted after a list of
     # tempo markings.
-    static [string] $TempoMarkingListSuffix = 
-        (Get-UmsConfigurationItem -ShortName "TempoMarkingListSuffix")
+    static [string] $TempoMarkingListSuffix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalMovementTempoMarkingListSuffix").Value)
 
     # Whether the incipit of the movement should be shown when it is rendered
     # as a string.
-    static [bool] $ShowMovementIncipit = 
-        (Get-UmsConfigurationItem -ShortName "ShowMovementIncipit")
+    static [bool] $ShowMovementIncipit = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalMovementIncipitShow").Value)
     
     # One or several characters which will be inserted before an incipit.
-    static [string] $IncipitPrefix = 
-        (Get-UmsConfigurationItem -ShortName "IncipitPrefix")
+    static [string] $IncipitPrefix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalMovementIncipitPrefix").Value)
     
     # One or several characters which will be inserted after an incipit.
-    static [string] $IncipitSuffix = 
-        (Get-UmsConfigurationItem -ShortName "IncipitSuffix")
+    static [string] $IncipitSuffix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalMovementIncipitSuffix").Value)
     
     ###########################################################################
     # Hidden properties

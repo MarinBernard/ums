@@ -111,13 +111,13 @@ class UmsItem
         # These values shall be replaced with the values from the binding
         # element if the Item has a Sidecar/Orphan cardinality.
         $this.Schema = (
-            Get-UmsConfigurationItem -Type "Schema" | Where-Object {
+            [ConfigurationStore]::GetSchemaItem("") | Where-Object {
                 $_.Namespace -eq $this.XmlNamespace }).Id
         $this.Element = $this.XmlElementName
 
         # Get and store content binding information (only for binding files)
         $_baseNamespace = (
-            Get-UmsConfigurationItem -ShortName "BaseSchemaNamespace")
+            [ConfigurationStore]::GetSchemaItem("base").Namespace)
         
         # If the document element is umsb:file, we need to retrieve and
         # store binding information.
@@ -130,7 +130,7 @@ class UmsItem
             $this.BindingElementName = (
                 $_xmlDocument.DocumentElement.FirstChild.LocalName)
             $this.BindingSchema = (
-                Get-UmsConfigurationItem -Type "Schema" | Where-Object {
+                [ConfigurationStore]::GetSchemaItem("") | Where-Object {
                     $_.Namespace -eq $this.BindingNamespace }).Id
 
             # Set schema and element visible properties to those of the binding

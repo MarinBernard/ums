@@ -15,23 +15,27 @@ class UmsMcePerformer : UmsAeEntity
 
     # Whether the name of the played instrument should be added to the name of
     # the performer when it is rendered as a string.
-    static [string] $ShowPlayedInstrument = 
-        (Get-UmsConfigurationItem -ShortName "ShowPlayedInstrument")
+    static [string] $ShowPlayedInstrument = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicPerformerPerformedInstrumentListShow").Value)
 
     # One or several characters which will be inserted between the names of
     # played instruments.
-    static [string] $InstrumentListDelimiter = 
-    (Get-UmsConfigurationItem -ShortName "InstrumentListDelimiter")
+    static [string] $InstrumentListDelimiter = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicPerformerPerformedInstrumentListDelimiter").Value)
     
     # One or several characters which will be inserted before the name of the
     # played instrument.
-    static [string] $InstrumentListPrefix = 
-        (Get-UmsConfigurationItem -ShortName "InstrumentListPrefix")
+    static [string] $InstrumentListPrefix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicPerformerPerformedInstrumentListPrefix").Value)
 
     # One or several characters which will be inserted after the name of the
     # played instrument.
-    static [string] $InstrumentListSuffix = 
-        (Get-UmsConfigurationItem -ShortName "InstrumentListSuffix")
+    static [string] $InstrumentListSuffix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicPerformerPerformedInstrumentListSuffix").Value)
 
     ###########################################################################
     # Hidden properties

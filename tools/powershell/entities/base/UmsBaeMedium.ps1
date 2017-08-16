@@ -18,32 +18,32 @@ class UmsBaeMedium : UmsBaeProduct
     ###########################################################################
 
     # The format of medium numbers in string representations.
-    static [string] $MediumNumberFormat = 
-        (Get-UmsConfigurationItem -ShortName "MediumNumberFormat")
+    static [string] $MediumNumberFormat = (
+        [ConfigurationStore]::GetRenderingItem("MediumNumberFormat").Value)
 
     # One or several characters which will be inserted before the side of the
     # medium when it is rendered as a string.
-    static [string] $MediumSidePrefix = 
-        (Get-UmsConfigurationItem -ShortName "MediumSidePrefix")
+    static [string] $MediumSidePrefix = (
+        [ConfigurationStore]::GetRenderingItem("MediumSidePrefix").Value)
 
     # One or several characters which will be inserted after the side of the
     # medium when it is rendered as a string.
-    static [string] $MediumSideSuffix = 
-        (Get-UmsConfigurationItem -ShortName "MediumSideSuffix")
+    static [string] $MediumSideSuffix = (
+        [ConfigurationStore]::GetRenderingItem("MediumSideSuffix").Value)
 
     # Whether the title of the medium will be shown when rendered as a string.
-    static [bool] $ShowMediumTitle = 
-        (Get-UmsConfigurationItem -ShortName "ShowMediumTitle")
+    static [bool] $ShowMediumTitle = (
+        [ConfigurationStore]::GetRenderingItem("MediumTitleShow").Value)
 
     # One or several characters which will be inserted before the title of the
     # medium when it is rendered as a string.
-    static [string] $MediumTitlePrefix = 
-        (Get-UmsConfigurationItem -ShortName "MediumTitlePrefix")
+    static [string] $MediumTitlePrefix = (
+        [ConfigurationStore]::GetRenderingItem("MediumTitlePrefix").Value)
 
     # One or several characters which will be inserted after the title of the
     # medium when it is rendered as a string.
-    static [string] $MediumTitleSuffix = 
-        (Get-UmsConfigurationItem -ShortName "MediumTitleSuffix")
+    static [string] $MediumTitleSuffix = (
+        [ConfigurationStore]::GetRenderingItem("MediumTitleSuffix").Value)
 
     ###########################################################################
     # Hidden properties

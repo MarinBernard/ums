@@ -15,90 +15,108 @@ class UmsMceWork : UmsBaeProduct
 
     # Whether a list of composers of the work should be shown when it is
     # rendered as a string.
-    static [bool] $ShowComposerList = 
-        (Get-UmsConfigurationItem -ShortName "ShowComposerList")
+    static [bool] $ShowComposerList = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalWorkComposerListShow").Value)
 
     # One or several characters which will be inserted between each name
     # in a list of composers.
-    static [string] $ComposerDelimiter = 
-        (Get-UmsConfigurationItem -ShortName "ComposerDelimiter")
+    static [string] $ComposerDelimiter = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalWorkComposerListDelimiter").Value)
     
     # One or several characters which will be inserted before a list of
     # composers.
-    static [string] $ComposerListPrefix = 
-        (Get-UmsConfigurationItem -ShortName "ComposerListPrefix")
+    static [string] $ComposerListPrefix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalWorkComposerListPrefix").Value)
 
     # One or several characters which will be inserted after a list of
     # composers.
-    static [string] $ComposerListSuffix = 
-        (Get-UmsConfigurationItem -ShortName "ComposerListSuffix")
+    static [string] $ComposerListSuffix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalWorkComposerListSuffix").Value)
 
     # Whether the main musical key of the work should be shown when it is
     # rendered as a string.
-    static [bool] $ShowMusicalKey = 
-        (Get-UmsConfigurationItem -ShortName "ShowMusicalKey")
+    static [bool] $ShowMusicalKey = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalWorkMusicalKeyShow").Value)
 
     # Whether musical keys will be displayed as their short form.
-    static [bool] $PreferShortKeys = 
-        (Get-UmsConfigurationItem -ShortName "PreferShortKeys")
+    static [bool] $PreferShortKeys = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalKeyPreferShort").Value)
     
     # One or several characters which will be inserted before a list of keys.
-    static [string] $KeyListPrefix = 
-        (Get-UmsConfigurationItem -ShortName "KeyListPrefix")
+    static [string] $MusicalKeyPrefix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalKeyPrefix").Value)
 
     # One or several characters which will be inserted after a list of keys.
-    static [string] $KeyListSuffix = 
-        (Get-UmsConfigurationItem -ShortName "KeyListSuffix")
+    static [string] $MusicalKeySuffix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalKeySuffix").Value)
     
     # Whether the catalog IDs of the work should be shown when it is
     # rendered as a string.
-    static [bool] $ShowCatalogIds = 
-        (Get-UmsConfigurationItem -ShortName "ShowCatalogIds")
+    static [bool] $ShowCatalogIds = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalWorkCatalogIdListShow").Value)
 
     # One or several characters which will be inserted between each name
     # in a list of catalog ids.
-    static [string] $CatalogIdDelimiter = 
-        (Get-UmsConfigurationItem -ShortName "CatalogIdDelimiter")
+    static [string] $CatalogIdDelimiter = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicCatalogIdListDelimiter").Value)
     
     # One or several characters which will be inserted before a list of
     # catalog ids.
-    static [string] $CatalogIdListPrefix = 
-        (Get-UmsConfigurationItem -ShortName "CatalogIdListPrefix")
+    static [string] $CatalogIdListPrefix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicCatalogIdListPrefix").Value)
 
     # One or several characters which will be inserted after a list of
     # catalog ids.
-    static [string] $CatalogIdListSuffix = 
-        (Get-UmsConfigurationItem -ShortName "CatalogIdListSuffix")
+    static [string] $CatalogIdListSuffix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicCatalogIdListSuffix").Value)
 
     # Whether the year of completion of the work will be shown when it is
     # rendered as a string.
-    static [bool] $ShowWorkCompletionYear = 
-    (Get-UmsConfigurationItem -ShortName "ShowWorkCompletionYear")
+    static [bool] $ShowWorkCompletionYear = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalWorkYearListCompletionShow").Value)
 
     # Whether the year of inception of the work will be shown when it is
     # rendered as a string.
-    static [bool] $ShowWorkInceptionYear = 
-    (Get-UmsConfigurationItem -ShortName "ShowWorkInceptionYear")
+    static [bool] $ShowWorkInceptionYear = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalWorkYearListInceptionShow").Value)
 
     # Whether the year of the premiere of the work will be shown when it is
     # rendered as a string.
-    static [bool] $ShowWorkPremiereYear = 
-    (Get-UmsConfigurationItem -ShortName "ShowWorkPremiereYear")
+    static [bool] $ShowWorkPremiereYear = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalWorkYearListPremiereShow").Value)
 
     # One or several characters which will be inserted between each year
     # in a list of years, when the work is rendered as a string.
-    static [string] $YearListDelimiter = 
-    (Get-UmsConfigurationItem -ShortName "YearListDelimiter")
+    static [string] $YearListDelimiter = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalWorkYearListDelimiter").Value)
 
     # One or several characters which will be inserted before the year of
     # inception/completion/premiere, when the work is rendered as a string.
-    static [string] $YearListPrefix = 
-        (Get-UmsConfigurationItem -ShortName "YearListPrefix")
+    static [string] $YearListPrefix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalWorkYearListPrefix").Value)
 
     # One or several characters which will be inserted after the year of
     # inception/completion/premiere, when the work is rendered as a string.
-    static [string] $YearListSuffix = 
-        (Get-UmsConfigurationItem -ShortName "YearListSuffix")
+    static [string] $YearListSuffix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalWorkYearListSuffix").Value)
 
     ###########################################################################
     # Hidden properties
@@ -355,9 +373,9 @@ class UmsMceWork : UmsBaeProduct
                 { $_key = $this.Key.Label.FullLabel }
 
             # Add musical key to the buffer
-            $_string += ([UmsMceWork]::KeyListPrefix)
+            $_string += ([UmsMceWork]::MusicalKeyPrefix)
             $_string += $_key
-            $_string += ([UmsMceWork]::KeyListSuffix)
+            $_string += ([UmsMceWork]::MusicalKeySuffix)
             $_addSpace = $true
         }
 

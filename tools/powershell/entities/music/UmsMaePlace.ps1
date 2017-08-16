@@ -18,8 +18,8 @@ class UmsMaePlace : UmsBaePlace
     ###########################################################################
 
     # A string inserted between each part of a multi-part place
-    static [string] $PlaceDelimiter = 
-        (Get-UmsConfigurationItem -ShortName "PlaceDelimiter")
+    static [string] $PlaceListDelimiter = (
+        [ConfigurationStore]::GetRenderingItem("PlaceListDelimiter").Value)
 
     ###########################################################################
     # Hidden properties
@@ -91,7 +91,7 @@ class UmsMaePlace : UmsBaePlace
         if($this.Venue)
         {
             if ($_labelToString)
-                { $_string += [UmsBaePlace]::PlaceDelimiter }
+                { $_string += [UmsBaePlace]::PlaceListDelimiter }
             $_string += $this.Venue.ToString()
         }
 
@@ -101,7 +101,7 @@ class UmsMaePlace : UmsBaePlace
         else
         {
             if ($_labelToString)
-                { $_string += [UmsBaePlace]::PlaceDelimiter }
+                { $_string += [UmsBaePlace]::PlaceListDelimiter }
             $_string += ([UmsBaePlace] $this).ToString()
         }
 

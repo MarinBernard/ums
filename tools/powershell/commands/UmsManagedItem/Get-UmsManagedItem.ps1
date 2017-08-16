@@ -67,8 +67,10 @@ function Get-UmsManagedItem
     $_umsFolderPath = Get-UmsManagementFolderPath -Path $Path
    
     # Build item list
-    $_UmsFileExtension = Get-UmsConfigurationItem -ShortName "UmsFileExtension"
-    $_filter = $("*" + $_UmsFileExtension)
+    $_umsFileExtension = (
+        [ConfigurationStore]::GetSystemItem("UmsFileExtension"))
+    
+    $_filter = $("*" + $_umsFileExtension)
 
     # Enumerate files from the local folder
     foreach ($_file in (Get-ChildItem -Path $_umsFolderPath -File -Filter $_filter))
@@ -76,8 +78,8 @@ function Get-UmsManagedItem
         # Apply filter, if specified
         if ($Filter)
         {
-            $_ext = Get-UmsConfigurationItem -ShortName "UmsFileExtension"
-            if ($_file.Name -notlike $($Filter + $_ext)) { continue }
+            if ($_file.Name -notlike $($Filter + $_umsFileExtension))
+                { continue }
         }
 
         # Create item instance
@@ -94,7 +96,7 @@ function Get-UmsManagedItem
         if ($Validate.IsPresent)
         {
             # Get the URI to the Relax NG schema to use
-            $_schemaUri = (Get-UmsConfigurationItem -Type Schema | 
+            $_schemaUri = ([ConfigurationStore]::GetSchemaItem("") | 
                 Where-Object { $_.Namespace -eq $_item.XmlNamespace }).Uri
 
             # Run XML validation

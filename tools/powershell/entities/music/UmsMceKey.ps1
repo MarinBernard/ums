@@ -14,8 +14,9 @@ class UmsMceKey : UmsBaeItem
     ###########################################################################
 
     # Whether the first letter of a musical key must be capitalized.
-    static [string] $CapitalizeFirstLetter = 
-        (Get-UmsConfigurationItem -ShortName "MusicalKeyCapitalizeFirstLetter")
+    static [string] $CapitalizeFirstLetter = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalKeyCapitalizeFirstLetter").Value)
 
     ###########################################################################
     # Hidden properties

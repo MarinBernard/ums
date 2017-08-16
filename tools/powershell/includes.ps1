@@ -1,14 +1,18 @@
 ###############################################################################
 # Configuration
 ###############################################################################
-# Configuration file
-[xml] $global:ConfigurationDocument = Get-Content -Path "$PSScriptRoot\..\..\configuration.xml"
 
-# Load localization
-$global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDirectory "$PSScriptRoot\messages"
 ###############################################################################
 # Entities and classes
 ###############################################################################
+
+# Base class for all exceptions
+. "$PSScriptRoot\classes\UmsException.ps1"
+
+# Configuration store
+. "$PSScriptRoot\classes\ConfigurationStore.Exceptions.ps1"
+. "$PSScriptRoot\classes\ConfigurationStore.ps1"
+
 # UmsItem
 . "$PSScriptRoot\classes\UmsItem.ps1"
 . "$PSScriptRoot\classes\UmsManagedItem.ps1"
@@ -17,7 +21,7 @@ $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDire
 # Cache management
 . "$PSScriptRoot\classes\UmsCachedDocument.ps1"
 . "$PSScriptRoot\classes\UmsDocumentCache.ps1"
-# Abstract entity
+# Abstract base entity
 . "$PSScriptRoot\entities\UmsAeEntity.ps1"
 # Entity Factory
 . "$PSScriptRoot\classes\CachedEntity.ps1"
@@ -85,47 +89,60 @@ $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDire
 . "$PSScriptRoot\entities\audio\UmsAceAlbum.ps1"
 # Bindings
 . "$PSScriptRoot\entities\audio\UmsAbeAlbumTrackBinding.ps1"
+
 ###############################################################################
 # Helpers
 ###############################################################################
+
 . "$PSScriptRoot\helpers\Get-UmsManagementFolderPath.ps1"
 . "$PSScriptRoot\helpers\Invoke-XmlValidator.ps1"
 . "$PSScriptRoot\helpers\Invoke-XslTransformer.ps1"
 . "$PSScriptRoot\helpers\Test-ConstraintValidation.ps1"
 . "$PSScriptRoot\helpers\Wait-UserConfirmation.ps1"
+
 ###############################################################################
 # Converters
 ###############################################################################
+
 . "$PSScriptRoot\converters\VorbisCommentConverter.ps1"
+
 ###############################################################################
 # Commands
 ###############################################################################
+
 # *-UmsCachedDocument
 . "$PSScriptRoot\commands\UmsCachedDocument\Get-UmsCachedDocument.ps1"
 . "$PSScriptRoot\commands\UmsCachedDocument\Remove-UmsCachedDocument.ps1"
+
 # *-UmsDocument
 . "$PSScriptRoot\commands\UmsDocument\Get-UmsDocument.ps1"
+
 # *-UmsDocumentCache
 . "$PSScriptRoot\commands\UmsDocumentCache\Clear-UmsDocumentCache.ps1"
 . "$PSScriptRoot\commands\UmsDocumentCache\Reset-UmsDocumentCache.ps1"
 . "$PSScriptRoot\commands\UmsDocumentCache\Measure-UmsDocumentCache.ps1"
+
 # *-UmsManagedItem
 . "$PSScriptRoot\commands\UmsManagedItem\Get-UmsManagedItem.ps1"
 . "$PSScriptRoot\commands\UmsManagedItem\Remove-UmsManagedItem.ps1"
 . "$PSScriptRoot\commands\UmsManagedItem\Rename-UmsManagedItem.ps1"
 . "$PSScriptRoot\commands\UmsManagedItem\Update-UmsManagedItem.ps1"
+
 # *-UmsManagement
 . "$PSScriptRoot\commands\UmsManagement\Enable-UmsManagement.ps1"
 . "$PSScriptRoot\commands\UmsManagement\Disable-UmsManagement.ps1"
 . "$PSScriptRoot\commands\UmsManagement\Test-UmsManagement.ps1"
+
 # *-UmsMetadata
 . "$PSScriptRoot\commands\UmsMetadata\Get-UmsMetadata.ps1"
+
 # *-UmsMetadataCache
 . "$PSScriptRoot\commands\UmsMetadataCache\Get-UmsMetadataCache.ps1"
 . "$PSScriptRoot\commands\UmsMetadataCache\Measure-UmsMetadataCache.ps1"
 . "$PSScriptRoot\commands\UmsMetadataCache\Reset-UmsMetadataCache.ps1"
+
 # *-VorbisMetadata
 . "$PSScriptRoot\commands\VorbisMetadata\ConvertTo-VorbisMetadata.ps1"
+
 # Other
 . "$PSScriptRoot\commands\ConvertTo-ForeignMetadata.ps1"
-. "$PSScriptRoot\commands\Get-UmsConfigurationItem.ps1"

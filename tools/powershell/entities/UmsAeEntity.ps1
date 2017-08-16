@@ -18,9 +18,9 @@ class UmsAeEntity
 
     # Catalog of namespace URIs for all instances.
     static [hashtable] $NamespaceUri = @{
-        "Base"  = Get-UmsConfigurationItem -ShortName "BaseSchemaNamespace";
-        "Audio" = Get-UmsConfigurationItem -ShortName "AudioSchemaNamespace";
-        "Music" = Get-UmsConfigurationItem -ShortName "MusicSchemaNamespace";
+        "Base"  = [ConfigurationStore]::GetSchemaItem("Base").Namespace;
+        "Audio" = [ConfigurationStore]::GetSchemaItem("Audio").Namespace;
+        "Music" = [ConfigurationStore]::GetSchemaItem("Music").Namespace;
     }
 
     # The non-breaking space character constant
@@ -29,17 +29,20 @@ class UmsAeEntity
     # The 2-letter ISO code of the prefered language
     static [string] $PreferredLanguage = (Get-Culture).TwoLetterISOLanguageName
 
-    # Whether default variants should be used before switching to fallback
-    static [bool] $UseDefaultVariants = 
-        (Get-UmsConfigurationItem -ShortName "UseDefaultVariants")
-
     # The 2-letter ISO code of the fallback language
-    static [string] $FallbackLanguage = 
-        (Get-UmsConfigurationItem -ShortName "FallbackLanguage")
+    static [string] $FallbackLanguage = (
+        [ConfigurationStore]::GetRenderingItem(
+            "VariantsFallbackLanguage").Value)
+
+    # Whether default variants should be used before switching to fallback
+    static [bool] $UseDefaultVariants = (
+        [ConfigurationStore]::GetRenderingItem(
+            "VariantsUseDefault").Value)
 
     # Whether original variants should be used as a last resort
-    static [bool] $UseOriginalVariants = 
-        (Get-UmsConfigurationItem -ShortName "UseOriginalVariants")
+    static [bool] $UseOriginalVariants = (
+        [ConfigurationStore]::GetRenderingItem(
+            "VariantsUseOriginal").Value)
 
     ###########################################################################
     # Hidden properties

@@ -17,7 +17,7 @@ function ConvertTo-ForeignMetadata
             "VorbisComment"
             {
                 # Select the music2vc stylesheet
-                $_stylesheet = Get-UmsConfigurationItem -Type "Stylesheet" | Where-Object { $_.Id -eq "music2vc" }
+                $_stylesheet = [ConfigurationStore]::GetStylesheetItem("music2vc")
 
                 # Build transform arguments
                 $_outputFileFullName = $($Item.LinkedFileBaseName + ".tags")
@@ -29,7 +29,7 @@ function ConvertTo-ForeignMetadata
             "RawLyrics"
             {
                 # Select the music2vc stylesheet
-                $_stylesheet = Get-UmsConfigurationItem -Type "Stylesheet" | Where-Object { $_.Id -eq "music2vc" }
+                $_stylesheet = [ConfigurationStore]::GetStylesheetItem("music2vc")
 
                 # Build transform arguments
                 $_outputFileFullName = $($Item.LinkedFileBaseName + ".txt")
@@ -39,72 +39,31 @@ function ConvertTo-ForeignMetadata
             }
         }
 
-        # Execute preliminary checks
+        # Validate stylesheet constraints
         try
         {
-            # Validate cardinality
-            $_allowedCardinality = @([UICardinality]::Sidecar, [UICardinality]::Orphan)
-
-            if ($_allowedCardinality -notcontains($Item.Cardinality))
-            {
-                throw IncompatibleCardinalityException::New(
-                    $Item, $_allowedCardinality)
-            }
-
-            if ($Item.Cardinality -eq [UICardinality]::Orphan)
-            {
-                Write-Warning -Message $ModuleStrings.Common.OrphanCardinalityWarning
-                if( (Wait-UserConfirmation) -eq $false ){ return }
-            }
-
-            # Validate static copy status
-            $_allowedUIStaticVersionStatus = @([UIVersionStatus]::Current, [UIVersionStatus]::Expired)
-
-            if ($_allowedUIStaticVersionStatus -notcontains($Item.StaticVersion))
-                { throw $ModuleStrings.Common.MissingStaticVersion }
-
-            if ($Item.StaticVersion -eq [UIVersionStatus]::Expired)
-            {
-                Write-Warning -Message $ModuleStrings.Common.ExpiredStaticVersion
-                if( (Wait-UserConfirmation) -eq $false ){ return }
-            }
-
-            # Validate stylesheet constraints
-            $_constraints = Get-UmsConfigurationItem -Type "StylesheetConstraint" | Where-Object { $_.Id -eq $_stylesheet.Id }
-            
-            foreach ($_constraint in $_constraints)
-            {
-                # Constraint on document element
-                if ($_constraint.SubType -eq "DocumentElementConstraint")
-                {
-                    # Validate document namespace
-                    if ($Item.XmlNamespace -ne $_constraint.DocumentNamespace)
-                        { throw ($ModuleStrings.ConvertToForeignMetadata.BadDocumentNamespace -f $Item.XmlNamespace,$_constraint.DocumentNamespace) }
-
-                    # Validate document element
-                    if ($Item.XmlElementName -ne $_constraint.DocumentElement)
-                        { throw ($ModuleStrings.ConvertToForeignMetadata.BadDocumentElement -f $Item.XmlElementName,$_constraint.DocumentElement) }
-
-                    # Validate content binding, if specified
-                    if ($_constraint.BindingNamespace)
-                    {
-                        # Validate binding namespace
-                        if ($Item.BindingNamespace -ne $_constraint.BindingNamespace)
-                            { throw ($ModuleStrings.ConvertToForeignMetadata.BadBindingNamespace -f $Item.BindingNamespace,$_constraint.BindingNamespace) }
-
-                        # Validate binding element
-                        if ($Item.BindingElementName -ne $_constraint.BindingElement)
-                            { throw ($ModuleStrings.ConvertToForeignMetadata.BadBindingElement -f $Item.BindingElementName,$_constraint.BindingElement) }
-                    }
-                }
-            }            
+            Test-ConstraintValidation `
+                -Item $Item `
+                -Constraints $_stylesheet.Constraints
         }
-
-        # Escape here on validation failure
-        catch
+        catch [ConstraintValidationFailure]
         {
-            Write-Error -Message $_.Exception.Message
-            return
+            Write-Error $_.Exception.MainMessage
+            throw($_.Exception)
+        }
+        
+        # Expired static version warning
+        if ($Item.StaticVersion -eq [UIVersionStatus]::Expired)
+        {
+            Write-Warning -Message $ModuleStrings.Common.ExpiredStaticVersion
+            if( (Wait-UserConfirmation) -eq $false ){ return }
+        }       
+        
+        # Orphan cardinality warning
+        if ($Item.Cardinality -eq [UICardinality]::Orphan)
+        {
+            Write-Warning -Message $ModuleStrings.Common.OrphanCardinalityWarning
+            if( (Wait-UserConfirmation) -eq $false ){ return }
         }
 
         # Run the transform
@@ -112,10 +71,15 @@ function ConvertTo-ForeignMetadata
         {
             Invoke-XslTransformer -Source $Item.StaticFileUri -Stylesheet $_stylesheet.Uri -Destination $_outputFileFullName -Arguments $_arguments
         }
-        catch
+        catch [UmsException]
         {
-            Write-Error -Message $_.Exception.Message
-            return
+            Write-Error -Message $_.Exception.MainMessage
+            throw($_.Exception)
+        }        
+        catch [System.Exception]
+        {
+            Write-Error -Exception $_.Exception
+            throw($_.Exception)
         }
     }
 }

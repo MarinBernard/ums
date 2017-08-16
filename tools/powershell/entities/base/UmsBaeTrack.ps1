@@ -19,16 +19,19 @@ class UmsBaeTrack : UmsBaeProduct
     ###########################################################################
 
     # The format of track numbers in string representations.
-    static [string] $TrackNumberFormat = 
-    (Get-UmsConfigurationItem -ShortName "TrackNumberFormat")
+    static [string] $TrackNumberFormat = (
+        [ConfigurationStore]::GetRenderingItem(
+            "AudioTrackNumberFormat").Value)
 
     # Whether the number of the track will be shown when rendered as a string.
-    static [bool] $ShowTrackNumber = 
-    (Get-UmsConfigurationItem -ShortName "ShowTrackNumber")
+    static [bool] $ShowTrackNumber = (
+        [ConfigurationStore]::GetRenderingItem(
+            "AudioTrackNumberShow").Value)
 
     # Whether the title of the track will be shown when rendered as a string.
-    static [bool] $ShowTrackTitle = 
-    (Get-UmsConfigurationItem -ShortName "ShowTrackTitle")
+    static [bool] $ShowTrackTitle = (
+        [ConfigurationStore]::GetRenderingItem(
+            "AudioTrackTitleShow").Value)
 
     ###########################################################################
     # Hidden properties

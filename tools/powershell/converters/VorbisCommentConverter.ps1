@@ -6,32 +6,18 @@ class VorbisCommentConverter
 
     # Catalog of namespace URIs for all instances.
     static [hashtable] $NamespaceUri = @{
-        "Base"  = Get-UmsConfigurationItem -ShortName "BaseSchemaNamespace";
-        "Audio" = Get-UmsConfigurationItem -ShortName "AudioSchemaNamespace";
-        "Music" = Get-UmsConfigurationItem -ShortName "MusicSchemaNamespace";
+        "Base"  = ([ConfigurationStore]::GetSchemaItem("Base")).Namespace;
+        "Audio" = ([ConfigurationStore]::GetSchemaItem("Audio")).Namespace;
+        "Music" = ([ConfigurationStore]::GetSchemaItem("Music")).Namespace;
     }
 
     # The non-breaking space character constant
     static [string] $NonBreakingSpace = $([char] 0x00A0)
 
-    # One or several characters which will be inserted between the names of
-    # played instruments.
-    static [string] $InstrumentListDelimiter = 
-    (Get-UmsConfigurationItem -ShortName "InstrumentListDelimiter")
-
-    # One or several characters which will be inserted before the name of the
-    # played instrument in a performer/instrumentalist/artist suffix.
-    static [string] $InstrumentListPrefix = 
-        (Get-UmsConfigurationItem -ShortName "InstrumentListPrefix")
-
-    # One or several characters which will be inserted after the name of the
-    # played instrument in a performer/instrumentalist/artist suffix.
-    static [string] $InstrumentListSuffix = 
-        (Get-UmsConfigurationItem -ShortName "InstrumentListSuffix")
-
     # Whether the first letter of a musical key must be capitalized.
-    static [string] $MusicalKeyCapitalizeFirstLetter = 
-    (Get-UmsConfigurationItem -ShortName "MusicalKeyCapitalizeFirstLetter")
+    static [string] $MusicalKeyCapitalizeFirstLetter = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalKeyCapitalizeFirstLetter").Value);
 
     ###########################################################################
     # Hidden properties

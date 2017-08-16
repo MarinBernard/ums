@@ -25,14 +25,14 @@ function Invoke-XmlValidator
     }
 
     # Check whether the JRE is available
-    $_jreBinPath = Get-UmsConfigurationItem -ShortName "JreBinPath"
+    $_jreBinPath = [ConfigurationStore]::GetToolItem("JreBin").Path
     if (-not (Test-Path -Path $_jreBinPath))
     {
         throw $ModuleStrings.RunXmlValidation.JreNotFound
     }
 
     # Check whether the Jing Jar archive is available
-    $_jingJarPath = Get-UmsConfigurationItem -ShortName "JingJarPath"
+    $_jingJarPath = [ConfigurationStore]::GetToolItem("JingJar").Path
     if (-not (Test-Path -Path $_jingJarPath))
     {
         throw $ModuleStrings.RunXmlValidation.JingNotFound

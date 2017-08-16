@@ -30,7 +30,7 @@ class EntityFactory
     # Properties below are used for UMS reference resolution.
     # Extension of UMS items
     static [string] $UmsFileExtension = (
-        Get-UmsConfigurationItem -ShortName "UmsFileExtension")
+        [ConfigurationStore]::GetSystemItem("UmsFileExtension").Value)
 
     ###########################################################################
     # Factory method
@@ -66,8 +66,8 @@ class EntityFactory
         # the file root element is only used as a content wrapper and is
         # useless. We need to specify an alternate document root for further
         # processing.
-        $_baseNamespaceUri = (
-            Get-UmsConfigurationItem -ShortName "BaseSchemaNamespace")
+        [string] $_baseNamespaceUri = (
+            [ConfigurationStore]::GetSchemaItem("Base").Namespace)
         if (
             ($_document.DocumentElement.NamespaceURI -eq $_baseNamespaceUri) -and
             ($_document.DocumentElement.LocalName -eq "file"))
@@ -571,7 +571,7 @@ class EntityFactory
         [System.Uri[]] $_list = @()
 
         # Enumerating all known catalogs.
-        foreach ($_catalog in (Get-UmsConfigurationItem -Type Catalog))
+        foreach ($_catalog in [ConfigurationStore]::GetCatalogItem(""))
         {
             Write-Verbose $(
                 $_verbosePrefix + "Evaluating catalog with id '" + `

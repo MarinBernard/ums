@@ -16,13 +16,15 @@ class UmsMceTrack : UmsBaeTrack
     # Whether the track title rendered as string should include the title of
     # all the movements comprised in the track. If set to $false, the string
     # will only include the title of the first movement.
-    static [bool] $ShowAllMovementTitles = 
-        (Get-UmsConfigurationItem -ShortName "ShowAllMovementTitles")
+    static [bool] $ShowAllMovementTitles = (
+        [ConfigurationStore]::GetRenderingItem(
+            "AudioTrackTitleIncludeAllMovements").Value)
 
     # One or several characters which will be inserted between each movement's
     # title, if ShowAllMovementTitles is set to $true.
-    static [string] $MovementTitleDelimiter = 
-        (Get-UmsConfigurationItem -ShortName "MovementTitleDelimiter")
+    static [string] $MovementTitleDelimiter = (
+        [ConfigurationStore]::GetRenderingItem(
+            "AudioTrackTitleMovementDelimiter").Value)
 
     ###########################################################################
     # Hidden properties

@@ -40,7 +40,9 @@ function Update-UmsManagedItem
     Begin
     {
         # Get the expander stylesheet URI
-        $_stylesheetUri = Get-UmsConfigurationItem -ShortName "ExpanderStylesheetUri"
+        
+        $_stylesheetUri = (
+            [ConfigurationStore]::GetStylesheetItem("expander")).Uri
     }
 
     Process
@@ -106,7 +108,10 @@ function Update-UmsManagedItem
                 $_tempItem = New-object -Type UmsManagedItem -ArgumentList (Get-Item -LiteralPath $_tempFileFullName)
                 
                 # Validate the temporary file
-                $_schemaUri = (Get-UmsConfigurationItem -Type Schema | Where-Object { $_.Namespace -eq $_tempItem.XmlNamespace }).Uri
+                $_schemaUri = (
+                    [ConfigurationStore]::GetSchemaItem("") | 
+                        Where-Object { 
+                            $_.Namespace -eq $_tempItem.XmlNamespace }).Uri
                 $_isInvalid = Invoke-XmlValidator -Source $_tempItem.Uri -Schema $_schemaUri
 
                 # Check validation result
@@ -162,7 +167,10 @@ function Update-UmsManagedItem
                 # Retrieve metadata
                 try
                 {
-                    $_metadata = Get-UmsMetadata -Silent -Item $ManagedItem -Source Raw
+                    $_metadata = Get-UmsMetadata `
+                        -Silent `
+                        -ManagedItem $ManagedItem `
+                        -Source "Raw"
                 }
                 catch [UmsException]
                 {
@@ -177,7 +185,8 @@ function Update-UmsManagedItem
                 try
                 {
                     $_depth = (
-                        Get-UmsConfigurationItem -ShortName "UmsXmlCacheDepth")
+                        [ConfigurationStore]::GetSystemItem(
+                            "ExportCliXmlDepth")).Value
                         
                     $_metadata | Export-Clixml `
                         -LiteralPath $_tempFileFullName `

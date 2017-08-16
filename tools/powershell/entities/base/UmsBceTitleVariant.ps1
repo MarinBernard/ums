@@ -16,7 +16,8 @@ class UmsBceTitleVariant : UmsBaeVariant
     # Whether a fake sort-friendly title should be created from the full form
     # when no sort title was defined.
     static [bool] $UseFakeSortVariants = (
-        Get-UmsConfigurationItem -ShortName "UseFakeSortVariants")
+        [ConfigurationStore]::GetRenderingItem(
+            "VariantsUseFakeSortVariants").Value)
 
     ###########################################################################
     # Hidden properties

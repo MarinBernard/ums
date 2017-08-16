@@ -3,43 +3,51 @@
 		<catalog id="base"
 			namespace="http://schemas.olivarim.com/ums/1.0/base"
 			uri="file:///C:/Users/marin/Code/ums/catalogs/base">
-			<mapping subpath="cities" element="city"/>
-			<mapping subpath="cities" element="country"/>
-			<mapping subpath="cities" element="countryDivision"/>
-			<mapping subpath="languages" element="language"/>
-			<mapping subpath="standards" element="standard"/>
+			<mappings>
+				<mapping subpath="cities" element="city"/>
+				<mapping subpath="cities" element="country"/>
+				<mapping subpath="cities" element="countryDivision"/>
+				<mapping subpath="languages" element="language"/>
+				<mapping subpath="standards" element="standard"/>
+			</mappings>
 		</catalog>
 		<catalog id="audio"
 			namespace="http://schemas.olivarim.com/ums/1.0/audio"
 			uri="file:///C:/Users/marin/Code/ums/catalogs/audio">
-			<mapping subpath="labels" element="label"/>
+			<mappings>
+				<mapping subpath="labels" element="label"/>
+			</mappings>
 		</catalog>
 		<catalog id="music"
 			namespace="http://schemas.olivarim.com/ums/1.0/music"
 			uri="file:///C:/Users/marin/Code/ums/catalogs/music">
-			<mapping subpath="catalogs" element="catalog"/>
-			<mapping subpath="composers" element="composer"/>
-			<mapping subpath="compositions" element="lyrics"/>
-			<mapping subpath="compositions" element="movement"/>
-			<mapping subpath="compositions" element="work"/>
-			<mapping subpath="conductors" element="conductor"/>
-			<mapping subpath="ensembles" element="ensemble"/>
-			<mapping subpath="forms" element="form"/>
-			<mapping subpath="instrumentalists" element="instrumentalist"/>
-			<mapping subpath="instruments" element="instrument"/>
-			<mapping subpath="keys" element="key"/>
-			<mapping subpath="lyricists" element="lyricist"/>
-			<mapping subpath="scores" element="book"/>
-			<mapping subpath="styles" element="style"/>
-			<mapping subpath="venues" element="venue"/>
+			<mappings>
+				<mapping subpath="catalogs" element="catalog"/>
+				<mapping subpath="composers" element="composer"/>
+				<mapping subpath="compositions" element="lyrics"/>
+				<mapping subpath="compositions" element="movement"/>
+				<mapping subpath="compositions" element="work"/>
+				<mapping subpath="conductors" element="conductor"/>
+				<mapping subpath="ensembles" element="ensemble"/>
+				<mapping subpath="forms" element="form"/>
+				<mapping subpath="instrumentalists" element="instrumentalist"/>
+				<mapping subpath="instruments" element="instrument"/>
+				<mapping subpath="keys" element="key"/>
+				<mapping subpath="lyricists" element="lyricist"/>
+				<mapping subpath="scores" element="book"/>
+				<mapping subpath="styles" element="style"/>
+				<mapping subpath="venues" element="venue"/>
+			</mappings>
 		</catalog>
 	</catalogs>
 	<converters>
 		<converter id="VorbisComment">
 			<constraints>
-				<constraint id="ItemCardinality">SidecarOrOrphan</constraint>
-				<constraint id="bindingElementNamespace">http://schemas.olivarim.com/ums/1.0/audio</constraint>
-				<constraint id="bindingElementName">albumTrackBinding</constraint>
+				<constraint id="binding-element-namespace">http://schemas.olivarim.com/ums/1.0/audio</constraint>
+				<constraint id="binding-element-name">albumTrackBinding</constraint>
+				<constraint id="document-element-namespace">http://schemas.olivarim.com/ums/1.0/base</constraint>
+				<constraint id="document-element-name">file</constraint>
+				<constraint id="item-cardinality">SidecarOrOrphan</constraint>
 			</constraints>
 			<options>
 				<!-- Default value: " & ", with non breakable spaces -->
@@ -143,9 +151,12 @@
 		<stylesheet id="expander" uri="file:///C:/Users/marin/Code/ums/stylesheets/music/expander/expander.xsl"/>
 		<stylesheet id="music2vc" uri="file:///C:/Users/marin/Code/ums/stylesheets/music/music2vc/music2vc.xsl">
 			<constraints>
-				<documentElement namespace="http://schemas.olivarim.com/ums/1.0/common" element="file">
-					<contentBindingElement namespace="http://schemas.olivarim.com/ums/1.0/audio" element="albumTrackBinding"/>
-				</documentElement>
+				<constraint id="binding-element-namespace">http://schemas.olivarim.com/ums/1.0/audio</constraint>
+				<constraint id="binding-element-name">albumTrackBinding</constraint>
+				<constraint id="document-element-namespace">http://schemas.olivarim.com/ums/1.0/base</constraint>
+				<constraint id="document-element-name">file</constraint>
+				<constraint id="item-cardinality">SidecarOrOrphan</constraint>
+				<constraint id="item-static-version-status">CurrentOrExpired</constraint>
 			</constraints>
 			<options>
 				<option id="constant-new-line">&#xa;</option>
@@ -217,89 +228,89 @@
 		<tool id="saxon-jar" path="C:\Program Files\XMLBlueprint 13\JavaLib\SaxonPE9-7-0-18J\saxon9pe.jar"/>
 	</tools>
 	<rendering>
-		<option id="catalog-id-delimiter">, </option>
-		<option id="catalog-id-list-prefix">(</option>
-		<option id="catalog-id-list-suffix">)</option>
-		<option id="character-delimiter">/</option>
-		<option id="character-list-prefix">(</option>
-		<option id="character-list-suffix">)</option>
-		<option id="composer-delimiter">/</option>
-		<option id="composer-list-prefix"></option>
-		<option id="composer-list-suffix"> -</option>
+		<option id="audio-track-number-format">{0:D2}</option>
+		<option id="audio-track-number-show">False</option>
+		<option id="audio-track-title-include-all-movements">False</option>
+		<option id="audio-track-title-movement-delimiter"> / </option>
+		<option id="audio-track-title-show">True</option>
 		<option id="date-format-full">dd-MM-yyyy</option>
 		<option id="date-format-year">yyyy</option>
 		<option id="date-format-year-month">MMMM yyyy</option>
 		<option id="event-date-place-delimiter"> - </option>
-		<option id="fallback-language">en</option>
-		<option id="form-delimiter">/</option>
-		<option id="form-list-prefix"></option>
-		<option id="form-list-suffix"></option>
-		<option id="incipit-prefix">&#171;&#160;</option>
-		<option id="incipit-suffix">&#160;&#187;</option>
-		<option id="instrument-list-delimiter">/</option>
-		<option id="instrument-list-prefix">[</option>
-		<option id="instrument-list-suffix">]</option>
-		<option id="key-list-prefix">en&#160;</option>
-		<option id="key-list-suffix"></option>
 		<option id="medium-number-format">{0:D2}</option>
 		<option id="medium-side-prefix">/</option>
 		<option id="medium-side-suffix"></option>
 		<option id="medium-title-prefix">(</option>
+		<option id="medium-title-show">True</option>
 		<option id="medium-title-suffix">)</option>
-		<option id="movement-title-delimiter"> / </option>
-		<option id="movement-title-infix">:</option>
+		<option id="music-catalog-id-list-delimiter">, </option>
+		<option id="music-catalog-id-list-prefix">(</option>
+		<option id="music-catalog-id-list-suffix">)</option>
+		<option id="music-performer-list-delimiter">/</option>
+		<option id="music-performer-list-prefix">(</option>
+		<option id="music-performer-list-suffix">)</option>
+		<option id="music-performer-performed-instrument-list-delimiter">/</option>
+		<option id="music-performer-performed-instrument-list-prefix">[</option>
+		<option id="music-performer-performed-instrument-list-show">True</option>
+		<option id="music-performer-performed-instrument-list-suffix">]</option>
+		<option id="music-section-level-delimiter"> - </option>
+		<option id="music-section-number-delimiter">.</option>
+		<option id="music-section-number-show">True</option>
+		<option id="music-section-title-show">True</option>
 		<option id="musical-key-capitalize-first-letter">True</option>
-		<option id="performance-year-prefix">, </option>
-		<option id="performer-delimiter">/</option>
-		<option id="performer-list-prefix">(</option>
-		<option id="performer-list-suffix">)</option>
-		<option id="place-delimiter">, </option>
-		<option id="prefer-common-labels">True</option>
-		<option id="prefer-common-names">True</option>
-		<option id="prefer-short-keys">False</option>
-		<option id="preferred-language">fr</option>
-		<option id="pseudonym-prefix">('</option>
-		<option id="pseudonym-suffix">')</option>
-		<option id="section-list-delimiter"> - </option>
-		<option id="section-numbering-delimiter">.</option>
-		<option id="show-catalog-ids">True</option>
-		<option id="show-character-list">True</option>
-		<option id="show-composer-list">True</option>
-		<option id="show-medium-title">True</option>
-		<option id="show-movement-incipit">True</option>
-		<option id="show-movement-title">True</option>
-		<option id="show-all-movement-titles">False</option>
-		<option id="show-musical-form">True</option>
-		<option id="show-musical-key">True</option>
-		<option id="show-played-instrument">True</option>
-		<option id="show-pseudonyms">True</option>
-		<option id="show-section-number">True</option>
-		<option id="show-section-title">True</option>
-		<option id="show-tempo-marking">True</option>
-		<option id="show-track-title">True</option>
-		<option id="show-track-number">False</option>
-		<option id="show-work-completion-year">False</option>
-		<option id="show-work-inception-year">False</option>
-		<option id="show-work-premiere-year">True</option>
-		<option id="sort-name-delimiter">,</option>
-		<option id="tempo-marking-list-prefix"></option>
-		<option id="tempo-marking-list-suffix"></option>
-		<option id="track-number-format">{0:D2}</option>
-		<option id="use-default-variants">True</option>
-		<option id="use-fake-sort-variants">True</option>
-		<option id="use-original-variants">False</option>
-		<option id="year-list-delimiter">/</option>
-		<option id="year-list-prefix">(</option>
-		<option id="year-list-suffix">)</option>
+		<option id="musical-key-prefer-short">False</option>
+		<option id="musical-key-prefix">en&#160;</option>
+		<option id="musical-key-suffix"></option>
+		<option id="musical-movement-character-list-delimiter">/</option>
+		<option id="musical-movement-character-list-prefix">(</option>
+		<option id="musical-movement-character-list-show">True</option>
+		<option id="musical-movement-character-list-suffix">)</option>
+		<option id="musical-movement-form-list-delimiter">/</option>
+		<option id="musical-movement-form-list-prefix"></option>
+		<option id="musical-movement-form-list-show">True</option>
+		<option id="musical-movement-form-list-suffix"></option>
+		<option id="musical-movement-incipit-prefix">&#171;&#160;</option>
+		<option id="musical-movement-incipit-show">True</option>
+		<option id="musical-movement-incipit-suffix">&#160;&#187;</option>
+		<option id="musical-movement-musical-key-show">True</option>
+		<option id="musical-movement-tempo-marking-list-prefix"></option>
+		<option id="musical-movement-tempo-marking-list-show">True</option>
+		<option id="musical-movement-tempo-marking-list-suffix"></option>
+		<option id="musical-movement-title-infix">:</option>
+		<option id="musical-movement-title-show">True</option>
+		<option id="musical-work-catalog-id-list-show">True</option>
+		<option id="musical-work-composer-list-delimiter">/</option>
+		<option id="musical-work-composer-list-prefix"></option>
+		<option id="musical-work-composer-list-show">True</option>
+		<option id="musical-work-composer-list-suffix"> -</option>
+		<option id="musical-work-musical-key-show">True</option>
+		<option id="musical-work-year-list-completion-show">False</option>
+		<option id="musical-work-year-list-delimiter">/</option>
+		<option id="musical-work-year-list-inception-show">False</option>
+		<option id="musical-work-year-list-prefix">(</option>
+		<option id="musical-work-year-list-premiere-show">True</option>
+		<option id="musical-work-year-list-suffix">)</option>
+		<option id="musical-performance-year-prefix">, </option>
+		<option id="place-list-delimiter">, </option>
+		<option id="variants-fallback-language">en</option>
+		<option id="variants-prefer-common-labels">True</option>
+		<option id="variants-prefer-common-names">True</option>
+		<option id="variants-preferred-language">fr</option>
+		<option id="variants-pseudonym-prefix">('</option>
+		<option id="variants-pseudonym-suffix">')</option>
+		<option id="variants-sort-name-infix">,</option>
+		<option id="variants-use-default">True</option>
+		<option id="variants-use-fake-sort-variants">True</option>
+		<option id="variants-use-original">False</option>
+		<option id="variants-use-pseudonyms">True</option>
 	</rendering>
 	<system>
-		<option id="ums-document-cache-lifetime">20</option>
+		<option id="document-cache-lifetime">20</option>
+		<option id="export-clixml-depth">15</option>
 		<option id="ums-file-extension">.ums</option>
-		<option id="ums-folder-name">ums</option>
 		<option id="ums-folder-name-cache">cache</option>
+		<option id="ums-folder-name-main">ums</option>
 		<option id="ums-folder-name-static">static</option>
-		<option id="ums-hidden-folders">True</option>
-		<option id="ums-xml-cache-depth">15</option>
+		<option id="hide-management-folder">True</option>
 	</system>
-	
 </configuration>

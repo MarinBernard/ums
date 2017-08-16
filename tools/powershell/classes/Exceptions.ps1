@@ -1,12 +1,3 @@
-# Base class for all UMS exceptions.
-class UmsException : System.Exception
-{
-    [string] $MainMessage
-    [string[]] $SubMessages
-    
-    UmsException() : base() {}
-}
-
 # Thrown when the XML namespace or the local name of an XML element is not the
 # one expected by the constructor of an entity class.
 class IncompatibleXmlElementException : UmsException

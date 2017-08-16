@@ -53,7 +53,8 @@ function Enable-UmsManagement
     }
 
     # Hide the folder if hidden folders are enabled
-    if (Get-UmsConfigurationItem -ShortName "UmsHiddenFolders")
+    
+    if ([ConfigurationStore]::GetSystemItem("HideManagementFolder"))
     {
         try
         {

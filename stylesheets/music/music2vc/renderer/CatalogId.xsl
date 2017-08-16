@@ -36,35 +36,35 @@
 			</xsl:for-each>
 		</xsl:variable>
 		<!-- Build catalog id string -->
-		<xsl:variable name="_catalogIdTmp">
+		<xsl:variable name="_catalogId">
 			<xsl:value-of select="$_catalogShortLabel"/>
 			<xsl:value-of select="$config.constants.nonBreakableSpace"/>
 			<xsl:for-each select="$_sortedCatalogIds/umsb:segment">
+				<xsl:variable name="_segmentLevel" select="@level"/>
+				<xsl:for-each select="$_sortedCatalogIds/umsm:catalog/umsb:segments/umsb:segment[@order = $_segmentLevel]">
+					<xsl:choose>
+						<xsl:when test="lower-case(@delimiter) = 'dash'">
+							<xsl:value-of select="'-'"/>
+						</xsl:when>
+						<xsl:when test="lower-case(@delimiter) = 'dot'">
+							<xsl:value-of select="'.'"/>
+						</xsl:when>
+						<xsl:when test="lower-case(@delimiter) = 'none'"/>					
+						<xsl:when test="lower-case(@delimiter) = 'numero'">
+							<xsl:call-template name="getTypographicSign">
+								<xsl:with-param name="SignName" select="'numero'"/>
+								<xsl:with-param name="Language" select="$config.variants.preferredLanguage"/>
+							</xsl:call-template>
+						</xsl:when>
+						<xsl:when test="lower-case(@delimiter) = 'space'">
+							<xsl:value-of select="$config.constants.nonBreakableSpace"/>
+						</xsl:when>
+						<xsl:otherwise/>					
+					</xsl:choose>
+				</xsl:for-each>
 				<xsl:value-of select="text()"/>
-				<xsl:choose>
-					<xsl:when test="lower-case(@delimiter) = 'dash'">
-						<xsl:value-of select="'-'"/>
-					</xsl:when>
-					<xsl:when test="lower-case(@delimiter) = 'dot'">
-						<xsl:value-of select="'.'"/>
-					</xsl:when>
-					<xsl:when test="lower-case(@delimiter) = 'none'"/>					
-					<xsl:when test="lower-case(@delimiter) = 'numero'">
-						<xsl:call-template name="getTypographicSign">
-							<xsl:with-param name="SignName" select="'numero'"/>
-							<xsl:with-param name="Language" select="$config.variants.preferredLanguage"/>
-						</xsl:call-template>
-					</xsl:when>
-					<xsl:when test="lower-case(@delimiter) = 'space'">
-						<xsl:value-of select="$config.constants.nonBreakableSpace"/>
-					</xsl:when>
-					<xsl:otherwise/>					
-				</xsl:choose>
-				<xsl:value-of select="$config.constants.nonBreakableSpace"/>
 			</xsl:for-each>
 		</xsl:variable>
-		<!-- Remove trailing space character -->
-		<xsl:variable name="_catalogId" select="substring($_catalogIdTmp, 1, string-length($_catalogIdTmp) - 1)"/>
 		<xsl:call-template name="showDebugMessage">
 			<xsl:with-param name="Template" select="'RT_CatalogId'"/>
 			<xsl:with-param name="Message" select="concat('Catalog id full string is: ', $_catalogId)"/>

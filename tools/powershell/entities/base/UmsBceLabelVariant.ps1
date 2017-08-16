@@ -15,12 +15,14 @@ class UmsBceLabelVariant : UmsBaeVariant
 
     # Whether common labels should be prefered when present
     static [bool] $PreferCommonLabels = (
-        Get-UmsConfigurationItem -ShortName "PreferCommonLabels")
+        [ConfigurationStore]::GetRenderingItem(
+            "VariantsPreferCommonLabels").Value)
 
     # Whether a fake sort-friendly label should be created from the full form
     # when no sort label was defined.
     static [bool] $UseFakeSortVariants = (
-        Get-UmsConfigurationItem -ShortName "UseFakeSortVariants")
+        [ConfigurationStore]::GetRenderingItem(
+            "VariantsUseFakeSortVariants").Value)
 
     ###########################################################################
     # Hidden properties

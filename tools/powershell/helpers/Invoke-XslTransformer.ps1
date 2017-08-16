@@ -33,14 +33,14 @@ function Invoke-XslTransformer
     }    
     
     # Check whether the JRE is available
-    $_jreBinPath = Get-UmsConfigurationItem -ShortName "JreBinPath"
+    $_jreBinPath = [ConfigurationStore]::GetToolItem("JreBin").Path
     if (-not (Test-Path -Path $_jreBinPath))
     {
         throw $ModuleStrings.RunXslTransform.JreNotFound
     }
     
     # Check whether the Saxon PE Jar archive is available
-    $_saxonJarPath = Get-UmsConfigurationItem -ShortName "SaxonJarPath"
+    $_saxonJarPath = [ConfigurationStore]::GetToolItem("SaxonJar").Path
     if (-not (Test-Path -Path $_saxonJarPath))
     {
         throw $ModuleStrings.RunXslTransform.SaxonNotFound

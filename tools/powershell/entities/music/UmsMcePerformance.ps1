@@ -20,23 +20,27 @@ class UmsMcePerformance : UmsMaeEvent
 
     # One or several characters which will be inserted between each name
     # in a list of music performers.
-    static [string] $PerformerDelimiter = 
-        (Get-UmsConfigurationItem -ShortName "PerformerDelimiter")
+    static [string] $PerformerListDelimiter = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicPerformerListDelimiter").Value)
     
     # One or several characters which will be inserted before a list of
     # music performers.
-    static [string] $PerformerListPrefix = 
-        (Get-UmsConfigurationItem -ShortName "PerformerListPrefix")
+    static [string] $PerformerListPrefix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicPerformerListPrefix").Value)
 
     # One or several characters which will be inserted after a list of
     # music performers.
-    static [string] $PerformerListSuffix = 
-        (Get-UmsConfigurationItem -ShortName "PerformerListSuffix")
+    static [string] $PerformerListSuffix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicPerformerListSuffix").Value)
 
     # One or several characters which will be inserted before a the year of a
     # music performance.
-    static [string] $PerformanceYearPrefix = 
-        (Get-UmsConfigurationItem -ShortName "PerformanceYearPrefix")
+    static [string] $PerformanceYearPrefix = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicalPerformanceYearPrefix").Value)
 
     ###########################################################################
     # Hidden properties
@@ -181,7 +185,7 @@ class UmsMcePerformance : UmsMaeEvent
 
         # Add performer names to the buffer
         $_string += ($_performers -join(
-            [UmsMcePerformance]::PerformerDelimiter))
+            [UmsMcePerformance]::PerformerListDelimiter))
 
         # Include performance year
         if($this.Date)

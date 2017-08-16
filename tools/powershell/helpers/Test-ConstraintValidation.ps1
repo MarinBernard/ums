@@ -16,17 +16,57 @@ function Test-ConstraintValidation
     {
         try
         {
-            foreach ($_constraint in $_constraints)
+            foreach ($_constraint in $Constraints)
             {
                 # No need to check the remaining constraints if we're already false
                 if ($_isValid = $false) { continue }
 
-                switch ($_constraint.Name)
+                switch ($_constraint.Id)
                 {
-                    "ItemCardinality"
+                    "binding-element-namespace"
+                    {
+                        if ($Item.BindingNamespace -ne $_constraint.Value)
+                        {
+                            throw [IncompatibleBindingNamespace]::New(
+                                $Item, $_constraint.Value)
+                        }
+                    }
+
+                    "binding-element-name"
+                    {
+                        if ($Item.BindingElementName -ne $_constraint.Value)
+                        {
+                            # TODO: more generic exceptions
+                            throw [IncompatibleBindingElement]::New(
+                                $Item, $_constraint.Value)
+                        }
+                    }
+
+                    "document-element-namespace"
+                    {
+                        if ($Item.XmlNamespace -ne $_constraint.Value)
+                        {
+                            # TODO: more generic exceptions
+                            throw [IncompatibleBindingNamespace]::New(
+                                $Item, $_constraint.Value)
+                        }
+                    }
+
+                    "document-element-name"
+                    {
+                        if ($Item.XmlElementName -ne $_constraint.Value)
+                        {
+                            # TODO: more generic exceptions
+                            throw [IncompatibleBindingElement]::New(
+                                $Item, $_constraint.Value)
+                        }
+                    }
+
+                    "item-cardinality"
                     {
                         # Build the list of allowed cardinalities
                         [UICardinality[]] $_allowedCardinalities = @()
+
                         switch ($_constraint.Value)
                         {
                             "SidecarOrOrphan"
@@ -40,26 +80,33 @@ function Test-ConstraintValidation
                         # Check cardinality
                         if ($_allowedCardinalities -notcontains($Item.Cardinality))
                         {
+                            # TODO: more generic exceptions
                             throw [IncompatibleCardinalityException]::New(
                                 $Item, $_allowedCardinalities)
                         }
                     }
 
-                    "bindingElementNamespace"
+                    "item-static-version-status"
                     {
-                        if ($Item.BindingNamespace -ne $_constraint.Value)
+                        # Build the list of allowed statuses
+                        [UIVersionStatus[]] $_allowedVersionStatuses = @()
+                        
+                        switch ($_constraint.Value)
                         {
-                            throw [IncompatibleBindingNamespace]::New(
-                                $Item, $_constraint.Value)
+                            "CurrentOrExpired"
+                            {
+                                $_allowedVersionStatuses = @(
+                                [UIVersionStatus]::Current,
+                                [UIVersionStatus]::Expired)
+                            }
                         }
-                    }
 
-                    "bindingElementName"
-                    {
-                        if ($Item.BindingElementName -ne $_constraint.Value)
+                        # Check cardinality
+                        if ($_allowedVersionStatuses -notcontains($Item.StaticVersion))
                         {
-                            throw [IncompatibleBindingElement]::New(
-                                $Item, $_constraint.Value)
+                            # TODO: more generic exceptions
+                            throw [IncompatibleCardinalityException]::New(
+                                $Item, $_allowedVersionStatuses)
                         }
                     }
                 }

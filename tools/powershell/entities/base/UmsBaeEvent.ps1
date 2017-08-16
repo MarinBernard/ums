@@ -18,21 +18,22 @@ class UmsBaeEvent : UmsAeEntity
     ###########################################################################
 
     # The format of full date strings when rendered as text
-    static [string] $FullDateFormat = 
-        (Get-UmsConfigurationItem -ShortName "FullDateFormat")
+    static [string] $FullDateFormat = (
+        [ConfigurationStore]::GetRenderingItem("DateFormatFull").Value)
 
     # The format of partial (month and year) date strings when rendered as text
-    static [string] $YearMonthDateFormat = 
-        (Get-UmsConfigurationItem -ShortName "YearMonthDateFormat")
+    static [string] $YearMonthDateFormat = (
+        [ConfigurationStore]::GetRenderingItem("DateFormatYearMonth").Value)
     
     # The format of partial (year) date strings when rendered as text
-    static [string] $YearDateFormat = 
-        (Get-UmsConfigurationItem -ShortName "YearDateFormat")  
+    static [string] $YearDateFormat = (
+        [ConfigurationStore]::GetRenderingItem("DateFormatYear").Value)
 
     # A string inserted between the date and the place of an event when it is
     # rendered as text.
-    static [string] $EventDatePlaceDelimiter = (Get-UmsConfigurationItem `
-        -ShortName "EventDatePlaceDelimiter")
+    static [string] $EventDatePlaceDelimiter = (
+        [ConfigurationStore]::GetRenderingItem(
+            "EventDatePlaceDelimiter").Value)
 
     ###########################################################################
     # Hidden properties

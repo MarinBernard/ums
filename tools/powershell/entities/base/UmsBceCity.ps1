@@ -14,8 +14,8 @@ class UmsBceCity : UmsBaeItem
     ###########################################################################
 
     # A string inserted between each part of a multi-part place
-    static [string] $PlaceDelimiter = 
-        (Get-UmsConfigurationItem -ShortName "PlaceDelimiter")
+    static [string] $PlaceListDelimiter = (
+        [ConfigurationStore]::GetRenderingItem("PlaceListDelimiter").Value)
 
     ###########################################################################
     # Hidden properties
@@ -97,7 +97,7 @@ class UmsBceCity : UmsBaeItem
         # division, which includes all remanining parents, as a suffix.
         if($this.CountryDivision)
         {
-            $_string += [UmsBceCity]::PlaceDelimiter
+            $_string += [UmsBceCity]::PlaceListDelimiter
             $_string += $this.CountryDivision.ToString()
         }
 
@@ -105,7 +105,7 @@ class UmsBceCity : UmsBaeItem
         # We Include the country string representation as a suffix.
         elseif($this.Country)
         {
-            $_string += [UmsBceCity]::PlaceDelimiter
+            $_string += [UmsBceCity]::PlaceListDelimiter
             $_string += $this.Country.ToString()
         }
 

@@ -24,8 +24,8 @@ function ConvertTo-VorbisMetadata
     Begin
     {
         $_converterConfiguration = (
-            Get-UmsConfigurationItem -Type Converter |
-                Where-Object { $_.Name -eq "VorbisComment"})
+            [ConfigurationStore]::GetConverterItem(
+                "VorbisComment"))
         
         $_constraints = $_converterConfiguration.Constraints
         $_options = $_converterConfiguration.Options

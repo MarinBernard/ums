@@ -18,8 +18,8 @@ class UmsBaePlace : UmsBaeItem
     ###########################################################################
 
     # A string inserted between each part of a multi-part place
-    static [string] $PlaceDelimiter = 
-        (Get-UmsConfigurationItem -ShortName "PlaceDelimiter")
+    static [string] $PlaceListDelimiter = (
+        [ConfigurationStore]::GetRenderingItem("PlaceListDelimiter").Value)
 
     ###########################################################################
     # Hidden properties
@@ -127,7 +127,7 @@ class UmsBaePlace : UmsBaeItem
         if($this.City)
         {
             if ($_addDelimiter -eq $true)
-                { $_string += [UmsBaePlace]::PlaceDelimiter }
+                { $_string += [UmsBaePlace]::PlaceListDelimiter }
             $_string += $this.City.ToString()
             $_addDelimiter = $true
         }
@@ -138,7 +138,7 @@ class UmsBaePlace : UmsBaeItem
         elseif($this.CountryDivision)
         {
             if ($_addDelimiter -eq $true)
-                { $_string += [UmsBaePlace]::PlaceDelimiter }
+                { $_string += [UmsBaePlace]::PlaceListDelimiter }
             $_string += $this.CountryDivision.ToString()
             $_addDelimiter = $true
         }
@@ -148,7 +148,7 @@ class UmsBaePlace : UmsBaeItem
         elseif($this.Country)
         {
             if ($_addDelimiter -eq $true)
-                { $_string += [UmsBaePlace]::PlaceDelimiter }
+                { $_string += [UmsBaePlace]::PlaceListDelimiter }
             $_string += $this.Country.ToString()
             $_addDelimiter = $true
         }

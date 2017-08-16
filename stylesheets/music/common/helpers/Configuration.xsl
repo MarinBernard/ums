@@ -16,7 +16,7 @@
 	<xsl:template name="getCatalogMappingSubpath">
 		<xsl:param name="Namespace"/>
 		<xsl:param name="ElementName"/>
-		<xsl:value-of select="$ConfigData/catalogs/catalog[@namespace = $Namespace]/mapping[@element = $ElementName]/@subpath"/>
+		<xsl:value-of select="$ConfigData/catalogs/catalog[@namespace = $Namespace]/mappings/mapping[@element = $ElementName]/@subpath"/>
 	</xsl:template>
 	<!-- Returns the full URI of a catalog mapping hosting element with the specified name -->
 	<xsl:template name="getCatalogUriForElement">

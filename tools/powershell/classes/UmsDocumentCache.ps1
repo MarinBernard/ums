@@ -14,7 +14,7 @@ class UmsDocumentCache
 
     # The lifetime of all cached documents
     static $DocumentLifetime = (
-        Get-UmsConfigurationItem -ShortName "UmsDocumentCacheLifeTime")
+        [ConfigurationStore]::GetSystemItem("DocumentCacheLifeTime").Value)
 
     ###########################################################################
     # Hidden properties

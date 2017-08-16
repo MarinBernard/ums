@@ -16,22 +16,26 @@ class UmsMceSection : UmsBaeProduct
 
     # Whether the numbering of the section will be shown when it is rendered
     # as a string.
-    static [bool] $ShowSectionNumber = 
-    (Get-UmsConfigurationItem -ShortName "ShowSectionNumber") 
+    static [bool] $ShowSectionNumber = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicSectionNumberShow").Value)
 
     # One or several characters which will be inserted between the section
     # number and the section title.
-    static [string] $SectionNumberingDelimiter = 
-    (Get-UmsConfigurationItem -ShortName "SectionNumberingDelimiter")
+    static [string] $SectionNumberDelimiter = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicSectionNumberDelimiter").Value)
 
     # One or several characters which will be inserted between each section
     # level when the section hierarchy is rendered as a string.
-    static [string] $SectionListDelimiter = 
-    (Get-UmsConfigurationItem -ShortName "SectionListDelimiter") 
+    static [string] $SectionLevelDelimiter = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicSectionLevelDelimiter").Value)
 
     # Whether the title of the section will be shown when rendered as a string.
-    static [bool] $ShowSectionTitle = 
-    (Get-UmsConfigurationItem -ShortName "ShowSectionTitle") 
+    static [bool] $ShowSectionTitle = (
+        [ConfigurationStore]::GetRenderingItem(
+            "MusicSectionTitleShow").Value)
 
     ###########################################################################
     # Hidden properties
@@ -182,7 +186,7 @@ class UmsMceSection : UmsBaeProduct
             $_string += $this.ParentSection.ToString()
             # Delimiter is shown only if section titles are enabled
             if ([UmsMceSection]::ShowSectionTitle)
-                { $_string += ([UmsMceSection]::SectionListDelimiter) }
+                { $_string += ([UmsMceSection]::SectionLevelDelimiter) }
         }
 
         $_string += $this.ToString()
@@ -201,7 +205,7 @@ class UmsMceSection : UmsBaeProduct
         {
             # Include numbering of the current section.
             $_string += $this.Numbering
-            $_string += ([UmsMceSection]::SectionNumberingDelimiter)
+            $_string += ([UmsMceSection]::SectionNumberDelimiter)
             $_addSpace = $true
         }
 
