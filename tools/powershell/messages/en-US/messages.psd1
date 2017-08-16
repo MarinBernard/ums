@@ -98,14 +98,6 @@
             TriedUri = "Tried URI: {0}"
             Uid = "Uid of the reference: {0}"
         }
-        VCCBadRootElementNameException = @{
-            MainMessage = "The Vorbis Comment converter cannot convert the supplied metadata, because the root element has an unsupported name."
-            ElementName = "Name of the root element: "
-        }
-        VCCBadRootNamespaceException = @{
-            MainMessage = "The Vorbis Comment converter cannot convert the supplied metadata, because the root element is from an unsupported XML namespace."
-            ElementNamespace = "Namespace of the root element: "
-        }
     ConvertToForeignMetadata = @{
         BadBindingNamespace = "The binding namespace of the source UMS item does not allow this operation. The binding element is {0}, whereas the parameters you specified require namespace {1}."
         BadBindingElement = "The binding element of the source UMS item does not allow this operation. The binding namespace is {0}, whereas the parameters you specified require element {1}."

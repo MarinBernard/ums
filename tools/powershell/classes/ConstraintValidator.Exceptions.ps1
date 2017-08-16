@@ -1,4 +1,17 @@
 ###############################################################################
+#   Exception class ConstraintValidatorException
+#==============================================================================
+#
+#   Parent type for all exceptions thrown by the [ConstraintValidator] class.
+#
+###############################################################################
+
+class ConstraintValidatorException : UmsException
+{
+    ConstraintValidatorException() : base() {}
+}
+
+###############################################################################
 #   Exception class CVValidationFailureException
 #==============================================================================
 #
@@ -7,7 +20,7 @@
 #
 ###############################################################################
 
-class CVValidationFailureException : UmsException
+class CVValidationFailureException : ConstraintValidatorException
 {
     CVValidationFailureException(
         [UmsItem] $Item,

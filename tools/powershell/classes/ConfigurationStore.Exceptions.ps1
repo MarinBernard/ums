@@ -1,4 +1,18 @@
 ###############################################################################
+#   Exception class ConfigurationStoreException
+#==============================================================================
+#
+#   Parent class for all exceptions thrown by the [ConfigurationClass] class.
+#
+###############################################################################
+
+class ConfigurationStoreException : UmsException
+{
+    ConfigurationStoreException() : base()
+    {}
+}
+
+###############################################################################
 #   Exception class CSGetConfigurationItemException
 #==============================================================================
 #
@@ -7,7 +21,7 @@
 #
 ###############################################################################
 
-class CSGetConfigurationItemException : UmsException
+class CSGetConfigurationItemException : ConfigurationStoreException
 {
     CSGetConfigurationItemException([string] $Type, [string] $ShortName)
         : base()
@@ -28,7 +42,7 @@ class CSGetConfigurationItemException : UmsException
 #
 ###############################################################################
 
-class CSLoadConfigurationException : UmsException
+class CSLoadConfigurationException : ConfigurationStoreException
 {
     CSLoadConfigurationException([System.IO.FileInfo] $ConfigFile)
         : base()
@@ -47,7 +61,7 @@ class CSLoadConfigurationException : UmsException
 #
 ###############################################################################
 
-class CSParseConfigurationException : UmsException
+class CSParseConfigurationException : ConfigurationStoreException
 {
     CSParseConfigurationException([System.Xml.XmlElement] $XmlElement)
         : base()
@@ -67,7 +81,7 @@ class CSParseConfigurationException : UmsException
 #
 ###############################################################################
 
-class CSUninitializedStoreException : UmsException
+class CSUninitializedStoreException : ConfigurationStoreException
 {
     CSUninitializedStoreException() : base()
     {

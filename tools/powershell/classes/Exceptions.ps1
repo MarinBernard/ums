@@ -333,38 +333,3 @@ class UmsCachedDocumentWriteFailureException : UmsException
             $_strings.CacheFileName -f $CacheFileName)
     }
 }
-
-###############################################################################
-# Exceptions thrown by the VorbisCommentConverter class
-###############################################################################
-
-# Thrown when the document element of supplied metadata has an unsupported name
-class VCCBadRootElementNameException : UmsException
-{
-    VCCBadRootElementNameException(
-        [string] $Name
-    ) : base()
-    {
-        $_strings = (
-            $global:ModuleStrings.Exceptions.VCCBadRootElementNameException)
-        $this.MainMessage =  $_strings.MainMessage
-        $this.SubMessages += (
-            $_strings.ElementName -f $Name)
-    }
-}
-
-# Thrown when the document element of supplied metadata is from an unsupported
-# namespace.
-class VCCBadRootNamespaceException : UmsException
-{
-    VCCBadRootNamespaceException(
-        [string] $Namespace
-    ) : base()
-    {
-        $_strings = (
-            $global:ModuleStrings.Exceptions.VCCBadRootNamespaceException)
-        $this.MainMessage =  $_strings.MainMessage
-        $this.SubMessages += (
-            $_strings.ElementNamespace -f $Namespace)
-    }
-}

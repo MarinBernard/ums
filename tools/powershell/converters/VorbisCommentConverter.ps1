@@ -258,18 +258,16 @@ class VorbisCommentConverter
 
                     default
                     {
-                        throw [VCCBadRootElementNameException]::New(
-                            ("Unsupported XML namespace: " -f $Metadata.XmlElementName)
-                        )
+                        throw [VCCBadDocumentElementNameException]::New(
+                            $Metadata.XmlElementName)
                     }
                 }
             }
 
             default
             {
-                throw [VCCBadRootNamespaceException]::New(
-                    ("Unsupported XML namespace: " -f $Metadata.XmlNamespaceUri)
-                )
+                throw [VCCBadDocumentElementNamespaceException]::New(
+                    $Metadata.XmlNamespaceUri)
             }
         }
 

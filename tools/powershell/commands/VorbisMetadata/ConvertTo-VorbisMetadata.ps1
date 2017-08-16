@@ -55,7 +55,7 @@ function ConvertTo-VorbisMetadata
         {
             $Converter.Convert($metadata)
         }
-        catch [UmsException]
+        catch [VorbisCommentConverterException]
         {
             Write-Error -Message $_.Exception.MainMessage
             throw [UmsManagedItemMetadataConversionFailure]::New($ManagedItem)

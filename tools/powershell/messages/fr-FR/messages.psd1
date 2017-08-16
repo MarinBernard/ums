@@ -98,14 +98,6 @@
             TriedUri = "URI tentée: {0}"
             Uid = "Uid de la référence: {0}"
         }
-        VCCBadRootElementNameException = @{
-            MainMessage = "Le convertisseur Vorbis Comment ne peut pas convertir les métadonnés, parce que le nom de l'élément racine n'est pas supporté."
-            ElementName = "Nom de l'élément racine: "
-        }
-        VCCBadRootNamespaceException = @{
-            MainMessage = "Le convertisseur Vorbis Comment ne peut pas convertir les métadonnés, parce que l'espace de noms de l'élément racine n'est pas supporté."
-            ElementNamespace = "Espace de noms de l'élément racine: "
-        }
     }
     ConvertToForeignMetadata = @{
         BadBindingNamespace = "L'espace de noms de liaison de l'élement UMS est incompatible avec cette opération. L'espace de noms de liaison est {0}, mais les paramètres que vous avez spécifiés exigent l'espace de noms {1}."

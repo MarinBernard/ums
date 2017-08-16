@@ -110,6 +110,7 @@
 # Converters
 ###############################################################################
 
+. "$PSScriptRoot\converters\VorbisCommentConverter.Exceptions.ps1"
 . "$PSScriptRoot\converters\VorbisCommentConverter.ps1"
 
 ###############################################################################
