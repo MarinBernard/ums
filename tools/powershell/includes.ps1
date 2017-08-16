@@ -1,8 +1,4 @@
 ###############################################################################
-# Configuration
-###############################################################################
-
-###############################################################################
 # Entities and classes
 ###############################################################################
 
@@ -10,8 +6,8 @@
 . "$PSScriptRoot\classes\UmsException.ps1"
 
 # Configuration store
-. "$PSScriptRoot\classes\ConfigurationStore.Exceptions.ps1"
-. "$PSScriptRoot\classes\ConfigurationStore.ps1"
+. "$PSScriptRoot\helpers\ConfigurationStore\ConfigurationStore.Exceptions.ps1"
+. "$PSScriptRoot\helpers\ConfigurationStore\ConfigurationStore.ps1"
 
 # UmsItem
 . "$PSScriptRoot\classes\UmsItem.ps1"
@@ -21,12 +17,13 @@
 . "$PSScriptRoot\classes\Exceptions.ps1"
 
 # Constraint validator
-. "$PSScriptRoot\classes\ConstraintValidator.Exceptions.ps1"
-. "$PSScriptRoot\classes\ConstraintValidator.ps1"
+. "$PSScriptRoot\helpers\ConstraintValidator\ConstraintValidator.Exceptions.ps1"
+. "$PSScriptRoot\helpers\ConstraintValidator\ConstraintValidator.ps1"
 
-# Cache management
-. "$PSScriptRoot\classes\UmsCachedDocument.ps1"
-. "$PSScriptRoot\classes\UmsDocumentCache.ps1"
+# Document cache
+. "$PSScriptRoot\helpers\DocumentCache\DocumentCache.Exceptions.ps1"
+. "$PSScriptRoot\helpers\DocumentCache\CachedDocument.ps1"
+. "$PSScriptRoot\helpers\DocumentCache\DocumentCache.ps1"
 
 # Abstract base entity
 . "$PSScriptRoot\entities\UmsAeEntity.ps1"
@@ -117,17 +114,17 @@
 # Commands
 ###############################################################################
 
-# *-UmsCachedDocument
-. "$PSScriptRoot\commands\UmsCachedDocument\Get-UmsCachedDocument.ps1"
-. "$PSScriptRoot\commands\UmsCachedDocument\Remove-UmsCachedDocument.ps1"
+# *-CachedDocument
+. "$PSScriptRoot\commands\CachedDocument\Get-CachedDocument.ps1"
+. "$PSScriptRoot\commands\CachedDocument\Remove-CachedDocument.ps1"
 
-# *-UmsDocument
-. "$PSScriptRoot\commands\UmsDocument\Get-UmsDocument.ps1"
+# *-DocumentCache
+. "$PSScriptRoot\commands\DocumentCache\Clear-DocumentCache.ps1"
+. "$PSScriptRoot\commands\DocumentCache\Reset-DocumentCache.ps1"
+. "$PSScriptRoot\commands\DocumentCache\Measure-DocumentCache.ps1"
 
-# *-UmsDocumentCache
-. "$PSScriptRoot\commands\UmsDocumentCache\Clear-UmsDocumentCache.ps1"
-. "$PSScriptRoot\commands\UmsDocumentCache\Reset-UmsDocumentCache.ps1"
-. "$PSScriptRoot\commands\UmsDocumentCache\Measure-UmsDocumentCache.ps1"
+# *-Document
+. "$PSScriptRoot\commands\Document\Get-Document.ps1"
 
 # *-UmsManagedItem
 . "$PSScriptRoot\commands\UmsManagedItem\Get-UmsManagedItem.ps1"

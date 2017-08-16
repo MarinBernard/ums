@@ -64,22 +64,12 @@
             ElementName = "Le nom de l'élement est: {0}"
             ExpectedName = "Le nom attendu est: {0}"
         }
-        InvalidUmsDocumentException = @{
-            MainMessage = "Le document UMS à l'emplacement suivant est invalide: {0}"
-        }
         MandatoryStandardIdSegmentNotFoundException = @{
             MainMessage = "Un segment d'ID obligatoire n'a pas été trouvé dans la collection de segments: le segment de niveau {0} est manquant."
         }
         MissingXmlElementAttributeException = @{
             MainMessage = "L'attribut {0} est manquant mais est obligatoire dans ce contexte."
             Context = "Le contexte est celui d'un élément {0} issue de l'espace de noms {1}."
-        }
-        UmsCachedDocumentWriteFailureException = @{
-            Mainmessage = "Impossible d'écrire le fichier de cache du document UMS récupéré à partir de l'URI suivante: {0}"
-            CacheFileName = "Nom du fichier de cache: {0}"
-        }
-        UmsDocumentNotFoundExcepion = @{
-            MainMessage = "Le document à l'URI suivant ne peut pas être récupéré: {0}"
         }
         UmsManagedItemMetadataConversionFailure = @{
             MainMessage = "L'élément UMS n'a pas pu être converti."
@@ -107,6 +97,10 @@
     }
     DisableUmsManagement = @{
         ConfirmDeletion = "Vous vous apprêtez à détruire la totalité des métadonnées UMS pour chacun des fichiers présents dans ce dossier. Confirmez pour continuer."
+    }
+    DocumentCache = @{
+        CacheFolderCreationFailure = "La persistance du cache sur le disque dur a été désactivée car le dossier de cache n'a pas pu être créé."
+        CacheFileRemovalFailure = "Le fichier de cache à l'emplacement suivant n'a pas pu être supprimé du disque: {0}"
     }
     EnableUmsManagement = @{
         AlreadyEnabled = "Les métadonnées UMS sont déjà activées pour ce dossier."
@@ -154,10 +148,6 @@
         Disabled = "Les métadonnées UMS sont désactivées."
         CacheFolderNotFound = "Le sous-dossier du cache de données n'est pas présent."
         StaticFolderNotFound = "Le sous-dossier des données statiques n'est pas présent."
-    }
-    UmsDocumentCache = @{
-        CacheFolderCreationFailure = "La persistance du cache sur le disque dur a été désactivée car le dossier de cache n'a pas pu être créé."
-        CacheFileRemovalFailure = "Le fichier de cache à l'emplacement suivant n'a pas pu être supprimé du disque: {0}"
     }
     UpdateUmsManagedItem = @{
         MissingTarget = "Le fichier cible n'existe pas ou n'est pas accessible."

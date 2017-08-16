@@ -21,25 +21,25 @@ $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDire
 # Initialize caching toolset
 ###############################################################################
 
-# Document cache
-$_cacheFolder = Join-Path -Path $env:LocalAppData -ChildPath "UMSCache"
-$global:UmsDocumentCache = [UmsDocumentCache]::New($_cacheFolder)
+# Initialize the document cache
+[DocumentCache]::Initialize(
+    (Join-Path -Path $env:LocalAppData -ChildPath "UMSCache"))
 
 ###############################################################################
 # Exports
 ###############################################################################
 
-# *-UmsCachedDocument
-Export-ModuleMember -Function Get-UmsCachedDocument
-Export-ModuleMember -Function Remove-UmsCachedDocument
+# *-CachedDocument
+Export-ModuleMember -Function Get-CachedDocument
+Export-ModuleMember -Function Remove-CachedDocument
 
-# *-UmsDocument
-Export-ModuleMember -Function Get-UmsDocument
+# *-DocumentCache
+Export-ModuleMember -Function Clear-DocumentCache
+Export-ModuleMember -Function Reset-DocumentCache
+Export-ModuleMember -Function Measure-DocumentCache
 
-# *-UmsDocumentCache
-Export-ModuleMember -Function Clear-UmsDocumentCache
-Export-ModuleMember -Function Reset-UmsDocumentCache
-Export-ModuleMember -Function Measure-UmsDocumentCache
+# *-Document
+Export-ModuleMember -Function Get-Document
 
 # *-UmsManagedItem
 Export-ModuleMember -Function Get-UmsManagedItem
