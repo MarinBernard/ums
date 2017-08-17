@@ -83,7 +83,8 @@ class DocumentCache
     #       retrieved at the specified Uri. Proxified from ::GetResource().
     #   - [DCCacheWriteFailureException] if the document cannot be added to
     #       the on-disk cache.
-    #   - [DCInvalidDocumentException] if the document is invalid.
+    #   - [DCNewCachedDocumentFailureException] if the document cannot be
+    #       cached because of a failure of the [CachedDocument] constructor.
     static [void] AddDocument([System.Uri] $Uri)
     {
         # Try to fetch the remote resource
@@ -132,11 +133,11 @@ class DocumentCache
                 [System.IO.FileInfo] $_onDiskFile,
                 [DocumentCache]::DocumentLifetime)
         }
-        catch [DCInvalidDocumentException]
+        catch [CachedDocumentException]
         {
             Write-Error -Message $_.Exception.MainMessage
             Remove-Item -Path $_onDiskFile -Force
-            throw [DCInvalidDocumentException]::New($Uri)
+            throw [DCNewCachedDocumentFailureException]::New($_onDiskFile)
         }
 
         # Remove temporary file if persistence is disabled
@@ -171,7 +172,7 @@ class DocumentCache
     # present in the cache, it is fetched and cached, then the method is called
     # again recursively.
     # This method does not throw any custom exception.
-    static [System.Xml.XmlDocument] GetDocument([System.Uri] $Uri)
+    static [UmsDocument] GetDocument([System.Uri] $Uri)
     {
         $_hash  = [DocumentCache]::GetUriHash($Uri)
         $_match = [DocumentCache]::CachedDocuments | Where-Object { $_.Hash -eq $_hash }
@@ -347,7 +348,7 @@ class DocumentCache
 
     # Loads cached files present in the cache folder.
     # Does not throw any custom exception, but outputs all
-    # [DCInvalidDocumentException] as error messages.
+    # [CachedDocumentException] as error messages.
     static [void] Restore()
     {
         if (-not [DocumentCache]::Persist){ return }
@@ -363,10 +364,10 @@ class DocumentCache
                         $_cachedFile,
                         [DocumentCache]::DocumentLifetime))
             }
-            catch [DCInvalidDocumentException]
+            catch [CachedDocumentException]
             {
                 [DocumentCache]::Statistics.InvalidDocuments += 1
-               Write-Error -Message $_.Exception.MainMessage
+                Write-Error -Message $_.Exception.MainMessage
             }
         }
     }

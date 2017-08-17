@@ -2,12 +2,26 @@
 # Entities and classes
 ###############################################################################
 
-# Base class for all exceptions
+# Base class for all exceptions (Needed by all classes and helpers)
 . "$PSScriptRoot\classes\UmsException.ps1"
 
-# Configuration store
+# Configuration store (Needed by all classes and helpers)
 . "$PSScriptRoot\helpers\ConfigurationStore\ConfigurationStore.Exceptions.ps1"
 . "$PSScriptRoot\helpers\ConfigurationStore\ConfigurationStore.ps1"
+
+# Relax NG Validator (Needed by the UmsDocument class)
+. "$PSScriptRoot\helpers\RelaxNgValidator\RelaxNgValidator.Exceptions.ps1"
+. "$PSScriptRoot\helpers\RelaxNgValidator\RelaxNgValidator.ps1"
+
+# UmsDocument (Needed by the DocumentCache helper and the ImsItem class)
+. "$PSScriptRoot\classes\UmsDocument.Exceptions.ps1"
+. "$PSScriptRoot\classes\UmsDocument.ps1"
+
+# Document cache (Needed by the UmsItem class)
+. "$PSScriptRoot\helpers\DocumentCache\CachedDocument.Exceptions.ps1"
+. "$PSScriptRoot\helpers\DocumentCache\CachedDocument.ps1"
+. "$PSScriptRoot\helpers\DocumentCache\DocumentCache.Exceptions.ps1"
+. "$PSScriptRoot\helpers\DocumentCache\DocumentCache.ps1"
 
 # Item manager
 . "$PSScriptRoot\helpers\ItemManager\ItemManager.Exceptions.ps1"
@@ -23,11 +37,6 @@
 # Constraint validator
 . "$PSScriptRoot\helpers\ConstraintValidator\ConstraintValidator.Exceptions.ps1"
 . "$PSScriptRoot\helpers\ConstraintValidator\ConstraintValidator.ps1"
-
-# Document cache
-. "$PSScriptRoot\helpers\DocumentCache\DocumentCache.Exceptions.ps1"
-. "$PSScriptRoot\helpers\DocumentCache\CachedDocument.ps1"
-. "$PSScriptRoot\helpers\DocumentCache\DocumentCache.ps1"
 
 # Abstract base entity
 . "$PSScriptRoot\entities\UmsAeEntity.ps1"
@@ -103,7 +112,6 @@
 ###############################################################################
 
 . "$PSScriptRoot\helpers\Get-UmsManagementFolderPath.ps1"
-. "$PSScriptRoot\helpers\Invoke-XmlValidator.ps1"
 . "$PSScriptRoot\helpers\Invoke-XslTransformer.ps1"
 . "$PSScriptRoot\helpers\Wait-UserConfirmation.ps1"
 

@@ -112,10 +112,12 @@ function Update-UmsManagedItem
                     [ConfigurationStore]::GetSchemaItem("") | 
                         Where-Object { 
                             $_.Namespace -eq $_tempItem.XmlNamespace }).Uri
-                $_isInvalid = Invoke-XmlValidator -Source $_tempItem.Uri -Schema $_schemaUri
+                
+                $_validator = [RelaxNgValidator]::New($_schemaUri.LocalPath)
+                $_isValid = $_validator.Validate($_tempItem.Uri)
 
                 # Check validation result
-                if ($_isInvalid)
+                if (-not $_isValid)
                 {
                     # Temporary file should be removed if validation has failed
                     Remove-Item -Force -LiteralPath $_tempFileFullName

@@ -27,7 +27,7 @@ class CachedDocument
     [int] $Lifetime
 
     # The main UMS document
-    [System.Xml.XmlDocument] $Document
+    [UmsDocument] $Document
 
     # Status of the cached document
     [CachedDocumentStatus] $Status
@@ -39,6 +39,8 @@ class CachedDocument
     # Constructor
     ###########################################################################
 
+    # Constructs a new instance from a path to a document file.
+    # Throws [CDConstructionFailureException] on construction failure.
     CachedDocument([System.IO.FileInfo] $File, [int] $Lifetime)
     {
         $this.File = $File
@@ -49,34 +51,59 @@ class CachedDocument
         $this.Lifetime = $Lifetime
         $this.UpdateLifetimeStatistics()
 
-        # We only read the XML document if the caching status is still valid
+        # We only read the XML document if the caching status is still current
         if ($this.Status -eq [CachedDocumentStatus]::Current)
         {
-            $this.Document = $this.ReadDocument()
+            try
+            {
+                $this.Document = $this.ParseFile()
+            }
+            catch [CachedDocumentException]
+            {
+                Write-Host -Message $_.Exception.Message
+                throw [CDConstructionFailureException]::New($File.FullName)
+            }
         }
     }
 
     # Returns the cached UMS document
-    [System.Xml.XmlDocument] GetDocument()
+    [UmsDocument] GetDocument()
     {
         return $this.Document
     }
 
-    # Creates a XmlDocument instance from the file content.
-    # Throws [DCInvalidDocumentException] if the file content cannot be parsed.
-    [System.Xml.XmlDocument] ReadDocument()
+    # Parses the source file and returns a UmsDocument instance.
+    # Throws:
+    #   - [CDFileReadFailureException] if the file content cannot be parsed.
+    #   - [CDFileParseFailureException] if the file contains an invalid document
+    [UmsDocument] ParseFile()
     {
-        # Instantiating an XML document from the file.
+        # Try to read file content
+        [string] $_fileContent = $null
         try
         {
-            return [System.Xml.XmlDocument] (
-                Get-Content -Path $this.File -Encoding UTF8)
+            $_fileContent = [System.IO.File]::ReadAllText($this.File)
         }
-        catch [System.Xml.XmlException]
+        catch [System.IO.IOException]
         {
             Write-Error -Exception $_.Exception
-            throw [DCInvalidDocumentException]::New($this.File.FullName)
+            throw [CDFileReadFailureException]::New($this.File.FullName)
         }
+
+        # Try to create a new UmsDocument instance
+        [UmsDocument] $_document = $null
+        try
+        {
+            $_document = [UmsDocument]::New($_fileContent)
+        }
+        catch [UmsDocumentException]
+        {
+            Write-Error -Message $_.Exception.MainMessage
+            throw [CDFileParseFailureException]::New($this.File.FullName)
+        }
+
+        # Return the instance
+        return $_document
     }
 
     [void] UpdateLifetimeStatistics()

@@ -100,15 +100,16 @@ function Get-UmsManagedItem
                 Where-Object { $_.Namespace -eq $_item.XmlNamespace }).Uri
 
             # Run XML validation
-            $_isInvalid = Invoke-XmlValidator -Source $_item.Uri -Schema $_schemaUri
+            $_validator = [RelaxNgValidator]::New($_schemaUri.LocalPath)
+            $_isValid = $_validator.Validate($_item.Uri)
 
-            if ($_isInvalid)
+            if ($_isValid)
             {
-                 $_item.Validity = [UIValidity]::Invalid
+                 $_item.Validity = [UIValidity]::Valid
             }
             else
             {
-                $_item.Validity = [UIValidity]::Valid
+                $_item.Validity = [UIValidity]::Invalid
             }
         }
 

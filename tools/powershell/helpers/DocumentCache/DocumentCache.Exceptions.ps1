@@ -77,19 +77,21 @@ class DCHashGenerationFailureException : DocumentCacheException
 }
 
 ###############################################################################
-#   Exception class DCInvalidDocumentException
+#   Exception class DCNewCachedDocumentFailureException
 #==============================================================================
 #
-#   Thrown by the [CachedDocument] class if the XML document is invalid.
+#   Thrown when an exception thrown by the [CachedDocument] constructor is
+#   caught, which means that the document cannot be instantiated.
 #
 ###############################################################################
 
-class DCInvalidDocumentException : DocumentCacheException
+class DCNewCachedDocumentFailureException : DocumentCacheException
 {
-    DCInvalidDocumentException([string] $FullPath) : base()
+    DCNewCachedDocumentFailureException([string] $FullPath) : base()
     {
-        $this.MainMessage = (
-            "The UMS document at the following location is invalid: {0}" `
+        $this.MainMessage = ($(
+            "Unable to create a CacheDocument from the file " + `
+            "at the following location: {0}") `
             -f $FullPath)
     }
 }
