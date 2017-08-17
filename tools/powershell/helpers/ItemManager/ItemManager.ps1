@@ -238,10 +238,10 @@ class ItemManager
     }
 
     ###########################################################################
-    # Management path routines
+    # Path-related routines
     ###########################################################################
 
-    # Returns the path of the cache folder for the specified final path.
+    # Returns the path of the cache folder for the specified content folder.
     # Throws [IMGetFolderFailureException] if an unrecoverable error is met.
     static [System.IO.DirectoryInfo] GetCacheFolder(
         [System.IO.DirectoryInfo] $Path)
@@ -279,7 +279,25 @@ class ItemManager
                 -ChildPath $_cacheFolderName))
     }
 
-    # Returns the path of the management folder for the specified final path.
+    # Returns the path of the content folder from a mamangement folder.
+    # Throws [IMGetFolderFailureException] if an unrecoverable error is met.
+    static [System.IO.DirectoryInfo] GetContentFolder(
+        [System.IO.DirectoryInfo] $ManagementFolder)
+    {
+        # Content folder is always the parent folder.
+        $_contentFolder = $ManagementFolder.Directory.Parent
+
+        # If content folder is $null, let's throw an exception.
+        if ($_contentFolder -eq $null)
+        {
+            throw [IMGetFolderFailureException]::New(
+                $ManagementFolder, "content")
+        }
+
+        return $_contentFolder
+    }
+
+    # Returns the path of the mgmt folder for the specified content folder.
     # Throws [IMGetFolderFailureException] if an unrecoverable error is met.
     static [System.IO.DirectoryInfo] GetManagementFolder(
         [System.IO.DirectoryInfo] $Path)
@@ -304,7 +322,7 @@ class ItemManager
                 -ChildPath $_managementFolderName))
     }
 
-    # Returns the path of the static folder for the specified final path.
+    # Returns the path of the static folder for the specified content folder.
     # Throws [IMGetFolderFailureException] if an unrecoverable error is met.
     static [System.IO.DirectoryInfo] GetStaticFolder(
         [System.IO.DirectoryInfo] $Path)
@@ -341,6 +359,10 @@ class ItemManager
                 -Path $_managementFolder `
                 -ChildPath $_staticFolderName))
     }
+
+    ###########################################################################
+    # Helpers
+    ###########################################################################
 
     # Hides the UMS management folder for the specified location.
     # Throws [IMHideManagementFolderFailureException] on error.

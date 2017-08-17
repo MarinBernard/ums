@@ -223,7 +223,7 @@ class IncompatibleCardinalityException : UmsException
 {
     IncompatibleCardinalityException(
         [UmsManagedItem] $Item,
-        [UICardinality[]] $CompatibleCardinalities
+        [UmsItemCardinality[]] $CompatibleCardinalities
     ) : base()
     {
         $_strings = $global:ModuleStrings.Exceptions.IncompatibleCardinalityException

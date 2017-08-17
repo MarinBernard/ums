@@ -13,28 +13,26 @@
 . "$PSScriptRoot\helpers\RelaxNgValidator\RelaxNgValidator.Exceptions.ps1"
 . "$PSScriptRoot\helpers\RelaxNgValidator\RelaxNgValidator.ps1"
 
-# UmsDocument (Needed by the DocumentCache helper and the ImsItem class)
-. "$PSScriptRoot\classes\UmsDocument.Exceptions.ps1"
-. "$PSScriptRoot\classes\UmsDocument.ps1"
-
-# Document cache (Needed by the UmsItem class)
-. "$PSScriptRoot\helpers\DocumentCache\CachedDocument.Exceptions.ps1"
-. "$PSScriptRoot\helpers\DocumentCache\CachedDocument.ps1"
+# Document cache (Needed by the ItemManager helper)
+. "$PSScriptRoot\helpers\DocumentCache\classes\UmsDocument.Exceptions.ps1"
+. "$PSScriptRoot\helpers\DocumentCache\classes\UmsDocument.ps1"
+. "$PSScriptRoot\helpers\DocumentCache\classes\CachedDocument.Exceptions.ps1"
+. "$PSScriptRoot\helpers\DocumentCache\classes\CachedDocument.ps1"
 . "$PSScriptRoot\helpers\DocumentCache\DocumentCache.Exceptions.ps1"
 . "$PSScriptRoot\helpers\DocumentCache\DocumentCache.ps1"
 
 # Item manager
+. "$PSScriptRoot\helpers\ItemManager\classes\UmsItem.Exceptions.ps1"
+. "$PSScriptRoot\helpers\ItemManager\classes\UmsItem.ps1"
 . "$PSScriptRoot\helpers\ItemManager\ItemManager.Exceptions.ps1"
 . "$PSScriptRoot\helpers\ItemManager\ItemManager.ps1"
-
-# UmsItem
-. "$PSScriptRoot\classes\UmsItem.ps1"
-. "$PSScriptRoot\classes\UmsManagedItem.ps1"
+. "$PSScriptRoot\helpers\ItemManager\classes\UmsManagedItem.Exceptions.ps1"
+. "$PSScriptRoot\helpers\ItemManager\classes\UmsManagedItem.ps1"
 
 # Common exceptions
 . "$PSScriptRoot\classes\Exceptions.ps1"
 
-# Constraint validator
+# Constraint validator (Needed by all stylesheets and converters)
 . "$PSScriptRoot\helpers\ConstraintValidator\ConstraintValidator.Exceptions.ps1"
 . "$PSScriptRoot\helpers\ConstraintValidator\ConstraintValidator.ps1"
 
@@ -137,6 +135,9 @@
 
 # *-Document
 . "$PSScriptRoot\commands\Document\Get-Document.ps1"
+
+# *-Item
+. "$PSScriptRoot\commands\Item\Get-Item.ps1"
 
 # *-ItemManagement
 . "$PSScriptRoot\commands\ItemManagement\Enable-ItemManagement.ps1"

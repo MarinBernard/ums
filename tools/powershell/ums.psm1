@@ -41,6 +41,9 @@ Export-ModuleMember -Function Measure-DocumentCache
 # *-Document
 Export-ModuleMember -Function Get-Document
 
+# *-Item
+Export-ModuleMember -Function Get-Item
+
 # *-UmsManagedItem
 Export-ModuleMember -Function Get-UmsManagedItem
 Export-ModuleMember -Function Remove-UmsManagedItem

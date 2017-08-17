@@ -22,42 +22,43 @@ class UmsDocument
     }
 
     ###########################################################################
-    # Hidden properties
+    # Properties
     ###########################################################################
 
     # The in-memory XML representation of the UMS document.
-    hidden [System.Xml.XmlDocument] $Document
+    [System.Xml.XmlDocument] $XmlDocument
 
     # Uri to the authoritative schema file. Needed for validation.
     hidden [System.Uri] $SchemaFileUri
 
     # Properties describing the document element of the document.
-    hidden [string] $RootLocalName      # Local name of the document element
-    hidden [string] $RootName           # Full name of the document element
+           [string] $RootSchema         # Id of the doc element namespace
+           [string] $RootName           # Full name of the document element
     hidden [string] $RootNamespace      # Namespace of the document element
+    hidden [string] $RootLocalName      # Local name of the document elemnt
+    hidden [System.Xml.XmlElement] `    # Reference to the document element
+                    $RootElement
 
     # Properties describing the binding element of the document, if present.
-    hidden [string] $BindingLocalName   # Local name of binding elmnt, if any
-    hidden [string] $BindingName        # Full name of binding element, if any
+           [string] $BindingSchema      # Id of the binding element namespace
+           [string] $BindingName        # Full name of binding element, if any
     hidden [string] $BindingNamespace   # Namespace of binding element, if any
+    hidden [string] $BindingLocalName   # Local name of binding elmnt, if any
+    hidden [System.Xml.XmlElement] `    # Reference to the binding element
+                    $BindingElement
 
-    ###########################################################################
-    # Visible properties
-    ###########################################################################
+    # Properties describing the main element of the document, if present.
+    # If the document is a binding document, the main element is the binding
+    # element. Otherwise, it is the document element.
+           [string] $MainSchema         # Id of the main element namespace
+           [string] $MainName           # Full name of the main element
+    hidden [string] $MainNamespace      # Namespace of the main element
+    hidden [string] $MainLocalName      # Local name of the main element
+    hidden [System.Xml.XmlElement] `    # Reference to the main element
+                    $MainElement
 
-    # Internal name of the XML schema linked to the XML namespace of the
-    # document element.
-    [string] $RootSchema
-
-    # Reference to the document element.
-    [System.Xml.XmlElement] $RootElement
-
-    # Internal name of the XML schema linked to the XML namespace of the
-    # binding element, if present.
-    [string] $BindingSchema
-
-    # Reference to the binding element.
-    [System.Xml.XmlElement] $BindingElement
+    # Whether the UMS document is a binding document
+    [bool] $BindingDocument
 
     # Validation status of the document. Validation is CPU intensive, and does
     # not occur automatically. This property is set to Unknown by default, and
@@ -65,7 +66,7 @@ class UmsDocument
     [UmsDocumentValidity] $Validity = [UmsDocumentValidity]::Unknown
 
     ###########################################################################
-    # Constructors
+    # Constructor
     ###########################################################################
 
     # Default constructor. Builds an instance from a UMS document passed as a
@@ -77,10 +78,13 @@ class UmsDocument
     #       unsupported XML namespace.
     UmsDocument([string] $DocumentString)
     {
+        # Set default validity
+        $this.Validity = [UmsDocumentValidity]::Unknown
+
         # Try to instantiate the XML document.
         try
         {
-            $this.Document = [System.Xml.XmlDocument] ($DocumentString)
+            $this.XmlDocument = [System.Xml.XmlDocument] ($DocumentString)
         }
         catch [System.Xml.XmlException]
         {
@@ -88,37 +92,68 @@ class UmsDocument
             throw [UDParseFailureException]::New()
         }
 
-        # Set default validity
-        $this.Validity = [UmsDocumentValidity]::Unknown
-
-        # Set properties related to the document element
-        $this.RootElement = $this.Document.DocumentElement
-        $this.RootLocalName = $this.RootElement.LocalName
-        $this.RootName = $this.RootElement.Name
-        $this.RootNamespace = $this.RootElement.NamespaceURI
-
-        # Extract the namespace id of the root element
+        # Construct root element properties
         try
         {
-            $this.RootSchema = (
-                [ConfigurationStore]::GetSchemaItem("") | Where-Object {
-                    $_.Namespace -eq $this.RootNamespace }).Id
+            $this.ConstructRootElementProperties()
+        }
+        catch [UDBadRootNamespaceException]
+        {
+            Write-Error -Message $_.Exception.Message
+            throw $_.Exception
+        }
+
+        # Construct binding element properties
+        try
+        {
+            $this.ConstructBindingElementProperties()
+        }
+        catch [UDBadBindingNamespaceException]
+        {
+            Write-Error -Message $_.Exception.Message
+            throw $_.Exception
+        }
+
+        # Elect the main element and init its properties
+        $this.ConstructMainElementProperties()
+
+        # Store the URI to the schema file
+        try
+        {
+            $this.SchemaFileUri = [System.Uri] (
+                [ConfigurationStore]::GetSchemaItem($this.RootSchema).Uri)
         }
         catch [ConfigurationStoreException]
         {
             Write-Error -Message $_.Exception.Message
             throw [UDBadRootNamespaceException]::New($this.RootNamespace)
         }
+    }
 
-        # Set properties related to the binding element
+    ###########################################################################
+    # Sub-constructors
+    ###########################################################################
+
+    # Sets up all properties related to the binding element.
+    # Throws:
+    #   - [UDBadBindingNamespaceException] if the binding namespace is unknown.
+    [void] ConstructBindingElementProperties()
+    {
+        # Set binding-related properties
         if (
             ($this.RootNamespace -eq ([UmsDocument]::NamespaceUri.Base)) -and
             ($this.RootLocalName -eq "file"))
         {
-            $this.BindingElement = $this.Document.DocumentElement.FirstChild
+            $this.BindingDocument = $true
+            $this.BindingElement = $this.XmlDocument.DocumentElement.FirstChild
             $this.BindingLocalName = $this.BindingElement.LocalName
-            $this.BindingName = $this.BindingElement.Name
             $this.BindingNamespace = $this.BindingElement.NamespaceURI
+            $this.BindingName = $this.BindingElement.Name
+        }
+        else
+        {
+            $this.BindingDocument = $false
+            return
         }
 
         # Extract the namespace id of the binding element
@@ -133,18 +168,55 @@ class UmsDocument
             Write-Error -Message $_.Exception.Message
             throw [UDBadBindingNamespaceException]::New($this.BindingNamespace)
         }
+    }
 
-        # Store the URI to the schema file
-        try
+    # Elects the main element and updates all related properties.
+    # Does not throw any exception.
+    [void] ConstructMainElementProperties()
+    {
+        if ($this.BindingDocument)
         {
-            $this.SchemaFileUri = [System.Uri] (
-                [ConfigurationStore]::GetSchemaItem($this.RootSchema).Uri)
+            # Main element is the binding element
+            $this.MainElement = $this.BindingElement
+            $this.MainLocalName = $this.BindingLocalName
+            $this.MainNamespace = $this.BindingNamespace
+            $this.MainName = $this.BindingName
+            $this.MainSchema = $this.BindingSchema
         }
-        catch [ConfigurationStoreException]
+        else
         {
-            Write-Error -Message $_.Exception.Message
-            throw [UDBadRootNamespaceException]::New($this.RootNamespace)
+            # Main element is the document element
+            $this.MainElement = $this.RootElement
+            $this.MainLocalName = $this.RootLocalName
+            $this.MainNamespace = $this.RootNamespace
+            $this.MainName = $this.RootName
+            $this.MainSchema = $this.RootSchema
         }
+    }
+
+    # Sets up all properties related to the root element.
+    # Throws:
+    #   - [UDBadRootNamespaceException] if the binding namespace is unknown.
+    [void] ConstructRootElementProperties()
+    {
+       # Set properties related to the document element
+       $this.RootElement = $this.XmlDocument.DocumentElement
+       $this.RootName = $this.RootElement.Name
+       $this.RootNamespace = $this.RootElement.NamespaceURI
+       $this.RootLocalName = $this.RootElement.LocalName
+
+       # Extract the namespace id of the root element
+       try
+       {
+           $this.RootSchema = (
+               [ConfigurationStore]::GetSchemaItem("") | Where-Object {
+                   $_.Namespace -eq $this.RootNamespace }).Id
+       }
+       catch [ConfigurationStoreException]
+       {
+           Write-Error -Message $_.Exception.Message
+           throw [UDBadRootNamespaceException]::New($this.RootNamespace)
+       }
     }
 
     ###########################################################################
@@ -187,7 +259,7 @@ class UmsDocument
         # Store the document into the temporary file
         try
         {
-            $this.Document.Save($_tempFile)
+            $this.XmlDocument.Save($_tempFile)
         }
         catch [System.Xml.XmlException]
         {

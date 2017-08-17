@@ -58,7 +58,7 @@ function Update-UmsManagedItem
         if (@("All", "Static") -contains $Version)
         {
             # Check whether the update is needed
-            if (($ManagedItem.StaticVersion -eq [UIVersionStatus]::Current) -and (-not $Force.IsPresent))
+            if (($ManagedItem.StaticVersion -eq [UmsItemVersionStatus]::Current) -and (-not $Force.IsPresent))
             {
                 Write-Verbose "Static version is up-to-date."
             }
@@ -159,7 +159,7 @@ function Update-UmsManagedItem
         {
             # Check whether the update is needed
             if (
-                ($ManagedItem.CachedVersion -eq [UIVersionStatus]::Current) -and
+                ($ManagedItem.CachedVersion -eq [UmsItemVersionStatus]::Current) -and
                 (-not $Force.IsPresent))
             {
                 Write-Verbose "Cached version is up-to-date."

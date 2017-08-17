@@ -1,6 +1,9 @@
 @{
     Commands = @{
-        Management = @{
+        Item = @{
+            FileNotFound = "Le fichier UMS spécifié n'existe pas ou n'est pas accessible."
+        }
+        ItemManagement = @{
             DisableFailure = "Une erreur est survenue lors de la désactivation de la gestion des objets UMS pour le dossier spécifié."
             DisableSuccess = "La gestion des objets UMS a été correctement désactivée pour le dossier spécifié."
             EnableFailure = "Une erreur est survenue lors de l'activation de la gestion des objets UMS pour le dossier spécifié."

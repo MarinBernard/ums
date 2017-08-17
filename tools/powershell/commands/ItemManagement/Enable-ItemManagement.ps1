@@ -20,13 +20,16 @@ function Enable-ItemManagement
         [System.IO.DirectoryInfo] $Path
     )
 
+    Begin
+    {
+        # Shortcut to messages
+        $Messages = $ModuleStrings.Commands.ItemManagement
+    }
+
     Process
     {
         # Use local path if no path was specified
         if ($Path -eq $null) { $Path = Get-Item -Path "." }
-
-       # Shortcut to messages
-        $Messages = $ModuleStrings.Commands.Management
 
          # Test management
         [bool] $_managementIsEnabled = $null

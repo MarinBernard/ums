@@ -356,7 +356,16 @@ class DocumentCache
         $_cachedFiles = Get-ChildItem -Path ([DocumentCache]::CacheFolder)
         foreach ($_cachedFile in $_cachedFiles)
         {
-            # Creating and storing a CachedDocument instance
+            # If the file is older than the document lifetime, delete it.
+            $_secondsSpent = (
+                (Get-Date) - $_cachedFile.LastWriteTime).TotalSeconds
+            if ($_secondsSpent -gt ([DocumentCache]::DocumentLifetime))
+            {
+                $_cachedFile | Remove-Item -Force
+                continue
+            }
+
+            # Else, create and store a CachedDocument instance
             try
             {
                 [DocumentCache]::CachedDocuments = (

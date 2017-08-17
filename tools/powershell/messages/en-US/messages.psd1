@@ -1,6 +1,9 @@
 @{
     Commands = @{
-        Management = @{
+        Item = @{
+            FileNotFound = "The specified UMS file does not exist or cannot be accessed."
+        }
+        ItemManagement = @{
             DisableFailure = "An error occurred while trying to disable UMS item management for the specified folder."
             DisableSuccess = "UMS item management was successfully disabled for the specified folder."
             EnableFailure = "An error occurred while trying to enable UMS item management for the specified folder."

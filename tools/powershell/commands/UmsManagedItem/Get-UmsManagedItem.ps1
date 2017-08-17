@@ -105,11 +105,11 @@ function Get-UmsManagedItem
 
             if ($_isValid)
             {
-                 $_item.Validity = [UIValidity]::Valid
+                 $_item.Validity = [UmsItemValidity]::Valid
             }
             else
             {
-                $_item.Validity = [UIValidity]::Invalid
+                $_item.Validity = [UmsItemValidity]::Invalid
             }
         }
 

@@ -67,14 +67,14 @@ function ConvertTo-ForeignMetadata
         }
         
         # Expired static version warning
-        if ($Item.StaticVersion -eq [UIVersionStatus]::Expired)
+        if ($Item.StaticVersion -eq [UmsItemVersionStatus]::Expired)
         {
             Write-Warning -Message $ModuleStrings.Common.ExpiredStaticVersion
             if( (Wait-UserConfirmation) -eq $false ){ return }
         }       
         
         # Orphan cardinality warning
-        if ($Item.Cardinality -eq [UICardinality]::Orphan)
+        if ($Item.Cardinality -eq [UmsItemCardinality]::Orphan)
         {
             Write-Warning -Message $ModuleStrings.Common.OrphanCardinalityWarning
             if( (Wait-UserConfirmation) -eq $false ){ return }

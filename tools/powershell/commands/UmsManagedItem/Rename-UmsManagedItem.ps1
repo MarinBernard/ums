@@ -71,7 +71,7 @@ function Rename-UmsManagedItem
 
         # Move companion file
         if (($WithCompanion.IsPresent) -and
-            ($ManagedItem.Cardinality -eq [UICardinality]::Sidecar))
+            ($ManagedItem.Cardinality -eq [UmsItemCardinality]::Sidecar))
         {
             try
             {

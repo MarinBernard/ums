@@ -94,15 +94,15 @@ class ConstraintValidator
                 "item-cardinality"
                 {
                     # Build the list of allowed cardinalities
-                    [UICardinality[]] $_allowedCardinalities = @()
+                    [UmsItemCardinality[]] $_allowedCardinalities = @()
 
                     switch ($_constraint.Value)
                     {
                         "SidecarOrOrphan"
                         {
                             $_allowedCardinalities = @(
-                            [UICardinality]::Sidecar,
-                            [UICardinality]::Orphan)
+                            [UmsItemCardinality]::Sidecar,
+                            [UmsItemCardinality]::Orphan)
                         }
                     }
 
@@ -118,15 +118,15 @@ class ConstraintValidator
                 "item-static-version-status"
                 {
                     # Build the list of allowed statuses
-                    [UIVersionStatus[]] $_allowedVersionStatuses = @()
+                    [UmsItemVersionStatus[]] $_allowedVersionStatuses = @()
                     
                     switch ($_constraint.Value)
                     {
                         "CurrentOrExpired"
                         {
                             $_allowedVersionStatuses = @(
-                            [UIVersionStatus]::Current,
-                            [UIVersionStatus]::Expired)
+                            [UmsItemVersionStatus]::Current,
+                            [UmsItemVersionStatus]::Expired)
                         }
                     }
 
