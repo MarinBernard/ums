@@ -41,7 +41,7 @@ function Remove-UmsManagedItem
         }
         catch [System.IO.IOException]
         {
-            Write-Warning -Message (
+            [EventLogger]::LogWarning(
                 $ModuleStrings.RemoveUmsManagedItem.CacheFileRemovalFailure)
         }
 
@@ -53,7 +53,7 @@ function Remove-UmsManagedItem
         }
         catch [System.IO.IOException]
         {
-            Write-Warning -Message (
+            [EventLogger]::LogWarning(
                 $ModuleStrings.RemoveUmsManagedItem.StaticFileRemovalFailure)
         }
 
@@ -68,7 +68,7 @@ function Remove-UmsManagedItem
             }
             catch [System.IO.IOException]
             {
-                Write-Warning -Message (
+                [EventLogger]::LogWarning(
                     $ModuleStrings.RemoveUmsManagedItem.CompanionFileRemovalFailure)
             }
         }
@@ -80,7 +80,7 @@ function Remove-UmsManagedItem
         }
         catch [System.IO.IOException]
         {
-            Write-Warning -Message (
+            [EventLogger]::LogWarning(
                 $ModuleStrings.RemoveUmsManagedItem.UmsFileRemovalFailure)
         }
     }

@@ -39,23 +39,23 @@ function Disable-ItemManagement
         # Test management
         [bool] $_managementIsEnabled = $null
     
+        # Test management state: catch any exception and abort.
         try
         {
             $_managementIsEnabled = [ItemManager]::TestManagement($Path)
         }
-    
-        # Catch any exception and abort.
         catch
         {
-            Write-Warning -Message $Messages.InconsistentState
-            Write-Warning -Message $Messages.TestAdvice
+            [EventLogger]::LogException($_.Exception)
+            [EventLogger]::LogWarning($Messages.InconsistentState)
+            [EventLogger]::LogWarning($Messages.TestAdvice)
             return
         }
 
         # We only disable management if it is enabled.
         if (-not $_managementIsEnabled)
         {
-            Write-Warning -Message $Messages.ManagementDisabled
+            [EventLogger]::LogWarning($Messages.ManagementDisabled)
             return
         }
 
@@ -66,7 +66,7 @@ function Disable-ItemManagement
         }
         catch [IMDisableManagementFailureException]
         {
-            Write-Error -Message $Messages.DisableFailure
+            [EventLogger]::LogError($Messages.DisableFailure)
         }
 
         Write-Host $Messages.DisableSuccess

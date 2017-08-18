@@ -42,15 +42,16 @@ function Enable-ItemManagement
         # Catch any exception and abort.
         catch
         {
-            Write-Warning -Message $Messages.InconsistentState
-            Write-Warning -Message $Messages.TestAdvice
+            [EventLogger]::LogException($_.Exception)
+            [EventLogger]::LogWarning($Messages.InconsistentState)
+            [EventLogger]::LogWarning($Messages.TestAdvice)
             return
         }
 
         # We only disable management if it is enabled.
         if ($_managementIsEnabled)
         {
-            Write-Warning -Message $Messages.ManagementEnabled
+            [EventLogger]::LogWarning($Messages.ManagementEnabled)
             return
         }
 
@@ -61,7 +62,8 @@ function Enable-ItemManagement
         }
         catch [IMEnableManagementFailureException]
         {
-            Write-Error -Message $Messages.EnableFailure
+            [EventLogger]::LogException($_.Exception)
+            [EventLogger]::LogError($Messages.EnableFailure)
         }
 
         Write-Host $Messages.EnableSuccess

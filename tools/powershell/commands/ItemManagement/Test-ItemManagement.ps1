@@ -42,36 +42,33 @@ function Test-ItemManagement
         # Catch missing static folder
         catch [IMMissingStaticFolderException]
         {
-            Write-Warning -Message $Messages.MissingStaticFolder
+            [EventLogger]::LogException($_.Exception)
+            [EventLogger]::LogWarning($Messages.MissingStaticFolder)
         }
     
         # Catch missing cache folder
         catch [IMMissingCacheFolderException]
         {
-            Write-Warning -Message $Messages.MissingCacheFolder
+            [EventLogger]::LogException($_.Exception)
+            [EventLogger]::LogWarning($Messages.MissingCacheFolder)
         }
     
         # Catch terminating exceptions
         catch [IMInconsistentStateException]
         {
             [EventLogger]::LogException($_.Exception)
-            [EventLogger]::DumpEvents()
             return
         }
         catch [UmsException]
         {
             [EventLogger]::LogException($_.Exception)
-            [EventLogger]::DumpEvents()
             return
         }
         catch
         {
             [EventLogger]::LogException($_.Exception)
-            [EventLogger]::DumpEvents()
             return
         }
-
-        [EventLogger]::DumpEvents()
     
         # Output the result
         if ($_managementIsEnabled)

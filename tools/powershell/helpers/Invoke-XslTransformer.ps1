@@ -74,7 +74,7 @@ function Invoke-XslTransformer
         "Saxon invocation string: {0}" `
         -f $($_jreBinPath + $_arguments ))
     
-    if([bool](Write-Verbose ([String]::Empty) 4>&1))
+    if([bool](Write-Debug ([String]::Empty) 5>&1))
     {
         & $_jreBinPath $_arguments
     }

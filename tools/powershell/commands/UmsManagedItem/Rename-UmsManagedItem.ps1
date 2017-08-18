@@ -53,7 +53,7 @@ function Rename-UmsManagedItem
         }
         catch [System.IO.IOException]
         {
-            Write-Warning -Message (
+            [EventLogger]::LogWarning(
                 $ModuleStrings.RemoveUmsManagedItem.CacheFileRenameFailure)
         }
 
@@ -65,7 +65,7 @@ function Rename-UmsManagedItem
         }
         catch [System.IO.IOException]
         {
-            Write-Warning -Message (
+            [EventLogger]::LogWarning(
                 $ModuleStrings.RemoveUmsManagedItem.StaticFileRenameFailure)
         }
 
@@ -80,7 +80,7 @@ function Rename-UmsManagedItem
             }
             catch [System.IO.IOException]
             {
-                Write-Warning -Message (
+                [EventLogger]::LogWarning(
                     $ModuleStrings.RemoveUmsManagedItem.CompanionFileRenameFailure)
             }
         }
@@ -92,7 +92,7 @@ function Rename-UmsManagedItem
         }
         catch [System.IO.IOException]
         {
-            Write-Warning -Message (
+            [EventLogger]::LogWarning(
                 $ModuleStrings.RemoveUmsManagedItem.UmsFileRemovalFailure)
         }
 

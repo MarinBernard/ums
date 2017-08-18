@@ -102,7 +102,7 @@ function Get-UmsMetadata
                     {
                         if (-not $Silent.IsPresent)
                         {
-                            Write-Warning -Message $(
+                            [EventLogger]::LogWarning(
                                 $ModuleStrings.Common.ExpiredCachedVersion)
                         }
 
@@ -116,7 +116,7 @@ function Get-UmsMetadata
                     {
                         if (-not $Silent.IsPresent)
                         {
-                            Write-Warning -Message $(
+                            [EventLogger]::LogWarning(
                                 $ModuleStrings.Common.MissingCachedVersion)
                         }
 
@@ -144,7 +144,7 @@ function Get-UmsMetadata
                     {
                         if (-not $Silent.IsPresent)
                         {
-                            Write-Warning -Message $(
+                            [EventLogger]::LogWarning(
                                 $ModuleStrings.Common.ExpiredStaticVersion)
                         }
 
@@ -158,7 +158,7 @@ function Get-UmsMetadata
                     {
                         if (-not $Silent.IsPresent)
                         {
-                            Write-Warning -Message $(
+                            [EventLogger]::LogWarning(
                                 $ModuleStrings.Common.MissingStaticVersion)
                         }
 

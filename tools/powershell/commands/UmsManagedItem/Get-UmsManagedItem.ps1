@@ -51,13 +51,13 @@ function Get-UmsManagedItem
     {  
         if (-not (Test-UmsManagement -Boolean -Path $Path))
         {
-            Write-Warning -Message $ModuleStrings.Common.UmsNotEnabled
+            [EventLogger]::LogWarning($ModuleStrings.Common.UmsNotEnabled)
             return
         }
     }
     catch
     {
-        Write-Host $_.Exception.Message
+        [EventLogger]::LogException($_.Exception)
         return
     }
 
