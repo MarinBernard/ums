@@ -19,14 +19,32 @@ class EventLogger
     { 
         $_eventData = (Get-PSCallStack)[2]
 
-        $_event = (
-            New-Object -Type PSCustomObject -Property (
-                [ordered] @{
-                    Level = $Level
-                    Message  = $Data
-                    Location = $_eventData.Location
-                    SourceFunction = $_eventData.FunctionName
-                }))
+        if ($Level -eq [LoggedEventLevel]::Exception)
+        {
+            if ($Data.MainMessage) { $_message = $Data.MainMessage}
+            else { $_message = $Data.Message }
+
+            $_event = (
+                New-Object -Type PSCustomObject -Property (
+                    [ordered] @{
+                        Level = $Level
+                        Exception = $Data
+                        Message  = $_message
+                        Location = $_eventData.Location
+                        SourceFunction = $_eventData.FunctionName
+                    }))
+        }
+        else
+        {
+            $_event = (
+                New-Object -Type PSCustomObject -Property (
+                    [ordered] @{
+                        Level = $Level
+                        Message  = $Data
+                        Location = $_eventData.Location
+                        SourceFunction = $_eventData.FunctionName
+                    }))
+        }
 
         [EventLogger]::LoggedEvents += $_event
         [EventLogger]::ShowEvent($_event)
@@ -35,7 +53,7 @@ class EventLogger
     # Logs an exception
     static [void] LogException([System.Exception] $Exception)
     {
-        [EventLogger]::LoggedExceptions += $Exception
+        [EventLogger]::LogEvent([LoggedEventLevel]::Exception, $Exception)
     }
 
     # Proxy method for logging a debug event
@@ -88,38 +106,38 @@ class EventLogger
         {
             "Debug"
             {
-                Write-Host -NoNewLine -ForegroundColor DarkGray " DEBUG "
+                Write-Host -NoNewLine -ForegroundColor DarkGray "  DEBUG  "
             }
 
             "Verbose"
             {
-                Write-Host -NoNewLine -ForegroundColor Cyan "VERBOSE"
+                Write-Host -NoNewLine -ForegroundColor Cyan " VERBOSE "
             }
 
             "Warning"
             {
-                Write-Host -NoNewLine -ForegroundColor Yellow "WARNING"
+                Write-Host -NoNewLine -ForegroundColor Yellow " WARNING "
             }
 
             "Error"
             {
-                Write-Host -NoNewLine -ForegroundColor Red " ERROR "
+                Write-Host -NoNewLine -ForegroundColor Red "  ERROR  "
+            }
+
+            "Exception"
+            {
+                Write-Host -NoNewLine -ForegroundColor DarkRed "EXCEPTION"
             }
         }
 
-        Write-Host -NoNewLine -ForegroundColor White "]"
-
-        Write-Host -NoNewLine " "
-
-        Write-Host -NoNewLine -ForegroundColor Gray "("
+        Write-Host -NoNewLine -ForegroundColor White "] "
+        Write-Host -NoNewLine -ForegroundColor White "("
         Write-Host -NoNewLine -ForegroundColor DarkGray $Event.SourceFunction
-        Write-Host -NoNewLine -ForegroundColor Gray ", "
+        Write-Host -NoNewLine -ForegroundColor White ", "
         Write-Host -NoNewLine -ForegroundColor DarkGray $Event.Location
-        Write-Host -NoNewLine -ForegroundColor Gray ")"
-
-        Write-Host -NoNewLine " "
-
-        Write-Host -ForegroundColor White $Event.Message
+        Write-Host -NoNewLine -ForegroundColor White ") "
+        Write-Host -NoNewLine -ForegroundColor Gray $Event.Message
+        Write-Host ""
     }
 
     # Dumps the whole event log to the console then flushes the event log.
@@ -132,37 +150,6 @@ class EventLogger
 
         [EventLogger]::LoggedEvents = @()
     }
-
-    # Dumps the exception chain to the console
-    static [void] DumpExceptions()
-    {
-        $ExceptionDelimiter = "################################################################################"
-        $ExceptionSectionDelimiter = "--------------------------------------------------------------------------------"
-
-        foreach( $_exception in ([EventLogger]::LoggedExceptions))
-        {
-            Write-Host -ForegroundColor DarkBlue $ExceptionDelimiter
-            Write-Host -ForegroundColor DarkBlue -NoNewLine "Exception: "
-            Write-Host -ForegroundColor Blue $_exception.GetType().FullName
-            Write-Host -ForegroundColor DarkBlue $ExceptionSectionDelimiter
-
-            if ($_exception.MainMessage)
-            {
-                Write-Host -ForegroundColor Yellow $_exception.MainMessage
-                foreach ($_line in $_exception.SubMessages)
-                {
-                    Write-Host -ForegroundColor Gray $("`t" + $_line)
-                }
-            }
-            else
-            {
-                Write-Host -ForegroundColor Yellow $_exception.Message
-            }
-
-            Write-Host -ForegroundColor DarkBlue $ExceptionDelimiter
-            Write-Host ""
-        }
-    }
 }
 
 Enum LoggedEventLevel
@@ -171,4 +158,5 @@ Enum LoggedEventLevel
     Error
     Verbose
     Warning
+    Exception
 }

@@ -3,7 +3,7 @@ function ConvertTo-ForeignMetadata
     Param(
         [Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
-        [UmsItem] $Item,
+        [UmsFile] $File,
 
         [ValidateSet("VorbisComment", "RawLyrics")]
         [string] $Format = "VorbisComment"
@@ -39,7 +39,7 @@ function ConvertTo-ForeignMetadata
             "VorbisComment"
             {
                 # Build transform arguments
-                $_outputFileFullName = $($Item.LinkedFileBaseName + ".tags")
+                $_outputFileFullName = $($File.LinkedFileBaseName + ".tags")
                 $_arguments = @{
                     OutputMode = "VORBIS";
                 }
@@ -48,7 +48,7 @@ function ConvertTo-ForeignMetadata
             "RawLyrics"
             {
                 # Build transform arguments
-                $_outputFileFullName = $($Item.LinkedFileBaseName + ".txt")
+                $_outputFileFullName = $($File.LinkedFileBaseName + ".txt")
                 $_arguments = @{
                     OutputMode = "RAWLYRICS";
                 }
@@ -58,7 +58,7 @@ function ConvertTo-ForeignMetadata
         # Validate stylesheet constraints
         try
         {
-            $Validator.Validate($Item)
+            $Validator.Validate($File)
         }
         catch [CVValidationFailureException]
         {
@@ -67,14 +67,14 @@ function ConvertTo-ForeignMetadata
         }
         
         # Expired static version warning
-        if ($Item.StaticVersion -eq [UmsItemVersionStatus]::Expired)
+        if ($File.StaticVersion -eq [FileVersionStatus]::Expired)
         {
             [EventLogger]::LogWarning($ModuleStrings.Common.ExpiredStaticVersion)
             if( (Wait-UserConfirmation) -eq $false ){ return }
         }       
         
         # Orphan cardinality warning
-        if ($Item.Cardinality -eq [UmsItemCardinality]::Orphan)
+        if ($File.Cardinality -eq [FileCardinality]::Orphan)
         {
             [EventLogger]::LogWarning($ModuleStrings.Common.OrphanCardinalityWarning)
             if( (Wait-UserConfirmation) -eq $false ){ return }
@@ -83,7 +83,7 @@ function ConvertTo-ForeignMetadata
         # Run the transform
         try 
         {
-            Invoke-XslTransformer -Source $Item.StaticFileUri -Stylesheet $Stylesheet.Uri -Destination $_outputFileFullName -Arguments $_arguments
+            Invoke-XslTransformer -Source $File.StaticFileUri -Stylesheet $Stylesheet.Uri -Destination $_outputFileFullName -Arguments $_arguments
         }
         catch [UmsException]
         {

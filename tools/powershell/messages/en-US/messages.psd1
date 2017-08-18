@@ -1,20 +1,19 @@
 @{
     Commands = @{
-        Item = @{
-            FileNotFound = "The specified UMS file does not exist or cannot be accessed."
-        }
-        ItemManagement = @{
-            DisableFailure = "An error occurred while trying to disable UMS item management for the specified folder."
-            DisableSuccess = "UMS item management was successfully disabled for the specified folder."
-            EnableFailure = "An error occurred while trying to enable UMS item management for the specified folder."
-            EnableSuccess = "UMS item management was successfully enabled for the specified folder."
-            ManagementDisabled = "The management of UMS items is disabled."
-            ManagementEnabled = "The management of UMS items is enabled."
-            InconsistentState = "The management folder is in an inconsistent state."
-            MissingCacheFolder = "The metadata cache subfolder is missing."
-            MissingStaticFolder = "The static document subfolder is missing."
-            TestAdvice = "Run the Test-UmsItemManagement command to obtain more information."
-        }
+        CommandFailure = "The command failed."
+        DisableManagementFailure = "An error occurred while trying to disable UMS file management for the specified folder."
+        DisableManagementSuccess = "UMS file management was successfully disabled for the specified folder."
+        EnableManagementFailure = "An error occurred while trying to enable UMS file management for the specified folder."
+        EnableManagementSuccess = "UMS file management was successfully enabled for the specified folder."
+        FileDeletionFailure = "An error occured during file deletion."
+        FileNotFound = "The specified UMS file does not exist or cannot be accessed."
+        InconsistentState = "The directory is in an inconsistent state."
+        ManagementDisabled = "The management of UMS files is disabled."
+        ManagementEnabled = "The management of UMS files is enabled."
+        InconsistentState = "The management folder is in an inconsistent state."
+        MissingCacheFolder = "The metadata cache subfolder is missing."
+        MissingStaticFolder = "The static document subfolder is missing."
+        RunCommandAdvice = "Run the {0} command to obtain more information."
     }
     Common = @{
         AccessDenied = "Target folder does not exist or access is denied."
@@ -88,12 +87,12 @@
             MainMessage = "The attribute {0} is missing but is mandatory in this context."
             Context = "Context is XML element {0} in namespace {1}."
         }
-        UmsManagedItemMetadataConversionFailure = @{
+        UmsManagedFileMetadataConversionFailure = @{
             MainMessage = "The UMS item could not be converted."
             ItemPath = "Path of the item: {0}"
             ItemName = "Name of the item: {0}"
         }
-        UmsManagedItemUpdateFailure = @{
+        UmsManagedFileUpdateFailure = @{
             MainMessage = "The UMS item could not be updated."
             ItemPath = "Path of the item: {0}"
             ItemName = "Name of the item: {0}"
@@ -120,13 +119,13 @@
         BadXmlContent = "XML file {0} is invalid and could not be read."
         NoNamespace = "XML file {0} is empty or uses unqualified elements."
     }
-    RemoveUmsManagedItem = @{
+    RemoveUmsManagedFile = @{
         CacheFileRemovalFailure = "The command was unable to remove the metadata cache file."
         CompanionFileRemovalFailure = "The command was unable to remove the companion file of the item."
         StaticFileRemovalFailure = "The command was unable to remove the static version file."
         UmsFileRemovalFailure = "The command was unable to remove the main UMS file."
     }
-    RenameUmsManagedItem = @{
+    RenameUmsManagedFile = @{
         CacheFileRenameFailure = "The command was unable to rename the metadata cache file."
         CompanionFileRenameFailure = "The command was unable to rename the companion file of the item."
         StaticFileRenameFailure = "The command was unable to rename the static version file."
@@ -149,7 +148,7 @@
         StylesheetNotFound = "XSLT stylesheet {0} does not exist or access is denied."
         TransformFailure = "An error occured while running the XSLT transform."
     }
-    UpdateUmsManagedItem = @{
+    UpdateUmsManagedFile = @{
         MissingTarget = "The target file does not exist or access is denied."
         PromotionFailure = "Failed to promote the newly generated file to be the new cache file."
         TempFileRemovalFailure = "A temporary file could not be removed."

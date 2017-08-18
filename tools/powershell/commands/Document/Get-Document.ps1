@@ -15,7 +15,7 @@ function Get-Document
     Param(
         [Parameter(ParametersetName="ByItem",Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
-        [UmsItem] $Item,
+        [UmsFile] $File,
 
         [Parameter(ParametersetName="ByUri",Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNullOrEmpty()]
@@ -29,7 +29,7 @@ function Get-Document
         {
             "ByItem"
             {
-                $_uri = $Item.Uri
+                $_uri = $File.Uri
             }
             "ByUri"
             {

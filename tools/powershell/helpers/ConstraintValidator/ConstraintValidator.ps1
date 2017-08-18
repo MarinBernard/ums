@@ -46,7 +46,7 @@ class ConstraintValidator
     # This method returns nothing: if no exception is throw, it must be assumed
     # that the supplied instance is valid.
     # This method throws a CVValidationFailureException on validation failure.
-    [void] Validate([UmsItem] $Item)
+    [void] Validate([UmsFile] $File)
     {
         foreach ($_constraint in $this.Constraints)
         {
@@ -54,88 +54,88 @@ class ConstraintValidator
             {
                 "binding-element-namespace"
                 {
-                    if ($Item.BindingNamespace -ne $_constraint.Value)
+                    if ($File.BindingNamespace -ne $_constraint.Value)
                     {
                         throw [CVValidationFailureException]::New(
-                            $Item, $_constraint, $Item.BindingNamespace)
+                            $File, $_constraint, $File.BindingNamespace)
                     }
                 }
 
                 "binding-element-name"
                 {
-                    if ($Item.BindingElementName -ne $_constraint.Value)
+                    if ($File.BindingElementName -ne $_constraint.Value)
                     {
                         # TODO: more generic exceptions
                         throw [CVValidationFailureException]::New(
-                            $Item, $_constraint, $Item.BindingElementName)
+                            $File, $_constraint, $File.BindingElementName)
                     }
                 }
 
                 "document-element-namespace"
                 {
-                    if ($Item.XmlNamespace -ne $_constraint.Value)
+                    if ($File.XmlNamespace -ne $_constraint.Value)
                     {
                         # TODO: more generic exceptions
                         throw [CVValidationFailureException]::New(
-                            $Item, $_constraint, $Item.XmlNamespace)
+                            $File, $_constraint, $File.XmlNamespace)
                     }
                 }
 
                 "document-element-name"
                 {
-                    if ($Item.XmlElementName -ne $_constraint.Value)
+                    if ($File.XmlElementName -ne $_constraint.Value)
                     {
                         # TODO: more generic exceptions
                         throw [CVValidationFailureException]::New(
-                            $Item, $_constraint, $Item.XmlElementName)
+                            $File, $_constraint, $File.XmlElementName)
                     }
                 }
 
                 "item-cardinality"
                 {
                     # Build the list of allowed cardinalities
-                    [UmsItemCardinality[]] $_allowedCardinalities = @()
+                    [FileCardinality[]] $_allowedCardinalities = @()
 
                     switch ($_constraint.Value)
                     {
                         "SidecarOrOrphan"
                         {
                             $_allowedCardinalities = @(
-                            [UmsItemCardinality]::Sidecar,
-                            [UmsItemCardinality]::Orphan)
+                            [FileCardinality]::Sidecar,
+                            [FileCardinality]::Orphan)
                         }
                     }
 
                     # Check cardinality
-                    if ($_allowedCardinalities -notcontains($Item.Cardinality))
+                    if ($_allowedCardinalities -notcontains($File.Cardinality))
                     {
                         # TODO: more generic exceptions
                         throw [CVValidationFailureException]::New(
-                            $Item, $_constraint, $Item.Cardinality)
+                            $File, $_constraint, $File.Cardinality)
                     }
                 }
 
                 "item-static-version-status"
                 {
                     # Build the list of allowed statuses
-                    [UmsItemVersionStatus[]] $_allowedVersionStatuses = @()
+                    [FileVersionStatus[]] $_allowedVersionStatuses = @()
                     
                     switch ($_constraint.Value)
                     {
                         "CurrentOrExpired"
                         {
                             $_allowedVersionStatuses = @(
-                            [UmsItemVersionStatus]::Current,
-                            [UmsItemVersionStatus]::Expired)
+                            [FileVersionStatus]::Current,
+                            [FileVersionStatus]::Expired)
                         }
                     }
 
                     # Check cardinality
-                    if ($_allowedVersionStatuses -notcontains($Item.StaticVersion))
+                    if ($_allowedVersionStatuses -notcontains($File.StaticVersion))
                     {
                         # TODO: more generic exceptions
                         throw [CVValidationFailureException]::New(
-                            $Item, $_constraint, $Item.StaticVersion)
+                            $File, $_constraint, $File.StaticVersion)
                     }
                 }
             }

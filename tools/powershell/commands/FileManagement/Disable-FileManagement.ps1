@@ -1,11 +1,11 @@
-function Disable-ItemManagement
+function Disable-FileManagement
 {
     <#
     .SYNOPSIS
-    Disables UMS metadata management for the specified folder.
+    Disables UMS file management for the specified folder.
     
     .DESCRIPTION
-    This command removes the hidden folder storing UMS metadata. As a consequence, any metadata related to any file in this folder will be destroyed.
+    This command removes the hidden folder storing managed UMS files. As a consequence, all UMS metadata stored in this folder will be destroyed.
     
     .PARAMETER Path
     A path to a valid, UMS-enabled folder. Default is the current folder.
@@ -14,7 +14,7 @@ function Disable-ItemManagement
     If set to $true, the user is required to confirm metadata deletion. Default is $true.
     
     .EXAMPLE
-    Disable-UmsItemManagement -Path "D:\MyMusic"
+    Disable-UmsFileManagement -Path "D:\MyMusic"
     #>
 
     [CmdletBinding()]
@@ -28,7 +28,7 @@ function Disable-ItemManagement
     Begin
     {
         # Shortcut to messages
-        $Messages = $ModuleStrings.Commands.ItemManagement
+        $Messages = $ModuleStrings.Commands
     }
 
     Process
@@ -42,13 +42,14 @@ function Disable-ItemManagement
         # Test management state: catch any exception and abort.
         try
         {
-            $_managementIsEnabled = [ItemManager]::TestManagement($Path)
+            $_managementIsEnabled = [FileManager]::TestManagement($Path)
         }
         catch
         {
             [EventLogger]::LogException($_.Exception)
             [EventLogger]::LogWarning($Messages.InconsistentState)
-            [EventLogger]::LogWarning($Messages.TestAdvice)
+            [EventLogger]::LogWarning($Messages.RunCommandAdvice `
+                -f "Test-UmsItemManagement")
             return
         }
 
@@ -62,13 +63,13 @@ function Disable-ItemManagement
         # Disable item management
         try
         {
-            [ItemManager]::DisableManagement($Path, $Confirm)
+            [FileManager]::DisableManagement($Path, $Confirm)
         }
-        catch [IMDisableManagementFailureException]
+        catch [FMDisableManagementFailureException]
         {
-            [EventLogger]::LogError($Messages.DisableFailure)
+            [EventLogger]::LogError($Messages.DisableManagementFailure)
         }
 
-        Write-Host $Messages.DisableSuccess
+        Write-Host $Messages.DisableManagementSuccess
     }
 }

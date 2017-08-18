@@ -24,17 +24,13 @@
 . "$PSScriptRoot\helpers\DocumentCache\DocumentCache.Exceptions.ps1"
 . "$PSScriptRoot\helpers\DocumentCache\DocumentCache.ps1"
 
-# Document factory (Needed by the ItemManager helper)
+# Document factory (Needed by the FileManager helper)
 . "$PSScriptRoot\helpers\DocumentFactory\DocumentFactory.Exceptions.ps1"
 . "$PSScriptRoot\helpers\DocumentFactory\DocumentFactory.ps1"
 
-# Item manager
-. "$PSScriptRoot\helpers\ItemManager\classes\UmsItem.Exceptions.ps1"
-. "$PSScriptRoot\helpers\ItemManager\classes\UmsItem.ps1"
-. "$PSScriptRoot\helpers\ItemManager\ItemManager.Exceptions.ps1"
-. "$PSScriptRoot\helpers\ItemManager\ItemManager.ps1"
-. "$PSScriptRoot\helpers\ItemManager\classes\UmsManagedItem.Exceptions.ps1"
-. "$PSScriptRoot\helpers\ItemManager\classes\UmsManagedItem.ps1"
+# File manager
+. "$PSScriptRoot\helpers\FileManager\FileManager.Exceptions.ps1"
+. "$PSScriptRoot\helpers\FileManager\FileManager.ps1"
 
 # Common exceptions
 . "$PSScriptRoot\classes\Exceptions.ps1"
@@ -116,7 +112,6 @@
 # Helpers
 ###############################################################################
 
-. "$PSScriptRoot\helpers\Get-UmsManagementFolderPath.ps1"
 . "$PSScriptRoot\helpers\Invoke-XslTransformer.ps1"
 . "$PSScriptRoot\helpers\Wait-UserConfirmation.ps1"
 
@@ -144,18 +139,18 @@
 . "$PSScriptRoot\commands\Document\Get-Document.ps1"
 
 # *-Item
-. "$PSScriptRoot\commands\Item\Get-Item.ps1"
+. "$PSScriptRoot\commands\File\Get-File.ps1"
 
 # *-ItemManagement
-. "$PSScriptRoot\commands\ItemManagement\Enable-ItemManagement.ps1"
-. "$PSScriptRoot\commands\ItemManagement\Disable-ItemManagement.ps1"
-. "$PSScriptRoot\commands\ItemManagement\Test-ItemManagement.ps1"
+. "$PSScriptRoot\commands\FileManagement\Enable-FileManagement.ps1"
+. "$PSScriptRoot\commands\FileManagement\Disable-FileManagement.ps1"
+. "$PSScriptRoot\commands\FileManagement\Test-FileManagement.ps1"
 
-# *-UmsManagedItem
-. "$PSScriptRoot\commands\UmsManagedItem\Get-UmsManagedItem.ps1"
-. "$PSScriptRoot\commands\UmsManagedItem\Remove-UmsManagedItem.ps1"
-. "$PSScriptRoot\commands\UmsManagedItem\Rename-UmsManagedItem.ps1"
-. "$PSScriptRoot\commands\UmsManagedItem\Update-UmsManagedItem.ps1"
+# *-UmsManagedFile
+. "$PSScriptRoot\commands\UmsManagedFile\Get-ManagedFile.ps1"
+. "$PSScriptRoot\commands\UmsManagedFile\Remove-ManagedFile.ps1"
+. "$PSScriptRoot\commands\UmsManagedFile\Rename-ManagedFile.ps1"
+. "$PSScriptRoot\commands\UmsManagedFile\Update-ManagedFile.ps1"
 
 # *-UmsMetadata
 . "$PSScriptRoot\commands\UmsMetadata\Get-UmsMetadata.ps1"

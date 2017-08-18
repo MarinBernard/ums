@@ -1,17 +1,17 @@
-function Test-ItemManagement
+function Test-FileManagement
 {
     <#
     .SYNOPSIS
-    Checks whether UMS management is enabled for the specified folder.
+    Checks whether UMS file management is enabled for the specified folder.
     
     .DESCRIPTION
-    Checks whether UMS management is enabled for the specified folder.
+    Checks whether UMS file management is enabled for the specified folder.
     
     .PARAMETER Path
     A path to a valid folder. Default is the current folder.
     
     .EXAMPLE
-    Test-UmsItemManagement -Path "D:\MyMusic"
+    Test-UmsFileManagement -Path "D:\MyMusic"
     #>
 
     [CmdletBinding()]
@@ -23,7 +23,7 @@ function Test-ItemManagement
     Begin
     {
         # Shortcut to messages
-        $Messages = $ModuleStrings.Commands.ItemManagement
+        $Messages = $ModuleStrings.Commands
     }
 
     Process
@@ -36,25 +36,25 @@ function Test-ItemManagement
     
         try
         {
-            $_managementIsEnabled = [ItemManager]::TestManagement($Path)
+            $_managementIsEnabled = [FileManager]::TestManagement($Path)
         }
     
         # Catch missing static folder
-        catch [IMMissingStaticFolderException]
+        catch [FMMissingStaticFolderException]
         {
             [EventLogger]::LogException($_.Exception)
             [EventLogger]::LogWarning($Messages.MissingStaticFolder)
         }
     
         # Catch missing cache folder
-        catch [IMMissingCacheFolderException]
+        catch [FMMissingCacheFolderException]
         {
             [EventLogger]::LogException($_.Exception)
             [EventLogger]::LogWarning($Messages.MissingCacheFolder)
         }
     
         # Catch terminating exceptions
-        catch [IMInconsistentStateException]
+        catch [FMInconsistentStateException]
         {
             [EventLogger]::LogException($_.Exception)
             return

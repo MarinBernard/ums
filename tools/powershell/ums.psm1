@@ -28,31 +28,31 @@ $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDire
 # Exports
 ###############################################################################
 
-# *-CachedDocument
+# *-<prefix>CachedDocument
 Export-ModuleMember -Function Get-CachedDocument
 Export-ModuleMember -Function Remove-CachedDocument
 
-# *-DocumentCache
+# *-<prefix>DocumentCache
 Export-ModuleMember -Function Clear-DocumentCache
 Export-ModuleMember -Function Reset-DocumentCache
 Export-ModuleMember -Function Measure-DocumentCache
 
-# *-Document
+# *-<prefix>Document
 Export-ModuleMember -Function Get-Document
 
-# *-Item
-Export-ModuleMember -Function Get-Item
+# *-<prefix>File
+Export-ModuleMember -Function Get-File
 
-# *-UmsManagedItem
-Export-ModuleMember -Function Get-UmsManagedItem
-Export-ModuleMember -Function Remove-UmsManagedItem
-Export-ModuleMember -Function Rename-UmsManagedItem
-Export-ModuleMember -Function Update-UmsManagedItem
+# *-<prefix>ManagedFile
+Export-ModuleMember -Function Get-ManagedFile
+Export-ModuleMember -Function Remove-ManagedFile
+Export-ModuleMember -Function Rename-ManagedFile
+Export-ModuleMember -Function Update-ManagedFile
 
-# *-ItemManagement
-Export-ModuleMember -Function Disable-ItemManagement
-Export-ModuleMember -Function Enable-ItemManagement
-Export-ModuleMember -Function Test-ItemManagement
+# *-<prefix>FileManagement
+Export-ModuleMember -Function Disable-FileManagement
+Export-ModuleMember -Function Enable-FileManagement
+Export-ModuleMember -Function Test-FileManagement
 
 # *-UmsMetadata
 Export-ModuleMember -Function Get-UmsMetadata

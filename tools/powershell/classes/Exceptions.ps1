@@ -222,52 +222,52 @@ class UnresolvableUmsReference : UmsException
 class IncompatibleCardinalityException : UmsException
 {
     IncompatibleCardinalityException(
-        [UmsManagedItem] $Item,
-        [UmsItemCardinality[]] $CompatibleCardinalities
+        [UmsManagedFile] $File,
+        [FileCardinality[]] $CompatibleCardinalities
     ) : base()
     {
         $_strings = $global:ModuleStrings.Exceptions.IncompatibleCardinalityException
         $this.MainMessage =  $_strings.MainMessage
         $this.SubMessages += (
-            $_strings.ItemName -f $Item.FullName)
+            $_strings.ItemName -f $File.FullName)
         $this.SubMessages += (
-            $_strings.ActualCardinality -f $Item.Cardinality)
+            $_strings.ActualCardinality -f $File.Cardinality)
         $this.SubMessages += (
             $_strings.CompatibleCardinalities -f $CompatibleCardinalities.Join(", "))
     }
 }
 
 # Thrown when an UMS item update failed.
-class UmsManagedItemUpdateFailure : UmsException
+class UmsManagedFileUpdateFailure : UmsException
 {
-    UmsManagedItemUpdateFailure(
-        [UmsManagedItem] $Item
+    UmsManagedFileUpdateFailure(
+        [UmsManagedFile] $File
     ) : base()
     {
         $_strings = (
-            $global:ModuleStrings.Exceptions.UmsManagedItemUpdateFailure)
+            $global:ModuleStrings.Exceptions.UmsManagedFileUpdateFailure)
         $this.MainMessage =  $_strings.MainMessage
         $this.SubMessages += (
-            $_strings.ItemPath -f $Item.Path)
+            $_strings.ItemPath -f $File.Path)
         $this.SubMessages += (
-            $_strings.ItemName -f $Item.Name)
+            $_strings.ItemName -f $File.Name)
     }
 }
 
 # Thrown on metadata conversion failure.
-class UmsManagedItemMetadataConversionFailure : UmsException
+class UmsManagedFileMetadataConversionFailure : UmsException
 {
-    UmsManagedItemMetadataConversionFailure(
-        [UmsManagedItem] $Item
+    UmsManagedFileMetadataConversionFailure(
+        [UmsManagedFile] $File
     ) : base()
     {
         $_strings = (
-            $global:ModuleStrings.Exceptions.UmsManagedItemMetadataConversionFailure)
+            $global:ModuleStrings.Exceptions.UmsManagedFileMetadataConversionFailure)
         $this.MainMessage =  $_strings.MainMessage
         $this.SubMessages += (
-            $_strings.ItemPath -f $Item.Path)
+            $_strings.ItemPath -f $File.Path)
         $this.SubMessages += (
-            $_strings.ItemName -f $Item.Name)
+            $_strings.ItemName -f $File.Name)
     }
 }
 

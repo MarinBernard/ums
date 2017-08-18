@@ -1,14 +1,14 @@
-function Get-Item
+function Get-File
 {
     <#
     .SYNOPSIS
-    Retrieves and returns a UMS item from a file.
+    Retrieves and returns a UMS file.
     
     .DESCRIPTION
-    Retrieves and returns a UmsItem instance from a file.
+    Retrieves and returns a UmsFile instance from a file.
 
     .EXAMPLE
-    Get-UmsItem -Path "MyFile.ums"
+    Get-UmsFile -Path "MyFile.ums"
     #>
 
     [CmdletBinding()]
@@ -21,29 +21,29 @@ function Get-Item
     Begin
     {
         # Shortcut to messages
-        $Messages = $ModuleStrings.Commands.Item
+        $Messages = $ModuleStrings.Commands
     }
 
     Process
     {
-        # Give up now if file does not exist
+        # Give up now if the file does not exist
         if (-not $Path.Exists)
         {
             [EventLogger]::LogError($Messages.FileNotFound)
             return
         }
 
-        # Try to get a UmsItem instance
+        # Try to get a UmsFile instance
         try
         {
-            $_item = [UmsItem]::New($Path)
+            $_file = [UmsFile]::New($Path)
         }
-        catch [UmsItemException]
+        catch [UmsFileException]
         {
             [EventLogger]::LogException($_.Exception)
             return
         }
 
-        return $_item
+        return $_file
     }
 }

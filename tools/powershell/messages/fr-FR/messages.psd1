@@ -1,20 +1,18 @@
 @{
     Commands = @{
-        Item = @{
-            FileNotFound = "Le fichier UMS spécifié n'existe pas ou n'est pas accessible."
-        }
-        ItemManagement = @{
-            DisableFailure = "Une erreur est survenue lors de la désactivation de la gestion des objets UMS pour le dossier spécifié."
-            DisableSuccess = "La gestion des objets UMS a été correctement désactivée pour le dossier spécifié."
-            EnableFailure = "Une erreur est survenue lors de l'activation de la gestion des objets UMS pour le dossier spécifié."
-            EnableSuccess = "La gestion des objets UMS a été correctement activée pour le dossier spécifié."
-            InconsistentState = "Le dossier est dans un état incohérent."
-            ManagementDisabled = "La gestion des objets UMS est désactivée."
-            ManagementEnabled = "La gestion des objets UMS est activée."
-            MissingCacheFolder = "Le sous-dossier du cache de métadonnées n'est pas présent."
-            MissingStaticFolder = "Le sous-dossier des documents statiques n'est pas présent."
-            TestAdvice = "Exécutez la commande Test-UmsItemManagement pour obtenir plus d'informations."
-        }
+        CommandFailure = "La commande a échoué."
+        DisableManagementFailure = "Une erreur est survenue lors de la désactivation de la gestion des fichiers UMS pour le dossier spécifié."
+        DisableManagementSuccess = "La gestion des fichiers UMS a été correctement désactivée pour le dossier spécifié."
+        EnableManagementFailure = "Une erreur est survenue lors de l'activation de la gestion des fichiers UMS pour le dossier spécifié."
+        EnableManagementSuccess = "La gestion des fichiers UMS a été correctement activée pour le dossier spécifié."
+        FileDeletionFailure = "Une erreur est survenue lors de la suppression du fichier."
+        FileNotFound = "Le fichier UMS spécifié n'existe pas ou n'est pas accessible."
+        InconsistentState = "Le dossier est dans un état incohérent."
+        ManagementDisabled = "La gestion des fichiers UMS est désactivée."
+        ManagementEnabled = "La gestion des fichiers UMS est activée."
+        MissingCacheFolder = "Le sous-dossier du cache de métadonnées n'est pas présent."
+        MissingStaticFolder = "Le sous-dossier des documents statiques n'est pas présent."
+        RunCommandAdvice = "Exécutez la commande {0} pour obtenir plus d'informations."
     }
     Common = @{
         AccessDenied = "Le dossier spécifié n'existe pas ou l'accès a été refusé."
@@ -88,12 +86,12 @@
             MainMessage = "L'attribut {0} est manquant mais est obligatoire dans ce contexte."
             Context = "Le contexte est celui d'un élément {0} issue de l'espace de noms {1}."
         }
-        UmsManagedItemMetadataConversionFailure = @{
+        UmsManagedFileMetadataConversionFailure = @{
             MainMessage = "L'élément UMS n'a pas pu être converti."
             ItemPath = "Répertoire de l'élément: {0}"
             ItemName = "Nom de l'élément: {0}"
         }
-        UmsManagedItemUpdateFailure = @{
+        UmsManagedFileUpdateFailure = @{
             MainMessage = "L'élément UMS n'a pas pu être mis à jour."
             ItemPath = "Répertoire de l'élément: {0}"
             ItemName = "Nom de l'élément: {0}"
@@ -128,13 +126,13 @@
         BadXmlContent = "Le fichier XML {0} est invalide et n'a pas pu être lu."
         NoNamespace = "Le fichier XML {0} est vide ou utilise des éléments non-qualifiés."
     }
-    RemoveUmsManagedItem = @{
+    RemoveUmsManagedFile = @{
         CacheFileRemovalFailure = "La commande n'est pas parvenue à supprimer le fichier contenant le cache des métadonnées."
         CompanionFileRemovalFailure = "La commande n'est pas parvenue à supprimer le fichier compagnion de l'élément UMS."
         StaticFileRemovalFailure = "La commande n'est pas parvenue à supprimer le fichier contenant la copie statique."
         UmsFileRemovalFailure = "La commande n'est pas parvenue à supprimer le fichier UMS principal."
     }
-    RenameUmsManagedItem = @{
+    RenameUmsManagedFile = @{
         CacheFileRenameFailure = "La commande n'est pas parvenue à renommer le fichier contenant le cache des métadonnées."
         CompanionFileRenameFailure = "La commande n'est pas parvenue à renommer le fichier compagnion de l'élément UMS."
         StaticFileRenameFailure = "La commande n'est pas parvenue à renommer le fichier contenant la copie statique."
@@ -157,7 +155,7 @@
         StylesheetNotFound = "La feuille de style {0} n'existe pas ou n'est pas accessible."
         TransformFailure = "Une erreur s'est produite lors de la transformation XSLT."
     }
-    UpdateUmsManagedItem = @{
+    UpdateUmsManagedFile = @{
         MissingTarget = "Le fichier cible n'existe pas ou n'est pas accessible."
         PromotionFailure = "Echec de la promotion du fichier nouvellement généré en fichier de cache."
         TempFileRemovalFailure = "Un fichier temporaire n'a pas pu être supprimé."

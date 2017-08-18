@@ -1,17 +1,17 @@
-function Enable-ItemManagement
+function Enable-FileManagement
 {
     <#
     .SYNOPSIS
-    Enables UMS item management for the specified folder.
+    Enables UMS file management for the specified folder.
     
     .DESCRIPTION
-    This function creates the local folder structure which is needed to manage UMS items.
+    This function creates the local folder structure which is needed to manage UMS files.
     
     .PARAMETER Path
     A path to a valid folder. Default is the current folder.
     
     .EXAMPLE
-    Enable-UmsItemManagement -Path "D:\MyMusic"
+    Enable-UmsFileManagement -Path "D:\MyMusic"
     #>
 
     [CmdletBinding()]
@@ -23,7 +23,7 @@ function Enable-ItemManagement
     Begin
     {
         # Shortcut to messages
-        $Messages = $ModuleStrings.Commands.ItemManagement
+        $Messages = $ModuleStrings.Commands
     }
 
     Process
@@ -36,7 +36,7 @@ function Enable-ItemManagement
     
         try
         {
-            $_managementIsEnabled = [ItemManager]::TestManagement($Path)
+            $_managementIsEnabled = [FileManager]::TestManagement($Path)
         }
     
         # Catch any exception and abort.
@@ -44,7 +44,8 @@ function Enable-ItemManagement
         {
             [EventLogger]::LogException($_.Exception)
             [EventLogger]::LogWarning($Messages.InconsistentState)
-            [EventLogger]::LogWarning($Messages.TestAdvice)
+            [EventLogger]::LogWarning($Messages.RunCommandAdvice `
+                -f "Test-UmsItemManagement")
             return
         }
 
@@ -58,14 +59,14 @@ function Enable-ItemManagement
         # Enable UMS item management
         try
         {
-            [ItemManager]::EnableManagement($Path)
+            [FileManager]::EnableManagement($Path)
         }
-        catch [IMEnableManagementFailureException]
+        catch [FMEnableManagementFailureException]
         {
             [EventLogger]::LogException($_.Exception)
-            [EventLogger]::LogError($Messages.EnableFailure)
+            [EventLogger]::LogError($Messages.EnableManagementFailure)
         }
 
-        Write-Host $Messages.EnableSuccess
+        Write-Host $Messages.EnableManagementSuccess
     }   
 }

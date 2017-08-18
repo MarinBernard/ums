@@ -14,10 +14,10 @@ function Get-UmsMetadata
     Absolute URI to one or several UMS documents.
 
     .PARAMETER ManagedItem
-    One or several UmsManagedItem instances as returned by the Get-UmsManagedItem command.
+    One or several UmsManagedFile instances as returned by the Get-UmsManagedFile command.
 
     .PARAMETER Source
-    Allows to select the source to use to build metadata. This parameter is only available when input objects are UmsManagedItem instances, as returned by the Get-UmsManagedItem command. The default value of this parameter is "Cache", and will make the command return cached metadata, if available. If cached metadata are unavailable, the command will fallback to the static version of the UMS document, provided it is up-to-date. Finally, it will use raw metadata rendering if no other source is available. Unmanaged UMS items do not support static or cached versions and always use raw rendering.
+    Allows to select the source to use to build metadata. This parameter is only available when input objects are UmsManagedFile instances, as returned by the Get-UmsManagedFile command. The default value of this parameter is "Cache", and will make the command return cached metadata, if available. If cached metadata are unavailable, the command will fallback to the static version of the UMS document, provided it is up-to-date. Finally, it will use raw metadata rendering if no other source is available. Unmanaged UMS items do not support static or cached versions and always use raw rendering.
 
     .PARAMETER Silent
     If specified, informational and warning message won't be displayed.
@@ -38,7 +38,7 @@ function Get-UmsMetadata
 
         [Parameter(ParameterSetName='ItemInstance',Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
-        [UmsManagedItem] $ManagedItem,
+        [UmsManagedFile] $ManagedItem,
 
         [Parameter(ParameterSetName='ItemInstance')]
         [ValidateSet("Cache", "Static", "Raw")]
