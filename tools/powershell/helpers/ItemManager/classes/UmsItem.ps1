@@ -96,7 +96,7 @@ class UmsItem
         }
         catch [System.SystemException]
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [UIUriCreationFailureException]::New(
                 $this.File.FullName)
         }
@@ -109,7 +109,7 @@ class UmsItem
         }
         catch [System.SystemException]
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [UIUriCreationFailureException]::New(
                 $this.File.Directory.FullName)
         }
@@ -120,11 +120,11 @@ class UmsItem
         # Try to obtain the UmsDocument instance
         try
         {
-            $this.Document = [DocumentCache]::GetDocument($this.Uri)
+            $this.Document = [DocumentFactory]::GetDocument($this.Uri)
         }
-        catch [DocumentCacheException]
+        catch [DocumentFactoryException]
         {
-            Write-Error $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [UIDocumentCreationFailureException]::New($this.File)
         }
 

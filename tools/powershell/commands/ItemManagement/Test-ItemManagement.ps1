@@ -54,19 +54,24 @@ function Test-ItemManagement
         # Catch terminating exceptions
         catch [IMInconsistentStateException]
         {
-            Write-Error -Message $Messages.InconsistentState
+            [EventLogger]::LogException($_.Exception)
+            [EventLogger]::DumpEvents()
             return
         }
         catch [UmsException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
+            [EventLogger]::DumpEvents()
             return
         }
         catch
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
+            [EventLogger]::DumpEvents()
             return
         }
+
+        [EventLogger]::DumpEvents()
     
         # Output the result
         if ($_managementIsEnabled)

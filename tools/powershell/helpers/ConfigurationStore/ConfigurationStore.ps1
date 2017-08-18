@@ -49,7 +49,7 @@ class ConfigurationStore
         }
         catch
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [CSLoadConfigurationException]::New($ConfigFile)
         }
 
@@ -61,7 +61,7 @@ class ConfigurationStore
         }
         catch [System.Xml.XmlException]
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [CSLoadConfigurationException]::New($ConfigFile)
         }
 

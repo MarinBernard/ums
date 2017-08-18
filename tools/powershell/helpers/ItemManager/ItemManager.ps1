@@ -37,7 +37,7 @@ class ItemManager
         }
         catch [IMGetFolderFailureException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [IMDisableManagementFailureException]::New($Path)
         }
 
@@ -46,9 +46,8 @@ class ItemManager
         if (-not $_managementFolder.Exists) { return }
 
         # Try to remove the whole management directory
-        Write-Verbose -Message ($(
-            $VerbosePrefix + `
-            "Removing UMS management directory at location: {0}") `
+        [EventLogger]::LogVerbose(
+            "Removing UMS management directory at location: {0}" `
             -f $_managementFolder.FullName)
         try
         {            
@@ -59,7 +58,7 @@ class ItemManager
         }
         catch [System.IO.IOException]
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [IMDisableManagementFailureException]::New($Path)
         }
     }
@@ -80,7 +79,7 @@ class ItemManager
         }
         catch [IMGetFolderFailureException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [IMEnableManagementFailureException]::New($Path)
         }
 
@@ -89,9 +88,8 @@ class ItemManager
         if ($_managementFolder.Exists) { return }
 
         # Try to create the management folder
-        Write-Verbose -Message ($(
-            $VerbosePrefix + `
-            "Creating a UMS management directory at location: {0}") `
+        [EventLogger]::LogVerbose(
+            "Creating a UMS management directory at location: {0}" `
             -f $_managementFolder.FullName)        
         try
         {
@@ -99,7 +97,7 @@ class ItemManager
         }
         catch [System.IO.IOException]
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [IMEnableManagementFailureException]::New($Path)
         }
 
@@ -111,14 +109,13 @@ class ItemManager
         }
         catch [IMGetFolderFailureException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [IMEnableManagementFailureException]::New($Path)
         }
 
         # Try to create the cache folder
-        Write-Verbose -Message ($(
-            $VerbosePrefix + `
-            "Creating a UMS management cache directory at location: {0}") `
+        [EventLogger]::LogVerbose(
+            "Creating a UMS management cache directory at location: {0}" `
             -f $_cacheFolder.FullName)        
         try
         {
@@ -126,7 +123,7 @@ class ItemManager
         }
         catch [System.IO.IOException]
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [IMEnableManagementFailureException]::New($Path)
         }
 
@@ -138,14 +135,13 @@ class ItemManager
         }
         catch [IMGetFolderFailureException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [IMEnableManagementFailureException]::New($Path)
         }
 
         # Try to create the management folder
-        Write-Verbose -Message ($(
-            $VerbosePrefix + `
-            "Creating a UMS management static directory at location: {0}") `
+        [EventLogger]::LogVerbose(
+            "Creating a UMS management static directory at location: {0}" `
             -f $_staticFolder.FullName)        
         try
         {
@@ -153,7 +149,7 @@ class ItemManager
         }
         catch [System.IO.IOException]
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [IMEnableManagementFailureException]::New($Path)
         }
 
@@ -166,7 +162,7 @@ class ItemManager
             }
             catch [IMHideManagementFolderFailureException]
             {
-                Write-Error -Message $_.Exception.MainMessage
+                [EventLogger]::LogException($_.Exception)
                 throw [IMEnableManagementFailureException]::New($Path)
             }
         }
@@ -188,7 +184,7 @@ class ItemManager
         }
         catch [IMGetFolderFailureException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [IMTestManagementFailureException]::New($Path)
         }
 
@@ -203,7 +199,7 @@ class ItemManager
         }
         catch [IMGetFolderFailureException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [IMTestManagementFailureException]::New($Path)
         }
         
@@ -222,7 +218,7 @@ class ItemManager
         }
         catch [IMGetFolderFailureException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [IMTestManagementFailureException]::New($Path)
         }
         
@@ -256,7 +252,7 @@ class ItemManager
         }
         catch [IMGetFolderFailureException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [IMGetFolderFailureException]::New($Path, "cache")
         }        
 
@@ -268,7 +264,7 @@ class ItemManager
         }
         catch [ConfigurationStoreException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [IMGetFolderFailureException]::New($Path, "cache")
         }
 
@@ -311,7 +307,7 @@ class ItemManager
         }
         catch [ConfigurationStoreException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [IMGetFolderFailureException]::New($Path, "management")
         }        
 
@@ -337,7 +333,7 @@ class ItemManager
         }
         catch [IMGetFolderFailureException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [IMGetFolderFailureException]::New($Path, "static")
         } 
 
@@ -349,7 +345,7 @@ class ItemManager
         }
         catch [ConfigurationStoreException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [IMGetFolderFailureException]::New($Path, "static")
         }
 
@@ -378,7 +374,7 @@ class ItemManager
         }
         catch [IMGetFolderFailureException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [IMHideManagementFolderFailureException]::New($Path)
         }
 
@@ -390,9 +386,8 @@ class ItemManager
         }
 
         # Try to hide the management folder
-        Write-Verbose -Message ($(
-            $VerbosePrefix + `
-            "Hiding the UMS management directory at location: {0}") `
+        [EventLogger]::LogVerbose(
+            "Hiding the UMS management directory at location: {0}" `
             -f $_managementFolder.FullName)  
         try
         {
@@ -402,7 +397,7 @@ class ItemManager
         }
         catch [System.IO.IOException]
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [IMHideManagementFolderFailureException]::New($Path)
         }
     }

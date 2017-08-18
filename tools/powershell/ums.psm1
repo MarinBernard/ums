@@ -9,7 +9,6 @@
 ###############################################################################
 
 [ConfigurationStore]::LoadConfiguration("$PSScriptRoot\..\..\configuration.xml")
-#([configurationStore]::GetConverterItem("vorbiscomment").Options) | %{ Write-Host $_.GetType(); Write-Host $_.Id; Write-Host $_.Value}
 
 # Configuration file
 [xml] $global:ConfigurationDocument = Get-Content -Path "$PSScriptRoot\..\..\configuration.xml"
@@ -23,7 +22,7 @@ $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDire
 
 # Initialize the document cache
 [DocumentCache]::Initialize(
-    (Join-Path -Path $env:LocalAppData -ChildPath "UMSCache"))
+    (Join-Path -Path $env:LocalAppData -ChildPath "UMS\DocumentCache"))
 
 ###############################################################################
 # Exports

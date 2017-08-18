@@ -2,6 +2,9 @@
 # Entities and classes
 ###############################################################################
 
+# Event logger (Needed by all classes and helpers)
+. "$PSScriptRoot\helpers\EventLogger\EventLogger.ps1"
+
 # Base class for all exceptions (Needed by all classes and helpers)
 . "$PSScriptRoot\classes\UmsException.ps1"
 
@@ -13,13 +16,17 @@
 . "$PSScriptRoot\helpers\RelaxNgValidator\RelaxNgValidator.Exceptions.ps1"
 . "$PSScriptRoot\helpers\RelaxNgValidator\RelaxNgValidator.ps1"
 
-# Document cache (Needed by the ItemManager helper)
+# Document cache (Needed by the DocumentFactory helper)
 . "$PSScriptRoot\helpers\DocumentCache\classes\UmsDocument.Exceptions.ps1"
 . "$PSScriptRoot\helpers\DocumentCache\classes\UmsDocument.ps1"
 . "$PSScriptRoot\helpers\DocumentCache\classes\CachedDocument.Exceptions.ps1"
 . "$PSScriptRoot\helpers\DocumentCache\classes\CachedDocument.ps1"
 . "$PSScriptRoot\helpers\DocumentCache\DocumentCache.Exceptions.ps1"
 . "$PSScriptRoot\helpers\DocumentCache\DocumentCache.ps1"
+
+# Document factory (Needed by the ItemManager helper)
+. "$PSScriptRoot\helpers\DocumentFactory\DocumentFactory.Exceptions.ps1"
+. "$PSScriptRoot\helpers\DocumentFactory\DocumentFactory.ps1"
 
 # Item manager
 . "$PSScriptRoot\helpers\ItemManager\classes\UmsItem.Exceptions.ps1"

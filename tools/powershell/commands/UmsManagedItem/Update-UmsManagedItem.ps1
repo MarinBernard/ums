@@ -60,7 +60,7 @@ function Update-UmsManagedItem
             # Check whether the update is needed
             if (($ManagedItem.StaticVersion -eq [UmsItemVersionStatus]::Current) -and (-not $Force.IsPresent))
             {
-                Write-Verbose "Static version is up-to-date."
+                [EventLogger]::LogVerbose("Static version is up-to-date.")
             }
             else
             {
@@ -100,7 +100,7 @@ function Update-UmsManagedItem
                         -LiteralPath $_tempFileFullName `
                         -ErrorAction SilentlyContinue
                     
-                    Write-Error -Message $_.Exception.Message
+                    [EventLogger]::LogException($_.Exception)
                     return
                 }
 
@@ -162,7 +162,7 @@ function Update-UmsManagedItem
                 ($ManagedItem.CachedVersion -eq [UmsItemVersionStatus]::Current) -and
                 (-not $Force.IsPresent))
             {
-                Write-Verbose "Cached version is up-to-date."
+                [EventLogger]::LogVerbose("Cached version is up-to-date.")
             }
             else
             {
@@ -176,7 +176,7 @@ function Update-UmsManagedItem
                 }
                 catch [UmsException]
                 {
-                    Write-Error $_.Exception.MainMessage
+                    [EventLogger]::LogException($_.Exception)
                     throw [UmsManagedItemUpdateFailure]::New($ManagedItem)
                 }
 
@@ -202,7 +202,7 @@ function Update-UmsManagedItem
                         -LiteralPath $_tempFileFullName `
                         -ErrorAction SilentlyContinue
 
-                    Write-Error $_.Exception.Message
+                    [EventLogger]::LogException($_.Exception)
                     throw [UmsManagedItemUpdateFailure]::New($ManagedItem)
                 }
 

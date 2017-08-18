@@ -12,6 +12,28 @@ class DocumentCacheException : UmsException
 }
 
 ###############################################################################
+#   Exception class DCCacheDirectoryCreationFailureException
+#==============================================================================
+#
+#   Thrown by the [DocumentCache] class after a write operation to the on-disk
+#   cache has failed.
+#
+###############################################################################
+
+class DCCacheDirectoryCreationFailureException : DocumentCacheException
+{
+    DCCacheDirectoryCreationFailureException(
+        [System.IO.DirectoryInfo] $CacheDirectory
+    ) : base()
+    {
+        $this.MainMessage =  ($(
+            "Unable to create the document cache directory " + `
+            "at the following location: {0}") `
+            -f $CacheDirectory.FullName)
+    }
+}
+
+###############################################################################
 #   Exception class DCCacheWriteFailureException
 #==============================================================================
 #
@@ -24,33 +46,35 @@ class DCCacheWriteFailureException : DocumentCacheException
 {
     DCCacheWriteFailureException(
         [System.Uri] $Uri,
-        [string] $CacheFileName
+        [System.IO.FileInfo] $CacheFile
     ) : base()
     {
         $this.MainMessage =  ($(
-            "The document at the following URI could not be written " + `
-            "to the on-disk cache store: {0}") `
+            "The document at the following URI could not be saved " + `
+            "as an on-disk cache file: {0}") `
             -f $Uri.AbsoluteUri)
         
-        $this.SubMessages += ("Cache file name: {0}" -f $CacheFileName)
+        $this.SubMessages += ("Cache file name: {0}" -f $CacheFile.FullName)
     }
 }
 
 ###############################################################################
-#   Exception class DCDocumentRetrievalFailureException
+#   Exception class DCGetCacheFileFailureException
 #==============================================================================
 #
-#   Thrown by the [DocumentCache] class when a remote document cannot be
-#   be retrieved.
+#   Thrown when the [DocumentCache]::GetCacheFile method meets a fatal failure.
 #
 ###############################################################################
 
-class DCDocumentRetrievalFailureException : DocumentCacheException
+class DCGetCacheFileFailureException : DocumentCacheException
 {
-    DCDocumentRetrievalFailureException([System.Uri] $Uri) : base()
+    DCGetCacheFileFailureException(
+        [System.Uri] $Uri
+    ) : base()
     {
-        $this.MainMessage = (
-            "The document at the following URI cannot not be retrieved: {0}" `
+        $this.MainMessage =  ($(
+            "Unable to build a reference to a cache file for the resource " + `
+            "at the following location: {0}") `
             -f $Uri.AbsoluteUri)
     }
 }
@@ -87,31 +111,30 @@ class DCHashGenerationFailureException : DocumentCacheException
 
 class DCNewCachedDocumentFailureException : DocumentCacheException
 {
-    DCNewCachedDocumentFailureException([string] $FullPath) : base()
+    DCNewCachedDocumentFailureException([System.IO.FileInfo] $File) : base()
     {
         $this.MainMessage = ($(
-            "Unable to create a CacheDocument from the file " + `
-            "at the following location: {0}") `
-            -f $FullPath)
+            "Unable to create a cached document instance " + `
+            "from the cache file at the following location: {0}") `
+            -f $File.FullName)
     }
 }
 
 ###############################################################################
-#   Exception class DCResponseConversionFailureException
+#   Exception class DCCacheMissException
 #==============================================================================
 #
-#   Thrown by the [CachedDocument] class if a fetched resource cannot be
-#   converted to UTF-8.
+#   Thrown when the ::GetDocument() method has no document to return.
 #
 ###############################################################################
 
-class DCResponseConversionFailureException : DocumentCacheException
+class DCCacheMissException : DocumentCacheException
 {
-    DCResponseConversionFailureException([System.Uri] $Uri) : base()
+    DCCacheMissException([System.Uri] $Uri) : base()
     {
         $this.MainMessage = ($(
-            "The resource at the following location " + `
-            "cannot be converted to UTF-8: {0}") `
+            "The cache contains no cached version of the document " + `
+            "at the following location: {0}") `
             -f $Uri.AbsoluteUri)
     }
 }

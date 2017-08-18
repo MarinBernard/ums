@@ -29,7 +29,7 @@ function Get-Item
         # Give up now if file does not exist
         if (-not $Path.Exists)
         {
-            Write-Error $Messages.FileNotFound
+            [EventLogger]::LogError($Messages.FileNotFound)
             return
         }
 
@@ -40,7 +40,7 @@ function Get-Item
         }
         catch [UmsItemException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             return
         }
 

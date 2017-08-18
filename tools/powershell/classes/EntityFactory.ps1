@@ -44,8 +44,8 @@ class EntityFactory
         [string] $Uid = "")
     {
         $_verbosePrefix = "[EntityFactory]::ParseDocument(): "
-        Write-Verbose $(
-            $_verbosePrefix + "About to retrieve document with URI " + $Uri)
+        [EventLogger]::LogVerbose(
+            "About to retrieve document with URI: {0}" -f $Uri)
         
         # Read target document and convert it to UTF-8
         $_response = Invoke-WebRequest -Uri $Uri -UseBasicParsing
@@ -57,10 +57,9 @@ class EntityFactory
             $Uri.AbsoluteUri.Substring(
                 0,
                 $Uri.AbsoluteUri.Length - $Uri.Segments[-1].Length
-            )
-        ).AbsoluteUri
-        Write-Verbose $(
-            $_verbosePrefix + "Built source path URI: " + $_sourcePathUri)
+            )).AbsoluteUri
+        [EventLogger]::LogVerbose(
+            "Built source path URI: {0}" -f $_sourcePathUri)
 
         # Get first usable element. This is needed in binding context, since
         # the file root element is only used as a content wrapper and is
@@ -78,10 +77,9 @@ class EntityFactory
             { $_element = $_document.DocumentElement }
 
         # Log first usable element
-        Write-Verbose $(
-            $_verbosePrefix + "First usable element is '" + `
-            $_element.LocalName + "' from namespace '" + `
-            $_element.NamespaceURI + "'")
+        [EventLogger]::LogVerbose(
+            "First usable element is '{0}', from namespace '{1}'" `
+            -f $_element.LocalName,$_element.NamespaceURI)
 
         # Add transclusion attributes to the element.
         # "src" attribute is the absolute URI to the source document.
@@ -99,14 +97,10 @@ class EntityFactory
         [string] $SourcePathUri,
         [string] $SourceFileUri)
     {
-        # Verbose prefix
-        $_verbosePrefix = "[EntityFactory]::GetEntity(): "
-
         # Log beginning
-        Write-Verbose $(
-            $_verbosePrefix + "Beginning to process element '" + `
-            $XmlElement.LocalName + "' from namespace '" + `
-            $XmlElement.NamespaceURI + "'.")
+        [EventLogger]::LogVerbose(
+            "Beginning to process element '{0}' from namespace '{1}'." `
+            -f $XmlElement.LocalName,$XmlElement.NamespaceURI)
 
         # If the Xml element is null, we halt there
         if ($XmlElement -eq $null) { throw [NullXmlElementException] }
@@ -120,8 +114,7 @@ class EntityFactory
             # instantiated.
             if ($XmlElement.ChildNodes.Count -eq 0)
             {
-                Write-Verbose $(
-                    $_verbosePrefix + `
+                [EventLogger]::LogVerbose(
                     "The XML element describes a UMS reference.")
 
                 # Gather all possible matches
@@ -132,11 +125,11 @@ class EntityFactory
                 [UmsAeEntity] $_instance = $null
                 foreach ($_uri in $_uris)
                 {
-                    # Check whether a cached version exists with the current URI
+                    # Check whether a cached version exists
+                    # with the current URI
                     if ([EntityFactory]::HasCachedEntity($XmlElement, $_uri))
                     {
-                        Write-Verbose $(
-                            $_verbosePrefix + `
+                        [EventLogger]::LogVerbose(
                             "A cached entity matching the element was found.")
 
                         $_instance = [EntityFactory]::GetCachedEntity(
@@ -146,31 +139,22 @@ class EntityFactory
                     # If no cached entity was found, perform transclusion
                     else
                     {
-                        Write-Verbose $(
-                            $_verbosePrefix + `
+                        [EventLogger]::LogVerbose(
                             "No cached entity matching the element was " + `
                             "found. Beginning transclusion.")
 
                         try
                         {
-                            Write-Verbose $(
-                                $_verbosePrefix + `
-                                "Calling ParseDocument() with URI " + $_uri)
+                            [EventLogger]::LogVerbose(
+                                "Calling ParseDocument() with URI: {0}" -f $_uri)
 
                             $_instance = [EntityFactory]::ParseDocument(
                                 $_uri, $XmlElement.GetAttribute("uid"))
                         }
                         catch [System.Net.WebException]
                         {
-                            Write-Verbose $(
-                                $_verbosePrefix + `
-                                "Recoverable instantiation failure.")
-
-                            Write-Verbose $(
-                                $_verbosePrefix + `
-                                "Exception message: " + `
-                                $_.Exception.Message)
-                                
+                            [EventLogger]::LogVerbose("Recoverable instantiation failure.")
+                            [EventLogger]::LogException($_.Exception)  
                             continue
                         }
                     }
@@ -196,23 +180,20 @@ class EntityFactory
             # does not need to be transcluded.
             else
             {
-                Write-Verbose $(
-                    $_verbosePrefix + `
+                [EventLogger]::LogVerbose($(
                     "The XML element describes a UMS reference which was" + `
-                    "previously transcluded.")
+                    "previously transcluded."))
                 
                 # Check whether the element is already cached, and return
                 # the cached instance if it is.
-                Write-Verbose $(
-                    $_verbosePrefix + `
+                [EventLogger]::LogVerbose($(
                     "Querying the cache for an entity instantiated " + `
-                    "from a file with URI: " + $SourceFileUri)
+                    "from a file with URI: {0}") -f $SourceFileUri)
 
                 if ([EntityFactory]::HasCachedEntity(
                     $XmlElement, $SourceFileUri))
                 {
-                    Write-Verbose $(
-                        $_verbosePrefix + `
+                    [EventLogger]::LogVerbose(
                         "A cached entity matching the element was found.")
 
                     return [EntityFactory]::GetCachedEntity(
@@ -222,8 +203,7 @@ class EntityFactory
                 else
                 {
                     # Increase cache miss count
-                    Write-Verbose $(
-                        $_verbosePrefix + `
+                    [EventLogger]::LogVerbose(
                         "No cached entity matching the element was found.")
                     [EntityFactory]::CacheMissCount += 1
 
@@ -237,10 +217,9 @@ class EntityFactory
 
         # Else, the entity is not eligible to cache
         # Increase cache skip count
-        Write-Verbose $(
-            $_verbosePrefix + `
+        [EventLogger]::LogVerbose($(
             "The XML element describes a regular UMS value which is not " + `
-            "eligible to caching.")
+            "eligible to caching."))
         [EntityFactory]::CacheSkipCount += 1
 
         # Return an uncached entity
@@ -263,12 +242,11 @@ class EntityFactory
         # Verbose prefix
         $_verbosePrefix = "[EntityFactory]::NewEntity(): "
 
-        Write-Verbose $($_verbosePrefix + "Source URI is: " + $Uri)
-        Write-Verbose $(
-            $_verbosePrefix + `
-            "Beginning entity instantiation from element '" + `
-            $XmlElement.LocalName + "' from namespace '" + `
-            $XmlElement.NamespaceURI + "'.")
+        [EventLogger]::LogVerbose("Source URI is: {0}" -f $Uri)
+        [EventLogger]::LogVerbose($(
+            "Beginning entity instantiation from element '{0}' " + `
+            "from namespace '{1}'") `
+            -f $XmlElement.LocalName,$XmlElement.NamespaceURI)
         
         # Increase instantiation count
         [EntityFactory]::InstantiationCount += 1
@@ -532,8 +510,7 @@ class EntityFactory
         $_fileRelativeUri = (
             [System.Uri]::New($_fileName, [System.UriKind]::Relative))
 
-        Write-Verbose $(
-            $_verbosePrefix + "Target file name is: " + $_fileName)
+        [EventLogger]::LogVerbose("Target file name is: {0}" -f $_fileName)
         
         # Gather a list of potential catalog sub-paths
         [System.Uri[]] $_uris = [EntityFactory]::GetUmsCatalogCandidateUri(
@@ -546,7 +523,9 @@ class EntityFactory
         
         # Log URI candidates
         foreach ($_uri in $_uris)
-            {  Write-Verbose $($_verbosePrefix + "Found candidate URI: " + $_uri) }
+        {
+            [EventLogger]::LogVerbose("Found candidate URI: {0}" + $_uri)
+        }
 
         # Return the list of candidate URIs
         return $_uris
@@ -561,11 +540,10 @@ class EntityFactory
     {
         # Verbose prefix
         $_verbosePrefix = "[EntityFactory]::GetUmsCatalogCandidateUri(): "
-        Write-Verbose $(
-            $_verbosePrefix + `
+        [EventLogger]::LogVerbose($(
             "Searching candidate URIs in all configured catalogs " + `
-            "for element '" + $XmlElement + "' " + `
-            "from namespace '" + $XmlNamespace + "'.")
+            "for element '{0}' from namespace '{1}'") `
+            -f $XmlElement,$XmlNamespace)
 
         # The list of candidate URIs which will be returned by the method.
         [System.Uri[]] $_list = @()
@@ -573,18 +551,17 @@ class EntityFactory
         # Enumerating all known catalogs.
         foreach ($_catalog in [ConfigurationStore]::GetCatalogItem(""))
         {
-            Write-Verbose $(
-                $_verbosePrefix + "Evaluating catalog with id '" + `
-                $_catalog.Id + "' and namespace '" + `
-                $_catalog.XmlNamespace + "'.")
+            [EventLogger]::LogVerbose($(
+                "Evaluating catalog with id '{0}' and namespace '{1}'") `
+                -f $_catalog.Id,$_catalog.XmlNamespace)
 
             # If the catalog is bound to the namespace of the UMS reference,
             # let's try to find a suitable sub-path.
             if ($_catalog.XmlNamespace -eq $XmlNamespace)
             {
-                Write-Verbose $(
-                    $_verbosePrefix + "Catalog with id '" + `
-                    $_catalog.Id + "' matches the element namespace.")
+                [EventLogger]::LogVerbose($(
+                    "Catalog with id '{0}' matches the element namespace.") `
+                    -f $_catalog.Id)
                 
                 # Catalog URI is assumed as absolute, and will be used as a
                 # base path for all derived candidate URIs.
@@ -598,9 +575,10 @@ class EntityFactory
                     # included to the list of candidate locations.
                     if ($_mapping.Element -eq $XmlElement)
                     {
-                        Write-Verbose $(
-                            $_verbosePrefix + "Mapping with sub-path '" + `
-                            $_mapping.SubPath + "' matches element name.")
+                        [EventLogger]::LogVerbose($(
+                            "Mapping with sub-path '{0}' " + `
+                            "matches element name.") `
+                            -f $_mapping.SubPath)
 
                         # Building the absolute URI of the document in the
                         # current catalog sub-path.
@@ -609,23 +587,20 @@ class EntityFactory
                                 $($_mapping.SubPath + "/"),
                                 [System.UriKind]::Relative))
 
-                        Write-Verbose $(
-                            $_verbosePrefix + `
-                            "Sub-path relative URI is: " + $_mappingUri)
+                        [EventLogger]::LogVerbose(
+                            "Sub-path relative URI is: {0}" -f $_mappingUri)
                         
                         $_subPathUri = [System.Uri]::New(
                             $_catalogUri, $_mappingUri)
 
-                        Write-Verbose $(
-                            $_verbosePrefix + `
-                            "Sub-path absolute URI is: " + $_subPathUri)
+                        [EventLogger]::LogVerbose(
+                            "Sub-path absolute URI is: {0}" -f $_subPathUri)
 
                         $_candidateUri = [System.Uri]::New(
                             $_subPathUri, $LeafUri)
 
-                        Write-Verbose $(
-                            $_verbosePrefix + `
-                            "Candidate absolute URI is: " + $_candidateUri)
+                        [EventLogger]::LogVerbose(
+                            "Candidate absolute URI is: {0}" -f $_candidateUri)
 
                         # Adding the URI to the list of candidate URIs
                         $_list += $_candidateUri

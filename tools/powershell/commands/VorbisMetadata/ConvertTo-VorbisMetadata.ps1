@@ -43,7 +43,7 @@ function ConvertTo-VorbisMetadata
         }
         catch [CVValidationFailureException]
         {
-            Write-Error $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [UmsManagedItemMetadataConversionFailure]::New($ManagedItem)
         }
 
@@ -57,7 +57,7 @@ function ConvertTo-VorbisMetadata
         }
         catch [VorbisCommentConverterException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [UmsManagedItemMetadataConversionFailure]::New($ManagedItem)
         }
     }

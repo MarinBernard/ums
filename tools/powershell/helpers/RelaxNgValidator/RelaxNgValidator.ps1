@@ -54,7 +54,7 @@ class RelaxNgValidator
         }
         catch [ConfigurationStoreException]
         {
-            Write-Error -Message $_.Exception.Message
+            [EventLogger]::LogException($_.Exception)
             throw [RNVGetJrePathFailureException]::New()
         }
 
@@ -73,7 +73,7 @@ class RelaxNgValidator
         }
         catch [ConfigurationStoreException]
         {
-            Write-Error -Message $_.Exception.Message
+            [EventLogger]::LogException($_.Exception)
             throw [RNVGetJingJarPathFailureException]::New()
         }
 
@@ -121,12 +121,9 @@ class RelaxNgValidator
         )
 
         # Verbose logging
-        Write-Verbose -Message $(
-            $VerbosePrefix + `    
-            "Invoking the Jing validator with invocation string: " + `
-            ([RelaxNgValidator]::PathToJre) + `
-            " " + `
-            $_arguments)
+        [EventLogger]::LogVerbose(
+            "Invoking the Jing validator with invocation string: {0}" `
+            -f $(([RelaxNgValidator]::PathToJre) + " " + $_arguments))
         
         # Invoke Jing validator
         [int] $_exitCode = $null
@@ -137,7 +134,7 @@ class RelaxNgValidator
         }
         catch
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [RNVValidationFailureException]::New($Uri.AbsoluteUri)
         }
         

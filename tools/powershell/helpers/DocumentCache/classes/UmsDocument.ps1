@@ -88,7 +88,7 @@ class UmsDocument
         }
         catch [System.Xml.XmlException]
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [UDParseFailureException]::New()
         }
 
@@ -99,7 +99,7 @@ class UmsDocument
         }
         catch [UDBadRootNamespaceException]
         {
-            Write-Error -Message $_.Exception.Message
+            [EventLogger]::LogException($_.Exception)
             throw $_.Exception
         }
 
@@ -110,7 +110,7 @@ class UmsDocument
         }
         catch [UDBadBindingNamespaceException]
         {
-            Write-Error -Message $_.Exception.Message
+            [EventLogger]::LogException($_.Exception)
             throw $_.Exception
         }
 
@@ -125,7 +125,7 @@ class UmsDocument
         }
         catch [ConfigurationStoreException]
         {
-            Write-Error -Message $_.Exception.Message
+            [EventLogger]::LogException($_.Exception)
             throw [UDBadRootNamespaceException]::New($this.RootNamespace)
         }
     }
@@ -165,7 +165,7 @@ class UmsDocument
         }
         catch [ConfigurationStoreException]
         {
-            Write-Error -Message $_.Exception.Message
+            [EventLogger]::LogException($_.Exception)
             throw [UDBadBindingNamespaceException]::New($this.BindingNamespace)
         }
     }
@@ -214,7 +214,7 @@ class UmsDocument
        }
        catch [ConfigurationStoreException]
        {
-           Write-Error -Message $_.Exception.Message
+        [EventLogger]::LogException($_.Exception)
            throw [UDBadRootNamespaceException]::New($this.RootNamespace)
        }
     }
@@ -222,6 +222,13 @@ class UmsDocument
     ###########################################################################
     # Helpers
     ###########################################################################
+
+    # Return the document as a XML string.
+    # This method does not throw any exception.
+    [string] ToXmlString()
+    {
+        return $this.XmlDocument.OuterXml
+    }
 
     # Validates the document against a UMS schema, then updates the $Validity
     # property according to the result of the validation.
@@ -252,7 +259,7 @@ class UmsDocument
         # Documentation is missing for PS exceptions.
         catch [System.Exception]
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [UDValidationFailureException]::New()
         }
 
@@ -263,7 +270,7 @@ class UmsDocument
         }
         catch [System.Xml.XmlException]
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [UDValidationFailureException]::New()
         }
 

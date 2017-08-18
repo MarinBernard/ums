@@ -62,7 +62,7 @@ function ConvertTo-ForeignMetadata
         }
         catch [CVValidationFailureException]
         {
-            Write-Error $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw($_.Exception)
         }
         
@@ -87,12 +87,12 @@ function ConvertTo-ForeignMetadata
         }
         catch [UmsException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw($_.Exception)
         }        
         catch [System.Exception]
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw($_.Exception)
         }
     }

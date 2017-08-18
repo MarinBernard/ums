@@ -86,10 +86,9 @@ class UmsBaeStandard : UmsBaeItem
 
         [string] $_string = ""
 
-        Write-Verbose $(
-            $_verbosePrefix + `
-            "Beginning to construct an ID for standard: " + `
-            $this.ToString())
+        [EventLogger]::LogVerbose(
+            "Beginning to construct an ID for standard: {0}" `
+            -f $this.ToString())
 
         foreach ($_segment in $this.Segments)
         {            
@@ -99,10 +98,9 @@ class UmsBaeStandard : UmsBaeItem
 
             if ($_idSegment)
             {
-                Write-Verbose $(
-                    $_verbosePrefix + `
-                    "Matching segment found with value: " + `
-                    $_idSegment.Value)
+                [EventLogger]::LogVerbose(
+                    "Matching segment found with value: {0}" `
+                    -f $_idSegment.Value)
                 
                 $_string += $_segment.GetPrefix()
                 $_string += $_idSegment.Value
@@ -111,8 +109,7 @@ class UmsBaeStandard : UmsBaeItem
             # If no match was found and the segment was mandatory
             elseif ($_segment.Mandatory)
             {
-                Write-Verbose $(
-                    $_verbosePrefix + `
+                [EventLogger]::LogVerbose(
                     "No matching segment found but the segment is mandatory.")
                 
                 throw [MandatoryStandardIdSegmentNotFoundException]::New(
@@ -122,10 +119,8 @@ class UmsBaeStandard : UmsBaeItem
             # If no match was found and the segment was optional
             else
             {
-                Write-Verbose $(
-                    $_verbosePrefix + `
-                    "No matching segment found but the segment is optional. Continuing.")
-                
+                [EventLogger]::LogVerbose(
+                    "No matching segment found but the segment is optional.")
                 continue;
             }
         }

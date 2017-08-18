@@ -70,8 +70,10 @@ function Invoke-XslTransformer
     }
 
     # Invoke Saxon PE
-    Write-Verbose "Saxon invocation string:"
-    Write-Verbose $($_jreBinPath + $_arguments )
+    [EventLogger]::LogDebug(
+        "Saxon invocation string: {0}" `
+        -f $($_jreBinPath + $_arguments ))
+    
     if([bool](Write-Verbose ([String]::Empty) 4>&1))
     {
         & $_jreBinPath $_arguments

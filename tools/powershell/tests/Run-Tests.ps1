@@ -33,12 +33,14 @@ function ShowUmsException($Exception)
 
     if ($Exception.MainMessage)
     {
-        Write-Error -Message $Exception.MainMessage
+        [EventLogger]::LogException($_.Exception)
         $Exception.SubMessages | foreach { Write-Host $_ }
         return
     }
     else
-        { Write-Error -Message $Exception.Message }
+    {
+        [EventLogger]::LogException($_.Exception)
+    }
 }
 
 try
@@ -47,13 +49,9 @@ try
     ([EntityFactory]::ParseDocument($_uri, "test")).Performances[0].Place.CountryDivision
 
 }
-catch [UmsException]
-{
-    Write-Error $_.Exception.MainMessage
-}
 catch
 {
-    ShowUmsException $_.Exception
+    [EventLogger]::LogException($_.Exception)
 }
 
 #[EntityFactory]::MeasureCache()

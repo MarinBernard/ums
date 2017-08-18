@@ -86,7 +86,7 @@ class CachedDocument
         }
         catch [System.IO.IOException]
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [CDFileReadFailureException]::New($this.File.FullName)
         }
 
@@ -98,7 +98,7 @@ class CachedDocument
         }
         catch [UmsDocumentException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [CDFileParseFailureException]::New($this.File.FullName)
         }
 

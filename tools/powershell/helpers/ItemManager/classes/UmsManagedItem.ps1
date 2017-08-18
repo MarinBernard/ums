@@ -81,7 +81,7 @@ class UmsManagedItem : UmsItem
         }
         catch [UmsItemException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [UmsItemException]::New()
         }
         
@@ -92,7 +92,7 @@ class UmsManagedItem : UmsItem
         }
         catch [UmsItemException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [UmsItemException]::New()
         }
         
@@ -103,7 +103,7 @@ class UmsManagedItem : UmsItem
         }
         catch [UmsItemException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [UmsItemException]::New()
         }
 
@@ -114,7 +114,7 @@ class UmsManagedItem : UmsItem
         }
         catch [UmsItemException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [UmsItemException]::New()
         }
        
@@ -125,7 +125,7 @@ class UmsManagedItem : UmsItem
         }
         catch [UmsItemException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [UmsItemException]::New()
         }
     }
@@ -150,7 +150,7 @@ class UmsManagedItem : UmsItem
         }
         catch [System.SystemException]
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [UIGetManagementFolderFailureException]::New(
                 $this.File, "management")
         }
@@ -164,13 +164,13 @@ class UmsManagedItem : UmsItem
         }
         catch [ItemManagerException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [UIGetManagementFolderFailureException]::New(
                 $this.File, "content")
         }
         catch [System.SystemException]
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [UIUriCreationFailureException]::New($this.ContentFolder)
         }
         
@@ -183,13 +183,13 @@ class UmsManagedItem : UmsItem
         }
         catch [ItemManagerException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [UIGetManagementFolderFailureException]::New(
                 $this.File, "cache")
         }
         catch [System.SystemException]
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [UIUriCreationFailureException]::New($this.CacheFolder)
         }
 
@@ -202,13 +202,13 @@ class UmsManagedItem : UmsItem
         }
         catch [ItemManagerException]
         {
-            Write-Error -Message $_.Exception.MainMessage
+            [EventLogger]::LogException($_.Exception)
             throw [UIGetManagementFolderFailureException]::New(
                 $this.File, "static")
         }
         catch [System.SystemException]
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [UIUriCreationFailureException]::New($this.StaticFolder)
         }
     }
@@ -229,7 +229,7 @@ class UmsManagedItem : UmsItem
         }
         catch [System.SystemException]
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [UIUriCreationFailureException]::New($this.StaticFile)
         }
 
@@ -267,7 +267,7 @@ class UmsManagedItem : UmsItem
         }
         catch [System.SystemException]
         {
-            Write-Error -Exception $_.Exception
+            [EventLogger]::LogException($_.Exception)
             throw [UIUriCreationFailureException]::New($this.CacheFile)
         }
 
@@ -310,7 +310,7 @@ class UmsManagedItem : UmsItem
             }
             catch [System.SystemException]
             {
-                Write-Error -Exception $_.Exception
+                [EventLogger]::LogException($_.Exception)
                 throw [UIUriCreationFailureException]::New($this.ContentFile)
             }
         }
