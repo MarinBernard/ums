@@ -32,6 +32,9 @@ $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDire
 Export-ModuleMember -Function Get-UmsCachedDocument
 Export-ModuleMember -Function Remove-UmsCachedDocument
 
+# *-UmsCachedEntity
+Export-ModuleMember -Function Get-UmsCachedEntity
+
 # *-UmsDocument
 Export-ModuleMember -Function Get-UmsDocument
 
@@ -39,6 +42,11 @@ Export-ModuleMember -Function Get-UmsDocument
 Export-ModuleMember -Function Clear-UmsDocumentCache
 Export-ModuleMember -Function Reset-UmsDocumentCache
 Export-ModuleMember -Function Measure-UmsDocumentCache
+
+# *-UmsEntityCache
+Export-ModuleMember -Function Clear-UmsEntityCache
+Export-ModuleMember -Function Measure-UmsEntityCache
+Export-ModuleMember -Function Reset-UmsEntityCache
 
 # *-UmsFile
 Export-ModuleMember -Function Get-UmsFile
@@ -58,11 +66,6 @@ Export-ModuleMember -Function Update-UmsManagedFile
 
 # *-UmsMetadata
 Export-ModuleMember -Function Get-UmsMetadata
-
-# *-UmsMetadataCache
-Export-ModuleMember -Function Get-UmsMetadataCache
-Export-ModuleMember -Function Measure-UmsMetadataCache
-Export-ModuleMember -Function Reset-UmsMetadataCache
 
 # *-VorbisMetadata
 Export-ModuleMember -Function ConvertTo-VorbisMetadata

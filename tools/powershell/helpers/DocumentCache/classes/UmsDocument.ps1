@@ -28,8 +28,17 @@ class UmsDocument
     # The in-memory XML representation of the UMS document.
     [System.Xml.XmlDocument] $XmlDocument
 
+    # Uri to the source of the document. Set up at instance construction,
+    # unless the instance is built by a CachedDocument instance. In that last
+    # case, the SourceUri is blank, and will be updated at a later time by
+    # the [DocumentCache] class.
+    [System.Uri] $SourceUri
+
     # Uri to the authoritative schema file. Needed for validation.
     hidden [System.Uri] $SchemaFileUri
+
+    # The naming status of the SourceURI property.
+    [UmsDocumentSourceUriStatus] $SourceUriStatus
 
     # Properties describing the document element of the document.
            [string] $RootSchema         # Id of the doc element namespace
@@ -70,18 +79,50 @@ class UmsDocument
     ###########################################################################
 
     # Default constructor. Builds an instance from a UMS document passed as a
-    # simple string. Throws:
+    # simple string.
+    # Throws: same exceptions as ConstructDocument()
+    UmsDocument([string] $DocumentString)
+    {
+        [EventLogger]::LogVerbose("Constructor was called without a source URI.")
+        $this.ConstructDocument($DocumentString)
+    }
+
+    # Proxy to the main constructor. SourceUri is specified at construction
+    # time.
+    # Throws: same exceptions as ConstructDocument()
+    UmsDocument([string] $DocumentString, [System.Uri] $SourceUri)
+    {
+        [EventLogger]::LogVerbose(
+            "Constructor was called with the following source URI: {0}" `
+            -f $SourceUri.AbsoluteUri)
+        
+        $this.ConstructDocument($DocumentString)
+        $this.UpdateSourceUri($SourceUri)
+    }
+
+    ###########################################################################
+    # Sub-constructors
+    ###########################################################################
+
+    # Actual constructor. Stored in another method as it is shared by several
+    # constructor overloadings.
+    # Throws:
     #   - [UDParseFailureException] if the document cannot be parsed.
     #   - [UDBadRootNamespaceException] if the document element belongs to an
     #       unsupported XML namespace.
     #   - [UDBadbindingNamespaceException] if the binding element belongs to an
     #       unsupported XML namespace.
-    UmsDocument([string] $DocumentString)
+    [void] ConstructDocument([string] $DocumentString)
     {
-        # Set default validity
+        [EventLogger]::LogVerbose(
+            "Beginning to construct the UmsDocument instance.")
+
+        # Set default validity and SourceUri status
         $this.Validity = [UmsDocumentValidity]::Unknown
+        $this.UpdateSourceUriStatus()
 
         # Try to instantiate the XML document.
+        [EventLogger]::LogVerbose("Parsing the XML document.")
         try
         {
             $this.XmlDocument = [System.Xml.XmlDocument] ($DocumentString)
@@ -93,6 +134,7 @@ class UmsDocument
         }
 
         # Construct root element properties
+        [EventLogger]::LogVerbose("Initializing root element properties.")
         try
         {
             $this.ConstructRootElementProperties()
@@ -104,6 +146,7 @@ class UmsDocument
         }
 
         # Construct binding element properties
+        [EventLogger]::LogVerbose("Initializing binding element properties.")
         try
         {
             $this.ConstructBindingElementProperties()
@@ -115,9 +158,11 @@ class UmsDocument
         }
 
         # Elect the main element and init its properties
+        [EventLogger]::LogVerbose("Electing the main element.")
         $this.ConstructMainElementProperties()
 
         # Store the URI to the schema file
+        [EventLogger]::LogVerbose("Resolving schema URI.")
         try
         {
             $this.SchemaFileUri = [System.Uri] (
@@ -129,10 +174,6 @@ class UmsDocument
             throw [UDBadRootNamespaceException]::New($this.RootNamespace)
         }
     }
-
-    ###########################################################################
-    # Sub-constructors
-    ###########################################################################
 
     # Sets up all properties related to the binding element.
     # Throws:
@@ -220,6 +261,43 @@ class UmsDocument
     }
 
     ###########################################################################
+    # Updaters
+    ###########################################################################
+
+    # Updates the value of the SourceUri property.
+    # Throws:
+    #   - [UDDuplicateSourceUriUpdateException] if the value of the SourceUri
+    #       property was already update before, which is an unsupported
+    #       scenario.
+    [void] UpdateSourceUri([System.Uri] $Uri)
+    {
+        if ($this.SourceUri -eq $null)
+        {
+            $this.SourceUri = $Uri
+            $this.UpdateSourceUriStatus()
+        }
+        else
+        {
+            throw [UDDuplicateSourceUriUpdateException]::New()
+        }
+    }
+
+    # Updates the value of the SourceUriStatus property.
+    # Throws no exception at all.
+    [void] UpdateSourceUriStatus()
+    {
+        if ($this.SourceUri -eq $null)
+        {
+            $this.SourceUriStatus = [UmsDocumentSourceUriStatus]::Absent
+        }
+        else
+        {
+            $this.SourceUriStatus = [UmsDocumentSourceUriStatus]::Present
+        }
+    }
+
+
+    ###########################################################################
     # Helpers
     ###########################################################################
 
@@ -303,9 +381,36 @@ class UmsDocument
     }
 }
 
+###############################################################################
+#   Enum UmsDocumentValidity
+#==============================================================================
+#
+#   This enum defines the different states of validity of the Xml document.
+#   The "unknown" value is default. It changes to Valid or Invalid after the
+#   XML document was validated against a schema, which occurs on-demand.
+#
+###############################################################################
+
 Enum UmsDocumentValidity
 {
     Unknown
     Valid
     Invalid
+}
+
+###############################################################################
+#   Enum UmsDocumentSourceUriStatus
+#==============================================================================
+#
+#   This enum defines the different states of the SourceUri property. The
+#   default value is "Absent", which means the SourceUri property has a
+#   $null value. It changes to "Present" after the UpdateSourceUri() method
+#   was called.
+#
+###############################################################################
+
+Enum UmsDocumentSourceUriStatus
+{
+    Absent
+    Present
 }

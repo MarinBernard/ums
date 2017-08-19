@@ -36,11 +36,11 @@ function Get-UmsMetadata
         [ValidateNotNull()]
         [System.Uri] $Uri,
 
-        [Parameter(ParameterSetName='ItemInstance',Position=0,Mandatory=$true,ValueFromPipeline=$true)]
+        [Parameter(ParameterSetName='FileInstance',Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
-        [UmsManagedFile] $ManagedItem,
+        [UmsFile] $File,
 
-        [Parameter(ParameterSetName='ItemInstance')]
+        [Parameter(ParameterSetName='FileInstance')]
         [ValidateSet("Cache", "Static", "Raw")]
         [string] $Source = "Cache",
 
@@ -67,15 +67,16 @@ function Get-UmsMetadata
         }
 
         # If a UMS item is supplied, we just map the properties
-        if ($PSCmdlet.ParameterSetName -eq "ItemInstance")
+        if ($PSCmdlet.ParameterSetName -eq "FileInstance")
         {
-            $_uid = $ManagedItem.Name
+            $_uid = $File.Name
             switch ($Source)
             {
-                "Cache"     { $_uri = $ManagedItem.CacheFileUri }
-                "Static"    { $_uri = $ManagedItem.StaticFileUri }
-                "Raw"       { $_uri = $ManagedItem.Uri }
+                "Cache"     { $_uri = $File.CacheFileUri }
+                "Static"    { $_uri = $File.StaticFileUri }
+                "Raw"       { $_uri = $File.Uri }
             }
+            [UmsDocument] $_document = $File.Document
         }
 
         # Now, let's render metadata.
@@ -84,18 +85,18 @@ function Get-UmsMetadata
             # If the Raw source is specified, we bypass cached versions completely.
             "Raw"
             {
-                return [EntityFactory]::ParseDocument($_uri, $_uid)
+                return [EntityFactory]::ProcessDocument($_document, $_uid)
             }
 
             # If the cache source is specified, we need to make sure the cache
             # exists before proceeding.
             "Cache"
             {
-                switch ($ManagedItem.CachedVersion)
+                switch ($File.CachedVersion)
                 {
                     "Current"
                     {
-                        return Import-Clixml -Path $ManagedItem.CacheFileFullName
+                        return Import-Clixml -Path $File.CacheFile.FullName
                     }
 
                     "Expired"
@@ -107,7 +108,7 @@ function Get-UmsMetadata
                         }
 
                         # We use cached metadata by design, even obsolete
-                        return Import-Clixml -Path $ManagedItem.CacheFileFullName
+                        return Import-Clixml -Path $File.CacheFile.FullName
                     }
 
                     # In any other case, cached version is declared unavailable.
@@ -123,7 +124,7 @@ function Get-UmsMetadata
                         # Use raw version via recursive call.
                         return Get-UmsMetadata `
                             -Source Raw `
-                            -Item $ManagedItem `
+                            -Item $File `
                             -Silent:$Silent
                     }
                 }
@@ -133,11 +134,11 @@ function Get-UmsMetadata
             # version exists before proceeding.
             "Static"
             {
-                switch ($ManagedItem.StaticVersion)
+                switch ($File.StaticVersion)
                 {
                     "Current"
                     {
-                        return [EntityFactory]::ParseDocument($_uri, $_uid)
+                        return [EntityFactory]::ProcessDocument($_uri, $_uid)
                     }
 
                     "Expired"
@@ -149,7 +150,7 @@ function Get-UmsMetadata
                         }
 
                         # We use static version by design, even obsolete
-                        return [EntityFactory]::ParseDocument($_uri, $_uid)
+                        return [EntityFactory]::ProcessDocument($_uri, $_uid)
                     }
 
                     # In any other case, the static version is declared unavailable.
@@ -165,7 +166,7 @@ function Get-UmsMetadata
                         # Use static version via recursive call.
                         return Get-UmsMetadata `
                             -Source Raw `
-                            -Item $ManagedItem `
+                            -Item $File `
                             -Silent:$Silent
                     }
                 }

@@ -111,7 +111,8 @@ class DocumentCache
         {
             $_cachedDocument = [CachedDocument]::New(
                 $_cacheFile,
-                [DocumentCache]::DocumentLifetime)
+                [DocumentCache]::DocumentLifetime,
+                $Uri)
         }
         catch [CachedDocumentException]
         {
@@ -132,7 +133,7 @@ class DocumentCache
         return [DocumentCache]::CachedDocuments
     }
 
-    # Force the removal of all expired documents 
+    # Force the removal of all expired documents but keeps statistics
     # This method does not throw any custom exception.
     static [void] Flush()
     {
@@ -184,6 +185,7 @@ class DocumentCache
     # again recursively.
     # Throws:
     #   - [DCCacheMissException] on cache miss.
+    #   - [DCSourceUriUpdateFailureException] on source URI update failure.
     static [UmsDocument] GetDocument([System.Uri] $Uri)
     {
         $_hash  = [DocumentCache]::GetUriHash($Uri)
@@ -193,6 +195,21 @@ class DocumentCache
         # the document.
         if ($_match.Count -eq 1)
         {
+            # Update the SourceUri of the UmsDocument instance, if needed
+            if ($_match.Document.SourceUriStatus -ne [UmsDocumentSourceUriStatus]::Present)
+            {
+                try
+                {
+                    $_match.UpdateSourceUri($Uri)
+                }
+                catch [CDSourceUriUpdateFailureException]
+                {
+                    [EventLogger]::LogException($_.Exception)
+                    throw [DCSourceUriUpdateFailureException]::New($Uri)
+                }
+            }
+
+            # Update caching status of the CachedDocument instance
             $_match.UpdateLifetimeStatistics()
 
             # Return the match
@@ -325,8 +342,6 @@ class DocumentCache
         [DocumentCache]::CachedDocuments = @()
         [DocumentCache]::Statistics = (
             [ordered] @{
-                FetchFailures = 0;
-                FetchSuccesses = 0;
                 CacheHits = 0;
                 CacheMisses = 0;
                 AddedDocuments = 0;
@@ -341,15 +356,25 @@ class DocumentCache
     # [CachedDocumentException] as error messages.
     static [void] Restore()
     {
+        [EventLogger]::LogVerbose("Beginning cache restoration.")
+
         $_cacheFiles = Get-ChildItem -Path ([DocumentCache]::CacheFolder)
+        [EventLogger]::LogVerbose(
+            "Found {0} caches files to restore." -f $_cacheFiles.Count)
+
         foreach ($_cacheFile in $_cacheFiles)
         {
+            [EventLogger]::LogVerbose(
+                "Restoring file: {0}" -f $_cacheFile.FullName)
+            
             # If the file is older than the document lifetime, delete it.
             $_secondsSpent = (
                 (Get-Date) - $_cacheFile.LastWriteTime).TotalSeconds
             if ($_secondsSpent -gt ([DocumentCache]::DocumentLifetime))
             {
-                $_cacheFile | Remove-Item -Force
+                [EventLogger]::LogVerbose(
+                    "Cache file is obsolete and will be deleted.")
+                Remove-Item -Force -Path $_cacheFile.FullName
                 continue
             }
 

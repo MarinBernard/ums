@@ -76,3 +76,22 @@ class CDConstructionFailureException : CachedDocumentException
             -f $CacheFileName)
     }
 }
+
+###############################################################################
+#   Exception class CDSourceUriUpdateFailureException
+#==============================================================================
+#
+#   Thrown by the [CachedDocument]::UpdateSourceUri() method when the cached
+#   UmsDocument instance refuses the SourceUri update.
+#
+###############################################################################
+
+class CDSourceUriUpdateFailureException : CachedDocumentException
+{
+    CDSourceUriUpdateFailureException([System.Uri] $Uri) : base()
+    {
+        $this.MainMessage =  (
+            "Source URI update with the following URI has failed: {0}" `
+            -f $Uri.AbsoluteUri)
+    }
+}

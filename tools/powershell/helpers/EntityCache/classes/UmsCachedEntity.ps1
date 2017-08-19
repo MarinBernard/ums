@@ -1,5 +1,5 @@
 ###############################################################################
-#   Concrete class CachedEntity
+#   Concrete class UmsCachedEntity
 #==============================================================================
 #
 #   This class describes an instance of a UMS entity class when stored in the
@@ -8,7 +8,7 @@
 #
 ###############################################################################
 
-class CachedEntity
+class UmsCachedEntity
 {
     ###########################################################################
     # Visible properties
@@ -36,7 +36,7 @@ class CachedEntity
     # Constructor
     ###########################################################################
 
-    CachedEntity(
+    UmsCachedEntity(
         [string] $XmlNamespaceUri,
         [string] $XmlElementName,
         [string] $Uid,
@@ -50,5 +50,11 @@ class CachedEntity
         $this.SourceUri = $SourceUri
         $this.RelativeSource = $RelativeSource
         $this.Instance = $Instance
+    }
+
+    # Returns the instance of the cached entity
+    [UmsAeEntity] GetInstance()
+    {
+        return $this.Instance
     }
 }

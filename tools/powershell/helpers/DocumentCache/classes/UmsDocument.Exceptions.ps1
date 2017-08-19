@@ -85,3 +85,21 @@ class UDValidationFailureException : UmsDocumentException
         $this.MainMessage = "Unable to validate the document."
     }
 }
+
+###############################################################################
+#   Exception class UDDuplicateSourceUriUpdateException
+#==============================================================================
+#
+#   Thrown by the [UmsDocument]::UpdateSourceUri() method if the value of the
+#   SourceUri has previously been updated.
+#
+###############################################################################
+
+class UDDuplicateSourceUriUpdateException : UmsDocumentException
+{
+    UDDuplicateSourceUriUpdateException() : base()
+    {
+        $this.MainMessage = (
+            "The value of the SourceUri property has already been updated.")
+    }
+}

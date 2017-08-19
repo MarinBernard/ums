@@ -45,9 +45,20 @@
 
 # Abstract base entity
 . "$PSScriptRoot\entities\UmsAeEntity.ps1"
-# Entity Factory
-. "$PSScriptRoot\classes\CachedEntity.ps1"
-. "$PSScriptRoot\classes\EntityFactory.ps1"
+
+# EntityCache helper
+. "$PSScriptRoot\helpers\EntityCache\classes\UmsCachedEntity.ps1"
+. "$PSScriptRoot\helpers\EntityCache\EntityCache.Exceptions.ps1"
+. "$PSScriptRoot\helpers\EntityCache\EntityCache.ps1"
+
+# EntityFactory helper
+. "$PSScriptRoot\helpers\EntityFactory\EntityFactory.Exceptions.ps1"
+. "$PSScriptRoot\helpers\EntityFactory\EntityFactory.ps1"
+
+###############################################################################
+# Entities
+###############################################################################
+
 # Base namespace
 . "$PSScriptRoot\entities\base\UmsBaeBinding.ps1"
 . "$PSScriptRoot\entities\base\UmsBaeVariant.ps1"
@@ -127,6 +138,9 @@
 . "$PSScriptRoot\commands\CachedDocument\Get-UmsCachedDocument.ps1"
 . "$PSScriptRoot\commands\CachedDocument\Remove-UmsCachedDocument.ps1"
 
+# *-UmsCachedEntity
+. "$PSScriptRoot\commands\CachedEntity\Get-UmsCachedEntity.ps1"
+
 # *-UmsDocument
 . "$PSScriptRoot\commands\Document\Get-UmsDocument.ps1"
 
@@ -134,6 +148,11 @@
 . "$PSScriptRoot\commands\DocumentCache\Clear-UmsDocumentCache.ps1"
 . "$PSScriptRoot\commands\DocumentCache\Reset-UmsDocumentCache.ps1"
 . "$PSScriptRoot\commands\DocumentCache\Measure-UmsDocumentCache.ps1"
+
+# *-UmsEntityCache
+. "$PSScriptRoot\commands\EntityCache\Clear-UmsEntityCache.ps1"
+. "$PSScriptRoot\commands\EntityCache\Measure-UmsEntityCache.ps1"
+. "$PSScriptRoot\commands\EntityCache\Reset-UmsEntityCache.ps1"
 
 # *-UmsFile
 . "$PSScriptRoot\commands\File\Get-UmsFile.ps1"
@@ -153,11 +172,6 @@
 
 # *-UmsMetadata
 . "$PSScriptRoot\commands\UmsMetadata\Get-UmsMetadata.ps1"
-
-# *-UmsMetadataCache
-. "$PSScriptRoot\commands\UmsMetadataCache\Get-UmsMetadataCache.ps1"
-. "$PSScriptRoot\commands\UmsMetadataCache\Measure-UmsMetadataCache.ps1"
-. "$PSScriptRoot\commands\UmsMetadataCache\Reset-UmsMetadataCache.ps1"
 
 # *-VorbisMetadata
 . "$PSScriptRoot\commands\VorbisMetadata\ConvertTo-VorbisMetadata.ps1"

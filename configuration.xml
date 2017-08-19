@@ -305,7 +305,7 @@
 		<option id="variants-use-pseudonyms">True</option>
 	</rendering>
 	<system>
-		<option id="document-cache-lifetime">20</option>
+		<option id="document-cache-lifetime">600</option>
 		<option id="export-clixml-depth">15</option>
 		<option id="ums-file-extension">.ums</option>
 		<option id="ums-folder-name-cache">cache</option>

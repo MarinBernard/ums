@@ -138,3 +138,22 @@ class DCCacheMissException : DocumentCacheException
             -f $Uri.AbsoluteUri)
     }
 }
+
+###############################################################################
+#   Exception class DCSourceUriUpdateFailureException
+#==============================================================================
+#
+#   Thrown by the [DocumentCache]::GetDocument() method when the call to the
+#   UpdateSourceUri() method of the [UmsCachedDocument] instance fails.
+#
+###############################################################################
+
+class DCSourceUriUpdateFailureException : DocumentCacheException
+{
+    DCSourceUriUpdateFailureException([System.Uri] $Uri) : base()
+    {
+        $this.MainMessage =  (
+            "Source URI update with the following URI has failed: {0}" `
+            -f $Uri.AbsoluteUri)
+    }
+}

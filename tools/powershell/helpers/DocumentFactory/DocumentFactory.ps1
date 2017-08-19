@@ -55,7 +55,7 @@ class DocumentFactory
         [UmsDocument] $_document = $null
         try
         {
-            $_document = [UmsDocument]::New($_resource)
+            $_document = [UmsDocument]::New($_resource, $Uri)
         }
         catch [UmsDocumentException]
         {
@@ -79,6 +79,8 @@ class DocumentFactory
     # Throws:
     #   - [DFNewDocumentFailureException] if the method cannot get a new
     #       UmsDocument instance from the target document.
+    #   - [DFResourceRetrievalFailureException] if the document cannot be
+    #       retrieved. Proxified from the NewDocument() method.
     #   - [DFCacheDocumentFailureException] if the method cannot add a new
     #       UmsDocument instance to the cache.
     static [UmsDocument] GetDocument([System.Uri] $Uri)
@@ -114,6 +116,12 @@ class DocumentFactory
             try
             {
                 $_document = [DocumentFactory]::NewDocument($Uri)
+            }
+            catch [DFResourceRetrievalFailureException]
+            {
+                # We do not log the exception here as retrieval failure may be
+                # expected.
+                throw ($_.Exception)
             }
             catch [DocumentFactoryException]
             {

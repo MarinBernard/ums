@@ -35,35 +35,6 @@ class AbstractClassInstantiationException : UmsException
     }
 }
 
-# Thrown when the entity factory finds a UMS reference.
-class UnhandlableUmsReferenceException : UmsException
-{
-    UnhandlableUmsReferenceException(
-        [string] $NamespaceUri,
-        [string] $ElementName,
-        [string] $Uid
-    ) : base()
-    {
-        $_strings = $global:ModuleStrings.Exceptions.UnhandlableUmsReference
-        $this.MainMessage =  (
-            $_strings.MainMessage -f $ElementName,$NamespaceUri,$Uid)
-    }
-}
-
-# Thrown when the entity factory finds a UMS reference.
-class ClassLookupFailureException : UmsException
-{
-    ClassLookupFailureException(
-        [string] $NamespaceUri,
-        [string] $ElementName
-    ) : base()
-    {
-        $_strings = $global:ModuleStrings.Exceptions.ClassLookupFailure
-        $this.MainMessage =  (
-            $_strings.MainMessage -f $ElementName,$NamespaceUri)
-    }
-}
-
 # Thrown when the value of an attribute of an XML element is illegal.
 class IllegalXmlAttributeValueException : UmsException
 {
@@ -121,12 +92,6 @@ class MissingXmlElementAttributeException : UmsException
         $this.SubMessages += (
             $_strings.Context -f $ContextXmlNamespace,$ContextElementName)
     }
-}
-
-# Thrown when a null Xml element is supplied.
-class NullXmlElementException : UmsException
-{
-    NullXmlElementException() : base() {}
 }
 
 # Thrown when a UMS reference targets a resource which is not from the expected
@@ -189,32 +154,6 @@ class IncompatibleUmsReferenceElementName : UmsException
             $_strings.ActualName -f $ActualName)
         $this.SubMessages += (
             $_strings.ExpectedName -f $ExpectedName)
-    }
-}
-
-# Thrown when a UMS reference could not be resolved.
-class UnresolvableUmsReference : UmsException
-{
-    UnresolvableUmsReference(
-        [string] $NamespaceURI,
-        [string] $LocalName,
-        [string] $Uid,
-        [System.Uri[]] $Uris
-    ) : base()
-    {
-        $_strings = $global:ModuleStrings.Exceptions.UnresolvableUmsReference
-        $this.MainMessage =  $_strings.MainMessage
-        $this.SubMessages += (
-            $_strings.NamespaceURI -f $NamespaceURI)
-        $this.SubMessages += (
-            $_strings.LocalName -f $LocalName)
-        $this.SubMessages += (
-            $_strings.Uid -f $Uid)
-        foreach ($_uri in $Uris)
-        {
-            $this.SubMessages += (
-                $_strings.TriedUri -f $_uri)
-        }
     }
 }
 
@@ -282,5 +221,13 @@ class MandatoryStandardIdSegmentNotFoundException : UmsException
             $global:ModuleStrings.Exceptions.
                 MandatoryStandardIdSegmentNotFoundException)
         $this.MainMessage =  ($_strings.MainMessage -f $Segment.Order)
+    }
+}
+
+# Base class for all entities exception
+class UmsEntityException : UmsException
+{
+    UmsEntityException() : base()
+    {
     }
 }
