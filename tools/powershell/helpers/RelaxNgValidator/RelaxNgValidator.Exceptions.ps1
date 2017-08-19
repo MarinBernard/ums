@@ -2,8 +2,7 @@
 #   Exception class RelaxNgValidatorException
 #==============================================================================
 #
-#   Parent type for all exceptions thrown by the [RelaxNgValidatorException]
-#   class.
+#   Parent type for all exceptions thrown by the [RelaxNgValidator] class.
 #
 ###############################################################################
 
@@ -108,7 +107,7 @@ class RNVSchemaFileNotFoundException : RelaxNgValidatorException
 #   Exception class RNVValidationFailureException
 #==============================================================================
 #
-#   Thrown by the constructor when the validation failed unexpectedly.
+#   Thrown by the Validate() method on validation failure.
 #
 ###############################################################################
 

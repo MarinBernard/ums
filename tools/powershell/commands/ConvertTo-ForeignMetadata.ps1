@@ -1,5 +1,6 @@
 function ConvertTo-ForeignMetadata
 {
+    [CmdletBinding()]
     Param(
         [Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
@@ -29,6 +30,9 @@ function ConvertTo-ForeignMetadata
 
         # Instantiate the constraint validator
         $Validator = [ConstraintValidator]::New($Stylesheet.Constraints)
+
+        # Instantiate the XSLT transformer
+        $Transformer = [XsltTransformer]::New($Stylesheet.Uri)
     }
 
     Process
@@ -39,7 +43,7 @@ function ConvertTo-ForeignMetadata
             "VorbisComment"
             {
                 # Build transform arguments
-                $_outputFileFullName = $($File.LinkedFileBaseName + ".tags")
+                $_outputFileFullName = $($File.ContentFile.BaseName + ".tags")
                 $_arguments = @{
                     OutputMode = "VORBIS";
                 }
@@ -48,7 +52,7 @@ function ConvertTo-ForeignMetadata
             "RawLyrics"
             {
                 # Build transform arguments
-                $_outputFileFullName = $($File.LinkedFileBaseName + ".txt")
+                $_outputFileFullName = $($File.ContentFile.BaseName + ".txt")
                 $_arguments = @{
                     OutputMode = "RAWLYRICS";
                 }
@@ -63,37 +67,31 @@ function ConvertTo-ForeignMetadata
         catch [CVValidationFailureException]
         {
             [EventLogger]::LogException($_.Exception)
-            throw($_.Exception)
+            [EventLogger]::LogError($Messages.ConstraintValidationFailure)
         }
         
         # Expired static version warning
         if ($File.StaticVersion -eq [FileVersionStatus]::Expired)
         {
             [EventLogger]::LogWarning($ModuleStrings.Common.ExpiredStaticVersion)
-            if( (Wait-UserConfirmation) -eq $false ){ return }
         }       
         
         # Orphan cardinality warning
         if ($File.Cardinality -eq [FileCardinality]::Orphan)
         {
             [EventLogger]::LogWarning($ModuleStrings.Common.OrphanCardinalityWarning)
-            if( (Wait-UserConfirmation) -eq $false ){ return }
         }
 
         # Run the transform
         try 
         {
-            Invoke-XslTransformer -Source $File.StaticFileUri -Stylesheet $Stylesheet.Uri -Destination $_outputFileFullName -Arguments $_arguments
+            $Transformer.Transform($File.StaticFileUri, $_outputFileFullName, $_arguments)
         }
-        catch [UmsException]
+        catch [XsltTransformerException]
         {
             [EventLogger]::LogException($_.Exception)
-            throw($_.Exception)
-        }        
-        catch [System.Exception]
-        {
-            [EventLogger]::LogException($_.Exception)
-            throw($_.Exception)
+            [EventLogger]::LogError($Messages.MetadataConversionFailure)
+            return
         }
     }
 }

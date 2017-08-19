@@ -45,7 +45,8 @@ class ConstraintValidator
     # Validate a single UmsItem instance against the collection of constraints.
     # This method returns nothing: if no exception is throw, it must be assumed
     # that the supplied instance is valid.
-    # This method throws a CVValidationFailureException on validation failure.
+    # Throws:
+    #   - [CVValidationFailureException] on validation failure.
     [void] Validate([UmsFile] $File)
     {
         foreach ($_constraint in $this.Constraints)
@@ -54,40 +55,42 @@ class ConstraintValidator
             {
                 "binding-element-namespace"
                 {
-                    if ($File.BindingNamespace -ne $_constraint.Value)
+                    if ($File.Document.BindingNamespace -ne $_constraint.Value)
                     {
                         throw [CVValidationFailureException]::New(
-                            $File, $_constraint, $File.BindingNamespace)
+                            $File,
+                            $_constraint,
+                            $File.Document.BindingNamespace)
                     }
                 }
 
                 "binding-element-name"
                 {
-                    if ($File.BindingElementName -ne $_constraint.Value)
+                    if ($File.Document.BindingLocalName -ne 
+                        $_constraint.Value)
                     {
-                        # TODO: more generic exceptions
                         throw [CVValidationFailureException]::New(
-                            $File, $_constraint, $File.BindingElementName)
+                            $File,
+                            $_constraint,
+                            $File.Document.BindingLocalName)
                     }
                 }
 
                 "document-element-namespace"
                 {
-                    if ($File.XmlNamespace -ne $_constraint.Value)
+                    if ($File.Document.RootNamespace -ne $_constraint.Value)
                     {
-                        # TODO: more generic exceptions
                         throw [CVValidationFailureException]::New(
-                            $File, $_constraint, $File.XmlNamespace)
+                            $File, $_constraint, $File.Document.RootNamespace)
                     }
                 }
 
                 "document-element-name"
                 {
-                    if ($File.XmlElementName -ne $_constraint.Value)
+                    if ($File.Document.RootLocalName -ne $_constraint.Value)
                     {
-                        # TODO: more generic exceptions
                         throw [CVValidationFailureException]::New(
-                            $File, $_constraint, $File.XmlElementName)
+                            $File, $_constraint, $File.Document.RootLocalName)
                     }
                 }
 
@@ -109,7 +112,6 @@ class ConstraintValidator
                     # Check cardinality
                     if ($_allowedCardinalities -notcontains($File.Cardinality))
                     {
-                        # TODO: more generic exceptions
                         throw [CVValidationFailureException]::New(
                             $File, $_constraint, $File.Cardinality)
                     }
@@ -133,7 +135,6 @@ class ConstraintValidator
                     # Check cardinality
                     if ($_allowedVersionStatuses -notcontains($File.StaticVersion))
                     {
-                        # TODO: more generic exceptions
                         throw [CVValidationFailureException]::New(
                             $File, $_constraint, $File.StaticVersion)
                     }

@@ -28,7 +28,7 @@ class RelaxNgValidator
     ###########################################################################
 
     # Reference to the schema file.
-    [System.IO.FileInfo] $SchemaFile
+    [System.Uri] $SchemaUri
 
     ###########################################################################
     # Constructors
@@ -89,15 +89,22 @@ class RelaxNgValidator
     # Throws [RNVSchemaFileNotFoundException] if the schema file does not exist
     RelaxNgValidator([System.IO.FileInfo] $SchemaFile)
     {
-        # Store the reference to the schema file.
-        $this.SchemaFile = $SchemaFile
-
         # Verify whether the schema file exists
         if (-not $this.SchemaFile.Exists)
         {
             throw [RNVSchemaFileNotFoundException]::New(
                 $this.SchemaFile.FullName)
         }
+
+        # Store the reference to the schema file.
+        $this.SchemaUri = [System.Uri]::New($SchemaFile.FullName)
+    }
+
+    # Default constructor. Requires a URI to a Relax NG schema file.
+    RelaxNgValidator([System.Uri] $SchemaUri)
+    {
+        # Store the URI to the schema.
+        $this.SchemaUri = $SchemaUri
     }
 
     ###########################################################################
@@ -116,7 +123,7 @@ class RelaxNgValidator
         # Build JingJar argument list
         $_arguments = @(
             "-jar", [RelaxNgValidator]::PathToJingJar,
-            $this.SchemaFile.FullName,
+            $this.SchemaUri.AbsoluteUri,
             $Uri.AbsoluteUri
         )
 

@@ -23,14 +23,14 @@ class ConstraintValidatorException : UmsException
 class CVValidationFailureException : ConstraintValidatorException
 {
     CVValidationFailureException(
-        [UmsFile] $File,
+        [UmsFile] $UmsFile,
         [PSCustomObject] $Constraint,
         [string] $BadValue)
         : base()
     {
         $this.MainMessage = (
             "The following UMS item failed constraint validation: {0} " `
-            -f $File.FullName)
+            -f $UmsFile.File.FullName)
 
         $this.SubMessages += ("Constraint id: {0}" -f $Constraint.Id)
         $this.SubMessages += ("Constraint value: {0}" -f $Constraint.Value)

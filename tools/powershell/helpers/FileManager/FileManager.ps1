@@ -548,6 +548,10 @@ class UmsFile
     # A reference to the UmsDocument instance built from the file's content.
     hidden [UmsDocument] $Document
 
+    # The URI of the schema file associated with the UMS document
+    # (Proxified from the UmsDocument instance stored in $Document)
+    hidden [System.Uri] $SchemaFileUri
+
     # Properties describing the file from which the item was instantiated.
     hidden [System.IO.FileInfo] $File   # Reference to the item source file
     hidden [System.Uri] $Uri            # URI to $File
@@ -784,6 +788,9 @@ class UmsFile
             [EventLogger]::LogException($_.Exception)
             throw [UFDeletionFailureException]::New($this.ContentFile)
         }
+
+        # Update cardinality after CF deletion
+        $this.UpdateCardinalityInfo()
     }
 
     # Deletes the UMS file and its content file from the disk.
@@ -814,6 +821,55 @@ class UmsFile
         }
     }
 
+    # Renames the UMS file and its content file, if any. The method returns
+    # a new UmsFile instance.
+    # Throws:
+    #   - [UFRenameFailureException] on rename failure.
+    [UmsFile] Rename([string] $NewName)
+    {
+        if ($this.ContentFile.Exists)
+        {
+            # Build destination file real name
+            $_contentFileNewName = (
+                Join-Path `
+                    -Path $this.ContentFile.Directory.FullName `
+                    -ChildPath $NewName)
+
+            # Move content file, if any
+            try
+            {
+                $this.ContentFile | Move-Item -Destination $_contentFileNewName
+            }
+            catch [System.IO.IOException]
+            {
+                [EventLogger]::LogException($_.Exception)
+                throw [UFRenameFailureException]::New(
+                    $this.ContentFile, $_contentFileNewName)
+            }
+        }
+
+        # Build UMS new real file name
+        $_umsFileNewName = $($NewName + ([FileManager]::UmsFileExtension))
+        $_umsFileNewFullName = (
+            Join-Path `
+                -Path $this.File.Directory.FullName `
+                -ChildPath $_umsFileNewName)
+        
+        # Move UMS file
+        try
+        {
+            $this.File | Move-Item -Destination $_umsFileNewFullName
+        }
+        catch [System.IO.IOException]
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw [UFRenameFailureException]::New($this.File, $_umsFileNewFullName)
+        }
+
+        # Return a new instance
+        return [UmsFile]::New([System.IO.FileInfo] $_umsFileNewFullName)
+    }
+
     ###########################################################################
     # Helpers
     ###########################################################################
@@ -822,6 +878,7 @@ class UmsFile
     # instance.
     [void] UpdateDocumentProperties()
     {
+        $this.SchemaFileUri = $this.Document.SchemaFileUri
         $this.Validity = $this.Document.Validity
         $this.MainElementSchema = $this.Document.MainSchema
         $this.MainElementName = $this.Document.MainName
@@ -1175,9 +1232,155 @@ class UmsManagedFile : UmsFile
         }
     }
 
+    # Renames the UMS file, all its versions, and its content file, if any.
+    # The method returns a new UmsManagedFile instance. Overrides the
+    # Rename() method from the parent type to include cache and static files
+    # to the rename list.
+    # Throws:
+    #   - [UFRenameFailureException] on rename failure.
+    [UmsManagedFile] Rename([string] $NewName)
+    {
+        # Move cache file, if any
+        if ($this.CacheFile.Exists)
+        {
+            # Build cache file new name
+            $_cacheFileNewName = $($NewName + ([FileManager]::UmsFileExtension))
+            $_cacheFileNewFullName = (
+                Join-Path `
+                    -Path $this.CacheFile.Directory.FullName `
+                    -ChildPath $_cacheFileNewName)
+
+            # Move cache file
+            try
+            {
+                $this.CacheFile | Move-Item -Destination $_cacheFileNewFullName
+            }
+            catch [System.IO.IOException]
+            {
+                [EventLogger]::LogException($_.Exception)
+                throw [UFRenameFailureException]::New(
+                    $this.CacheFile, $_cacheFileNewFullName)
+            }
+        }
+
+        # Move static file, if any
+        if ($this.StaticFile.Exists)
+        {
+            # Build static file new name
+            $_staticFileNewName = $($NewName + ([FileManager]::UmsFileExtension))
+            $_staticFileNewFullName = (
+                Join-Path `
+                    -Path $this.StaticFile.Directory.FullName `
+                    -ChildPath $_staticFileNewName)
+
+            # Move static file
+            try
+            {
+                $this.StaticFile | Move-Item -Destination $_staticFileNewFullName
+            }
+            catch [System.IO.IOException]
+            {
+                [EventLogger]::LogException($_.Exception)
+                throw [UFRenameFailureException]::New(
+                    $this.StaticFile, $_staticFileNewFullName)
+            }
+        }
+
+        # Move UMS file and content file
+        # We let the parent method handle this for us
+        [UmsFile] $_newUmsFileInstance = $null
+        try
+        {
+            $_newUmsFileInstance = ([UmsFile] $this).Rename($NewName)
+        }
+        catch [UFDeletionFailureException]
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw $_.Exception
+        }
+
+        # Return a new UmsManagedFile instance
+        return [UmsManagedFile]::New($_newUmsFileInstance.File)
+    }
+
     ###########################################################################
-    # Helpers
+    # Static / Cached file update methods
     ###########################################################################
+
+    # Updates the static file linked to the managed file.
+    # Throws:
+    #   - [UFStaticVersionUpdateFailureException] on fatal failure.
+    #   - [UFInvalidStaticVersionException] if the static version does not
+    #       validate against the Relax NG schema.
+    [void] UpdateStaticFile()
+    {
+        # Instantiate a XSLT transformer
+        try
+        {
+            $Transformer = [XsltTransformer]::New(
+                [ConfigurationStore]::GetStylesheetItem("Expander").Uri
+            )
+        }
+        catch [ConfigurationStoreException]
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw [UFStaticVersionUpdateFailureException]::New(
+                $this.File)
+        }
+        catch [XsltTransformerException]
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw [UFStaticVersionUpdateFailureException]::New(
+                $this.File)
+        }
+
+        # Run the XSLT transformation
+        try
+        {
+            $Transformer.Transform($this.Uri, $this.StaticFile, @{})
+        }
+        catch [XsltTransformerException]
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw [UFStaticVersionUpdateFailureException]::New(
+                $this.File)
+        }
+
+        # Instantiate a Relax NG validator.
+        [RelaxNgValidator] $Validator = $null
+        try
+        {
+            $Validator = [RelaxNgValidator]::New(
+                $this.SchemaFileUri)
+        }
+        catch [RelaxNgValidatorException]
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw [UFStaticVersionUpdateFailureException]::New(
+                $this.File)
+        }
+
+        # Validate the static version
+        try
+        {
+            $Validator.Validate($this.StaticFileUri)
+        }
+        catch [RNVValidationFailureException]
+        {
+            [EventLogger]::LogException($_.Exception)
+            # Remove the invalid static file.
+            $this.StaticFile | Remove-Item -Force
+            throw [UFInvalidStaticVersionException]::New(
+                $this.File)
+        }
+        finally
+        {
+            # Update static file info on file change
+            $this.UpdateStaticFileInfo()
+            # Update cardinalityInfo after static file update.
+            $this.UpdateCardinalityInfo()
+        }
+    }
 }
 
 ###############################################################################

@@ -28,31 +28,33 @@ $global:ModuleStrings = Import-LocalizedData -FileName "messages.psd1" -BaseDire
 # Exports
 ###############################################################################
 
-# *-<prefix>CachedDocument
-Export-ModuleMember -Function Get-CachedDocument
-Export-ModuleMember -Function Remove-CachedDocument
+# *-UmsCachedDocument
+Export-ModuleMember -Function Get-UmsCachedDocument
+Export-ModuleMember -Function Remove-UmsCachedDocument
 
-# *-<prefix>DocumentCache
-Export-ModuleMember -Function Clear-DocumentCache
-Export-ModuleMember -Function Reset-DocumentCache
-Export-ModuleMember -Function Measure-DocumentCache
+# *-UmsDocument
+Export-ModuleMember -Function Get-UmsDocument
 
-# *-<prefix>Document
-Export-ModuleMember -Function Get-Document
+# *-UmsDocumentCache
+Export-ModuleMember -Function Clear-UmsDocumentCache
+Export-ModuleMember -Function Reset-UmsDocumentCache
+Export-ModuleMember -Function Measure-UmsDocumentCache
 
-# *-<prefix>File
-Export-ModuleMember -Function Get-File
+# *-UmsFile
+Export-ModuleMember -Function Get-UmsFile
+Export-ModuleMember -Function Rename-UmsFile
+Export-ModuleMember -Function Remove-UmsFile
 
-# *-<prefix>ManagedFile
-Export-ModuleMember -Function Get-ManagedFile
-Export-ModuleMember -Function Remove-ManagedFile
-Export-ModuleMember -Function Rename-ManagedFile
-Export-ModuleMember -Function Update-ManagedFile
+# *-UmsFileManagement
+Export-ModuleMember -Function Disable-UmsFileManagement
+Export-ModuleMember -Function Enable-UmsFileManagement
+Export-ModuleMember -Function Test-UmsFileManagement
 
-# *-<prefix>FileManagement
-Export-ModuleMember -Function Disable-FileManagement
-Export-ModuleMember -Function Enable-FileManagement
-Export-ModuleMember -Function Test-FileManagement
+# *-UmsManagedFile
+Export-ModuleMember -Function Get-UmsManagedFile
+Export-ModuleMember -Function Remove-UmsManagedFile
+Export-ModuleMember -Function Rename-UmsManagedFile
+Export-ModuleMember -Function Update-UmsManagedFile
 
 # *-UmsMetadata
 Export-ModuleMember -Function Get-UmsMetadata

@@ -74,6 +74,12 @@ class EventLogger
         }
     }
 
+    # Proxy method for logging a verbose event
+    static LogInformation([string] $Data)
+    {
+        [EventLogger]::LogEvent([LoggedEventLevel]::Information, $Data)
+    }
+
     # Proxy method for logging an error event
     static LogWarning([string] $Data)
     {
@@ -112,6 +118,11 @@ class EventLogger
             "Verbose"
             {
                 Write-Host -NoNewLine -ForegroundColor Cyan " VERBOSE "
+            }
+
+            "Information"
+            {
+                Write-Host -NoNewLine -ForegroundColor Cyan "  INFO   "
             }
 
             "Warning"
@@ -157,6 +168,7 @@ Enum LoggedEventLevel
     Debug
     Error
     Verbose
+    Information
     Warning
     Exception
 }

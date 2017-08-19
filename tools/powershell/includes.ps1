@@ -12,7 +12,7 @@
 . "$PSScriptRoot\helpers\ConfigurationStore\ConfigurationStore.Exceptions.ps1"
 . "$PSScriptRoot\helpers\ConfigurationStore\ConfigurationStore.ps1"
 
-# Relax NG Validator (Needed by the UmsDocument class)
+# Relax NG Validator (Needed by the DocumentCache and XsltTransformer helpers)
 . "$PSScriptRoot\helpers\RelaxNgValidator\RelaxNgValidator.Exceptions.ps1"
 . "$PSScriptRoot\helpers\RelaxNgValidator\RelaxNgValidator.ps1"
 
@@ -24,11 +24,15 @@
 . "$PSScriptRoot\helpers\DocumentCache\DocumentCache.Exceptions.ps1"
 . "$PSScriptRoot\helpers\DocumentCache\DocumentCache.ps1"
 
-# Document factory (Needed by the FileManager helper)
+# Document factory helper (Needed by the FileManager helper)
 . "$PSScriptRoot\helpers\DocumentFactory\DocumentFactory.Exceptions.ps1"
 . "$PSScriptRoot\helpers\DocumentFactory\DocumentFactory.ps1"
 
-# File manager
+# XSLT Transformer (Needed by the UmsFile class from the FileManager helper)
+. "$PSScriptRoot\helpers\XsltTransformer\XsltTransformer.Exceptions.ps1"
+. "$PSScriptRoot\helpers\XsltTransformer\XsltTransformer.ps1"
+
+# File manager helper
 . "$PSScriptRoot\helpers\FileManager\FileManager.Exceptions.ps1"
 . "$PSScriptRoot\helpers\FileManager\FileManager.ps1"
 
@@ -109,13 +113,6 @@
 . "$PSScriptRoot\entities\audio\UmsAbeAlbumTrackBinding.ps1"
 
 ###############################################################################
-# Helpers
-###############################################################################
-
-. "$PSScriptRoot\helpers\Invoke-XslTransformer.ps1"
-. "$PSScriptRoot\helpers\Wait-UserConfirmation.ps1"
-
-###############################################################################
 # Converters
 ###############################################################################
 
@@ -126,31 +123,33 @@
 # Commands
 ###############################################################################
 
-# *-CachedDocument
-. "$PSScriptRoot\commands\CachedDocument\Get-CachedDocument.ps1"
-. "$PSScriptRoot\commands\CachedDocument\Remove-CachedDocument.ps1"
+# *-UmsCachedDocument
+. "$PSScriptRoot\commands\CachedDocument\Get-UmsCachedDocument.ps1"
+. "$PSScriptRoot\commands\CachedDocument\Remove-UmsCachedDocument.ps1"
 
-# *-DocumentCache
-. "$PSScriptRoot\commands\DocumentCache\Clear-DocumentCache.ps1"
-. "$PSScriptRoot\commands\DocumentCache\Reset-DocumentCache.ps1"
-. "$PSScriptRoot\commands\DocumentCache\Measure-DocumentCache.ps1"
+# *-UmsDocument
+. "$PSScriptRoot\commands\Document\Get-UmsDocument.ps1"
 
-# *-Document
-. "$PSScriptRoot\commands\Document\Get-Document.ps1"
+# *-UmsDocumentCache
+. "$PSScriptRoot\commands\DocumentCache\Clear-UmsDocumentCache.ps1"
+. "$PSScriptRoot\commands\DocumentCache\Reset-UmsDocumentCache.ps1"
+. "$PSScriptRoot\commands\DocumentCache\Measure-UmsDocumentCache.ps1"
 
-# *-Item
-. "$PSScriptRoot\commands\File\Get-File.ps1"
+# *-UmsFile
+. "$PSScriptRoot\commands\File\Get-UmsFile.ps1"
+. "$PSScriptRoot\commands\File\Rename-UmsFile.ps1"
+. "$PSScriptRoot\commands\File\Remove-UmsFile.ps1"
 
-# *-ItemManagement
-. "$PSScriptRoot\commands\FileManagement\Enable-FileManagement.ps1"
-. "$PSScriptRoot\commands\FileManagement\Disable-FileManagement.ps1"
-. "$PSScriptRoot\commands\FileManagement\Test-FileManagement.ps1"
+# *-UmsFileManagement
+. "$PSScriptRoot\commands\FileManagement\Enable-UmsFileManagement.ps1"
+. "$PSScriptRoot\commands\FileManagement\Disable-UmsFileManagement.ps1"
+. "$PSScriptRoot\commands\FileManagement\Test-UmsFileManagement.ps1"
 
 # *-UmsManagedFile
-. "$PSScriptRoot\commands\UmsManagedFile\Get-ManagedFile.ps1"
-. "$PSScriptRoot\commands\UmsManagedFile\Remove-ManagedFile.ps1"
-. "$PSScriptRoot\commands\UmsManagedFile\Rename-ManagedFile.ps1"
-. "$PSScriptRoot\commands\UmsManagedFile\Update-ManagedFile.ps1"
+. "$PSScriptRoot\commands\ManagedFile\Get-UmsManagedFile.ps1"
+. "$PSScriptRoot\commands\ManagedFile\Remove-UmsManagedFile.ps1"
+. "$PSScriptRoot\commands\ManagedFile\Rename-UmsManagedFile.ps1"
+. "$PSScriptRoot\commands\ManagedFile\Update-UmsManagedFile.ps1"
 
 # *-UmsMetadata
 . "$PSScriptRoot\commands\UmsMetadata\Get-UmsMetadata.ps1"

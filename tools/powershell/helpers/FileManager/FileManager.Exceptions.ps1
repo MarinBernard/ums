@@ -321,6 +321,27 @@ class UmsFileException : UmsException
     }
 
     ###########################################################################
+    #   Exception class UFRenameFailureException
+    #==========================================================================
+    #
+    #   Thrown when the Rename() method failed at renaming a file.
+    #
+    ###########################################################################
+
+    class UFRenameFailureException : UmsFileException
+    {
+        UFRenameFailureException(
+            [System.IO.FileInfo] $File,
+            [string] $Destination) : base()
+        {
+            $this.MainMessage = ($(
+                "Unable to the file at the following location: {0}. " + `
+                "Destination was: {1}") `
+                -f $File.FullName,$Destination)
+        }
+    }
+
+    ###########################################################################
     #   Exception class UFCardinalityUpdateFailureException
     #==========================================================================
     #
@@ -358,6 +379,48 @@ class UmsFileException : UmsException
             $this.MainMessage = ($(
                 "Unable to retrieve information about the content file of " + `
                 "the UMS file at the following location: {0}") `
+                -f $File.FullName)
+        }
+    }
+
+    ###########################################################################
+    #   Exception class UFStaticVersionUpdateFailureException
+    #==========================================================================
+    #
+    #   Thrown by the [UmsManagedFile]::UpdateStaticVersion() method when
+    #   it encounters a fatal error.
+    #
+    ###########################################################################
+
+    class UFStaticVersionUpdateFailureException : UmsFileException
+    {
+        UFStaticVersionUpdateFailureException([System.IO.FileInfo] $File)
+            : base()
+        {
+            $this.MainMessage = ($(
+                "Unable to update the static version of the UMS file at " + `
+                "the following location: {0}") `
+                -f $File.FullName)
+        }
+    }
+
+    ###########################################################################
+    #   Exception class UFInvalidStaticVersionException
+    #==========================================================================
+    #
+    #   Thrown by the [UmsManagedFile] class when the static version of the
+    #   file does not validate against the Relax NG schema.
+    #
+    ###########################################################################
+
+    class UFInvalidStaticVersionException : UmsFileException
+    {
+        UFInvalidStaticVersionException([System.IO.FileInfo] $File)
+            : base()
+        {
+            $this.MainMessage = ($(
+                "The static version of the following UMS file does not " + `
+                "validate against the Relax NG schema: {0}") `
                 -f $File.FullName)
         }
     }

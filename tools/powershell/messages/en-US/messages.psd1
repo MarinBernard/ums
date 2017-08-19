@@ -1,19 +1,24 @@
 @{
     Commands = @{
+        CachedVersionUpToDate = "The cached version is already up-to-date."
         CommandFailure = "The command failed."
+        ConstraintValidationFailure = "The supplied file did not validate all constraints associated to this command."
         DisableManagementFailure = "An error occurred while trying to disable UMS file management for the specified folder."
         DisableManagementSuccess = "UMS file management was successfully disabled for the specified folder."
         EnableManagementFailure = "An error occurred while trying to enable UMS file management for the specified folder."
         EnableManagementSuccess = "UMS file management was successfully enabled for the specified folder."
         FileDeletionFailure = "An error occured during file deletion."
+        FileRenameFailure = "An error occured during file renaming."
         FileNotFound = "The specified UMS file does not exist or cannot be accessed."
-        InconsistentState = "The directory is in an inconsistent state."
+        InconsistentState = "The state of the management folder is inconsistent."
         ManagementDisabled = "The management of UMS files is disabled."
         ManagementEnabled = "The management of UMS files is enabled."
-        InconsistentState = "The management folder is in an inconsistent state."
+        MetadataConversionFailure = "The metadata conversion process has failed."
         MissingCacheFolder = "The metadata cache subfolder is missing."
         MissingStaticFolder = "The static document subfolder is missing."
         RunCommandAdvice = "Run the {0} command to obtain more information."
+        StaticVersionUpdateFailure = "The static version update has failed."
+        StaticVersionUpToDate = "The static version is already up-to-date."
     }
     Common = @{
         AccessDenied = "Target folder does not exist or access is denied."

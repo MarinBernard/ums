@@ -1,18 +1,24 @@
 @{
     Commands = @{
+        CachedVersionUpToDate = "La mise à jour de la version cachée n'est pas nécessaire."
         CommandFailure = "La commande a échoué."
+        ConstraintValidationFailure = "Le fichier fourni ne satisfait pas aux contraintes associées à cette commande."
         DisableManagementFailure = "Une erreur est survenue lors de la désactivation de la gestion des fichiers UMS pour le dossier spécifié."
         DisableManagementSuccess = "La gestion des fichiers UMS a été correctement désactivée pour le dossier spécifié."
         EnableManagementFailure = "Une erreur est survenue lors de l'activation de la gestion des fichiers UMS pour le dossier spécifié."
         EnableManagementSuccess = "La gestion des fichiers UMS a été correctement activée pour le dossier spécifié."
         FileDeletionFailure = "Une erreur est survenue lors de la suppression du fichier."
+        FileRenameFailure = "Une erreur est survenue lors du renommage du fichier."
         FileNotFound = "Le fichier UMS spécifié n'existe pas ou n'est pas accessible."
         InconsistentState = "Le dossier est dans un état incohérent."
         ManagementDisabled = "La gestion des fichiers UMS est désactivée."
         ManagementEnabled = "La gestion des fichiers UMS est activée."
+        MetadataConversionFailure = "La conversion des métadonnées à échoué."
         MissingCacheFolder = "Le sous-dossier du cache de métadonnées n'est pas présent."
         MissingStaticFolder = "Le sous-dossier des documents statiques n'est pas présent."
         RunCommandAdvice = "Exécutez la commande {0} pour obtenir plus d'informations."
+        StaticVersionUpdateFailure = "La mise à jour de la version statique a échoué."
+        StaticVersionUpToDate = "La mise à jour de la version statique n'est pas nécessaire."
     }
     Common = @{
         AccessDenied = "Le dossier spécifié n'existe pas ou l'accès a été refusé."
