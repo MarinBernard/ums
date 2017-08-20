@@ -23,6 +23,8 @@ class UmsPublicCommandFailureException : UmsPublicCommandException
 {
     UmsPublicCommandFailureException([string] $Command) : base()
     {
-        $this.MainMessage = ("The {0} public command has failed." -f $Command)
+        $this.MainMessage = (
+            "The '{0}' public command has failed."`
+            -f $Command)
     }
 }

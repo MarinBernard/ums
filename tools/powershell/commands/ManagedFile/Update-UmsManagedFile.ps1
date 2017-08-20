@@ -93,7 +93,7 @@ function Update-UmsManagedFile
             {
                 # Retrieve the UMS entity
                 # Tags:
-                #   - PublicCommandCall
+                #   - PublicCommandInvocation
                 [UmsAeEntity] $_entity = $null
                 try
                 {
