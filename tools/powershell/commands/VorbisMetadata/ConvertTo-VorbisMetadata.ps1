@@ -2,12 +2,12 @@ function ConvertTo-VorbisMetadata
 {
     <#
     .SYNOPSIS
-    Converts UMS metadata to Vorbis Comments.
+    Converts UMS metadata, either live entity or cached metadata, to Vorbis Comment.
     
     .DESCRIPTION
-    This command converts metadata to Vorbis Comments. The conversion process is complex, and the resulting metadata will not fit the original entities one for one. This, this command will only perform conversion on UmsManagedFile instances which have a Sidecar or Orphan cardinality, and embed a umsa:albumTrackBinding binding element.
+    This command converts a set of UMS metadata to Vorbis Comments. The conversion process is complex and can't be reverted, as the resulting metadata will not fit the original entities one for one. Thus, this command will only process UmsManagedFile instances which have a Sidecar or Orphan cardinality, and which embed a umsa:albumTrackBinding binding element.
     
-    .PARAMETER ManagedItem
+    .PARAMETER ManagedFile
     An instance of the UmsManagedFile class, as returned by the Get-UmsManagedFile command, with a Sidecar or Orphan cardinality and a umsa:albumTrackBinding binding element.
 
     .EXAMPLE
@@ -18,7 +18,7 @@ function ConvertTo-VorbisMetadata
     Param(
         [Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)]
         [ValidateNotNull()]
-        [UmsManagedFile] $ManagedItem
+        [UmsManagedFile] $ManagedFile
     )
 
     Begin
@@ -42,43 +42,53 @@ function ConvertTo-VorbisMetadata
         # Validate constraints
         try
         {
-            $Validator.Validate($ManagedItem)
+            $Validator.Validate($ManagedFile)
         }
-        # Validation failure
         catch [CVValidationFailureException]
         {
+            # Validation failure
             [EventLogger]::LogException($_.Exception)
             [EventLogger]::LogError($Messages.ConstraintValidationFailure)
             throw [UmsPublicCommandFailureException]::New(
                 "ConvertTo-VorbisMetadata")
         }
-        # All other exceptions are also terminating
         catch
         {
+            # All other exceptions are also terminating
             [EventLogger]::LogException($_.Exception)
             throw [UmsPublicCommandFailureException]::New(
                 "ConvertTo-VorbisMetadata")
         }        
 
-        # Get item metadata
-        $metadata = $ManagedItem | Get-UmsMetadata
-
+        # Try to obtain an entity or cached metadata
+        [object] $_metadata = $null
+        try
+        {
+            $_metadata = $ManagedFile | Get-UmsEntity
+        }
+        catch
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw [UmsPublicCommandFailureException]::New(
+                "ConvertTo-VorbisMetadata")
+        }         
+        
         # Start conversion
         try
         {
-            $Converter.Convert($metadata)
+            $Converter.Convert($_metadata)
         }
-        # Converter failure
         catch [VorbisCommentConverterException]
         {
+            # Conversion failure
             [EventLogger]::LogException($_.Exception)
             [EventLogger]::LogError($Messages.ConverterInvocationFailure)
             throw [UmsPublicCommandFailureException]::New(
                 "ConvertTo-VorbisMetadata")
         }
-        # All other exceptions are also terminating
         catch
         {
+            # All other exceptions are also terminating
             [EventLogger]::LogException($_.Exception)
             throw [UmsPublicCommandFailureException]::New(
                 "ConvertTo-VorbisMetadata")
