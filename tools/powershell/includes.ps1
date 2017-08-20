@@ -53,6 +53,12 @@
 . "$PSScriptRoot\helpers\EntityFactory\EntityFactory.Exceptions.ps1"
 . "$PSScriptRoot\helpers\EntityFactory\EntityFactory.ps1"
 
+# VorbisComment helpers
+. "$PSScriptRoot\helpers\VorbisCommentConverter\VorbisCommentConverter.Exceptions.ps1"
+. "$PSScriptRoot\helpers\VorbisCommentConverter\VorbisCommentConverter.ps1"
+. "$PSScriptRoot\helpers\VorbisCommentUpdater\VorbisCommentUpdater.Exceptions.ps1"
+. "$PSScriptRoot\helpers\VorbisCommentUpdater\VorbisCommentUpdater.ps1"
+
 ###############################################################################
 # Entities
 ###############################################################################
@@ -123,13 +129,6 @@
 . "$PSScriptRoot\entities\audio\UmsAbeAlbumTrackBinding.ps1"
 
 ###############################################################################
-# Converters
-###############################################################################
-
-. "$PSScriptRoot\converters\VorbisCommentConverter.Exceptions.ps1"
-. "$PSScriptRoot\converters\VorbisCommentConverter.ps1"
-
-###############################################################################
 # Commands
 ###############################################################################
 
@@ -175,8 +174,9 @@
 . "$PSScriptRoot\commands\ManagedFile\Rename-UmsManagedFile.ps1"
 . "$PSScriptRoot\commands\ManagedFile\Update-UmsManagedFile.ps1"
 
-# *-VorbisMetadata
-. "$PSScriptRoot\commands\VorbisMetadata\ConvertTo-VorbisMetadata.ps1"
+# *-VorbisComment
+. "$PSScriptRoot\commands\VorbisComment\ConvertTo-VorbisComment.ps1"
+. "$PSScriptRoot\commands\VorbisComment\Update-VorbisComment.ps1"
 
 # Other
 . "$PSScriptRoot\commands\ConvertTo-ForeignMetadata.ps1"

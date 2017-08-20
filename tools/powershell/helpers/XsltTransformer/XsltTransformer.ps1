@@ -150,13 +150,22 @@ class XsltTransformer
         [string] $_output = $null
         try
         {
-            $output = & ([XsltTransformer]::PathToJre) $_arguments *>&1
+            $_output = & ([XsltTransformer]::PathToJre) $_arguments *>&1
             $_exitCode = $LASTEXITCODE
+            [EventLogger]::LogVerbose("Saxon output: {0}" -f $_output)
         }
         catch
         {
             [EventLogger]::LogException($_.Exception)
-            [EventLogger]::LogVerbose("Saxon output: {0}" -f $_output)
+            throw [XSLTTTransformationFailureException]::New(
+                $SourceFileUri.AbsoluteUri)
+        }
+
+        # Check exit code
+        if ($_exitCode -gt 0)
+        {
+            [EventLogger]::LogError("Saxon exit code: {0}" `
+                -f $_exitCode.ToString())
             throw [XSLTTTransformationFailureException]::New(
                 $SourceFileUri.AbsoluteUri)
         }

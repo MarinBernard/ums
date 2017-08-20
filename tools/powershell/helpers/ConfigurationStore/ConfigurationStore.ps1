@@ -17,8 +17,8 @@ class ConfigurationStore
 
     # Internal representation of the 'configuration/catalogs' section
     static [PSCustomObject[]] $Catalogs
-    # Internal representation of the 'configuration/converters' section
-    static [PSCustomObject[]] $Converters
+    # Internal representation of the 'configuration/helpers' section
+    static [PSCustomObject[]] $Helpers
     # Internal representation of the 'configuration/rendering' section
     static [PSCustomObject[]] $RenderingOptions
     # Internal representation of the 'configuration/schemas' section
@@ -93,11 +93,11 @@ class ConfigurationStore
         [ConfigurationStore]::Catalogs = (
             [ConfigurationStore]::ParseCatalogs($_section))
 
-        # Parse the '/configuration/converters' section
+        # Parse the '/configuration/helpers' section
         $_section = ([ConfigurationStore]::ConfigurationDocument |
-            Select-Xml -XPath "/configuration/converters").Node
-        [ConfigurationStore]::Converters = (
-            [ConfigurationStore]::ParseConverters($_section))
+            Select-Xml -XPath "/configuration/helpers").Node
+        [ConfigurationStore]::Helpers = (
+            [ConfigurationStore]::ParseHelpers($_section))
 
         # Parse the '/configuration/schemas' section
         $_section = ([ConfigurationStore]::ConfigurationDocument |
@@ -180,43 +180,6 @@ class ConfigurationStore
         return $_mappings
     }
 
-    # Parses the "converters" section of the configuration document.
-    # Cannot meet any unrecoverable error.
-    static [PSCustomObject[]] ParseConverters(
-        [System.Xml.XmlElement] $Converters)
-    {
-        [PSCustomObject[]] $_converters = @()
-
-        foreach ($_converter in ($Converters | Select-Xml -XPath "converter"))
-        {
-            # Building converter constraints
-            $_section = ($_converter.Node | 
-                Select-Xml -XPath "constraints").Node
-            [PSCustomObject[]] $_constraints = (
-                [ConfigurationStore]::ParseGenericConstraints(
-                    $_section, "ConverterConstraint"))
-
-            # Building converter options
-            $_section = ($_converter.Node | 
-                Select-Xml -XPath "options").Node
-            [PSCustomObject[]] $_options = (
-                [ConfigurationStore]::ParseGenericOptions(
-                    $_section, "ConverterOption"))                    
-
-            # Building converter object
-            $_converters += New-Object -Type PSCustomObject -Property (
-                [ordered] @{
-                    Type = "Converter";
-                    Id = $_converter.Node.id;
-                    ShortName = $_converter.Node.id.Replace("-", "");
-                    Constraints = $_constraints;
-                    Options = $_options;
-            })
-        }
-
-        return $_converters
-    }
-
     # Parses a generic 'constraints' section in the configuration document.
     # Cannot encounter any unrecoverable error.
     static [PSCustomObject[]] ParseGenericConstraints(
@@ -268,6 +231,43 @@ class ConfigurationStore
         }
 
         return $_options
+    }
+
+    # Parses the "helpers" section of the configuration document.
+    # Cannot meet any unrecoverable error.
+    static [PSCustomObject[]] ParseHelpers(
+        [System.Xml.XmlElement] $Helpers)
+    {
+        [PSCustomObject[]] $_helpers = @()
+
+        foreach ($_helper in ($Helpers | Select-Xml -XPath "helper"))
+        {
+            # Building converter constraints
+            $_section = ($_helper.Node | 
+                Select-Xml -XPath "constraints").Node
+            [PSCustomObject[]] $_constraints = (
+                [ConfigurationStore]::ParseGenericConstraints(
+                    $_section, "HelperConstraint"))
+
+            # Building converter options
+            $_section = ($_helper.Node | 
+                Select-Xml -XPath "options").Node
+            [PSCustomObject[]] $_options = (
+                [ConfigurationStore]::ParseGenericOptions(
+                    $_section, "HelperOption"))                    
+
+            # Building helper object
+            $_helpers += New-Object -Type PSCustomObject -Property (
+                [ordered] @{
+                    Type = "Helper";
+                    Id = $_helper.Node.id;
+                    ShortName = $_helper.Node.id.Replace("-", "");
+                    Constraints = $_constraints;
+                    Options = $_options;
+            })
+        }
+
+        return $_helpers
     }
 
     # Parses the "schemas" section of the configuration document.
@@ -378,9 +378,9 @@ class ConfigurationStore
                 $_collection = [ConfigurationStore]::Catalogs
             }
 
-            "converter"
+            "helper"
             {
-                $_collection = [ConfigurationStore]::Converters
+                $_collection = [ConfigurationStore]::Helpers
             }
 
             "rendering"
@@ -449,12 +449,12 @@ class ConfigurationStore
             "catalog", $ShortName)
     }
 
-    # Proxy getter for converter items.
+    # Proxy getter for helper items.
     # Propagates exceptions thrown by the main ::GetConfigurationItem() method.
-    static [PSCustomObject[]] GetConverterItem([string] $ShortName)
+    static [PSCustomObject[]] GetHelperItem([string] $ShortName)
     {
         return [ConfigurationStore]::GetConfigurationItem(
-            "converter", $ShortName)
+            "helper", $ShortName)
     }
 
     # Proxy getter for configuration items dealing with rendering.

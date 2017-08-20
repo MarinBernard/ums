@@ -134,11 +134,29 @@ class ConstraintValidator
 
                     switch ($_constraint.Value)
                     {
+                        "Independent"
+                        {
+                            $_allowedCardinalities = @(
+                                [FileCardinality]::Independent)
+                        }
+
+                        "Orphan"
+                        {
+                            $_allowedCardinalities = @(
+                                [FileCardinality]::Orphan)
+                        }
+
+                        "Sidecar"
+                        {
+                            $_allowedCardinalities = @(
+                                [FileCardinality]::Sidecar)
+                        }
+
                         "SidecarOrOrphan"
                         {
                             $_allowedCardinalities = @(
-                            [FileCardinality]::Sidecar,
-                            [FileCardinality]::Orphan)
+                                [FileCardinality]::Sidecar,
+                                [FileCardinality]::Orphan)
                         }
                     }
 

@@ -67,8 +67,9 @@ Export-ModuleMember -Function Remove-UmsManagedFile
 Export-ModuleMember -Function Rename-UmsManagedFile
 Export-ModuleMember -Function Update-UmsManagedFile
 
-# *-VorbisMetadata
-Export-ModuleMember -Function ConvertTo-VorbisMetadata
+# *-VorbisComment
+Export-ModuleMember -Function ConvertTo-VorbisComment
+Export-ModuleMember -Function Update-VorbisComment
 
 # Other
 Export-ModuleMember -Function ConvertTo-ForeignMetadata
