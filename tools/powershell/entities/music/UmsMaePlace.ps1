@@ -43,7 +43,7 @@ class UmsMaePlace : UmsBaePlace
         # Instantiation of an abstract class is forbidden
         if ($this.getType().Name -eq "UmsMaePlace")
         {
-            throw [AbstractClassInstantiationException]::New(
+            throw [UEAbstractEntityInstantiationException]::New(
                 $this.getType().Name)
         }
 

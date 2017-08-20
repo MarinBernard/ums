@@ -41,7 +41,7 @@ class UmsBaeStandard_Segment
             { $this.Order = $XmlElement.GetAttribute("order") }
         else
         {
-            throw [MissingXmlElementAttributeException]::New(
+            throw [UEMissingXmlElementAttributeException]::New(
                 "order", $XmlElement.NamespaceURI, $XmlElement.LocalName)
         }
 
@@ -50,7 +50,7 @@ class UmsBaeStandard_Segment
                 $XmlElement.GetAttribute("mandatory")) }
         else
         {
-            throw [MissingXmlElementAttributeException]::New(
+            throw [UEMissingXmlElementAttributeException]::New(
                 "mandatory", $XmlElement.NamespaceURI, $XmlElement.LocalName)
         }
 
@@ -58,7 +58,7 @@ class UmsBaeStandard_Segment
             { $this.Delimiter = $XmlElement.GetAttribute("delimiter") }
         else
         {
-            throw [MissingXmlElementAttributeException]::New(
+            throw [UEMissingXmlElementAttributeException]::New(
                 "delimiter", $XmlElement.NamespaceURI, $XmlElement.LocalName)
         }            
     }

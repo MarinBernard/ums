@@ -39,7 +39,7 @@ class UmsBaeStandard : UmsBaeItem
         # Instantiation of an abstract class is forbidden
         if ($this.getType().Name -eq "UmsBaeStandard")
         {
-            throw [AbstractClassInstantiationException]::New(
+            throw [UEAbstractEntityInstantiationException]::New(
                 $this.getType().Name)
         }
 
@@ -81,9 +81,6 @@ class UmsBaeStandard : UmsBaeItem
     # Build the full ID of a standard ID from a collection of ID segments.
     [string] ConstructId([UmsBaeStandard_IdSegment[]] $IdSegments)
     {
-        # Verbose prefix
-        $_verbosePrefix = "[UmsBaeStandard]::ConstructId(): "
-
         [string] $_string = ""
 
         [EventLogger]::LogVerbose(
@@ -112,8 +109,9 @@ class UmsBaeStandard : UmsBaeItem
                 [EventLogger]::LogVerbose(
                     "No matching segment found but the segment is mandatory.")
                 
-                throw [MandatoryStandardIdSegmentNotFoundException]::New(
-                    $_segment)
+                throw [UEMandatoryStandardIdSegmentNotFoundException]::New(
+                    $_segment
+                )
             }
 
             # If no match was found and the segment was optional

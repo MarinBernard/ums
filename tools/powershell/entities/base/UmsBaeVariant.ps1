@@ -45,7 +45,7 @@ class UmsBaeVariant : UmsAeEntity
         # Instantiation of an abstract class is forbidden
         if ($this.getType().Name -eq "UmsBaeVariant")
         {
-            throw [AbstractClassInstantiationException]::New(
+            throw [UEAbstractEntityInstantiationException]::New(
                 $this.getType().Name)
         }
 

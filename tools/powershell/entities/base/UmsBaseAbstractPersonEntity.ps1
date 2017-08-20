@@ -1,5 +1,5 @@
 ###############################################################################
-#   Abstract entity class UmsBaePerson
+#   Abstract entity class UmsBaseAbstractPersonEntity
 #==============================================================================
 #
 #   This class describes an abstract UMS entity representing a generic person.
@@ -11,7 +11,7 @@
 #
 ###############################################################################
 
-class UmsBaePerson : UmsBaeResource
+class UmsBaseAbstractPersonEntity : UmsBaseAbstractResourceEntity
 {
     ###########################################################################
     # Static properties
@@ -42,7 +42,7 @@ class UmsBaePerson : UmsBaeResource
     ###########################################################################
 
     # Abstract constructor, to be called by child constructors.
-    UmsBaePerson([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+    UmsBaseAbstractPersonEntity([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
         : base($XmlElement, $Uri)
     {
         # Instantiation of an abstract class is forbidden
@@ -55,7 +55,7 @@ class UmsBaePerson : UmsBaeResource
         # Build mandatory name variants
         $this.BuildNameVariants(
             $this.GetOneXmlElement(
-                $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "nameVariants"))
+                $XmlElement, [UmsAbstractEntity]::NamespaceUri.Base, "nameVariants"))
         
         # Build birth event instance
         if ($XmlElement.birth)
@@ -64,7 +64,7 @@ class UmsBaePerson : UmsBaeResource
                 [EntityFactory]::GetEntity(
                     $this.GetOneXmlElement(
                         $XmlElement,
-                        [UmsAeEntity]::NamespaceUri.Base,
+                        [UmsAbstractEntity]::NamespaceUri.Base,
                         "birth"),
                     $this.SourcePathUri,
                     $this.SourceFileUri))
@@ -77,7 +77,7 @@ class UmsBaePerson : UmsBaeResource
                 [EntityFactory]::GetEntity(
                     $this.GetOneXmlElement(
                         $XmlElement,
-                        [UmsAeEntity]::NamespaceUri.Base,
+                        [UmsAbstractEntity]::NamespaceUri.Base,
                         "death"),
                     $this.SourcePathUri,
                     $this.SourceFileUri))
@@ -89,7 +89,7 @@ class UmsBaePerson : UmsBaeResource
     {
         $this.GetOneOrManyXmlElement(
             $NameVariantsElement,
-            [UmsAeEntity]::NamespaceUri.Base,
+            [UmsAbstractEntity]::NamespaceUri.Base,
             "nameVariant") |
         foreach {
                 $this.NameVariants += [EntityFactory]::GetEntity(

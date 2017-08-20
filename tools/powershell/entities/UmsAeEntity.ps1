@@ -71,7 +71,7 @@ class UmsAeEntity
         # Instantiation of an abstract class is forbidden
         if ($this.getType().Name -eq "UmsBaeVariant")
         {
-            throw [AbstractClassInstantiationException]::New(
+            throw [UEAbstractEntityInstantiationException]::New(
                 $this.getType().Name)
         }
         
@@ -113,7 +113,7 @@ class UmsAeEntity
         if (($XmlElement.NamespaceURI -ne $RequiredNamespaceUri) -or
             ($XmlElement.LocalName -ne $RequiredElementName))
         {
-            throw [IncompatibleXmlElementException]::New(
+            throw [UEIncompatibleXmlElementException]::New(
                 $XmlElement.NamespaceURI,
                 $RequiredNamespaceUri,
                 $XmlElement.LocalName,
@@ -139,7 +139,7 @@ class UmsAeEntity
             { return $_elements[0] }
         else
         {
-            throw [IllegalXmlElementCountException]::New(
+            throw [UEIllegalXmlElementCountException]::New(
                 $NamespaceUri, $ElementName, $XmlElement.LocalName,
                 $XmlElement.NamespaceUri, $_elements.Count, 1, 1)
         }
@@ -172,7 +172,7 @@ class UmsAeEntity
             { return $_elements }
         else
         {
-            throw [IllegalXmlElementCountException]::New(
+            throw [UEIllegalXmlElementCountException]::New(
                 $NamespaceUri, $ElementName, $XmlElement.NamespaceUri,
                 $XmlElement.LocalName, $_elements.Count, 1, -1)
         }
@@ -208,7 +208,7 @@ class UmsAeEntity
             { return $_elements[0] }
         else
         {
-            throw [IllegalXmlElementCountException]::New(
+            throw [UEIllegalXmlElementCountException]::New(
                 $NamespaceUri, $ElementName, $XmlElement.NamespaceUri,
                 $XmlElement.LocalName, $_elements.Count, 0, 1)
         }
@@ -235,7 +235,7 @@ class UmsAeEntity
             { return $XmlElement.GetAttribute($Name) }
         else
         {
-            throw [MissingXmlElementAttributeException]::New(
+            throw [UEMissingXmlElementAttributeException]::New(
                 $Name,
                 $XmlElement.NamespaceUri,
                 $XmlElement.LocalName)

@@ -1,18 +1,17 @@
 ###############################################################################
-#   Abstract entity class UmsBaePublication
+#   Abstract entity class UmsBaseAbstractItemEntity
 #==============================================================================
 #
-#   This class describes an abstract UMS entity representing a generic
-#   publication. It deals with properties defined in the 'Publication' abstract
-#   type from the base XML schema. It defines members which are common to all
-#   types of UMS publication.
+#   This class describes an abstract UMS entity representing a generic item.
+#   It deals with properties defined in the 'Item' abstract type from the XML
+#   schema.
 #
 #   This class must *NOT* be instantiated, but rather be inherited by concrete 
 #   entity classes.
 #
 ###############################################################################
 
-class UmsBaePublication : UmsBaeProduct
+class UmsBaseAbstractItemEntity : UmsBaseAbstractResourceEntity
 {
     ###########################################################################
     # Static properties
@@ -22,51 +21,60 @@ class UmsBaePublication : UmsBaeProduct
     # Hidden properties
     ###########################################################################
 
+    # Collection of all label variants
+    hidden [UmsBceLabelVariant[]] $LabelVariants
+
     ###########################################################################
     # Visible properties
     ###########################################################################
 
-    [UmsBceRelease[]]       $Releases
+    # Elected label variant
+    [UmsBceLabelVariant] $Label
 
     ###########################################################################
     # Constructors
     ###########################################################################
 
     # Abstract constructor, to be called by child constructors.
-    UmsBaePublication([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+    UmsBaseAbstractItemEntity([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
         : base($XmlElement, $Uri)
     {
         # Instantiation of an abstract class is forbidden
-        if ($this.getType().Name -eq "UmsBaePublication")
+        if ($this.getType().Name -eq "UmsBaseAbstractItemEntity")
         {
             throw [UEAbstractEntityInstantiationException]::New(
                 $this.getType().Name)
         }
 
-        # Optional 'releases' element (collection of 'release' elements)
-        if ($XmlElement.releases)
-        {
-            $this.BuildReleases(
-                $this.GetOneXmlElement(
-                    $XmlElement,
-                    [UmsAeEntity]::NamespaceUri.Base,
-                    "releases"))
-        }
+        # Build optional label variants
+        $this.BuildLabelVariants(
+            $this.GetZeroOrOneXmlElement(
+                $XmlElement, [UmsAbstractEntity]::NamespaceUri.Base, "labelVariants"))
     }
 
-    # Sub-constructor for the 'releases' element
-    [void] BuildReleases([System.Xml.XmlElement] $ReleasesElement)
+    # Builds instances of all label variants and elects the best one.
+    [void] BuildLabelVariants([System.Xml.XmlElement] $LabelVariantsElement)
     {
-        $this.GetOneOrManyXmlElement(
-            $ReleasesElement,
-            [UmsAeEntity]::NamespaceUri.Base,
-            "release"
+        $this.GetZeroOrManyXmlElement(
+            $LabelVariantsElement,
+            [UmsAbstractEntity]::NamespaceUri.Base,
+            "labelVariant"
         ) | foreach {
-                $this.Releases += [EntityFactory]::GetEntity(
+                $this.LabelVariants += [EntityFactory]::GetEntity(
                     $_, $this.SourcePathUri, $this.SourceFileUri) }
+
+        # Get the best label variant
+        $this.Label = [UmsBaeVariant]::GetBestVariant($this.LabelVariants)
     }
 
     ###########################################################################
     # Helpers
     ###########################################################################
+
+    # String representation
+    [string] ToString()
+    {
+        return $this.Label
+    }
+
 }

@@ -6,7 +6,7 @@
 . "$PSScriptRoot\helpers\EventLogger\EventLogger.ps1"
 
 # Base class for all exceptions (Needed by all classes and helpers)
-. "$PSScriptRoot\classes\UmsException.ps1"
+. "$PSScriptRoot\helpers\UmsException.ps1"
 
 # Configuration store (Needed by all classes and helpers)
 . "$PSScriptRoot\helpers\ConfigurationStore\ConfigurationStore.Exceptions.ps1"
@@ -36,14 +36,12 @@
 . "$PSScriptRoot\helpers\FileManager\FileManager.Exceptions.ps1"
 . "$PSScriptRoot\helpers\FileManager\FileManager.ps1"
 
-# Common exceptions
-. "$PSScriptRoot\classes\Exceptions.ps1"
-
 # Constraint validator (Needed by all stylesheets and converters)
 . "$PSScriptRoot\helpers\ConstraintValidator\ConstraintValidator.Exceptions.ps1"
 . "$PSScriptRoot\helpers\ConstraintValidator\ConstraintValidator.ps1"
 
 # Abstract base entity
+. "$PSScriptRoot\entities\UmsAeEntity.Exceptions.ps1"
 . "$PSScriptRoot\entities\UmsAeEntity.ps1"
 
 # EntityCache helper
@@ -71,6 +69,7 @@
 . "$PSScriptRoot\entities\base\UmsBaeItem.ps1"
 . "$PSScriptRoot\entities\base\UmsBaeStandard_Segment.ps1"
 . "$PSScriptRoot\entities\base\UmsBaeStandard_IdSegment.ps1"
+. "$PSScriptRoot\entities\base\UmsBaeStandard.Exceptions.ps1"
 . "$PSScriptRoot\entities\base\UmsBaeStandard.ps1"
 . "$PSScriptRoot\entities\base\UmsBaeStandardId.ps1"
 . "$PSScriptRoot\entities\base\UmsBceStandard.ps1"
@@ -133,6 +132,9 @@
 ###############################################################################
 # Commands
 ###############################################################################
+
+# Command exceptions
+. "$PSScriptRoot\commands\Commands.Exceptions.ps1"
 
 # *-UmsCachedDocument
 . "$PSScriptRoot\commands\CachedDocument\Get-UmsCachedDocument.ps1"

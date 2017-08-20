@@ -35,7 +35,7 @@ class UmsBaeStandard_IdSegment
             { $this.Level = $XmlElement.GetAttribute("level") }
         else
         {
-            throw [MissingXmlElementAttributeException]::New(
+            throw [UEMissingXmlElementAttributeException]::New(
                 "level", $XmlElement.NamespaceURI, $XmlElement.LocalName)
         }
 

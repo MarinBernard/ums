@@ -1,5 +1,5 @@
 ###############################################################################
-#   Abstract entity class UmsBaeResource
+#   Abstract entity class UmsBaseAbstractResourceEntity
 #==============================================================================
 #
 #   This class describes an abstract UMS entity representing a generic
@@ -16,7 +16,7 @@
 #
 ###############################################################################
 
-class UmsBaeResource : UmsAeEntity
+class UmsBaseAbstractResourceEntity : UmsAbstractEntity
 {
     ###########################################################################
     # Static properties
@@ -34,7 +34,7 @@ class UmsBaeResource : UmsAeEntity
     # could not be specified as-is due to a dependency loop.
     # Tags:
     # - DependencyLoopPrevention
-    [UmsAeEntity[]] $StandardIds
+    [UmsAbstractEntity[]] $StandardIds
 
     ###########################################################################
     # Visible properties
@@ -48,11 +48,11 @@ class UmsBaeResource : UmsAeEntity
     ###########################################################################
 
     # Abstract constructor, to be called by child constructors.
-    UmsBaeResource([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+    UmsBaseAbstractResourceEntity([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
         : base($XmlElement, $Uri)
     {
         # Instantiation of an abstract class is forbidden
-        if ($this.getType().Name -eq "UmsBaeResource")
+        if ($this.getType().Name -eq "UmsBaseAbstractResourceEntity")
         {
             throw [UEAbstractEntityInstantiationException]::New(
                 $this.getType().Name)
@@ -61,12 +61,12 @@ class UmsBaeResource : UmsAeEntity
         # Build optional link variants
         $this.BuildLinkVariants(
             $this.GetZeroOrOneXmlElement(
-                $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "linkVariants"))
+                $XmlElement, [UmsAbstractEntity]::NamespaceUri.Base, "linkVariants"))
 
         # Build optional standard ids
         $this.BuildStandardIds(
             $this.GetZeroOrOneXmlElement(
-                $XmlElement, [UmsAeEntity]::NamespaceUri.Base, "standardIds"))
+                $XmlElement, [UmsAbstractEntity]::NamespaceUri.Base, "standardIds"))
     }
 
     # Builds instances of all link variants and elects those which fit
@@ -75,7 +75,7 @@ class UmsBaeResource : UmsAeEntity
     {
         $this.GetZeroOrManyXmlElement(
             $LinkVariantsElement,
-            [UmsAeEntity]::NamespaceUri.Base,
+            [UmsAbstractEntity]::NamespaceUri.Base,
             "linkVariant"
         ) | foreach {
                 $this.LinkVariants += [EntityFactory]::GetEntity(
@@ -94,7 +94,7 @@ class UmsBaeResource : UmsAeEntity
     {
         $this.GetZeroOrManyXmlElement(
             $StandardIdsElement,
-            [UmsAeEntity]::NamespaceUri.Base,
+            [UmsAbstractEntity]::NamespaceUri.Base,
             "standardId"
         ) | foreach {
                 $this.StandardIds += [EntityFactory]::GetEntity(

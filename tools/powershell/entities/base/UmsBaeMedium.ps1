@@ -71,7 +71,7 @@ class UmsBaeMedium : UmsBaeProduct
         # Instantiation of an abstract class is forbidden
         if ($this.getType().Name -eq "UmsBaeMedium")
         {
-            throw [AbstractClassInstantiationException]::New(
+            throw [UEAbstractEntityInstantiationException]::New(
                 $this.getType().Name)
         }
 

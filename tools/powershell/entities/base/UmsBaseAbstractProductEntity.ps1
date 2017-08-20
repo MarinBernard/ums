@@ -1,18 +1,17 @@
 ###############################################################################
-#   Abstract entity class UmsBaePublication
+#   Abstract entity class UmsBaseAbstractProductEntity
 #==============================================================================
 #
-#   This class describes an abstract UMS entity representing a generic
-#   publication. It deals with properties defined in the 'Publication' abstract
-#   type from the base XML schema. It defines members which are common to all
-#   types of UMS publication.
+#   This class describes an abstract UMS entity representing a generic product.
+#   It deals with properties defined in the 'Product' abstract type from the
+#   XML schema.
 #
 #   This class must *NOT* be instantiated, but rather be inherited by concrete 
 #   entity classes.
 #
 ###############################################################################
 
-class UmsBaePublication : UmsBaeProduct
+class UmsBaseAbstractProductEntity : UmsBaseAbstractResourceEntity
 {
     ###########################################################################
     # Static properties
@@ -22,51 +21,65 @@ class UmsBaePublication : UmsBaeProduct
     # Hidden properties
     ###########################################################################
 
+    # Collection of all title variants
+    hidden [UmsBceTitleVariant[]] $TitleVariants
+
     ###########################################################################
     # Visible properties
     ###########################################################################
 
-    [UmsBceRelease[]]       $Releases
+    # Elected title variant
+    [UmsBceTitleVariant] $Title
 
     ###########################################################################
     # Constructors
     ###########################################################################
 
     # Abstract constructor, to be called by child constructors.
-    UmsBaePublication([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
+    UmsBaseAbstractProductEntity([System.Xml.XmlElement] $XmlElement, [System.Uri] $Uri)
         : base($XmlElement, $Uri)
     {
         # Instantiation of an abstract class is forbidden
-        if ($this.getType().Name -eq "UmsBaePublication")
+        if ($this.getType().Name -eq "UmsBaseAbstractProductEntity")
         {
             throw [UEAbstractEntityInstantiationException]::New(
                 $this.getType().Name)
         }
 
-        # Optional 'releases' element (collection of 'release' elements)
-        if ($XmlElement.releases)
+        # Build optional title variants
+        if ($XmlElement.titleVariants)
         {
-            $this.BuildReleases(
+            $this.BuildTitleVariants(
                 $this.GetOneXmlElement(
                     $XmlElement,
-                    [UmsAeEntity]::NamespaceUri.Base,
-                    "releases"))
+                    [UmsAbstractEntity]::NamespaceUri.Base,
+                    "titleVariants"))
         }
     }
 
-    # Sub-constructor for the 'releases' element
-    [void] BuildReleases([System.Xml.XmlElement] $ReleasesElement)
+    # Builds instances of all title variants and elects the best one.
+    [void] BuildTitleVariants([System.Xml.XmlElement] $TitleVariantsElement)
     {
         $this.GetOneOrManyXmlElement(
-            $ReleasesElement,
-            [UmsAeEntity]::NamespaceUri.Base,
-            "release"
+            $TitleVariantsElement,
+            [UmsAbstractEntity]::NamespaceUri.Base,
+            "titleVariant"
         ) | foreach {
-                $this.Releases += [EntityFactory]::GetEntity(
+                $this.TitleVariants += [EntityFactory]::GetEntity(
                     $_, $this.SourcePathUri, $this.SourceFileUri) }
+
+        # Get the best label variant
+        $this.Title = [UmsBaeVariant]::GetBestVariant($this.TitleVariants)
     }
 
     ###########################################################################
     # Helpers
     ###########################################################################
+
+    # String representation
+    [string] ToString()
+    {
+        return $this.Title
+    }
+
 }
