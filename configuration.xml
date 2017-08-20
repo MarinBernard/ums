@@ -43,11 +43,11 @@
 	<converters>
 		<converter id="VorbisComment">
 			<constraints>
-				<constraint id="binding-element-namespace">http://schemas.olivarim.com/ums/1.0/audio</constraint>
-				<constraint id="binding-element-name">albumTrackBinding</constraint>
-				<constraint id="document-element-namespace">http://schemas.olivarim.com/ums/1.0/base</constraint>
-				<constraint id="document-element-name">file</constraint>
-				<constraint id="item-cardinality">SidecarOrOrphan</constraint>
+				<constraint id="document-binding-element-namespace">http://schemas.olivarim.com/ums/1.0/audio</constraint>
+				<constraint id="document-binding-element-name">albumTrackBinding</constraint>
+				<constraint id="document-document-element-namespace">http://schemas.olivarim.com/ums/1.0/base</constraint>
+				<constraint id="document-document-element-name">file</constraint>
+				<constraint id="file-cardinality">SidecarOrOrphan</constraint>
 			</constraints>
 			<options>
 				<!-- Default value: " & ", with non breakable spaces -->
@@ -151,12 +151,12 @@
 		<stylesheet id="expander" uri="file:///C:/Users/marin/Code/ums/stylesheets/music/expander/expander.xsl"/>
 		<stylesheet id="music2vc" uri="file:///C:/Users/marin/Code/ums/stylesheets/music/music2vc/music2vc.xsl">
 			<constraints>
-				<constraint id="binding-element-namespace">http://schemas.olivarim.com/ums/1.0/audio</constraint>
-				<constraint id="binding-element-name">albumTrackBinding</constraint>
-				<constraint id="document-element-namespace">http://schemas.olivarim.com/ums/1.0/base</constraint>
-				<constraint id="document-element-name">file</constraint>
-				<constraint id="item-cardinality">SidecarOrOrphan</constraint>
-				<constraint id="item-static-version-status">CurrentOrExpired</constraint>
+				<constraint id="document-binding-element-namespace">http://schemas.olivarim.com/ums/1.0/audio</constraint>
+				<constraint id="document-binding-element-name">albumTrackBinding</constraint>
+				<constraint id="document-document-element-namespace">http://schemas.olivarim.com/ums/1.0/base</constraint>
+				<constraint id="document-document-element-name">file</constraint>
+				<constraint id="file-cardinality">SidecarOrOrphan</constraint>
+				<constraint id="file-static-version-status">CurrentOrExpired</constraint>
 			</constraints>
 			<options>
 				<option id="constant-new-line">&#xa;</option>
@@ -225,6 +225,7 @@
 	<tools>
 		<tool id="jre-bin" path="C:\Program Files (x86)\Java\jre1.8.0_144\bin\java.exe"/>
 		<tool id="jing-jar" path="C:\Program Files\XMLBlueprint 13\JavaLib\jing-trang-20151127\bin\jing.jar"/>
+		<tool id="metaflac" path="C:\Program Files\Flac\metaflac.exe"/>
 		<tool id="saxon-jar" path="C:\Program Files\XMLBlueprint 13\JavaLib\SaxonPE9-7-0-18J\saxon9pe.jar"/>
 	</tools>
 	<rendering>

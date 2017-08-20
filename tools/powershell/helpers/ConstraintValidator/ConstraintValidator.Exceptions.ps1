@@ -12,25 +12,50 @@ class ConstraintValidatorException : UmsException
 }
 
 ###############################################################################
-#   Exception class CVValidationFailureException
+#   Exception class CVDocumentValidationFailureException
 #==============================================================================
 #
-#   Thrown by the [ConstraintValidator]::Validate() method when a
-#   configuration item cannot be retrieved because it has a bad type or name.
+#   Thrown by the ValidateDocument() method on validation failure
 #
 ###############################################################################
 
-class CVValidationFailureException : ConstraintValidatorException
+class CVDocumentValidationFailureException : ConstraintValidatorException
 {
-    CVValidationFailureException(
-        [UmsFile] $UmsFile,
+    CVDocumentValidationFailureException(
+        [UmsDocument] $Document,
         [PSCustomObject] $Constraint,
         [string] $BadValue)
         : base()
     {
         $this.MainMessage = (
-            "The following UMS item failed constraint validation: {0} " `
-            -f $UmsFile.File.FullName)
+            "The following UMS document failed constraint validation: {0} " `
+            -f $Document.SourceUri.AbsoluteUri)
+
+        $this.SubMessages += ("Constraint id: {0}" -f $Constraint.Id)
+        $this.SubMessages += ("Constraint value: {0}" -f $Constraint.Value)
+        $this.SubMessages += ("Item value: {0}" -f $BadValue)
+    }
+}
+
+###############################################################################
+#   Exception class CVFileValidationFailureException
+#==============================================================================
+#
+#   Thrown by the ValidateFile() method on validation failure
+#
+###############################################################################
+
+class CVFileValidationFailureException : ConstraintValidatorException
+{
+    CVFileValidationFailureException(
+        [UmsFile] $File,
+        [PSCustomObject] $Constraint,
+        [string] $BadValue)
+        : base()
+    {
+        $this.MainMessage = (
+            "The following UMS file failed constraint validation: {0} " `
+            -f $File.File.FullName)
 
         $this.SubMessages += ("Constraint id: {0}" -f $Constraint.Id)
         $this.SubMessages += ("Constraint value: {0}" -f $Constraint.Value)

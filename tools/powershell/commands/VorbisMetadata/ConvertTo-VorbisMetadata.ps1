@@ -2,23 +2,38 @@ function ConvertTo-VorbisMetadata
 {
     <#
     .SYNOPSIS
-    Converts UMS metadata, either live entity or cached metadata, to Vorbis Comment.
+    Converts UMS metadata to Vorbis Comment.
     
     .DESCRIPTION
-    This command converts a set of UMS metadata to Vorbis Comments. The conversion process is complex and can't be reverted, as the resulting metadata will not fit the original entities one for one. Thus, this command will only process UmsManagedFile instances which have a Sidecar or Orphan cardinality, and which embed a umsa:albumTrackBinding binding element.
+    This command converts UMS metadata to Vorbis Comments. The conversion process is complex and can't be reverted, as the resulting metadata will not fit the original entities one for one. This command support several types of input objects, but requires UmsDocument instances describing binding documents, with a umsa:albumTrackBinding binding element.
+
+    .PARAMETER Document
+    An instance of the UmsDocument class, as returned by the Get-UmsDocument command. This document must be a binding document, with a 'umsa:albumTrackBinding' binding element.
     
-    .PARAMETER ManagedFile
-    An instance of the UmsManagedFile class, as returned by the Get-UmsManagedFile command, with a Sidecar or Orphan cardinality and a umsa:albumTrackBinding binding element.
+    .PARAMETER File
+    An instance of the UmsFile class, as returned by the Get-UmsFile or Get-UmsManagedFile commands, with a Sidecar or Orphan cardinality and a umsa:albumTrackBinding binding element.
 
     .EXAMPLE
-    Get-UmsManagedFile -Path "D:\MyMusic" -Filter "track01*" | ConvertTo-VorbisMetadata
+    Get-UmsFile -Path "D:\MyMusic" -Filter "track01*" | ConvertTo-VorbisMetadata
     #>
 
-    [CmdletBinding(DefaultParametersetName='None')]
+    [CmdletBinding(DefaultParametersetName='ByFileInstance')]
     Param(
-        [Parameter(Position=0,Mandatory=$true,ValueFromPipeline=$true)]
+        [Parameter(ParameterSetName='ByUriInstance',Position=0,Mandatory=$true,ValueFromPipeline=$true)]  
         [ValidateNotNull()]
-        [UmsManagedFile] $ManagedFile
+        [System.Uri] $Uri,
+
+        [Parameter(ParametersetName='ByDocumentInstance',Position=0,Mandatory=$true,ValueFromPipeline=$true)]
+        [ValidateNotNull()]
+        [UmsDocument] $Document,
+
+        [Parameter(ParametersetName='ByFileInstance',Position=0,Mandatory=$true,ValueFromPipeline=$true)]
+        [ValidateNotNull()]
+        [UmsFile] $File,
+
+        [Parameter(ParametersetName='ByFileInstance')]
+        [ValidateSet("Cache", "Static", "Raw")]
+        [string] $Source = "Cache"
     )
 
     Begin
@@ -28,52 +43,149 @@ function ConvertTo-VorbisMetadata
 
         # Instantiate the constraint validator
         $Validator = [ConstraintValidator]::New(
-            [ConfigurationStore]::GetConverterItem("VorbisComment").Constraints
-        )
+            [ConfigurationStore]::GetConverterItem(
+                "VorbisComment").Constraints)
 
         # Instantiate the converter
         $Converter = [VorbisCommentConverter]::New(
-            [ConfigurationStore]::GetConverterItem("VorbisComment").Options
-        )
+            [ConfigurationStore]::GetConverterItem(
+                "VorbisComment").Options)
     }
 
     Process
     {
-        # Validate constraints
-        try
+        # Parameter set abstraction.
+        # Validate constraints against UmsFile or UmsDocument instances
+        [UmsDocument] $_sourceDocument = $null        
+        switch ($PSCmdlet.ParameterSetName)
         {
-            $Validator.Validate($ManagedFile)
-        }
-        catch [CVValidationFailureException]
-        {
-            # Validation failure
-            [EventLogger]::LogException($_.Exception)
-            [EventLogger]::LogError($Messages.ConstraintValidationFailure)
-            throw [UmsPublicCommandFailureException]::New(
-                "ConvertTo-VorbisMetadata")
-        }
-        catch
-        {
-            # All other exceptions are also terminating
-            [EventLogger]::LogException($_.Exception)
-            throw [UmsPublicCommandFailureException]::New(
-                "ConvertTo-VorbisMetadata")
-        }        
+            "ByUriInstance"
+            {
+                # Try to get a document instance
+                try
+                {
+                    $_sourceDocument = Get-UmsDocument -Uri $Uri
+                }
+                catch
+                {
+                    [EventLogger]::LogException($_.Exception)
+                    [EventLogger]::LogError($Messages.GetDocumentByURIFailure)
+                    throw [UmsPublicCommandFailureException]::New(
+                        "Get-UmsEntity")
+                }
 
-        # Try to obtain an entity or cached metadata
-        [object] $_metadata = $null
-        try
-        {
-            $_metadata = $ManagedFile | Get-UmsEntity
+                # Validate document constraints
+                try
+                {
+                    $Validator.ValidateDocument($_sourceDocument)
+                }
+                catch
+                {
+                    # Validation failure
+                    [EventLogger]::LogException($_.Exception)
+                    [EventLogger]::LogError($Messages.ConstraintValidationFailure)
+                    throw [UmsPublicCommandFailureException]::New(
+                        "ConvertTo-VorbisMetadata")
+                }
+            }
+
+            "ByDocumentInstance"
+            {
+                $_sourceDocument = $Document
+
+                # Validate document constraints
+                try
+                {
+                    $Validator.ValidateDocument($Document)
+                }
+                catch
+                {
+                    # Validation failure
+                    [EventLogger]::LogException($_.Exception)
+                    [EventLogger]::LogError($Messages.ConstraintValidationFailure)
+                    throw [UmsPublicCommandFailureException]::New(
+                        "ConvertTo-VorbisMetadata")
+                }
+            }
+
+            "ByFileInstance"
+            {
+                # Validate file constraints
+                try
+                {
+                    $Validator.ValidateFile($File)
+                }
+                catch
+                {
+                    # Validation failure
+                    [EventLogger]::LogException($_.Exception)
+                    [EventLogger]::LogError($Messages.ConstraintValidationFailure)
+                    throw [UmsPublicCommandFailureException]::New(
+                        "ConvertTo-VorbisMetadata")
+                }
+
+                # Process version
+                switch ($Source)
+                {
+                    "Raw"
+                    {
+                        $_sourceDocument = $File.Document
+                    }
+
+                    "Static"
+                    {
+                        try
+                        {
+                            $_sourceDocument = $File.GetStaticDocument()
+                        }
+                        catch
+                        {
+                            [EventLogger]::LogInformation(
+                                "No static version available.")
+                            $_sourceDocument = $File.Document
+                        }
+                    }
+
+                    "Cache"
+                    {
+                        [object] $_cachedMetadata = $null
+                        try
+                        {
+                            $_cachedMetadata = $File.GetCachedMetadata()
+                        }
+                        catch
+                        {
+                            [EventLogger]::LogInformation(
+                                "No cached metadata available.")
+                            $_sourceDocument = $File.Document
+                        }
+                    }
+                }
+            }
         }
-        catch
+
+        # Get a live entity if no static metadata is available.
+        [object] $_metadata = $null
+        if ($_cachedMetadata)
         {
-            [EventLogger]::LogException($_.Exception)
-            throw [UmsPublicCommandFailureException]::New(
-                "ConvertTo-VorbisMetadata")
-        }         
+            $_metadata = $_cachedMetadata
+        }
+        else
+        {
+            try
+            {
+                $_metadata = Get-UmsEntity -Document $_sourceDocument
+            }
+            catch
+            {
+                # Entity instantiation failure.
+                [EventLogger]::LogException($_.Exception)
+                throw [UmsPublicCommandFailureException]::New(
+                    "ConvertTo-VorbisMetadata")
+            }
+        }
         
-        # Start conversion
+        # Start metadata conversion
         try
         {
             $Converter.Convert($_metadata)

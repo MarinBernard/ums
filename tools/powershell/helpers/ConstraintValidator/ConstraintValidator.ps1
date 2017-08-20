@@ -39,62 +39,95 @@ class ConstraintValidator
     }
 
     ###########################################################################
-    # Helpers
+    # Validators
     ###########################################################################
 
-    # Validate a single UmsItem instance against the collection of constraints.
+    # Validate a single UmsFile instance against the collection of constraints.
     # This method returns nothing: if no exception is throw, it must be assumed
     # that the supplied instance is valid.
     # Throws:
-    #   - [CVValidationFailureException] on validation failure.
-    [void] Validate([UmsFile] $File)
+    #   - [CVDocumentValidationFailureException] on validation failure.
+    [void] ValidateDocument([UmsDocument] $Document)
     {
         foreach ($_constraint in $this.Constraints)
         {
+            # Ignore other types of constraint
+            if ($_constraint.Id -notlike "document-*") { continue }
+
             switch ($_constraint.Id)
             {
-                "binding-element-namespace"
+                "document-binding-element-namespace"
                 {
-                    if ($File.Document.BindingNamespace -ne $_constraint.Value)
+                    if ($Document.BindingNamespace -ne $_constraint.Value)
                     {
-                        throw [CVValidationFailureException]::New(
-                            $File,
+                        throw [CVDocumentValidationFailureException]::New(
+                            $Document,
                             $_constraint,
-                            $File.Document.BindingNamespace)
+                            $Document.BindingNamespace)
                     }
                 }
 
-                "binding-element-name"
+                "document-binding-element-name"
                 {
-                    if ($File.Document.BindingLocalName -ne 
+                    if ($Document.BindingLocalName -ne 
                         $_constraint.Value)
                     {
-                        throw [CVValidationFailureException]::New(
-                            $File,
+                        throw [CVDocumentValidationFailureException]::New(
+                            $Document,
                             $_constraint,
-                            $File.Document.BindingLocalName)
+                            $Document.BindingLocalName)
                     }
                 }
 
-                "document-element-namespace"
+                "document-document-element-namespace"
                 {
-                    if ($File.Document.RootNamespace -ne $_constraint.Value)
+                    if ($Document.RootNamespace -ne $_constraint.Value)
                     {
-                        throw [CVValidationFailureException]::New(
-                            $File, $_constraint, $File.Document.RootNamespace)
+                        throw [CVDocumentValidationFailureException]::New(
+                            $Document, $_constraint, $Document.RootNamespace)
                     }
                 }
 
-                "document-element-name"
+                "document-document-element-name"
                 {
-                    if ($File.Document.RootLocalName -ne $_constraint.Value)
+                    if ($Document.RootLocalName -ne $_constraint.Value)
                     {
-                        throw [CVValidationFailureException]::New(
-                            $File, $_constraint, $File.Document.RootLocalName)
+                        throw [CVDocumentValidationFailureException]::New(
+                            $Document, $_constraint, $Document.RootLocalName)
                     }
                 }
+            }
+        }
+    }
 
-                "item-cardinality"
+    # Validate a single UmsFile instance against the collection of constraints.
+    # This method returns nothing: if no exception is throw, it must be assumed
+    # that the supplied instance is valid.
+    # Throws:
+    #   - [CVFileValidationFailureException] on validation failure.
+    #   - [CVDocumentValidationFailureException] on document validation failure
+    [void] ValidateFile([UmsFile] $File)
+    {
+        # Try to validate the internal document instance
+        try
+        {
+            $this.ValidateDocument($File.Document)
+        }
+        catch [CVDocumentValidationFailureException]
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw $_.Exception
+        }
+
+        # Validate the file instance
+        foreach ($_constraint in $this.Constraints)
+        {
+            # Ignore other types of constraint
+            if ($_constraint.Id -notlike "file-*") { continue }
+
+            switch ($_constraint.Id)
+            {
+                "file-cardinality"
                 {
                     # Build the list of allowed cardinalities
                     [FileCardinality[]] $_allowedCardinalities = @()
@@ -112,12 +145,12 @@ class ConstraintValidator
                     # Check cardinality
                     if ($_allowedCardinalities -notcontains($File.Cardinality))
                     {
-                        throw [CVValidationFailureException]::New(
+                        throw [CVFileValidationFailureException]::New(
                             $File, $_constraint, $File.Cardinality)
                     }
                 }
 
-                "item-static-version-status"
+                "file-static-version-status"
                 {
                     # Build the list of allowed statuses
                     [FileVersionStatus[]] $_allowedVersionStatuses = @()
@@ -135,7 +168,7 @@ class ConstraintValidator
                     # Check cardinality
                     if ($_allowedVersionStatuses -notcontains($File.StaticVersion))
                     {
-                        throw [CVValidationFailureException]::New(
+                        throw [CVFileValidationFailureException]::New(
                             $File, $_constraint, $File.StaticVersion)
                     }
                 }

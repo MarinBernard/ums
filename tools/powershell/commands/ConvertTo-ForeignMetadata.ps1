@@ -62,9 +62,9 @@ function ConvertTo-ForeignMetadata
         # Validate stylesheet constraints
         try
         {
-            $Validator.Validate($File)
+            $Validator.ValidateFile($File)
         }
-        catch [CVValidationFailureException]
+        catch
         {
             [EventLogger]::LogException($_.Exception)
             [EventLogger]::LogError($Messages.ConstraintValidationFailure)
