@@ -427,6 +427,27 @@ class UmsFileException : UmsException
     }
 
     ###########################################################################
+    #   Exception class UFCachedMetadataUpdateFailureException
+    #==========================================================================
+    #
+    #   Thrown by the [UmsManagedFile]::UpdateCachedMetadata() method when it
+    #   fails to update the cached version of the file's metadata.
+    #
+    ###########################################################################
+
+    class UFCachedMetadataUpdateFailureException : UmsFileException
+    {
+        UFCachedMetadataUpdateFailureException([System.Uri] $Uri) : base()
+        {
+            $this.MainMessage = ($(
+                "Unable to update the cached version of the metadata of " + `
+                "the UmsFile instance built from the following URI: {0} " + `
+                "URI: {0}") `
+                -f $Uri.AbsoluteUri)
+        }
+    }    
+
+    ###########################################################################
     #   Exception class UFStaticVersionUpdateFailureException
     #==========================================================================
     #

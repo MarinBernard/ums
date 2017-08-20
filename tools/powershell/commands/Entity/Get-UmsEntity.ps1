@@ -96,7 +96,7 @@ function Get-UmsEntity
                     {
                         # The use of the "Static" value is not allowed if the
                         # UmsFile instance is not a UmsManagedFile instance.
-                        if ($File.GetType.FullName -ne "UmsManagedFile")
+                        if ($File.GetType().FullName -ne "UmsManagedFile")
                         {
                             [EventLogger]::LogError(
                                 $Messages.ManagedFileRequired)
@@ -120,7 +120,7 @@ function Get-UmsEntity
                     {
                         # The use of the "Cache" value is not allowed if the
                         # UmsFile instance is not a UmsManagedFile instance.
-                        if ($File.GetType.FullName -ne "UmsManagedFile")
+                        if ($File.GetType().FullName -ne "UmsManagedFile")
                         {
                             [EventLogger]::LogError(
                                 $Messages.ManagedFileRequired)

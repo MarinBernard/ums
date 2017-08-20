@@ -91,69 +91,30 @@ function Update-UmsManagedFile
             }
             else
             {
-                # Retrieve metadata
+                # Retrieve the UMS entity
+                # Tags:
+                #   - PublicCommandCall
+                [UmsAeEntity] $_entity = $null
                 try
                 {
-                    $_metadata = Get-UmsMetadata `
-                        -Silent `
-                        -ManagedFile $ManagedFile `
-                        -Source "Raw"
+                    $_entity = Get-UmsEntity -File $ManagedFile -Source Raw
                 }
-                catch [UmsException]
+                catch
                 {
                     [EventLogger]::LogException($_.Exception)
                     throw [UmsPublicCommandFailureException]::New("Update-UmsManagedFile")
                 }
-
-                # Build the name of the temporary destination file
-                $_tempFileFullName = $($ManagedFile.CacheFileFullName + ".tmp")
-
-                # Cache metadata
+            
+                # Update cache file
                 try
                 {
-                    $_depth = (
-                        [ConfigurationStore]::GetSystemItem(
-                            "ExportCliXmlDepth")).Value
-                        
-                    $_metadata | Export-Clixml `
-                        -LiteralPath $_tempFileFullName `
-                        -Depth $_depth
+                     $ManagedFile.UpdateCachedMetadata($_entity)
                 }
                 catch
                 {
-                    # Temporary file should be removed if caching has failed
-                    Remove-Item `
-                        -Force `
-                        -LiteralPath $_tempFileFullName `
-                        -ErrorAction SilentlyContinue
-
                     [EventLogger]::LogException($_.Exception)
                     throw [UmsPublicCommandFailureException]::New("Update-UmsManagedFile")
                 }
-
-                # Promote temporary file to be the new cache file
-                try
-                {
-                    # Remove pre-existing cache file, if it exists
-                    if (Test-Path -LiteralPath $ManagedFile.CacheFileFullName)
-                        { Remove-Item -Force -LiteralPath $ManagedFile.CacheFileFullName }
-                    
-                    # Promote temporary file to cache file
-                    Move-Item `
-                        -Path $_tempFileFullName `
-                        -Destination $ManagedFile.CacheFileFullName
-                }
-
-                # Catch promotion failure
-                catch
-                {
-                    # Temporary file should be removed if validation has failed
-                    Remove-Item -Force -LiteralPath $_tempFileFullName
-                    throw $ModuleStrings.UpdateUmsManagedFile.PromotionFailure
-                }
-
-                # Update cached version status in the UmsManagedFile instance
-                $ManagedFile.UpdateCacheInfo()
             }
         }
 

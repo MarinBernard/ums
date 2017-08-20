@@ -1395,6 +1395,83 @@ class UmsManagedFile : UmsFile
         return $_document
     }
 
+    # Updates the file storing cached metadata from a supplied entity
+    # instance. We cannot generate the entity from this method, as this
+    # class is loaded before the [EntityFactory], and PowerShell would fail
+    # to load the module to a dependency loop.
+    # Tags:
+    #   - DependencyLoopPrevention
+    # Throws:
+    #   - [UFCachedMetadataUpdateFailureException] on fatal failure.
+    [void] UpdateCachedMetadata([object] $Entity)
+    {
+        # Get a temporary file.
+        try
+        {
+            $_temporaryFile = New-TemporaryFile
+        }
+        catch
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw [UFCachedMetadataUpdateFailureException]::New($this.Uri)
+        }
+
+        # Get CliXml export depth
+        [int] $_depth = 0
+        try
+        {
+            $_depth = ([ConfigurationStore]::GetSystemItem(
+                "ExportCliXmlDepth")).Value
+        }
+        catch [ConfigurationStoreException]
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw [UFCachedMetadataUpdateFailureException]::New($this.Uri)
+        }
+
+        # Serialize the entity
+        try
+        {
+            $Entity | Export-CliXml `
+                -Depth $_depth `
+                -Path $_temporaryFile.Fullname
+        }
+        catch
+        {
+            [EventLogger]::LogException($_.Exception)
+            # Temporary file should be removed if caching has failed
+            Remove-Item `
+                -Force `
+                -Path $_temporaryFile.FullName
+            throw [UFCachedMetadataUpdateFailureException]::New($this.Uri)
+        }
+
+        # Promote the temporary file
+        try
+        {
+            Copy-Item `
+                -Force `
+                -Path $_temporaryFile.FullName `
+                -Destination $this.CacheFile.FullName `
+                -ErrorAction Stop
+        }
+        catch
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw [UFCachedMetadataUpdateFailureException]::New($this.Uri)
+        }
+        finally
+        {
+            # Temporary file should be removed anyway
+            Remove-Item `
+            -Force `
+            -Path $_temporaryFile.FullName
+        }
+
+        # Update cached version status
+        $this.UpdateCacheFileInfo()
+    }
+
     # Updates the static file linked to the managed file.
     # Throws:
     #   - [UFStaticVersionUpdateFailureException] on fatal failure.
