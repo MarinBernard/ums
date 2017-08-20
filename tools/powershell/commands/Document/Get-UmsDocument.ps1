@@ -22,6 +22,12 @@ function Get-UmsDocument
         [System.Uri] $Uri
     )
 
+    Begin
+    {
+        # Shortcut to messages
+        $Messages = $ModuleStrings.Commands
+    }
+
     Process
     {
         # Abstract parameters
@@ -37,6 +43,30 @@ function Get-UmsDocument
             }
         }
 
-        return [DocumentCache]::GetDocument($_uri)
+        # Try to get a UmsDocument instance
+        [UmsDocument] $_document = $null
+        try
+        {
+            $_document = [DocumentFactory]::GetDocument($_uri)
+        }
+        catch [DFResourceRetrievalFailureException]
+        {
+            [EventLogger]::LogException($_.Exception)
+            [EventLogger]::LogError($Messages.ResourceRetrievalFailure)
+            throw [UmsPublicCommandFailureException]::New("Get-UmsDocument")
+        }
+        catch [DFCacheDocumentFailureException]
+        {
+            [EventLogger]::LogException($_.Exception)
+            [EventLogger]::LogWarning($Messages.DocumentCachingFailure)
+        }
+        catch
+        {
+            [EventLogger]::LogException($_.Exception)
+            [EventLogger]::LogError($Messages.CommandFailure)
+            throw [UmsPublicCommandFailureException]::New("Get-UmsDocument")
+        }
+
+        return $_document
     }
 }

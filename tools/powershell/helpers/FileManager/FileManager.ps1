@@ -1304,8 +1304,96 @@ class UmsManagedFile : UmsFile
     }
 
     ###########################################################################
-    # Static / Cached file update methods
+    # Static / Cached version methods
     ###########################################################################
+
+    # Returns a deserialized entity from the cached metadata version.
+    # Throws:
+    #   - [UFGetCachedMetadataFailureException] when the method cannot return
+    #       the cached metadata.
+    [PSObject] GetCachedMetadata()
+    {
+        switch ($this.CachedVersion)
+        {
+            "Unknown"
+            {
+                [EventLogger]::LogError(
+                    "The status of the cached version is 'Unknown'!")
+                throw [UFGetCachedMetadataFailureException]::New($this.Uri)
+            }
+            "Absent"
+            {
+                [EventLogger]::LogError(
+                    "The status of the cached version is 'Absent'!")
+                throw [UFGetCachedMetadataFailureException]::New($this.Uri)
+            }
+            "Expired"
+            {
+                [EventLogger]::LogWarning(
+                    "The status of the cached version is 'Expired'!")
+            }
+        }
+
+        # Try instantiation
+        [PSObject] $_metadata = $null
+
+        try
+        {
+            $_metadata = Import-CliXml -Path $this.CacheFile.FullName
+        }
+        catch
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw [UFGetCachedMetadataFailureException]::New($this.Uri)
+        }
+
+        # Return deserialized metadata.
+        return $_metadata
+    }
+
+    # Returns a UmsDocument instance from the static version of the file.
+    # Throws:
+    #   - [UFGetStaticDocumentFailureException] when the method cannot return
+    #       the demanded instance.
+    [UmsDocument] GetStaticDocument()
+    {
+        switch ($this.StaticVersion)
+        {
+            "Unknown"
+            {
+                [EventLogger]::LogError(
+                    "The status of the static version is 'Unknown'!")
+                throw [UFGetStaticDocumentFailureException]::New($this.Uri)
+            }
+            "Absent"
+            {
+                [EventLogger]::LogError(
+                    "The status of the static version is 'Absent'!")
+                throw [UFGetStaticDocumentFailureException]::New($this.Uri)
+            }
+            "Expired"
+            {
+                [EventLogger]::LogWarning(
+                    "The status of the static version is 'Expired'!")
+            }
+        }
+
+        # Try instantiation
+        [UmsDocument] $_document = $null
+
+        try
+        {
+            $_document = [DocumentFactory]::GetDocument($this.StaticFileUri)
+        }
+        catch
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw [UFGetStaticDocumentFailureException]::New($this.Uri)
+        }
+
+        # Return the new instance
+        return $_document
+    }
 
     # Updates the static file linked to the managed file.
     # Throws:

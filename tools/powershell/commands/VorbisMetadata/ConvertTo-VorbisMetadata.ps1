@@ -23,6 +23,9 @@ function ConvertTo-VorbisMetadata
 
     Begin
     {
+        # Shortcut to messages
+        $Messages = $ModuleStrings.Commands
+
         # Instantiate the constraint validator
         $Validator = [ConstraintValidator]::New(
             [ConfigurationStore]::GetConverterItem("VorbisComment").Constraints
@@ -41,11 +44,21 @@ function ConvertTo-VorbisMetadata
         {
             $Validator.Validate($ManagedItem)
         }
+        # Validation failure
         catch [CVValidationFailureException]
         {
             [EventLogger]::LogException($_.Exception)
-            throw [UmsManagedFileMetadataConversionFailure]::New($ManagedItem)
+            [EventLogger]::LogError($Messages.ConstraintValidationFailure)
+            throw [UmsPublicCommandFailureException]::New(
+                "ConvertTo-VorbisMetadata")
         }
+        # All other exceptions are also terminating
+        catch
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw [UmsPublicCommandFailureException]::New(
+                "ConvertTo-VorbisMetadata")
+        }        
 
         # Get item metadata
         $metadata = $ManagedItem | Get-UmsMetadata
@@ -55,10 +68,20 @@ function ConvertTo-VorbisMetadata
         {
             $Converter.Convert($metadata)
         }
+        # Converter failure
         catch [VorbisCommentConverterException]
         {
             [EventLogger]::LogException($_.Exception)
-            throw [UmsManagedFileMetadataConversionFailure]::New($ManagedItem)
+            [EventLogger]::LogError($Messages.ConverterInvocationFailure)
+            throw [UmsPublicCommandFailureException]::New(
+                "ConvertTo-VorbisMetadata")
         }
+        # All other exceptions are also terminating
+        catch
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw [UmsPublicCommandFailureException]::New(
+                "ConvertTo-VorbisMetadata")
+        }        
     }
 }

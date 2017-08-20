@@ -36,14 +36,19 @@ function Rename-UmsFile
 
     Process
     {
+        [UmsFile] $_newFile = $null
+        
         try
         {
-            $File.Rename($NewName)
+            $_newFile = $File.Rename($NewName)
         }
-        catch [UmsFileException]
+        catch
         {
             [EventLogger]::LogException($_.Exception)
             [EventLogger]::LogError($Messages.FileRenameFailure)
+            throw [UmsPublicCommandFailureException]::New("Rename-UmsFile")
         }
+
+        return $_newFile
     }
 }

@@ -3,19 +3,25 @@
         CachedVersionUpToDate = "The cached version is already up-to-date."
         CommandFailure = "The command failed."
         ConstraintValidationFailure = "The supplied file did not validate all constraints associated to this command."
+        ConverterInvocationFailure = "Metadata conversion has failed."
         DisableManagementFailure = "An error occurred while trying to disable UMS file management for the specified folder."
         DisableManagementSuccess = "UMS file management was successfully disabled for the specified folder."
+        DocumentCachingFailure = "The retrieved document could not be cached."
         EnableManagementFailure = "An error occurred while trying to enable UMS file management for the specified folder."
         EnableManagementSuccess = "UMS file management was successfully enabled for the specified folder."
+        EntityGenerationFailure = "The generation of the UMS entity has failed."
         FileDeletionFailure = "An error occured during file deletion."
         FileRenameFailure = "An error occured during file renaming."
         FileNotFound = "The specified UMS file does not exist or cannot be accessed."
+        GetDocumentByURIFailure = "Failed to get a UMS document from the specified URI."
         InconsistentState = "The state of the management folder is inconsistent."
+        ManagedFileRequired = "A managed file is required."
         ManagementDisabled = "The management of UMS files is disabled."
         ManagementEnabled = "The management of UMS files is enabled."
         MetadataConversionFailure = "The metadata conversion process has failed."
         MissingCacheFolder = "The metadata cache subfolder is missing."
         MissingStaticFolder = "The static document subfolder is missing."
+        ResourceRetrievalFailure = "The resource could not be retrieved."
         RunCommandAdvice = "Run the {0} command to obtain more information."
         StaticVersionUpdateFailure = "The static version update has failed."
         StaticVersionUpToDate = "The static version is already up-to-date."
@@ -54,12 +60,6 @@
             MinExpectedCount =  "Minimum expected number: {0}"
             MaxExpectedCount =  "Maximum expected number: {0}"
         }
-        IncompatibleCardinalityException = @{
-            MainMessage = "The cardinality of the item is not compatible with this command."
-            ItemName = "Item full name: {0}"
-            ActualCardinality = "Item cardinality: {0}"
-            CompatibleCardinalities = "Compatible cardinalities: {0}"
-        }
         IncompatibleUmsReferenceElementName =  @{
             MainMessage = "The document element of the XML document targeted by a UMS reference does not have the expected local name."
             ResourceUri = "Resource URI is: {0}"
@@ -92,16 +92,6 @@
             MainMessage = "The attribute {0} is missing but is mandatory in this context."
             Context = "Context is XML element {0} in namespace {1}."
         }
-        UmsManagedFileMetadataConversionFailure = @{
-            MainMessage = "The UMS item could not be converted."
-            ItemPath = "Path of the item: {0}"
-            ItemName = "Name of the item: {0}"
-        }
-        UmsManagedFileUpdateFailure = @{
-            MainMessage = "The UMS item could not be updated."
-            ItemPath = "Path of the item: {0}"
-            ItemName = "Name of the item: {0}"
-        }
         UnresolvableUmsReference =  @{
             MainMessage = "A UMS reference could not be resolved: no match was found using any of the configured catalogs, nor a local path."
             NamespaceURI = "Namespace of the reference: {0}"
@@ -109,6 +99,7 @@
             TriedUri = "Tried URI: {0}"
             Uid = "Uid of the reference: {0}"
         }
+    }
     ConvertToForeignMetadata = @{
         BadBindingNamespace = "The binding namespace of the source UMS item does not allow this operation. The binding element is {0}, whereas the parameters you specified require namespace {1}."
         BadBindingElement = "The binding element of the source UMS item does not allow this operation. The binding namespace is {0}, whereas the parameters you specified require element {1}."

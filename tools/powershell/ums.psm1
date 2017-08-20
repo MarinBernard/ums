@@ -43,6 +43,9 @@ Export-ModuleMember -Function Clear-UmsDocumentCache
 Export-ModuleMember -Function Reset-UmsDocumentCache
 Export-ModuleMember -Function Measure-UmsDocumentCache
 
+# *-UmsEntity
+Export-ModuleMember -Function Get-UmsEntity
+
 # *-UmsEntityCache
 Export-ModuleMember -Function Clear-UmsEntityCache
 Export-ModuleMember -Function Measure-UmsEntityCache
@@ -63,9 +66,6 @@ Export-ModuleMember -Function Get-UmsManagedFile
 Export-ModuleMember -Function Remove-UmsManagedFile
 Export-ModuleMember -Function Rename-UmsManagedFile
 Export-ModuleMember -Function Update-UmsManagedFile
-
-# *-UmsMetadata
-Export-ModuleMember -Function Get-UmsMetadata
 
 # *-VorbisMetadata
 Export-ModuleMember -Function ConvertTo-VorbisMetadata

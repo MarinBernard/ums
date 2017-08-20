@@ -13,6 +13,18 @@ function Get-UmsCachedEntity
 
     Process
     {
-        return [EntityCache]::Dump()
+        [UmsCachedEntity[]] $_cachedEntities = $null
+        
+        try
+        {
+            $_cachedEntities = [EntityCache]::Dump()
+        }
+        catch
+        {
+            throw [UmsPublicCommandFailureException]::New(
+                "Get-UmsCachedEntity")
+        }
+
+        return $_cachedEntities
     }
 }

@@ -13,6 +13,18 @@ function Measure-UmsDocumentCache
 
     Process
     {
-        return [DocumentCache]::GetStatistics()
+        [PSCustomObject] $Statistics = $null
+
+        try
+        {
+            $_statistics = [DocumentCache]::GetStatistics()
+        }
+        catch
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw [UmsPublicCommandFailureException]::New("Measure-UmsDocumentCache")
+        }
+
+        return $_statistics
     }
 }

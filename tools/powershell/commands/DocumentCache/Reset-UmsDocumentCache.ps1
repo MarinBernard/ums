@@ -13,6 +13,14 @@ function Reset-UmsDocumentCache
 
     Process
     {
-        return [DocumentCache]::Reset()
+        try
+        {
+            [DocumentCache]::Reset()
+        }
+        catch
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw [UmsPublicCommandFailureException]::New("Reset-UmsDocumentCache")
+        }
     }
 }

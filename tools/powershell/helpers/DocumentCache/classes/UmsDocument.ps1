@@ -261,7 +261,7 @@ class UmsDocument
     }
 
     ###########################################################################
-    # Updaters
+    # Methods dealing with source URI update
     ###########################################################################
 
     # Updates the value of the SourceUri property.
@@ -296,7 +296,6 @@ class UmsDocument
         }
     }
 
-
     ###########################################################################
     # Helpers
     ###########################################################################
@@ -306,6 +305,17 @@ class UmsDocument
     [string] ToXmlString()
     {
         return $this.XmlDocument.OuterXml
+    }
+
+    # Return the string representation of the document.
+    [string] ToString()
+    {
+        if ($this.SourceUriStatus -eq ([UmsDocumentSourceUriStatus]::Present))
+        {
+            return $this.SourceURI.AbsoluteUri
+        }
+
+        return "Anonymous document"
     }
 
     # Validates the document against a UMS schema, then updates the $Validity

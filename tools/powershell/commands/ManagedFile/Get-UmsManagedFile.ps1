@@ -54,7 +54,8 @@ function Get-UmsManagedFile
             [EventLogger]::LogWarning($Messages.InconsistentState)
             [EventLogger]::LogWarning($Messages.RunCommandAdvice `
                 -f "Test-UmsItemManagement")
-            return
+            throw [UmsPublicCommandFailureException]::New(
+                "Get-UmsManagedFile")
         }
 
         # We only list managed files if management is enabled.
@@ -66,16 +67,17 @@ function Get-UmsManagedFile
 
         # Get the collection of UmsManagedFile instances
         [UmsManagedFile[]] $_managedFiles = $null
+
         try
         {
             $_managedFiles = [FileManager]::GetManagedFiles($Path, $Filter)
         }
-        catch [FileManagerException]
+        catch
         {
             [EventLogger]::LogException($_.Exception)
             [EventLogger]::LogError($Messages.CommandFailure)
-            return
-        }
+            throw [UmsPublicCommandFailureException]::New(
+                "Get-UmsManagedFile")        }
 
         # Filter by cardinality
         if ((-not $Cardinality) -or ($Cardinality -eq "Any"))

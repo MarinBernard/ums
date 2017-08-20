@@ -13,6 +13,18 @@ function Get-UmsCachedDocument
 
     Process
     {
-        return [DocumentCache]::Dump()
+        [CachedDocument[]] $_cachedDocuments = $null
+
+        try
+        {
+            $_cachedDocuments + [DocumentCache]::Dump()
+        }
+        catch
+        {
+            throw [UmsPublicCommandFailureException]::New(
+                "Get-UmsCachedDocument")
+        }
+
+        return $_cachedDocuments
     }
 }

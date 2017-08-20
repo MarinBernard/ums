@@ -149,6 +149,9 @@
 . "$PSScriptRoot\commands\DocumentCache\Reset-UmsDocumentCache.ps1"
 . "$PSScriptRoot\commands\DocumentCache\Measure-UmsDocumentCache.ps1"
 
+# *-UmsEntity
+. "$PSScriptRoot\commands\Entity\Get-UmsEntity.ps1"
+
 # *-UmsEntityCache
 . "$PSScriptRoot\commands\EntityCache\Clear-UmsEntityCache.ps1"
 . "$PSScriptRoot\commands\EntityCache\Measure-UmsEntityCache.ps1"
@@ -169,9 +172,6 @@
 . "$PSScriptRoot\commands\ManagedFile\Remove-UmsManagedFile.ps1"
 . "$PSScriptRoot\commands\ManagedFile\Rename-UmsManagedFile.ps1"
 . "$PSScriptRoot\commands\ManagedFile\Update-UmsManagedFile.ps1"
-
-# *-UmsMetadata
-. "$PSScriptRoot\commands\UmsMetadata\Get-UmsMetadata.ps1"
 
 # *-VorbisMetadata
 . "$PSScriptRoot\commands\VorbisMetadata\ConvertTo-VorbisMetadata.ps1"

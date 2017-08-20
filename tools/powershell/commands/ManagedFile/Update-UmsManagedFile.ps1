@@ -102,7 +102,7 @@ function Update-UmsManagedFile
                 catch [UmsException]
                 {
                     [EventLogger]::LogException($_.Exception)
-                    throw [UmsManagedFileUpdateFailure]::New($ManagedFile)
+                    throw [UmsPublicCommandFailureException]::New("Update-UmsManagedFile")
                 }
 
                 # Build the name of the temporary destination file
@@ -128,7 +128,7 @@ function Update-UmsManagedFile
                         -ErrorAction SilentlyContinue
 
                     [EventLogger]::LogException($_.Exception)
-                    throw [UmsManagedFileUpdateFailure]::New($ManagedFile)
+                    throw [UmsPublicCommandFailureException]::New("Update-UmsManagedFile")
                 }
 
                 # Promote temporary file to be the new cache file

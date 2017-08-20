@@ -38,7 +38,6 @@ function Test-UmsFileManagement
         {
             $_managementIsEnabled = [FileManager]::TestManagement($Path)
         }
-    
         # Catch missing static folder
         catch [FMMissingStaticFolderException]
         {
@@ -53,31 +52,22 @@ function Test-UmsFileManagement
             [EventLogger]::LogWarning($Messages.MissingCacheFolder)
         }
     
-        # Catch terminating exceptions
-        catch [FMInconsistentStateException]
-        {
-            [EventLogger]::LogException($_.Exception)
-            return
-        }
-        catch [UmsException]
-        {
-            [EventLogger]::LogException($_.Exception)
-            return
-        }
+        # Any other exception is terminating.
         catch
         {
             [EventLogger]::LogException($_.Exception)
-            return
+            throw [UmsPublicCommandFailureException]::New(
+                "Test-UmsFileManagement")
         }
     
         # Output the result
         if ($_managementIsEnabled)
         {
-            Write-Host $Messages.ManagementEnabled
+            [EventLogger]::LogInformation($Messages.ManagementEnabled)
         }
         else
         {
-            Write-Host $Messages.ManagementDisabled
+            [EventLogger]::LogInformation($Messages.ManagementDisabled)
         }
     }
 }

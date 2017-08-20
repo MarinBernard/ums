@@ -135,6 +135,8 @@ class UmsMceMovement : UmsBaeProduct
     # because there is a dependency loop between the UmsMceSection and
     # UmsMceMovement types. We cast the section to its nearer parent type to
     # avoid errors at compile time.
+    # Tags:
+    # - DependencyLoopPrevention
     hidden [UmsBaeProduct] $ParentSection
 
     ###########################################################################

@@ -40,10 +40,12 @@ function Rename-UmsManagedFile
         {
             $ManagedFile.Rename($NewName)
         }
-        catch [UmsFileException]
+        catch
         {
             [EventLogger]::LogException($_.Exception)
             [EventLogger]::LogError($Messages.FileRenameFailure)
+            throw [UmsPublicCommandFailureException]::New(
+                "Rename-UmsManagedFile")
         }
     }
 }

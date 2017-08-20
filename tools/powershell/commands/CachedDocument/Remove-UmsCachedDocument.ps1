@@ -21,6 +21,14 @@ function Remove-UmsCachedDocument
 
     Process
     {
-        [DocumentCache]::RemoveCachedDocument($Document)
+        try
+        {
+            [DocumentCache]::RemoveCachedDocument($Document)
+        }
+        catch
+        {
+            throw [UmsPublicCommandFailureException]::New(
+                "Remove-UmsCachedDocument")
+        }
     }
 }

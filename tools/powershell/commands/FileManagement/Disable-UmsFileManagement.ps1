@@ -50,7 +50,8 @@ function Disable-UmsFileManagement
             [EventLogger]::LogWarning($Messages.InconsistentState)
             [EventLogger]::LogWarning($Messages.RunCommandAdvice `
                 -f "Test-UmsItemManagement")
-            return
+            throw [UmsPublicCommandFailureException]::New(
+                "Disable-UmsFileManagement")
         }
 
         # We only disable management if it is enabled.
@@ -65,11 +66,13 @@ function Disable-UmsFileManagement
         {
             [FileManager]::DisableManagement($Path, $Confirm)
         }
-        catch [FMDisableManagementFailureException]
+        catch
         {
             [EventLogger]::LogError($Messages.DisableManagementFailure)
+            throw [UmsPublicCommandFailureException]::New(
+                "Disable-UmsFileManagement")
         }
 
-        Write-Host $Messages.DisableManagementSuccess
+        [EventLogger]::LogInformation($Messages.DisableManagementSuccess)
     }
 }

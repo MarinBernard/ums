@@ -30,18 +30,20 @@ function Get-UmsFile
         if (-not $Path.Exists)
         {
             [EventLogger]::LogError($Messages.FileNotFound)
-            return
+            throw [UmsPublicCommandFailureException]::New("Get-UmsFile")
         }
 
         # Try to get a UmsFile instance
+        [UmsFile] $_file = $null
+        
         try
         {
             $_file = [UmsFile]::New($Path)
         }
-        catch [UmsFileException]
+        catch
         {
             [EventLogger]::LogException($_.Exception)
-            return
+            throw [UmsPublicCommandFailureException]::New("Get-UmsFile")
         }
 
         return $_file

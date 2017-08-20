@@ -13,6 +13,14 @@ function Clear-UmsEntityCache
 
     Process
     {
-        return [EntityCache]::Flush()
+        try
+        {
+            [EntityCache]::Flush()
+        }
+        catch
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw [UmsPublicCommandFailureException]::New("Clear-UmsEntityCache")
+        }
     }
 }

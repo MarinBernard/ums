@@ -10,6 +10,18 @@ function Measure-UmsEntityCache
 
     Process
     {
-        return [EntityCache]::GetStatistics()
+        [PSCustomObject] $_statistics = $null
+
+        try
+        {
+            $_statistics = [EntityCache]::GetStatistics()
+        }
+        catch
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw [UmsPublicCommandFailureException]::New("Measure-UmsEntityCache")
+        }
+    
+        return $_statistics
     }
 }

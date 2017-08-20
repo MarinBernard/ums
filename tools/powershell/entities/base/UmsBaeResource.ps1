@@ -32,6 +32,8 @@ class UmsBaeResource : UmsAeEntity
     # Collection of standard Ids
     # The type of the items in the collection is always UmsBceStandardId, but
     # could not be specified as-is due to a dependency loop.
+    # Tags:
+    # - DependencyLoopPrevention
     [UmsAeEntity[]] $StandardIds
 
     ###########################################################################

@@ -13,6 +13,13 @@ function Reset-UmsEntityCache
 
     Process
     {
-        return [EntityCache]::Reset()
-    }
+        try
+        {
+            [EntityCache]::Reset()
+        }
+        catch
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw [UmsPublicCommandFailureException]::New("Reset-UmsEntityCache")
+        }    }
 }

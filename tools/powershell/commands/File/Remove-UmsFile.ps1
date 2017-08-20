@@ -46,10 +46,11 @@ function Remove-UmsFile
                 $File.Delete()
             }
         }
-        catch [UmsFileException]
+        catch
         {
             [EventLogger]::LogException($_.Exception)
             [EventLogger]::LogError($Messages.FileDeletionFailure)
+            throw [UmsPublicCommandFailureException]::New("Remove-UmsFile")
         }
     }
 }

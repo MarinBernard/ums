@@ -384,6 +384,49 @@ class UmsFileException : UmsException
     }
 
     ###########################################################################
+    #   Exception class UFGetStaticDocumentFailureException
+    #==========================================================================
+    #
+    #   Thrown by the [UmsManagedFile]::GetStaticDocument() method when it is
+    #   unable to return a UmsDocument instance from the static version of the
+    #   UmsFile instance.
+    #
+    ###########################################################################
+
+    class UFGetStaticDocumentFailureException : UmsFileException
+    {
+        UFGetStaticDocumentFailureException([System.Uri] $Uri) : base()
+        {
+            $this.MainMessage = ($(
+                "Unable to return a UmsDocument from the static version " + `
+                "of the UmsFile instance built from the following URI: {0}") `
+                -f $Uri.AbsoluteUri)
+        }
+    }
+
+    ###########################################################################
+    #   Exception class UFGetCachedMetadataFailureException
+    #==========================================================================
+    #
+    #   Thrown by the [UmsManagedFile]::GetStaticDocument() method when it is
+    #   unable to return a UmsDocument instance from the static version of the
+    #   UmsFile instance.
+    #
+    ###########################################################################
+
+    class UFGetCachedMetadataFailureException : UmsFileException
+    {
+        UFGetCachedMetadataFailureException([System.Uri] $Uri) : base()
+        {
+            $this.MainMessage = ($(
+                "Unable to return a deserialized entity from the cached " + `
+                "version of the UmsFile instance built from the following " + `
+                "URI: {0}") `
+                -f $Uri.AbsoluteUri)
+        }
+    }
+
+    ###########################################################################
     #   Exception class UFStaticVersionUpdateFailureException
     #==========================================================================
     #

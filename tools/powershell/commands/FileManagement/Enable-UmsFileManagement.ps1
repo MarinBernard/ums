@@ -38,7 +38,6 @@ function Enable-UmsFileManagement
         {
             $_managementIsEnabled = [FileManager]::TestManagement($Path)
         }
-    
         # Catch any exception and abort.
         catch
         {
@@ -46,8 +45,8 @@ function Enable-UmsFileManagement
             [EventLogger]::LogWarning($Messages.InconsistentState)
             [EventLogger]::LogWarning($Messages.RunCommandAdvice `
                 -f "Test-UmsItemManagement")
-            return
-        }
+            throw [UmsPublicCommandFailureException]::New(
+                "Enable-UmsFileManagement")        }
 
         # We only disable management if it is enabled.
         if ($_managementIsEnabled)
@@ -61,12 +60,14 @@ function Enable-UmsFileManagement
         {
             [FileManager]::EnableManagement($Path)
         }
-        catch [FMEnableManagementFailureException]
+        catch
         {
             [EventLogger]::LogException($_.Exception)
             [EventLogger]::LogError($Messages.EnableManagementFailure)
+            throw [UmsPublicCommandFailureException]::New(
+                "Enable-UmsFileManagement")  
         }
 
-        Write-Host $Messages.EnableManagementSuccess
+        [EventLogger]::LogInformation($Messages.EnableManagementSuccess)
     }   
 }

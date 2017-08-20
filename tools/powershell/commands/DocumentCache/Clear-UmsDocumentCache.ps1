@@ -13,6 +13,14 @@ function Clear-UmsDocumentCache
 
     Process
     {
-        return [DocumentCache]::Flush()
+        try
+        {
+            [DocumentCache]::Flush()
+        }
+        catch
+        {
+            [EventLogger]::LogException($_.Exception)
+            throw [UmsPublicCommandFailureException]::New("Clear-UmsDocumentCache")
+        } 
     }
 }
