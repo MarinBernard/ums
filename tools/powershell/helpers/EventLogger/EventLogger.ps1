@@ -4,12 +4,6 @@ class EventLogger
     # Static properties
     ###########################################################################
 
-    # Collection of logged exceptions
-    static [System.Exception[]] $LoggedExceptions
-
-    # Collection of logged events
-    static [PSCustomObject[]] $LoggedEvents
-
     ###########################################################################
     # Loggers
     ###########################################################################
@@ -27,11 +21,12 @@ class EventLogger
             $_event = (
                 New-Object -Type PSCustomObject -Property (
                     [ordered] @{
-                        Level = $Level
-                        Exception = $Data
-                        Message  = $_message
-                        Location = $_eventData.Location
-                        SourceFunction = $_eventData.FunctionName
+                        Level = $Level;
+                        Exception = $Data;
+                        Type = $Data.GetType().FullName;
+                        Message  = $_message;
+                        Location = $_eventData.Location;
+                        SourceFunction = $_eventData.FunctionName;
                     }))
         }
         else
@@ -39,14 +34,13 @@ class EventLogger
             $_event = (
                 New-Object -Type PSCustomObject -Property (
                     [ordered] @{
-                        Level = $Level
-                        Message  = $Data
-                        Location = $_eventData.Location
-                        SourceFunction = $_eventData.FunctionName
+                        Level = $Level;
+                        Message  = $Data;
+                        Location = $_eventData.Location;
+                        SourceFunction = $_eventData.FunctionName;
                     }))
         }
 
-        [EventLogger]::LoggedEvents += $_event
         [EventLogger]::ShowEvent($_event)
     }
 
@@ -99,6 +93,25 @@ class EventLogger
     }
 
     ###########################################################################
+    # Helpers
+    ###########################################################################
+
+    # Returns a string which contains a single character repeated as many times
+    # as needed to fill the console width.
+    static [string] GetDelimiterLine([char] $Character, [int] $Width)
+    {
+        [System.Text.StringBuilder] $_sb = (
+            [System.Text.StringBuilder]::new("", $Width))
+
+        for ($i = 0; $i -lt $Width; $i++)
+        {
+            $_sb.Append($Character)
+        }
+
+        return $_sb.ToString()
+    }
+
+    ###########################################################################
     # Dumpers
     ###########################################################################
 
@@ -132,34 +145,33 @@ class EventLogger
 
             "Error"
             {
-                Write-Host -NoNewLine -ForegroundColor Red "  ERROR  "
+                Write-Host -NoNewLine -ForegroundColor DarkRed "  ERROR  "
             }
 
             "Exception"
             {
-                Write-Host -NoNewLine -ForegroundColor DarkRed "EXCEPTION"
+                Write-Host -NoNewLine -ForegroundColor Red "EXCEPTION"
             }
         }
 
         Write-Host -NoNewLine -ForegroundColor White "] "
+
+        if ($Event.Level -eq "Exception")
+        {
+            Write-Host -NoNewLine -ForegroundColor Red `
+                $($Event.Exception.GetType().FullName + " ")
+        }
+        
         Write-Host -NoNewLine -ForegroundColor White "("
         Write-Host -NoNewLine -ForegroundColor DarkGray $Event.SourceFunction
         Write-Host -NoNewLine -ForegroundColor White ", "
         Write-Host -NoNewLine -ForegroundColor DarkGray $Event.Location
-        Write-Host -NoNewLine -ForegroundColor White ") "
-        Write-Host -NoNewLine -ForegroundColor Gray $Event.Message
+        Write-Host -NoNewLine -ForegroundColor White ")"
         Write-Host ""
-    }
-
-    # Dumps the whole event log to the console then flushes the event log.
-    static [void] DumpEvents()
-    {
-        foreach ($_event in ([EventLogger]::LoggedEvents))
-        {
-            [EventLogger]::ShowEvent($_event)
-        }
-
-        [EventLogger]::LoggedEvents = @()
+        Write-Host -NoNewLine "            "
+        Write-Host -NoNewLine -ForegroundColor White $Event.Message
+        Write-Host ""
+        Write-Host -ForegroundColor Darkgray ([EventLogger]::GetDelimiterLine('-', 120))
     }
 }
 
