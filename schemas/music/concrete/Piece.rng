@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	<define name="MCT_Piece">
+		<element name="piece">
+			<attribute name="id">
+				<data type="string"/>
+			</attribute>
+			<attribute name="section">
+				<data type="string"/>
+			</attribute>
+			<choice>
+				<ref name="MCT_Work"/>
+				<ref name="MRT_Work"/>
+			</choice>
+		</element>
+	</define>
+</grammar>
+

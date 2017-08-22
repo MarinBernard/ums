@@ -78,12 +78,12 @@
 	<umsm:sections>
 		<umsm:section id="I" numbering="I">
 			<umsm:sections>
-				<umsm:section id="I-01" numbering="1">
+				<umsm:section id="1" numbering="1">
 					<umsm:movements>
 						<umsm:movement uid="21/I-01"/>
 					</umsm:movements>
 				</umsm:section>
-				<umsm:section id="I-02" numbering="2">
+				<umsm:section id="2" numbering="2">
 					<umsm:movements>
 						<umsm:movement uid="21/I-02"/>
 					</umsm:movements>

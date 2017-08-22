@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
 	<define name="MCT_Performance">
 		<element name="performance">
 			<!-- This element might be used by reference -->
@@ -10,11 +11,8 @@
 			<ref name="MLT_Conductors"/>
 			<!-- List of performers -->
 			<ref name="MLT_Performers"/>
-			<!-- Performed work -->
-			<choice>
-				<ref name="MCT_Work"/>
-				<ref name="MRT_Work"/>
-			</choice>
+			<!-- Performed pieces -->
+			<ref name="MLT_Pieces"/>
 		</element>
 	</define>
 </grammar>

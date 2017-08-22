@@ -5,6 +5,10 @@
 		<element name="track">
 			<!-- Abstract base track type -->
 			<ref name="BAT_Track"/>
+			<!-- Related piece -->
+			<attribute name="piece">
+				<data type="string"/>
+			</attribute>			
 			<!-- Related section -->
 			<attribute name="section">
 				<data type="string"/>
